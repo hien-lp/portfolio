@@ -584,6 +584,13 @@ strong { font-weight: 700; }
   height: 100%;
   object-fit: cover;
   aspect-ratio: 1440 / 800;
+  display: none; /* replaced by direct bg-image for Unsplash */
+}
+.hero__bg--unsplash {
+  background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .hero__overlay {
   position: absolute;
@@ -1091,6 +1098,109 @@ strong { font-weight: 700; }
 }
 
 /* ============================================================
+   STRENGTHS — フルワイド背景画像ブロック（LP-06スタイル）
+   ============================================================ */
+.strengths {
+  /* セクション全体はpadding不要（各ブロックが独立） */
+}
+.strengths__block {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.strengths__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.strengths__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(30, 17, 69, .82) 0%, rgba(21, 13, 50, .72) 100%);
+}
+.strengths__inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  width: 100%;
+  padding: 72px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.strengths__num {
+  font-family: var(--ff-en);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: .35;
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+.strengths__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: var(--lh-tight);
+  letter-spacing: .04em;
+}
+.strengths__text {
+  font-size: .95rem;
+  color: rgba(255, 255, 255, .85);
+  line-height: var(--lh-normal);
+  max-width: 520px;
+}
+
+/* 左右交互配置 */
+.strengths__block:nth-child(even) .strengths__inner {
+  align-items: flex-end;
+  text-align: right;
+}
+.strengths__block:nth-child(even) .strengths__text {
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .strengths__block {
+    min-height: 80vh;
+  }
+  .strengths__inner {
+    padding: 96px 48px;
+    gap: 20px;
+  }
+  .strengths__num {
+    font-size: 6rem;
+    opacity: .3;
+  }
+  .strengths__title {
+    font-size: 2rem;
+  }
+  .strengths__text {
+    font-size: 1rem;
+    max-width: 560px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .strengths__inner {
+    padding: 120px 64px;
+  }
+  .strengths__num {
+    font-size: 8rem;
+  }
+  .strengths__title {
+    font-size: 2.5rem;
+  }
+}
+
+/* ============================================================
    SUPPORT — ベントグリッド型（メイン1大+残り3小）
    Background: ウォームコーラル帯
    ============================================================ */
@@ -1213,6 +1323,9 @@ strong { font-weight: 700; }
   object-fit: cover;
   aspect-ratio: 1 / 1;
 }
+.instructor__photo--unsplash img {
+  object-position: center top;
+}
 .instructor__name {
   font-size: 1.4rem;
   font-weight: 700;
@@ -1326,6 +1439,22 @@ strong { font-weight: 700; }
   color: var(--text-mid);
   margin-bottom: 40px;
   font-size: .9rem;
+}
+.results__visual {
+  display: block;
+  max-width: 480px;
+  margin: 0 auto 48px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(30, 17, 69, .1);
+}
+.results__visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: saturate(.85) contrast(1.03) brightness(1.02);
 }
 
 .results__carousel {
@@ -2194,6 +2323,21 @@ strong { font-weight: 700; }
   position: relative;
   overflow: hidden;
 }
+.final-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.final-cta__bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, rgba(30, 17, 69, .88) 0%, rgba(21, 13, 50, .82) 100%);
+}
 /* Subtle decorative accent */
 .final-cta::before {
   content: '';
@@ -2204,6 +2348,7 @@ strong { font-weight: 700; }
   height: 300px;
   border-radius: 50%;
   background: rgba(232, 115, 90, .06);
+  z-index: 1;
 }
 .final-cta::after {
   content: '';
@@ -2214,10 +2359,11 @@ strong { font-weight: 700; }
   height: 200px;
   border-radius: 50%;
   background: rgba(232, 115, 90, .04);
+  z-index: 1;
 }
 .final-cta__inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 640px;
   margin: 0 auto;
 }
@@ -2515,7 +2661,7 @@ strong { font-weight: 700; }
     <!-- ========== 1. HERO — 3秒ルール: ビフォーアフターの変化を即伝達 ========== -->
     <!-- 心理トリガー: 損失回避（「このまま独学で時間を浪費」への危機感）+ 返報性（無料体験の提供） -->
     <section class="hero" aria-label="メインビジュアル">
-      <div class="hero__bg">
+      <div class="hero__bg hero__bg--unsplash">
         <picture data-label="hero-visual">
           <source srcset="images/hero-480w.webp 480w, images/hero-768w.webp 768w, images/hero-1440w.webp 1440w" sizes="100vw" type="image/webp">
           <img src="images/hero.jpg" alt="" class="hero__bg-img" width="1440" height="800" loading="eager" fetchpriority="high" aria-hidden="true">
@@ -2648,6 +2794,51 @@ strong { font-weight: 700; }
         </div>
       </div>
       <p class="stats__note">※ 数値は2024年1月〜12月の受講生アンケート（回答率82%）および修了者追跡調査に基づく。「転職・副業成功率」は修了後6ヶ月以内にデザイン関連の転職または副業収入を得た方の割合。</p>
+    </section>
+
+    <!-- ========== STRENGTHS — フルワイド背景画像ブロック ========== -->
+    <section class="strengths" aria-label="選ばれる4つの理由">
+      <h2 class="sr-only">選ばれる4つの理由</h2>
+
+      <div class="strengths__block">
+        <div class="strengths__bg" style="background-image:url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="strengths__overlay" aria-hidden="true"></div>
+        <div class="strengths__inner anim-target" style="--anim-delay:0s">
+          <span class="strengths__num" aria-hidden="true">01</span>
+          <h3 class="strengths__title">体系的に学べる<br>デザインスキル</h3>
+          <p class="strengths__text">レイアウト・配色・タイポグラフィの基本原則から、Figmaでの実践的なUI制作まで。感覚ではなくロジックで学ぶから、誰でも再現可能なデザイン力が身につきます。</p>
+        </div>
+      </div>
+
+      <div class="strengths__block">
+        <div class="strengths__bg" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="strengths__overlay" aria-hidden="true"></div>
+        <div class="strengths__inner anim-target" style="--anim-delay:0s">
+          <span class="strengths__num" aria-hidden="true">02</span>
+          <h3 class="strengths__title">現役デザイナーによる<br>マンツーマン指導</h3>
+          <p class="strengths__text">制作実績200社以上のプロ講師が、あなたの課題を毎週丁寧にレビュー。独学では気づけない改善点を的確にフィードバックし、最短距離で成長へ導きます。</p>
+        </div>
+      </div>
+
+      <div class="strengths__block">
+        <div class="strengths__bg" style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="strengths__overlay" aria-hidden="true"></div>
+        <div class="strengths__inner anim-target" style="--anim-delay:0s">
+          <span class="strengths__num" aria-hidden="true">03</span>
+          <h3 class="strengths__title">実案件ベースの<br>カリキュラム</h3>
+          <p class="strengths__text">架空の課題ではなく、実際のクライアントワークを想定した演習で学習。修了時にはそのまま転職活動に使えるポートフォリオが完成します。</p>
+        </div>
+      </div>
+
+      <div class="strengths__block">
+        <div class="strengths__bg" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="strengths__overlay" aria-hidden="true"></div>
+        <div class="strengths__inner anim-target" style="--anim-delay:0s">
+          <span class="strengths__num" aria-hidden="true">04</span>
+          <h3 class="strengths__title">修了後も続く<br>キャリアサポート</h3>
+          <p class="strengths__text">転職支援・案件紹介・ポートフォリオ添削など、修了後もキャリアを全面サポート。プレミアムプランでは6ヶ月間の手厚いサポートが付きます。</p>
+        </div>
+      </div>
     </section>
 
     <!-- ========== 3. カリキュラム / 講座内容（業種固有最重要） ========== -->
@@ -2828,11 +3019,8 @@ strong { font-weight: 700; }
         <h2 class="section-title"><span class="section-title__en" aria-hidden="true">Instructor</span>講師紹介</h2>
         <div class="instructor__magazine">
           <div class="instructor__left anim-target" style="--anim-delay:0s">
-            <div class="instructor__photo">
-              <picture data-label="instructor-photo">
-                <source srcset="images/instructor.webp" type="image/webp">
-                <img src="images/instructor.jpg" alt="講師 田中 美咲" width="400" height="400" loading="lazy">
-              </picture>
+            <div class="instructor__photo instructor__photo--unsplash">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" alt="講師 田中 美咲" width="400" height="400" loading="lazy">
             </div>
             <h3 class="instructor__name">田中 美咲<span class="instructor__name-en">Misaki Tanaka</span></h3>
             <p class="instructor__role">DESIGN MASTER ACADEMY 代表講師</p>
@@ -2869,6 +3057,10 @@ strong { font-weight: 700; }
       <div class="results__inner">
         <h2 class="section-title"><span class="section-title__en" aria-hidden="true">Results</span>受講生の成果</h2>
         <p class="results__lead">未経験からスタートし、転職・副業・フリーランスとして活躍する卒業生たち。</p>
+
+        <div class="results__visual anim-target" style="--anim-delay:0s">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80" alt="受講生がデザイン作業に取り組む様子" width="800" height="600" loading="lazy">
+        </div>
 
         <div class="results__carousel" aria-roledescription="カルーセル" aria-label="受講生の声">
           <button class="results__arrow results__arrow--prev" type="button" aria-label="前の受講生へ">&#8249;</button>
@@ -3243,6 +3435,8 @@ strong { font-weight: 700; }
     <!-- ========== 8. 最終CTA / クロージング ========== -->
     <!-- 心理トリガー: 希少性（残り枠数）+ 損失回避（返金保証）+ 一貫性（3段階のコミットメント）-->
     <section class="final-cta" id="final-cta" aria-label="お申し込み">
+      <div class="final-cta__bg" aria-hidden="true"></div>
+      <div class="final-cta__bg-overlay" aria-hidden="true"></div>
       <div class="final-cta__inner">
         <p class="final-cta__urgency">今月の無料体験枠：残り<strong>8</strong>名<small class="final-cta__urgency-note">※ 講師の対応可能枠に限りがあるため</small></p>
         <h2 class="final-cta__title">あなたのデザイナーへの第一歩を、<br>今日から始めませんか？</h2>

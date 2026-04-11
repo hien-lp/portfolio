@@ -6,7 +6,7 @@
   <!--
     ============================================================
     デプロイ時推奨セキュリティヘッダー（サーバー設定で対応）:
-    Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com;
+    Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; frame-src https://www.google.com;
     X-Frame-Options: DENY
     Permissions-Policy: camera=(), microphone=(), geolocation=()
     X-Content-Type-Options: nosniff
@@ -357,6 +357,7 @@ strong { font-weight: 700; }
   .btn { transition: none; }
   .btn:active { transform: none; }
   .btn:hover { transform: none; }
+  .commitment__block-inner .anim-target { opacity: 1; transform: none; transition: none; }
   .seasonal-banner__badge { animation: none; }
   .header__hamburger-line { transition: none; }
   .header__nav-link { transition: none; }
@@ -932,6 +933,119 @@ strong { font-weight: 700; }
   }
   .concept__visual { order: -1; }
   .concept__visual::before { display: none; }
+}
+
+/* ============================================================
+   COMMITMENT (Fullwidth Feature Blocks)
+   ============================================================ */
+.commitment__block {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.commitment__block-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.commitment__block-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 40, 32, .72) 0%,
+    rgba(15, 40, 32, .55) 100%
+  );
+}
+.commitment__block-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+.commitment__block:nth-child(even) .commitment__block-inner {
+  direction: rtl;
+}
+.commitment__block:nth-child(even) .commitment__block-inner > * {
+  direction: ltr;
+}
+.commitment__block-number {
+  font-family: var(--ff-en);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, .1);
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -.02em;
+}
+.commitment__block-title {
+  font-family: var(--ff-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-normal);
+  margin-bottom: 20px;
+}
+.commitment__block-desc {
+  font-size: 1rem;
+  color: var(--white-80);
+  line-height: var(--lh-loose);
+  max-width: 480px;
+}
+.commitment__block-spacer {
+  /* Empty grid cell for layout balance */
+}
+
+/* Commitment block scroll animations */
+.commitment__block-inner .anim-target {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+  transition-delay: var(--anim-delay, 0s);
+}
+.commitment__block-inner .anim-target.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .commitment__block {
+    min-height: 60vh;
+  }
+  .commitment__block-inner {
+    grid-template-columns: 1fr;
+    padding: 60px 24px;
+    gap: 0;
+  }
+  .commitment__block:nth-child(even) .commitment__block-inner {
+    direction: ltr;
+  }
+  .commitment__block-spacer {
+    display: none;
+  }
+  .commitment__block-number {
+    font-size: clamp(3rem, 15vw, 5rem);
+    margin-bottom: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .commitment__block-inner .anim-target {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* ============================================================
@@ -2110,10 +2224,10 @@ strong { font-weight: 700; }
 
     <!-- ===== 1. HERO ===== -->
     <section class="hero" id="hero" aria-label="メインビジュアル">
-      <div class="hero__bg" aria-hidden="true">
+      <div class="hero__bg" aria-hidden="true" style="background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80') center/cover no-repeat;">
         <picture data-label="hero-dish">
           <source srcset="images/hero.webp" sizes="100vw" type="image/webp">
-          <img src="images/hero.jpg" alt="" class="hero__bg-img" width="1440" height="800" loading="eager" fetchpriority="high" aria-hidden="true">
+          <img src="images/hero.jpg" alt="" class="hero__bg-img" width="1440" height="800" loading="eager" fetchpriority="high" aria-hidden="true" onerror="this.style.display='none'">
         </picture>
       </div>
       <div class="hero__overlay" aria-hidden="true"></div>
@@ -2227,7 +2341,62 @@ strong { font-weight: 700; }
       </div>
     </section>
 
-    <!-- Wave: Concept → Menu -->
+    <!-- ===== 2.5 こだわり・特徴（フルワイドブロック） ===== -->
+    <section aria-label="こだわり・特徴">
+      <div class="commitment__block" style="--anim-delay:0s">
+        <div class="commitment__block-bg" style="background-image:url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1600&q=80');" aria-hidden="true"></div>
+        <div class="commitment__block-overlay" aria-hidden="true"></div>
+        <div class="commitment__block-inner">
+          <div class="anim-target">
+            <p class="commitment__block-number" aria-hidden="true">01</p>
+            <h3 class="commitment__block-title">産地直送の旬素材</h3>
+            <p class="commitment__block-desc">契約農家と築地から届く、朝採れの食材だけを使用。毎朝シェフ自らが手に取り、その日のベストな一皿を組み立てます。四季の恵みが最も輝く瞬間を、お皿の上に。</p>
+          </div>
+          <div class="commitment__block-spacer" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="commitment__block">
+        <div class="commitment__block-bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80');" aria-hidden="true"></div>
+        <div class="commitment__block-overlay" aria-hidden="true"></div>
+        <div class="commitment__block-inner">
+          <div class="anim-target" style="--anim-delay:0s">
+            <p class="commitment__block-number" aria-hidden="true">02</p>
+            <h3 class="commitment__block-title">完全個室で安心</h3>
+            <p class="commitment__block-desc">2名〜最大12名の個室を完備。記念日・接待・デートなど、大切なシーンにふさわしい落ち着いた空間で、ふたりだけの、あるいは仲間だけの特別な時間をお過ごしください。</p>
+          </div>
+          <div class="commitment__block-spacer" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="commitment__block">
+        <div class="commitment__block-bg" style="background-image:url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1600&q=80');" aria-hidden="true"></div>
+        <div class="commitment__block-overlay" aria-hidden="true"></div>
+        <div class="commitment__block-inner">
+          <div class="anim-target" style="--anim-delay:0s">
+            <p class="commitment__block-number" aria-hidden="true">03</p>
+            <h3 class="commitment__block-title">厳選ワインセレクション</h3>
+            <p class="commitment__block-desc">イタリア全土から80種以上を厳選。ソムリエがお料理やお好みに合わせて最適な一本をご提案いたします。グラスワインも充実、気軽にペアリングをお楽しみいただけます。</p>
+          </div>
+          <div class="commitment__block-spacer" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="commitment__block">
+        <div class="commitment__block-bg" style="background-image:url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1600&q=80');" aria-hidden="true"></div>
+        <div class="commitment__block-overlay" aria-hidden="true"></div>
+        <div class="commitment__block-inner">
+          <div class="anim-target" style="--anim-delay:0s">
+            <p class="commitment__block-number" aria-hidden="true">04</p>
+            <h3 class="commitment__block-title">シェフの技</h3>
+            <p class="commitment__block-desc">都内の三つ星レストランで10年、イタリア・トスカーナで3年。積み重ねた経験と技術が、一皿一皿に込められています。素材の力を最大限に引き出す、繊細で力強い料理をご堪能ください。</p>
+          </div>
+          <div class="commitment__block-spacer" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: Commitment → Menu -->
     <svg class="section-divider section-divider--green" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,16 C480,48 960,0 1440,24 L1440,48 L0,48 Z" fill="currentColor"/>
     </svg>
@@ -2238,6 +2407,10 @@ strong { font-weight: 700; }
         <p class="menu__eyebrow anim-target" aria-hidden="true">Seasonal Menu</p>
         <h2 class="menu__title anim-target">旬を味わう、<br class="sp-only">季節のコース</h2>
         <p class="menu__lead anim-target">四季折々の食材を活かしたコース料理を中心に、アラカルトもご用意しております。</p>
+
+        <div class="menu__hero-img anim-target" style="margin-bottom:48px;">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="季節のコース料理イメージ" width="800" height="533" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius-lg);object-fit:cover;max-height:400px;">
+        </div>
 
         <div class="menu__grid">
           <div class="menu__item menu__item--lg anim-target" style="--anim-delay:0s">
@@ -2612,6 +2785,9 @@ strong { font-weight: 700; }
         <div class="access__info anim-target" style="--anim-delay:0.1s">
           <p class="access__eyebrow" aria-hidden="true">Access</p>
           <h2 class="access__title">店舗情報</h2>
+          <div style="margin-bottom:24px;">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="TRATTORIA VERDE 店舗外観" width="800" height="533" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius-lg);object-fit:cover;max-height:280px;">
+          </div>
           <dl class="access__list">
             <div class="access__row">
               <dt>店名</dt>
@@ -2735,10 +2911,10 @@ strong { font-weight: 700; }
     <!-- ===== 10. 最終CTA ===== -->
     <!-- CTA[5] 最終 -->
     <section class="final-cta" id="final-cta" aria-label="ご予約はこちら">
-      <div class="final-cta__bg" aria-hidden="true">
+      <div class="final-cta__bg" aria-hidden="true" style="background:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=80') center/cover no-repeat;">
         <picture data-label="final-cta-bg">
           <source srcset="images/final-cta.webp" sizes="100vw" type="image/webp">
-          <img src="images/final-cta.jpg" alt="" class="final-cta__bg-img" width="1440" height="600" loading="lazy" aria-hidden="true">
+          <img src="images/final-cta.jpg" alt="" class="final-cta__bg-img" width="1440" height="600" loading="lazy" aria-hidden="true" onerror="this.style.display='none'">
         </picture>
       </div>
       <div class="final-cta__overlay" aria-hidden="true"></div>
