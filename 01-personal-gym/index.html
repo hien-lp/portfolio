@@ -1,0 +1,2372 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="完全マンツーマン指導のパーソナルジム BODY CRAFT。初回体験0円。運動未経験でも安心のオーダーメイドプログラム。渋谷駅徒歩3分。">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="パーソナルジム BODY CRAFT｜初回体験0円・完全マンツーマン">
+  <meta property="og:description" content="完全個室・完全マンツーマン。あなたの体力と目標に合わせたオーダーメイドプログラム。3ヶ月で体は変わる。">
+  <meta property="og:type" content="website">
+  <!-- 本番では実際のドメインに変更 -->
+  <meta property="og:image" content="https://example.com/portfolio/01-personal-gym/images/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://example.com/portfolio/01-personal-gym/">
+  <!-- 本番で実際のアカウントに変更 -->
+  <meta name="twitter:site" content="@example">
+  <!--
+    [デプロイ時推奨] 以下のセキュリティヘッダーをサーバー（Nginx/Cloudflare等）で設定してください:
+    Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com/maps/;
+    X-Frame-Options: DENY
+    X-Content-Type-Options: nosniff
+    Referrer-Policy: strict-origin-when-cross-origin
+    Permissions-Policy: camera=(), microphone=(), geolocation=()
+    Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  -->
+  <title>パーソナルジム BODY CRAFT｜初回体験0円・完全マンツーマン</title>
+  <!-- ポートフォリオ用インラインSVG。本番では.icoファイル推奨 -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>B</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- 本番ではGoogle Fontsのセルフホスティングを推奨（SRI対応・パフォーマンス向上） -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/hero.webp" type="image/webp">
+  <style>
+/* ============================================================
+   BODY CRAFT — Personal Gym LP
+   Design Direction: Premium Minimal (Charcoal + Warm Gold)
+   Palette: Charcoal / Off-White / Warm Gold
+   Font: Sora (EN headings) + Noto Sans JP (body)
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* --- Colors --- */
+  --primary: #2C2C2C;
+  --primary-light: #3D3D3D;
+  --accent: #B8965A;
+  --accent-hover: #A07E48;
+  --accent-light: #F5EFE4;
+  --accent-glow-0: rgba(184, 150, 90, 0);
+  --accent-glow-25: rgba(184, 150, 90, .25);
+  --primary-97: rgba(44, 44, 44, .97);
+  --primary-92: rgba(44, 44, 44, .92);
+  --primary-70: rgba(44, 44, 44, .7);
+  --primary-85: rgba(44, 44, 44, .85);
+  --primary-60: rgba(44, 44, 44, .6);
+  --primary-40: rgba(44, 44, 44, .4);
+  --accent-08: rgba(184, 150, 90, .08);
+  --accent-15: rgba(184, 150, 90, .15);
+  --accent-20: rgba(184, 150, 90, .2);
+  --accent-warm: #8B7355;
+  --accent-muted: #9E8E7E;
+  --bg: #FAFAF8;
+  --bg-alt: #F2F0ED;
+  --text: #2C2C2C;
+  --text-mid: #555555;
+  --text-light: #888888;
+  --text-muted: #767676;
+  --border: #E5E2DD;
+  --white: #FFFFFF;
+  --success: #43A047;
+
+  /* --- White alpha (DRY) --- */
+  --white-08: rgba(255, 255, 255, .08);
+  --white-10: rgba(255, 255, 255, .1);
+  --white-15: rgba(255, 255, 255, .15);
+  --white-20: rgba(255, 255, 255, .2);
+  --white-25: rgba(255, 255, 255, .25);
+  --white-35: rgba(255, 255, 255, .35);
+  --white-40: rgba(255, 255, 255, .4);
+  --white-45: rgba(255, 255, 255, .45);
+  --white-50: rgba(255, 255, 255, .5);
+  --white-60: rgba(255, 255, 255, .6);
+  --white-65: rgba(255, 255, 255, .65);
+  --white-70: rgba(255, 255, 255, .7);
+  --white-85: rgba(255, 255, 255, .85);
+
+  /* --- Typography --- */
+  --ff-body: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+  --ff-en: 'Sora', sans-serif;
+
+  /* --- Layout --- */
+  --content-width: 1120px;
+  --section-py: 80px;
+  --header-height: 64px;
+  --radius: 6px;
+  --radius-lg: 12px;
+
+  /* --- Z-index --- */
+  --z-sticky: 90;
+  --z-header: 100;
+  --z-mobile-nav: 101;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+  font-size: 16px;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: var(--ff-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+body.no-scroll { overflow: hidden; }
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul, dl { list-style: none; }
+strong { font-weight: 700; }
+
+/* --- Skip Link --- */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  background: var(--accent);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 700;
+  z-index: 200;
+  transform: translateY(-100%);
+  transition: transform .2s;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* --- Section Title --- */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 48px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--ff-body);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-align: center;
+  border-radius: var(--radius);
+  padding: 14px 36px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  cursor: pointer;
+  border: 2px solid transparent;
+  min-height: 44px;
+  min-width: 44px;
+}
+.btn__main {
+  display: block;
+  line-height: 1.4;
+}
+.btn__micro {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  opacity: .8;
+  margin-top: 2px;
+}
+.btn--accent {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+.btn--accent:hover,
+.btn--accent:focus-visible {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--accent-glow-25);
+}
+.btn--large { padding: 18px 48px; font-size: 1.0625rem; }
+.btn--small { padding: 10px 24px; font-size: 0.8125rem; max-width: 100%; margin-top: 16px; }
+.btn--outline-white {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white-40);
+}
+.btn--outline-white:hover,
+.btn--outline-white:focus-visible {
+  background: var(--white-10);
+  border-color: var(--white);
+}
+.btn--accent-inv {
+  background: var(--white);
+  color: var(--accent);
+  border-color: var(--white);
+  font-weight: 700;
+}
+.btn--accent-inv:hover,
+.btn--accent-inv:focus-visible {
+  background: var(--bg-alt);
+  transform: translateY(-2px);
+}
+.btn--accent-inv .btn__micro {
+  color: var(--text-light);
+}
+
+/* CTA Pulse Animation */
+.btn--pulse {
+  animation: cta-pulse 2.5s ease-in-out 3;
+}
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow-25); }
+  50% { box-shadow: 0 0 0 12px var(--accent-glow-0); }
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.sp-only { display: none; }
+
+/* --- Screen reader only --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  background: rgba(250,250,248,.96);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow .3s;
+}
+.header--scrolled {
+  box-shadow: 0 2px 16px rgba(0,0,0,.08);
+}
+.header__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 24px;
+}
+.header__logo {
+  font-family: var(--ff-en);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.06em;
+}
+.header__nav {
+  display: flex;
+  gap: 28px;
+}
+.header__nav a {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-light);
+  transition: color .2s;
+  padding: 4px 0;
+}
+.header__nav a:hover,
+.header__nav a:focus-visible {
+  color: var(--primary);
+}
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.header__tel {
+  font-family: var(--ff-en);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+}
+.header__cta-btn {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: var(--radius);
+  transition: background .2s;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.header__cta-btn:hover,
+.header__cta-btn:focus-visible {
+  background: var(--accent-hover);
+}
+
+.header__hamburger { display: none; }
+
+/* Mobile nav */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-mobile-nav);
+  background: var(--primary-97);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s, opacity .3s;
+}
+.mobile-nav.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+.mobile-nav__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+}
+.mobile-nav__close:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.mobile-nav__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.mobile-nav__links a {
+  color: var(--white);
+  font-size: 1.125rem;
+  font-weight: 700;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.mobile-nav__tel {
+  font-family: var(--ff-en);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.mobile-nav__cta {
+  background: var(--accent);
+  padding: 14px 36px;
+  border-radius: var(--radius);
+  font-weight: 700;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--primary);
+  color: var(--white);
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--primary-92) 0%,
+    var(--primary-70) 40%,
+    var(--primary-40) 100%
+  );
+}
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+  width: 100%;
+}
+.hero__text {
+  max-width: 600px;
+}
+.hero__campaign {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white-10);
+  border: 1px solid var(--white-20);
+  color: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+.hero__campaign strong {
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+.hero__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.4);
+  letter-spacing: 0.02em;
+}
+.hero__sub {
+  font-size: 0.9375rem;
+  color: var(--white-70);
+  margin-bottom: 32px;
+  line-height: 1.9;
+}
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.hero__note {
+  font-size: 0.75rem;
+  color: var(--white-45);
+}
+
+/* ============================================================
+   STATS BAR (countup)
+   ============================================================ */
+.stats {
+  background: var(--primary);
+  border-bottom: 1px solid var(--white-08);
+}
+.stats__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+.stats__item {
+  padding: 28px 16px;
+  border-right: 1px solid var(--white-08);
+}
+.stats__item:last-child { border-right: none; }
+.stats__num {
+  font-family: var(--ff-en);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+  line-height: 1;
+}
+.stats__label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.6875rem;
+  color: var(--white-50);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   PAIN POINTS
+   ============================================================ */
+.pain {
+  padding: var(--section-py) 24px;
+  background: var(--bg-alt);
+}
+.pain__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.pain__list {
+  margin-bottom: 32px;
+}
+.pain__item {
+  padding: 16px 16px 16px 48px;
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  transition: transform .2s, box-shadow .2s;
+}
+.pain__item:hover {
+  transform: translateX(4px);
+  box-shadow: -4px 0 0 var(--accent);
+}
+.pain__item::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.pain__item::after {
+  content: '\00D7';
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  line-height: 18px;
+}
+.pain__lead {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.pain__loss-aversion {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-light);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.pain__cta { text-align: center; }
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+.features {
+  padding: var(--section-py) 24px;
+  background: var(--bg);
+}
+.features__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+.feature:last-child { margin-bottom: 0; }
+.feature--reverse .feature__img { order: 2; }
+.feature--reverse .feature__body { order: 1; }
+
+.feature__img {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+.feature__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3/2;
+  transition: transform .4s ease;
+}
+.feature__img:hover img {
+  transform: scale(1.03);
+}
+.feature__num {
+  font-family: var(--ff-en);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: .15;
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.feature__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.feature__text {
+  font-size: 0.9375rem;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band {
+  padding: 48px 24px;
+  background: var(--primary);
+  text-align: center;
+}
+.cta-band__inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.cta-band__text {
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   RESULTS (Customer Story Cards)
+   ============================================================ */
+.results {
+  background: var(--primary);
+  color: var(--white);
+  padding: var(--section-py) 24px;
+}
+.results__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+.section-title--light {
+  color: var(--white);
+}
+.results__lead {
+  text-align: center;
+  color: var(--white-70);
+  margin-bottom: 48px;
+}
+.results__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+.result-card {
+  background: var(--primary-light);
+  border: 1px solid var(--white-10);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  transition: transform .2s, box-shadow .2s;
+}
+.result-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.3);
+}
+.result-card__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.result-card__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.result-card__initial {
+  color: var(--white);
+  font-family: var(--ff-en);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.result-card__name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+.result-card__meta {
+  font-size: 0.75rem;
+  color: var(--white-60);
+}
+.result-card__quote {
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent);
+  margin-bottom: 24px;
+}
+.result-card__quote p {
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--white-85);
+}
+.result-card__results {
+  display: flex;
+  gap: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--white-10);
+}
+.result-card__metric {
+  text-align: center;
+  flex: 1;
+}
+.result-card__metric-value {
+  display: block;
+  font-family: var(--ff-en);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.result-card__metric-value small {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+.result-card__metric-label {
+  font-size: 0.75rem;
+  color: var(--white-50);
+  margin-top: 4px;
+}
+.results__note {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.75rem;
+  color: var(--white-35);
+}
+
+/* ============================================================
+   TRAINER
+   ============================================================ */
+.trainer {
+  padding: var(--section-py) 24px;
+  background: var(--bg);
+}
+.trainer__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+.trainer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.trainer-card {
+  text-align: center;
+  padding: 32px 24px 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  background: var(--bg);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.trainer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  border-top-color: var(--accent-hover);
+}
+.trainer-card__name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+.trainer-card__role {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+/* Cert badges (pill style) */
+.trainer-card__certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.trainer-card__cert-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 3px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+/* Stats mini number */
+.trainer-card__stat {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+.trainer-card__stat-num {
+  font-family: var(--ff-en);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+/* Trainer message */
+.trainer-card__msg {
+  position: relative;
+  text-align: left;
+  padding: 14px 16px 14px 20px;
+  margin: 0;
+  border-left: 3px solid var(--accent);
+  background: var(--bg-alt);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.trainer-card__msg p {
+  font-size: 0.8125rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Trainer avatar (initial icon) */
+.trainer-card__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  border: 4px solid var(--white);
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+}
+.trainer-card__avatar--1 {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+}
+.trainer-card__avatar--2 {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-warm) 100%);
+}
+.trainer-card__avatar--3 {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-muted) 100%);
+}
+.trainer-card__initial {
+  color: var(--white);
+  font-size: 2.75rem;
+  font-weight: 700;
+  font-family: var(--ff-en);
+  line-height: 1;
+}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.price {
+  padding: var(--section-py) 24px;
+  background: var(--bg-alt);
+}
+.price__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.price__note-top {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-light);
+  margin-top: -32px;
+  margin-bottom: 40px;
+}
+.price__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.price-card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+.price-card--rec {
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 20px var(--accent-glow-25);
+}
+.price-card__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 4px 20px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.price-card__name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+.price-card__freq {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+.price-card__amount {
+  font-family: var(--ff-en);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.price-card__amount span {
+  font-family: var(--ff-body);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: var(--text-light);
+}
+.price-card__list {
+  text-align: left;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+.price-card__item {
+  font-size: 0.8125rem;
+  padding: 5px 0 5px 24px;
+  position: relative;
+}
+.price-card__item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: var(--success);
+  border-radius: 50%;
+}
+.price-card__item::after {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.price__guarantee {
+  text-align: center;
+  margin-top: 32px;
+  padding: 16px 24px;
+  background: var(--accent-08);
+  border: 1px solid var(--accent-20);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.price__guarantee-icon {
+  color: var(--accent);
+  margin-right: 4px;
+}
+.price__guarantee small {
+  font-size: 0.75rem;
+  color: var(--text-mid);
+  display: block;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   FLOW
+   ============================================================ */
+.flow {
+  padding: var(--section-py) 24px;
+  background: var(--bg);
+}
+.flow__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.flow__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.flow__step {
+  text-align: center;
+  position: relative;
+}
+.flow__step-num {
+  display: inline-block;
+  font-family: var(--ff-en);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--primary);
+  padding: 6px 20px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  letter-spacing: 0.06em;
+}
+.flow__step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+.flow__step-text {
+  font-size: 0.8125rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ============================================================
+   VOICE
+   ============================================================ */
+.voice {
+  padding: var(--section-py) 24px;
+  background: var(--bg-alt);
+}
+.voice__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+.voice__satisfaction {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--primary);
+  margin-top: -32px;
+  margin-bottom: 40px;
+}
+.voice__satisfaction strong {
+  font-family: var(--ff-en);
+  font-size: 1.75rem;
+  color: var(--accent);
+}
+.voice__satisfaction small {
+  font-size: 0.6875rem;
+  color: var(--text-light);
+  display: block;
+  margin-top: 4px;
+}
+.voice__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.voice-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: transform .2s;
+}
+.voice-card:hover {
+  transform: translateY(-2px);
+}
+.voice-card__stars {
+  color: var(--accent);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.voice-card__text {
+  font-size: 0.875rem;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+.voice-card__who span {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: block;
+}
+.voice-card__who small {
+  font-size: 0.6875rem;
+  color: var(--text-light);
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq {
+  padding: var(--section-py) 24px;
+  background: var(--bg);
+}
+.faq__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.faq__item {
+  border-bottom: 1px solid var(--border);
+}
+.faq__question {
+  padding: 18px 36px 18px 0;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.faq__question::-webkit-details-marker { display: none; }
+.faq__question::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: var(--text-light);
+  font-weight: 400;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.faq__item[open] .faq__question::after { content: '\2212'; }
+.faq__answer {
+  padding: 0 0 18px;
+  font-size: 0.875rem;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* ============================================================
+   ACCESS
+   ============================================================ */
+.access {
+  padding: var(--section-py) 24px;
+  background: var(--bg-alt);
+}
+.access__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+.access__grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 32px;
+  align-items: start;
+}
+.access__map {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+.access__map iframe {
+  display: block;
+}
+.access__map-iframe {
+  border: 0;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0,0,0,.15);
+}
+.access__dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 2px;
+  margin-top: 16px;
+}
+.access__dt:first-child { margin-top: 0; }
+.access__dd {
+  font-size: 0.9375rem;
+}
+.access__dd a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.cta-final {
+  padding: 80px 24px;
+  padding-bottom: 96px;
+  background: var(--primary);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-final::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -25%;
+  width: 150%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, var(--accent-glow-25) 0%, transparent 60%);
+  opacity: .3;
+  pointer-events: none;
+}
+.cta-final__inner {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+.cta-final__scarcity {
+  display: inline-block;
+  background: var(--accent-15);
+  border: 1px solid var(--accent-20);
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 6px 20px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+.cta-final__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.cta-final__sub {
+  font-size: 0.9375rem;
+  color: var(--white-65);
+  line-height: 1.9;
+  margin-bottom: 32px;
+}
+.cta-final__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cta-final__note {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: var(--white-35);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  padding: 40px 24px 24px;
+  background: var(--primary);
+  border-top: 1px solid var(--white-15);
+  text-align: center;
+}
+.footer__logo {
+  font-family: var(--ff-en);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+.footer__addr,
+.footer__hours {
+  font-size: 0.6875rem;
+  color: var(--white-35);
+  line-height: 1.8;
+}
+.footer__links {
+  margin: 16px 0;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.footer__link {
+  font-size: 0.6875rem;
+  color: var(--white-35);
+  transition: color .2s;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.footer__link:hover,
+.footer__link:focus-visible {
+  color: var(--white-70);
+}
+.footer__copy {
+  font-size: 0.625rem;
+  color: var(--white-25);
+}
+
+/* ============================================================
+   STICKY CTA (mobile only)
+   ============================================================ */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 8px 12px;
+  gap: 8px;
+}
+.sticky-cta__tel,
+.sticky-cta__web {
+  flex: 1;
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 12px 0;
+  border-radius: var(--radius);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sticky-cta__tel {
+  background: var(--bg);
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+.sticky-cta__web {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet (1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+  .trainer__grid { grid-template-columns: repeat(2, 1fr); }
+  .results__grid { grid-template-columns: repeat(3, 1fr); max-width: none; }
+  .price__grid { grid-template-columns: repeat(3, 1fr); }
+  .stats__inner { grid-template-columns: repeat(2, 1fr); }
+  .stats__item { border-bottom: 1px solid var(--white-08); }
+  .stats__item:nth-child(2n) { border-right: none; }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile (768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  :root { --section-py: 56px; }
+  .sp-only { display: inline; }
+  .section-title { font-size: 1.25rem; margin-bottom: 36px; }
+
+  /* Header */
+  .header__nav,
+  .header__right { display: none; }
+  .header__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--primary);
+    transition: transform .3s, opacity .3s;
+  }
+  .header__hamburger.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .header__hamburger.is-active span:nth-child(2) { opacity: 0; }
+  .header__hamburger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Hero */
+  .hero { min-height: 100svh; }
+  .hero__overlay {
+    background: linear-gradient(
+      to bottom,
+      var(--primary-85) 0%,
+      var(--primary-60) 100%
+    );
+  }
+  .hero__inner { padding: 100px 20px 60px; }
+  .hero__title { font-size: 1.625rem; }
+  .hero__actions { flex-direction: column; }
+  .hero__actions .btn { width: 100%; }
+
+  /* Stats */
+  .stats__num { font-size: 2rem; }
+
+  /* Features */
+  .feature,
+  .feature--reverse {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .feature--reverse .feature__img { order: 0; }
+  .feature--reverse .feature__body { order: 0; }
+  .feature__num { font-size: 2.5rem; }
+
+  /* Results */
+  .results__grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+
+  /* Trainer */
+  .trainer__grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+
+  /* Pricing */
+  .price__grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+
+  /* Flow */
+  .flow__steps { grid-template-columns: 1fr; gap: 24px; }
+
+  /* Voice */
+  .voice__grid { grid-template-columns: 1fr; }
+  .voice__satisfaction { margin-top: -20px; margin-bottom: 32px; }
+
+  /* Access */
+  .access__grid { grid-template-columns: 1fr; }
+
+  /* CTA final */
+  .cta-final__title { font-size: 1.375rem; }
+  .cta-final__actions { flex-direction: column; align-items: center; }
+  .cta-final__actions .btn { width: 100%; max-width: 320px; }
+
+  /* Sticky CTA */
+  .sticky-cta { display: flex; }
+  body { padding-bottom: 60px; }
+
+  /* Buttons */
+  .btn--large { width: 100%; }
+}
+
+/* ============================================================
+   RESPONSIVE — Small (375px)
+   ============================================================ */
+@media (max-width: 375px) {
+  .stats__inner { grid-template-columns: 1fr; }
+  .stats__item { border-right: none; }
+  .stats__item:last-child { border-bottom: none; }
+  .stats__num { font-size: 1.625rem; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .anim-target {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .pain__item,
+  .feature__img img,
+  .result-card,
+  .trainer-card,
+  .price-card,
+  .voice-card {
+    transition: none;
+  }
+  .feature__img:hover img {
+    transform: none;
+  }
+}
+
+/* --- Animation classes --- */
+.anim-target {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .5s ease var(--anim-delay, 0ms), transform .5s ease var(--anim-delay, 0ms);
+}
+.anim-target.is-visible {
+  opacity: 1;
+  transform: none;
+}
+  </style>
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#main-content" class="skip-link">メインコンテンツへ</a>
+
+  <!-- HEADER -->
+  <header class="header" id="top">
+    <div class="header__inner">
+      <a href="#top" class="header__logo" aria-label="BODY CRAFT トップへ">BODY CRAFT</a>
+      <nav class="header__nav" aria-label="メインナビゲーション">
+        <a href="#features">特徴</a>
+        <a href="#price">料金</a>
+        <a href="#faq">FAQ</a>
+        <a href="#access">アクセス</a>
+      </nav>
+      <div class="header__right">
+        <!-- 本番で実際の電話番号に差し替え -->
+        <a href="tel:0120-000-000" class="header__tel" aria-label="電話で予約 0120-000-000">0120-000-000</a>
+        <a href="#cta-final" class="header__cta-btn">体験予約</a>
+      </div>
+      <button class="header__hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" id="mobile-nav" aria-label="ナビゲーションメニュー" inert>
+    <button class="mobile-nav__close" aria-label="メニューを閉じる">&times;</button>
+    <div class="mobile-nav__links">
+      <a href="#features">特徴</a>
+      <a href="#price">料金</a>
+      <a href="#faq">FAQ</a>
+      <a href="#access">アクセス</a>
+      <a href="tel:0120-000-000" class="mobile-nav__tel">0120-000-000</a>
+      <a href="#cta-final" class="mobile-nav__cta">無料体験を予約する</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO (PASONA: Problem awareness) -->
+    <section class="hero" aria-label="メインビジュアル">
+      <div class="hero__bg">
+        <picture>
+          <source srcset="images/hero.webp" type="image/webp" sizes="100vw">
+          <img src="images/hero.jpg" alt="" class="hero__bg-img" width="1200" height="800" loading="eager" fetchpriority="high" aria-hidden="true">
+        </picture>
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__inner">
+        <div class="hero__text">
+          <p class="hero__campaign">
+            初回体験 <strong>&#165;0</strong>
+          </p>
+          <h1 class="hero__title">「続かなかった」を終わりにする。<br>3ヶ月で、人生が変わる体へ。</h1>
+          <p class="hero__sub">完全個室・完全マンツーマン。<br>あなたの体力と目標に合わせた、オーダーメイドプログラム。</p>
+          <div class="hero__actions">
+            <a href="#cta-final" class="btn btn--accent btn--pulse">
+              <span class="btn__main">無料で体験してみる</span>
+              <span class="btn__micro">60分の体験トレーニング付き</span>
+            </a>
+            <a href="tel:0120-000-000" class="btn btn--outline-white">電話で予約 0120-000-000</a>
+          </div>
+          <p class="hero__note">※ 無理な勧誘は一切ありません / 当日予約OK</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS (PASONA: Problem + Agitation) -->
+    <section class="pain" aria-label="お悩み">
+      <div class="pain__inner">
+        <h2 class="section-title">こんなお悩み、ありませんか？</h2>
+        <ul class="pain__list" role="list">
+          <li class="pain__item">ジムに通ったけど、正しいやり方が分からず<strong>効果が出なかった</strong></li>
+          <li class="pain__item">食事制限でダイエットしても<strong>リバウンドの繰り返し</strong></li>
+          <li class="pain__item">忙しくてトレーニングの時間が取れない。<strong>続けられるか不安</strong></li>
+          <li class="pain__item">大型ジムは人目が気になって<strong>集中できない</strong></li>
+          <li class="pain__item">YouTubeの筋トレ動画を真似してるけど<strong>フォームが合ってるか不安</strong></li>
+        </ul>
+        <p class="pain__lead">その悩み、<strong>BODY CRAFT</strong>で解決できます。</p>
+        <p class="pain__loss-aversion">このまま自己流を続けると、時間もお金もムダにしてしまうかもしれません。</p>
+        <div class="pain__cta">
+          <a href="#cta-final" class="btn btn--accent">
+            <span class="btn__main">まずは無料体験へ</span>
+            <span class="btn__micro">カウンセリング付き・手ぶらOK</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES (PASONA: Solution) -->
+    <section class="features" id="features" aria-label="特徴">
+      <div class="features__inner">
+        <h2 class="section-title">BODY CRAFTが<br class="sp-only">選ばれる3つの理由</h2>
+
+        <div class="feature">
+          <div class="feature__img">
+            <picture>
+              <source srcset="images/feature-01.webp" type="image/webp" sizes="(max-width: 768px) 100vw, 50vw">
+              <img src="images/feature-01.jpg" alt="ダンベルラックのあるトレーニングルーム" width="800" height="533" loading="lazy">
+            </picture>
+          </div>
+          <div class="feature__body">
+            <span class="feature__num">01</span>
+            <h3 class="feature__title">完全個室・完全マンツーマン</h3>
+            <p class="feature__text">トレーナーとあなた、1対1だけの空間。他のお客様と顔を合わせることはありません。周りの目を気にせず、自分のペースで集中できます。完全予約制なので待ち時間もゼロ。</p>
+          </div>
+        </div>
+
+        <div class="feature feature--reverse">
+          <div class="feature__img">
+            <picture>
+              <source srcset="images/feature-02.webp" type="image/webp" sizes="(max-width: 768px) 100vw, 50vw">
+              <img src="images/feature-02.jpg" alt="トレーナーとクライアントがフィストバンプしている" width="800" height="534" loading="lazy">
+            </picture>
+          </div>
+          <div class="feature__body">
+            <span class="feature__num">02</span>
+            <h3 class="feature__title">あなた専用のオーダーメイドプログラム</h3>
+            <p class="feature__text">「運動経験ゼロ」「腰痛がある」「とにかく痩せたい」――どんなスタートラインでも大丈夫。初回カウンセリングで体の状態と目標を把握し、あなただけのトレーニングメニューを設計します。</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature__img">
+            <picture>
+              <source srcset="images/feature-03.webp" type="image/webp" sizes="(max-width: 768px) 100vw, 50vw">
+              <img src="images/feature-03.jpg" alt="スマートフォンで健康的な食事を撮影している様子" width="800" height="533" loading="lazy">
+            </picture>
+          </div>
+          <div class="feature__body">
+            <span class="feature__num">03</span>
+            <h3 class="feature__title">LINEで毎日の食事をサポート</h3>
+            <p class="feature__text">トレーニングだけでは体は変わりません。毎日の食事をLINEで共有いただき、トレーナーがリアルタイムでアドバイス。極端な食事制限は一切なし。日常の食事から無理なく改善していきます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA mid 1 (PASONA: Narrowing) -->
+    <section class="cta-band" aria-label="体験予約への導線">
+      <div class="cta-band__inner">
+        <p class="cta-band__text">まずは気軽に体験から。プロのトレーニングを実感してください。</p>
+        <a href="#cta-final" class="btn btn--accent-inv">
+          <span class="btn__main">初回体験 &#165;0 で予約する</span>
+          <span class="btn__micro">所要時間たった30秒</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- RESULTS (Customer Story Cards) -->
+    <section class="results" id="results" aria-label="お客様の変化">
+      <div class="results__inner">
+        <h2 class="section-title section-title--light">お客様の変化</h2>
+        <p class="results__lead">BODY CRAFTで体を変えた方々の、リアルなストーリーをご紹介します。</p>
+
+        <div class="results__grid">
+          <div class="result-card">
+            <div class="result-card__header">
+              <div class="result-card__avatar" aria-hidden="true">
+                <span class="result-card__initial">T</span>
+              </div>
+              <div class="result-card__info">
+                <p class="result-card__name">T.K さん</p>
+                <p class="result-card__meta">40代男性 / 週2回 × 3ヶ月</p>
+              </div>
+            </div>
+            <div class="result-card__quote">
+              <p>健康診断で引っかかったのがきっかけ。自己流の筋トレは続かなかったけど、トレーナーと二人三脚だから頑張れました。妻に「顔つきが変わったね」と言われたのが一番うれしかった。</p>
+            </div>
+            <div class="result-card__results">
+              <div class="result-card__metric">
+                <span class="result-card__metric-value">-8.5<small>kg</small></span>
+                <span class="result-card__metric-label">体重</span>
+              </div>
+              <div class="result-card__metric">
+                <span class="result-card__metric-value">-6.2<small>%</small></span>
+                <span class="result-card__metric-label">体脂肪率</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-card">
+            <div class="result-card__header">
+              <div class="result-card__avatar" aria-hidden="true">
+                <span class="result-card__initial">M</span>
+              </div>
+              <div class="result-card__info">
+                <p class="result-card__name">M.S さん</p>
+                <p class="result-card__meta">30代女性 / 週1回 × 3ヶ月</p>
+              </div>
+            </div>
+            <div class="result-card__quote">
+              <p>産後の体型がずっとコンプレックスだったけど、週1回でも変われることを実感。食事指導のおかげで、無理な我慢なく自然に痩せられました。</p>
+            </div>
+            <div class="result-card__results">
+              <div class="result-card__metric">
+                <span class="result-card__metric-value">-5.3<small>kg</small></span>
+                <span class="result-card__metric-label">体重</span>
+              </div>
+              <div class="result-card__metric">
+                <span class="result-card__metric-value">-5.0<small>%</small></span>
+                <span class="result-card__metric-label">体脂肪率</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-card">
+            <div class="result-card__header">
+              <div class="result-card__avatar" aria-hidden="true">
+                <span class="result-card__initial">Y</span>
+              </div>
+              <div class="result-card__info">
+                <p class="result-card__name">Y.N さん</p>
+                <p class="result-card__meta">30代女性 / 週2回 × 2ヶ月</p>
+              </div>
+            </div>
+            <div class="result-card__quote">
+              <p>正直、最初は「パーソナルジムって高いだけでしょ」と思ってました。でも2ヶ月でウエスト-7cm。去年入らなかったスカートが履けた時の感動は忘れません。</p>
+            </div>
+            <div class="result-card__results">
+              <div class="result-card__metric">
+                <span class="result-card__metric-value">-4.1<small>kg</small></span>
+                <span class="result-card__metric-label">体重</span>
+              </div>
+              <div class="result-card__metric">
+                <span class="result-card__metric-value">-7<small>cm</small></span>
+                <span class="result-card__metric-label">ウエスト</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="results__note">※ 効果には個人差があります。食事指導との併用結果です。</p>
+      </div>
+    </section>
+
+    <!-- TRAINER (Authority) -->
+    <section class="trainer" aria-label="トレーナー紹介">
+      <div class="trainer__inner">
+        <h2 class="section-title">トレーナー紹介</h2>
+        <div class="trainer__grid">
+          <div class="trainer-card">
+            <div class="trainer-card__avatar trainer-card__avatar--1" aria-hidden="true">
+              <span class="trainer-card__initial">Y</span>
+            </div>
+            <h3 class="trainer-card__name">山田 太郎</h3>
+            <p class="trainer-card__role">代表トレーナー</p>
+            <div class="trainer-card__certs">
+              <span class="trainer-card__cert-badge">NSCA-CPT</span>
+              <span class="trainer-card__cert-badge">NESTA-PFT</span>
+            </div>
+            <p class="trainer-card__stat"><span class="trainer-card__stat-num">200</span>名+ 担当実績</p>
+            <div class="trainer-card__msg">
+              <p>運動が苦手な方ほど、変化を実感できます。まずは一歩、踏み出してみてください。</p>
+            </div>
+          </div>
+          <div class="trainer-card">
+            <div class="trainer-card__avatar trainer-card__avatar--2" aria-hidden="true">
+              <span class="trainer-card__initial">S</span>
+            </div>
+            <h3 class="trainer-card__name">鈴木 花子</h3>
+            <p class="trainer-card__role">トレーナー</p>
+            <div class="trainer-card__certs">
+              <span class="trainer-card__cert-badge">NSCA-CPT</span>
+              <span class="trainer-card__cert-badge">管理栄養士</span>
+            </div>
+            <p class="trainer-card__stat"><span class="trainer-card__stat-num">150</span>名+ 担当実績</p>
+            <div class="trainer-card__msg">
+              <p>食事も運動も、無理なく続くことが一番大切。一緒に楽しく体を変えましょう！</p>
+            </div>
+          </div>
+          <div class="trainer-card">
+            <div class="trainer-card__avatar trainer-card__avatar--3" aria-hidden="true">
+              <span class="trainer-card__initial">K</span>
+            </div>
+            <h3 class="trainer-card__name">佐藤 健一</h3>
+            <p class="trainer-card__role">トレーナー</p>
+            <div class="trainer-card__certs">
+              <span class="trainer-card__cert-badge">JATI-ATI</span>
+              <span class="trainer-card__cert-badge">健康運動指導士</span>
+            </div>
+            <p class="trainer-card__stat"><span class="trainer-card__stat-num">150</span>名+ 担当実績</p>
+            <div class="trainer-card__msg">
+              <p>40代・50代の方の指導経験が豊富です。年齢を理由にあきらめないでください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING (PASONA: Offer) -->
+    <section class="price" id="price" aria-label="料金プラン">
+      <div class="price__inner">
+        <h2 class="section-title">料金プラン</h2>
+        <p class="price__note-top">すべてのプランに初回カウンセリング＋体験トレーニング（&#165;0）が含まれます。</p>
+        <div class="price__grid">
+          <div class="price-card">
+            <h3 class="price-card__name">ライト</h3>
+            <p class="price-card__freq">月4回（週1回）/ 60分</p>
+            <p class="price-card__amount">&#165;29,800<span>/月（税込）</span></p>
+            <ul class="price-card__list" role="list">
+              <li class="price-card__item">マンツーマン指導 60分x4</li>
+              <li class="price-card__item">オーダーメイドメニュー作成</li>
+              <li class="price-card__item">ウェア・タオルレンタル無料</li>
+            </ul>
+            <a href="#cta-final" class="btn btn--accent btn--small">このプランで体験する</a>
+          </div>
+          <div class="price-card price-card--rec">
+            <span class="price-card__badge">一番人気</span>
+            <h3 class="price-card__name">スタンダード</h3>
+            <p class="price-card__freq">月8回（週2回）/ 60分</p>
+            <p class="price-card__amount">&#165;49,800<span>/月（税込）</span></p>
+            <ul class="price-card__list" role="list">
+              <li class="price-card__item">マンツーマン指導 60分x8</li>
+              <li class="price-card__item">オーダーメイドメニュー作成</li>
+              <li class="price-card__item">LINE食事指導（毎日）</li>
+              <li class="price-card__item">ウェア・タオルレンタル無料</li>
+            </ul>
+            <a href="#cta-final" class="btn btn--accent btn--small">このプランで体験する</a>
+          </div>
+          <div class="price-card">
+            <h3 class="price-card__name">プレミアム</h3>
+            <p class="price-card__freq">月12回（週3回）/ 60分</p>
+            <p class="price-card__amount">&#165;79,800<span>/月（税込）</span></p>
+            <ul class="price-card__list" role="list">
+              <li class="price-card__item">マンツーマン指導 60分x12</li>
+              <li class="price-card__item">オーダーメイドメニュー作成</li>
+              <li class="price-card__item">LINE食事指導（毎日）</li>
+              <li class="price-card__item">プロテイン1ヶ月分</li>
+              <li class="price-card__item">ウェア・タオルレンタル無料</li>
+            </ul>
+            <a href="#cta-final" class="btn btn--accent btn--small">このプランで体験する</a>
+          </div>
+        </div>
+        <p class="price__guarantee">
+          <span class="price__guarantee-icon" aria-hidden="true">&#9733;</span>
+          30日間全額返金保証付き。納得いかなければ全額お返しします。
+          <small>※ <a href="#" data-demo="true">詳細な条件はこちら</a></small>
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA mid 2 -->
+    <section class="cta-band" aria-label="体験予約への導線">
+      <div class="cta-band__inner">
+        <p class="cta-band__text">どのプランが合うか分からなくても大丈夫。体験時にご提案します。</p>
+        <a href="#cta-final" class="btn btn--accent">
+          <span class="btn__main">無料体験を予約する</span>
+          <span class="btn__micro">強引な勧誘なし・後日検討OK</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FLOW (PASONA: Narrowing - make action easy) -->
+    <section class="flow" id="flow" aria-label="ご利用の流れ">
+      <div class="flow__inner">
+        <h2 class="section-title">ご利用の流れ</h2>
+        <div class="flow__steps">
+          <div class="flow__step">
+            <span class="flow__step-num">STEP 1</span>
+            <h3 class="flow__step-title">Web予約</h3>
+            <p class="flow__step-text">フォームから希望日時を選択。当日予約も可能です。所要時間30秒。</p>
+          </div>
+          <div class="flow__step">
+            <span class="flow__step-num">STEP 2</span>
+            <h3 class="flow__step-title">カウンセリング＋体験</h3>
+            <p class="flow__step-text">目標・体の状態をヒアリング。あなた専用のメニューで60分の体験トレーニング。</p>
+          </div>
+          <div class="flow__step">
+            <span class="flow__step-num">STEP 3</span>
+            <h3 class="flow__step-title">プランご提案</h3>
+            <p class="flow__step-text">体験後にプランをご案内。その場で決める必要はありません。後日のご検討もOK。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR — 参加者の声の前に配置（Social Proof + Authority） -->
+    <section class="stats" aria-label="実績数値">
+      <div class="stats__inner">
+        <div class="stats__item">
+          <span class="stats__num" data-count="500" data-suffix="名+">0</span>
+          <span class="stats__label">累計指導実績<small>(2024年〜)</small></span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__num" data-count="92" data-suffix="%">0</span>
+          <span class="stats__label">3ヶ月継続率<small>(2025年実績)</small></span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__num" data-count="4.9" data-suffix="/5.0" data-decimal="true">0</span>
+          <span class="stats__label">Google口コミ評価<small>(2025年4月時点)</small></span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__num" data-count="60" data-suffix="%">0</span>
+          <span class="stats__label">未経験スタート</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOICE / TESTIMONIALS (Social Proof) -->
+    <section class="voice" id="voice" aria-label="お客様の声">
+      <div class="voice__inner">
+        <h2 class="section-title">お客様の声</h2>
+        <p class="voice__satisfaction">お客様満足度 <strong>96.8%</strong><small>（n=312名 / 2025年実施 会員アンケートより）</small></p>
+        <div class="voice__grid">
+          <div class="voice-card">
+            <div class="voice-card__stars" aria-label="5段階中5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="voice-card__text">50代で初めてのジム通い。膝や腰に不安がありましたが、トレーナーが体の状態を見ながらメニューを調整してくれるので安心。<strong>半年で体重-10kg</strong>、ゴルフのスコアまで良くなりました。</p>
+            <footer class="voice-card__who">
+              <span>A.T さん</span>
+              <small>50代男性・会社役員 / 通って6ヶ月</small>
+            </footer>
+          </div>
+          <div class="voice-card">
+            <div class="voice-card__stars" aria-label="5段階中5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="voice-card__text">結婚式に向けてダイエットを決意。完全個室だから人目を気にせずトレーニングに集中できました。<strong>3ヶ月でウエスト-8cm</strong>、ドレスのサイズダウンに成功して最高の当日を迎えられました。</p>
+            <footer class="voice-card__who">
+              <span>K.M さん</span>
+              <small>20代女性・会社員 / 通って3ヶ月</small>
+            </footer>
+          </div>
+          <div class="voice-card">
+            <div class="voice-card__stars" aria-label="5段階中4">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            <p class="voice-card__text">更年期で代謝が落ち、何をしても痩せなくなっていました。LINE食事指導で食生活を見直しつつ、<strong>週2回のトレーニングで体脂肪率-6%</strong>。体が軽くなって毎日が楽しいです。</p>
+            <footer class="voice-card__who">
+              <span>R.I さん</span>
+              <small>40代女性・自営業 / 通って5ヶ月</small>
+            </footer>
+          </div>
+        </div>
+        <p class="results__note" style="text-align:center; margin-top:24px; font-size:0.75rem; color:var(--text-light);">※ 個人の感想です。効果には個人差があります。</p>
+      </div>
+    </section>
+
+    <!-- FAQ (Objection handling) -->
+    <section class="faq" id="faq" aria-label="よくあるご質問">
+      <div class="faq__inner">
+        <h2 class="section-title">よくあるご質問</h2>
+        <div class="faq__list">
+          <details class="faq__item" open>
+            <summary class="faq__question">運動経験がまったくないのですが大丈夫ですか？</summary>
+            <p class="faq__answer">当ジムの会員様の約60%が運動未経験からスタートされています。体力に合わせてメニューを組むので、初日から無理なく始められます。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question">体験当日の持ち物は？</summary>
+            <p class="faq__answer">室内シューズだけお持ちください。ウェア・タオル・お水は無料でご用意しています。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question">体験後にしつこい勧誘はありますか？</summary>
+            <p class="faq__answer">一切ありません。プランのご説明はしますが、その場で決める必要はありません。後日LINEでのご連絡もOKです。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question">途中でプラン変更はできますか？</summary>
+            <p class="faq__answer">月単位でいつでも変更可能です。まずはライトで始めて、慣れたらスタンダードに上げる方が多いです。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question">食事制限は厳しいですか？</summary>
+            <p class="faq__answer">極端な食事制限は行いません。日常の食事を少しずつ改善するアプローチなので、ストレスなく続けられます。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCESS -->
+    <section class="access" id="access" aria-label="アクセス">
+      <div class="access__inner">
+        <h2 class="section-title">アクセス</h2>
+        <div class="access__grid">
+          <div class="access__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7479754683745!2d139.7005713!3d35.6595194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca84071ee09%3A0xb61fb81d3f498b21!2z5riL6LC36aeF!5e0!3m2!1sja!2sjp!4v1712200000000!5m2!1sja!2sjp"
+              class="access__map-iframe"
+              width="100%"
+              height="100%"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="BODY CRAFT アクセスマップ"
+              sandbox="allow-scripts allow-same-origin"
+            ></iframe>
+          </div>
+          <div class="access__info">
+            <dl class="access__dl">
+              <dt class="access__dt">住所</dt>
+              <dd class="access__dd">〒150-0001 東京都渋谷区神宮前1-2-3 ○○ビル3F</dd>
+              <dt class="access__dt">最寄り駅</dt>
+              <dd class="access__dd">JR渋谷駅 東口より徒歩3分</dd>
+              <dt class="access__dt">営業時間</dt>
+              <dd class="access__dd">7:00〜22:00（最終受付 21:00）</dd>
+              <dt class="access__dt">定休日</dt>
+              <dd class="access__dd">年中無休</dd>
+              <dt class="access__dt">電話番号</dt>
+              <dd class="access__dd"><a href="tel:0120-000-000">0120-000-000</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA (PASONA: Action) -->
+    <section class="cta-final" id="cta-final" aria-label="無料体験予約">
+      <div class="cta-final__inner">
+        <p class="cta-final__scarcity">体験枠には限りがあります</p>
+        <h2 class="cta-final__title">まずは無料体験から<br>始めませんか？</h2>
+        <p class="cta-final__sub">カウンセリング＋体験トレーニング60分が<strong>0円</strong>。<br>あなたの目標に合わせたプランをご提案します。</p>
+        <div class="cta-final__actions">
+          <!-- 本番では予約フォームURLに変更 -->
+          <a href="#" data-demo="true" class="btn btn--accent btn--large btn--pulse">
+            <span class="btn__main">無料体験を予約する</span>
+            <span class="btn__micro">30秒で完了・当日予約OK</span>
+          </a>
+          <a href="tel:0120-000-000" class="btn btn--outline-white">電話で予約 0120-000-000</a>
+        </div>
+        <p class="cta-final__note">所要時間 約90分 / 当日予約OK / 無理な勧誘なし</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "運動経験がまったくないのですが大丈夫ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "当ジムの会員様の約60%が運動未経験からスタートされています。体力に合わせてメニューを組むので、初日から無理なく始められます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "体験当日の持ち物は？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "室内シューズだけお持ちください。ウェア・タオル・お水は無料でご用意しています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "体験後にしつこい勧誘はありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "一切ありません。プランのご説明はしますが、その場で決める必要はありません。後日LINEでのご連絡もOKです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "途中でプラン変更はできますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "月単位でいつでも変更可能です。まずはライトで始めて、慣れたらスタンダードに上げる方が多いです。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "食事制限は厳しいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "極端な食事制限は行いません。日常の食事を少しずつ改善するアプローチなので、ストレスなく続けられます。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__logo">BODY CRAFT</p>
+      <p class="footer__addr">〒150-0001 東京都渋谷区神宮前1-2-3 ○○ビル3F</p>
+      <p class="footer__hours">営業時間 7:00-22:00 / 年中無休</p>
+      <div class="footer__links">
+        <a href="#" class="footer__link" data-demo="true">プライバシーポリシー</a>
+        <a href="#" class="footer__link" data-demo="true">特定商取引法に基づく表記</a>
+      </div>
+      <small class="footer__copy">&copy; 2026 BODY CRAFT. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- STICKY CTA (mobile) -->
+  <div class="sticky-cta" role="complementary" aria-label="予約ボタン">
+    <a href="tel:0120-000-000" class="sticky-cta__tel" aria-label="電話で予約">電話</a>
+    <a href="#cta-final" class="sticky-cta__web">無料体験を予約</a>
+  </div>
+
+  <script>
+document.documentElement.classList.replace('no-js', 'js');
+
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- Smooth scroll (JS-only, no CSS scroll-behavior) --- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      if (!/^#[a-zA-Z][\w\-]*$/.test(targetId)) return;
+      var target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
+      var headerHeight = document.querySelector('.header').offsetHeight || 64;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({
+        top: top,
+        behavior: prefersReduced ? 'auto' : 'smooth'
+      });
+    });
+  });
+
+  /* --- Header scroll shadow (RAF throttled) --- */
+  var header = document.querySelector('.header');
+  if (header) {
+    var headerRafId = -1;
+    window.addEventListener('scroll', function () {
+      if (headerRafId !== -1) return;
+      headerRafId = requestAnimationFrame(function () {
+        try {
+          header.classList.toggle('header--scrolled', window.scrollY > 40);
+        } finally {
+          headerRafId = -1;
+        }
+      });
+    }, { passive: true });
+  }
+
+  /* --- Hamburger menu --- */
+  var hamburger = document.querySelector('.header__hamburger');
+  var mobileNav = document.getElementById('mobile-nav');
+  var closeBtn = mobileNav ? mobileNav.querySelector('.mobile-nav__close') : null;
+  var headerLogo = document.querySelector('.header__logo');
+
+  function closeMobileNav() {
+    if (!mobileNav || !hamburger) return;
+    mobileNav.classList.remove('is-open');
+    mobileNav.setAttribute('inert', '');
+    hamburger.classList.remove('is-active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'メニューを開く');
+    document.body.classList.remove('no-scroll');
+    /* Remove inert from header elements */
+    if (headerLogo) headerLogo.removeAttribute('inert');
+    /* Remove inert from main, footer, sticky-cta */
+    document.querySelector('main').removeAttribute('inert');
+    var footerEl = document.querySelector('footer');
+    if (footerEl) footerEl.removeAttribute('inert');
+    var stickyCta = document.querySelector('.sticky-cta');
+    if (stickyCta) stickyCta.removeAttribute('inert');
+    /* Delay role/aria-modal removal until transition completes (M9) */
+    var delay = parseFloat(getComputedStyle(mobileNav).transitionDuration) * 1000 || 300;
+    setTimeout(function () {
+      mobileNav.removeAttribute('role');
+      mobileNav.removeAttribute('aria-modal');
+    }, delay);
+  }
+
+  function openMobileNav() {
+    if (!mobileNav || !hamburger) return;
+    mobileNav.classList.add('is-open');
+    mobileNav.setAttribute('role', 'dialog');
+    mobileNav.setAttribute('aria-modal', 'true');
+    mobileNav.removeAttribute('inert');
+    hamburger.classList.add('is-active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'メニューを閉じる');
+    document.body.classList.add('no-scroll');
+    /* Inert on header logo to prevent focus outside dialog */
+    if (headerLogo) headerLogo.setAttribute('inert', '');
+    /* Inert on main, footer, sticky-cta */
+    document.querySelector('main').setAttribute('inert', '');
+    var footerEl = document.querySelector('footer');
+    if (footerEl) footerEl.setAttribute('inert', '');
+    var stickyCta = document.querySelector('.sticky-cta');
+    if (stickyCta) stickyCta.setAttribute('inert', '');
+    /* Focus the close button */
+    if (closeBtn) closeBtn.focus();
+  }
+
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileNav.classList.contains('is-open');
+      if (isOpen) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        closeMobileNav();
+        hamburger.focus();
+      });
+    }
+
+    mobileNav.querySelectorAll('.mobile-nav__links a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        closeMobileNav();
+        hamburger.focus();
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
+        closeMobileNav();
+        hamburger.focus();
+      }
+    });
+  }
+
+  /* --- Count-up animation for stats --- */
+  function formatValue(val, isDecimal, suffix) {
+    var num = isDecimal ? val.toFixed(1) : Math.floor(val).toLocaleString();
+    return num + suffix;
+  }
+
+  function animateCountUp(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var isDecimal = el.getAttribute('data-decimal') === 'true';
+    var duration = 1800;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = eased * target;
+
+      el.textContent = formatValue(current, isDecimal, suffix);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    if (prefersReduced) {
+      el.textContent = formatValue(target, isDecimal, suffix);
+    } else {
+      requestAnimationFrame(step);
+    }
+  }
+
+  var statsObserved = false;
+  var statsNums = document.querySelectorAll('.stats__num[data-count]');
+  if (statsNums.length > 0) {
+    if (typeof IntersectionObserver === 'undefined') {
+      statsObserved = true;
+      statsNums.forEach(function (el) {
+        animateCountUp(el);
+      });
+    } else {
+      var statsObserver = new IntersectionObserver(function (entries) {
+        if (statsObserved) return;
+        var isVisible = entries.some(function (e) { return e.isIntersecting; });
+        if (isVisible) {
+          statsObserved = true;
+          statsNums.forEach(function (el) { animateCountUp(el); });
+          statsObserver.disconnect();
+        }
+      }, { threshold: 0.3 });
+
+      var statsContainer = statsNums[0] ? statsNums[0].closest('.stats') : null;
+      if (statsContainer) {
+        statsObserver.observe(statsContainer);
+      }
+    }
+  }
+
+  /* --- Scroll-triggered fade-in --- */
+  if (!prefersReduced) {
+    var animSelectors = [
+      '.stats__item', '.pain__item', '.feature', '.result-card',
+      '.trainer-card', '.price-card', '.flow__step', '.voice-card', '.faq__item'
+    ].join(', ');
+    var animTargets = document.querySelectorAll(animSelectors);
+
+    var animArray = Array.from(animTargets);
+
+    animArray.forEach(function (el) {
+      el.classList.add('anim-target');
+    });
+
+    if (typeof IntersectionObserver === 'undefined') {
+      animArray.forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+    } else {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var parent = entry.target.parentElement;
+              var siblings = Array.from(parent.children).filter(function (c) {
+                return c.classList.contains('anim-target');
+              });
+              var idx = siblings.indexOf(entry.target);
+              var delay = idx >= 0 ? idx * 80 : 0;
+
+              entry.target.style.setProperty('--anim-delay', delay + 'ms');
+              entry.target.classList.add('is-visible');
+
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      animArray.forEach(function (el) {
+        observer.observe(el);
+      });
+    }
+  }
+
+  /* --- Demo link click prevention --- */
+  document.querySelectorAll('[data-demo]').forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+    });
+  });
+});
+  </script>
+</body>
+</html>

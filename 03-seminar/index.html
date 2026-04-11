@@ -1,0 +1,3463 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    ============================================================
+    デプロイ時推奨セキュリティヘッダー（サーバー設定で適用）
+    ============================================================
+    Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:;
+    X-Frame-Options: DENY
+    Permissions-Policy: camera=(), microphone=(), geolocation=()
+    X-Content-Type-Options: nosniff
+    Referrer-Policy: strict-origin-when-cross-origin
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+  -->
+
+  <title>GROWTH MARKETING LAB | Web集客・SNS活用マーケティングセミナー</title>
+  <meta name="description" content="集客に悩む中小企業の経営者・マーケティング担当者向け無料マーケティングセミナー。Web集客・SNS活用の実践ノウハウを1日で習得。">
+
+  <!-- OGP（※本番では example.com を実際のドメインに差し替えてください） -->
+  <meta property="og:title" content="GROWTH MARKETING LAB | 無料マーケティングセミナー">
+  <meta property="og:description" content="Web集客・SNS活用の実践ノウハウを1日で習得できる無料セミナー">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/03-seminar/">
+  <meta property="og:image" content="https://example.com/03-seminar/images/hero.jpg">
+  <meta property="og:site_name" content="GROWTH MARKETING LAB">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon: インラインSVG（※本番では .ico / .png ファイルに差し替え推奨） -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%231B3A5C'/><text x='50' y='68' font-size='52' font-weight='bold' fill='%230D9488' text-anchor='middle' font-family='sans-serif'>G</text></svg>">
+
+  <!-- Google Fonts: preconnect + display=swap -->
+  <!-- ※本番ではセルフホスティング推奨（SRI対応・パフォーマンス向上・プライバシー保護） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   GROWTH MARKETING LAB — Inline CSS
+   Trust Corporate: Deep Blue + Teal + Light Grey
+   Fonts: Zen Kaku Gothic New (JP) + Inter (EN sub-font)
+   ============================================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  /* Colors */
+  --c-deep-blue: #1B3A5C;
+  --c-deep-blue-dark: #122842;
+  --c-teal: #0D9488;
+  --c-teal-light: #14B8A6;
+  --c-teal-dark: #0A7A70;
+  --c-white: #FFFFFF;
+  --c-light-grey: #F4F7FA;
+  --c-grey-100: #E8EDF2;
+  --c-grey-200: #D1D9E0;
+  --c-grey-500: #6B7B8D;
+  --c-grey-700: #3A4A5C;
+  --c-text: #1E293B;
+  --c-text-light: #475569;
+  --c-alert: #DC2626;
+
+  /* Repeated rgba values as CSS variables */
+  --c-white-06: rgba(255, 255, 255, 0.06);
+  --c-white-08: rgba(255, 255, 255, 0.08);
+  --c-white-10: rgba(255, 255, 255, 0.1);
+  --c-white-12: rgba(255, 255, 255, 0.12);
+  --c-white-15: rgba(255, 255, 255, 0.15);
+  --c-white-20: rgba(255, 255, 255, 0.2);
+  --c-white-35: rgba(255, 255, 255, 0.35);
+  --c-white-55: rgba(255, 255, 255, 0.55);
+  --c-white-70: rgba(255, 255, 255, 0.7);
+  --c-white-75: rgba(255, 255, 255, 0.75);
+  --c-white-80: rgba(255, 255, 255, 0.8);
+  --c-white-85: rgba(255, 255, 255, 0.85);
+  --c-white-90: rgba(255, 255, 255, 0.9);
+  --c-shadow-blue-04: rgba(27, 58, 92, 0.04);
+  --c-shadow-blue-06: rgba(27, 58, 92, 0.06);
+  --c-shadow-blue-08: rgba(27, 58, 92, 0.08);
+  --c-shadow-blue-10: rgba(27, 58, 92, 0.1);
+  --c-shadow-blue-12: rgba(27, 58, 92, 0.12);
+  --c-teal-08: rgba(13, 148, 136, 0.08);
+  --c-teal-10: rgba(13, 148, 136, 0.1);
+  --c-teal-12: rgba(13, 148, 136, 0.12);
+  --c-teal-20: rgba(13, 148, 136, 0.2);
+  --c-teal-25: rgba(13, 148, 136, 0.25);
+  --c-teal-35: rgba(13, 148, 136, 0.35);
+  --c-teal-45: rgba(13, 148, 136, 0.45);
+  --c-teal-55: rgba(13, 148, 136, 0.55);
+  --c-black-10: rgba(0, 0, 0, 0.1);
+  --c-black-15: rgba(0, 0, 0, 0.15);
+  --c-alert-05: rgba(220, 38, 38, 0.05);
+  --c-alert-15: rgba(220, 38, 38, 0.15);
+  --c-alert-20: rgba(220, 38, 38, 0.2);
+  --c-alert-40: rgba(220, 38, 38, 0.4);
+
+  /* Fonts */
+  --ff-jp: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --ff-en: 'DM Sans', 'Helvetica Neue', sans-serif;
+
+  /* Type Scale (clamp) */
+  --fs-hero: clamp(1.75rem, 4vw + 0.5rem, 3.25rem);
+  --fs-section: clamp(1.5rem, 3vw + 0.5rem, 2.5rem);
+  --fs-sub: clamp(1.125rem, 2vw + 0.25rem, 1.5rem);
+  --fs-body: clamp(0.9375rem, 1vw + 0.5rem, 1.0625rem);
+  --fs-small: clamp(0.8125rem, 0.8vw + 0.4rem, 0.9375rem);
+  --fs-caption: clamp(0.6875rem, 0.6vw + 0.4rem, 0.8125rem);
+
+  /* Spacing */
+  --sp-section: clamp(4rem, 8vw, 7rem);
+  --sp-block: clamp(2rem, 4vw, 3.5rem);
+  --sp-element: clamp(1rem, 2vw, 1.5rem);
+
+  /* Layout */
+  --max-width: 1100px;
+  --header-height: 64px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Z-index */
+  --z-header: 1000;
+  --z-mobile-nav: 999;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration: 0.4s;
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-jp);
+  font-size: var(--fs-body);
+  line-height: 1.8;
+  color: var(--c-text);
+  background-color: var(--c-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+/* Focus */
+:focus-visible {
+  outline: 3px solid var(--c-teal);
+  outline-offset: 3px;
+}
+
+/* SR-only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--c-deep-blue);
+  color: var(--c-white);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  z-index: 10000;
+  font-size: var(--fs-small);
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+/* ---------- Eyebrow (decorative EN labels) ---------- */
+[class$="__eyebrow"] {
+  opacity: 0.45;
+}
+
+/* ---------- Placeholder images ---------- */
+img[data-label] {
+  background: var(--c-grey-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-grey-500);
+  font-size: var(--fs-small);
+  text-align: center;
+  min-height: 200px;
+}
+
+img[data-label]::after {
+  content: attr(data-label);
+}
+
+/* ---------- Animation Targets ---------- */
+.anim-target {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration) var(--ease-out),
+              transform var(--duration) var(--ease-out);
+  transition-delay: var(--anim-delay, 0s);
+}
+
+.anim-target.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* JS disabled fallback: show all anim targets immediately */
+.no-js .anim-target {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  .anim-target {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Disable all hover transforms */
+  .target__item:hover,
+  .pain__card:hover,
+  .voices__card:hover,
+  .btn:hover,
+  .btn:active,
+  .curriculum__part:hover,
+  .bonus__card:hover,
+  .about__main-card:hover,
+  .about__side-card:hover,
+  .voices__arrow:hover {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: var(--z-header);
+  background: var(--c-white-85);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: box-shadow 0.3s ease;
+}
+
+.header.is-scrolled {
+  box-shadow: 0 1px 8px var(--c-shadow-blue-10);
+}
+
+.header__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ff-en);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.03em;
+  color: var(--c-deep-blue);
+}
+
+.header__logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--c-deep-blue);
+  color: var(--c-teal);
+  font-size: 1.125rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+}
+
+/* Hamburger */
+.header__hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  z-index: calc(var(--z-header) + 1);
+}
+
+.header__hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--c-deep-blue);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header__hamburger[aria-expanded="true"] .header__hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__hamburger[aria-expanded="true"] .header__hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.header__hamburger[aria-expanded="true"] .header__hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Nav (mobile-first: hidden) */
+.header__nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(320px, 85vw);
+  height: 100dvh;
+  background: var(--c-white);
+  padding: calc(var(--header-height) + 24px) 24px 24px;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.35s var(--ease-out), visibility 0.35s;
+  z-index: var(--z-mobile-nav);
+  box-shadow: -4px 0 24px var(--c-black-10);
+  overflow-y: auto;
+}
+
+.header__nav.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Close button for mobile nav */
+.header__nav-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  color: var(--c-deep-blue);
+  border-radius: 50%;
+}
+
+.header__nav-close:hover {
+  background: var(--c-light-grey);
+}
+
+.header__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.header__nav-link {
+  display: block;
+  padding: 12px 16px;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
+}
+
+.header__nav-link:hover {
+  background: var(--c-light-grey);
+}
+
+.header__nav-link--cta {
+  margin-top: 12px;
+  background: var(--c-teal);
+  color: var(--c-white);
+  text-align: center;
+  border-radius: var(--radius-full);
+}
+
+.header__nav-link--cta:hover {
+  background: var(--c-teal-dark);
+}
+
+/* Desktop Nav */
+@media (min-width: 768px) {
+  .header__hamburger {
+    display: none;
+  }
+
+  .header__nav-close {
+    display: none;
+  }
+
+  .header__nav {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    transform: none;
+    visibility: visible;
+    box-shadow: none;
+    overflow: visible;
+    transition: none;
+  }
+
+  .header__nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+
+  .header__nav-link {
+    padding: 6px 12px;
+    font-size: var(--fs-small);
+  }
+
+  .header__nav-link--cta {
+    margin-top: 0;
+    margin-left: 8px;
+    padding: 8px 20px;
+  }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  padding: calc(var(--header-height) + 3rem) 20px var(--sp-section);
+  background: linear-gradient(165deg, var(--c-deep-blue) 0%, var(--c-deep-blue-dark) 100%);
+  color: var(--c-white);
+  overflow: hidden;
+}
+
+.hero__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__label {
+  display: inline-block;
+  padding: 6px 18px;
+  background: var(--c-teal-20);
+  border: 1px solid rgba(13, 148, 136, 0.5);
+  border-radius: var(--radius-full);
+  font-family: var(--ff-en);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--c-teal-light);
+  margin-bottom: var(--sp-element);
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: var(--sp-element);
+}
+
+.hero__title-accent {
+  color: var(--c-teal-light);
+}
+
+.hero__lead {
+  font-size: var(--fs-sub);
+  line-height: 1.6;
+  color: var(--c-white-85);
+  margin-bottom: var(--sp-element);
+}
+
+/* Hero badges (ハードル低下) */
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--sp-block);
+}
+
+.hero__badge-item {
+  display: inline-block;
+  padding: 4px 14px;
+  background: var(--c-white-10);
+  border: 1px solid var(--c-white-20);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-white-90);
+  letter-spacing: 0.02em;
+}
+
+.hero__lead strong {
+  color: var(--c-white);
+}
+
+.hero__br-sp {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hero__br-sp {
+    display: none;
+  }
+}
+
+.hero__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: var(--c-white-08);
+  border: 1px solid var(--c-white-12);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sp-block);
+}
+
+.hero__meta-item {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.hero__meta-label {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 2px 12px;
+  background: var(--c-white-15);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.hero__meta-value {
+  font-size: var(--fs-small);
+}
+
+.hero__meta-value--alert {
+  color: #FCA5A5;
+  font-weight: 700;
+}
+
+.hero__cta {
+  text-align: left;
+}
+
+/* Hero BG image */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.3);
+}
+
+/* Hero BG shape */
+.hero__bg-shape {
+  position: absolute;
+  top: -20%;
+  right: -15%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: radial-gradient(circle, var(--c-teal-12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: calc(var(--header-height) + 5rem);
+    padding-bottom: calc(var(--sp-section) + 1rem);
+  }
+
+  .hero__meta {
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+}
+
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+.stats {
+  background: var(--c-teal);
+  padding: 2rem 20px;
+}
+
+.stats__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .stats__inner {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.stats__item {
+  color: var(--c-white);
+}
+
+.stats__number {
+  display: block;
+  font-family: var(--ff-en);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.stats__label {
+  display: block;
+  font-size: var(--fs-small);
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.stats__note {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: var(--fs-caption);
+  color: var(--c-white-55);
+  margin-top: 4px;
+}
+
+/* ============================================================
+   TARGET (こんな方におすすめ)
+   ============================================================ */
+.target {
+  background: var(--c-white);
+  padding: var(--sp-section) 20px;
+}
+
+.target__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.target__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.target__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  line-height: 1.35;
+  margin-bottom: var(--sp-block);
+}
+
+.target__br-sp {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .target__br-sp {
+    display: none;
+  }
+}
+
+.target__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: var(--sp-element);
+}
+
+.target__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 24px;
+  background: var(--c-light-grey);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--c-text);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+
+.target__item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px var(--c-shadow-blue-08);
+}
+
+.target__check {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--c-teal);
+  color: var(--c-white);
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+.target__check svg {
+  width: 18px;
+  height: 18px;
+}
+
+.target__item strong {
+  color: var(--c-deep-blue);
+  font-weight: 700;
+}
+
+.target__note {
+  font-size: var(--fs-small);
+  color: var(--c-grey-500);
+  padding-left: 4px;
+}
+
+/* ============================================================
+   PAIN POINTS (Qualify)
+   ============================================================ */
+.pain {
+  position: relative;
+  background: var(--c-white);
+  padding: var(--sp-section) 20px 0;
+}
+
+.pain__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-bottom: calc(var(--sp-section) + 2rem);
+}
+
+.pain__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.pain__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  line-height: 1.35;
+  margin-bottom: var(--sp-block);
+}
+
+.pain__br-sp {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .pain__br-sp {
+    display: none;
+  }
+}
+
+/* Pain grid: 非対称（大1 + 小2） */
+.pain__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-element);
+  margin-bottom: var(--sp-block);
+}
+
+@media (min-width: 768px) {
+  .pain__grid {
+    grid-template-columns: 1.3fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+  }
+
+  .pain__card--lg {
+    grid-row: 1 / 3;
+  }
+}
+
+.pain__card {
+  padding: 28px 24px;
+  background: var(--c-light-grey);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--c-teal);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+
+.pain__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--c-shadow-blue-08);
+}
+
+.pain__card--lg {
+  background: var(--c-deep-blue);
+  color: var(--c-white);
+  border-left-color: var(--c-teal-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pain__card--lg .pain__card-text {
+  color: var(--c-white-80);
+}
+
+.pain__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  color: var(--c-teal);
+}
+
+.pain__card--lg .pain__icon {
+  color: var(--c-teal-light);
+}
+
+.pain__card-title {
+  font-size: var(--fs-sub);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.pain__card-text {
+  font-size: var(--fs-small);
+  color: var(--c-text-light);
+  line-height: 1.7;
+}
+
+.pain__closing {
+  text-align: center;
+  padding: 28px 24px;
+  background: var(--c-alert-05);
+  border: 1px solid var(--c-alert-15);
+  border-radius: var(--radius-md);
+}
+
+.pain__closing-text {
+  font-size: var(--fs-body);
+  color: var(--c-deep-blue);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.pain__closing-text strong {
+  color: var(--c-alert);
+}
+
+.pain__closing-sub {
+  font-size: var(--fs-small);
+  color: var(--c-text-light);
+}
+
+/* Section Wave */
+.section-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  line-height: 0;
+}
+
+.section-wave--blue {
+  color: var(--c-deep-blue);
+}
+
+.section-wave svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================================
+   ABOUT (Understand + Educate)
+   ============================================================ */
+.about {
+  background: var(--c-deep-blue);
+  color: var(--c-white);
+  padding: var(--sp-section) 20px;
+}
+
+.about__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.about__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal-light);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.about__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.about__title-num {
+  font-family: var(--ff-en);
+  color: var(--c-teal-light);
+}
+
+.about__lead {
+  font-size: var(--fs-body);
+  color: var(--c-white-75);
+  margin-bottom: var(--sp-block);
+}
+
+.about__br-sp {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .about__br-sp {
+    display: none;
+  }
+}
+
+/* About image */
+.about__img-wrap {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.about__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 非対称レイアウト */
+.about__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-element);
+}
+
+@media (min-width: 768px) {
+  .about__layout {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+}
+
+.about__main-card {
+  background: var(--c-white-06);
+  border: 1px solid var(--c-white-10);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.about__main-card:hover {
+  background: var(--c-white-10);
+  border-color: var(--c-white-20);
+}
+
+.about__side {
+  display: grid;
+  gap: var(--sp-element);
+}
+
+.about__side-card {
+  background: var(--c-white-06);
+  border: 1px solid var(--c-white-10);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.about__side-card:hover {
+  background: var(--c-white-10);
+  border-color: var(--c-white-20);
+}
+
+.about__number {
+  font-family: var(--ff-en);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--c-teal-35);
+  line-height: 1;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.about__card-title {
+  font-size: var(--fs-sub);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.about__card-text {
+  font-size: var(--fs-small);
+  color: var(--c-white-75);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band {
+  background: var(--c-teal);
+  padding: var(--sp-block) 20px;
+  text-align: center;
+}
+
+.cta-band--alt {
+  background: linear-gradient(135deg, var(--c-deep-blue) 0%, var(--c-deep-blue-dark) 100%);
+}
+
+.cta-band__inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-element);
+}
+
+.cta-band__text {
+  color: var(--c-white);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+}
+
+.cta-band__text strong {
+  font-weight: 700;
+}
+
+.cta-band__br-sp {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .cta-band__br-sp {
+    display: none;
+  }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  text-align: center;
+  transition: transform 0.25s var(--ease-out),
+              box-shadow 0.25s ease,
+              background 0.25s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--primary {
+  background: var(--c-teal);
+  color: var(--c-white);
+  box-shadow: 0 4px 14px var(--c-teal-35);
+}
+
+.btn--primary:hover {
+  background: var(--c-teal-dark);
+  box-shadow: 0 6px 20px var(--c-teal-45);
+}
+
+.btn--accent {
+  background: var(--c-white);
+  color: var(--c-deep-blue);
+  box-shadow: 0 4px 14px var(--c-black-10);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--accent:hover {
+  background: var(--c-light-grey);
+  box-shadow: 0 6px 20px var(--c-black-15);
+}
+
+.btn--lg {
+  padding: 20px 48px;
+  font-size: 1rem;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.btn__main {
+  font-size: inherit;
+  line-height: 1.3;
+}
+
+.btn__sub {
+  font-size: var(--fs-caption);
+  font-weight: 400;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+/* CTA Pulse Animation */
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 14px var(--c-teal-35);
+  }
+  50% {
+    box-shadow: 0 4px 24px var(--c-teal-55), 0 0 0 8px var(--c-teal-10);
+  }
+}
+
+.btn--pulse {
+  animation: cta-pulse 2.5s ease-in-out infinite;
+}
+
+.btn--pulse:hover {
+  animation: none;
+}
+
+/* Shimmer effect for accent button */
+.btn--accent::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: btn-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes btn-shimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 150%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn--pulse {
+    animation: none;
+  }
+  .btn--accent::after {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Small screen button adjustment */
+@media (min-width: 481px) {
+  /* Default btn--lg styles already defined above (mobile-first) */
+}
+
+/* ============================================================
+   CURRICULUM
+   ============================================================ */
+.curriculum {
+  position: relative;
+  background: var(--c-light-grey);
+  padding: var(--sp-section) 20px calc(var(--sp-section) + 2rem);
+}
+
+.curriculum__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.curriculum__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.curriculum__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: var(--sp-block);
+}
+
+/* Timeline: 大中小の階層 with connector */
+.curriculum__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-element);
+  position: relative;
+  padding-left: 24px;
+}
+
+.curriculum__timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 28px;
+  bottom: 28px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--c-teal-light), var(--c-teal), var(--c-grey-200));
+  border-radius: 1px;
+}
+
+.curriculum__part {
+  position: relative;
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  border-left: 4px solid transparent;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.curriculum__part::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 32px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c-white);
+  border: 3px solid var(--c-teal);
+  z-index: 1;
+}
+
+.curriculum__part--main::before {
+  border-color: var(--c-teal-light);
+  background: var(--c-teal-light);
+}
+
+.curriculum__part--accent::before {
+  border-color: var(--c-grey-200);
+}
+
+.curriculum__part:hover {
+  transform: translateX(4px);
+}
+
+.curriculum__part--main {
+  background: var(--c-deep-blue);
+  color: var(--c-white);
+  border-left-color: var(--c-teal-light);
+  padding: 36px 28px;
+}
+
+.curriculum__part--sub {
+  background: var(--c-white);
+  border-left-color: var(--c-teal);
+  box-shadow: 0 2px 12px var(--c-shadow-blue-06);
+}
+
+.curriculum__part--accent {
+  background: var(--c-white);
+  border-left-color: var(--c-grey-200);
+  box-shadow: 0 1px 6px var(--c-shadow-blue-04);
+  padding: 20px;
+}
+
+.curriculum__part-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.curriculum__time {
+  font-family: var(--ff-en);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.curriculum__part--main .curriculum__time {
+  color: var(--c-white-70);
+}
+
+.curriculum__part-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.curriculum__part--main .curriculum__part-badge {
+  background: var(--c-teal-20);
+  color: var(--c-teal-light);
+}
+
+.curriculum__part--sub .curriculum__part-badge {
+  background: var(--c-teal-10);
+  color: var(--c-teal);
+}
+
+.curriculum__part--accent .curriculum__part-badge {
+  background: var(--c-grey-100);
+  color: var(--c-grey-500);
+}
+
+.curriculum__part-title {
+  font-size: var(--fs-sub);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.curriculum__part--main .curriculum__part-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+}
+
+.curriculum__part--accent .curriculum__part-title {
+  font-size: var(--fs-body);
+}
+
+.curriculum__topics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.curriculum__topic {
+  position: relative;
+  padding-left: 20px;
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.curriculum__topic::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-teal);
+}
+
+.curriculum__part--main .curriculum__topic::before {
+  background: var(--c-teal-light);
+}
+
+.curriculum__part--accent .curriculum__topic::before {
+  background: var(--c-grey-200);
+  width: 6px;
+  height: 6px;
+}
+
+.curriculum__part--main .curriculum__topic {
+  color: var(--c-white-85);
+}
+
+/* Section Slant */
+.section-slant {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--c-white);
+  clip-path: polygon(0 100%, 100% 40%, 100% 100%);
+}
+
+/* ============================================================
+   SPEAKER
+   ============================================================ */
+.speaker {
+  background: var(--c-white);
+  padding: var(--sp-section) 20px;
+}
+
+.speaker__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.speaker__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.speaker__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: var(--sp-block);
+}
+
+.speaker__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-block);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .speaker__layout {
+    grid-template-columns: auto 1fr;
+    gap: 48px;
+  }
+}
+
+.speaker__avatar-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.speaker__avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-deep-blue) 0%, var(--c-teal) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speaker__initial {
+  font-family: var(--ff-en);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--c-white);
+  letter-spacing: -0.02em;
+}
+
+.speaker__name {
+  font-size: var(--fs-sub);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: 4px;
+}
+
+.speaker__name-en {
+  display: inline-block;
+  margin-left: 12px;
+  font-family: var(--ff-en);
+  font-size: var(--fs-small);
+  font-weight: 400;
+  color: var(--c-grey-500);
+}
+
+.speaker__role {
+  font-size: var(--fs-small);
+  color: var(--c-text-light);
+  margin-bottom: var(--sp-element);
+}
+
+/* Speaker certification badges */
+.speaker__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--sp-element);
+}
+
+.speaker__cert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  background: var(--c-teal-08);
+  border: 1px solid var(--c-teal-20);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal-dark);
+  white-space: nowrap;
+}
+
+.speaker__career {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.speaker__career-item {
+  position: relative;
+  padding-left: 20px;
+  font-size: var(--fs-small);
+  line-height: 1.7;
+  color: var(--c-text-light);
+}
+
+.speaker__career-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-teal);
+}
+
+.speaker__career-item strong {
+  color: var(--c-teal);
+  font-weight: 700;
+}
+
+/* ============================================================
+   VOICES (カルーセル)
+   ============================================================ */
+.voices {
+  background: var(--c-light-grey);
+  padding: var(--sp-section) 0;
+  overflow: hidden;
+}
+
+.voices__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.voices__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.voices__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: var(--sp-block);
+}
+
+.voices__carousel {
+  position: relative;
+}
+
+.voices__track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+
+.voices__track::-webkit-scrollbar {
+  display: none;
+}
+
+.voices__card {
+  flex: 0 0 min(320px, 85vw);
+  scroll-snap-align: start;
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px var(--c-shadow-blue-06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+
+.voices__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--c-shadow-blue-12);
+}
+
+.voices__rating {
+  color: #F59E0B;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.voices__quote {
+  flex: 1;
+}
+
+.voices__quote-text {
+  font-size: var(--fs-small);
+  color: var(--c-text-light);
+  line-height: 1.8;
+}
+
+.voices__quote strong {
+  color: var(--c-deep-blue);
+  font-weight: 700;
+}
+
+.voices__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--c-grey-100);
+}
+
+.voices__author-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--c-deep-blue);
+  color: var(--c-teal-light);
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.voices__author-name {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--c-text);
+}
+
+.voices__author-role {
+  font-size: var(--fs-caption);
+  color: var(--c-grey-500);
+}
+
+.voices__disclaimer {
+  font-size: var(--fs-caption);
+  color: var(--c-grey-500);
+  margin-top: 4px;
+}
+
+/* Carousel Controls */
+.voices__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: var(--sp-element);
+}
+
+.voices__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--c-white);
+  box-shadow: 0 2px 8px var(--c-shadow-blue-10);
+  color: var(--c-deep-blue);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.voices__arrow:hover {
+  background: var(--c-deep-blue);
+  color: var(--c-white);
+  transform: scale(1.05);
+}
+
+.voices__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.voices__dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.voices__dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-grey-200);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.voices__dot.is-active::after {
+  background: var(--c-teal);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* Small screen voices card */
+@media (min-width: 481px) {
+  /* Default voices__card sizing already mobile-first */
+}
+
+/* ============================================================
+   BONUS (参加者特典)
+   ============================================================ */
+.bonus {
+  background: var(--c-light-grey);
+  padding: var(--sp-section) 20px;
+}
+
+.bonus__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.bonus__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.bonus__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: var(--sp-block);
+}
+
+.bonus__title-accent {
+  color: var(--c-teal);
+}
+
+.bonus__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-element);
+}
+
+@media (min-width: 768px) {
+  .bonus__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+.bonus__card {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px var(--c-shadow-blue-06);
+  border-top: 3px solid var(--c-teal);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+
+.bonus__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--c-shadow-blue-10);
+}
+
+.bonus__number {
+  font-family: var(--ff-en);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--c-teal-25);
+  line-height: 1;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.bonus__card-title {
+  font-size: var(--fs-sub);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.bonus__card-text {
+  font-size: var(--fs-small);
+  color: var(--c-text-light);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   DETAILS
+   ============================================================ */
+.details {
+  background: var(--c-white);
+  padding: var(--sp-section) 20px;
+}
+
+.details__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.details__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.details__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: var(--sp-block);
+}
+
+.details__table-wrap {
+  overflow-x: auto;
+}
+
+.details__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Mobile-first: stacked layout */
+.details__th,
+.details__td {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  font-size: var(--fs-small);
+  line-height: 1.7;
+  vertical-align: top;
+}
+
+.details__th {
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  background: var(--c-light-grey);
+  white-space: nowrap;
+  padding-bottom: 4px;
+}
+
+.details__td {
+  color: var(--c-text-light);
+  border-bottom: 1px solid var(--c-grey-100);
+}
+
+.details__td strong {
+  color: var(--c-teal);
+  font-weight: 700;
+}
+
+.details__td small {
+  display: block;
+  margin-top: 4px;
+  color: var(--c-grey-500);
+  font-size: var(--fs-caption);
+}
+
+@media (min-width: 481px) {
+  .details__th,
+  .details__td {
+    display: table-cell;
+    padding: 16px 20px;
+  }
+
+  .details__th {
+    width: 140px;
+    border-bottom: 1px solid var(--c-grey-100);
+    padding-bottom: 16px;
+  }
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq {
+  background: var(--c-light-grey);
+  padding: var(--sp-section) 20px;
+}
+
+.faq__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.faq__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: var(--sp-block);
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq__item {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 1px 4px var(--c-shadow-blue-04);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 24px;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.2s ease;
+}
+
+.faq__question:hover {
+  background: var(--c-light-grey);
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question::after {
+  content: '';
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B3A5C' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.faq__item[open] .faq__question::after {
+  transform: rotate(180deg);
+}
+
+.faq__answer {
+  padding: 0 24px 20px;
+}
+
+.faq__answer-text {
+  font-size: var(--fs-small);
+  color: var(--c-text-light);
+  line-height: 1.8;
+}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final-cta {
+  background: linear-gradient(165deg, var(--c-deep-blue) 0%, var(--c-deep-blue-dark) 100%);
+  color: var(--c-white);
+  padding: var(--sp-section) 20px;
+  text-align: center;
+}
+
+.final-cta__inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.final-cta__badge {
+  display: inline-block;
+  padding: 4px 16px;
+  background: var(--c-alert-20);
+  border: 1px solid var(--c-alert-40);
+  color: #FCA5A5;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--sp-element);
+}
+
+.final-cta__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: var(--sp-element);
+}
+
+.final-cta__lead {
+  font-size: var(--fs-small);
+  color: var(--c-white-70);
+  margin-bottom: var(--sp-block);
+}
+
+.final-cta__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  margin-bottom: var(--sp-element);
+}
+
+.final-cta__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.final-cta__label {
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  color: var(--c-white-80);
+}
+
+.final-cta__input {
+  padding: 14px 16px;
+  border: 1px solid var(--c-white-20);
+  border-radius: var(--radius-sm);
+  background: var(--c-white-08);
+  color: var(--c-white);
+  font-family: var(--ff-jp);
+  font-size: var(--fs-body);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.final-cta__input::placeholder {
+  color: var(--c-white-35);
+}
+
+.final-cta__input:focus {
+  border-color: var(--c-teal);
+  background: var(--c-white-12);
+}
+
+.final-cta__input:focus-visible {
+  outline: 2px solid var(--c-teal);
+  outline-offset: 2px;
+}
+
+.final-cta__consent {
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.final-cta__consent-label {
+  font-size: 0.8125rem;
+  color: var(--c-white-80);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.final-cta__consent-check {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--c-teal);
+}
+
+.final-cta__consent a {
+  color: var(--c-teal-light);
+  text-decoration: underline;
+}
+
+/* CTA Reassurance list */
+.final-cta__reassurance {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+.final-cta__reassurance-item {
+  font-size: var(--fs-caption);
+  color: var(--c-white-55);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--c-deep-blue-dark);
+  color: var(--c-white-70);
+  padding: 2rem 20px;
+  text-align: center;
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-white-70);
+}
+
+.footer__logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--c-white-10);
+  color: var(--c-teal-light);
+  font-family: var(--ff-en);
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.footer__logo-text {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.footer__copy {
+  font-size: var(--fs-caption);
+}
+
+.footer__note {
+  font-size: var(--fs-caption);
+  color: var(--c-white-55);
+}
+
+/* ============================================================
+   RESPONSIVE: 1024px
+   ============================================================ */
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 72px;
+  }
+
+  .hero__inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .pain__grid {
+    gap: 24px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE: small screens (mobile-first refinement)
+   ============================================================ */
+/* Small screen adjustments moved inline above (details table, btn--lg) */
+/* The hero meta small-screen adjustments */
+.hero__meta-item {
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 481px) {
+  .hero__meta-item {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .btn--lg {
+    padding: 20px 48px;
+    font-size: 1rem;
+  }
+
+  .voices__card {
+    flex: 0 0 min(320px, 85vw);
+    padding: 28px 24px;
+  }
+}
+</style>
+
+</head>
+<body>
+  <!-- スキップリンク -->
+  <a href="#main" class="skip-link">メインコンテンツへ</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo" data-demo="true">
+        <span class="header__logo-mark">G</span>
+        <span class="header__logo-text">GROWTH MARKETING LAB</span>
+      </a>
+
+      <button class="header__hamburger" type="button"
+              aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="header__hamburger-line"></span>
+        <span class="header__hamburger-line"></span>
+        <span class="header__hamburger-line"></span>
+      </button>
+
+      <nav class="header__nav" id="mobile-nav" aria-label="メインナビゲーション">
+        <button class="header__nav-close" type="button" aria-label="メニューを閉じる">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <ul class="header__nav-list">
+          <li><a href="#about" class="header__nav-link">学べること</a></li>
+          <li><a href="#speaker" class="header__nav-link">講師紹介</a></li>
+          <li><a href="#voices" class="header__nav-link">参加者の声</a></li>
+          <li><a href="#bonus" class="header__nav-link">特典</a></li>
+          <li><a href="#faq" class="header__nav-link">FAQ</a></li>
+          <li><a href="#final-cta" class="header__nav-link header__nav-link--cta">無料で申し込む</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main id="main">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <picture>
+          <source srcset="images/hero.webp" type="image/webp" sizes="100vw">
+          <img src="images/hero.jpg" alt="" class="hero__bg-img" width="1200" height="800" loading="eager" fetchpriority="high" aria-hidden="true">
+        </picture>
+      </div>
+      <div class="hero__inner">
+        <p class="hero__label anim-target">無料セミナー｜定員30名｜初心者歓迎</p>
+        <h1 class="hero__title anim-target" style="--anim-delay:0.1s">
+          集客に悩む経営者のための<br>
+          <span class="hero__title-accent">実践マーケティング</span>セミナー
+        </h1>
+        <p class="hero__lead anim-target" style="--anim-delay:0.2s">
+          Web集客・SNS活用・広告最適化<br class="hero__br-sp">の3本柱を<strong>1日で習得</strong>
+        </p>
+        <ul class="hero__badges anim-target" style="--anim-delay:0.25s">
+          <li class="hero__badge-item">予備知識不要</li>
+          <li class="hero__badge-item">手ぶらでOK</li>
+          <li class="hero__badge-item">特典資料つき</li>
+        </ul>
+        <div class="hero__meta anim-target" style="--anim-delay:0.3s">
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">日時</span>
+            <span class="hero__meta-value">2026年5月17日（日）13:00-17:00</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">会場</span>
+            <span class="hero__meta-value">東京・渋谷マークシティ 5F</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">定員</span>
+            <span class="hero__meta-value hero__meta-value--alert">残席わずか（定員30名）</span>
+          </div>
+        </div>
+        <div class="hero__cta anim-target" style="--anim-delay:0.4s">
+          <a href="#final-cta" class="btn btn--primary btn--lg btn--pulse">
+            <span class="btn__main">無料で席を確保する</span>
+            <span class="btn__sub">参加費無料・途中退室OK・営業なし</span>
+          </a>
+        </div>
+      </div>
+      <!-- Hero背景装飾（画像の上にオーバーレイとして残す） -->
+      <div class="hero__bg-shape" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== TARGET (こんな方におすすめ / Qualify強化) ===== -->
+    <section class="target" id="target">
+      <div class="target__inner">
+        <p class="target__eyebrow anim-target" aria-hidden="true">Who Is This For?</p>
+        <h2 class="target__title anim-target">こんな方に<br class="target__br-sp">おすすめです</h2>
+        <ul class="target__list">
+          <li class="target__item anim-target">
+            <span class="target__check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span>Web集客を始めたいが、何から手をつけるべきか分からない<strong>経営者</strong></span>
+          </li>
+          <li class="target__item anim-target" style="--anim-delay:0.05s">
+            <span class="target__check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span>SNSを運用しているが成果が出ず、正しいやり方を学びたい<strong>マーケティング担当者</strong></span>
+          </li>
+          <li class="target__item anim-target" style="--anim-delay:0.1s">
+            <span class="target__check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span>広告費をかけているが費用対効果が見えず、<strong>改善方法を知りたい方</strong></span>
+          </li>
+          <li class="target__item anim-target" style="--anim-delay:0.15s">
+            <span class="target__check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span>1人でマーケ業務を担当しており、<strong>体系的に学び直したい方</strong></span>
+          </li>
+        </ul>
+        <p class="target__note anim-target" style="--anim-delay:0.2s">
+          ※ マーケティング初心者の方でも安心してご参加いただけます。専門用語は噛み砕いてお伝えします。
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== PAIN POINTS (Qualify) ===== -->
+    <section class="pain" id="pain">
+      <div class="pain__inner">
+        <p class="pain__eyebrow anim-target" aria-hidden="true">Before You Miss Out</p>
+        <h2 class="pain__title anim-target">こんなお悩み、<br class="pain__br-sp">ありませんか？</h2>
+        <div class="pain__grid">
+          <div class="pain__card pain__card--lg anim-target">
+            <span class="pain__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="24" cy="24" r="20"/><path d="M24 14v12l8 4"/>
+              </svg>
+            </span>
+            <h3 class="pain__card-title">Webサイトを作ったが<br>アクセスが増えない</h3>
+            <p class="pain__card-text">SEOもSNSも手探り状態。何から始めればいいか分からず、時間だけが過ぎていく。</p>
+          </div>
+          <div class="pain__card anim-target" style="--anim-delay:0.1s">
+            <span class="pain__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="6" y="10" width="36" height="28" rx="4"/><path d="M16 24h16M16 30h10"/>
+              </svg>
+            </span>
+            <h3 class="pain__card-title">SNSを毎日更新しているが<br>反応がゼロ</h3>
+            <p class="pain__card-text">投稿しても「いいね」もフォロワーも増えない。正しいやり方が分からない。</p>
+          </div>
+          <div class="pain__card anim-target" style="--anim-delay:0.2s">
+            <span class="pain__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 36V20l12-8 12 8v16"/><path d="M20 36v-8h8v8"/>
+              </svg>
+            </span>
+            <h3 class="pain__card-title">広告費をかけても<br>成果が見えない</h3>
+            <p class="pain__card-text">リスティング広告やSNS広告に投資しても、費用対効果が不透明。</p>
+          </div>
+        </div>
+        <div class="pain__closing anim-target">
+          <p class="pain__closing-text">
+            <strong>この知識なしにSNS運用・Web集客を続けると、</strong><br>
+            競合との差は広がるばかりです。
+          </p>
+          <p class="pain__closing-sub">今のやり方に少しでも不安があるなら、それは変わるべきサインです。</p>
+        </div>
+      </div>
+      <!-- セクション区切り: ウェーブSVG -->
+      <div class="section-wave section-wave--blue" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80Z" fill="currentColor"/></svg>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT (Understand + Educate) ===== -->
+    <section class="about" id="about">
+      <div class="about__inner">
+        <p class="about__eyebrow anim-target" aria-hidden="true">What You'll Learn</p>
+        <h2 class="about__title anim-target">このセミナーで<br>学べる<span class="about__title-num">3</span>つのこと</h2>
+        <p class="about__lead anim-target">
+          現場で即使える実践ノウハウを、<br class="about__br-sp">体系的にお伝えします。
+        </p>
+        <div class="about__img-wrap anim-target">
+          <picture>
+            <source srcset="images/about.webp" type="image/webp" sizes="(min-width: 768px) 720px, 100vw">
+            <img src="images/about.jpg" alt="マーケティング戦略の打ち合わせ風景" class="about__img" width="800" height="534" loading="lazy">
+          </picture>
+        </div>
+        <!-- 非対称レイアウト: 左に大カード、右に小カード2枚 -->
+        <div class="about__layout">
+          <div class="about__main-card anim-target">
+            <span class="about__number" aria-hidden="true">01</span>
+            <h3 class="about__card-title">Web集客の<br>全体設計</h3>
+            <p class="about__card-text">SEO・MEO・コンテンツマーケティングを連携させた、小さな会社でも勝てる集客導線の作り方。闇雲な施策ではなく、戦略から逆算する思考法を身につけます。</p>
+          </div>
+          <div class="about__side">
+            <div class="about__side-card anim-target" style="--anim-delay:0.15s">
+              <span class="about__number" aria-hidden="true">02</span>
+              <h3 class="about__card-title">SNS運用の<br>勝ちパターン</h3>
+              <p class="about__card-text">Instagram・X・LINEを目的別に使い分け、フォロワーを「見込み客」に変える投稿設計と運用フロー。</p>
+            </div>
+            <div class="about__side-card anim-target" style="--anim-delay:0.3s">
+              <span class="about__number" aria-hidden="true">03</span>
+              <h3 class="about__card-title">広告費を<br>半分にする方法</h3>
+              <p class="about__card-text">ターゲティング精度を上げ、LPの改善で CVR を倍にする。少予算で最大効果を出す広告運用術。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA BAND 1 ===== -->
+    <section class="cta-band" aria-label="セミナー申し込み">
+      <div class="cta-band__inner">
+        <p class="cta-band__text anim-target">
+          <strong>参加費無料。</strong>さらに参加者全員に<br class="cta-band__br-sp">
+          「集客チェックリスト50」をプレゼント。
+        </p>
+        <a href="#final-cta" class="btn btn--accent btn--lg btn--pulse anim-target" style="--anim-delay:0.1s">
+          <span class="btn__main">このスキルを手に入れる</span>
+          <span class="btn__sub">※ 無料・途中退室OK・営業なし</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== CURRICULUM ===== -->
+    <section class="curriculum" id="curriculum">
+      <div class="curriculum__inner">
+        <p class="curriculum__eyebrow anim-target" aria-hidden="true">Curriculum</p>
+        <h2 class="curriculum__title anim-target">カリキュラム</h2>
+        <!-- 階層構造: 大・中・小 -->
+        <div class="curriculum__timeline">
+          <!-- Part 1 (大) -->
+          <div class="curriculum__part curriculum__part--main anim-target">
+            <div class="curriculum__part-header">
+              <span class="curriculum__time">13:00 - 14:15</span>
+              <span class="curriculum__part-badge">Part 1</span>
+            </div>
+            <h3 class="curriculum__part-title">Web集客の全体設計 ― 戦略編</h3>
+            <ul class="curriculum__topics">
+              <li class="curriculum__topic">中小企業が陥る「集客の3つの罠」</li>
+              <li class="curriculum__topic">SEO × MEO × コンテンツの三位一体フレームワーク</li>
+              <li class="curriculum__topic">【ワーク】自社の集客導線を15分で可視化</li>
+            </ul>
+          </div>
+          <!-- Part 2 (中) -->
+          <div class="curriculum__part curriculum__part--sub anim-target" style="--anim-delay:0.1s">
+            <div class="curriculum__part-header">
+              <span class="curriculum__time">14:30 - 15:30</span>
+              <span class="curriculum__part-badge">Part 2</span>
+            </div>
+            <h3 class="curriculum__part-title">SNS運用の勝ちパターン ― 実践編</h3>
+            <ul class="curriculum__topics">
+              <li class="curriculum__topic">プラットフォーム別・投稿設計テンプレート</li>
+              <li class="curriculum__topic">フォロワー→見込み客への転換シナリオ</li>
+            </ul>
+          </div>
+          <!-- Part 3 (小) -->
+          <div class="curriculum__part curriculum__part--accent anim-target" style="--anim-delay:0.2s">
+            <div class="curriculum__part-header">
+              <span class="curriculum__time">15:45 - 17:00</span>
+              <span class="curriculum__part-badge">Part 3</span>
+            </div>
+            <h3 class="curriculum__part-title">広告最適化 &amp; 質疑応答</h3>
+            <ul class="curriculum__topics">
+              <li class="curriculum__topic">少予算で最大効果を出すターゲティング術</li>
+              <li class="curriculum__topic">LP改善で CVR を2倍にした事例</li>
+              <li class="curriculum__topic">Q&amp;Aセッション（個別相談可）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- 斜め背景区切り -->
+      <div class="section-slant" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== SPEAKER ===== -->
+    <section class="speaker" id="speaker">
+      <div class="speaker__inner">
+        <p class="speaker__eyebrow anim-target" aria-hidden="true">Speaker</p>
+        <h2 class="speaker__title anim-target">講師紹介</h2>
+        <!-- 非対称: 左アバター + 右テキスト -->
+        <div class="speaker__layout">
+          <div class="speaker__avatar-wrap anim-target">
+            <div class="speaker__avatar" aria-label="講師 田中 裕也のイニシャル">
+              <span class="speaker__initial">T.Y</span>
+            </div>
+          </div>
+          <div class="speaker__info anim-target" style="--anim-delay:0.15s">
+            <p class="speaker__name">田中 裕也<span class="speaker__name-en">Yuya Tanaka</span></p>
+            <p class="speaker__role">株式会社グロースパートナーズ 代表取締役 / マーケティングコンサルタント</p>
+            <div class="speaker__badges">
+              <span class="speaker__cert-badge">Google 認定プロフェッショナル</span>
+              <span class="speaker__cert-badge">Meta Blueprint 認定</span>
+              <span class="speaker__cert-badge">著書累計3万部</span>
+            </div>
+            <ul class="speaker__career">
+              <li class="speaker__career-item">大手広告代理店にて10年間、300社以上のWebマーケティングを支援</li>
+              <li class="speaker__career-item">独立後、中小企業特化のコンサルティング事業を創業</li>
+              <li class="speaker__career-item">支援企業の平均売上成長率 <strong>187%</strong>（自社調べ）</li>
+              <li class="speaker__career-item">著書「小さな会社のWeb集客大全」（累計3万部）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS BAR (参加者の声の前に配置) ===== -->
+    <section class="stats" aria-label="実績数値">
+      <div class="stats__inner">
+        <div class="stats__item anim-target">
+          <span class="stats__number" data-count="2480" data-suffix="名" aria-hidden="true">0</span>
+          <span class="sr-only">2,480名</span>
+          <span class="stats__label">累計参加者数</span>
+        </div>
+        <div class="stats__item anim-target" style="--anim-delay:0.1s">
+          <span class="stats__number" data-count="96.8" data-suffix="%" aria-hidden="true">0</span>
+          <span class="sr-only">96.8%</span>
+          <span class="stats__label">参加者満足度</span>
+        </div>
+        <div class="stats__item anim-target" style="--anim-delay:0.2s">
+          <span class="stats__number" data-count="73" data-suffix="%" aria-hidden="true">0</span>
+          <span class="sr-only">73%</span>
+          <span class="stats__label">リピート参加率</span>
+        </div>
+      </div>
+      <p class="stats__note">※ 2024年1月〜2025年12月の自社アンケート調べ（個人差があります）</p>
+    </section>
+
+    <!-- ===== VOICES (カルーセル) ===== -->
+    <section class="voices" id="voices">
+      <div class="voices__inner">
+        <p class="voices__eyebrow anim-target" aria-hidden="true">Voices</p>
+        <h2 class="voices__title anim-target">過去参加者の声</h2>
+        <div class="voices__carousel" aria-label="参加者の声カルーセル" role="region">
+          <div class="voices__track">
+            <!-- Voice 1 -->
+            <article class="voices__card">
+              <div class="voices__rating" aria-label="評価: 5つ星中5">
+                <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <div class="voices__quote">
+                <p class="voices__quote-text">正直、<strong>最初は半信半疑</strong>でした。無料セミナーなんて宣伝ばかりだろうと。でも実際は具体的なノウハウの連続で、翌日から即実践できました。3ヶ月でWeb経由の問い合わせが4倍に。</p>
+              </div>
+              <div class="voices__author">
+                <span class="voices__author-avatar" aria-hidden="true">S.M</span>
+                <div>
+                  <p class="voices__author-name">S.M 様</p>
+                  <p class="voices__author-role">飲食店経営・40代</p>
+                </div>
+              </div>
+              <p class="voices__disclaimer">※ 個人の感想です。効果には個人差があります。</p>
+            </article>
+            <!-- Voice 2 -->
+            <article class="voices__card">
+              <div class="voices__rating" aria-label="評価: 5つ星中5">
+                <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <div class="voices__quote">
+                <p class="voices__quote-text">SNSの投稿テンプレートが特に役立ちました。セミナー後にInstagramのフォロワーが2ヶ月で500人増え、そこから月5件の新規受注につながっています。</p>
+              </div>
+              <div class="voices__author">
+                <span class="voices__author-avatar" aria-hidden="true">K.T</span>
+                <div>
+                  <p class="voices__author-name">K.T 様</p>
+                  <p class="voices__author-role">Web制作会社 マーケ担当・30代</p>
+                </div>
+              </div>
+              <p class="voices__disclaimer">※ 個人の感想です。効果には個人差があります。</p>
+            </article>
+            <!-- Voice 3 -->
+            <article class="voices__card">
+              <div class="voices__rating" aria-label="評価: 5つ星中4">
+                <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+              </div>
+              <div class="voices__quote">
+                <p class="voices__quote-text">正直、<strong>無料セミナーにはあまり期待していませんでした。</strong>「結局営業でしょ」と。ただ広告費を月50万使っても成果が出ず、藁にもすがる思いで参加。結果的にターゲティングの見直しだけで月25万に削減でき、問い合わせ数はむしろ増えました。もっと早く来ればよかった。</p>
+              </div>
+              <div class="voices__author">
+                <span class="voices__author-avatar" aria-hidden="true">A.R</span>
+                <div>
+                  <p class="voices__author-name">A.R 様</p>
+                  <p class="voices__author-role">不動産会社 代表・50代</p>
+                </div>
+              </div>
+              <p class="voices__disclaimer">※ 個人の感想です。効果には個人差があります。</p>
+            </article>
+            <!-- Voice 4 -->
+            <article class="voices__card">
+              <div class="voices__rating" aria-label="評価: 5つ星中5">
+                <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <div class="voices__quote">
+                <p class="voices__quote-text">他のセミナーと違って、ワークの時間がしっかりあるのが良かった。自社の課題を具体的に整理できたので、帰ってすぐアクションプランを作れました。</p>
+              </div>
+              <div class="voices__author">
+                <span class="voices__author-avatar" aria-hidden="true">Y.H</span>
+                <div>
+                  <p class="voices__author-name">Y.H 様</p>
+                  <p class="voices__author-role">ITサービス マーケ部長・40代</p>
+                </div>
+              </div>
+              <p class="voices__disclaimer">※ 個人の感想です。効果には個人差があります。</p>
+            </article>
+            <!-- Voice 5 -->
+            <article class="voices__card">
+              <div class="voices__rating" aria-label="評価: 5つ星中5">
+                <span aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              </div>
+              <div class="voices__quote">
+                <p class="voices__quote-text">1人でマーケを担当していて孤独だったのですが、同じ悩みを持つ参加者と交流できたのも大きな収穫。セミナー後の懇親会で知り合った方とは今も情報交換しています。</p>
+              </div>
+              <div class="voices__author">
+                <span class="voices__author-avatar" aria-hidden="true">M.K</span>
+                <div>
+                  <p class="voices__author-name">M.K 様</p>
+                  <p class="voices__author-role">EC事業・30代</p>
+                </div>
+              </div>
+              <p class="voices__disclaimer">※ 個人の感想です。効果には個人差があります。</p>
+            </article>
+          </div>
+          <!-- カルーセル操作 -->
+          <div class="voices__controls">
+            <button class="voices__arrow voices__arrow--prev" type="button" aria-label="前の口コミへ">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="voices__dots" role="tablist" aria-label="口コミページ"></div>
+            <button class="voices__arrow voices__arrow--next" type="button" aria-label="次の口コミへ">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA BAND 2 ===== -->
+    <section class="cta-band cta-band--alt" aria-label="セミナー申し込み（2）">
+      <div class="cta-band__inner">
+        <p class="cta-band__text anim-target">
+          知識がないまま集客を続ける<strong>「機会損失」</strong>を<br class="cta-band__br-sp">
+          今日で終わりにしませんか？
+        </p>
+        <a href="#final-cta" class="btn btn--primary btn--lg btn--pulse anim-target" style="--anim-delay:0.1s">
+          <span class="btn__main">参加者の声を信じて申し込む</span>
+          <span class="btn__sub">※ 満足度96.8%（自社アンケート調べ）</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== BONUS (返報性トリガー) ===== -->
+    <section class="bonus" id="bonus">
+      <div class="bonus__inner">
+        <p class="bonus__eyebrow anim-target" aria-hidden="true">Bonus</p>
+        <h2 class="bonus__title anim-target">参加者限定<span class="bonus__title-accent">3大特典</span></h2>
+        <div class="bonus__grid">
+          <div class="bonus__card anim-target">
+            <span class="bonus__number" aria-hidden="true">01</span>
+            <h3 class="bonus__card-title">集客チェックリスト50</h3>
+            <p class="bonus__card-text">自社の集客状況を50項目で診断できるPDF資料。セミナー翌日にメールで配布します。</p>
+          </div>
+          <div class="bonus__card anim-target" style="--anim-delay:0.1s">
+            <span class="bonus__number" aria-hidden="true">02</span>
+            <h3 class="bonus__card-title">SNS投稿テンプレート集</h3>
+            <p class="bonus__card-text">Instagram・X・LINE向けの投稿テンプレート。コピペで使える実践フォーマット。</p>
+          </div>
+          <div class="bonus__card anim-target" style="--anim-delay:0.2s">
+            <span class="bonus__number" aria-hidden="true">03</span>
+            <h3 class="bonus__card-title">参加者限定コミュニティ招待</h3>
+            <p class="bonus__card-text">セミナー後も情報交換・質問ができるオンラインコミュニティにご招待。同じ課題を持つ仲間とつながれます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DETAILS ===== -->
+    <section class="details" id="details">
+      <div class="details__inner">
+        <p class="details__eyebrow anim-target" aria-hidden="true">Details</p>
+        <h2 class="details__title anim-target">開催概要</h2>
+        <div class="details__table-wrap anim-target">
+          <table class="details__table">
+            <tbody>
+              <tr>
+                <th class="details__th">セミナー名</th>
+                <td class="details__td">GROWTH MARKETING LAB &#8212; Web集客・SNS活用マーケティングセミナー</td>
+              </tr>
+              <tr>
+                <th class="details__th">日時</th>
+                <td class="details__td">2026年5月17日（日）13:00 &#8211; 17:00（受付 12:30〜）</td>
+              </tr>
+              <tr>
+                <th class="details__th">会場</th>
+                <td class="details__td">渋谷マークシティ ウエスト5F カンファレンスルーム<br><small>〒150-0043 東京都渋谷区道玄坂1-12-1</small></td>
+              </tr>
+              <tr>
+                <th class="details__th">定員</th>
+                <td class="details__td">30名（先着順・定員になり次第締切）</td>
+              </tr>
+              <tr>
+                <th class="details__th">参加費</th>
+                <td class="details__td"><strong>無料</strong></td>
+              </tr>
+              <tr>
+                <th class="details__th">特典</th>
+                <td class="details__td">3大特典つき（集客チェックリスト50 / SNS投稿テンプレート集 / 限定コミュニティ招待）</td>
+              </tr>
+              <tr>
+                <th class="details__th">持ち物</th>
+                <td class="details__td">名刺（お持ちの方）、筆記用具。ノートPC推奨（ワークで使用）<br><small>※ 手ぶらでも参加いただけます。資料は全てPDFで配布します。</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq">
+      <div class="faq__inner">
+        <p class="faq__eyebrow anim-target" aria-hidden="true">FAQ</p>
+        <h2 class="faq__title anim-target">よくあるご質問</h2>
+        <div class="faq__list">
+          <details class="faq__item anim-target">
+            <summary class="faq__question">マーケティングの知識がまったくなくても参加できますか？</summary>
+            <div class="faq__answer">
+              <p class="faq__answer-text">はい、初心者の方を対象としたセミナーです。専門用語は噛み砕いて説明しますので、安心してご参加ください。</p>
+            </div>
+          </details>
+          <details class="faq__item anim-target" style="--anim-delay:0.05s">
+            <summary class="faq__question">本当に無料ですか？後から費用が発生しませんか？</summary>
+            <div class="faq__answer">
+              <p class="faq__answer-text">完全無料です。セミナー後に弊社サービスのご案内はございますが、強引な営業は一切いたしません。</p>
+            </div>
+          </details>
+          <details class="faq__item anim-target" style="--anim-delay:0.1s">
+            <summary class="faq__question">オンラインでの参加は可能ですか？</summary>
+            <div class="faq__answer">
+              <p class="faq__answer-text">今回は会場参加のみとなります。ワークやグループディスカッションがあるため、対面での開催としております。</p>
+            </div>
+          </details>
+          <details class="faq__item anim-target" style="--anim-delay:0.15s">
+            <summary class="faq__question">1人での参加でも大丈夫ですか？</summary>
+            <div class="faq__answer">
+              <p class="faq__answer-text">参加者の約8割がお一人でのご参加です。同じ課題を持つ方と自然に交流できる場をご用意しています。</p>
+            </div>
+          </details>
+          <details class="faq__item anim-target" style="--anim-delay:0.2s">
+            <summary class="faq__question">キャンセルはできますか？</summary>
+            <div class="faq__answer">
+              <p class="faq__answer-text">開催3日前までにご連絡いただければキャンセル可能です。席に限りがありますので、お早めにご連絡ください。</p>
+            </div>
+          </details>
+          <details class="faq__item anim-target" style="--anim-delay:0.25s">
+            <summary class="faq__question">駐車場はありますか？</summary>
+            <div class="faq__answer">
+              <p class="faq__answer-text">渋谷マークシティの有料駐車場をご利用いただけます。公共交通機関でのご来場を推奨しております。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta" id="final-cta">
+      <div class="final-cta__inner">
+        <p class="final-cta__badge anim-target">残席わずか</p>
+        <h2 class="final-cta__title anim-target">席に限りがあります。<br>お早めにお申し込みください。</h2>
+        <p class="final-cta__lead anim-target" style="--anim-delay:0.1s">
+          2026年5月17日（日）13:00〜17:00 ｜ 渋谷マークシティ 5F ｜ 参加費無料
+        </p>
+        <form class="final-cta__form anim-target" style="--anim-delay:0.2s" data-demo="true">
+          <div class="final-cta__field">
+            <label for="cta-name" class="final-cta__label">お名前</label>
+            <input type="text" id="cta-name" class="final-cta__input" placeholder="山田 太郎" required>
+          </div>
+          <div class="final-cta__field">
+            <label for="cta-email" class="final-cta__label">メールアドレス</label>
+            <input type="email" id="cta-email" class="final-cta__input" placeholder="example@email.com" required>
+          </div>
+          <div class="final-cta__field">
+            <label for="cta-company" class="final-cta__label">会社名（任意）</label>
+            <input type="text" id="cta-company" class="final-cta__input" placeholder="株式会社○○">
+          </div>
+          <div class="final-cta__consent">
+            <label class="final-cta__consent-label">
+              <input type="checkbox" class="final-cta__consent-check" required>
+              <a href="#" data-demo="true">プライバシーポリシー</a>に同意する
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg btn--full btn--pulse">
+            <span class="btn__main">今すぐ無料で参加する</span>
+            <span class="btn__sub">30秒で完了・3大特典つき</span>
+          </button>
+        </form>
+        <ul class="final-cta__reassurance anim-target" style="--anim-delay:0.3s">
+          <li class="final-cta__reassurance-item">※ 参加費は完全無料です</li>
+          <li class="final-cta__reassurance-item">※ 途中退室OK・強引な営業は一切ありません</li>
+          <li class="final-cta__reassurance-item">※ ご入力いただいた情報はセミナーのご案内にのみ使用いたします</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo-mark">G</span>
+        <span class="footer__logo-text">GROWTH MARKETING LAB</span>
+      </div>
+      <p class="footer__copy">&copy; 2026 GROWTH MARKETING LAB. All rights reserved.</p>
+      <p class="footer__note">※このサイトは架空のセミナーLPです。ポートフォリオ用に制作しました。</p>
+    </div>
+  </footer>
+
+  <!-- FAQ JSON-LD 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "マーケティングの知識がまったくなくても参加できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、初心者の方を対象としたセミナーです。専門用語は噛み砕いて説明しますので、安心してご参加ください。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "本当に無料ですか？後から費用が発生しませんか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "完全無料です。セミナー後に弊社サービスのご案内はございますが、強引な営業は一切いたしません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "オンラインでの参加は可能ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "今回は会場参加のみとなります。ワークやグループディスカッションがあるため、対面での開催としております。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "1人での参加でも大丈夫ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "参加者の約8割がお一人でのご参加です。同じ課題を持つ方と自然に交流できる場をご用意しています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "キャンセルはできますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "開催3日前までにご連絡いただければキャンセル可能です。席に限りがありますので、お早めにご連絡ください。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "駐車場はありますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "渋谷マークシティの有料駐車場をご利用いただけます。公共交通機関でのご来場を推奨しております。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Event JSON-LD 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "GROWTH MARKETING LAB — Web集客・SNS活用マーケティングセミナー",
+    "startDate": "2026-05-17T13:00:00+09:00",
+    "endDate": "2026-05-17T17:00:00+09:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "東京都渋谷区 セミナー会場",
+      "address": {"@type": "PostalAddress", "addressLocality": "渋谷区", "addressRegion": "東京都", "addressCountry": "JP"}
+    },
+    "organizer": {"@type": "Organization", "name": "GROWTH MARKETING LAB"},
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY", "availability": "https://schema.org/LimitedAvailability"},
+    "description": "中小企業の経営者・マーケ担当者向け無料マーケティングセミナー"
+  }
+  </script>
+
+<script>
+/* ============================================================
+   GROWTH MARKETING LAB — Inline JavaScript
+   ============================================================ */
+
+/* ---------- no-js → js ---------- */
+document.documentElement.classList.replace('no-js', 'js');
+
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+
+  /* ========== Utilities ========== */
+  var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function prefersReducedMotion() {
+    return motionQuery.matches;
+  }
+
+  /* Selector injection prevention */
+  function isSafeSelector(sel) {
+    return /^#[\w-]+$/.test(sel);
+  }
+
+  /* Debounce utility */
+  function debounce(fn, delay) {
+    var timer = null;
+    return function () {
+      var context = this;
+      var args = arguments;
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(function () {
+        fn.apply(context, args);
+      }, delay);
+    };
+  }
+
+  /* ========== data-demo handler ========== */
+  document.addEventListener('click', function (e) {
+    var demoEl = e.target.closest('[data-demo]');
+    if (demoEl) {
+      e.preventDefault();
+    }
+  });
+
+  /* Demo form submit prevention */
+  var demoForms = document.querySelectorAll('form[data-demo]');
+  for (var i = 0; i < demoForms.length; i++) {
+    demoForms[i].addEventListener('submit', function (e) {
+      e.preventDefault();
+    });
+  }
+
+  /* ========== Hamburger Menu + inert + dialog ========== */
+  var hamburger = document.querySelector('.header__hamburger');
+  var mobileNav = document.querySelector('#mobile-nav');
+  var closeBtn = document.querySelector('.header__nav-close');
+  var header = document.querySelector('#header');
+  var mainEl = document.querySelector('#main');
+  var footerEl = document.querySelector('.footer');
+  var isNavAnimating = false;
+
+  /* Inert management: set inert on main, footer, and header internal elements (logo/hamburger) */
+  function setInert(enable) {
+    /* Set inert on body-level siblings */
+    var children = document.body.children;
+    for (var j = 0; j < children.length; j++) {
+      var child = children[j];
+      if (child === header || child.classList.contains('skip-link')) continue;
+      if (enable) {
+        child.setAttribute('inert', '');
+      } else {
+        child.removeAttribute('inert');
+      }
+    }
+    /* Also set inert on header children EXCEPT the nav itself and hamburger */
+    var headerLogo = header.querySelector('.header__logo');
+    if (enable) {
+      if (headerLogo) headerLogo.setAttribute('inert', '');
+    } else {
+      if (headerLogo) headerLogo.removeAttribute('inert');
+    }
+  }
+
+  function openMenu() {
+    if (isNavAnimating) return;
+    isNavAnimating = true;
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'メニューを閉じる');
+    mobileNav.setAttribute('role', 'dialog');
+    mobileNav.setAttribute('aria-modal', 'true');
+    mobileNav.classList.add('is-open');
+    document.body.classList.add('no-scroll');
+    setInert(true);
+
+    /* Focus the close button after transition */
+    var onTransitionEnd = function (e) {
+      if (e.propertyName === 'transform') {
+        mobileNav.removeEventListener('transitionend', onTransitionEnd);
+        isNavAnimating = false;
+        if (closeBtn) closeBtn.focus();
+      }
+    };
+    mobileNav.addEventListener('transitionend', onTransitionEnd);
+
+    /* Fallback if transition doesn't fire */
+    setTimeout(function () {
+      if (isNavAnimating) {
+        mobileNav.removeEventListener('transitionend', onTransitionEnd);
+        isNavAnimating = false;
+        if (closeBtn) closeBtn.focus();
+      }
+    }, 400);
+  }
+
+  function closeMenu() {
+    if (isNavAnimating) return;
+    isNavAnimating = true;
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'メニューを開く');
+    mobileNav.classList.remove('is-open');
+    document.body.classList.remove('no-scroll');
+    setInert(false);
+
+    var onTransitionEnd = function (e) {
+      if (e.propertyName === 'transform' || e.propertyName === 'visibility') {
+        mobileNav.removeEventListener('transitionend', onTransitionEnd);
+        mobileNav.removeAttribute('role');
+        mobileNav.removeAttribute('aria-modal');
+        isNavAnimating = false;
+        hamburger.focus();
+      }
+    };
+    mobileNav.addEventListener('transitionend', onTransitionEnd);
+
+    /* Fallback */
+    setTimeout(function () {
+      if (isNavAnimating) {
+        mobileNav.removeEventListener('transitionend', onTransitionEnd);
+        mobileNav.removeAttribute('role');
+        mobileNav.removeAttribute('aria-modal');
+        isNavAnimating = false;
+        hamburger.focus();
+      }
+    }, 400);
+  }
+
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', function () {
+      var isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    /* Close button */
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        closeMenu();
+      });
+    }
+
+    /* Close on nav link click */
+    var navLinks = mobileNav.querySelectorAll('.header__nav-link');
+    for (var k = 0; k < navLinks.length; k++) {
+      navLinks[k].addEventListener('click', function () {
+        closeMenu();
+      });
+    }
+
+    /* Close on Escape */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+  }
+
+  /* ========== Smooth Scroll (JS only — no CSS scroll-behavior) ========== */
+  document.addEventListener('click', function (e) {
+    var anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+
+    var href = anchor.getAttribute('href');
+    if (!isSafeSelector(href)) return;
+
+    var target = document.querySelector(href);
+    if (!target) return;
+
+    e.preventDefault();
+
+    /* Dynamic header height */
+    var headerHeight = header ? header.offsetHeight : 0;
+    var targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    var behavior = prefersReducedMotion() ? 'auto' : 'smooth';
+
+    window.scrollTo({ top: targetTop, behavior: behavior });
+
+    /* Update URL without scrolling */
+    if (history.pushState) {
+      history.pushState(null, '', href);
+    }
+  });
+
+  /* ========== Header Scroll Shadow (RAF throttle) ========== */
+  var headerEl = document.querySelector('.header');
+  var scrollTicking = false;
+
+  function onHeaderScroll() {
+    scrollTicking = false;
+    if (window.scrollY > 10) {
+      headerEl.classList.add('is-scrolled');
+    } else {
+      headerEl.classList.remove('is-scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(onHeaderScroll);
+    }
+  }, { passive: true });
+
+  /* ========== IntersectionObserver Animation ========== */
+  var animSet = new Set();
+
+  function initAnimObserver() {
+    if (!('IntersectionObserver' in window)) {
+      var allTargets = document.querySelectorAll('.anim-target');
+      for (var m = 0; m < allTargets.length; m++) {
+        allTargets[m].classList.add('is-visible');
+      }
+      return;
+    }
+
+    if (prefersReducedMotion()) {
+      var targets = document.querySelectorAll('.anim-target');
+      for (var n = 0; n < targets.length; n++) {
+        targets[n].classList.add('is-visible');
+      }
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !animSet.has(entry.target)) {
+          animSet.add(entry.target);
+          var delay = parseFloat(getComputedStyle(entry.target).getPropertyValue('--anim-delay')) || 0;
+          if (delay > 0.3) {
+            entry.target.style.setProperty('--anim-delay', '0.3s');
+          }
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    var animTargets = document.querySelectorAll('.anim-target');
+    for (var p = 0; p < animTargets.length; p++) {
+      observer.observe(animTargets[p]);
+    }
+  }
+
+  initAnimObserver();
+
+  /* Handle dynamic motion preference changes */
+  motionQuery.addEventListener('change', function () {
+    if (prefersReducedMotion()) {
+      var targets = document.querySelectorAll('.anim-target');
+      for (var q = 0; q < targets.length; q++) {
+        targets[q].classList.add('is-visible');
+      }
+    }
+  });
+
+  /* ========== Count-Up Animation ========== */
+  function formatValue(value, suffix) {
+    if (suffix === '%') {
+      return value % 1 === 0 ? value.toFixed(0) + suffix : value.toFixed(1) + suffix;
+    }
+    if (suffix === '名') {
+      return value.toLocaleString('ja-JP') + suffix;
+    }
+    return value.toLocaleString('ja-JP') + (suffix || '');
+  }
+
+  function animateCountUp(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1500;
+    var startTime = 0;
+    var rafId = 0;
+
+    function step(currentTime) {
+      if (!startTime) startTime = currentTime;
+      var elapsed = currentTime - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = target * eased;
+      el.textContent = formatValue(current, suffix);
+      if (progress < 1) {
+        rafId = requestAnimationFrame(step);
+      } else {
+        el.textContent = formatValue(target, suffix);
+      }
+    }
+
+    rafId = requestAnimationFrame(step);
+  }
+
+  /* Count-up with IntersectionObserver */
+  var countEls = document.querySelectorAll('[data-count]');
+
+  if ('IntersectionObserver' in window && !prefersReducedMotion()) {
+    var countObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCountUp(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    for (var ci = 0; ci < countEls.length; ci++) {
+      countObserver.observe(countEls[ci]);
+    }
+  } else {
+    for (var cj = 0; cj < countEls.length; cj++) {
+      var el = countEls[cj];
+      var countTarget = parseFloat(el.getAttribute('data-count'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      el.textContent = formatValue(countTarget, suffix);
+    }
+  }
+
+  /* ========== Voices Carousel ========== */
+  var track = document.querySelector('.voices__track');
+  var prevBtn = document.querySelector('.voices__arrow--prev');
+  var nextBtn = document.querySelector('.voices__arrow--next');
+  var dotsContainer = document.querySelector('.voices__dots');
+
+  if (track && prevBtn && nextBtn && dotsContainer) {
+    var cards = track.querySelectorAll('.voices__card');
+    var totalCards = cards.length;
+    var currentIndex = 0;
+    var carouselTicking = false;
+
+    function getCardsPerView() {
+      if (!cards[0]) return 1;
+      var trackWidth = track.clientWidth;
+      var cardWidth = cards[0].offsetWidth;
+      var gap = 20;
+      return Math.max(1, Math.round(trackWidth / (cardWidth + gap)));
+    }
+
+    var cardsPerView = getCardsPerView();
+    var totalPages = Math.ceil(totalCards / cardsPerView);
+    var dots;
+
+    function buildDots() {
+      /* Clear existing dots */
+      dotsContainer.textContent = '';
+      cardsPerView = getCardsPerView();
+      totalPages = Math.ceil(totalCards / cardsPerView);
+      if (currentIndex >= totalPages) currentIndex = totalPages - 1;
+
+      for (var di = 0; di < totalPages; di++) {
+        var dot = document.createElement('button');
+        dot.className = 'voices__dot' + (di === currentIndex ? ' is-active' : '');
+        dot.setAttribute('type', 'button');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', 'ページ ' + (di + 1));
+        dot.setAttribute('aria-selected', di === currentIndex ? 'true' : 'false');
+        dot.setAttribute('data-index', String(di));
+        dotsContainer.appendChild(dot);
+      }
+      dots = dotsContainer.querySelectorAll('.voices__dot');
+    }
+
+    buildDots();
+
+    function updateDots() {
+      if (!dots) return;
+      for (var ui = 0; ui < dots.length; ui++) {
+        dots[ui].classList.toggle('is-active', ui === currentIndex);
+        dots[ui].setAttribute('aria-selected', ui === currentIndex ? 'true' : 'false');
+      }
+    }
+
+    function scrollToPage(pageIndex) {
+      if (pageIndex < 0 || pageIndex >= totalPages) return;
+      currentIndex = pageIndex;
+
+      var cardIndex = pageIndex * cardsPerView;
+      if (cardIndex >= totalCards) cardIndex = totalCards - 1;
+
+      if (!carouselTicking) {
+        carouselTicking = true;
+        requestAnimationFrame(function () {
+          carouselTicking = false;
+          var card = cards[cardIndex];
+          var trackRect = track.getBoundingClientRect();
+          var cardRect = card.getBoundingClientRect();
+          var offset = cardRect.left - trackRect.left + track.scrollLeft;
+
+          if (prefersReducedMotion()) {
+            track.scrollLeft = offset;
+          } else {
+            track.scrollTo({ left: offset, behavior: 'smooth' });
+          }
+          updateDots();
+        });
+      }
+    }
+
+    prevBtn.addEventListener('click', function () {
+      scrollToPage(currentIndex > 0 ? currentIndex - 1 : totalPages - 1);
+    });
+
+    nextBtn.addEventListener('click', function () {
+      scrollToPage(currentIndex < totalPages - 1 ? currentIndex + 1 : 0);
+    });
+
+    /* Dot clicks */
+    dotsContainer.addEventListener('click', function (e) {
+      var dotEl = e.target.closest('.voices__dot');
+      if (!dotEl) return;
+      var idx = parseInt(dotEl.getAttribute('data-index'), 10);
+      if (!isNaN(idx)) {
+        scrollToPage(idx);
+      }
+    });
+
+    /* Sync dots on manual scroll */
+    var scrollSyncTicking = false;
+    track.addEventListener('scroll', function () {
+      if (!scrollSyncTicking) {
+        scrollSyncTicking = true;
+        requestAnimationFrame(function () {
+          scrollSyncTicking = false;
+          var trackRect = track.getBoundingClientRect();
+          var closest = 0;
+          var closestDist = Infinity;
+          for (var si = 0; si < cards.length; si++) {
+            var cRect = cards[si].getBoundingClientRect();
+            var dist = Math.abs(cRect.left - trackRect.left);
+            if (dist < closestDist) {
+              closestDist = dist;
+              closest = si;
+            }
+          }
+          var closestPage = Math.floor(closest / cardsPerView);
+          if (closestPage !== currentIndex) {
+            currentIndex = closestPage;
+            updateDots();
+          }
+        });
+      }
+    }, { passive: true });
+
+    /* Resize handler (debounced) — recalculate carousel */
+    window.addEventListener('resize', debounce(function () {
+      buildDots();
+      updateDots();
+    }, 250));
+  }
+
+}); /* End DOMContentLoaded */
+</script>
+
+</body>
+</html>

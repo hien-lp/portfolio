@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LP Works | フリーランスLP制作</title>
+  <meta name="description" content="フリーランスのLP制作者。構成設計からコーディング、薬機法チェックまで一貫対応。スマホファーストで成果につながるLPを制作します。">
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LP Works | フリーランスLP制作">
+  <meta property="og:description" content="構成設計からコーディング、薬機法チェックまで一貫対応。成果につながるLPを制作します。">
+  <meta property="og:url" content="{{OG_URL}}">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:site_name" content="LP Works">
+  <meta property="og:image" content="{{OG_IMAGE_URL}}">
+  <meta name="color-scheme" content="light">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#FAFAFA">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%231A1A1A'/><text x='50' y='68' font-size='48' font-weight='bold' fill='%23FFFFFF' text-anchor='middle' font-family='system-ui'>W</text></svg>">
+  <!-- Security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; connect-src 'none';">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================
+       CSS Variables
+    ============================ */
+    :root {
+      --color-bg: #FAFAFA;
+      --color-white: #FFFFFF;
+      --color-text: #1A1A1A;
+      --color-text-secondary: #5A5A5A;
+      --color-text-light: #767676;
+      --color-border: #E8E8E8;
+      --color-accent: #1A1A1A;
+      --font-ja: 'Noto Sans JP', sans-serif;
+      --font-en: 'Sora', sans-serif;
+      --max-width: 1080px;
+      --section-padding: 100px 0;
+      --transition: 0.3s ease;
+    }
+
+    /* ============================
+       Reset & Base
+    ============================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-ja);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* Focus indicator */
+    :focus-visible {
+      outline: 2px solid var(--color-text);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      background: var(--color-text);
+      color: var(--color-white);
+      padding: 8px 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      z-index: 9999;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Visually hidden (screen reader only) */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ============================
+       Utility
+    ============================ */
+    .container {
+      width: 90%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-light);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 48px;
+    }
+
+    .works-note {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      margin-top: -32px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    /* Scroll animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    /* ============================
+       Header / Navigation
+    ============================ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(250, 250, 250, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      transition: var(--transition);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .header-logo {
+      font-family: var(--font-en);
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .header-nav {
+      display: none;
+    }
+
+    .header-nav a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      margin-left: 32px;
+      transition: color var(--transition);
+    }
+
+    .header-nav a:hover,
+    .header-nav a:focus {
+      color: var(--color-text);
+    }
+
+    .header-cta-btn {
+      display: none;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 8px 20px;
+      background: var(--color-text);
+      color: var(--color-white);
+      border-radius: 6px;
+      transition: opacity var(--transition);
+    }
+
+    .header-cta-btn:hover {
+      opacity: 0.8;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text);
+      border-radius: 1px;
+      transition: var(--transition);
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      padding: 24px 0;
+      z-index: 99;
+    }
+
+    .mobile-nav.is-open {
+      display: block;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 12px 5%;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: color var(--transition);
+    }
+
+    .mobile-nav a:hover {
+      color: var(--color-text);
+    }
+
+    /* ============================
+       Hero
+    ============================ */
+    .hero {
+      padding: 140px 0 80px;
+      text-align: center;
+    }
+
+    .hero-catch {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-sub {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 14px 36px;
+      background: var(--color-text);
+      color: var(--color-white);
+      border-radius: 8px;
+      transition: opacity var(--transition);
+    }
+
+    .hero-cta:hover {
+      opacity: 0.8;
+    }
+
+
+    /* ============================
+       Works Section
+    ============================ */
+    .works {
+      padding: var(--section-padding);
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .work-card {
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .work-card-visual {
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      border-top: 4px solid var(--color-border);
+    }
+
+    .work-card-tag {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--color-text);
+    }
+
+    .work-card-name {
+      font-family: var(--font-en);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      line-height: 1.3;
+      color: var(--color-text-secondary);
+    }
+
+    .work-card-body {
+      padding: 20px 24px;
+    }
+
+    .work-card-badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--color-text-light);
+      border: 1px solid var(--color-border);
+      border-radius: 3px;
+      padding: 2px 8px;
+      margin-bottom: 12px;
+    }
+
+    .work-card-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .work-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-text);
+      transition: gap var(--transition);
+    }
+
+    .work-card-link:hover {
+      gap: 10px;
+    }
+
+    .work-card-link::after {
+      content: '\2192';
+    }
+
+    /* Card 01: Personal Gym — Charcoal / Gold */
+    .work-card--01 .work-card-visual {
+      border-top-color: #2C2C2C;
+    }
+    .work-card--01 .work-card-name {
+      color: #7D5C1E;
+    }
+
+    /* Card 02: Beauty Supplement — Rose */
+    .work-card--02 .work-card-visual {
+      border-top-color: #C7938E;
+    }
+    .work-card--02 .work-card-name {
+      color: #8B4A44;
+    }
+
+    /* Card 03: Seminar — Blue */
+    .work-card--03 .work-card-visual {
+      border-top-color: #1E40AF;
+    }
+    .work-card--03 .work-card-name {
+      color: #1E3A8A;
+    }
+
+    /* Card 04: Online Course — Indigo */
+    .work-card--04 .work-card-visual {
+      border-top-color: #4338CA;
+    }
+    .work-card--04 .work-card-name {
+      color: #3730A3;
+    }
+
+    /* Card 05: Restaurant — Deep Green / Terracotta */
+    .work-card--05 .work-card-visual {
+      border-top-color: #1A3C34;
+    }
+    .work-card--05 .work-card-name {
+      color: #6B4530;
+    }
+
+    /* ============================
+       Strengths Section
+    ============================ */
+    .strengths {
+      padding: var(--section-padding);
+      background: var(--color-white);
+    }
+
+    .strengths-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .strength-item {
+      position: relative;
+      padding-left: 0;
+    }
+
+    .strength-number {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-text-light);
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .strength-heading {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .strength-text {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+    }
+
+    /* ============================
+       Flow Section
+    ============================ */
+    .flow {
+      padding: var(--section-padding);
+    }
+
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .flow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px 0;
+      position: relative;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 60px;
+      bottom: 0;
+      width: 1px;
+      background: var(--color-border);
+    }
+
+    .flow-step-number {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--color-text);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-en);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .flow-step-content {
+      flex: 1;
+      padding-top: 4px;
+    }
+
+    .flow-step-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .flow-step-desc {
+      font-size: 0.8125rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================
+       Profile Section
+    ============================ */
+    .profile {
+      padding: var(--section-padding);
+      background: var(--color-white);
+    }
+
+    .profile-content {
+      max-width: 640px;
+    }
+
+    .profile-text {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .profile-list-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .profile-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .profile-list li {
+      font-size: 0.8125rem;
+      padding: 6px 14px;
+      background: var(--color-bg);
+      border-radius: 6px;
+      color: var(--color-text-secondary);
+    }
+
+    /* ============================
+       CTA Section
+    ============================ */
+    .cta {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-inner {
+      background: var(--color-text);
+      color: var(--color-white);
+      border-radius: 16px;
+      padding: 60px 24px;
+    }
+
+    .cta-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-text {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 14px 40px;
+      background: var(--color-white);
+      color: var(--color-text);
+      border-radius: 8px;
+      transition: opacity var(--transition);
+    }
+
+    .cta-btn:hover {
+      opacity: 0.9;
+    }
+
+    .cta-btn:focus-visible {
+      outline: 2px solid var(--color-white);
+      outline-offset: 3px;
+    }
+
+    .cta-note {
+      margin-top: 16px;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* ============================
+       Footer
+    ============================ */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    .footer-copy {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================
+       Responsive: Tablet (768px+)
+    ============================ */
+    @media (min-width: 768px) {
+      .hero {
+        padding: 180px 0 100px;
+      }
+
+      .hero-catch {
+        font-size: 2.5rem;
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .works-grid .work-card:last-child {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 12px);
+        justify-self: center;
+      }
+
+      .strengths-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 48px;
+      }
+
+      .flow-steps {
+        max-width: 560px;
+      }
+
+      .cta-inner {
+        padding: 80px 40px;
+      }
+
+      .cta-title {
+        font-size: 1.75rem;
+      }
+    }
+
+    /* ============================
+       Responsive: Desktop (1024px+)
+    ============================ */
+    @media (min-width: 1024px) {
+      .header-nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-cta-btn {
+        display: inline-block;
+        margin-left: 32px;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .hero {
+        padding: 200px 0 120px;
+      }
+
+      .hero-catch {
+        font-size: 2.75rem;
+      }
+
+      .work-card-visual {
+        padding: 32px 32px 28px;
+      }
+
+      .work-card-body {
+        padding: 24px 32px;
+      }
+
+      .cta-inner {
+        padding: 100px 60px;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+
+  <!-- ========== Header ========== -->
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a href="./" class="header-logo" aria-label="LP Works トップページ">LP Works</a>
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <a href="#works">Works</a>
+        <a href="#strengths">強み</a>
+        <a href="#flow">制作の流れ</a>
+        <a href="#profile">プロフィール</a>
+      </nav>
+      <a href="#contact" class="header-cta-btn">お問い合わせ</a>
+      <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション" aria-hidden="true">
+      <a href="#works">Works</a>
+      <a href="#strengths">強み</a>
+      <a href="#flow">制作の流れ</a>
+      <a href="#profile">プロフィール</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <!-- ========== Main ========== -->
+  <main id="main-content">
+
+  <!-- ========== Hero ========== -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <h1 id="hero-heading" class="hero-catch fade-in">
+        お問い合わせにつながる<br>LPを、つくります。
+      </h1>
+      <p class="hero-sub fade-in">
+        構成設計・スマホ対応・薬機法チェックまで一貫対応。<br>
+        「見た目」だけでなく「成果」を考えたLP制作。
+      </p>
+      <a href="#works" class="hero-cta fade-in">制作実績を見る</a>
+    </div>
+  </section>
+
+  <!-- ========== Works ========== -->
+  <section class="works" id="works" aria-labelledby="works-heading">
+    <div class="container">
+      <p class="section-label fade-in" aria-hidden="true">Works</p>
+      <h2 id="works-heading" class="section-title fade-in">制作実績</h2>
+      <p class="works-note fade-in">架空の案件を想定して制作したサンプルLPです。構成設計・デザイン・コーディングのすべてを担当しています。</p>
+
+      <div class="works-grid">
+
+        <!-- 01: Personal Gym -->
+        <article class="work-card work-card--01 fade-in">
+          <div class="work-card-visual">
+            <span class="work-card-tag">パーソナルジム</span>
+            <h3 class="work-card-name">BODY CRAFT</h3>
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-badge">サンプルLP</span>
+            <p class="work-card-desc">高級感と信頼性を両立。ビフォーアフターの訴求で体験予約につなげるLP。</p>
+            <a href="./01-personal-gym/" class="work-card-link" target="_blank" rel="noopener noreferrer" aria-label="BODY CRAFTのサンプルLPを見る（新しいタブで開きます）">サンプルLPを見る</a>
+          </div>
+        </article>
+
+        <!-- 02: Beauty Supplement -->
+        <article class="work-card work-card--02 fade-in">
+          <div class="work-card-visual">
+            <span class="work-card-tag">美容サプリ</span>
+            <h3 class="work-card-name">LUNA GLOW</h3>
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-badge">サンプルLP</span>
+            <p class="work-card-desc">薬機法に配慮したコピーで安心訴求。柔らかなトーンで購入導線を設計。</p>
+            <a href="./02-beauty-supplement/" class="work-card-link" target="_blank" rel="noopener noreferrer" aria-label="LUNA GLOWのサンプルLPを見る（新しいタブで開きます）">サンプルLPを見る</a>
+          </div>
+        </article>
+
+        <!-- 03: Seminar -->
+        <article class="work-card work-card--03 fade-in">
+          <div class="work-card-visual">
+            <span class="work-card-tag">セミナー集客</span>
+            <h3 class="work-card-name">GROWTH<br>MARKETING LAB</h3>
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-badge">サンプルLP</span>
+            <p class="work-card-desc">権威性と緊急性を組み合わせた構成。申し込みCVR最大化を意識した設計。</p>
+            <a href="./03-seminar/" class="work-card-link" target="_blank" rel="noopener noreferrer" aria-label="GROWTH MARKETING LABのサンプルLPを見る（新しいタブで開きます）">サンプルLPを見る</a>
+          </div>
+        </article>
+
+        <!-- 04: Online Course -->
+        <article class="work-card work-card--04 fade-in">
+          <div class="work-card-visual">
+            <span class="work-card-tag">オンライン講座</span>
+            <h3 class="work-card-name">DESIGN MASTER<br>ACADEMY</h3>
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-badge">サンプルLP</span>
+            <p class="work-card-desc">カリキュラムと受講者の声を効果的に配置。無料体験への導線を最適化。</p>
+            <a href="./04-online-course/" class="work-card-link" target="_blank" rel="noopener noreferrer" aria-label="DESIGN MASTER ACADEMYのサンプルLPを見る（新しいタブで開きます）">サンプルLPを見る</a>
+          </div>
+        </article>
+
+        <!-- 05: Restaurant -->
+        <article class="work-card work-card--05 fade-in">
+          <div class="work-card-visual">
+            <span class="work-card-tag">飲食店</span>
+            <h3 class="work-card-name">TRATTORIA<br>VERDE</h3>
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-badge">サンプルLP</span>
+            <p class="work-card-desc">素材の魅力を伝えるストーリー構成。予約・来店につなげるCTA設計。</p>
+            <a href="./05-restaurant/" class="work-card-link" target="_blank" rel="noopener noreferrer" aria-label="TRATTORIA VERDEのサンプルLPを見る（新しいタブで開きます）">サンプルLPを見る</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Strengths ========== -->
+  <section class="strengths" id="strengths" aria-labelledby="strengths-heading">
+    <div class="container">
+      <p class="section-label fade-in" aria-hidden="true">Strengths</p>
+      <h2 id="strengths-heading" class="section-title fade-in">選ばれる3つの理由</h2>
+
+      <div class="strengths-grid">
+
+        <div class="strength-item fade-in">
+          <p class="strength-number">01</p>
+          <h3 class="strength-heading">構成設計力</h3>
+          <p class="strength-text">見た目のデザインだけでなく、「どの順番で、何を、どう見せるか」を設計。ファーストビューからCTAまで、ユーザー心理に沿った情報設計でコンバージョンにつなげます。</p>
+        </div>
+
+        <div class="strength-item fade-in">
+          <p class="strength-number">02</p>
+          <h3 class="strength-heading">スマートフォン最適化</h3>
+          <p class="strength-text">LPの閲覧の7〜8割はスマートフォンから。最初からスマホでの見え方を基準に設計・コーディングし、どのデバイスでも快適に閲覧できるLPを制作します。</p>
+        </div>
+
+        <div class="strength-item fade-in">
+          <p class="strength-number">03</p>
+          <h3 class="strength-heading">薬機法・景表法チェック</h3>
+          <p class="strength-text">美容・健康系のLPで気になる薬機法や景表法。表現のチェックを制作料金内で対応します。安心して公開できるLPをお届けします。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Flow ========== -->
+  <section class="flow" id="flow" aria-labelledby="flow-heading">
+    <div class="container">
+      <p class="section-label fade-in" aria-hidden="true">Flow</p>
+      <h2 id="flow-heading" class="section-title fade-in">制作の流れ</h2>
+
+      <ol class="flow-steps">
+
+        <li class="flow-step fade-in">
+          <div class="flow-step-number" aria-hidden="true">1</div>
+          <div class="flow-step-content">
+            <h3 class="flow-step-title">ヒアリング</h3>
+            <p class="flow-step-desc">業種・ターゲット・目的・ご要望をお聞きします。テキストでのやりとりでOKです。</p>
+          </div>
+        </li>
+
+        <li class="flow-step fade-in">
+          <div class="flow-step-number" aria-hidden="true">2</div>
+          <div class="flow-step-content">
+            <h3 class="flow-step-title">構成案ご確認</h3>
+            <p class="flow-step-desc">セクション構成・コピーの方向性をご提案。この段階でしっかりすり合わせます。</p>
+          </div>
+        </li>
+
+        <li class="flow-step fade-in">
+          <div class="flow-step-number" aria-hidden="true">3</div>
+          <div class="flow-step-content">
+            <h3 class="flow-step-title">デザイン・コーディング</h3>
+            <p class="flow-step-desc">確定した構成をもとにデザインとコーディングを進めます。途中経過もご共有します。</p>
+          </div>
+        </li>
+
+        <li class="flow-step fade-in">
+          <div class="flow-step-number" aria-hidden="true">4</div>
+          <div class="flow-step-content">
+            <h3 class="flow-step-title">品質チェック</h3>
+            <p class="flow-step-desc">表示崩れ・リンク切れ・薬機法表現などを最終確認。修正対応も含みます。</p>
+          </div>
+        </li>
+
+        <li class="flow-step fade-in">
+          <div class="flow-step-number" aria-hidden="true">5</div>
+          <div class="flow-step-content">
+            <h3 class="flow-step-title">納品</h3>
+            <p class="flow-step-desc">HTMLファイル一式をお渡しします。納品後の軽微な修正にも対応いたします。</p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== Profile ========== -->
+  <section class="profile" id="profile" aria-labelledby="profile-heading">
+    <div class="container">
+      <p class="section-label fade-in" aria-hidden="true">Profile</p>
+      <h2 id="profile-heading" class="section-title fade-in">プロフィール</h2>
+
+      <div class="profile-content fade-in">
+        <p class="profile-text">
+          LP制作専門のフリーランスです。「どの順番で情報を見せれば行動してもらえるか」を起点に構成を設計し、お問い合わせや申し込みにつながるLPを制作しています。美容・健康系では薬機法を意識した文言チェックも料金内で対応。スマホファーストの設計と、複数視点での品質チェックを徹底しています。
+        </p>
+
+        <p class="profile-list-title">対応可能な業種</p>
+        <ul class="profile-list" role="list">
+          <li>パーソナルジム・フィットネス</li>
+          <li>美容・健康食品</li>
+          <li>セミナー・イベント集客</li>
+          <li>オンライン講座・スクール</li>
+          <li>飲食店・カフェ</li>
+          <li>不動産・住宅</li>
+          <li>士業・コンサルティング</li>
+          <li>EC・通販</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta" id="contact" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner fade-in">
+        <h2 id="cta-heading" class="cta-title">お仕事のご依頼・ご相談</h2>
+        <p class="cta-text">
+          LPの新規制作・リニューアルなど、お気軽にご相談ください。<br>
+          メッセージは24時間以内にご返信いたします。
+        </p>
+        <a href="{{CROWDWORKS_URL}}" class="cta-btn" target="_blank" rel="noopener noreferrer">CrowdWorksでメッセージを送る<span class="visually-hidden">（新しいタブで開きます）</span></a>
+        <p class="cta-note">CrowdWorksのプロフィールページに遷移します</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p class="footer-copy">&copy; <span id="footer-year">2026</span> LP Works</p>
+    </div>
+  </footer>
+
+  <!-- ========== JavaScript ========== -->
+  <script>
+    (function() {
+      'use strict';
+
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+
+      function closeMenu() {
+        mobileNav.classList.remove('is-open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'メニューを開く');
+      }
+
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', function() {
+          const isOpen = mobileNav.classList.toggle('is-open');
+          mobileNav.setAttribute('aria-hidden', String(!isOpen));
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+          menuToggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+          if (isOpen) {
+            const firstLink = mobileNav.querySelector('a');
+            if (firstLink) firstLink.focus();
+          }
+        });
+
+        // Close mobile nav on link click
+        mobileNav.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', closeMenu);
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
+            closeMenu();
+            menuToggle.focus();
+          }
+        });
+      }
+
+      // Scroll animation with IntersectionObserver
+      const fadeElements = document.querySelectorAll('.fade-in');
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        fadeElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        fadeElements.forEach(function(el) {
+          el.classList.add('is-visible');
+        });
+      }
+
+      // Footer year
+      const yearEl = document.getElementById('footer-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+</body>
+</html>
