@@ -20,7 +20,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; img-src 'self' https://images.unsplash.com data:; frame-ancestors 'none'; base-uri 'self'; connect-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; connect-src 'none';">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -355,25 +355,12 @@
     }
 
     .work-card-visual {
-      position: relative;
-      border-top: 4px solid var(--color-border);
-      overflow: hidden;
-    }
-
-    .work-card-thumbnail {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-      filter: saturate(0.9) brightness(1.02);
-    }
-
-    .work-card-info {
-      padding: 20px 24px 16px;
+      padding: 28px 24px 24px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 8px;
+      border-top: 4px solid var(--color-border);
     }
 
     .work-card-tag {
@@ -847,11 +834,8 @@
         <!-- 01: Personal Gym -->
         <article class="work-card work-card--01 fade-in">
           <div class="work-card-visual">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=75" alt="パーソナルジムのトレーニング風景" class="work-card-thumbnail" width="600" height="400" loading="lazy">
-            <div class="work-card-info">
-              <span class="work-card-tag">パーソナルジム</span>
-              <h3 class="work-card-name">BODY CRAFT</h3>
-            </div>
+            <span class="work-card-tag">パーソナルジム</span>
+            <h3 class="work-card-name">BODY CRAFT</h3>
           </div>
           <div class="work-card-body">
             <span class="work-card-badge">サンプルLP</span>
@@ -863,11 +847,8 @@
         <!-- 02: Beauty Supplement -->
         <article class="work-card work-card--02 fade-in">
           <div class="work-card-visual">
-            <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&q=75" alt="美容サプリメントのイメージ" class="work-card-thumbnail" width="600" height="400" loading="lazy">
-            <div class="work-card-info">
-              <span class="work-card-tag">美容サプリ</span>
-              <h3 class="work-card-name">LUNA GLOW</h3>
-            </div>
+            <span class="work-card-tag">美容サプリ</span>
+            <h3 class="work-card-name">LUNA GLOW</h3>
           </div>
           <div class="work-card-body">
             <span class="work-card-badge">サンプルLP</span>
@@ -879,11 +860,8 @@
         <!-- 03: Seminar -->
         <article class="work-card work-card--03 fade-in">
           <div class="work-card-visual">
-            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=75" alt="マーケティングセミナーの風景" class="work-card-thumbnail" width="600" height="400" loading="lazy">
-            <div class="work-card-info">
-              <span class="work-card-tag">セミナー集客</span>
-              <h3 class="work-card-name">GROWTH<br>MARKETING LAB</h3>
-            </div>
+            <span class="work-card-tag">セミナー集客</span>
+            <h3 class="work-card-name">GROWTH<br>MARKETING LAB</h3>
           </div>
           <div class="work-card-body">
             <span class="work-card-badge">サンプルLP</span>
@@ -895,11 +873,8 @@
         <!-- 04: Online Course -->
         <article class="work-card work-card--04 fade-in">
           <div class="work-card-visual">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=75" alt="Webデザインの学習風景" class="work-card-thumbnail" width="600" height="400" loading="lazy">
-            <div class="work-card-info">
-              <span class="work-card-tag">オンライン講座</span>
-              <h3 class="work-card-name">DESIGN MASTER<br>ACADEMY</h3>
-            </div>
+            <span class="work-card-tag">オンライン講座</span>
+            <h3 class="work-card-name">DESIGN MASTER<br>ACADEMY</h3>
           </div>
           <div class="work-card-body">
             <span class="work-card-badge">サンプルLP</span>
@@ -911,11 +886,8 @@
         <!-- 05: Restaurant -->
         <article class="work-card work-card--05 fade-in">
           <div class="work-card-visual">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=75" alt="イタリアンレストランの内装" class="work-card-thumbnail" width="600" height="400" loading="lazy">
-            <div class="work-card-info">
-              <span class="work-card-tag">飲食店</span>
-              <h3 class="work-card-name">TRATTORIA<br>VERDE</h3>
-            </div>
+            <span class="work-card-tag">飲食店</span>
+            <h3 class="work-card-name">TRATTORIA<br>VERDE</h3>
           </div>
           <div class="work-card-body">
             <span class="work-card-badge">サンプルLP</span>
@@ -927,11 +899,8 @@
         <!-- 06: Supplement -->
         <article class="work-card work-card--06 fade-in">
           <div class="work-card-visual">
-            <img src="https://images.unsplash.com/photo-1505576399279-0d309ecdf3a0?w=600&q=75" alt="ビタミンサプリメントのカプセル" class="work-card-thumbnail" width="600" height="400" loading="lazy">
-            <div class="work-card-info">
-              <span class="work-card-tag">健康食品・サプリ</span>
-              <h3 class="work-card-name">VITA BOOST</h3>
-            </div>
+            <span class="work-card-tag">健康食品・サプリ</span>
+            <h3 class="work-card-name">VITA BOOST</h3>
           </div>
           <div class="work-card-body">
             <span class="work-card-badge">サンプルLP</span>
