@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"
+     role="img" aria-labelledby="hien-icon-D2-title hien-icon-D2-desc">
+  <title id="hien-icon-D2-title">飛燕 — D2 アイコン</title>
+  <desc id="hien-icon-D2-desc">D2クレストの紋章。CW・SNSアイコン・favicon用の小サイズ視認性最適化版（scale 3.0 + ストローク太化）。</desc>
+
+  <defs>
+    <radialGradient id="iconD2-shu" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#8B3A45"/>
+      <stop offset="55%" stop-color="#722F37"/>
+      <stop offset="100%" stop-color="#4A1A20"/>
+    </radialGradient>
+    <filter id="iconD2-tex" x="-2%" y="-2%" width="104%" height="104%">
+      <feTurbulence type="fractalNoise" baseFrequency="2.6" numOctaves="2" seed="11"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.16 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <clipPath id="iconD2-clip">
+      <rect width="400" height="400" rx="48"/>
+    </clipPath>
+  </defs>
+
+  <!-- 和紙地 -->
+  <g clip-path="url(#iconD2-clip)">
+    <rect width="400" height="400" fill="#F8F5F0"/>
+    <rect width="400" height="400" fill="#0F0F0F" opacity="0.018"/>
+
+    <!-- 紋章を中央に大きく配置（scale 3.0・80%占有） -->
+    <g transform="translate(200 200) scale(3.0)">
+      <circle cx="0" cy="0" r="62" fill="url(#iconD2-shu)"/>
+      <circle cx="0" cy="0" r="62" fill="#0A0A0A" opacity="0.20" filter="url(#iconD2-tex)"/>
+      <circle cx="0" cy="0" r="55" fill="none" stroke="#F8F5F0" stroke-width="1.5" stroke-opacity="0.5"/>
+
+      <!-- 太テーパー線3本 -->
+      <polygon points="-26,24 -20,24 -8,-3 -12,-3" fill="#F8F5F0"/>
+      <polygon points="-13,24 -7,24 6,-12 1,-12" fill="#F8F5F0"/>
+      <polygon points="1,24 7,24 20,-22 16,-22" fill="#F8F5F0"/>
+
+      <!-- 横帯 -->
+      <line x1="-30" y1="-12" x2="22" y2="-12" stroke="#F8F5F0" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+
+      <!-- 終点ドット -->
+      <circle cx="22" cy="-26" r="4.5" fill="#F8F5F0"/>
+    </g>
+  </g>
+</svg>

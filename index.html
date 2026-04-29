@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LP Works | フリーランスLP制作</title>
-  <meta name="description" content="フリーランスのLP制作者。構成設計からコーディング、薬機法チェックまで一貫対応。スマホファーストで成果につながるLPを制作します。">
+  <title>飛燕 ｜ LP制作</title>
+  <meta name="description" content="飛燕（ひえん）はフリーランスのLP制作者。構成設計からコーディング、薬機法に配慮した表現の作成支援まで一貫対応。スマホファーストで成果につながるLPを制作します。">
   <!-- OGP -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="LP Works | フリーランスLP制作">
-  <meta property="og:description" content="構成設計からコーディング、薬機法チェックまで一貫対応。成果につながるLPを制作します。">
+  <meta property="og:title" content="飛燕 ｜ LP制作">
+  <meta property="og:description" content="構成設計からコーディング、薬機法に配慮した表現の作成支援まで一貫対応。成果につながるLPを制作します。">
+  <meta property="og:image" content="https://lptk-works.github.io/lp-works/assets/og-image.png">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="400">
+  <meta property="og:image:alt" content="飛燕 — フリーランスLP制作">
+  <!-- TODO: GitHub Pages リポジトリ名変更後 / カスタムドメイン設定後にURL更新 -->
   <meta property="og:url" content="https://lptk-works.github.io/lp-works/">
-  <meta name="twitter:card" content="summary">
-  <meta property="og:site_name" content="LP Works">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://lptk-works.github.io/lp-works/assets/og-image.png">
+  <meta property="og:site_name" content="飛燕">
   <meta name="color-scheme" content="light">
   <!-- Theme & Favicon -->
-  <meta name="theme-color" content="#FAFAFA">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%231A1A1A'/><text x='50' y='68' font-size='48' font-weight='bold' fill='%23FFFFFF' text-anchor='middle' font-family='system-ui'>W</text></svg>">
+  <meta name="theme-color" content="#722F37">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="400x400" href="./assets/og-image.png">
   <!-- Security -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
@@ -198,10 +205,20 @@
     }
 
     .header-logo {
-      font-family: var(--font-en);
-      font-size: 1.125rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      height: 40px;
+    }
+    .header-logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+    @media (max-width: 480px) {
+      .header-logo,
+      .header-logo img {
+        height: 34px;
+      }
     }
 
     .header-nav {
@@ -782,7 +799,9 @@
   <!-- ========== Header ========== -->
   <header class="header" role="banner">
     <div class="container header-inner">
-      <a href="./" class="header-logo" aria-label="LP Works トップページ">LP Works</a>
+      <a href="./" class="header-logo" aria-label="飛燕 トップページ">
+        <img src="./assets/hien-logo.svg" alt="飛燕 — LP DESIGN STUDIO" width="120" height="40">
+      </a>
       <nav class="header-nav" aria-label="メインナビゲーション">
         <a href="#works">Works</a>
         <a href="#strengths">強み</a>
@@ -815,7 +834,7 @@
         お問い合わせにつながる<br>LPを、つくります。
       </h1>
       <p class="hero-sub fade-in">
-        構成設計・スマホ対応・薬機法チェックまで一貫対応。<br>
+        構成設計・スマホ対応・薬機法に配慮した表現の作成支援まで一貫対応。<br>
         「見た目」だけでなく「成果」を考えたLP制作。
       </p>
       <a href="#works" class="hero-cta fade-in">制作実績を見る</a>
@@ -870,8 +889,7 @@
           </div>
         </article>
 
-        <!-- 04: Online Course (非公開 — リニューアル中) -->
-        <!--
+        <!-- 04: Online Course -->
         <article class="work-card work-card--04 fade-in">
           <div class="work-card-visual">
             <span class="work-card-tag">オンライン講座</span>
@@ -883,10 +901,8 @@
             <a href="./04-online-course/" class="work-card-link" target="_blank" rel="noopener noreferrer" aria-label="DESIGN MASTER ACADEMYのサンプルLPを見る（新しいタブで開きます）">サンプルLPを見る</a>
           </div>
         </article>
-        -->
 
-        <!-- 05: Restaurant (非公開 — リニューアル中) -->
-        <!--
+        <!-- 05: Restaurant -->
         <article class="work-card work-card--05 fade-in">
           <div class="work-card-visual">
             <span class="work-card-tag">飲食店</span>
@@ -898,7 +914,6 @@
             <a href="./05-restaurant/" class="work-card-link" target="_blank" rel="noopener noreferrer" aria-label="TRATTORIA VERDEのサンプルLPを見る（新しいタブで開きます）">サンプルLPを見る</a>
           </div>
         </article>
-        -->
 
         <!-- 06: Supplement -->
         <article class="work-card work-card--06 fade-in">
@@ -908,7 +923,7 @@
           </div>
           <div class="work-card-body">
             <span class="work-card-badge">サンプルLP</span>
-            <p class="work-card-desc">マルチビタミンサプリをテーマにPASフレームワークで構成。薬機法チェック済み・フルワイド背景画像で実案件レベルの訴求力。</p>
+            <p class="work-card-desc">マルチビタミンサプリをテーマにPASフレームワークで構成。薬機法に配慮した表現・フルワイド背景画像で実案件レベルの訴求力。</p>
             <a href="./06-supplement/" class="work-card-link" target="_blank" rel="noopener noreferrer" aria-label="VITA BOOSTのサンプルLPを見る（新しいタブで開きます）">サンプルLPを見る</a>
           </div>
         </article>
@@ -939,8 +954,8 @@
 
         <div class="strength-item fade-in">
           <p class="strength-number">03</p>
-          <h3 class="strength-heading">薬機法・景表法チェック</h3>
-          <p class="strength-text">美容・健康系のLPで気になる薬機法や景表法。表現のチェックを制作料金内で対応します。安心して公開できるLPをお届けします。</p>
+          <h3 class="strength-heading">薬機法・景表法への配慮</h3>
+          <p class="strength-text">美容・健康系のLPで気になる薬機法や景表法。配慮した表現の作成支援を制作料金の範囲内で行います。最終的な薬事チェックは専門家へのご依頼を推奨しております。</p>
         </div>
 
         <div class="strength-item fade-in">
@@ -989,7 +1004,7 @@
           <div class="flow-step-number" aria-hidden="true">4</div>
           <div class="flow-step-content">
             <h3 class="flow-step-title">品質チェック</h3>
-            <p class="flow-step-desc">表示崩れ・リンク切れ・薬機法表現などを最終確認。修正対応も含みます。</p>
+            <p class="flow-step-desc">表示崩れ・リンク切れ・薬機法に配慮した表現などを確認。修正対応も含みます。</p>
           </div>
         </li>
 
@@ -1013,7 +1028,7 @@
 
       <div class="profile-content fade-in">
         <p class="profile-text">
-          LP制作専門のフリーランスです。「どの順番で情報を見せれば行動してもらえるか」を起点に構成を設計し、お問い合わせや申し込みにつながるLPを制作しています。美容・健康系では薬機法を意識した文言チェックも料金内で対応。スマホファーストの設計と、複数視点での品質チェックを徹底しています。
+          LP制作専門のフリーランス「飛燕」です。「どの順番で情報を見せれば行動してもらえるか」を起点に構成を設計し、お問い合わせや申し込みにつながるLPを制作しています。美容・健康系では薬機法に配慮した文言の作成支援も制作範囲内で行います（最終的な薬事チェックは別途専門家へのご依頼を推奨）。スマホファーストの設計と、複数視点での品質チェックを徹底しています。
         </p>
 
         <p class="profile-list-title">対応可能な業種</p>
@@ -1051,7 +1066,7 @@
   <!-- ========== Footer ========== -->
   <footer class="footer" role="contentinfo">
     <div class="container">
-      <p class="footer-copy">&copy; <span id="footer-year">2026</span> LP Works</p>
+      <p class="footer-copy">&copy; <span id="footer-year">2026</span> 飛燕</p>
     </div>
   </footer>
 
