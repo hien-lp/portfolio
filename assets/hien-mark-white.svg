@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"
+     role="img" aria-labelledby="hien-mark-w-title hien-mark-w-desc">
+  <title id="hien-mark-w-title">飛燕 紋章マーク（白・透過背景）</title>
+  <desc id="hien-mark-w-desc">飛燕の円形紋章・白バージョン。ヒーロー大型watermark配置用。</desc>
+
+  <defs>
+    <filter id="hmark-w-tex" x="-2%" y="-2%" width="104%" height="104%">
+      <feTurbulence type="fractalNoise" baseFrequency="2.6" numOctaves="2" seed="11"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.18 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- 紋章のみ（背景なし・白） -->
+  <g transform="translate(200 200) scale(3.0)">
+    <!-- 外円（白） -->
+    <circle cx="0" cy="0" r="62" fill="none" stroke="#F8F5F0" stroke-width="2" stroke-opacity="0.85"/>
+    <circle cx="0" cy="0" r="62" fill="#F8F5F0" opacity="0.04"/>
+    <!-- 内側細リング -->
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#F8F5F0" stroke-width="1.2" stroke-opacity="0.55"/>
+
+    <!-- テーパー線3本 -->
+    <polygon points="-26,24 -20,24 -8,-3 -12,-3" fill="#F8F5F0"/>
+    <polygon points="-13,24 -7,24 6,-12 1,-12" fill="#F8F5F0"/>
+    <polygon points="1,24 7,24 20,-22 16,-22" fill="#F8F5F0"/>
+
+    <!-- 横帯 -->
+    <line x1="-30" y1="-12" x2="22" y2="-12" stroke="#F8F5F0" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+
+    <!-- 終点ドット -->
+    <circle cx="22" cy="-26" r="4.5" fill="#F8F5F0"/>
+  </g>
+</svg>

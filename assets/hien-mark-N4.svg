@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"
+     role="img" aria-labelledby="hien-mark-N4-title hien-mark-N4-desc">
+  <title id="hien-mark-N4-title">飛燕 紋章マーク N4（透過版）</title>
+  <desc id="hien-mark-N4-desc">N4クレスト透過バリエーション。朱円盤を透過化し、外輪リング・白文線・飛翔軌跡弧・終点ドットのみを残した watermark 用。</desc>
+
+  <!-- 紋章のみ（朱円盤を透過化、N4スタイル） -->
+  <g transform="translate(200 200) scale(2.4)">
+    <!-- 外円輪（朱・細リング） -->
+    <circle cx="0" cy="0" r="62" fill="none" stroke="#722F37" stroke-width="1.6" stroke-opacity="0.9"/>
+    <!-- 内側細リング（白文線） -->
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#F8F5F0" stroke-width="1.2" stroke-opacity="0.55"/>
+
+    <!-- D2継承: テーパー線3本 -->
+    <polygon points="-25,24 -22,24 -10,-3 -12,-3" fill="#F8F5F0"/>
+    <polygon points="-11,24 -7,24 4,-12 1,-12" fill="#F8F5F0"/>
+    <polygon points="3,24 8,24 18,-21 14,-21" fill="#F8F5F0"/>
+
+    <!-- 横帯 -->
+    <line x1="-30" y1="-12" x2="20" y2="-12" stroke="#F8F5F0" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+
+    <!-- 飛翔軌跡 弧（N4 の特徴） -->
+    <path d="M -38 14 Q -10 -28 28 -32" stroke="#F8F5F0" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.9"/>
+
+    <!-- 終点ドット -->
+    <circle cx="28" cy="-32" r="3.5" fill="#F8F5F0"/>
+  </g>
+</svg>

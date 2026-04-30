@@ -1,0 +1,14 @@
+# 実験用一時ファイル（先頭アンダースコア規約）
+_*.html
+_*.png
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# 本番不要
+*.log
+node_modules/

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400"
+     role="img" aria-labelledby="hien-mark-title hien-mark-desc">
+  <title id="hien-mark-title">飛燕 紋章マーク（赤透過）</title>
+  <desc id="hien-mark-desc">飛燕の円形紋章。赤い円盤部分を透過化し、外輪（朱の細リング）と内側白要素のみを残した watermark 用バリエーション。</desc>
+
+  <!-- 紋章のみ（赤円盤を透過化） -->
+  <g transform="translate(200 200) scale(3.0)">
+    <!-- 外円輪（朱・細リング） -->
+    <circle cx="0" cy="0" r="62" fill="none" stroke="#722F37" stroke-width="1.6" stroke-opacity="0.9"/>
+    <!-- 内側細リング（白文線） -->
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#F8F5F0" stroke-width="1.2" stroke-opacity="0.55"/>
+
+    <!-- D2テーパー線3本 -->
+    <polygon points="-26,24 -20,24 -8,-3 -12,-3" fill="#F8F5F0"/>
+    <polygon points="-13,24 -7,24 6,-12 1,-12" fill="#F8F5F0"/>
+    <polygon points="1,24 7,24 20,-22 16,-22" fill="#F8F5F0"/>
+
+    <!-- 横帯 -->
+    <line x1="-30" y1="-12" x2="22" y2="-12" stroke="#F8F5F0" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+
+    <!-- 終点ドット -->
+    <circle cx="22" cy="-26" r="4.5" fill="#F8F5F0"/>
+  </g>
+</svg>
