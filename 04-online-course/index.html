@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DESIGN MASTER ACADEMY｜未経験からWebデザイナーへ。実践型オンライン講座</title>
-  <meta name="description" content="未経験から3ヶ月でWebデザイナーへ。現役デザイナーによるマンツーマンフィードバック、実案件ベースのカリキュラム。無料体験レッスン受付中。">
+  <title>DESIGN MASTER ACADEMY｜未経験から3ヶ月でWebデザイナーへ。給付金最大70%対応の実践型オンライン講座</title>
+  <meta name="description" content="未経験から3ヶ月でWebデザイナーへ。現役プロ講師42名・卒業生2,500名以上・教育訓練給付金最大70%キャッシュバック対応。無料カウンセリング受付中（予約30秒）。">
 
   <!-- OGP（※本番では example.com を実際のドメインに差し替え） -->
   <meta property="og:title" content="DESIGN MASTER ACADEMY｜未経験からWebデザイナーへ">
-  <meta property="og:description" content="実案件ベースのカリキュラムで、3ヶ月でWebデザインスキルを習得。無料体験レッスン受付中。">
+  <meta property="og:description" content="実案件ベースのカリキュラム × 現役プロ講師のマンツーマン指導で、3ヶ月でWebデザインスキルを習得。教育訓練給付金 最大70%対応・無料カウンセリング受付中。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://example.com/04-online-course/">
   <meta property="og:image" content="https://example.com/04-online-course/images/hero.jpg">
@@ -23,6 +23,49 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD: Course Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "DESIGN MASTER ACADEMY — 実践型Webデザイナー育成講座",
+    "description": "未経験から3ヶ月でWebデザイナーへ。現役デザイナーによるマンツーマンフィードバックと実案件ベースのカリキュラムで、転職・副業に直結するスキルを習得。",
+    "provider": {
+      "@type": "Organization",
+      "name": "DESIGN MASTER ACADEMY",
+      "sameAs": "https://example.com/04-online-course/"
+    },
+    "educationalLevel": "Beginner to Intermediate",
+    "courseMode": "Online",
+    "timeRequired": "PT3M",
+    "offers": {
+      "@type": "Offer",
+      "category": "Paid",
+      "priceCurrency": "JPY",
+      "price": "298000",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "2500",
+      "bestRating": "5"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "ポートフォリオ", "item": "https://example.com/portfolio/"},
+      {"@type": "ListItem", "position": 2, "name": "DESIGN MASTER ACADEMY (自主制作)", "item": "https://example.com/04-online-course/"}
+    ]
+  }
+  </script>
 
   <style>
 /* ============================================================
@@ -2635,6 +2678,754 @@ strong { font-weight: 700; }
       }
       .fade-in { opacity: 1 !important; transform: none !important; }
     }
+
+  /* ============================================================
+     ANIM DELAY UTILITY — replace inline style="--anim-delay" usage
+     ============================================================ */
+  .anim-d-0 { --anim-delay: 0s; }
+  .anim-d-1 { --anim-delay: .06s; }
+  .anim-d-2 { --anim-delay: .12s; }
+  .anim-d-3 { --anim-delay: .18s; }
+  .anim-d-4 { --anim-delay: .24s; }
+  .anim-d-5 { --anim-delay: .3s; }
+
+  /* ============================================================
+     STRENGTHS BACKGROUND IMAGES — externalized from inline style
+     ============================================================ */
+  .strengths__bg--01 { background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1600&q=80'); }
+  .strengths__bg--02 { background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=80'); }
+  .strengths__bg--03 { background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80'); }
+  .strengths__bg--04 { background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80'); }
+  .strengths__bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* ============================================================
+     HERO TRUST BAR — 信頼数字バー (4数字)
+     ============================================================ */
+  .hero-trust {
+    background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%);
+    padding: 32px 24px 40px;
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+  .hero-trust__inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+  .hero-trust__band {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  .hero-trust__stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(232,115,90,.12);
+    border: 1px solid rgba(232,115,90,.32);
+    color: var(--accent-soft);
+    font-size: .7rem;
+    font-weight: 600;
+    border-radius: 999px;
+    letter-spacing: .04em;
+  }
+  .hero-trust__stamp::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: 900;
+  }
+  .hero-trust__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding: 18px 0;
+  }
+  @media (min-width: 720px) {
+    .hero-trust__grid { grid-template-columns: repeat(4, 1fr); gap: 0; }
+  }
+  .hero-trust__item {
+    text-align: center;
+    padding: 6px 4px;
+    border-right: 1px solid rgba(255,255,255,.06);
+  }
+  .hero-trust__item:nth-child(2n) { border-right: none; }
+  @media (min-width: 720px) {
+    .hero-trust__item { border-right: 1px solid rgba(255,255,255,.08); }
+    .hero-trust__item:nth-child(2n) { border-right: 1px solid rgba(255,255,255,.08); }
+    .hero-trust__item:last-child { border-right: none; }
+  }
+  .hero-trust__num {
+    display: block;
+    font-family: var(--ff-en);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.1;
+    letter-spacing: .02em;
+  }
+  @media (min-width: 720px) { .hero-trust__num { font-size: 2.4rem; } }
+  .hero-trust__num small {
+    font-size: .9rem;
+    color: var(--text-on-dark);
+    opacity: .75;
+    margin-left: 2px;
+    font-weight: 600;
+  }
+  .hero-trust__label {
+    display: block;
+    font-size: .72rem;
+    color: var(--text-on-dark-sub);
+    margin-top: 4px;
+    letter-spacing: .04em;
+  }
+  .hero-trust__note {
+    margin-top: 14px;
+    font-size: .68rem;
+    color: var(--text-on-dark-sub);
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     SUBSIDY SECTION — 給付金訴求
+     ============================================================ */
+  .subsidy {
+    padding: var(--section-py-sm) 24px;
+    background: linear-gradient(135deg, #FEF5F3 0%, #F8F6FC 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .subsidy::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, var(--accent-12) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .subsidy__inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .subsidy__badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    margin-bottom: 14px;
+  }
+  .subsidy__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: var(--lh-tight);
+    margin-bottom: 12px;
+  }
+  @media (min-width: 768px) { .subsidy__title { font-size: 1.875rem; } }
+  .subsidy__title strong {
+    color: var(--accent);
+    font-size: 1.25em;
+    font-weight: 800;
+  }
+  .subsidy__lead {
+    font-size: .92rem;
+    color: var(--text-mid);
+    line-height: var(--lh-normal);
+    margin-bottom: 32px;
+    max-width: 720px;
+  }
+  .subsidy__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  @media (min-width: 768px) { .subsidy__grid { grid-template-columns: repeat(3, 1fr); } }
+  .subsidy__card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 4px 16px var(--primary-06);
+  }
+  .subsidy__card-ribbon {
+    position: absolute;
+    top: 14px; right: -6px;
+    background: var(--accent);
+    color: var(--white);
+    font-size: .65rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    letter-spacing: .08em;
+  }
+  .subsidy__card-title {
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    letter-spacing: .02em;
+  }
+  .subsidy__card-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+  .subsidy__card-amount-num {
+    font-family: var(--ff-en);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .subsidy__card-amount-unit {
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text-mid);
+  }
+  .subsidy__card-amount-prefix {
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    margin-right: 2px;
+  }
+  .subsidy__card-text {
+    font-size: .82rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .subsidy__card-target {
+    font-size: .72rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border);
+  }
+  .subsidy__cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--white);
+    border: 2px dashed var(--accent-25);
+    border-radius: var(--radius-md);
+  }
+  .subsidy__cta-text {
+    flex: 1 1 220px;
+    font-size: .88rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .subsidy__cta-text strong { color: var(--accent); }
+  .subsidy__disclaimer {
+    margin-top: 18px;
+    font-size: .7rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     COUNSELING FORM — 無料カウンセリング予約フォーム
+     ============================================================ */
+  .counseling {
+    padding: var(--section-py) 24px;
+    background: var(--bg-alt);
+    position: relative;
+  }
+  .counseling__inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .counseling__head {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .counseling__lead {
+    font-size: .92rem;
+    color: var(--text-mid);
+    line-height: var(--lh-normal);
+    max-width: 620px;
+    margin: 0 auto 20px;
+  }
+  .counseling__features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    margin-bottom: 8px;
+  }
+  .counseling__feature {
+    font-size: .76rem;
+    color: var(--primary);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .counseling__feature::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: 900;
+  }
+  .counseling__form {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    box-shadow: 0 8px 32px var(--primary-06);
+  }
+  @media (min-width: 768px) { .counseling__form { padding: 40px 48px; } }
+  .counseling__field {
+    margin-bottom: 20px;
+  }
+  .counseling__field--row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  @media (min-width: 640px) { .counseling__field--row { grid-template-columns: 1fr 1fr; } }
+  .counseling__label {
+    display: block;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+    letter-spacing: .02em;
+  }
+  .counseling__required {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    font-size: .65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: 2px;
+    letter-spacing: .06em;
+  }
+  .counseling__optional {
+    display: inline-block;
+    background: var(--border);
+    color: var(--text-mid);
+    font-size: .65rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: 2px;
+  }
+  .counseling__input,
+  .counseling__select,
+  .counseling__textarea {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: .92rem;
+    color: var(--text);
+    line-height: 1.6;
+    min-height: var(--touch-min);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .counseling__input:focus,
+  .counseling__select:focus,
+  .counseling__textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-12);
+  }
+  .counseling__textarea { min-height: 120px; resize: vertical; }
+  .counseling__field.has-error .counseling__input,
+  .counseling__field.has-error .counseling__select,
+  .counseling__field.has-error .counseling__textarea {
+    border-color: #C53030;
+    background: #FEF6F6;
+  }
+  .counseling__error {
+    display: block;
+    margin-top: 6px;
+    font-size: .76rem;
+    color: #C53030;
+    min-height: 1.2em;
+    line-height: 1.5;
+  }
+  .counseling__radio-group,
+  .counseling__check-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  @media (min-width: 480px) { .counseling__radio-group { grid-template-columns: repeat(2, 1fr); } }
+  .counseling__radio,
+  .counseling__check {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--bg-alt);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-size: .85rem;
+    cursor: pointer;
+    line-height: 1.5;
+    transition: border-color .2s, background .2s;
+    min-height: var(--touch-min);
+  }
+  .counseling__radio input,
+  .counseling__check input {
+    margin-top: 3px;
+    accent-color: var(--accent);
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  .counseling__radio:hover,
+  .counseling__check:hover {
+    border-color: var(--accent-25);
+    background: var(--white);
+  }
+  .counseling__radio:has(input:checked),
+  .counseling__check:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent-10);
+  }
+  .counseling__privacy {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 24px 0;
+    padding: 14px;
+    background: var(--bg-alt);
+    border-radius: var(--radius);
+    font-size: .8rem;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+  .counseling__privacy input {
+    margin-top: 4px;
+    accent-color: var(--accent);
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  .counseling__privacy a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  .counseling__submit-wrap { text-align: center; }
+  .counseling__submit {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px 32px;
+    background: linear-gradient(135deg, var(--accent) 0%, #D4613F 100%);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 20px var(--accent-25);
+    transition: transform .2s, box-shadow .2s;
+    letter-spacing: .04em;
+    min-height: 56px;
+  }
+  .counseling__submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px var(--accent-30);
+  }
+  .counseling__submit:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .counseling__submit-note {
+    display: block;
+    margin-top: 12px;
+    font-size: .76rem;
+    color: var(--text-light);
+  }
+  .counseling__success {
+    display: none;
+    padding: 32px 24px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(61,139,94,.08) 0%, rgba(232,115,90,.06) 100%);
+    border: 2px solid var(--success);
+    border-radius: var(--radius-md);
+  }
+  .counseling__success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--success);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: 14px;
+  }
+  .counseling__success.is-visible { display: block; }
+  .counseling__success h3 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .counseling__success-text {
+    margin-top: 8px;
+    font-size: .88rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     FLOATING CTA (PC) + MOBILE TABBAR (SP)
+     ============================================================ */
+  .floating-cta {
+    position: fixed;
+    right: 24px;
+    bottom: 28px;
+    z-index: 1100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(140%) scale(.92);
+    transition: opacity .3s, visibility 0s linear .3s;
+    pointer-events: none;
+  }
+  .floating-cta.is-visible {
+    opacity: 1;
+    visibility: visible;
+    animation: floatingSlideIn .85s cubic-bezier(.34, 1.56, .64, 1) forwards;
+    transition: opacity .3s, visibility 0s linear 0s;
+    pointer-events: auto;
+  }
+  @keyframes floatingSlideIn {
+    0% { transform: translateX(140%) scale(.9); opacity: 0; }
+    55% { transform: translateX(-8%) scale(1.04); opacity: 1; }
+    100% { transform: translateX(0) scale(1); opacity: 1; }
+  }
+  .floating-cta__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 22px 14px 16px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    color: var(--white);
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .04em;
+    box-shadow: 0 10px 28px var(--accent-30);
+    border-radius: 999px;
+    transition: transform .2s, box-shadow .2s;
+    position: relative;
+  }
+  .floating-cta__link::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 2px solid var(--accent);
+    border-radius: 999px;
+    opacity: 0;
+    animation: floatingPulse 2.4s infinite;
+    pointer-events: none;
+  }
+  @keyframes floatingPulse {
+    0% { opacity: .6; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.18); }
+  }
+  .floating-cta__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px var(--accent-30);
+  }
+  .floating-cta__icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-en);
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50%;
+  }
+  .floating-cta__text { display: flex; flex-direction: column; line-height: 1.2; }
+  .floating-cta__text strong { font-size: .92rem; font-weight: 700; }
+  .floating-cta__text small { font-size: .68rem; opacity: .9; margin-top: 2px; font-weight: 500; }
+  .floating-cta__close {
+    position: absolute;
+    top: -8px; right: -8px;
+    width: 26px; height: 26px;
+    background: var(--white);
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+  }
+  @media (max-width: 720px) { .floating-cta { display: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .floating-cta__link::before { animation: none !important; }
+    .floating-cta.is-visible { animation: none !important; transform: none !important; }
+  }
+
+  .mobile-tabbar { display: none; }
+  @media (max-width: 720px) {
+    .mobile-tabbar {
+      display: flex;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 1100;
+      background: var(--white);
+      box-shadow: 0 -8px 24px rgba(30,17,69,.12);
+      padding-bottom: env(safe-area-inset-bottom, 0);
+      transform: translateY(110%);
+      transition: transform .55s cubic-bezier(.34, 1.56, .64, 1);
+      border-top: 1px solid var(--border);
+    }
+    .mobile-tabbar.is-visible { transform: translateY(0); }
+    .mobile-tabbar.is-dismissed { transform: translateY(110%) !important; pointer-events: none; }
+    .mobile-tabbar__items { display: flex; flex: 1; align-items: stretch; }
+    .mobile-tabbar__item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 10px 4px 12px;
+      color: var(--text-mid);
+      font-size: .68rem;
+      font-weight: 700;
+      border-right: 1px solid var(--border-light);
+      min-height: 60px;
+    }
+    .mobile-tabbar__item:last-of-type { border-right: none; }
+    .mobile-tabbar__item:active { background: var(--bg-alt); }
+    .mobile-tabbar__item--primary {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      color: var(--white);
+      flex: 1.4;
+    }
+    .mobile-tabbar__item--primary:active { background: var(--accent-hover); }
+    .mobile-tabbar__icon {
+      width: 26px; height: 26px;
+      background: rgba(30,17,69,.06);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--ff-en);
+      font-size: .85rem;
+      font-weight: 700;
+      border-radius: 50%;
+      line-height: 1;
+    }
+    .mobile-tabbar__item--primary .mobile-tabbar__icon {
+      background: rgba(255,255,255,.22);
+      color: var(--white);
+    }
+    .mobile-tabbar__label {
+      font-size: .68rem;
+      letter-spacing: .04em;
+    }
+    .mobile-tabbar__close {
+      position: absolute;
+      top: -14px; right: 12px;
+      width: 30px; height: 30px;
+      background: var(--primary);
+      color: var(--white);
+      border: 1.5px solid var(--white);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    /* Hide existing simple sticky-cta when mobile-tabbar is in use */
+    .sticky-cta { display: none !important; }
+    /* SP body padding for tabbar */
+    body { padding-bottom: 70px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-tabbar { transition: transform .001ms !important; }
+  }
+
+  /* ============================================================
+     FLOW STEP PROGRESS — 6 STEPS PROGRESS ENHANCEMENT
+     ============================================================ */
+  .flow-progress {
+    margin: 0 auto 36px;
+    max-width: 720px;
+  }
+  .flow-progress__bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 999px;
+    position: relative;
+    overflow: hidden;
+  }
+  .flow-progress__fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    border-radius: 999px;
+    transition: width .9s cubic-bezier(.4, .0, .2, 1);
+  }
+  .flow-progress__steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: .68rem;
+    color: var(--text-light);
+    letter-spacing: .04em;
+  }
+  .flow-progress__step.is-active { color: var(--accent); font-weight: 700; }
+
+  /* Sample notice (footer) */
+  .footer__sample-notice {
+    background: rgba(232,115,90,.06);
+    border: 1px solid var(--accent-25);
+    color: var(--text);
+    padding: 14px 20px;
+    font-size: .75rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    border-radius: var(--radius);
+  }
+  .footer__sample-notice strong { color: var(--accent); font-weight: 700; }
+
   </style>
   <link rel="preload" as="image" href="./images/hero.jpg" fetchpriority="high">
 </head>
@@ -2665,7 +3456,7 @@ strong { font-weight: 700; }
           <li><a href="#results" class="header__nav-link">受講生の成果</a></li>
           <li><a href="#pricing" class="header__nav-link">料金</a></li>
           <li><a href="#faq" class="header__nav-link">FAQ</a></li>
-          <li><a href="#final-cta" class="header__nav-link header__nav-link--cta">無料体験を申し込む</a></li>
+          <li><a href="#counseling" class="header__nav-link header__nav-link--cta">無料カウンセリング</a></li>
         </ul>
       </nav>
     </div>
@@ -2685,7 +3476,7 @@ strong { font-weight: 700; }
       <div class="hero__overlay"></div>
       <div class="hero__inner hero__inner--split">
         <div class="hero__content">
-          <p class="hero__badge">無料体験レッスン受付中</p>
+          <p class="hero__badge">無料カウンセリング受付中</p>
           <div class="hero__before-after">
             <span class="hero__before">スキルゼロの未経験者が</span>
             <span class="hero__arrow-icon" aria-hidden="true">&#10132;</span>
@@ -2694,10 +3485,10 @@ strong { font-weight: 700; }
           <h1 class="hero__title">未経験から<span class="hero__accent">3ヶ月</span>で、<br>Webデザイナーになる。</h1>
           <p class="hero__sub">実案件ベースのカリキュラム × 現役デザイナーのマンツーマン指導。<br class="pc-only">スキルゼロからでも、仕事に直結するデザイン力が身につきます。</p>
           <div class="hero__actions">
-            <!-- CTA[1] ヒーロー直下 — 即決型: 無料体験の価値訴求 -->
-            <a href="#final-cta" class="btn btn--accent btn--large btn--pulse">
-              <span class="btn__main">60分の無料体験でFigmaを触ってみる</span>
-              <span class="btn__micro">予約はたった30秒・オンライン完結</span>
+            <!-- CTA[1] ヒーロー直下 — 単一CTA: 無料カウンセリング -->
+            <a href="#counseling" class="btn btn--accent btn--large btn--pulse">
+              <span class="btn__main">無料カウンセリングを予約する</span>
+              <span class="btn__micro">予約30秒・オンライン完結・給付金診断つき</span>
             </a>
             <a href="#curriculum" class="btn btn--outline-light">カリキュラムを見る</a>
           </div>
@@ -2724,6 +3515,42 @@ strong { font-weight: 700; }
       </div>
     </section>
 
+    <!-- ========== HERO TRUST BAR — 信頼数字バー (4数字 / FV近傍) ========== -->
+    <!-- 心理トリガー: 社会的証明（数値で実績を可視化）+ 権威性 -->
+    <section class="hero-trust" aria-label="講座の信頼数値">
+      <div class="hero-trust__inner">
+        <div class="hero-trust__band">
+          <span class="hero-trust__stamp">14日間 全額返金保証</span>
+          <span class="hero-trust__stamp">教育訓練給付金 対象講座</span>
+          <span class="hero-trust__stamp">現役プロ講師 マンツーマン</span>
+          <span class="hero-trust__stamp">完全オンライン / 24時間学習</span>
+        </div>
+        <div class="hero-trust__grid">
+          <div class="hero-trust__item">
+            <span class="hero-trust__num"><span data-count="2500" data-suffix="" aria-hidden="true">0</span><small>名+</small></span>
+            <span class="sr-only">2,500名以上</span>
+            <span class="hero-trust__label">累計卒業生</span>
+          </div>
+          <div class="hero-trust__item">
+            <span class="hero-trust__num"><span data-count="87" data-suffix="" aria-hidden="true">0</span><small>%</small></span>
+            <span class="sr-only">87パーセント</span>
+            <span class="hero-trust__label">転職・副業成功率</span>
+          </div>
+          <div class="hero-trust__item">
+            <span class="hero-trust__num"><span data-count="3" data-suffix="" aria-hidden="true">0</span><small>ヶ月</small></span>
+            <span class="sr-only">3ヶ月</span>
+            <span class="hero-trust__label">最短受講期間</span>
+          </div>
+          <div class="hero-trust__item">
+            <span class="hero-trust__num"><span data-count="42" data-suffix="" aria-hidden="true">0</span><small>名</small></span>
+            <span class="sr-only">42名</span>
+            <span class="hero-trust__label">現役プロ講師数</span>
+          </div>
+        </div>
+        <p class="hero-trust__note">※ 数値は2024年1月〜12月の修了生追跡調査に基づく。「転職・副業成功率」は修了後6ヶ月以内にデザイン関連の転職または副業収入を得た方の割合。<br>※ 個人の成果であり、効果を保証するものではありません。</p>
+      </div>
+    </section>
+
     <!-- ========== 2. 悩み共感 / 問題提起 ========== -->
     <!-- 心理トリガー: 損失回避（独学のまま時間を失う恐怖）-->
     <!-- SVGウェーブ区切り: Hero → Pain -->
@@ -2735,7 +3562,7 @@ strong { font-weight: 700; }
 
     <section class="pain" aria-label="こんなお悩みありませんか">
       <div class="pain__inner pain__inner--split">
-        <div class="pain__visual anim-target" style="--anim-delay:0s" aria-hidden="true">
+        <div class="pain__visual anim-target anim-d-0" aria-hidden="true">
           <svg class="pain__illustration" viewBox="0 0 320 360" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="40" y="20" width="240" height="160" rx="16" fill="#F8F6FC" stroke="#E8E4F0" stroke-width="1.5"/>
             <circle cx="160" cy="80" r="28" fill="rgba(232,115,90,.1)" stroke="#E8735A" stroke-width="1.5"/>
@@ -2755,23 +3582,23 @@ strong { font-weight: 700; }
         <div class="pain__text-col">
           <h2 class="section-title section-title--left"><span class="section-title__en" aria-hidden="true">Pain Points</span>こんなことで<br class="sp-only">悩んでいませんか？</h2>
           <ul class="pain__list" role="list">
-            <li class="pain__item anim-target" style="--anim-delay:0s">
+            <li class="pain__item anim-target anim-d-0">
               <span class="pain__icon" aria-hidden="true">&#10007;</span>
               独学でPhotoshopを触ってみたけど、<strong>何から始めればいいか分からない</strong>
             </li>
-            <li class="pain__item anim-target" style="--anim-delay:0.08s">
+            <li class="pain__item anim-target anim-d-1">
               <span class="pain__icon" aria-hidden="true">&#10007;</span>
               デザインスクールは高額で、<strong>本当に元が取れるか不安</strong>
             </li>
-            <li class="pain__item anim-target" style="--anim-delay:0.16s">
+            <li class="pain__item anim-target anim-d-2">
               <span class="pain__icon" aria-hidden="true">&#10007;</span>
               YouTubeやUdemyで学んでも、<strong>ポートフォリオが作れない</strong>
             </li>
-            <li class="pain__item anim-target" style="--anim-delay:0.24s">
+            <li class="pain__item anim-target anim-d-4">
               <span class="pain__icon" aria-hidden="true">&#10007;</span>
               仕事が忙しくて、<strong>スクールに通う時間がない</strong>
             </li>
-            <li class="pain__item anim-target" style="--anim-delay:0.3s">
+            <li class="pain__item anim-target anim-d-5">
               <span class="pain__icon" aria-hidden="true">&#10007;</span>
               「センスがないとダメ」と言われて<strong>一歩を踏み出せない</strong>
             </li>
@@ -2787,22 +3614,22 @@ strong { font-weight: 700; }
     <section class="stats" aria-label="実績数値">
       <h2 class="sr-only">実績数値</h2>
       <div class="stats__inner">
-        <div class="stats__item anim-target" style="--anim-delay:0s">
+        <div class="stats__item anim-target anim-d-0">
           <span class="stats__num" data-count="2500" data-suffix="名+" aria-hidden="true">0</span>
           <span class="sr-only">2,500名+</span>
           <span class="stats__label">累計受講生数</span>
         </div>
-        <div class="stats__item anim-target" style="--anim-delay:0.08s">
+        <div class="stats__item anim-target anim-d-1">
           <span class="stats__num" data-count="94.2" data-suffix="%" data-decimal="true" aria-hidden="true">0</span>
           <span class="sr-only">94.2%</span>
           <span class="stats__label">修了率</span>
         </div>
-        <div class="stats__item anim-target" style="--anim-delay:0.16s">
+        <div class="stats__item anim-target anim-d-2">
           <span class="stats__num" data-count="87" data-suffix="%" aria-hidden="true">0</span>
           <span class="sr-only">87%</span>
           <span class="stats__label">転職・副業成功率</span>
         </div>
-        <div class="stats__item anim-target" style="--anim-delay:0.24s">
+        <div class="stats__item anim-target anim-d-4">
           <span class="stats__num" data-count="4.8" data-suffix="/5.0" data-decimal="true" aria-hidden="true">0</span>
           <span class="sr-only">4.8/5.0</span>
           <span class="stats__label">受講満足度</span>
@@ -2816,9 +3643,9 @@ strong { font-weight: 700; }
       <h2 class="sr-only">選ばれる4つの理由</h2>
 
       <div class="strengths__block">
-        <div class="strengths__bg" style="background-image:url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="strengths__bg strengths__bg--01" aria-hidden="true"></div>
         <div class="strengths__overlay" aria-hidden="true"></div>
-        <div class="strengths__inner anim-target" style="--anim-delay:0s">
+        <div class="strengths__inner anim-target anim-d-0">
           <span class="strengths__num" aria-hidden="true">01</span>
           <h3 class="strengths__title">体系的に学べる<br>デザインスキル</h3>
           <p class="strengths__text">レイアウト・配色・タイポグラフィの基本原則から、Figmaでの実践的なUI制作まで。感覚ではなくロジックで学ぶから、誰でも再現可能なデザイン力が身につきます。</p>
@@ -2826,9 +3653,9 @@ strong { font-weight: 700; }
       </div>
 
       <div class="strengths__block">
-        <div class="strengths__bg" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="strengths__bg strengths__bg--02" aria-hidden="true"></div>
         <div class="strengths__overlay" aria-hidden="true"></div>
-        <div class="strengths__inner anim-target" style="--anim-delay:0s">
+        <div class="strengths__inner anim-target anim-d-0">
           <span class="strengths__num" aria-hidden="true">02</span>
           <h3 class="strengths__title">現役デザイナーによる<br>マンツーマン指導</h3>
           <p class="strengths__text">制作実績200社以上のプロ講師が、あなたの課題を毎週丁寧にレビュー。独学では気づけない改善点を的確にフィードバックし、最短距離で成長へ導きます。</p>
@@ -2836,9 +3663,9 @@ strong { font-weight: 700; }
       </div>
 
       <div class="strengths__block">
-        <div class="strengths__bg" style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="strengths__bg strengths__bg--03" aria-hidden="true"></div>
         <div class="strengths__overlay" aria-hidden="true"></div>
-        <div class="strengths__inner anim-target" style="--anim-delay:0s">
+        <div class="strengths__inner anim-target anim-d-0">
           <span class="strengths__num" aria-hidden="true">03</span>
           <h3 class="strengths__title">実案件ベースの<br>カリキュラム</h3>
           <p class="strengths__text">架空の課題ではなく、実際のクライアントワークを想定した演習で学習。修了時にはそのまま転職活動に使えるポートフォリオが完成します。</p>
@@ -2846,9 +3673,9 @@ strong { font-weight: 700; }
       </div>
 
       <div class="strengths__block">
-        <div class="strengths__bg" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80')" aria-hidden="true"></div>
+        <div class="strengths__bg strengths__bg--04" aria-hidden="true"></div>
         <div class="strengths__overlay" aria-hidden="true"></div>
-        <div class="strengths__inner anim-target" style="--anim-delay:0s">
+        <div class="strengths__inner anim-target anim-d-0">
           <span class="strengths__num" aria-hidden="true">04</span>
           <h3 class="strengths__title">修了後も続く<br>キャリアサポート</h3>
           <p class="strengths__text">転職支援・案件紹介・ポートフォリオ添削など、修了後もキャリアを全面サポート。プレミアムプランでは6ヶ月間の手厚いサポートが付きます。</p>
@@ -2886,7 +3713,7 @@ strong { font-weight: 700; }
         <div class="curriculum__panels">
           <!-- Panel 1 -->
           <div class="curriculum__panel is-active" role="tabpanel" id="tab-panel-1" aria-labelledby="tab-1" tabindex="0">
-            <details class="curriculum__module curriculum__accordion-only anim-target" style="--anim-delay:0s" open>
+            <details class="curriculum__module curriculum__accordion-only anim-target anim-d-0" open>
               <summary class="curriculum__module-header">
                 <span class="curriculum__module-num">Module 1</span>
                 <span class="curriculum__module-title">デザイン基礎 &amp; Figma入門</span>
@@ -2908,7 +3735,7 @@ strong { font-weight: 700; }
 
           <!-- Panel 2 -->
           <div class="curriculum__panel" role="tabpanel" id="tab-panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
-            <details class="curriculum__module curriculum__accordion-only anim-target" style="--anim-delay:0.08s">
+            <details class="curriculum__module curriculum__accordion-only anim-target anim-d-1">
               <summary class="curriculum__module-header">
                 <span class="curriculum__module-num">Module 2</span>
                 <span class="curriculum__module-title">WebデザインUI/UX実践</span>
@@ -2930,7 +3757,7 @@ strong { font-weight: 700; }
 
           <!-- Panel 3 -->
           <div class="curriculum__panel" role="tabpanel" id="tab-panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
-            <details class="curriculum__module curriculum__accordion-only anim-target" style="--anim-delay:0.16s">
+            <details class="curriculum__module curriculum__accordion-only anim-target anim-d-2">
               <summary class="curriculum__module-header">
                 <span class="curriculum__module-num">Module 3</span>
                 <span class="curriculum__module-title">HTML/CSS &amp; コーディング基礎</span>
@@ -2952,7 +3779,7 @@ strong { font-weight: 700; }
 
           <!-- Panel 4 -->
           <div class="curriculum__panel" role="tabpanel" id="tab-panel-4" aria-labelledby="tab-4" tabindex="0" hidden>
-            <details class="curriculum__module curriculum__accordion-only anim-target" style="--anim-delay:0.24s">
+            <details class="curriculum__module curriculum__accordion-only anim-target anim-d-4">
               <summary class="curriculum__module-header">
                 <span class="curriculum__module-num">Module 4</span>
                 <span class="curriculum__module-title">実案件チャレンジ &amp; ポートフォリオ制作</span>
@@ -2976,19 +3803,19 @@ strong { font-weight: 700; }
         <div class="curriculum__deliverables">
           <h3 class="curriculum__deliverables-title">カリキュラムで制作する成果物</h3>
           <ul class="curriculum__deliverables-list">
-            <li class="curriculum__deliverable anim-target" style="--anim-delay:0s">バナーデザイン 5点</li>
-            <li class="curriculum__deliverable anim-target" style="--anim-delay:0.08s">LP デザイン 2点</li>
-            <li class="curriculum__deliverable anim-target" style="--anim-delay:0.16s">コーポレートサイト 1点</li>
-            <li class="curriculum__deliverable anim-target" style="--anim-delay:0.24s">HTML/CSS コーディング 3点</li>
-            <li class="curriculum__deliverable anim-target" style="--anim-delay:0.3s">ポートフォリオサイト 1点</li>
+            <li class="curriculum__deliverable anim-target anim-d-0">バナーデザイン 5点</li>
+            <li class="curriculum__deliverable anim-target anim-d-1">LP デザイン 2点</li>
+            <li class="curriculum__deliverable anim-target anim-d-2">コーポレートサイト 1点</li>
+            <li class="curriculum__deliverable anim-target anim-d-4">HTML/CSS コーディング 3点</li>
+            <li class="curriculum__deliverable anim-target anim-d-5">ポートフォリオサイト 1点</li>
           </ul>
         </div>
 
         <!-- CTA[2] カリキュラム後 — 内容に納得した層: 成果物訴求 -->
         <div class="curriculum__cta">
-          <a href="#final-cta" class="btn btn--accent btn--pulse">
-            <span class="btn__main">12週間後のポートフォリオ完成を体験する</span>
-            <span class="btn__micro">Module 1の一部を60分で無料体験できます</span>
+          <a href="#counseling" class="btn btn--accent btn--pulse">
+            <span class="btn__main">無料カウンセリングで詳しく聞く</span>
+            <span class="btn__micro">Module 1の一部を60分で体験 + 給付金診断つき</span>
           </a>
         </div>
       </div>
@@ -3003,22 +3830,22 @@ strong { font-weight: 700; }
       <div class="support__inner">
         <h2 class="section-title"><span class="section-title__en" aria-hidden="true">Support</span>挫折させない<br class="sp-only">サポート体制</h2>
         <div class="support__bento">
-          <div class="support__card support__card--main anim-target" style="--anim-delay:0s">
+          <div class="support__card support__card--main anim-target anim-d-0">
             <span class="support__card-icon" aria-hidden="true">&#128172;</span>
             <h3 class="support__card-title">週1回のマンツーマン<br>フィードバック</h3>
             <p class="support__card-text">現役デザイナーが課題を丁寧にレビュー。「なぜダメか」ではなく「どうすれば良くなるか」を具体的にアドバイスします。プロの目線で、あなたのデザインを確実にレベルアップさせます。</p>
           </div>
-          <div class="support__card anim-target" style="--anim-delay:0.08s">
+          <div class="support__card anim-target anim-d-1">
             <span class="support__card-icon" aria-hidden="true">&#128187;</span>
             <h3 class="support__card-title">24時間以内の<br>チャット質問対応</h3>
             <p class="support__card-text">Slackで講師に直接質問OK。つまずいたらすぐに解決。平日は原則24時間以内に回答します。</p>
           </div>
-          <div class="support__card anim-target" style="--anim-delay:0.16s">
+          <div class="support__card anim-target anim-d-2">
             <span class="support__card-icon" aria-hidden="true">&#128101;</span>
             <h3 class="support__card-title">受講生コミュニティ</h3>
             <p class="support__card-text">同期の仲間と一緒に学べるオンラインコミュニティ。モチベーションを維持しながら切磋琢磨できます。</p>
           </div>
-          <div class="support__card anim-target" style="--anim-delay:0.24s">
+          <div class="support__card anim-target anim-d-4">
             <span class="support__card-icon" aria-hidden="true">&#127891;</span>
             <h3 class="support__card-title">修了後も<br>教材アクセス無期限</h3>
             <p class="support__card-text">受講期間終了後も全動画教材にアクセス可能。復習したいときにいつでも見返せます。</p>
@@ -3033,7 +3860,7 @@ strong { font-weight: 700; }
       <div class="instructor__inner">
         <h2 class="section-title"><span class="section-title__en" aria-hidden="true">Instructor</span>講師紹介</h2>
         <div class="instructor__magazine">
-          <div class="instructor__left anim-target" style="--anim-delay:0s">
+          <div class="instructor__left anim-target anim-d-0">
             <div class="instructor__photo instructor__photo--unsplash">
               <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" alt="講師 田中 美咲" width="400" height="400" loading="lazy">
             </div>
@@ -3045,7 +3872,7 @@ strong { font-weight: 700; }
               <span class="instructor__cred-badge">指導実績2,500名+</span>
             </div>
           </div>
-          <div class="instructor__right anim-target" style="--anim-delay:0.1s">
+          <div class="instructor__right anim-target anim-d-1">
             <div class="instructor__career">
               <p>大手Web制作会社で8年間デザイナーとして活躍後、フリーランスとして独立。累計200社以上のWebデザインを手がける。</p>
               <p>「デザインはセンスではなくロジック」を信条に、未経験者が最短で実務レベルに到達するための教育メソッドを確立。</p>
@@ -3058,9 +3885,9 @@ strong { font-weight: 700; }
 
         <!-- CTA[3] 講師紹介後 — 権威性で信頼構築後: 講師の直接指導訴求 -->
         <div class="instructor__cta">
-          <a href="#final-cta" class="btn btn--accent">
-            <span class="btn__main">200社手がけたプロに直接教わる</span>
-            <span class="btn__micro">無料体験で田中講師のフィードバックを体験</span>
+          <a href="#counseling" class="btn btn--accent">
+            <span class="btn__main">無料カウンセリングを予約する</span>
+            <span class="btn__micro">200社手がけたプロ講師陣に直接相談できます</span>
           </a>
         </div>
       </div>
@@ -3073,14 +3900,14 @@ strong { font-weight: 700; }
         <h2 class="section-title"><span class="section-title__en" aria-hidden="true">Results</span>受講生の成果</h2>
         <p class="results__lead">未経験からスタートし、転職・副業・フリーランスとして活躍する卒業生たち。</p>
 
-        <div class="results__visual anim-target" style="--anim-delay:0s">
+        <div class="results__visual anim-target anim-d-0">
           <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80" alt="受講生がデザイン作業に取り組む様子" width="800" height="600" loading="lazy">
         </div>
 
         <div class="results__carousel" aria-roledescription="カルーセル" aria-label="受講生の声">
           <button class="results__arrow results__arrow--prev" type="button" aria-label="前の受講生へ">&#8249;</button>
           <div class="results__track">
-            <div class="results__card anim-target" style="--anim-delay:0s">
+            <div class="results__card anim-target anim-d-0">
               <div class="results__card-header">
                 <div class="results__card-avatar" aria-hidden="true"><span>A</span></div>
                 <div class="results__card-meta">
@@ -3098,7 +3925,7 @@ strong { font-weight: 700; }
               </div>
             </div>
 
-            <div class="results__card anim-target" style="--anim-delay:0.08s">
+            <div class="results__card anim-target anim-d-1">
               <div class="results__card-header">
                 <div class="results__card-avatar" aria-hidden="true"><span>K</span></div>
                 <div class="results__card-meta">
@@ -3116,7 +3943,7 @@ strong { font-weight: 700; }
               </div>
             </div>
 
-            <div class="results__card anim-target" style="--anim-delay:0.16s">
+            <div class="results__card anim-target anim-d-2">
               <div class="results__card-header">
                 <div class="results__card-avatar" aria-hidden="true"><span>R</span></div>
                 <div class="results__card-meta">
@@ -3134,7 +3961,7 @@ strong { font-weight: 700; }
               </div>
             </div>
 
-            <div class="results__card anim-target" style="--anim-delay:0.24s">
+            <div class="results__card anim-target anim-d-4">
               <div class="results__card-header">
                 <div class="results__card-avatar" aria-hidden="true"><span>Y</span></div>
                 <div class="results__card-meta">
@@ -3160,8 +3987,8 @@ strong { font-weight: 700; }
 
         <!-- CTA[4] 受講生の成果後 — 社会証明で背中を押された層: 同期の仲間訴求 -->
         <div class="results__cta">
-          <a href="#final-cta" class="btn btn--accent btn--pulse">
-            <span class="btn__main">次はあなたの番。無料体験で第一歩を</span>
+          <a href="#counseling" class="btn btn--accent btn--pulse">
+            <span class="btn__main">次はあなたの番。無料カウンセリングへ</span>
             <span class="btn__micro">受講生の87%が未経験スタート。あなただけじゃありません</span>
           </a>
         </div>
@@ -3182,7 +4009,7 @@ strong { font-weight: 700; }
         <h2 class="section-title"><span class="section-title__en" aria-hidden="true">For You?</span>あなたに合うか、<br class="sp-only">正直にお伝えします</h2>
         <p class="target-audience__lead">私たちは全員に受講をすすめることはしません。<br class="pc-only">本当に成果を出していただける方にこそ、受講してほしいと考えています。</p>
         <div class="target-audience__grid target-audience__grid--asymmetric">
-          <div class="target-audience__col target-audience__col--yes anim-target" style="--anim-delay:0s">
+          <div class="target-audience__col target-audience__col--yes anim-target anim-d-0">
             <h3 class="target-audience__heading target-audience__heading--yes">こんな方なら成果が出やすいです</h3>
             <ul class="target-audience__list">
               <li>未経験だけどWebデザイナーになりたい方</li>
@@ -3192,7 +4019,7 @@ strong { font-weight: 700; }
               <li>週5〜10時間の学習時間を確保できる方</li>
             </ul>
           </div>
-          <div class="target-audience__col target-audience__col--no anim-target" style="--anim-delay:0.1s">
+          <div class="target-audience__col target-audience__col--no anim-target anim-d-1">
             <h3 class="target-audience__heading target-audience__heading--no">正直に言うと、こんな方には向きません</h3>
             <ul class="target-audience__list">
               <li>すでにプロとして活躍しているデザイナーの方</li>
@@ -3211,44 +4038,76 @@ strong { font-weight: 700; }
     <!-- グラデーション遷移: Target Audience → Flow -->
     <div class="section-divider section-divider--gradient" aria-hidden="true"></div>
 
-    <section class="flow" aria-label="受講の流れ">
+    <section class="flow" aria-label="受講開始の流れ">
       <div class="flow__inner">
-        <h2 class="section-title"><span class="section-title__en" aria-hidden="true">Flow</span>受講の流れ</h2>
-        <p class="flow__lead">「まず体験 → 相談 → 納得してから申込み」の3ステップ。<br class="pc-only">いきなり契約ではなく、段階的に進められるから安心です。</p>
+        <h2 class="section-title"><span class="section-title__en" aria-hidden="true">Flow</span>受講開始から修了まで<br class="sp-only">6ステップ</h2>
+        <p class="flow__lead">「まず無料カウンセリング → 体験 → 納得してから申込み」の段階的フロー。<br class="pc-only">無理な勧誘は一切なく、ご自身のペースで進められます。</p>
+
+        <!-- Progress bar (animates as user scrolls into flow) -->
+        <div class="flow-progress" aria-hidden="true" id="flowProgress">
+          <div class="flow-progress__bar">
+            <div class="flow-progress__fill" id="flowProgressFill"></div>
+          </div>
+          <div class="flow-progress__steps">
+            <span class="flow-progress__step">01 相談</span>
+            <span class="flow-progress__step">02 体験</span>
+            <span class="flow-progress__step">03 申込</span>
+            <span class="flow-progress__step">04 学習</span>
+            <span class="flow-progress__step">05 制作</span>
+            <span class="flow-progress__step">06 修了</span>
+          </div>
+        </div>
+
         <div class="flow__timeline">
           <div class="flow__timeline-line" aria-hidden="true"></div>
-          <div class="flow__step flow__step--left flow__step--highlight anim-target" style="--anim-delay:0s">
+          <div class="flow__step flow__step--left flow__step--highlight anim-target anim-d-0">
             <div class="flow__step-dot" aria-hidden="true"></div>
             <div class="flow__step-card">
               <span class="flow__step-num">STEP 1</span>
               <span class="flow__step-badge">無料</span>
-              <h3 class="flow__step-title">無料体験レッスン</h3>
-              <p class="flow__step-text">60分の体験レッスンでFigmaの基本操作を体験。講師に何でも質問できます。</p>
+              <h3 class="flow__step-title">無料カウンセリング予約</h3>
+              <p class="flow__step-text">フォームから30秒で予約完了。学習経験・希望コース・目標をヒアリングし、あなたに合うプランをご提案します。</p>
             </div>
           </div>
-          <div class="flow__step flow__step--right flow__step--highlight anim-target" style="--anim-delay:0.08s">
+          <div class="flow__step flow__step--right flow__step--highlight anim-target anim-d-1">
             <div class="flow__step-dot" aria-hidden="true"></div>
             <div class="flow__step-card">
               <span class="flow__step-num">STEP 2</span>
               <span class="flow__step-badge">無料</span>
-              <h3 class="flow__step-title">無料カウンセリング</h3>
-              <p class="flow__step-text">あなたの目標・ライフスタイルに合ったプランをご提案。疑問点も全て解消します。</p>
+              <h3 class="flow__step-title">無料体験レッスン（60分）</h3>
+              <p class="flow__step-text">Figmaの基本操作を実際に体験。講師に何でも質問でき、カリキュラムや学習ペースも具体的に確認できます。</p>
             </div>
           </div>
-          <div class="flow__step flow__step--left anim-target" style="--anim-delay:0.16s">
+          <div class="flow__step flow__step--left anim-target anim-d-2">
             <div class="flow__step-dot" aria-hidden="true"></div>
             <div class="flow__step-card">
               <span class="flow__step-num">STEP 3</span>
-              <h3 class="flow__step-title">本申込み &amp; 受講開始</h3>
-              <p class="flow__step-text">納得してからお申込み。すぐに教材にアクセスし、自分のペースで学習スタート。<strong>14日間全額返金保証付き。</strong></p>
+              <h3 class="flow__step-title">本申込み &amp; 給付金申請</h3>
+              <p class="flow__step-text">納得してからお申込み。教育訓練給付金の対象者には申請サポートも実施。<strong>14日間全額返金保証付き。</strong></p>
             </div>
           </div>
-          <div class="flow__step flow__step--right anim-target" style="--anim-delay:0.24s">
+          <div class="flow__step flow__step--right anim-target anim-d-3">
             <div class="flow__step-dot" aria-hidden="true"></div>
             <div class="flow__step-card">
               <span class="flow__step-num">STEP 4</span>
+              <h3 class="flow__step-title">学習スタート（1〜2ヶ月目）</h3>
+              <p class="flow__step-text">動画教材で基礎を学びつつ、週1回の講師フィードバックで実践課題を進行。デザインの引き出しを増やします。</p>
+            </div>
+          </div>
+          <div class="flow__step flow__step--left anim-target anim-d-4">
+            <div class="flow__step-dot" aria-hidden="true"></div>
+            <div class="flow__step-card">
+              <span class="flow__step-num">STEP 5</span>
+              <h3 class="flow__step-title">ポートフォリオ制作（3ヶ月目）</h3>
+              <p class="flow__step-text">実案件想定の最終課題を制作。バナー5点・LP2点・コーポサイト1点・ポートフォリオサイトが完成します。</p>
+            </div>
+          </div>
+          <div class="flow__step flow__step--right anim-target anim-d-5">
+            <div class="flow__step-dot" aria-hidden="true"></div>
+            <div class="flow__step-card">
+              <span class="flow__step-num">STEP 6</span>
               <h3 class="flow__step-title">修了 &amp; キャリアサポート</h3>
-              <p class="flow__step-text">ポートフォリオ完成後、転職支援・案件紹介などキャリアサポートを受けられます。</p>
+              <p class="flow__step-text">ポートフォリオ完成後、転職支援・案件紹介・面接対策などのキャリアサポートを6ヶ月間受けられます。</p>
             </div>
           </div>
         </div>
@@ -3261,19 +4120,19 @@ strong { font-weight: 700; }
         <h2 class="section-title"><span class="section-title__en" aria-hidden="true">Career Path</span>修了後のキャリアパス</h2>
         <div class="career__scroll-wrapper">
           <div class="career__scroll-track">
-            <div class="career__card anim-target" style="--anim-delay:0s">
+            <div class="career__card anim-target anim-d-0">
               <span class="career__card-icon" aria-hidden="true">&#128188;</span>
               <h3 class="career__card-title">Web制作会社に転職</h3>
               <p class="career__card-text">ポートフォリオと実践スキルで、未経験からデザイナー転職を実現。履歴書添削・面接対策も支援。</p>
               <p class="career__card-stat"><strong>修了生の52%</strong>が転職に成功</p>
             </div>
-            <div class="career__card anim-target" style="--anim-delay:0.08s">
+            <div class="career__card anim-target anim-d-1">
               <span class="career__card-icon" aria-hidden="true">&#128640;</span>
               <h3 class="career__card-title">副業でデザイン案件を獲得</h3>
               <p class="career__card-text">クラウドソーシングでの案件獲得ノウハウを伝授。本業を続けながら月5〜10万円の副収入。</p>
               <p class="career__card-stat"><strong>修了生の35%</strong>が副業で収入獲得</p>
             </div>
-            <div class="career__card anim-target" style="--anim-delay:0.16s">
+            <div class="career__card anim-target anim-d-2">
               <span class="career__card-icon" aria-hidden="true">&#127968;</span>
               <h3 class="career__card-title">フリーランスとして独立</h3>
               <p class="career__card-text">案件獲得から請求書作成まで、フリーランス実務に必要な知識もサポートします。</p>
@@ -3281,6 +4140,64 @@ strong { font-weight: 700; }
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ========== SUBSIDY — 給付金訴求 ========== -->
+    <!-- 心理トリガー: 損失回避（給付金で実質負担を抑えられる）+ 公的信頼 -->
+    <section class="subsidy" aria-label="給付金・支援制度">
+      <div class="subsidy__inner">
+        <span class="subsidy__badge">SUBSIDY / 公的支援制度</span>
+        <h2 class="subsidy__title">最大<strong>70%（112,000円）</strong>がキャッシュバック<br class="pc-only">対象者なら受講料が大幅に軽減されます</h2>
+        <p class="subsidy__lead">DESIGN MASTER ACADEMY は厚生労働省「教育訓練給付制度」の対象講座です。雇用保険加入歴・受講歴により、受講料の20〜70%が修了後にキャッシュバックされます（※対象者に該当する場合）。</p>
+
+        <div class="subsidy__grid">
+          <div class="subsidy__card anim-target anim-d-0">
+            <span class="subsidy__card-ribbon">最大70%</span>
+            <h3 class="subsidy__card-title">専門実践教育訓練給付金</h3>
+            <div class="subsidy__card-amount">
+              <span class="subsidy__card-amount-prefix">最大</span>
+              <span class="subsidy__card-amount-num">112,000</span>
+              <span class="subsidy__card-amount-unit">円キャッシュバック</span>
+            </div>
+            <p class="subsidy__card-text">受講料の50%（最大80万円/年）+ 修了後追加20%が支給される最も手厚い制度。</p>
+            <p class="subsidy__card-target">※ 対象: 雇用保険被保険者期間 通算3年以上（初回は2年以上）の在職者・離職者。受講前のジョブ・カード作成と訓練前キャリアコンサルティングが必要。</p>
+          </div>
+
+          <div class="subsidy__card anim-target anim-d-1">
+            <span class="subsidy__card-ribbon">最大40%</span>
+            <h3 class="subsidy__card-title">特定一般教育訓練給付金</h3>
+            <div class="subsidy__card-amount">
+              <span class="subsidy__card-amount-prefix">最大</span>
+              <span class="subsidy__card-amount-num">200,000</span>
+              <span class="subsidy__card-amount-unit">円キャッシュバック</span>
+            </div>
+            <p class="subsidy__card-text">受講料の40%（上限20万円）が修了後に支給。短期キャリア形成を目的とした制度です。</p>
+            <p class="subsidy__card-target">※ 対象: 雇用保険被保険者期間 通算1年以上の在職者・離職者。受講開始日の1ヶ月前までにキャリアコンサルティング受講が必要。</p>
+          </div>
+
+          <div class="subsidy__card anim-target anim-d-2">
+            <span class="subsidy__card-ribbon">最大20%</span>
+            <h3 class="subsidy__card-title">一般教育訓練給付金</h3>
+            <div class="subsidy__card-amount">
+              <span class="subsidy__card-amount-prefix">最大</span>
+              <span class="subsidy__card-amount-num">100,000</span>
+              <span class="subsidy__card-amount-unit">円キャッシュバック</span>
+            </div>
+            <p class="subsidy__card-text">受講料の20%（上限10万円）が修了後に支給。最も多くの方が利用しやすい一般制度です。</p>
+            <p class="subsidy__card-target">※ 対象: 雇用保険被保険者期間 通算3年以上（初回は1年以上）の在職者・離職者。修了基準（出席率・課題提出）の達成が必要。</p>
+          </div>
+        </div>
+
+        <div class="subsidy__cta">
+          <p class="subsidy__cta-text">あなたが対象になるか<strong>3分で診断</strong>。無料カウンセリングで、雇用保険加入歴をもとに対象制度と還付額の概算をご案内します。</p>
+          <a href="#counseling" class="btn btn--accent btn--small">
+            <span class="btn__main">無料カウンセリングで診断する</span>
+            <span class="btn__micro">予約30秒・オンライン完結</span>
+          </a>
+        </div>
+
+        <p class="subsidy__disclaimer">※ 給付金の支給可否はハローワーク（公共職業安定所）の審査により決定されます。本ページ記載の金額は最大支給額の例であり、すべての方に適用を保証するものではありません。詳細はハローワークまたは厚生労働省「教育訓練給付制度」公式情報をご確認ください。</p>
       </div>
     </section>
 
@@ -3292,7 +4209,7 @@ strong { font-weight: 700; }
         <p class="pricing__lead">すべてのプランに無料体験レッスン（60分）が含まれます。</p>
 
         <div class="pricing__grid">
-          <div class="pricing__card anim-target" style="--anim-delay:0s">
+          <div class="pricing__card anim-target anim-d-0">
             <h3 class="pricing__card-name">ベーシック</h3>
             <p class="pricing__card-desc">動画教材で自分のペースで学ぶ</p>
             <p class="pricing__card-price">&#165;98,000<span class="pricing__card-tax">（税込）</span></p>
@@ -3308,7 +4225,7 @@ strong { font-weight: 700; }
             <a href="#final-cta" class="btn btn--outline btn--small">自分のペースで学び始める</a>
           </div>
 
-          <div class="pricing__card pricing__card--recommended anim-target" style="--anim-delay:0.08s">
+          <div class="pricing__card pricing__card--recommended anim-target anim-d-1">
             <span class="pricing__card-badge">受講生の68%が選択</span>
             <h3 class="pricing__card-name">スタンダード</h3>
             <p class="pricing__card-desc">講師のフィードバックで確実に成長</p>
@@ -3325,7 +4242,7 @@ strong { font-weight: 700; }
             <a href="#final-cta" class="btn btn--accent btn--small btn--pulse">プロの指導付きで確実に成長する</a>
           </div>
 
-          <div class="pricing__card anim-target" style="--anim-delay:0.16s">
+          <div class="pricing__card anim-target anim-d-2">
             <h3 class="pricing__card-name">プレミアム</h3>
             <p class="pricing__card-desc">転職・独立まで完全サポート</p>
             <p class="pricing__card-price">&#165;348,000<span class="pricing__card-tax">（税込）</span></p>
@@ -3357,17 +4274,17 @@ strong { font-weight: 700; }
       <div class="requirements__inner">
         <h2 class="section-title"><span class="section-title__en" aria-hidden="true">Requirements</span>受講に必要なもの</h2>
         <div class="requirements__grid">
-          <div class="requirements__item anim-target" style="--anim-delay:0s">
+          <div class="requirements__item anim-target anim-d-0">
             <span class="requirements__icon" aria-hidden="true">&#128187;</span>
             <h3 class="requirements__title">PC（Windows / Mac）</h3>
             <p class="requirements__text">Figmaが快適に動作するスペック推奨。メモリ8GB以上。</p>
           </div>
-          <div class="requirements__item anim-target" style="--anim-delay:0.08s">
+          <div class="requirements__item anim-target anim-d-1">
             <span class="requirements__icon" aria-hidden="true">&#127760;</span>
             <h3 class="requirements__title">安定したインターネット環境</h3>
             <p class="requirements__text">動画視聴・Figma利用のため、光回線またはWi-Fi推奨。</p>
           </div>
-          <div class="requirements__item anim-target" style="--anim-delay:0.16s">
+          <div class="requirements__item anim-target anim-d-2">
             <span class="requirements__icon" aria-hidden="true">&#9200;</span>
             <h3 class="requirements__title">週5〜10時間の学習時間</h3>
             <p class="requirements__text">通勤時間や週末を活用。学習ペースは個人に合わせて調整可能です。</p>
@@ -3382,31 +4299,31 @@ strong { font-weight: 700; }
       <div class="faq__inner">
         <h2 class="section-title"><span class="section-title__en" aria-hidden="true">FAQ</span>よくあるご質問</h2>
         <div class="faq__list">
-          <details class="faq__item anim-target" style="--anim-delay:0s" open>
+          <details class="faq__item anim-target anim-d-0" open>
             <summary class="faq__question">デザイン未経験でも大丈夫ですか？</summary>
             <p class="faq__answer">はい、まったく問題ありません。受講生の87%がデザイン未経験からスタートされています。基礎の基礎から段階的に学べるカリキュラムなので、安心して受講いただけます。</p>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.06s">
+          <details class="faq__item anim-target anim-d-1">
             <summary class="faq__question">仕事をしながら受講できますか？</summary>
             <p class="faq__answer">はい、多くの方が仕事をしながら受講されています。動画教材は24時間いつでも視聴可能。マンツーマンフィードバックも平日夜・土日に対応しています。週5〜10時間の確保が目安です。</p>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.12s">
+          <details class="faq__item anim-target anim-d-2">
             <summary class="faq__question">途中で挫折しないか心配です</summary>
             <p class="faq__answer">修了率94.2%が挫折しにくさの証明です。週1回の講師フィードバック・受講生コミュニティ・24時間チャットサポートの3つで、つまずいてもすぐにリカバリーできます。</p>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.18s">
+          <details class="faq__item anim-target anim-d-3">
             <summary class="faq__question">他のスクールとの違いは何ですか？</summary>
             <p class="faq__answer">最大の違いは「実案件ベースのカリキュラム」です。教科書的な課題ではなく、実際のクライアントワークを想定した演習を行うため、修了後すぐに仕事に活かせるスキルが身につきます。</p>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.24s">
+          <details class="faq__item anim-target anim-d-4">
             <summary class="faq__question">返金保証はありますか？</summary>
             <p class="faq__answer">はい、14日間の全額返金保証があります。受講開始後14日以内であれば、理由を問わず全額返金いたします。まずは安心してお試しください。</p>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.3s">
+          <details class="faq__item anim-target anim-d-5">
             <summary class="faq__question">修了後のサポートはありますか？</summary>
             <p class="faq__answer">プレミアムプランには6ヶ月間の転職・キャリアサポートが含まれます。また、全プランで修了後も教材アクセスが無期限で可能です。卒業生コミュニティにも引き続き参加いただけます。</p>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.36s">
+          <details class="faq__item anim-target anim-d-5">
             <summary class="faq__question">受講に必要なPCスペックは？</summary>
             <p class="faq__answer">メモリ8GB以上のWindows PCまたはMacを推奨しています。Figmaはブラウザベースのツールなので、特別なソフトウェアの購入は不要です。</p>
           </details>
@@ -3414,35 +4331,113 @@ strong { font-weight: 700; }
       </div>
     </section>
 
-    <!-- SVGウェーブ区切り: FAQ → Trial -->
-    <div class="section-divider section-divider--wave-dark" aria-hidden="true">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#1E1145"/>
-      </svg>
-    </div>
+    <!-- ========== COUNSELING FORM — 無料カウンセリング予約フォーム (WCAG AA対応) ========== -->
+    <!-- 心理トリガー: 段階的コミットメント（小さなYESから始める）+ 返報性 -->
+    <section class="counseling" id="counseling" aria-labelledby="counselingTitle">
+      <div class="counseling__inner">
+        <div class="counseling__head">
+          <h2 class="section-title" id="counselingTitle"><span class="section-title__en" aria-hidden="true">Free Counseling</span>無料カウンセリングを予約する</h2>
+          <p class="counseling__lead">講師があなたの学習経験・希望コース・目標をヒアリングし、最適な学習プランをご提案します。給付金の対象判定もこの場で実施。<strong>無理な勧誘は一切ありません。</strong></p>
+          <div class="counseling__features">
+            <span class="counseling__feature">完全オンライン（Zoom）</span>
+            <span class="counseling__feature">所要時間 約45分</span>
+            <span class="counseling__feature">予約30秒で完了</span>
+            <span class="counseling__feature">給付金診断つき</span>
+          </div>
+        </div>
 
-    <!-- ========== 11. 無料体験 / お試しコンテンツ ========== -->
-    <section class="trial" aria-label="無料体験レッスン">
-      <div class="trial__inner">
-        <h2 class="section-title section-title--light"><span class="section-title__en" aria-hidden="true">Free Trial</span>まずは無料で体験してみませんか？</h2>
-        <div class="trial__content">
-          <div class="trial__video anim-target" style="--anim-delay:0s">
-            <picture data-label="trial-thumbnail">
-              <source srcset="images/trial-thumbnail.webp" type="image/webp">
-              <img src="images/trial-thumbnail.jpg" alt="無料体験レッスンのイメージ" width="640" height="360" loading="lazy">
-            </picture>
-            <span class="trial__play-icon" aria-hidden="true">&#9654;</span>
+        <form class="counseling__form" id="counselingForm" novalidate aria-describedby="counselingFormNote">
+          <div class="counseling__field" data-field>
+            <label class="counseling__label" for="cf-name">お名前<span class="counseling__required" aria-hidden="true">必須</span></label>
+            <input type="text" id="cf-name" name="name" class="counseling__input" required autocomplete="name" aria-required="true" aria-describedby="cf-name-error">
+            <span class="counseling__error" id="cf-name-error" data-error role="alert" aria-live="polite"></span>
           </div>
-          <div class="trial__info anim-target" style="--anim-delay:0.1s">
-            <h3 class="trial__info-title">無料体験レッスンの内容</h3>
-            <ul class="trial__info-list">
-              <li>Figmaの基本操作を60分で体験</li>
-              <li>簡単なバナーデザインを実際に制作</li>
-              <li>講師からの直接フィードバック</li>
-              <li>キャリア相談・質問し放題</li>
-            </ul>
-            <p class="trial__info-note">※ オンライン開催・所要時間60分・完全無料</p>
+
+          <div class="counseling__field counseling__field--row">
+            <div data-field>
+              <label class="counseling__label" for="cf-email">メールアドレス<span class="counseling__required" aria-hidden="true">必須</span></label>
+              <input type="email" id="cf-email" name="email" class="counseling__input" required autocomplete="email" inputmode="email" aria-required="true" aria-describedby="cf-email-error">
+              <span class="counseling__error" id="cf-email-error" data-error role="alert" aria-live="polite"></span>
+            </div>
+            <div data-field>
+              <label class="counseling__label" for="cf-tel">電話番号<span class="counseling__optional" aria-hidden="true">任意</span></label>
+              <input type="tel" id="cf-tel" name="tel" class="counseling__input" autocomplete="tel" inputmode="tel" aria-describedby="cf-tel-error">
+              <span class="counseling__error" id="cf-tel-error" data-error role="alert" aria-live="polite"></span>
+            </div>
           </div>
+
+          <div class="counseling__field" data-field>
+            <span class="counseling__label" id="cf-exp-label">これまでの学習経験<span class="counseling__required" aria-hidden="true">必須</span></span>
+            <div class="counseling__radio-group" role="radiogroup" aria-labelledby="cf-exp-label" aria-describedby="cf-exp-error">
+              <label class="counseling__radio">
+                <input type="radio" name="experience" value="none" required>
+                <span>完全未経験（学んだことがない）</span>
+              </label>
+              <label class="counseling__radio">
+                <input type="radio" name="experience" value="self">
+                <span>独学で少しだけ触ったことがある</span>
+              </label>
+              <label class="counseling__radio">
+                <input type="radio" name="experience" value="study">
+                <span>本やUdemyで体系的に学習中</span>
+              </label>
+              <label class="counseling__radio">
+                <input type="radio" name="experience" value="work">
+                <span>業務で少し関わったことがある</span>
+              </label>
+            </div>
+            <span class="counseling__error" id="cf-exp-error" data-error data-field-name="experience" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="counseling__field" data-field>
+            <label class="counseling__label" for="cf-course">希望コース<span class="counseling__required" aria-hidden="true">必須</span></label>
+            <select id="cf-course" name="course" class="counseling__select" required aria-required="true" aria-describedby="cf-course-error">
+              <option value="">選択してください</option>
+              <option value="basic">ベーシック（3ヶ月・デザイン基礎）</option>
+              <option value="standard">スタンダード（6ヶ月・転職サポートあり）</option>
+              <option value="premium">プレミアム（6ヶ月・キャリア手厚い）</option>
+              <option value="undecided">まだ決めていない（相談したい）</option>
+            </select>
+            <span class="counseling__error" id="cf-course-error" data-error role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="counseling__field" data-field>
+            <label class="counseling__label" for="cf-start">受講開始希望時期<span class="counseling__required" aria-hidden="true">必須</span></label>
+            <select id="cf-start" name="start" class="counseling__select" required aria-required="true" aria-describedby="cf-start-error">
+              <option value="">選択してください</option>
+              <option value="asap">今すぐ（1ヶ月以内）</option>
+              <option value="1-3m">1〜3ヶ月以内</option>
+              <option value="3-6m">3〜6ヶ月以内</option>
+              <option value="6m+">6ヶ月以降</option>
+              <option value="undecided">まだ決めていない</option>
+            </select>
+            <span class="counseling__error" id="cf-start-error" data-error role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="counseling__field" data-field>
+            <label class="counseling__label" for="cf-message">ご質問・ご相談内容<span class="counseling__optional" aria-hidden="true">任意</span></label>
+            <textarea id="cf-message" name="message" class="counseling__textarea" placeholder="例: 給付金の対象になるか確認したい / 仕事と両立できるか不安 / カリキュラムの詳細を知りたい" aria-describedby="cf-message-error"></textarea>
+            <span class="counseling__error" id="cf-message-error" data-error role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="counseling__field" data-field data-field-name="privacy">
+            <label class="counseling__privacy">
+              <input type="checkbox" name="privacy" required aria-required="true">
+              <span><a href="#" data-demo="true">プライバシーポリシー</a>に同意の上、無料カウンセリングを予約します。<br>※ 入力いただいた個人情報は、カウンセリング予約・連絡以外の目的では利用しません。</span>
+            </label>
+            <span class="counseling__error" data-error data-field-name="privacy" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="counseling__submit-wrap">
+            <button type="submit" class="counseling__submit" id="counselingFormSubmit">無料カウンセリングを予約する</button>
+            <small class="counseling__submit-note" id="counselingFormNote">送信後、24時間以内に担当者よりご連絡いたします（土日祝除く）</small>
+          </div>
+        </form>
+
+        <div class="counseling__success" id="counselingFormSuccess" role="status" aria-live="polite">
+          <span class="counseling__success-icon" aria-hidden="true">✓</span>
+          <h3>ご予約ありがとうございました</h3>
+          <p class="counseling__success-text">担当者より24時間以内にご連絡いたします（土日祝を除く）。<br>※ ポートフォリオサンプルのため、実際の送信は行われません。</p>
         </div>
       </div>
     </section>
@@ -3453,25 +4448,18 @@ strong { font-weight: 700; }
       <div class="final-cta__bg" aria-hidden="true"></div>
       <div class="final-cta__bg-overlay" aria-hidden="true"></div>
       <div class="final-cta__inner">
-        <p class="final-cta__urgency">今月の無料体験枠：残り<strong>8</strong>名<small class="final-cta__urgency-note">※ 講師の対応可能枠に限りがあるため</small></p>
+        <p class="final-cta__urgency">今月の無料カウンセリング枠：残り<strong>8</strong>名<small class="final-cta__urgency-note">※ 講師の対応可能枠に限りがあるため</small></p>
         <h2 class="final-cta__title">あなたのデザイナーへの第一歩を、<br>今日から始めませんか？</h2>
-        <p class="final-cta__sub">無料体験レッスン → 無料カウンセリング → 本申込み。<br>納得してから始められる3ステップです。</p>
-        <p class="final-cta__guarantee">14日間全額返金保証付きだから、安心して始められます。</p>
+        <p class="final-cta__sub">無料カウンセリング → 体験レッスン → 本申込み。<br>納得してから始められる3ステップです。</p>
+        <p class="final-cta__guarantee">14日間全額返金保証付き + 教育訓練給付金で最大70%キャッシュバック対応。</p>
 
-        <!-- CTA[6] 最終CTA — 3段階CTA: 体験/相談/電話 -->
+        <!-- CTA[6] 最終CTA — 単一CTA統一: 無料カウンセリング -->
         <div class="final-cta__actions">
           <div class="final-cta__step">
             <span class="final-cta__step-label">まずはここから</span>
-            <a href="#" data-demo="true" class="btn btn--accent btn--large btn--pulse">
-              <span class="btn__main">無料体験レッスンに申し込む</span>
-              <span class="btn__micro">60分・完全無料・オンライン開催</span>
-            </a>
-          </div>
-          <div class="final-cta__step">
-            <span class="final-cta__step-label">じっくり相談したい方</span>
-            <a href="#" data-demo="true" class="btn btn--outline-light btn--large">
+            <a href="#counseling" class="btn btn--accent btn--large btn--pulse">
               <span class="btn__main">無料カウンセリングを予約する</span>
-              <span class="btn__micro">講師があなたに合うプランをご提案</span>
+              <span class="btn__micro">予約30秒・完全オンライン・給付金診断つき</span>
             </a>
           </div>
         </div>
@@ -3558,6 +4546,9 @@ strong { font-weight: 700; }
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
+      <div class="footer__sample-notice">
+        <strong>※ Portfolio Sample 表記</strong>　本ページは飛燕（フリーランスLP制作者）の自主制作によるポートフォリオ作品です。「DESIGN MASTER ACADEMY」は架空のサービスブランドであり、実在の事業者・講師・卒業生・実績数値・給付金情報はすべて自主制作のサンプルです。実際の制度内容は厚生労働省ハローワーク公式情報をご確認ください。
+      </div>
       <p class="footer__logo">DESIGN MASTER ACADEMY</p>
       <p class="footer__copy-text">未経験からWebデザイナーへ。実践型オンライン講座。</p>
       <div class="footer__links">
@@ -3565,14 +4556,45 @@ strong { font-weight: 700; }
         <a href="#" class="footer__link" data-demo="true">特定商取引法に基づく表記</a>
         <a href="#" class="footer__link" data-demo="true">利用規約</a>
       </div>
-      <small class="footer__copy">&copy; 2026 DESIGN MASTER ACADEMY. All rights reserved.</small>
+      <small class="footer__copy">&copy; 2026 DESIGN MASTER ACADEMY (Sample). All rights reserved.</small>
     </div>
   </footer>
 
-  <!-- STICKY CTA (mobile) -->
-  <div class="sticky-cta" role="complementary" aria-label="お申し込みボタン">
+  <!-- Floating CTA (PC) -->
+  <div class="floating-cta" id="floatingCta" aria-hidden="true">
+    <a href="#counseling" class="floating-cta__link" id="floatingCtaLink">
+      <span class="floating-cta__icon" aria-hidden="true">D</span>
+      <span class="floating-cta__text">
+        <strong>無料カウンセリング</strong>
+        <small>残り8名・予約30秒</small>
+      </span>
+    </a>
+    <button type="button" class="floating-cta__close" id="floatingCtaClose" aria-label="このボタンを閉じる">×</button>
+  </div>
+
+  <!-- Mobile Tabbar (SP) -->
+  <nav class="mobile-tabbar" id="mobileTabbar" aria-label="クイックアクション" aria-hidden="true">
+    <button type="button" class="mobile-tabbar__close" id="mobileTabbarClose" aria-label="このバーを閉じる">×</button>
+    <div class="mobile-tabbar__items">
+      <a href="tel:0120-000-000" class="mobile-tabbar__item" aria-label="電話で問い合わせ">
+        <span class="mobile-tabbar__icon" aria-hidden="true">☎</span>
+        <span class="mobile-tabbar__label">電話</span>
+      </a>
+      <a href="#faq" class="mobile-tabbar__item" aria-label="よくある質問を見る">
+        <span class="mobile-tabbar__icon" aria-hidden="true">?</span>
+        <span class="mobile-tabbar__label">FAQ</span>
+      </a>
+      <a href="#counseling" class="mobile-tabbar__item mobile-tabbar__item--primary" aria-label="無料カウンセリングを予約する">
+        <span class="mobile-tabbar__icon" aria-hidden="true">D</span>
+        <span class="mobile-tabbar__label">無料予約</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- LEGACY STICKY CTA (kept for backward compat — hidden by mobile-tabbar CSS on SP) -->
+  <div class="sticky-cta" role="complementary" aria-label="お申し込みボタン" aria-hidden="true">
     <a href="tel:0120-000-000" class="sticky-cta__tel" aria-label="電話で問い合わせ">電話</a>
-    <a href="#final-cta" class="sticky-cta__web">無料体験を申し込む</a>
+    <a href="#counseling" class="sticky-cta__web">無料カウンセリングを予約する</a>
   </div>
 
 <script>
@@ -4169,6 +5191,262 @@ document.addEventListener('DOMContentLoaded', function () {
     careerScroll.setAttribute('tabindex', '0');
     careerScroll.setAttribute('role', 'region');
     careerScroll.setAttribute('aria-label', 'キャリアパス一覧（横スクロール）');
+  }
+
+  /* ========== Flow Progress Bar Animation ========== */
+  var flowProgress = document.getElementById('flowProgress');
+  var flowProgressFill = document.getElementById('flowProgressFill');
+  if (flowProgress && flowProgressFill && 'IntersectionObserver' in window) {
+    var fpObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          flowProgressFill.style.width = '100%';
+          /* mark all step labels as active sequentially */
+          var steps = flowProgress.querySelectorAll('.flow-progress__step');
+          for (var s = 0; s < steps.length; s++) {
+            (function (idx) {
+              setTimeout(function () {
+                steps[idx].classList.add('is-active');
+              }, prefersReducedMotion() ? 0 : 150 * idx);
+            })(s);
+          }
+          fpObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+    fpObserver.observe(flowProgress);
+  }
+
+  /* ========== Floating CTA (PC) + Mobile Tabbar (SP) ========== */
+  var floatingCta = document.getElementById('floatingCta');
+  var floatingCtaClose = document.getElementById('floatingCtaClose');
+  var mobileTabbar = document.getElementById('mobileTabbar');
+  var mobileTabbarClose = document.getElementById('mobileTabbarClose');
+  var heroSection = document.querySelector('.hero');
+  var counselingSection = document.getElementById('counseling');
+  var fcDismissed = false;
+  var mtDismissed = false;
+  var fcVisible = false;
+  var mtVisible = false;
+  function isMobileViewport() {
+    return window.matchMedia('(max-width: 720px)').matches;
+  }
+
+  if ((floatingCta || mobileTabbar) && heroSection) {
+    var floatingTicking = false;
+    function updateFloatingCta() {
+      var heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      var counselingTop = counselingSection ? counselingSection.offsetTop - 280 : Number.MAX_SAFE_INTEGER;
+      var y = window.scrollY;
+      var shouldShow = y > heroBottom * 0.85 && y < counselingTop;
+
+      if (floatingCta) {
+        var wantPc = shouldShow && !fcDismissed && !isMobileViewport();
+        if (wantPc !== fcVisible) {
+          fcVisible = wantPc;
+          if (wantPc) {
+            floatingCta.classList.add('is-visible');
+            floatingCta.setAttribute('aria-hidden', 'false');
+          } else {
+            floatingCta.classList.remove('is-visible');
+            floatingCta.setAttribute('aria-hidden', 'true');
+          }
+        }
+      }
+      if (mobileTabbar) {
+        var wantSp = shouldShow && !mtDismissed && isMobileViewport();
+        if (wantSp !== mtVisible) {
+          mtVisible = wantSp;
+          if (wantSp) {
+            mobileTabbar.classList.add('is-visible');
+            mobileTabbar.classList.remove('is-dismissed');
+            mobileTabbar.setAttribute('aria-hidden', 'false');
+          } else {
+            mobileTabbar.classList.remove('is-visible');
+            mobileTabbar.setAttribute('aria-hidden', 'true');
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', function () {
+      if (floatingTicking) return;
+      floatingTicking = true;
+      requestAnimationFrame(function () {
+        floatingTicking = false;
+        try { updateFloatingCta(); } catch (_) {}
+      });
+    }, { passive: true });
+    window.addEventListener('resize', function () {
+      requestAnimationFrame(updateFloatingCta);
+    }, { passive: true });
+    updateFloatingCta();
+
+    if (floatingCtaClose) {
+      floatingCtaClose.addEventListener('click', function () {
+        fcDismissed = true;
+        if (floatingCta) {
+          floatingCta.classList.remove('is-visible');
+          floatingCta.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+    if (mobileTabbarClose) {
+      mobileTabbarClose.addEventListener('click', function () {
+        mtDismissed = true;
+        if (mobileTabbar) {
+          mobileTabbar.classList.add('is-dismissed');
+          mobileTabbar.classList.remove('is-visible');
+          mobileTabbar.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+  }
+
+  /* ========== Counseling Form Validation (WCAG AA) ========== */
+  var counselingForm = document.getElementById('counselingForm');
+  var counselingSuccess = document.getElementById('counselingFormSuccess');
+  if (counselingForm && counselingSuccess) {
+    var submitBtn = document.getElementById('counselingFormSubmit');
+
+    function setFieldError(fieldEl, message) {
+      var wrapper = fieldEl.closest('[data-field]') || fieldEl.parentElement;
+      if (!wrapper) return;
+      var errorEl = wrapper.querySelector('[data-error]');
+      if (message) {
+        wrapper.classList.add('has-error');
+        if (errorEl) errorEl.textContent = message;
+        if (fieldEl.setAttribute) fieldEl.setAttribute('aria-invalid', 'true');
+      } else {
+        wrapper.classList.remove('has-error');
+        if (errorEl) errorEl.textContent = '';
+        if (fieldEl.setAttribute) fieldEl.setAttribute('aria-invalid', 'false');
+      }
+    }
+
+    function validateRadioGroup(name) {
+      var radios = counselingForm.querySelectorAll('input[type="radio"][name="' + name + '"]');
+      var checked = false;
+      for (var r = 0; r < radios.length; r++) {
+        if (radios[r].checked) { checked = true; break; }
+      }
+      var wrapper = counselingForm.querySelector('[data-field-name="' + name + '"]');
+      if (!checked) {
+        if (radios[0]) {
+          var pwrap = radios[0].closest('[data-field]');
+          if (pwrap) {
+            pwrap.classList.add('has-error');
+            var errEl = pwrap.querySelector('[data-error]');
+            if (errEl) errEl.textContent = '選択してください';
+          }
+        }
+        return false;
+      }
+      if (radios[0]) {
+        var pwrap2 = radios[0].closest('[data-field]');
+        if (pwrap2) {
+          pwrap2.classList.remove('has-error');
+          var errEl2 = pwrap2.querySelector('[data-error]');
+          if (errEl2) errEl2.textContent = '';
+        }
+      }
+      return true;
+    }
+
+    function validateForm() {
+      var ok = true;
+      /* Standard fields */
+      var standardFields = counselingForm.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]), select, textarea');
+      for (var f = 0; f < standardFields.length; f++) {
+        var input = standardFields[f];
+        if (input.required && !input.value.trim()) {
+          setFieldError(input, '必須項目です');
+          ok = false;
+          continue;
+        }
+        if (input.type === 'email' && input.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+          setFieldError(input, 'メールアドレスの形式が正しくありません');
+          ok = false;
+          continue;
+        }
+        if (input.type === 'tel' && input.value.trim() && !/^[0-9+\-()\s]{6,20}$/.test(input.value.trim())) {
+          setFieldError(input, '電話番号の形式が正しくありません');
+          ok = false;
+          continue;
+        }
+        setFieldError(input, '');
+      }
+      /* Radio groups */
+      if (!validateRadioGroup('experience')) ok = false;
+      /* Privacy checkbox */
+      var privacy = counselingForm.querySelector('input[name="privacy"]');
+      if (privacy) {
+        var pwrap = privacy.closest('[data-field]');
+        if (!privacy.checked) {
+          if (pwrap) {
+            pwrap.classList.add('has-error');
+            var errEl = pwrap.querySelector('[data-error]');
+            if (errEl) errEl.textContent = '同意のチェックをお願いします';
+          }
+          ok = false;
+        } else if (pwrap) {
+          pwrap.classList.remove('has-error');
+          var errEl3 = pwrap.querySelector('[data-error]');
+          if (errEl3) errEl3.textContent = '';
+        }
+      }
+      return ok;
+    }
+
+    /* Per-field blur validation */
+    var liveFields = counselingForm.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]), select, textarea');
+    for (var lf = 0; lf < liveFields.length; lf++) {
+      (function (input) {
+        input.addEventListener('blur', function () {
+          if (input.required && !input.value.trim()) {
+            setFieldError(input, '必須項目です');
+          } else if (input.type === 'email' && input.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+            setFieldError(input, 'メールアドレスの形式が正しくありません');
+          } else if (input.type === 'tel' && input.value.trim() && !/^[0-9+\-()\s]{6,20}$/.test(input.value.trim())) {
+            setFieldError(input, '電話番号の形式が正しくありません');
+          } else {
+            setFieldError(input, '');
+          }
+        });
+        input.addEventListener('input', function () {
+          var wrapper = input.closest('[data-field]');
+          if (wrapper && wrapper.classList.contains('has-error') && input.value.trim()) {
+            setFieldError(input, '');
+          }
+        });
+      })(liveFields[lf]);
+    }
+    /* Radio change clears error */
+    var radios = counselingForm.querySelectorAll('input[type="radio"]');
+    for (var ri = 0; ri < radios.length; ri++) {
+      radios[ri].addEventListener('change', function () {
+        validateRadioGroup('experience');
+      });
+    }
+
+    counselingForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validateForm()) {
+        var firstErr = counselingForm.querySelector('.has-error input, .has-error select, .has-error textarea');
+        if (firstErr) firstErr.focus();
+        return;
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+        submitBtn.textContent = '送信中...';
+      }
+      setTimeout(function () {
+        counselingForm.style.display = 'none';
+        counselingSuccess.classList.add('is-visible');
+        counselingSuccess.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'center' });
+      }, 600);
+    });
   }
 
 }); /* End DOMContentLoaded */

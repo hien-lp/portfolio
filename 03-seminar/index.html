@@ -2303,6 +2303,961 @@ p { text-wrap: pretty; word-break: auto-phrase; }
   }
   .fade-in { opacity: 1 !important; transform: none !important; }
 }
+
+/* ============================================================
+   PHASE 2: PATTERN LIBRARY UPGRADE (2026-05-02)
+   ============================================================ */
+
+/* ---------- Hero Trust Bar (4 numbers + footnote) ---------- */
+.hero__trust {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  padding-top: 24px;
+  margin-top: 24px;
+  border-top: 1px solid var(--c-white-15);
+}
+@media (min-width: 768px) {
+  .hero__trust { grid-template-columns: repeat(4, 1fr); gap: 24px 36px; }
+}
+.hero__trust-item { display: flex; flex-direction: column; }
+.hero__trust-num {
+  font-family: var(--ff-en);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--c-teal-light);
+  line-height: 1.1;
+}
+.hero__trust-num small {
+  font-size: 0.5em;
+  font-weight: 600;
+  margin-left: 2px;
+  color: var(--c-white-80);
+}
+.hero__trust-label {
+  font-size: var(--fs-caption);
+  color: var(--c-white-75);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+.hero__footnote {
+  font-size: 0.6875rem;
+  color: var(--c-white-55);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+/* ---------- Logos / Partners Section (BtoB社会的証明) ---------- */
+.partners {
+  background: var(--c-white);
+  padding: var(--sp-block) 20px;
+  border-bottom: 1px solid var(--c-grey-100);
+}
+.partners__inner { max-width: var(--max-width); margin: 0 auto; text-align: center; }
+.partners__label {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-grey-500);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.partners__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 20px;
+  align-items: center;
+}
+@media (min-width: 768px) { .partners__grid { grid-template-columns: repeat(6, 1fr); gap: 16px 32px; } }
+.partners__logo {
+  display: flex; align-items: center; justify-content: center;
+  height: 48px;
+  padding: 8px 12px;
+  font-family: var(--ff-en);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--c-grey-500);
+  background: var(--c-light-grey);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--c-grey-100);
+  filter: grayscale(1);
+  opacity: 0.78;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.partners__logo:hover { filter: grayscale(0); opacity: 1; }
+.partners__note {
+  font-size: 0.6875rem;
+  color: var(--c-grey-500);
+  margin-top: 14px;
+}
+
+/* ---------- Full-width Reasons (左右交互) ---------- */
+.reasons { background: var(--c-deep-blue); }
+.reason-block {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+.reason-block__bg {
+  position: absolute; inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.05) saturate(0.7) brightness(0.65);
+  transition: transform 8s linear;
+}
+.reason-block:hover .reason-block__bg { transform: scale(1.05); }
+.reason-block::before {
+  content: '';
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg,
+    rgba(18, 40, 66, 0.95) 0%,
+    rgba(18, 40, 66, 0.82) 38%,
+    rgba(18, 40, 66, 0.5) 70%,
+    rgba(18, 40, 66, 0.2) 100%);
+}
+.reason-block--reverse::before {
+  background: linear-gradient(270deg,
+    rgba(18, 40, 66, 0.95) 0%,
+    rgba(18, 40, 66, 0.82) 38%,
+    rgba(18, 40, 66, 0.5) 70%,
+    rgba(18, 40, 66, 0.2) 100%);
+}
+.reason-block__inner {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 64px 20px;
+  display: flex;
+}
+@media (min-width: 768px) { .reason-block__inner { padding: 90px 32px; } }
+.reason-block--reverse .reason-block__inner { justify-content: flex-end; }
+.reason-content {
+  max-width: 540px;
+  color: var(--c-white);
+}
+.reason-content__num {
+  font-family: var(--ff-en);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 700;
+  color: var(--c-teal-light);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.reason-content__num small {
+  display: block;
+  font-size: 0.22em;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  color: var(--c-white-70);
+  margin-top: 6px;
+}
+.reason-content__title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+.reason-content__body {
+  font-size: var(--fs-small);
+  line-height: 1.85;
+  color: var(--c-white-85);
+  margin-bottom: 16px;
+}
+.reason-content__points {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.reason-content__point {
+  position: relative;
+  padding-left: 24px;
+  font-size: var(--fs-small);
+  line-height: 1.7;
+  color: var(--c-white-85);
+}
+.reason-content__point::before {
+  content: '';
+  position: absolute; left: 0; top: 0.6em;
+  width: 14px; height: 2px;
+  background: var(--c-teal-light);
+}
+/* 背景画像（CSS指定でインラインstyle排除） */
+.reason-block--01 .reason-block__bg {
+  background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=70');
+}
+.reason-block--02 .reason-block__bg {
+  background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=70');
+}
+.reason-block--03 .reason-block__bg {
+  background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=70');
+}
+.reason-block--04 .reason-block__bg {
+  background-image: url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1920&q=70');
+}
+
+/* ---------- Speakers Grid (3-4名) ---------- */
+.speakers { background: var(--c-white); padding: var(--sp-section) 20px; }
+.speakers__inner { max-width: var(--max-width); margin: 0 auto; }
+.speakers__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+.speakers__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: 12px;
+}
+.speakers__lead {
+  font-size: var(--fs-body);
+  color: var(--c-text-light);
+  margin-bottom: var(--sp-block);
+  max-width: 640px;
+}
+.speakers__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-element);
+}
+@media (min-width: 768px) { .speakers__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+@media (min-width: 1024px) { .speakers__grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+.speakers__card {
+  background: var(--c-white);
+  border: 1px solid var(--c-grey-100);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px var(--c-shadow-blue-04);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+}
+.speakers__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px var(--c-shadow-blue-10);
+}
+.speakers__avatar {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-deep-blue) 0%, var(--c-teal) 100%);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.speakers__initial {
+  font-family: var(--ff-en);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--c-white);
+  letter-spacing: -0.02em;
+}
+.speakers__name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: 4px;
+}
+.speakers__name-en {
+  display: block;
+  font-family: var(--ff-en);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--c-grey-500);
+  margin-bottom: 8px;
+}
+.speakers__role {
+  font-size: 0.8125rem;
+  color: var(--c-text-light);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.speakers__credit {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--c-teal-dark);
+  background: var(--c-teal-08);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  display: inline-block;
+}
+
+/* ---------- Flow Step Progress ---------- */
+.flow {
+  background: var(--c-light-grey);
+  padding: var(--sp-section) 20px;
+}
+.flow__inner { max-width: var(--max-width); margin: 0 auto; }
+.flow__head { text-align: center; margin-bottom: var(--sp-block); }
+.flow__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.flow__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+}
+.flow__title em { font-style: normal; color: var(--c-teal); }
+.flow__steps {
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.flow__line {
+  position: absolute;
+  left: 35px;
+  top: 36px;
+  bottom: 36px;
+  width: 2px;
+  background: var(--c-grey-200);
+  z-index: 0;
+}
+.flow__line-progress {
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, var(--c-teal-light) 0%, var(--c-teal) 100%);
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (min-width: 900px) {
+  .flow__line { left: 50%; transform: translateX(-50%); }
+  .flow__step {
+    display: grid;
+    grid-template-columns: 1fr 72px 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .flow__step:nth-child(odd of .flow__step) .flow__step-content {
+    grid-column: 1 / 2; text-align: right;
+  }
+  .flow__step:nth-child(odd of .flow__step) .flow__step-num { grid-column: 2 / 3; }
+  .flow__step:nth-child(even of .flow__step) .flow__step-content { grid-column: 3 / 4; }
+  .flow__step:nth-child(even of .flow__step) .flow__step-num { grid-column: 2 / 3; }
+}
+.flow__step {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.flow__step-num {
+  flex-shrink: 0;
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--c-white);
+  border: 2px solid var(--c-grey-200);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-en);
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: var(--c-grey-500);
+  transition: all 0.36s var(--ease-out);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 2px 8px var(--c-shadow-blue-06);
+}
+.flow__step.is-active .flow__step-num {
+  background: var(--c-deep-blue);
+  border-color: var(--c-teal-light);
+  color: var(--c-teal-light);
+  box-shadow: 0 8px 20px var(--c-shadow-blue-12);
+  transform: scale(1.05);
+}
+.flow__step-content {
+  flex: 1;
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  box-shadow: 0 2px 10px var(--c-shadow-blue-06);
+}
+.flow__step-tag {
+  font-family: var(--ff-en);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--c-teal);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.flow__step-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: 8px;
+  line-height: 1.45;
+}
+.flow__step-body {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--c-text-light);
+  margin-bottom: 8px;
+}
+.flow__step-meta {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--c-teal-dark);
+  background: var(--c-teal-08);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* ---------- Comparison Table ---------- */
+.comparison {
+  background: var(--c-white);
+  padding: var(--sp-section) 20px;
+}
+.comparison__inner { max-width: var(--max-width); margin: 0 auto; }
+.comparison__head { text-align: center; margin-bottom: var(--sp-block); }
+.comparison__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.comparison__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+}
+.comparison__table-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 20px var(--c-shadow-blue-08);
+}
+.comparison__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--c-white);
+  min-width: 580px;
+}
+.comparison__table th,
+.comparison__table td {
+  padding: 18px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--c-grey-100);
+  font-size: var(--fs-small);
+  vertical-align: middle;
+}
+.comparison__table thead th {
+  font-family: var(--ff-jp);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--c-grey-500);
+  background: var(--c-light-grey);
+  text-align: center;
+}
+.comparison__table thead th.is-highlight {
+  background: var(--c-deep-blue);
+  color: var(--c-teal-light);
+  font-size: 0.9375rem;
+  letter-spacing: 0.1em;
+  font-family: var(--ff-en);
+  text-transform: uppercase;
+}
+.comparison__table tbody th {
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  width: 28%;
+  background: var(--c-light-grey);
+}
+.comparison__table td {
+  color: var(--c-text-light);
+  line-height: 1.7;
+  text-align: center;
+}
+.comparison__table .is-highlight {
+  background: var(--c-teal-08);
+  color: var(--c-deep-blue);
+  font-weight: 600;
+  position: relative;
+}
+.comparison__table .is-highlight::before {
+  content: '◎';
+  color: var(--c-teal);
+  font-weight: 700;
+  margin-right: 6px;
+}
+.comparison__table .is-cross {
+  color: var(--c-grey-500);
+}
+.comparison__table .is-cross::before {
+  content: '×';
+  color: #DC2626;
+  font-weight: 700;
+  margin-right: 6px;
+}
+.comparison__table tr:last-child th,
+.comparison__table tr:last-child td { border-bottom: none; }
+
+/* ---------- Triple CTA (3段階) ---------- */
+.triple-cta {
+  background: var(--c-light-grey);
+  padding: var(--sp-section) 20px;
+}
+.triple-cta__inner { max-width: var(--max-width); margin: 0 auto; }
+.triple-cta__head { text-align: center; margin-bottom: var(--sp-block); }
+.triple-cta__eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--c-teal);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.triple-cta__title {
+  font-size: var(--fs-section);
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  margin-bottom: 12px;
+}
+.triple-cta__lead {
+  font-size: var(--fs-body);
+  color: var(--c-text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.triple-cta__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-element);
+}
+@media (min-width: 768px) { .triple-cta__grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+.triple-cta__card {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  border-top: 4px solid var(--c-grey-200);
+  box-shadow: 0 2px 14px var(--c-shadow-blue-06);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+  display: flex; flex-direction: column;
+}
+.triple-cta__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px var(--c-shadow-blue-12);
+}
+.triple-cta__card--primary { border-top-color: var(--c-teal); }
+.triple-cta__card--primary { background: linear-gradient(180deg, var(--c-deep-blue) 0%, var(--c-deep-blue-dark) 100%); color: var(--c-white); }
+.triple-cta__step {
+  font-family: var(--ff-en);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--c-teal);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.triple-cta__card--primary .triple-cta__step { color: var(--c-teal-light); }
+.triple-cta__card-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--c-deep-blue);
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+.triple-cta__card--primary .triple-cta__card-title { color: var(--c-white); }
+.triple-cta__card-text {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--c-text-light);
+  margin-bottom: 20px;
+  flex: 1;
+}
+.triple-cta__card--primary .triple-cta__card-text { color: var(--c-white-85); }
+.triple-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  background: var(--c-light-grey);
+  color: var(--c-deep-blue);
+  text-align: center;
+  transition: background 0.25s ease, transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+}
+.triple-cta__btn:hover {
+  background: var(--c-grey-100);
+  transform: translateY(-2px);
+}
+.triple-cta__btn--primary {
+  background: var(--c-teal);
+  color: var(--c-white);
+  box-shadow: 0 4px 14px var(--c-teal-35);
+}
+.triple-cta__btn--primary:hover {
+  background: var(--c-teal-dark);
+  box-shadow: 0 8px 20px var(--c-teal-45);
+}
+
+/* ---------- LP Form (WCAG AA) ---------- */
+.lp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  background: var(--c-white-08);
+  border: 1px solid var(--c-white-15);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+.lp-form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 481px) { .lp-form__row { grid-template-columns: 1fr 1fr; gap: 16px; } }
+.lp-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.lp-form__field--full { grid-column: 1 / -1; }
+.lp-form__label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--c-white-90);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lp-form__label .req {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 700;
+  color: #FCA5A5;
+  background: var(--c-alert-20);
+  padding: 1px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+}
+.lp-form__label .opt {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--c-white-70);
+  background: var(--c-white-10);
+  padding: 1px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+}
+.lp-form input[type="text"],
+.lp-form input[type="email"],
+.lp-form input[type="tel"],
+.lp-form select,
+.lp-form textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--c-white-20);
+  border-radius: var(--radius-sm);
+  background: var(--c-white-08);
+  color: var(--c-white);
+  font-family: var(--ff-jp);
+  font-size: 0.9375rem;
+  width: 100%;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.lp-form input::placeholder,
+.lp-form textarea::placeholder { color: var(--c-white-35); }
+.lp-form input:focus,
+.lp-form select:focus,
+.lp-form textarea:focus {
+  border-color: var(--c-teal-light);
+  background: var(--c-white-12);
+  outline: none;
+}
+.lp-form input:focus-visible,
+.lp-form select:focus-visible,
+.lp-form textarea:focus-visible {
+  outline: 2px solid var(--c-teal-light);
+  outline-offset: 2px;
+}
+.lp-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+.lp-form textarea { resize: vertical; min-height: 88px; }
+.lp-form .has-error input,
+.lp-form .has-error select,
+.lp-form .has-error textarea {
+  border-color: #FCA5A5;
+  background: var(--c-alert-05);
+}
+.lp-form__error {
+  display: block;
+  min-height: 0;
+  font-size: 0.75rem;
+  color: #FCA5A5;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.lp-form__check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.8125rem;
+  color: var(--c-white-85);
+  cursor: pointer;
+  padding: 4px 0;
+}
+.lp-form__check input[type="checkbox"] {
+  width: 18px; height: 18px;
+  margin-top: 2px;
+  accent-color: var(--c-teal);
+  flex-shrink: 0;
+}
+.lp-form__check a {
+  color: var(--c-teal-light);
+  text-decoration: underline;
+}
+.lp-form__error--privacy { margin-top: -4px; }
+.lp-form__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 18px 28px;
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  background: var(--c-teal);
+  color: var(--c-white);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px var(--c-teal-45);
+  transition: background 0.25s ease, transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+}
+.lp-form__submit:hover {
+  background: var(--c-teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px var(--c-teal-55);
+}
+.lp-form__submit[disabled] { opacity: 0.7; cursor: wait; transform: none; }
+.lp-form__submit .arrow {
+  font-family: var(--ff-en);
+  transition: transform 0.25s ease;
+}
+.lp-form__submit:hover .arrow { transform: translateX(4px); }
+.lp-form__note {
+  font-size: 0.6875rem;
+  color: var(--c-white-55);
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* Form Success state */
+.lp-form__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 36px 24px;
+  background: var(--c-white-08);
+  border: 1px solid var(--c-teal-35);
+  border-radius: var(--radius-md);
+  text-align: center;
+  animation: successFadeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.lp-form__success-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--c-teal);
+  color: var(--c-white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.75rem; font-weight: 700;
+}
+.lp-form__success h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--c-white);
+}
+.lp-form__success p {
+  font-size: 0.875rem;
+  color: var(--c-white-85);
+  line-height: 1.7;
+}
+.lp-form__success small {
+  font-size: 0.6875rem;
+  color: var(--c-white-55);
+}
+@keyframes successFadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-form__success { animation: none; }
+}
+
+/* ---------- Floating CTA (PC) ---------- */
+.floating-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1100;
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s var(--ease-out), opacity 0.4s ease;
+}
+.floating-cta.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.floating-cta__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  background: var(--c-teal);
+  color: var(--c-white);
+  border-radius: var(--radius-full);
+  box-shadow: 0 12px 28px var(--c-teal-45);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.floating-cta__link:hover {
+  background: var(--c-teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px var(--c-teal-55);
+}
+.floating-cta__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--c-white-20);
+  font-size: 1rem;
+}
+.floating-cta__text { display: flex; flex-direction: column; line-height: 1.2; }
+.floating-cta__text strong { font-size: 0.9375rem; font-weight: 700; }
+.floating-cta__text small { font-size: 0.6875rem; opacity: 0.85; margin-top: 2px; font-weight: 500; }
+.floating-cta__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; height: 24px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--c-white-20);
+  color: var(--c-white);
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease;
+}
+.floating-cta__close:hover { background: var(--c-white-35); }
+@media (max-width: 720px) { .floating-cta { display: none; } }
+
+/* ---------- Mobile Tabbar (SP下部) ---------- */
+.mobile-tabbar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 1100;
+  background: var(--c-deep-blue);
+  border-top: 1px solid var(--c-white-15);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  transform: translateY(110%);
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 -4px 18px var(--c-black-15);
+}
+@media (max-width: 720px) {
+  .mobile-tabbar { display: flex; }
+}
+.mobile-tabbar.is-visible { transform: translateY(0); }
+.mobile-tabbar.is-dismissed { transform: translateY(110%) !important; pointer-events: none; }
+.mobile-tabbar__items {
+  display: flex; flex: 1; align-items: stretch;
+}
+.mobile-tabbar__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 6px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--c-white);
+  text-align: center;
+  border-right: 1px solid var(--c-white-15);
+  transition: background 0.2s ease;
+}
+.mobile-tabbar__item:last-of-type { border-right: none; }
+.mobile-tabbar__item:active { background: var(--c-white-10); }
+.mobile-tabbar__item--primary {
+  background: var(--c-teal);
+  flex: 1.4;
+  color: var(--c-white);
+}
+.mobile-tabbar__item--primary:active { background: var(--c-teal-dark); }
+.mobile-tabbar__icon { font-size: 1.125rem; line-height: 1; }
+.mobile-tabbar__label { letter-spacing: 0.04em; }
+.mobile-tabbar__close {
+  position: absolute;
+  top: -18px; right: 12px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--c-deep-blue);
+  border: 1px solid var(--c-white-20);
+  color: var(--c-white);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px var(--c-black-15);
+}
+.mobile-tabbar__close:active { background: var(--c-deep-blue-dark); }
+@media (prefers-reduced-motion: reduce) {
+  .mobile-tabbar { transition: transform 0.001ms !important; }
+}
+
+/* ---------- Footnote / Disclosure refinement ---------- */
+.lp-footnote {
+  font-size: 0.6875rem;
+  color: var(--c-grey-500);
+  line-height: 1.7;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px 20px;
+}
+.lp-footnote ol { padding-left: 1.4em; list-style: decimal; }
+.lp-footnote li { margin-bottom: 4px; }
 </style>
 <link rel="preload" as="image" href="./images/hero.webp" type="image/webp" fetchpriority="high">
 
@@ -2332,11 +3287,13 @@ p { text-wrap: pretty; word-break: auto-phrase; }
         </button>
         <ul class="header__nav-list">
           <li><a href="#about" class="header__nav-link">学べること</a></li>
-          <li><a href="#speaker" class="header__nav-link">講師紹介</a></li>
+          <li><a href="#reasons" class="header__nav-link">選ばれる理由</a></li>
+          <li><a href="#speakers" class="header__nav-link">講師紹介</a></li>
+          <li><a href="#flow" class="header__nav-link">プログラム</a></li>
+          <li><a href="#comparison" class="header__nav-link">他社比較</a></li>
           <li><a href="#voices" class="header__nav-link">参加者の声</a></li>
-          <li><a href="#bonus" class="header__nav-link">特典</a></li>
           <li><a href="#faq" class="header__nav-link">FAQ</a></li>
-          <li><a href="#final-cta" class="header__nav-link header__nav-link--cta">無料で申し込む</a></li>
+          <li><a href="#triple-cta" class="header__nav-link header__nav-link--cta">無料で申し込む</a></li>
         </ul>
       </nav>
     </div>
@@ -2382,14 +3339,71 @@ p { text-wrap: pretty; word-break: auto-phrase; }
           </div>
         </div>
         <div class="hero__cta anim-target" style="--anim-delay:0.4s">
-          <a href="#final-cta" class="btn btn--primary btn--lg btn--pulse">
+          <a href="#triple-cta" class="btn btn--primary btn--lg btn--pulse" aria-label="無料セミナーの席を確保する">
             <span class="btn__main">無料で席を確保する</span>
             <span class="btn__sub">参加費無料・途中退室OK・営業なし</span>
           </a>
         </div>
+
+        <!-- Hero Trust Bar: 4つの信頼数字 -->
+        <div class="hero__trust anim-target" style="--anim-delay:0.5s" role="list" aria-label="セミナー実績数値">
+          <div class="hero__trust-item" role="listitem">
+            <span class="hero__trust-num" aria-hidden="true">
+              <span class="counter" data-target="487">0</span><small>社</small>
+            </span>
+            <span class="sr-only">487社</span>
+            <span class="hero__trust-label">参加企業数<sup>※1</sup></span>
+          </div>
+          <div class="hero__trust-item" role="listitem">
+            <span class="hero__trust-num" aria-hidden="true">
+              +<span class="counter" data-target="187">0</span><small>%</small>
+            </span>
+            <span class="sr-only">+187%</span>
+            <span class="hero__trust-label">平均CVR改善率<sup>※2</sup></span>
+          </div>
+          <div class="hero__trust-item" role="listitem">
+            <span class="hero__trust-num" aria-hidden="true">
+              <span class="counter" data-target="32">0</span><small>回</small>
+            </span>
+            <span class="sr-only">32回</span>
+            <span class="hero__trust-label">通算開催回数</span>
+          </div>
+          <div class="hero__trust-item" role="listitem">
+            <span class="hero__trust-num" aria-hidden="true">
+              <span class="counter" data-target="96.8" data-decimal="1">0</span><small>%</small>
+            </span>
+            <span class="sr-only">96.8%</span>
+            <span class="hero__trust-label">参加者満足度<sup>※3</sup></span>
+          </div>
+        </div>
+        <p class="hero__footnote anim-target" style="--anim-delay:0.55s">
+          ※1 2022年4月〜2026年4月 自社開催セミナー累計 ※2 受講後3ヶ月以内の自己申告ベース ※3 直近12回開催の事後アンケート結果
+        </p>
       </div>
       <!-- Hero背景装飾（画像の上にオーバーレイとして残す） -->
       <div class="hero__bg-shape" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== PARTNERS LOGO GRID (社会的証明) ===== -->
+    <section class="partners" aria-label="参加企業ロゴ">
+      <div class="partners__inner">
+        <p class="partners__label">主な参加企業（一部抜粋・敬称略）</p>
+        <ul class="partners__grid" role="list">
+          <li class="partners__logo">SAKURA Tech</li>
+          <li class="partners__logo">MINATO Group</li>
+          <li class="partners__logo">FUJI Solutions</li>
+          <li class="partners__logo">YAMABUKI Co.</li>
+          <li class="partners__logo">AOI Partners</li>
+          <li class="partners__logo">KOTOBUKI Inc.</li>
+          <li class="partners__logo">HARUKA Lab</li>
+          <li class="partners__logo">SEIRYU Works</li>
+          <li class="partners__logo">TSUBAKI Media</li>
+          <li class="partners__logo">SHIRAKABA &amp; Co.</li>
+          <li class="partners__logo">RINDOU System</li>
+          <li class="partners__logo">他 470社以上</li>
+        </ul>
+        <p class="partners__note">※ 表記は架空のサンプルです。本セミナーはポートフォリオ用デモLPです。</p>
+      </div>
     </section>
 
     <!-- ===== TARGET (こんな方におすすめ / Qualify強化) ===== -->
@@ -2514,6 +3528,79 @@ p { text-wrap: pretty; word-break: auto-phrase; }
       </div>
     </section>
 
+    <!-- ===== REASONS (フルワイド左右交互 / 選ばれる理由) ===== -->
+    <section class="reasons" id="reasons" aria-label="GROWTH MARKETING LABが選ばれる4つの理由">
+      <h2 class="sr-only">GROWTH MARKETING LABが選ばれる4つの理由</h2>
+      <div class="reason-block reason-block--01">
+        <div class="reason-block__bg" aria-hidden="true"></div>
+        <div class="reason-block__inner">
+          <div class="reason-content anim-target">
+            <p class="reason-content__num" aria-hidden="true">01<small>EVIDENCE</small></p>
+            <h3 class="reason-content__title">広告代理店出身の現役プロが、自社実績ベースで講義</h3>
+            <p class="reason-content__body">
+              講師は全員、Google・Meta公認資格を保有する現役マーケター。机上論ではなく、自社や支援先で実際にCVRを改善した数字付きの事例を共有します。
+            </p>
+            <ul class="reason-content__points" role="list">
+              <li class="reason-content__point">支援企業の平均売上成長率 +187%（自社調べ・受講後3ヶ月時点）</li>
+              <li class="reason-content__point">講義スライドは全て自社プロジェクトの実数値</li>
+              <li class="reason-content__point">業界別の成功・失敗ケースを匿名加工で公開</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="reason-block reason-block--reverse reason-block--02">
+        <div class="reason-block__bg" aria-hidden="true"></div>
+        <div class="reason-block__inner">
+          <div class="reason-content anim-target">
+            <p class="reason-content__num" aria-hidden="true">02<small>FRAMEWORK</small></p>
+            <h3 class="reason-content__title">SEO×SNS×広告を1日で接続する独自フレームワーク</h3>
+            <p class="reason-content__body">
+              個別チャネルだけ学んでも成果は出ません。集客導線を「認知 → 比較 → 申込」の3段階で接続する独自フレームワークを、ワーク形式で自社に落とし込みます。
+            </p>
+            <ul class="reason-content__points" role="list">
+              <li class="reason-content__point">業種別テンプレート12種を当日配布（製造業／専門サービス／SaaS等）</li>
+              <li class="reason-content__point">ワークシートで自社の現状ボトルネックを可視化</li>
+              <li class="reason-content__point">翌日から動かせる90日アクションプランで持ち帰り</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="reason-block reason-block--03">
+        <div class="reason-block__bg" aria-hidden="true"></div>
+        <div class="reason-block__inner">
+          <div class="reason-content anim-target">
+            <p class="reason-content__num" aria-hidden="true">03<small>COMMUNITY</small></p>
+            <h3 class="reason-content__title">同じ立場の意思決定者と意見交換できる、少人数制</h3>
+            <p class="reason-content__body">
+              定員を30名に絞り、経営者・マーケ責任者の参加比率を80%以上に維持。社内では聞けない悩みを、同じ目線の参加者・講師と直接ディスカッションできます。
+            </p>
+            <ul class="reason-content__points" role="list">
+              <li class="reason-content__point">参加者同士のグループワークを必ず2回設定</li>
+              <li class="reason-content__point">受講後はクローズドの参加者コミュニティに招待</li>
+              <li class="reason-content__point">業種が重複する場合は事前調整、競合排除を実施</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="reason-block reason-block--reverse reason-block--04">
+        <div class="reason-block__bg" aria-hidden="true"></div>
+        <div class="reason-block__inner">
+          <div class="reason-content anim-target">
+            <p class="reason-content__num" aria-hidden="true">04<small>FOLLOWUP</small></p>
+            <h3 class="reason-content__title">セミナー後30日間、無料の質問サポート付き</h3>
+            <p class="reason-content__body">
+              「持ち帰って実装したけれど詰まった」を放置しません。受講者専用フォームから30日間、無制限で講師に質問可能。営業ではなく学習サポートとしての伴走です。
+            </p>
+            <ul class="reason-content__points" role="list">
+              <li class="reason-content__point">回答SLA: 24営業時間以内（土日祝除く）</li>
+              <li class="reason-content__point">よくある質問はナレッジベースに集約、共有</li>
+              <li class="reason-content__point">追加コンサル・有償サービスへの強引な勧誘なし</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== CTA BAND 1 ===== -->
     <section class="cta-band" aria-label="セミナー申し込み">
       <div class="cta-band__inner">
@@ -2521,7 +3608,7 @@ p { text-wrap: pretty; word-break: auto-phrase; }
           <strong>参加費無料。</strong>さらに参加者全員に<br class="cta-band__br-sp">
           「集客チェックリスト50」をプレゼント。
         </p>
-        <a href="#final-cta" class="btn btn--accent btn--lg btn--pulse anim-target" style="--anim-delay:0.1s">
+        <a href="#triple-cta" class="btn btn--accent btn--lg btn--pulse anim-target" style="--anim-delay:0.1s">
           <span class="btn__main">このスキルを手に入れる</span>
           <span class="btn__sub">※ 無料・途中退室OK・営業なし</span>
         </a>
@@ -2579,33 +3666,214 @@ p { text-wrap: pretty; word-break: auto-phrase; }
       <div class="section-slant" aria-hidden="true"></div>
     </section>
 
-    <!-- ===== SPEAKER ===== -->
-    <section class="speaker" id="speaker">
-      <div class="speaker__inner">
-        <p class="speaker__eyebrow anim-target" aria-hidden="true">Speaker</p>
-        <h2 class="speaker__title anim-target">講師紹介</h2>
-        <!-- 非対称: 左アバター + 右テキスト -->
-        <div class="speaker__layout">
-          <div class="speaker__avatar-wrap anim-target">
-            <div class="speaker__avatar" aria-label="講師 田中 裕也のイニシャル">
-              <span class="speaker__initial">T.Y</span>
-            </div>
-          </div>
-          <div class="speaker__info anim-target" style="--anim-delay:0.15s">
-            <p class="speaker__name">田中 裕也<span class="speaker__name-en">Yuya Tanaka</span></p>
-            <p class="speaker__role">株式会社グロースパートナーズ 代表取締役 / マーケティングコンサルタント</p>
-            <div class="speaker__badges">
-              <span class="speaker__cert-badge">Google 認定プロフェッショナル</span>
-              <span class="speaker__cert-badge">Meta Blueprint 認定</span>
-              <span class="speaker__cert-badge">著書累計3万部</span>
-            </div>
-            <ul class="speaker__career">
-              <li class="speaker__career-item">大手広告代理店にて10年間、300社以上のWebマーケティングを支援</li>
-              <li class="speaker__career-item">独立後、中小企業特化のコンサルティング事業を創業</li>
-              <li class="speaker__career-item">支援企業の平均売上成長率 <strong>187%</strong>（自社調べ）</li>
-              <li class="speaker__career-item">著書「小さな会社のWeb集客大全」（累計3万部）</li>
+    <!-- ===== SPEAKERS (4名グリッド / 権威性) ===== -->
+    <section class="speakers" id="speakers" aria-label="登壇講師の紹介">
+      <div class="speakers__inner">
+        <p class="speakers__eyebrow anim-target" aria-hidden="true">Speakers</p>
+        <h2 class="speakers__title anim-target">登壇する4名の専門家</h2>
+        <p class="speakers__lead anim-target" style="--anim-delay:0.1s">
+          各分野で実績を積んだ現役プロが、戦略・SNS・広告・データ分析を分担して登壇。机上論ではなく、自社プロジェクトの実数値ベースで解説します。
+        </p>
+        <div class="speakers__grid">
+          <article class="speakers__card anim-target">
+            <div class="speakers__avatar" aria-hidden="true"><span class="speakers__initial">T.Y</span></div>
+            <p class="speakers__name">田中 裕也<span class="speakers__name-en">Yuya Tanaka</span></p>
+            <p class="speakers__role">株式会社グロースパートナーズ 代表取締役 / 戦略担当</p>
+            <ul class="speaker__career" role="list">
+              <li class="speaker__career-item">大手広告代理店にて10年、300社以上のWebマーケティングを支援</li>
+              <li class="speaker__career-item">著書「小さな会社のWeb集客大全」<strong>累計3万部</strong></li>
             </ul>
+            <p class="speakers__credit">Google 認定プロフェッショナル</p>
+          </article>
+          <article class="speakers__card anim-target" style="--anim-delay:0.1s">
+            <div class="speakers__avatar" aria-hidden="true"><span class="speakers__initial">M.S</span></div>
+            <p class="speakers__name">佐々木 美和<span class="speakers__name-en">Miwa Sasaki</span></p>
+            <p class="speakers__role">SNSグロース合同会社 代表 / SNS担当</p>
+            <ul class="speaker__career" role="list">
+              <li class="speaker__career-item">BtoBアカウント運用で平均フォロワー <strong>+5.2倍/年</strong> の実績</li>
+              <li class="speaker__career-item">Instagram・X・LINEの3媒体を横断したコンテンツ設計が専門</li>
+            </ul>
+            <p class="speakers__credit">Meta Business Partner 認定</p>
+          </article>
+          <article class="speakers__card anim-target" style="--anim-delay:0.2s">
+            <div class="speakers__avatar" aria-hidden="true"><span class="speakers__initial">K.N</span></div>
+            <p class="speakers__name">中村 健太<span class="speakers__name-en">Kenta Nakamura</span></p>
+            <p class="speakers__role">アドプロ合同会社 シニアマーケター / 広告運用担当</p>
+            <ul class="speaker__career" role="list">
+              <li class="speaker__career-item">累計運用予算 <strong>12億円超</strong> のリスティング・SNS広告を最適化</li>
+              <li class="speaker__career-item">CPA改善率 平均-38%（受講後3ヶ月の自社支援先実績）</li>
+            </ul>
+            <p class="speakers__credit">Google Ads 検索広告 認定</p>
+          </article>
+          <article class="speakers__card anim-target" style="--anim-delay:0.3s">
+            <div class="speakers__avatar" aria-hidden="true"><span class="speakers__initial">A.O</span></div>
+            <p class="speakers__name">小川 彩<span class="speakers__name-en">Aya Ogawa</span></p>
+            <p class="speakers__role">データ＆アナリティクス事業部 リード / 計測担当</p>
+            <ul class="speaker__career" role="list">
+              <li class="speaker__career-item">GA4移行支援 <strong>120社以上</strong>、レポート設計テンプレートを公開</li>
+              <li class="speaker__career-item">中小企業向けKPI設計フレームワークの開発・運用</li>
+            </ul>
+            <p class="speakers__credit">GA4 認定アナリスト</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FLOW (5ステップ進行アニメ) ===== -->
+    <section class="flow" id="flow" aria-label="セミナーお申込みから受講後までの5ステップ">
+      <div class="flow__inner">
+        <div class="flow__head">
+          <p class="flow__eyebrow anim-target" aria-hidden="true">The Program Flow</p>
+          <h2 class="flow__title anim-target">お申込みから受講後フォローまで、<em>5つのステップ</em>。</h2>
+        </div>
+        <div class="flow__steps" id="flowSteps">
+          <div class="flow__line" aria-hidden="true">
+            <div class="flow__line-progress" id="flowLineProgress"></div>
           </div>
+          <div class="flow__step anim-target" data-step="1">
+            <div class="flow__step-num" aria-hidden="true">1</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 01 / Apply</p>
+              <h3 class="flow__step-title">お申込みフォーム入力</h3>
+              <p class="flow__step-body">会社名・役職・参加人数・業種をご入力ください。送信後、自動返信メールで受付完了をお知らせします。</p>
+              <span class="flow__step-meta">所要時間: 約3分</span>
+            </div>
+          </div>
+          <div class="flow__step anim-target" data-step="2">
+            <div class="flow__step-num" aria-hidden="true">2</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 02 / Confirm</p>
+              <h3 class="flow__step-title">事前ヒアリング（任意）</h3>
+              <p class="flow__step-body">事前ヒアリングフォームで現状の課題をお預かり。当日のワーク内容をあなたの業種に合わせて調整します。</p>
+              <span class="flow__step-meta">3営業日以内に返送</span>
+            </div>
+          </div>
+          <div class="flow__step anim-target" data-step="3">
+            <div class="flow__step-num" aria-hidden="true">3</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 03 / Attend</p>
+              <h3 class="flow__step-title">セミナー本編に参加</h3>
+              <p class="flow__step-body">渋谷会場で4時間の講義＋ワーク。同業者バッティングがある場合は受付時に座席調整を行います。</p>
+              <span class="flow__step-meta">2026年5月17日 13:00-17:00</span>
+            </div>
+          </div>
+          <div class="flow__step anim-target" data-step="4">
+            <div class="flow__step-num" aria-hidden="true">4</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 04 / Apply Back</p>
+              <h3 class="flow__step-title">90日アクションプランを実装</h3>
+              <p class="flow__step-body">当日持ち帰る90日アクションプランを社内で実装。詰まった箇所はオンラインフォームから随時ご質問ください。</p>
+              <span class="flow__step-meta">受講後1〜90日</span>
+            </div>
+          </div>
+          <div class="flow__step anim-target" data-step="5">
+            <div class="flow__step-num" aria-hidden="true">5</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 05 / Follow Up</p>
+              <h3 class="flow__step-title">受講後30日サポート＋成果レビュー</h3>
+              <p class="flow__step-body">30日後に簡易アンケートで成果の振り返り。希望者にはオンラインの個別フィードバックも実施します。</p>
+              <span class="flow__step-meta">受講後30日以降</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMPARISON (一般的なセミナー vs このセミナー) ===== -->
+    <section class="comparison" id="comparison" aria-label="一般的なセミナーとの比較表">
+      <div class="comparison__inner">
+        <div class="comparison__head">
+          <p class="comparison__eyebrow anim-target" aria-hidden="true">Comparison</p>
+          <h2 class="comparison__title anim-target">一般的なセミナーとの違い</h2>
+        </div>
+        <div class="comparison__table-wrap anim-target">
+          <table class="comparison__table">
+            <caption class="sr-only">一般的なマーケティングセミナーとGROWTH MARKETING LABの比較</caption>
+            <thead>
+              <tr>
+                <th scope="col">比較項目</th>
+                <th scope="col">一般的な無料セミナー</th>
+                <th scope="col" class="is-highlight">GROWTH MARKETING LAB</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">講師の構成</th>
+                <td class="is-cross">代表1名のみ・営業担当兼任が多い</td>
+                <td class="is-highlight">分野別の現役プロ4名が分担登壇</td>
+              </tr>
+              <tr>
+                <th scope="row">講義の素材</th>
+                <td class="is-cross">他社事例の二次引用が中心</td>
+                <td class="is-highlight">自社・支援先の実数値スライドのみ</td>
+              </tr>
+              <tr>
+                <th scope="row">ワークの有無</th>
+                <td class="is-cross">講義のみ・ワークなし</td>
+                <td class="is-highlight">90分以上のワーク＋アクションプラン作成</td>
+              </tr>
+              <tr>
+                <th scope="row">受講後フォロー</th>
+                <td class="is-cross">アンケートのみ・営業電話あり</td>
+                <td class="is-highlight">30日間無料サポート＋知識共有コミュニティ</td>
+              </tr>
+              <tr>
+                <th scope="row">配布資料</th>
+                <td class="is-cross">スライドPDFのみ</td>
+                <td class="is-highlight">業種別テンプレ12種＋チェックリスト50</td>
+              </tr>
+              <tr>
+                <th scope="row">同業者の取扱い</th>
+                <td class="is-cross">特に調整なし</td>
+                <td class="is-highlight">座席調整＋ワークグルーピングを事前実施</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRIPLE CTA (3段階の関与レベル) ===== -->
+    <section class="triple-cta" id="triple-cta" aria-label="3つの参加方法">
+      <div class="triple-cta__inner">
+        <div class="triple-cta__head">
+          <p class="triple-cta__eyebrow anim-target" aria-hidden="true">Choose Your Step</p>
+          <h2 class="triple-cta__title anim-target">まずは、3つの中から<br class="hero__br-sp">最適な一歩を選んでください。</h2>
+          <p class="triple-cta__lead anim-target" style="--anim-delay:0.1s">
+            「いきなり申込は早い」という方も、まずは資料DLや個別相談から。あなたの検討段階に合わせた3段階の入口をご用意しています。
+          </p>
+        </div>
+        <div class="triple-cta__grid">
+          <article class="triple-cta__card anim-target">
+            <p class="triple-cta__step">Step 1 / 検討初期</p>
+            <h3 class="triple-cta__card-title">無料資料ダウンロード</h3>
+            <p class="triple-cta__card-text">
+              セミナーの全カリキュラム・講師プロフィール・参加企業実績をまとめた33ページの紹介資料をPDFで送付します。社内共有・稟議用にどうぞ。
+            </p>
+            <a href="#final-cta" class="triple-cta__btn" data-cta-target="document">
+              資料をダウンロード（無料）
+            </a>
+          </article>
+          <article class="triple-cta__card triple-cta__card--primary anim-target" style="--anim-delay:0.1s">
+            <p class="triple-cta__step">Step 2 / おすすめ</p>
+            <h3 class="triple-cta__card-title">無料セミナーに参加</h3>
+            <p class="triple-cta__card-text">
+              5/17（日）13:00からの本編4時間にご参加いただきます。3大特典＋90日アクションプラン＋30日間サポート付き。定員30名。
+            </p>
+            <a href="#final-cta" class="triple-cta__btn triple-cta__btn--primary" data-cta-target="seminar">
+              無料で席を確保する
+            </a>
+          </article>
+          <article class="triple-cta__card anim-target" style="--anim-delay:0.2s">
+            <p class="triple-cta__step">Step 3 / 検討中盤</p>
+            <h3 class="triple-cta__card-title">個別オンライン相談</h3>
+            <p class="triple-cta__card-text">
+              30分のオンライン面談で、自社課題に合うかを事前に確認。複数事業部の同時受講や貸切開催のご相談もこちらから。
+            </p>
+            <a href="#final-cta" class="triple-cta__btn" data-cta-target="consult">
+              個別相談を予約する
+            </a>
+          </article>
         </div>
       </div>
     </section>
@@ -2616,20 +3884,20 @@ p { text-wrap: pretty; word-break: auto-phrase; }
         <div class="stats__item anim-target">
           <span class="stats__number" data-count="2480" data-suffix="名" aria-hidden="true">0</span>
           <span class="sr-only">2,480名</span>
-          <span class="stats__label">累計参加者数</span>
+          <span class="stats__label">累計参加者数<sup>※4</sup></span>
         </div>
         <div class="stats__item anim-target" style="--anim-delay:0.1s">
           <span class="stats__number" data-count="96.8" data-suffix="%" aria-hidden="true">0</span>
           <span class="sr-only">96.8%</span>
-          <span class="stats__label">参加者満足度</span>
+          <span class="stats__label">参加者満足度<sup>※3</sup></span>
         </div>
         <div class="stats__item anim-target" style="--anim-delay:0.2s">
           <span class="stats__number" data-count="73" data-suffix="%" aria-hidden="true">0</span>
           <span class="sr-only">73%</span>
-          <span class="stats__label">リピート参加率</span>
+          <span class="stats__label">リピート参加率<sup>※5</sup></span>
         </div>
       </div>
-      <p class="stats__note">※ 2024年1月〜2025年12月の自社アンケート調べ（個人差があります）</p>
+      <p class="stats__note">※3 直近12回開催の事後アンケート結果（5段階評価で4以上の割合）／ ※4 2022年4月〜2026年4月累計／ ※5 同期間中、複数回参加者の比率</p>
     </section>
 
     <!-- ===== VOICES (カルーセル) ===== -->
@@ -2746,9 +4014,9 @@ p { text-wrap: pretty; word-break: auto-phrase; }
           知識がないまま集客を続ける<strong>「機会損失」</strong>を<br class="cta-band__br-sp">
           今日で終わりにしませんか？
         </p>
-        <a href="#final-cta" class="btn btn--primary btn--lg btn--pulse anim-target" style="--anim-delay:0.1s">
+        <a href="#triple-cta" class="btn btn--primary btn--lg btn--pulse anim-target" style="--anim-delay:0.1s">
           <span class="btn__main">参加者の声を信じて申し込む</span>
-          <span class="btn__sub">※ 満足度96.8%（自社アンケート調べ）</span>
+          <span class="btn__sub">※ 満足度96.8%（直近12回開催の事後アンケート）</span>
         </a>
       </div>
     </section>
@@ -2866,7 +4134,7 @@ p { text-wrap: pretty; word-break: auto-phrase; }
       </div>
     </section>
 
-    <!-- ===== FINAL CTA ===== -->
+    <!-- ===== FINAL CTA (WCAG AA Validated Form) ===== -->
     <section class="final-cta" id="final-cta">
       <div class="final-cta__inner">
         <p class="final-cta__badge anim-target">残席わずか</p>
@@ -2874,39 +4142,146 @@ p { text-wrap: pretty; word-break: auto-phrase; }
         <p class="final-cta__lead anim-target" style="--anim-delay:0.1s">
           2026年5月17日（日）13:00〜17:00 ｜ 渋谷マークシティ 5F ｜ 参加費無料
         </p>
-        <form class="final-cta__form anim-target" style="--anim-delay:0.2s" data-demo="true">
-          <div class="final-cta__field">
-            <label for="cta-name" class="final-cta__label">お名前</label>
-            <input type="text" id="cta-name" class="final-cta__input" placeholder="山田 太郎" required>
-          </div>
-          <div class="final-cta__field">
-            <label for="cta-email" class="final-cta__label">メールアドレス</label>
-            <input type="email" id="cta-email" class="final-cta__input" placeholder="example@email.com" required>
-          </div>
-          <div class="final-cta__field">
-            <label for="cta-company" class="final-cta__label">会社名（任意）</label>
-            <input type="text" id="cta-company" class="final-cta__input" placeholder="株式会社○○">
-          </div>
-          <div class="final-cta__consent">
-            <label class="final-cta__consent-label">
-              <input type="checkbox" class="final-cta__consent-check" required>
-              <a href="#" data-demo="true">プライバシーポリシー</a>に同意する
+
+        <form class="lp-form anim-target" id="lpForm" style="--anim-delay:0.2s" novalidate aria-label="セミナー申込フォーム">
+          <div class="lp-form__row">
+            <label class="lp-form__field" data-field>
+              <span class="lp-form__label">お名前<em class="req">必須</em></span>
+              <input type="text" name="name" autocomplete="name" placeholder="例) 山田 太郎"
+                     required aria-required="true">
+              <span class="lp-form__error" data-error aria-live="polite"></span>
+            </label>
+            <label class="lp-form__field" data-field>
+              <span class="lp-form__label">メールアドレス<em class="req">必須</em></span>
+              <input type="email" name="email" autocomplete="email" placeholder="example@company.co.jp"
+                     required aria-required="true">
+              <span class="lp-form__error" data-error aria-live="polite"></span>
             </label>
           </div>
-          <button type="submit" class="btn btn--primary btn--lg btn--full btn--pulse">
-            <span class="btn__main">今すぐ無料で参加する</span>
-            <span class="btn__sub">30秒で完了・3大特典つき</span>
+          <div class="lp-form__row">
+            <label class="lp-form__field" data-field>
+              <span class="lp-form__label">会社名<em class="req">必須</em></span>
+              <input type="text" name="company" autocomplete="organization" placeholder="例) 株式会社グロースサンプル"
+                     required aria-required="true">
+              <span class="lp-form__error" data-error aria-live="polite"></span>
+            </label>
+            <label class="lp-form__field" data-field>
+              <span class="lp-form__label">役職<em class="req">必須</em></span>
+              <select name="role" autocomplete="organization-title" required aria-required="true">
+                <option value="">選択してください</option>
+                <option value="ceo">代表取締役・経営者</option>
+                <option value="exec">役員・部長クラス</option>
+                <option value="manager">課長・マネージャー</option>
+                <option value="member">担当者</option>
+                <option value="other">その他</option>
+              </select>
+              <span class="lp-form__error" data-error aria-live="polite"></span>
+            </label>
+          </div>
+          <div class="lp-form__row">
+            <label class="lp-form__field" data-field>
+              <span class="lp-form__label">参加人数<em class="req">必須</em></span>
+              <select name="headcount" required aria-required="true">
+                <option value="">選択してください</option>
+                <option value="1">1名（ご本人のみ）</option>
+                <option value="2">2名</option>
+                <option value="3">3名</option>
+                <option value="4plus">4名以上（要事前ご相談）</option>
+              </select>
+              <span class="lp-form__error" data-error aria-live="polite"></span>
+            </label>
+            <label class="lp-form__field" data-field>
+              <span class="lp-form__label">業種<em class="req">必須</em></span>
+              <select name="industry" required aria-required="true">
+                <option value="">選択してください</option>
+                <option value="manufacturing">製造業</option>
+                <option value="it">IT・SaaS</option>
+                <option value="retail">小売・EC</option>
+                <option value="service">専門サービス（士業・コンサル等）</option>
+                <option value="real-estate">不動産・建設</option>
+                <option value="medical">医療・福祉</option>
+                <option value="other">その他</option>
+              </select>
+              <span class="lp-form__error" data-error aria-live="polite"></span>
+            </label>
+          </div>
+          <label class="lp-form__field lp-form__field--full" data-field>
+            <span class="lp-form__label">ご質問・ご相談（任意）<em class="opt">任意</em></span>
+            <textarea name="message" rows="3" placeholder="例) SNS運用の体制について事前に相談したい点があります"></textarea>
+          </label>
+          <label class="lp-form__check" data-field>
+            <input type="checkbox" name="privacy" required aria-required="true">
+            <span><a href="#" data-demo="true" tabindex="-1">個人情報の取扱い</a>に同意する <em class="req">必須</em></span>
+          </label>
+          <span class="lp-form__error lp-form__error--privacy" data-error data-field-name="privacy" aria-live="polite"></span>
+
+          <button type="submit" class="lp-form__submit btn--pulse" id="lpFormSubmit">
+            今すぐ無料で参加する <span class="arrow" aria-hidden="true">→</span>
           </button>
+          <p class="lp-form__note">
+            ※ 本フォームはGROWTH MARKETING LABの自主制作ポートフォリオ用サンプルです。<br>
+            実際の送信・データ保存は行われません。
+          </p>
         </form>
+
+        <div class="lp-form__success" id="lpFormSuccess" hidden role="status" aria-live="polite">
+          <span class="lp-form__success-icon" aria-hidden="true">&#10003;</span>
+          <h3>お申込みありがとうございます</h3>
+          <p>受付完了メールを5分以内にお送りします。<br>当日のご参加を心よりお待ちしております。</p>
+          <small>※ ポートフォリオサンプルのため、実際の送信は行われていません</small>
+        </div>
+
         <ul class="final-cta__reassurance anim-target" style="--anim-delay:0.3s">
           <li class="final-cta__reassurance-item">※ 参加費は完全無料です</li>
           <li class="final-cta__reassurance-item">※ 途中退室OK・強引な営業は一切ありません</li>
           <li class="final-cta__reassurance-item">※ ご入力いただいた情報はセミナーのご案内にのみ使用いたします</li>
         </ul>
       </div>
+
+      <!-- 数字の脚注（景表法配慮） -->
+      <div class="lp-footnote" aria-label="数値の出典">
+        <ol>
+          <li>参加企業487社：2022年4月〜2026年4月の自社開催セミナー累計（重複参加企業を含む）</li>
+          <li>平均CVR改善率+187%：受講後3ヶ月以内の自己申告ベース、有効回答数218件の平均値（個人差があります）</li>
+          <li>参加者満足度96.8%：直近12回開催の事後アンケート、5段階評価で4以上を回答した参加者の比率</li>
+          <li>累計参加者2,480名：2022年4月〜2026年4月、現地開催のみカウント</li>
+          <li>リピート参加率73%：同期間中、複数回参加した個人の比率</li>
+        </ol>
+      </div>
     </section>
 
   </main>
+
+  <!-- ========== FLOATING CTA (PC) ========== -->
+  <div class="floating-cta" id="floatingCta" aria-hidden="true">
+    <a href="#triple-cta" class="floating-cta__link" aria-label="無料セミナーに申し込む">
+      <span class="floating-cta__icon" aria-hidden="true">&#9733;</span>
+      <span class="floating-cta__text">
+        <strong>無料で席を確保</strong>
+        <small>定員30名・残席わずか</small>
+      </span>
+    </a>
+    <button type="button" class="floating-cta__close" id="floatingCtaClose" aria-label="フローティングCTAを閉じる">&times;</button>
+  </div>
+
+  <!-- ========== MOBILE TABBAR (SP) ========== -->
+  <nav class="mobile-tabbar" id="mobileTabbar" aria-label="モバイル用クイックアクセス" aria-hidden="true">
+    <button type="button" class="mobile-tabbar__close" id="mobileTabbarClose" aria-label="下部メニューを閉じる">&times;</button>
+    <div class="mobile-tabbar__items">
+      <a href="#flow" class="mobile-tabbar__item" data-tabbar-link>
+        <span class="mobile-tabbar__icon" aria-hidden="true">&#128221;</span>
+        <span class="mobile-tabbar__label">プログラム</span>
+      </a>
+      <a href="#voices" class="mobile-tabbar__item" data-tabbar-link>
+        <span class="mobile-tabbar__icon" aria-hidden="true">&#9733;</span>
+        <span class="mobile-tabbar__label">参加者の声</span>
+      </a>
+      <a href="#triple-cta" class="mobile-tabbar__item mobile-tabbar__item--primary" data-tabbar-link>
+        <span class="mobile-tabbar__icon" aria-hidden="true">&#10004;</span>
+        <span class="mobile-tabbar__label">無料申込</span>
+      </a>
+    </div>
+  </nav>
 
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
@@ -2920,7 +4295,55 @@ p { text-wrap: pretty; word-break: auto-phrase; }
     </div>
   </footer>
 
-  <!-- FAQ JSON-LD 構造化データ -->
+  <!-- EducationEvent JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationEvent",
+    "name": "GROWTH MARKETING LAB — Web集客・SNS活用マーケティングセミナー",
+    "description": "中小企業の経営者・マーケティング担当者向けの無料マーケティングセミナー。Web集客・SNS活用・広告最適化の3本柱を1日で習得できる、現役プロ4名による少人数制プログラム。",
+    "startDate": "2026-05-17T13:00:00+09:00",
+    "endDate": "2026-05-17T17:00:00+09:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "渋谷マークシティ ウエスト5F カンファレンスルーム",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "道玄坂1-12-1",
+        "addressLocality": "渋谷区",
+        "addressRegion": "東京都",
+        "postalCode": "150-0043",
+        "addressCountry": "JP"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "GROWTH MARKETING LAB",
+      "url": "https://example.com/03-seminar/"
+    },
+    "performer": [
+      {"@type": "Person", "name": "田中 裕也"},
+      {"@type": "Person", "name": "佐々木 美和"},
+      {"@type": "Person", "name": "中村 健太"},
+      {"@type": "Person", "name": "小川 彩"}
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY",
+      "availability": "https://schema.org/LimitedAvailability",
+      "validFrom": "2026-04-01T00:00:00+09:00",
+      "url": "https://example.com/03-seminar/#triple-cta"
+    },
+    "maximumAttendeeCapacity": 30,
+    "inLanguage": "ja",
+    "image": "https://example.com/03-seminar/images/hero.jpg"
+  }
+  </script>
+
+  <!-- FAQPage JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -2978,24 +4401,30 @@ p { text-wrap: pretty; word-break: auto-phrase; }
   }
   </script>
 
-  <!-- Event JSON-LD 構造化データ -->
+  <!-- BreadcrumbList JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "GROWTH MARKETING LAB — Web集客・SNS活用マーケティングセミナー",
-    "startDate": "2026-05-17T13:00:00+09:00",
-    "endDate": "2026-05-17T17:00:00+09:00",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "location": {
-      "@type": "Place",
-      "name": "東京都渋谷区 セミナー会場",
-      "address": {"@type": "PostalAddress", "addressLocality": "渋谷区", "addressRegion": "東京都", "addressCountry": "JP"}
-    },
-    "organizer": {"@type": "Organization", "name": "GROWTH MARKETING LAB"},
-    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY", "availability": "https://schema.org/LimitedAvailability"},
-    "description": "中小企業の経営者・マーケ担当者向け無料マーケティングセミナー"
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ポートフォリオ",
+        "item": "https://example.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "セミナーLP",
+        "item": "https://example.com/03-seminar/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GROWTH MARKETING LAB"
+      }
+    ]
   }
   </script>
 
@@ -3062,7 +4491,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Inert management: set inert on main, footer, and header internal elements (logo/hamburger) */
   function setInert(enable) {
-    /* Set inert on body-level siblings */
+    /* Set inert on body-level siblings (including floating CTA and mobile tabbar) */
     var children = document.body.children;
     for (var j = 0; j < children.length; j++) {
       var child = children[j];
@@ -3337,6 +4766,296 @@ document.addEventListener('DOMContentLoaded', function () {
       var suffix = el.getAttribute('data-suffix') || '';
       el.textContent = formatValue(countTarget, suffix);
     }
+  }
+
+  /* ========== Hero Trust Bar Counter (.counter[data-target]) ========== */
+  function animateCounter(el) {
+    var target = parseFloat(el.getAttribute('data-target'));
+    var decimal = parseInt(el.getAttribute('data-decimal') || '0', 10);
+    if (isNaN(target)) return;
+    if (prefersReducedMotion()) {
+      el.textContent = decimal > 0 ? target.toFixed(decimal) : Math.floor(target);
+      return;
+    }
+    var duration = target >= 100 ? 1800 : 1400;
+    var startTime = 0;
+    function step(now) {
+      if (!startTime) startTime = now;
+      var t = Math.min((now - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - t, 3);
+      var current = target * eased;
+      el.textContent = decimal > 0 ? current.toFixed(decimal) : Math.floor(current);
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = decimal > 0 ? target.toFixed(decimal) : Math.floor(target);
+    }
+    requestAnimationFrame(step);
+  }
+  var counterEls = document.querySelectorAll('.counter[data-target]');
+  if (counterEls.length && 'IntersectionObserver' in window) {
+    var counterIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    for (var ck = 0; ck < counterEls.length; ck++) {
+      counterIO.observe(counterEls[ck]);
+    }
+  } else {
+    for (var cl = 0; cl < counterEls.length; cl++) {
+      var ce = counterEls[cl];
+      var ct = parseFloat(ce.getAttribute('data-target'));
+      var cd = parseInt(ce.getAttribute('data-decimal') || '0', 10);
+      ce.textContent = cd > 0 ? ct.toFixed(cd) : Math.floor(ct);
+    }
+  }
+
+  /* ========== Flow Step Progress ========== */
+  var flowSteps = document.querySelectorAll('.flow__step');
+  var flowLineProgress = document.getElementById('flowLineProgress');
+  if (flowSteps.length && flowLineProgress && 'IntersectionObserver' in window) {
+    var activeStepCount = 0;
+    var totalFlowSteps = flowSteps.length;
+    function updateFlowLine() {
+      var pct = (activeStepCount / totalFlowSteps) * 100;
+      flowLineProgress.style.height = pct + '%';
+    }
+    if (prefersReducedMotion()) {
+      flowSteps.forEach(function (s) { s.classList.add('is-active'); });
+      flowLineProgress.style.height = '100%';
+    } else {
+      var flowIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-active');
+            var stepNum = parseInt(entry.target.getAttribute('data-step'), 10);
+            if (!isNaN(stepNum) && stepNum > activeStepCount) {
+              activeStepCount = stepNum;
+              updateFlowLine();
+            }
+            flowIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      flowSteps.forEach(function (s) { flowIO.observe(s); });
+    }
+  }
+
+  /* ========== Floating CTA (PC) ========== */
+  var floatingCta = document.getElementById('floatingCta');
+  var floatingCtaClose = document.getElementById('floatingCtaClose');
+  var heroSec = document.getElementById('hero');
+  var finalCtaSec = document.getElementById('final-cta');
+  var floatingCtaDismissed = false;
+  var floatingTicking = false;
+
+  function updateFloatingCta() {
+    floatingTicking = false;
+    if (!floatingCta || floatingCtaDismissed) return;
+    if (window.innerWidth <= 720) {
+      floatingCta.classList.remove('is-visible');
+      floatingCta.setAttribute('aria-hidden', 'true');
+      return;
+    }
+    var heroBottom = heroSec ? heroSec.offsetTop + heroSec.offsetHeight : 0;
+    var ctaTop = finalCtaSec ? finalCtaSec.offsetTop - 200 : Number.MAX_VALUE;
+    var y = window.scrollY;
+    var should = y > heroBottom * 0.7 && y < ctaTop;
+    if (should) {
+      floatingCta.classList.add('is-visible');
+      floatingCta.setAttribute('aria-hidden', 'false');
+    } else {
+      floatingCta.classList.remove('is-visible');
+      floatingCta.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  if (floatingCta) {
+    window.addEventListener('scroll', function () {
+      if (!floatingTicking) {
+        floatingTicking = true;
+        requestAnimationFrame(updateFloatingCta);
+      }
+    }, { passive: true });
+    window.addEventListener('resize', debounce(updateFloatingCta, 200));
+    if (floatingCtaClose) {
+      floatingCtaClose.addEventListener('click', function () {
+        floatingCtaDismissed = true;
+        floatingCta.classList.remove('is-visible');
+        floatingCta.setAttribute('aria-hidden', 'true');
+      });
+    }
+    updateFloatingCta();
+  }
+
+  /* ========== Mobile Tabbar ========== */
+  var mobileTabbar = document.getElementById('mobileTabbar');
+  var mobileTabbarClose = document.getElementById('mobileTabbarClose');
+  var tabbarDismissed = false;
+  var tabbarTicking = false;
+
+  function isMobile() { return window.innerWidth <= 720; }
+
+  function updateMobileTabbar() {
+    tabbarTicking = false;
+    if (!mobileTabbar || tabbarDismissed) return;
+    if (!isMobile()) {
+      mobileTabbar.classList.remove('is-visible');
+      mobileTabbar.setAttribute('aria-hidden', 'true');
+      return;
+    }
+    var heroBottom = heroSec ? heroSec.offsetTop + heroSec.offsetHeight : 0;
+    var ctaTop = finalCtaSec ? finalCtaSec.offsetTop - 280 : Number.MAX_VALUE;
+    var y = window.scrollY;
+    var should = y > heroBottom * 0.85 && y < ctaTop;
+    if (should) {
+      mobileTabbar.classList.add('is-visible');
+      mobileTabbar.classList.remove('is-dismissed');
+      mobileTabbar.setAttribute('aria-hidden', 'false');
+    } else {
+      mobileTabbar.classList.remove('is-visible');
+      mobileTabbar.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  if (mobileTabbar) {
+    window.addEventListener('scroll', function () {
+      if (!tabbarTicking) {
+        tabbarTicking = true;
+        requestAnimationFrame(updateMobileTabbar);
+      }
+    }, { passive: true });
+    window.addEventListener('resize', debounce(updateMobileTabbar, 200));
+    if (mobileTabbarClose) {
+      mobileTabbarClose.addEventListener('click', function () {
+        tabbarDismissed = true;
+        mobileTabbar.classList.add('is-dismissed');
+        mobileTabbar.classList.remove('is-visible');
+        mobileTabbar.setAttribute('aria-hidden', 'true');
+      });
+    }
+    updateMobileTabbar();
+  }
+
+  /* ========== LP Form Validation (WCAG AA) ========== */
+  var lpForm = document.getElementById('lpForm');
+  var lpFormSuccess = document.getElementById('lpFormSuccess');
+  if (lpForm && lpFormSuccess) {
+    var lpFormSubmit = document.getElementById('lpFormSubmit');
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function setFieldError(field, msg) {
+      var wrap = field.closest('[data-field]') || field.parentElement;
+      if (!wrap) return;
+      var err = wrap.querySelector('[data-error]');
+      if (msg) {
+        wrap.classList.add('has-error');
+        if (err) err.textContent = msg;
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'true');
+      } else {
+        wrap.classList.remove('has-error');
+        if (err) err.textContent = '';
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'false');
+      }
+    }
+
+    function validateLpForm() {
+      var ok = true;
+      var fields = lpForm.querySelectorAll('[data-field]');
+      for (var fi = 0; fi < fields.length; fi++) {
+        var wrap = fields[fi];
+        var inputs = wrap.querySelectorAll('input, select, textarea');
+        for (var ii = 0; ii < inputs.length; ii++) {
+          var inp = inputs[ii];
+          if (inp.name === 'privacy') {
+            if (!inp.checked) {
+              var pErr = lpForm.querySelector('[data-field-name="privacy"]');
+              if (pErr) pErr.textContent = '同意のチェックをお願いします';
+              inp.setAttribute('aria-invalid', 'true');
+              ok = false;
+            } else {
+              var pErrOk = lpForm.querySelector('[data-field-name="privacy"]');
+              if (pErrOk) pErrOk.textContent = '';
+              inp.setAttribute('aria-invalid', 'false');
+            }
+            continue;
+          }
+          var val = (inp.value || '').trim();
+          if (inp.required && !val) {
+            setFieldError(inp, '必須項目です');
+            ok = false;
+            continue;
+          }
+          if (inp.type === 'email' && val && !emailRe.test(val)) {
+            setFieldError(inp, 'メールアドレスの形式が正しくありません');
+            ok = false;
+            continue;
+          }
+          setFieldError(inp, '');
+        }
+      }
+      return ok;
+    }
+
+    var lpInputs = lpForm.querySelectorAll('input, select, textarea');
+    for (var li = 0; li < lpInputs.length; li++) {
+      (function (inp) {
+        inp.addEventListener('blur', function () {
+          if (inp.name === 'privacy') return;
+          var val = (inp.value || '').trim();
+          if (inp.required && !val) setFieldError(inp, '必須項目です');
+          else if (inp.type === 'email' && val && !emailRe.test(val)) setFieldError(inp, 'メールアドレスの形式が正しくありません');
+          else setFieldError(inp, '');
+        });
+        inp.addEventListener('input', function () {
+          var wrap = inp.closest('[data-field]');
+          if (wrap && wrap.classList.contains('has-error') && (inp.value || '').trim()) {
+            setFieldError(inp, '');
+          }
+        });
+        inp.addEventListener('change', function () {
+          if (inp.name === 'privacy') {
+            if (inp.checked) {
+              var pe = lpForm.querySelector('[data-field-name="privacy"]');
+              if (pe) pe.textContent = '';
+              inp.setAttribute('aria-invalid', 'false');
+            }
+          }
+        });
+      })(lpInputs[li]);
+    }
+
+    lpForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validateLpForm()) {
+        var firstErr = lpForm.querySelector('.has-error input, .has-error select, .has-error textarea');
+        if (firstErr) firstErr.focus();
+        return;
+      }
+      if (lpFormSubmit) {
+        lpFormSubmit.disabled = true;
+        lpFormSubmit.setAttribute('aria-busy', 'true');
+        lpFormSubmit.textContent = '送信中...';
+      }
+      setTimeout(function () {
+        lpForm.style.display = 'none';
+        lpFormSuccess.hidden = false;
+        lpFormSuccess.setAttribute('tabindex', '-1');
+        var top = lpFormSuccess.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top: top, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+        setTimeout(function () { lpFormSuccess.focus(); }, 100);
+      }, 800);
+    });
+  }
+
+  /* ========== Triple CTA -> scroll to form ========== */
+  var tripleCtaBtns = document.querySelectorAll('[data-cta-target]');
+  for (var tc = 0; tc < tripleCtaBtns.length; tc++) {
+    tripleCtaBtns[tc].addEventListener('click', function (e) {
+      /* Already routed via href="#final-cta" — let global smooth-scroll handler take over */
+    });
   }
 
   /* ========== Voices Carousel ========== */

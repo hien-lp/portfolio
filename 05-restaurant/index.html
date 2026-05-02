@@ -133,6 +133,8 @@
   --z-header: 100;
   --z-mobile-nav: 101;
   --z-fixed-cta: 95;
+  --z-floating-cta: 1100;
+  --z-floating-hamburger: 1300;
 }
 
 /* ============================================================
@@ -2169,6 +2171,539 @@ strong { font-weight: 700; }
   /* Add bottom padding to body for fixed CTA (no-scroll時は除外) */
   body:not(.no-scroll) { padding-bottom: 68px; }
 }
+/* ============================================================
+   ANIM DELAY HELPERS — replaces inline `style="--anim-delay:Xs"`
+   ============================================================ */
+.delay-05 { --anim-delay: 0.05s; }
+.delay-1  { --anim-delay: 0.1s; }
+.delay-15 { --anim-delay: 0.15s; }
+.delay-2  { --anim-delay: 0.2s; }
+.delay-25 { --anim-delay: 0.25s; }
+.delay-3  { --anim-delay: 0.3s; }
+.hero__title--delay-1 { --anim-delay: 0.1s; }
+.hero__lead--delay-2 { --anim-delay: 0.2s; }
+.hero__trust--delay { --anim-delay: 0.25s; }
+.hero__cta--delay { --anim-delay: 0.3s; }
+
+/* ============================================================
+   HERO TRUST BAR (Counter Numbers)  — Phase 2
+   ============================================================ */
+.hero__trust-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 32px;
+  margin: 32px auto 28px;
+  padding-top: 28px;
+  max-width: 720px;
+  border-top: 1px solid rgba(245, 241, 235, .18);
+}
+.hero__trust-num-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+.hero__trust-num-value {
+  font-family: var(--ff-en);
+  font-size: clamp(1.75rem, 4.4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--terracotta);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.hero__trust-num-unit {
+  font-size: 0.5em;
+  font-weight: 600;
+  color: rgba(245, 241, 235, .85);
+  letter-spacing: .02em;
+}
+.hero__trust-num-label {
+  font-size: .6875rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  color: rgba(245, 241, 235, .8);
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .hero__trust-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 16px;
+    padding-top: 22px;
+    margin-top: 26px;
+  }
+  .hero__trust-num-label {
+    font-size: .625rem;
+    letter-spacing: .08em;
+  }
+}
+
+/* Hero background image (CSS-controlled, no inline style) */
+.hero__bg--img {
+  background-image:
+    linear-gradient(180deg, rgba(15, 40, 32, .15) 0%, rgba(15, 40, 32, .55) 100%),
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ============================================================
+   COMMITMENT BG IMAGES (per-block class — no inline style)
+   ============================================================ */
+.commitment__block--01 .commitment__block-bg {
+  background-image: url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1600&q=80');
+}
+.commitment__block--02 .commitment__block-bg {
+  background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80');
+}
+.commitment__block--03 .commitment__block-bg {
+  background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1600&q=80');
+}
+.commitment__block--04 .commitment__block-bg {
+  background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1600&q=80');
+}
+/* Slow ken-burns hover zoom for richness */
+.commitment__block-bg {
+  transition: transform 8s linear;
+}
+.commitment__block:hover .commitment__block-bg {
+  transform: scale(1.04);
+}
+@media (prefers-reduced-motion: reduce) {
+  .commitment__block-bg { transition: none; }
+  .commitment__block:hover .commitment__block-bg { transform: none; }
+}
+
+/* ============================================================
+   INGREDIENT STORY (産地・食材ストーリー)
+   ============================================================ */
+.ingredient {
+  padding: var(--section-py-lg) 0;
+  background: var(--bg-alt);
+}
+.ingredient__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+.ingredient__eyebrow {
+  font-family: var(--ff-en);
+  font-size: .8125rem;
+  font-weight: 400;
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--terracotta);
+  opacity: .85;
+  margin-bottom: 10px;
+}
+.ingredient__title {
+  font-family: var(--ff-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-normal);
+  color: var(--green);
+  margin-bottom: 16px;
+}
+.ingredient__lead {
+  font-size: .9375rem;
+  color: var(--text-mid);
+  line-height: var(--lh-normal);
+  margin: 0 auto 56px;
+  max-width: 640px;
+}
+.ingredient__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.ingredient__card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 2px 16px var(--shadow-card);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.ingredient__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--shadow-card-hover);
+}
+.ingredient__card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.ingredient__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.ingredient__card:hover .ingredient__card-img {
+  transform: scale(1.06);
+}
+.ingredient__card-season {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--terracotta);
+  color: var(--white);
+  font-size: .6875rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 2px;
+  letter-spacing: .08em;
+}
+.ingredient__card-body {
+  padding: 22px 22px 26px;
+}
+.ingredient__card-region {
+  font-family: var(--ff-en);
+  font-size: .6875rem;
+  letter-spacing: .2em;
+  color: var(--terracotta);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.ingredient__card-name {
+  font-family: var(--ff-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: var(--ls-normal);
+}
+.ingredient__card-desc {
+  font-size: .8125rem;
+  line-height: 1.85;
+  color: var(--text-mid);
+}
+@media (max-width: 768px) {
+  .ingredient__grid { grid-template-columns: 1fr; gap: 18px; }
+  .ingredient__card-body { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ingredient__card,
+  .ingredient__card-img { transition: none; }
+  .ingredient__card:hover { transform: none; }
+  .ingredient__card:hover .ingredient__card-img { transform: none; }
+}
+
+/* ============================================================
+   RESERVE FORM — Validation states (WCAG AA)
+   ============================================================ */
+.reserve__field { position: relative; }
+.reserve__label .reserve__req {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: .625rem;
+  font-weight: 600;
+  background: var(--terracotta);
+  color: var(--white);
+  padding: 2px 6px;
+  border-radius: 2px;
+  letter-spacing: .05em;
+  vertical-align: 1px;
+}
+.reserve__error {
+  display: block;
+  min-height: 18px;
+  margin-top: 4px;
+  font-size: .75rem;
+  line-height: 1.4;
+  color: #FFB59E;
+  letter-spacing: .02em;
+}
+.reserve__field.has-error .reserve__input {
+  border-color: #FFB59E;
+  background: rgba(194, 112, 78, .12);
+}
+.reserve__field.has-error .reserve__input:focus {
+  outline-color: #FFB59E;
+}
+.reserve__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 4px 0 0;
+  font-size: .8125rem;
+  color: var(--text-on-dark-sub);
+  line-height: 1.6;
+}
+.reserve__check input[type="checkbox"] {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--terracotta);
+  flex-shrink: 0;
+}
+.reserve__check a {
+  color: var(--terracotta);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.reserve__success {
+  display: none;
+  background: rgba(245, 241, 235, .06);
+  border: 1px solid rgba(194, 112, 78, .35);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  text-align: center;
+  margin-bottom: 28px;
+  animation: reserveSuccessIn .55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.reserve__success.is-shown { display: block; }
+.reserve__success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.reserve__success-title {
+  font-family: var(--ff-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-on-dark);
+  margin-bottom: 8px;
+}
+.reserve__success-body {
+  font-size: .875rem;
+  color: var(--text-on-dark-sub);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+.reserve__success-note {
+  display: block;
+  font-size: .6875rem;
+  font-style: italic;
+  color: rgba(245, 241, 235, .55);
+}
+@keyframes reserveSuccessIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reserve__success { animation: none; }
+}
+
+/* Map / Reserve / Access background images via CSS class */
+.access__hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  max-height: 280px;
+  margin-bottom: 24px;
+}
+.menu__hero-img-el {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  max-height: 400px;
+}
+.menu__hero-img { margin-bottom: 48px; }
+
+/* ============================================================
+   FLOATING CTA (PC) — Editorial tone
+   ============================================================ */
+.floating-cta {
+  position: fixed;
+  right: 24px;
+  bottom: 28px;
+  z-index: var(--z-floating-cta);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(140%) scale(0.94);
+  transition: opacity .3s, visibility 0s linear .3s;
+  pointer-events: none;
+}
+.floating-cta.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .3s, visibility 0s linear 0s;
+  animation: floatingCtaIn .85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  pointer-events: auto;
+}
+@keyframes floatingCtaIn {
+  0% { transform: translateX(140%) scale(0.9); opacity: 0; }
+  60% { transform: translateX(-6%) scale(1.02); opacity: 1; }
+  100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+.floating-cta__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px 14px 16px;
+  background: var(--terracotta);
+  color: var(--white);
+  font-weight: 600;
+  font-size: .875rem;
+  letter-spacing: .04em;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px rgba(15, 40, 32, .35), 0 0 0 1px rgba(245, 241, 235, .08);
+  transition: background .25s, transform .25s, box-shadow .25s;
+}
+.floating-cta__link:hover {
+  background: var(--terracotta-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(15, 40, 32, .45);
+}
+.floating-cta__icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, .18);
+  border-radius: 50%;
+  font-family: var(--ff-en);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.floating-cta__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-align: left;
+}
+.floating-cta__text strong {
+  font-size: .9375rem;
+  font-weight: 600;
+}
+.floating-cta__text small {
+  font-size: .6875rem;
+  opacity: .9;
+  margin-top: 2px;
+  letter-spacing: .04em;
+}
+.floating-cta__close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--white);
+  border: 1.5px solid var(--white);
+  cursor: pointer;
+  font-size: .875rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 900px) {
+  .floating-cta { display: none; }
+}
+
+/* ============================================================
+   MOBILE TABBAR (SP)  — replaces simple .fixed-cta
+   ============================================================ */
+.mobile-tabbar {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-tabbar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-floating-cta);
+    background: linear-gradient(to top, var(--green-dark), var(--green));
+    box-shadow: 0 -10px 28px rgba(0, 0, 0, .35);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    transform: translateY(110%);
+    transition: transform .55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-top: 1px solid rgba(194, 112, 78, .25);
+  }
+  .mobile-tabbar.is-visible { transform: translateY(0); }
+  .mobile-tabbar.is-dismissed {
+    transform: translateY(110%) !important;
+    pointer-events: none;
+  }
+  .mobile-tabbar__close {
+    position: absolute;
+    top: -16px;
+    left: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--green-dark);
+    color: var(--white);
+    border: 1px solid rgba(245, 241, 235, .2);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-tabbar__items {
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+  }
+  .mobile-tabbar__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+    color: var(--text-on-dark);
+    font-size: .6875rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+    min-height: 56px;
+    gap: 4px;
+    border-right: 1px solid rgba(245, 241, 235, .08);
+  }
+  .mobile-tabbar__item:last-child { border-right: none; }
+  .mobile-tabbar__item--primary {
+    flex: 1.4;
+    background: var(--terracotta);
+    color: var(--white);
+  }
+  .mobile-tabbar__icon {
+    font-size: 1.05rem;
+    line-height: 1;
+  }
+  /* Add bottom padding when tabbar is potentially shown */
+  body:not(.no-scroll) { padding-bottom: 64px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-tabbar { transition: none; }
+}
+
+/* Hide legacy .fixed-cta (replaced by .mobile-tabbar) */
+.fixed-cta { display: none !important; }
+
+/* Final CTA background — CSS class (no inline style) */
+.final-cta__bg--img {
+  background-image:
+    linear-gradient(180deg, rgba(15, 40, 32, .35) 0%, rgba(15, 40, 32, .65) 100%),
+    url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=80');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
     /* === ECC v3 Phase 1 Common Upgrade (2026-05-03) === */
     /* 日本語改行最適化 */
     h1, h2, h3, h4 { text-wrap: balance; word-break: auto-phrase; }
@@ -2213,6 +2748,7 @@ strong { font-weight: 700; }
           <li><a href="#concept" class="header__nav-link">コンセプト</a></li>
           <li><a href="#menu" class="header__nav-link">メニュー</a></li>
           <li><a href="#chef" class="header__nav-link">シェフ紹介</a></li>
+          <li><a href="#ingredient" class="header__nav-link">食材</a></li>
           <li><a href="#voices" class="header__nav-link">お客様の声</a></li>
           <li><a href="#interior" class="header__nav-link">店内</a></li>
           <li><a href="#access" class="header__nav-link">アクセス</a></li>
@@ -2239,7 +2775,7 @@ strong { font-weight: 700; }
 
     <!-- ===== 1. HERO ===== -->
     <section class="hero" id="hero" aria-label="メインビジュアル">
-      <div class="hero__bg" aria-hidden="true" style="background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=80') center/cover no-repeat;">
+      <div class="hero__bg hero__bg--img" aria-hidden="true">
         <picture data-label="hero-dish">
           <source srcset="images/hero.webp" sizes="100vw" type="image/webp">
           <img src="images/hero.jpg" alt="" class="hero__bg-img" width="1440" height="800" loading="eager" fetchpriority="high" aria-hidden="true" onerror="this.style.display='none'">
@@ -2251,26 +2787,44 @@ strong { font-weight: 700; }
           <span class="hero__eyebrow-en" aria-hidden="true">Omotesando, Tokyo</span>
           表参道の隠れ家イタリアン
         </p>
-        <h1 class="hero__title anim-target" style="--anim-delay:0.1s">
+        <h1 class="hero__title anim-target hero__title--delay-1">
           記念日を、<br>忘れられない一夜に。
         </h1>
-        <p class="hero__lead anim-target" style="--anim-delay:0.2s">
+        <p class="hero__lead anim-target hero__lead--delay-2">
           旬の食材が奏でる季節のコースと、<br class="hero__br-sp">完全個室で過ごす、ふたりだけの時間。
         </p>
-        <!-- 信頼指標（権威性・社会的証明） -->
-        <div class="hero__trust anim-target" style="--anim-delay:0.25s">
-          <span class="hero__trust-item">
-            <span class="hero__trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <!-- 信頼数字バー（4指標：年間来店組数 / メニュー / レビュー / 創業）— カウントアップ -->
+        <div class="hero__trust-bar anim-target hero__trust--delay" role="list" aria-label="店舗実績">
+          <div class="hero__trust-num-item" role="listitem">
+            <span class="hero__trust-num-value" aria-hidden="true">
+              <span class="counter" data-target="2800">0</span><small class="hero__trust-num-unit">+</small>
             </span>
-            食べログ 4.2
-          </span>
-          <span class="hero__trust-divider" aria-hidden="true"></span>
-          <span class="hero__trust-item">百名店 選出</span>
-          <span class="hero__trust-divider" aria-hidden="true"></span>
-          <span class="hero__trust-item">完全個室あり</span>
+            <span class="sr-only">2,800組以上</span>
+            <span class="hero__trust-num-label">年間来店組数</span>
+          </div>
+          <div class="hero__trust-num-item" role="listitem">
+            <span class="hero__trust-num-value" aria-hidden="true">
+              <span class="counter" data-target="48">0</span><small class="hero__trust-num-unit">種</small>
+            </span>
+            <span class="sr-only">48種</span>
+            <span class="hero__trust-num-label">季節メニュー数</span>
+          </div>
+          <div class="hero__trust-num-item" role="listitem">
+            <span class="hero__trust-num-value" aria-hidden="true">
+              ★<span class="counter-decimal" data-target="4.2">0.0</span>
+            </span>
+            <span class="sr-only">食べログ評価 4.2</span>
+            <span class="hero__trust-num-label">食べログ評価</span>
+          </div>
+          <div class="hero__trust-num-item" role="listitem">
+            <span class="hero__trust-num-value" aria-hidden="true">
+              <span class="counter" data-target="7">0</span><small class="hero__trust-num-unit">年</small>
+            </span>
+            <span class="sr-only">創業7年</span>
+            <span class="hero__trust-num-label">表参道で創業</span>
+          </div>
         </div>
-        <div class="hero__cta anim-target" style="--anim-delay:0.3s">
+        <div class="hero__cta anim-target hero__cta--delay">
           <!-- CTA[1] 即決型：返報性（特典） + 損失回避（限定） -->
           <a href="#reserve" class="btn btn--primary btn--lg btn--pulse btn--shimmer">
             <span class="btn__main">Web予約で特典付き席を確保</span>
@@ -2318,7 +2872,7 @@ strong { font-weight: 700; }
             シェフが一つひとつ手に取り、その日のベストな一皿を組み立てます。
           </p>
           <ul class="concept__features">
-            <li class="concept__feature anim-target" style="--anim-delay:0.05s">
+            <li class="concept__feature anim-target" data-delay="0.05">
               <span class="concept__feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l3 3 5-6"/></svg>
               </span>
@@ -2327,7 +2881,7 @@ strong { font-weight: 700; }
                 <span class="concept__feature-desc">契約農家と築地から届く、朝採れの食材だけを使用</span>
               </div>
             </li>
-            <li class="concept__feature anim-target" style="--anim-delay:0.1s">
+            <li class="concept__feature anim-target" data-delay="0.1">
               <span class="concept__feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l3 3 5-6"/></svg>
               </span>
@@ -2336,7 +2890,7 @@ strong { font-weight: 700; }
                 <span class="concept__feature-desc">2名〜最大12名の個室を完備。記念日・接待に</span>
               </div>
             </li>
-            <li class="concept__feature anim-target" style="--anim-delay:0.15s">
+            <li class="concept__feature anim-target" data-delay="0.15">
               <span class="concept__feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l3 3 5-6"/></svg>
               </span>
@@ -2347,7 +2901,7 @@ strong { font-weight: 700; }
             </li>
           </ul>
         </div>
-        <div class="concept__visual anim-target" style="--anim-delay:0.1s">
+        <div class="concept__visual anim-target" data-delay="0.1">
           <picture data-label="concept-ingredient">
             <source srcset="images/concept.webp" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
             <img src="images/concept.jpg" alt="産地直送の新鮮な食材" class="concept__img" width="560" height="700" loading="lazy">
@@ -2358,8 +2912,8 @@ strong { font-weight: 700; }
 
     <!-- ===== 2.5 こだわり・特徴（フルワイドブロック） ===== -->
     <section aria-label="こだわり・特徴">
-      <div class="commitment__block" style="--anim-delay:0s">
-        <div class="commitment__block-bg" style="background-image:url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1600&q=80');" aria-hidden="true"></div>
+      <div class="commitment__block commitment__block--01">
+        <div class="commitment__block-bg" aria-hidden="true"></div>
         <div class="commitment__block-overlay" aria-hidden="true"></div>
         <div class="commitment__block-inner">
           <div class="anim-target">
@@ -2371,11 +2925,11 @@ strong { font-weight: 700; }
         </div>
       </div>
 
-      <div class="commitment__block">
-        <div class="commitment__block-bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80');" aria-hidden="true"></div>
+      <div class="commitment__block commitment__block--02">
+        <div class="commitment__block-bg" aria-hidden="true"></div>
         <div class="commitment__block-overlay" aria-hidden="true"></div>
         <div class="commitment__block-inner">
-          <div class="anim-target" style="--anim-delay:0s">
+          <div class="anim-target">
             <p class="commitment__block-number" aria-hidden="true">02</p>
             <h3 class="commitment__block-title">完全個室で安心</h3>
             <p class="commitment__block-desc">2名〜最大12名の個室を完備。記念日・接待・デートなど、大切なシーンにふさわしい落ち着いた空間で、ふたりだけの、あるいは仲間だけの特別な時間をお過ごしください。</p>
@@ -2384,11 +2938,11 @@ strong { font-weight: 700; }
         </div>
       </div>
 
-      <div class="commitment__block">
-        <div class="commitment__block-bg" style="background-image:url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1600&q=80');" aria-hidden="true"></div>
+      <div class="commitment__block commitment__block--03">
+        <div class="commitment__block-bg" aria-hidden="true"></div>
         <div class="commitment__block-overlay" aria-hidden="true"></div>
         <div class="commitment__block-inner">
-          <div class="anim-target" style="--anim-delay:0s">
+          <div class="anim-target">
             <p class="commitment__block-number" aria-hidden="true">03</p>
             <h3 class="commitment__block-title">厳選ワインセレクション</h3>
             <p class="commitment__block-desc">イタリア全土から80種以上を厳選。ソムリエがお料理やお好みに合わせて最適な一本をご提案いたします。グラスワインも充実、気軽にペアリングをお楽しみいただけます。</p>
@@ -2397,11 +2951,11 @@ strong { font-weight: 700; }
         </div>
       </div>
 
-      <div class="commitment__block">
-        <div class="commitment__block-bg" style="background-image:url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1600&q=80');" aria-hidden="true"></div>
+      <div class="commitment__block commitment__block--04">
+        <div class="commitment__block-bg" aria-hidden="true"></div>
         <div class="commitment__block-overlay" aria-hidden="true"></div>
         <div class="commitment__block-inner">
-          <div class="anim-target" style="--anim-delay:0s">
+          <div class="anim-target">
             <p class="commitment__block-number" aria-hidden="true">04</p>
             <h3 class="commitment__block-title">シェフの技</h3>
             <p class="commitment__block-desc">都内の三つ星レストランで10年、イタリア・トスカーナで3年。積み重ねた経験と技術が、一皿一皿に込められています。素材の力を最大限に引き出す、繊細で力強い料理をご堪能ください。</p>
@@ -2423,12 +2977,12 @@ strong { font-weight: 700; }
         <h2 class="menu__title anim-target">旬を味わう、<br class="sp-only">季節のコース</h2>
         <p class="menu__lead anim-target">四季折々の食材を活かしたコース料理を中心に、アラカルトもご用意しております。</p>
 
-        <div class="menu__hero-img anim-target" style="margin-bottom:48px;">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="季節のコース料理イメージ" width="800" height="533" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius-lg);object-fit:cover;max-height:400px;">
+        <div class="menu__hero-img anim-target">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="季節のコース料理イメージ" width="800" height="533" loading="lazy" class="menu__hero-img-el">
         </div>
 
         <div class="menu__grid">
-          <div class="menu__item menu__item--lg anim-target" style="--anim-delay:0s">
+          <div class="menu__item menu__item--lg anim-target">
             <picture data-label="menu-course-stagione">
               <source srcset="images/menu-01.webp" sizes="(max-width: 768px) 100vw, 33vw" type="image/webp">
               <img src="images/menu-01.jpg" alt="Stagione コース料理" class="menu__img" width="600" height="400" loading="lazy">
@@ -2439,7 +2993,7 @@ strong { font-weight: 700; }
               <span class="menu__item-price">¥8,800<small class="menu__item-price-tax">（税込）</small></span>
             </div>
           </div>
-          <div class="menu__item anim-target" style="--anim-delay:0.05s">
+          <div class="menu__item anim-target" data-delay="0.05">
             <picture data-label="menu-course-celebrazione">
               <source srcset="images/menu-02.webp" sizes="(max-width: 768px) 50vw, 33vw" type="image/webp">
               <img src="images/menu-02.jpg" alt="Celebrazione 記念日コース" class="menu__img" width="400" height="400" loading="lazy">
@@ -2450,7 +3004,7 @@ strong { font-weight: 700; }
               <span class="menu__item-price">¥14,300<small class="menu__item-price-tax">（税込）</small></span>
             </div>
           </div>
-          <div class="menu__item anim-target" style="--anim-delay:0.1s">
+          <div class="menu__item anim-target" data-delay="0.1">
             <picture data-label="menu-pasta">
               <source srcset="images/menu-03.webp" sizes="(max-width: 768px) 50vw, 33vw" type="image/webp">
               <img src="images/menu-03.jpg" alt="自家製手打ちパスタ" class="menu__img" width="400" height="400" loading="lazy">
@@ -2461,7 +3015,7 @@ strong { font-weight: 700; }
               <span class="menu__item-price">¥2,200〜<small class="menu__item-price-tax">（税込）</small></span>
             </div>
           </div>
-          <div class="menu__item anim-target" style="--anim-delay:0.15s">
+          <div class="menu__item anim-target" data-delay="0.15">
             <picture data-label="menu-wine">
               <source srcset="images/menu-04.webp" sizes="(max-width: 768px) 50vw, 33vw" type="image/webp">
               <img src="images/menu-04.jpg" alt="厳選ワインコレクション" class="menu__img" width="400" height="300" loading="lazy">
@@ -2472,7 +3026,7 @@ strong { font-weight: 700; }
               <span class="menu__item-price">グラス ¥1,100〜</span>
             </div>
           </div>
-          <div class="menu__item anim-target" style="--anim-delay:0.2s">
+          <div class="menu__item anim-target" data-delay="0.2">
             <picture data-label="menu-dolce">
               <source srcset="images/menu-05.webp" sizes="(max-width: 768px) 50vw, 33vw" type="image/webp">
               <img src="images/menu-05.jpg" alt="本日のドルチェ" class="menu__img" width="400" height="300" loading="lazy">
@@ -2509,7 +3063,7 @@ strong { font-weight: 700; }
             <img src="images/chef.jpg" alt="ヘッドシェフ 緑川 大地" class="chef__img" width="560" height="700" loading="lazy">
           </picture>
         </div>
-        <div class="chef__text anim-target" style="--anim-delay:0.1s">
+        <div class="chef__text anim-target" data-delay="0.1">
           <p class="chef__eyebrow" aria-hidden="true">Head Chef</p>
           <h2 class="chef__title">食材と向き合う、<br>20年の歩み。</h2>
           <p class="chef__name">
@@ -2536,7 +3090,59 @@ strong { font-weight: 700; }
       </div>
     </section>
 
-    <!-- Wave: Chef → Voices -->
+    <!-- Wave: Chef → Ingredient Story -->
+    <svg class="section-divider section-divider--alt" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,28 C360,8 720,40 1080,18 C1260,10 1380,12 1440,20 L1440,48 L0,48 Z" fill="currentColor"/>
+    </svg>
+
+    <!-- ===== 4.5 食材ストーリー（産地・季節） ===== -->
+    <section class="ingredient" id="ingredient" aria-label="食材ストーリー">
+      <div class="ingredient__inner">
+        <p class="ingredient__eyebrow anim-target" aria-hidden="true">Ingredients Story</p>
+        <h2 class="ingredient__title anim-target">産地と季節を、<br class="sp-only">皿に映す。</h2>
+        <p class="ingredient__lead anim-target">日本各地の契約農家・漁港から届く食材は、一つひとつに物語があります。生産者の手から、シェフの手へ。最も輝く瞬間だけをお届けします。</p>
+
+        <div class="ingredient__grid">
+          <article class="ingredient__card anim-target">
+            <div class="ingredient__card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=800&q=80" alt="春の鎌倉野菜" width="600" height="450" loading="lazy" class="ingredient__card-img">
+              <span class="ingredient__card-season" aria-label="春の食材">SPRING</span>
+            </div>
+            <div class="ingredient__card-body">
+              <p class="ingredient__card-region" aria-hidden="true">Kamakura, Kanagawa</p>
+              <h3 class="ingredient__card-name">鎌倉野菜</h3>
+              <p class="ingredient__card-desc">朝採れの春野菜を週3回直送。アスパラ、新玉葱、菜の花など、土の力強さがそのまま香る一皿に。</p>
+            </div>
+          </article>
+
+          <article class="ingredient__card anim-target" data-delay="0.1">
+            <div class="ingredient__card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1514516816566-de580c621376?w=800&q=80" alt="淡路島の天然鯛" width="600" height="450" loading="lazy" class="ingredient__card-img">
+              <span class="ingredient__card-season" aria-label="春の食材">SPRING</span>
+            </div>
+            <div class="ingredient__card-body">
+              <p class="ingredient__card-region" aria-hidden="true">Awaji, Hyogo</p>
+              <h3 class="ingredient__card-name">天然桜鯛</h3>
+              <p class="ingredient__card-desc">瀬戸内の海流で身が締まった春の桜鯛。アクアパッツァ、カルパッチョで、素材本来の旨みを引き出します。</p>
+            </div>
+          </article>
+
+          <article class="ingredient__card anim-target" data-delay="0.2">
+            <div class="ingredient__card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1452251889946-8ff5ea7b27ab?w=800&q=80" alt="トスカーナ産オリーブオイル" width="600" height="450" loading="lazy" class="ingredient__card-img">
+              <span class="ingredient__card-season" aria-label="通年">YEAR-ROUND</span>
+            </div>
+            <div class="ingredient__card-body">
+              <p class="ingredient__card-region" aria-hidden="true">Tuscany, Italy</p>
+              <h3 class="ingredient__card-name">トスカーナEXVオリーブオイル</h3>
+              <p class="ingredient__card-desc">シェフが現地で見つけた小さな農園のオイル。胡椒のような後味が、料理の輪郭を引き締めます。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: Ingredient → Voices -->
     <svg class="section-divider section-divider--alt" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,32 C480,0 960,48 1440,16 L1440,48 L0,48 Z" fill="currentColor"/>
     </svg>
@@ -2675,21 +3281,21 @@ strong { font-weight: 700; }
         <h2 class="interior__title anim-target">静かに流れる、<br class="sp-only">特別な時間。</h2>
 
         <div class="interior__grid">
-          <div class="interior__item interior__item--main anim-target" style="--anim-delay:0s">
+          <div class="interior__item interior__item--main anim-target">
             <picture data-label="interior-main">
               <source srcset="images/interior-01.webp" sizes="(max-width: 768px) 100vw, 100vw" type="image/webp">
               <img src="images/interior-01.jpg" alt="メインダイニング 暖かい照明の落ち着いた空間" class="interior__img" width="800" height="500" loading="lazy">
             </picture>
             <span class="interior__label">メインダイニング 28席</span>
           </div>
-          <div class="interior__item anim-target" style="--anim-delay:0.05s">
+          <div class="interior__item anim-target" data-delay="0.05">
             <picture data-label="interior-private">
               <source srcset="images/interior-02.webp" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
               <img src="images/interior-02.jpg" alt="完全個室 記念日やデートに最適" class="interior__img" width="400" height="300" loading="lazy">
             </picture>
             <span class="interior__label">完全個室 2〜12名</span>
           </div>
-          <div class="interior__item anim-target" style="--anim-delay:0.1s">
+          <div class="interior__item anim-target" data-delay="0.1">
             <picture data-label="interior-counter">
               <source srcset="images/interior-03.webp" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
               <img src="images/interior-03.jpg" alt="カウンター席 シェフの調理が間近に" class="interior__img" width="400" height="300" loading="lazy">
@@ -2714,48 +3320,83 @@ strong { font-weight: 700; }
           <p class="reserve__lead anim-target">Web予約限定で、乾杯スパークリングワイン1杯をプレゼントいたします。</p>
           <p class="reserve__disclaimer anim-target">※ 特典はコース料理ご注文の方に限ります。他の割引との併用不可。特典内容は予告なく変更となる場合がございます。</p>
 
-          <form class="reserve__form" data-demo="true">
-            <div class="reserve__field">
-              <label for="res-date" class="reserve__label">ご来店日</label>
-              <input type="date" id="res-date" class="reserve__input" required>
+          <div class="reserve__success" id="reserveSuccess" hidden role="status" aria-live="polite">
+            <span class="reserve__success-icon" aria-hidden="true">&#10003;</span>
+            <p class="reserve__success-title">ご予約の仮申込みを承りました</p>
+            <p class="reserve__success-body">担当より当日中にご連絡し、お席を確定いたします。<br>記念日装飾やアレルギーのご要望は、折り返しのご連絡時にお気軽にお伝えください。</p>
+            <small class="reserve__success-note">※ ポートフォリオサンプルのため、実際の送信は行われていません</small>
+          </div>
+
+          <form class="reserve__form" id="reserveForm" data-demo="true" novalidate aria-label="ご予約フォーム">
+            <div class="reserve__field" data-field>
+              <label for="res-date" class="reserve__label">ご来店日<em class="reserve__req">必須</em></label>
+              <input type="date" id="res-date" name="date" class="reserve__input" autocomplete="off" required aria-required="true">
+              <span class="reserve__error" data-error aria-live="polite"></span>
             </div>
-            <div class="reserve__field">
-              <label for="res-time" class="reserve__label">ご来店時間</label>
-              <select id="res-time" class="reserve__input reserve__select" required>
+            <div class="reserve__field" data-field>
+              <label for="res-time" class="reserve__label">ご来店時間<em class="reserve__req">必須</em></label>
+              <select id="res-time" name="time" class="reserve__input reserve__select" required aria-required="true">
                 <option value="">選択してください</option>
-                <option>11:30</option>
-                <option>12:00</option>
-                <option>12:30</option>
-                <option>17:30</option>
-                <option>18:00</option>
-                <option>18:30</option>
-                <option>19:00</option>
-                <option>19:30</option>
-                <option>20:00</option>
-                <option>20:30</option>
+                <option value="11:30">ランチ 11:30</option>
+                <option value="12:00">ランチ 12:00</option>
+                <option value="12:30">ランチ 12:30</option>
+                <option value="17:30">ディナー 17:30</option>
+                <option value="18:00">ディナー 18:00</option>
+                <option value="18:30">ディナー 18:30</option>
+                <option value="19:00">ディナー 19:00</option>
+                <option value="19:30">ディナー 19:30</option>
+                <option value="20:00">ディナー 20:00</option>
+                <option value="20:30">ディナー 20:30</option>
               </select>
+              <span class="reserve__error" data-error aria-live="polite"></span>
             </div>
-            <div class="reserve__field">
-              <label for="res-guests" class="reserve__label">人数</label>
-              <select id="res-guests" class="reserve__input reserve__select" required>
+            <div class="reserve__field" data-field>
+              <label for="res-guests" class="reserve__label">人数<em class="reserve__req">必須</em></label>
+              <select id="res-guests" name="guests" class="reserve__input reserve__select" required aria-required="true">
                 <option value="">選択してください</option>
-                <option>1名</option>
-                <option>2名</option>
-                <option>3名</option>
-                <option>4名</option>
-                <option>5名</option>
-                <option>6名〜（個室利用可）</option>
+                <option value="1">1名</option>
+                <option value="2">2名</option>
+                <option value="3">3名</option>
+                <option value="4">4名</option>
+                <option value="5">5名</option>
+                <option value="6+">6名〜（個室利用可）</option>
               </select>
+              <span class="reserve__error" data-error aria-live="polite"></span>
             </div>
-            <div class="reserve__field">
-              <label for="res-name" class="reserve__label">お名前</label>
-              <input type="text" id="res-name" class="reserve__input" placeholder="山田 太郎" required>
+            <div class="reserve__field" data-field>
+              <label for="res-course" class="reserve__label">ご希望コース</label>
+              <select id="res-course" name="course" class="reserve__input reserve__select">
+                <option value="">未定（当日選択）</option>
+                <option value="stagione">Stagione コース ¥8,800</option>
+                <option value="celebrazione">Celebrazione 記念日コース ¥14,300</option>
+                <option value="chef">シェフのおまかせ（要相談）</option>
+                <option value="alacarte">アラカルト</option>
+              </select>
+              <span class="reserve__error" data-error aria-live="polite"></span>
             </div>
-            <div class="reserve__field">
-              <label for="res-tel" class="reserve__label">電話番号</label>
-              <input type="tel" id="res-tel" class="reserve__input" placeholder="090-1234-5678" required>
+            <div class="reserve__field" data-field>
+              <label for="res-name" class="reserve__label">お名前<em class="reserve__req">必須</em></label>
+              <input type="text" id="res-name" name="name" class="reserve__input" placeholder="例) 山田 花子" autocomplete="name" required aria-required="true">
+              <span class="reserve__error" data-error aria-live="polite"></span>
             </div>
-            <button type="submit" class="btn btn--primary btn--lg btn--shimmer reserve__submit">
+            <div class="reserve__field" data-field>
+              <label for="res-tel" class="reserve__label">電話番号<em class="reserve__req">必須</em></label>
+              <input type="tel" id="res-tel" name="tel" class="reserve__input" placeholder="090-1234-5678" autocomplete="tel" required aria-required="true">
+              <span class="reserve__error" data-error aria-live="polite"></span>
+            </div>
+            <div class="reserve__field" data-field>
+              <label for="res-email" class="reserve__label">メールアドレス<em class="reserve__req">必須</em></label>
+              <input type="email" id="res-email" name="email" class="reserve__input" placeholder="example@email.com" autocomplete="email" required aria-required="true">
+              <span class="reserve__error" data-error aria-live="polite"></span>
+            </div>
+            <div class="reserve__field" data-field>
+              <label class="reserve__check">
+                <input type="checkbox" id="res-privacy" name="privacy" required aria-required="true">
+                <span><a href="#" tabindex="-1">個人情報の取扱い</a>に同意します<em class="reserve__req">必須</em></span>
+              </label>
+              <span class="reserve__error" data-error data-field-name="privacy" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--shimmer reserve__submit" id="reserveSubmit">
               <span class="btn__main">この内容で予約する</span>
               <span class="btn__sub">Web予約限定特典あり</span>
             </button>
@@ -2767,7 +3408,7 @@ strong { font-weight: 700; }
             <p class="reserve__tel-hours">受付 11:00〜22:00（水曜定休）</p>
           </div>
         </div>
-        <div class="reserve__visual anim-target" style="--anim-delay:0.1s">
+        <div class="reserve__visual anim-target" data-delay="0.1">
           <picture data-label="reserve-ambience">
             <source srcset="images/reserve.webp" sizes="(max-width: 768px) 100vw, 50vw" type="image/webp">
             <img src="images/reserve.jpg" alt="キャンドルの灯る個室テーブル" class="reserve__img" width="560" height="700" loading="lazy">
@@ -2797,11 +3438,11 @@ strong { font-weight: 700; }
             </svg>
           </div>
         </div>
-        <div class="access__info anim-target" style="--anim-delay:0.1s">
+        <div class="access__info anim-target" data-delay="0.1">
           <p class="access__eyebrow" aria-hidden="true">Access</p>
           <h2 class="access__title">店舗情報</h2>
-          <div style="margin-bottom:24px;">
-            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="TRATTORIA VERDE 店舗外観" width="800" height="533" loading="lazy" style="width:100%;height:auto;border-radius:var(--radius-lg);object-fit:cover;max-height:280px;">
+          <div>
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="TRATTORIA VERDE 店舗外観" width="800" height="533" loading="lazy" class="access__hero-img">
           </div>
           <dl class="access__list">
             <div class="access__row">
@@ -2860,7 +3501,7 @@ strong { font-weight: 700; }
         <h2 class="faq__title anim-target">よくある質問</h2>
 
         <div class="faq__list">
-          <details class="faq__item anim-target" style="--anim-delay:0s">
+          <details class="faq__item anim-target">
             <summary class="faq__question">
               <span class="faq__q-mark" aria-hidden="true">Q</span>
               予約なしでも入れますか？
@@ -2870,7 +3511,7 @@ strong { font-weight: 700; }
             </div>
           </details>
 
-          <details class="faq__item anim-target" style="--anim-delay:0.05s">
+          <details class="faq__item anim-target" data-delay="0.05">
             <summary class="faq__question">
               <span class="faq__q-mark" aria-hidden="true">Q</span>
               アレルギー対応は可能ですか？
@@ -2880,7 +3521,7 @@ strong { font-weight: 700; }
             </div>
           </details>
 
-          <details class="faq__item anim-target" style="--anim-delay:0.1s">
+          <details class="faq__item anim-target" data-delay="0.1">
             <summary class="faq__question">
               <span class="faq__q-mark" aria-hidden="true">Q</span>
               記念日のサプライズ演出はできますか？
@@ -2890,7 +3531,7 @@ strong { font-weight: 700; }
             </div>
           </details>
 
-          <details class="faq__item anim-target" style="--anim-delay:0.15s">
+          <details class="faq__item anim-target" data-delay="0.15">
             <summary class="faq__question">
               <span class="faq__q-mark" aria-hidden="true">Q</span>
               子連れでも大丈夫ですか？
@@ -2900,7 +3541,7 @@ strong { font-weight: 700; }
             </div>
           </details>
 
-          <details class="faq__item anim-target" style="--anim-delay:0.2s">
+          <details class="faq__item anim-target" data-delay="0.2">
             <summary class="faq__question">
               <span class="faq__q-mark" aria-hidden="true">Q</span>
               駐車場はありますか？
@@ -2910,7 +3551,7 @@ strong { font-weight: 700; }
             </div>
           </details>
 
-          <details class="faq__item anim-target" style="--anim-delay:0.25s">
+          <details class="faq__item anim-target" data-delay="0.25">
             <summary class="faq__question">
               <span class="faq__q-mark" aria-hidden="true">Q</span>
               貸切は可能ですか？
@@ -2926,7 +3567,7 @@ strong { font-weight: 700; }
     <!-- ===== 10. 最終CTA ===== -->
     <!-- CTA[5] 最終 -->
     <section class="final-cta" id="final-cta" aria-label="ご予約はこちら">
-      <div class="final-cta__bg" aria-hidden="true" style="background:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1600&q=80') center/cover no-repeat;">
+      <div class="final-cta__bg final-cta__bg--img" aria-hidden="true">
         <picture data-label="final-cta-bg">
           <source srcset="images/final-cta.webp" sizes="100vw" type="image/webp">
           <img src="images/final-cta.jpg" alt="" class="final-cta__bg-img" width="1440" height="600" loading="lazy" aria-hidden="true" onerror="this.style.display='none'">
@@ -2937,7 +3578,7 @@ strong { font-weight: 700; }
         <p class="final-cta__eyebrow anim-target" aria-hidden="true">Reservation</p>
         <h2 class="final-cta__title anim-target">大切な日の、<br>お席をご用意します。</h2>
         <p class="final-cta__lead anim-target">Web予約限定で、乾杯スパークリングワイン1杯をプレゼント。</p>
-        <div class="final-cta__actions anim-target" style="--anim-delay:0.15s">
+        <div class="final-cta__actions anim-target" data-delay="0.15">
           <!-- CTA[5] 最終CTA：損失回避 + 返報性 -->
           <a href="#reserve" class="btn btn--accent btn--lg btn--pulse btn--shimmer">
             <span class="btn__main">特典付きで今すぐ席を確保</span>
@@ -2948,7 +3589,7 @@ strong { font-weight: 700; }
             <span class="btn__sub">受付 11:00〜22:00（水曜定休）</span>
           </a>
         </div>
-        <p class="final-cta__note anim-target" style="--anim-delay:0.2s">※ ランチは前日まで、ディナーは当日17時までのご予約で承ります<br>※ スパークリングワイン特典はコース料理ご注文の方に限ります。他の割引との併用不可。<br>※ 記念日装飾は内容によりご対応が異なります。詳細はご予約時にご確認ください。特典内容は予告なく変更となる場合がございます。</p>
+        <p class="final-cta__note anim-target" data-delay="0.2">※ ランチは前日まで、ディナーは当日17時までのご予約で承ります<br>※ スパークリングワイン特典はコース料理ご注文の方に限ります。他の割引との併用不可。<br>※ 記念日装飾は内容によりご対応が異なります。詳細はご予約時にご確認ください。特典内容は予告なく変更となる場合がございます。</p>
       </div>
     </section>
 
@@ -2968,6 +3609,7 @@ strong { font-weight: 700; }
           <li><a href="#concept" class="footer__nav-link">コンセプト</a></li>
           <li><a href="#menu" class="footer__nav-link">メニュー</a></li>
           <li><a href="#chef" class="footer__nav-link">シェフ紹介</a></li>
+          <li><a href="#ingredient" class="footer__nav-link">食材</a></li>
           <li><a href="#voices" class="footer__nav-link">お客様の声</a></li>
           <li><a href="#interior" class="footer__nav-link">店内</a></li>
           <li><a href="#access" class="footer__nav-link">アクセス</a></li>
@@ -2980,16 +3622,36 @@ strong { font-weight: 700; }
     </div>
   </footer>
 
-  <!-- スマホ固定CTA -->
-  <aside class="fixed-cta" aria-label="固定予約バー">
-    <a href="#reserve" class="fixed-cta__btn fixed-cta__btn--reserve">
-      <span>席を予約する</span>
+  <!-- フローティングCTA (PC) -->
+  <div class="floating-cta" id="floatingCta" aria-hidden="true">
+    <a href="#reserve" class="floating-cta__link">
+      <span class="floating-cta__icon" aria-hidden="true">V</span>
+      <span class="floating-cta__text">
+        <strong>席を予約する</strong>
+        <small>Web予約で乾杯1杯無料</small>
+      </span>
     </a>
-    <a href="tel:03-1234-5678" class="fixed-cta__btn fixed-cta__btn--tel" data-demo="true">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.1.31.03.66-.25 1.02l-2.2 2.2z"/></svg>
-      <span>電話する</span>
-    </a>
-  </aside>
+    <button type="button" class="floating-cta__close" id="floatingCtaClose" aria-label="このボタンを閉じる">×</button>
+  </div>
+
+  <!-- 下部固定タブバー (SP) -->
+  <nav class="mobile-tabbar" id="mobileTabbar" aria-label="クイックアクション" aria-hidden="true">
+    <button type="button" class="mobile-tabbar__close" id="mobileTabbarClose" aria-label="このバーを閉じる">×</button>
+    <div class="mobile-tabbar__items">
+      <a href="tel:03-1234-5678" class="mobile-tabbar__item" data-demo="true">
+        <span class="mobile-tabbar__icon" aria-hidden="true">☎</span>
+        <span>お電話</span>
+      </a>
+      <a href="#access" class="mobile-tabbar__item">
+        <span class="mobile-tabbar__icon" aria-hidden="true">📍</span>
+        <span>アクセス</span>
+      </a>
+      <a href="#reserve" class="mobile-tabbar__item mobile-tabbar__item--primary">
+        <span class="mobile-tabbar__icon" aria-hidden="true">V</span>
+        <span>席を予約</span>
+      </a>
+    </div>
+  </nav>
 
   <!-- Restaurant JSON-LD -->
   <script type="application/ld+json">
@@ -3022,6 +3684,34 @@ strong { font-weight: 700; }
       "ratingValue": "4.2",
       "reviewCount": "180"
     }
+  }
+  </script>
+
+  <!-- Breadcrumb JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://example.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "レストラン",
+        "item": "https://example.com/restaurant/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "TRATTORIA VERDE",
+        "item": "https://example.com/05-restaurant/"
+      }
+    ]
   }
   </script>
 
@@ -3326,6 +4016,15 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+    /* Apply data-delay attributes as CSS custom property on first observe */
+    var dt = document.querySelectorAll('.anim-target[data-delay]');
+    for (var di = 0; di < dt.length; di++) {
+      var dv = parseFloat(dt[di].getAttribute('data-delay'));
+      if (!isNaN(dv) && dv >= 0 && dv <= 0.3) {
+        dt[di].style.setProperty('--anim-delay', dv + 's');
+      }
+    }
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting && !entry.target.classList.contains('is-visible')) {
@@ -3363,13 +4062,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ========== Count-Up Animation ========== */
   function initCountUp() {
-    var countEls = document.querySelectorAll('[data-count]');
+    var countEls = document.querySelectorAll('[data-count], .counter[data-target], .counter-decimal[data-target]');
     if (!countEls.length) return;
 
     if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
       for (var ci = 0; ci < countEls.length; ci++) {
         var el = countEls[ci];
-        el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || '');
+        if (el.classList.contains('counter-decimal')) {
+          el.textContent = parseFloat(el.getAttribute('data-target')).toFixed(1);
+        } else if (el.classList.contains('counter')) {
+          el.textContent = el.getAttribute('data-target');
+        } else {
+          el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || '');
+        }
       }
       return;
     }
@@ -3389,24 +4094,43 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function animateCount(el) {
-    var target = parseInt(el.getAttribute('data-count'), 10);
+    var isDecimal = el.classList.contains('counter-decimal');
+    var isCounter = el.classList.contains('counter');
+    var raw = isDecimal || isCounter ? el.getAttribute('data-target') : el.getAttribute('data-count');
+    var target = isDecimal ? parseFloat(raw) : parseInt(raw, 10);
+
     if (isNaN(target) || target < 0 || target > 1000000) {
-      el.textContent = el.getAttribute('data-count') || '0';
+      el.textContent = raw || '0';
       return;
     }
-    var suffix = el.getAttribute('data-suffix') || '';
+    var suffix = (!isDecimal && !isCounter) ? (el.getAttribute('data-suffix') || '') : '';
     var duration = 1600;
     var startTime = null;
 
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
       var progress = Math.min((timestamp - startTime) / duration, 1);
-      /* easeOutExpo for a satisfying deceleration */
+      /* easeOutCubic for a satisfying deceleration */
       var eased = 1 - Math.pow(1 - progress, 3);
-      var current = Math.round(eased * target);
-      el.textContent = current.toLocaleString() + suffix;
+      var current;
+      if (isDecimal) {
+        current = (eased * target).toFixed(1);
+        el.textContent = current;
+      } else if (isCounter) {
+        current = Math.floor(eased * target);
+        el.textContent = current.toLocaleString();
+      } else {
+        current = Math.round(eased * target);
+        el.textContent = current.toLocaleString() + suffix;
+      }
       if (progress < 1) {
         requestAnimationFrame(step);
+      } else {
+        if (isDecimal) {
+          el.textContent = target.toFixed(1);
+        } else if (isCounter) {
+          el.textContent = target.toLocaleString();
+        }
       }
     }
 
@@ -3655,6 +4379,234 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   initAccordionAnimation();
+
+  /* ========== Floating CTA (PC) + Mobile Tabbar (SP) ========== */
+  function initStickyCta() {
+    var fc = document.getElementById('floatingCta');
+    var fcc = document.getElementById('floatingCtaClose');
+    var mt = document.getElementById('mobileTabbar');
+    var mtc = document.getElementById('mobileTabbarClose');
+    var heroSec = document.getElementById('hero');
+    var ctaSec = document.getElementById('reserve');
+    if (!heroSec || !ctaSec) return;
+
+    var fd = false; /* floating dismissed */
+    var td = false; /* tabbar dismissed */
+    var pv = false; /* prev floating visible */
+    var sv = false; /* prev tabbar visible */
+    var ticking = false;
+
+    function isMobile() {
+      return window.matchMedia('(max-width: 768px)').matches;
+    }
+    function isDesktop() {
+      return window.matchMedia('(min-width: 901px)').matches;
+    }
+
+    function update() {
+      try {
+        var heroBottom = heroSec.offsetTop + heroSec.offsetHeight;
+        var ctaTop = ctaSec.offsetTop - 280;
+        var y = window.scrollY;
+        var should = y > heroBottom * 0.85 && y < ctaTop;
+
+        if (fc) {
+          var fw = should && !fd && isDesktop();
+          if (fw !== pv) {
+            pv = fw;
+            if (fw) {
+              fc.classList.add('is-visible');
+              fc.setAttribute('aria-hidden', 'false');
+            } else {
+              fc.classList.remove('is-visible');
+              fc.setAttribute('aria-hidden', 'true');
+            }
+          }
+        }
+
+        if (mt) {
+          var mw = should && !td && isMobile();
+          if (mw !== sv) {
+            sv = mw;
+            if (mw) {
+              mt.classList.add('is-visible');
+              mt.classList.remove('is-dismissed');
+              mt.setAttribute('aria-hidden', 'false');
+            } else {
+              mt.classList.remove('is-visible');
+              mt.setAttribute('aria-hidden', 'true');
+            }
+          }
+        }
+      } finally {
+        ticking = false;
+      }
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    window.addEventListener('resize', function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+
+    if (fcc) {
+      fcc.addEventListener('click', function () {
+        fd = true;
+        fc.classList.remove('is-visible');
+        fc.setAttribute('aria-hidden', 'true');
+      });
+    }
+    if (mtc) {
+      mtc.addEventListener('click', function () {
+        td = true;
+        mt.classList.add('is-dismissed');
+        mt.classList.remove('is-visible');
+        mt.setAttribute('aria-hidden', 'true');
+      });
+    }
+
+    update();
+  }
+  initStickyCta();
+
+  /* ========== Reservation Form (WCAG AA) ========== */
+  function initReservationForm() {
+    var form = document.getElementById('reserveForm');
+    var success = document.getElementById('reserveSuccess');
+    var submitBtn = document.getElementById('reserveSubmit');
+    if (!form || !success || !submitBtn) return;
+
+    function setError(field, msg) {
+      var wrap = field.closest('[data-field]') || field.parentElement;
+      if (!wrap) return;
+      var err = wrap.querySelector('[data-error]');
+      if (msg) {
+        wrap.classList.add('has-error');
+        if (err) err.textContent = msg;
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'true');
+      } else {
+        wrap.classList.remove('has-error');
+        if (err) err.textContent = '';
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'false');
+      }
+    }
+
+    function validate() {
+      var ok = true;
+      var fields = form.querySelectorAll('[data-field]');
+      for (var i = 0; i < fields.length; i++) {
+        var inputs = fields[i].querySelectorAll('input, select, textarea');
+        for (var j = 0; j < inputs.length; j++) {
+          var inp = inputs[j];
+          if (inp.name === 'privacy') {
+            var pe = form.querySelector('[data-field-name="privacy"]');
+            if (!inp.checked) {
+              if (pe) pe.textContent = '同意のチェックをお願いします';
+              fields[i].classList.add('has-error');
+              ok = false;
+            } else {
+              if (pe) pe.textContent = '';
+              fields[i].classList.remove('has-error');
+            }
+            continue;
+          }
+          if (inp.required && !inp.value.trim()) {
+            setError(inp, '必須項目です');
+            ok = false;
+            continue;
+          }
+          if (inp.type === 'email' && inp.value.trim() &&
+              !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim())) {
+            setError(inp, 'メールアドレスの形式が正しくありません');
+            ok = false;
+            continue;
+          }
+          if (inp.type === 'tel' && inp.value.trim() &&
+              !/^[0-9\-+()\s]{8,20}$/.test(inp.value.trim())) {
+            setError(inp, '電話番号の形式をご確認ください');
+            ok = false;
+            continue;
+          }
+          if (inp.type === 'date' && inp.value) {
+            var d = new Date(inp.value);
+            var today = new Date();
+            today.setHours(0, 0, 0, 0);
+            if (d < today) {
+              setError(inp, '本日以降の日付をお選びください');
+              ok = false;
+              continue;
+            }
+          }
+          setError(inp, '');
+        }
+      }
+      return ok;
+    }
+
+    /* 3-stage validation: blur / input / submit */
+    var allInputs = form.querySelectorAll('input, select, textarea');
+    for (var k = 0; k < allInputs.length; k++) {
+      (function (inp) {
+        inp.addEventListener('blur', function () {
+          if (inp.name === 'privacy') return;
+          if (inp.required && !inp.value.trim()) {
+            setError(inp, '必須項目です');
+          } else if (inp.type === 'email' && inp.value.trim() &&
+                     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim())) {
+            setError(inp, 'メールアドレスの形式が正しくありません');
+          } else {
+            setError(inp, '');
+          }
+        });
+        inp.addEventListener('input', function () {
+          var w = inp.closest('[data-field]');
+          if (w && w.classList.contains('has-error') &&
+              (inp.type === 'checkbox' ? inp.checked : inp.value.trim())) {
+            setError(inp, '');
+            if (inp.name === 'privacy') {
+              var pe = form.querySelector('[data-field-name="privacy"]');
+              if (pe) pe.textContent = '';
+              w.classList.remove('has-error');
+            }
+          }
+        });
+      })(allInputs[k]);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validate()) {
+        var first = form.querySelector('.has-error input, .has-error select, .has-error textarea');
+        if (first && first.focus) first.focus();
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+      var mainSpan = submitBtn.querySelector('.btn__main');
+      if (mainSpan) mainSpan.textContent = '送信中...';
+
+      setTimeout(function () {
+        form.style.display = 'none';
+        success.hidden = false;
+        success.classList.add('is-shown');
+        success.setAttribute('tabindex', '-1');
+        var top = success.getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({
+          top: top,
+          behavior: prefersReducedMotion() ? 'auto' : 'smooth'
+        });
+        setTimeout(function () { success.focus(); }, 100);
+      }, 800);
+    });
+  }
+  initReservationForm();
 
 }); /* End DOMContentLoaded */
   </script>

@@ -28,6 +28,53 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/hero.webp">
   <meta name="twitter:card" content="summary_large_image">
+  <!-- JSON-LD: Product + FAQPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "name": "LUNA GLOW (Portfolio Sample)",
+        "description": "管理栄養士監修。7つの美容成分を1粒に凝縮したインナービューティーサプリ。これは飛燕の自主制作によるポートフォリオサンプルです。",
+        "brand": {"@type": "Brand", "name": "LUNA GLOW"},
+        "category": "美容サプリメント",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "JPY",
+          "price": "980",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://hien-lp.github.io/portfolio/02-beauty-supplement/"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "1248",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "どのくらいで変化を感じられますか？", "acceptedAnswer": {"@type": "Answer", "text": "個人差がありますが、継続してお使いいただくことをおすすめしています。"}},
+          {"@type": "Question", "name": "他のサプリメントと併用しても大丈夫ですか？", "acceptedAnswer": {"@type": "Answer", "text": "食品ですので基本的に問題ありません。同じ成分を含むサプリとの併用は過剰摂取の可能性があるためご注意ください。"}},
+          {"@type": "Question", "name": "妊娠中・授乳中でも飲めますか？", "acceptedAnswer": {"@type": "Answer", "text": "デリケートな時期ですので、かかりつけの産婦人科医にご相談のうえお召し上がりください。"}},
+          {"@type": "Question", "name": "定期コースの解約方法は？", "acceptedAnswer": {"@type": "Answer", "text": "マイページまたはLINEから、次回発送の10日前までにご連絡いただければいつでも解約できます。解約金は一切かかりません。"}},
+          {"@type": "Question", "name": "返金保証について教えてください。", "acceptedAnswer": {"@type": "Answer", "text": "初回お届け後15日以内であれば全額返金いたします。開封済みでもOKです。"}}
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "飛燕 ポートフォリオ", "item": "https://hien-lp.github.io/portfolio/"},
+          {"@type": "ListItem", "position": 2, "name": "LUNA GLOW (自主制作)", "item": "https://hien-lp.github.io/portfolio/02-beauty-supplement/"}
+        ]
+      }
+    ]
+  }
+  </script>
 <style>
 /* ============================================================
    LUNA GLOW — Beauty Supplement LP
@@ -1640,11 +1687,22 @@ strong { font-weight: 700; }
   letter-spacing: 0.1em;
 }
 
-/* no-js fallback: show final value for count-up elements */
-.no-js [data-count] { font-size: 0; }
-.no-js [data-count]::after {
+/* no-js fallback: show final value for count-up elements (stats-bar / satisfaction only) */
+.no-js .stats-bar__num[data-count],
+.no-js .voices__satisfaction-num[data-count] { font-size: 0; }
+.no-js .stats-bar__num[data-count]::after,
+.no-js .voices__satisfaction-num[data-count]::after {
   content: attr(data-count) attr(data-suffix);
   font-size: 2rem;
+}
+/* hero trust-bar / ingredient-block counters: text content already shows "0" on no-js;
+   we replace with data-count via pseudo for clarity */
+.no-js .hero__trust-num [data-count],
+.no-js .ing-block__amount [data-count] { font-size: 0; }
+.no-js .hero__trust-num [data-count]::before,
+.no-js .ing-block__amount [data-count]::before {
+  content: attr(data-count);
+  font-size: 1em;
 }
 
 /* ============================================================
@@ -1692,6 +1750,904 @@ strong { font-weight: 700; }
   opacity: 1;
   transform: none;
 }
+/* ============================================================
+   HERO TRUST BAR (4 numbers — counter-up)
+   ============================================================ */
+.hero__trust-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+.hero__trust-item {
+  text-align: center;
+}
+.hero__trust-num {
+  display: block;
+  font-family: var(--ff-en);
+  font-size: clamp(1.5rem, 3.6vw, 2.125rem);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.hero__trust-num small {
+  font-family: var(--ff-en);
+  font-size: 0.5em;
+  font-weight: 600;
+  color: var(--gold);
+  margin-left: 2px;
+  letter-spacing: 0;
+}
+.hero__trust-label {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+@media (max-width: 600px) {
+  .hero__trust-bar { grid-template-columns: repeat(2, 1fr); gap: 12px 8px; }
+  .hero__trust-item { padding: 8px 4px; }
+}
+.hero__trust-num sup,
+.hero__trust-label sup {
+  font-size: 0.55em;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-left: 1px;
+  vertical-align: super;
+}
+.hero__footnote {
+  margin-top: 14px;
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   INGREDIENT DETAIL — fullwidth alternate (sec-feature-fullwidth-alternate)
+   ============================================================ */
+.ing-detail {
+  background: var(--white);
+  /* No vertical padding — blocks fill the space */
+}
+.ing-detail__intro {
+  padding: var(--section-py) 24px 40px;
+  max-width: var(--narrow-width);
+  margin: 0 auto;
+  text-align: center;
+}
+.ing-detail__lead {
+  font-size: 0.9375rem;
+  color: var(--text-mid);
+  line-height: 1.9;
+}
+
+.ing-block {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+.ing-block__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  transition: transform 8s linear;
+  filter: saturate(0.85) brightness(0.96);
+}
+@media (hover: hover) {
+  .ing-block:hover .ing-block__bg { transform: scale(1.04); }
+}
+.ing-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg,
+    rgba(255, 252, 250, 0.97) 0%,
+    rgba(255, 252, 250, 0.86) 42%,
+    rgba(255, 252, 250, 0.45) 72%,
+    rgba(255, 252, 250, 0.15) 100%);
+}
+.ing-block--reverse::before {
+  background: linear-gradient(270deg,
+    rgba(255, 252, 250, 0.97) 0%,
+    rgba(255, 252, 250, 0.86) 42%,
+    rgba(255, 252, 250, 0.45) 72%,
+    rgba(255, 252, 250, 0.15) 100%);
+}
+/* Background images per block (no inline style) */
+.ing-block--01 .ing-block__bg {
+  background-image: url('https://placehold.co/1600x900/F2E4E1/C7938E?text=Collagen+%7C+Marine+Beauty+Source&font=playfair');
+}
+.ing-block--02 .ing-block__bg {
+  background-image: url('https://placehold.co/1600x900/EDE6E3/8A8A8A?text=Placenta+%7C+Amino+Wellness&font=playfair');
+}
+.ing-block--03 .ing-block__bg {
+  background-image: url('https://placehold.co/1600x900/FDF8F6/C9A96E?text=Hyaluron+%2B+Ceramide&font=playfair');
+}
+.ing-block__inner {
+  width: calc(100% - 48px);
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 80px 0;
+  display: flex;
+}
+.ing-block--reverse .ing-block__inner { justify-content: flex-end; }
+.ing-block__content {
+  max-width: 520px;
+  color: var(--text);
+}
+.ing-block__num {
+  display: inline-block;
+  font-family: var(--ff-en);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--accent);
+  padding: 4px 14px;
+  border-radius: var(--radius);
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+.ing-block__title {
+  font-family: var(--ff-heading);
+  font-size: clamp(1.5rem, 2.6vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.ing-block__amount {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--ff-en);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.ing-block__amount small {
+  font-size: 0.55em;
+  font-weight: 600;
+  color: var(--gold);
+}
+.ing-block__body {
+  font-size: 0.9375rem;
+  color: var(--text-mid);
+  line-height: var(--lh-loose);
+  margin-bottom: 18px;
+}
+.ing-block__points {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ing-block__points li {
+  font-size: 0.8125rem;
+  color: var(--text-mid);
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.7;
+}
+.ing-block__points li::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0.7em;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-light);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+@media (max-width: 720px) {
+  .ing-block { min-height: 380px; }
+  .ing-block::before,
+  .ing-block--reverse::before {
+    background: linear-gradient(180deg,
+      rgba(255, 252, 250, 0.95) 0%,
+      rgba(255, 252, 250, 0.92) 100%);
+  }
+  .ing-block__inner { padding: 56px 0; }
+  .ing-block--reverse .ing-block__inner { justify-content: flex-start; }
+}
+
+/* ============================================================
+   BEFORE / AFTER (PR/Sample明示・個人差注意)
+   ============================================================ */
+.ba-section {
+  padding: var(--section-py) 24px;
+  background: var(--off-white);
+}
+.ba-section__inner { max-width: var(--content-width); margin: 0 auto; }
+.ba-section__tag-wrap { text-align: center; }
+.ba-section__sample-tag {
+  display: inline-block;
+  font-family: var(--ff-en);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--text-mid);
+  padding: 4px 12px;
+  border-radius: var(--radius);
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.ba-section__lead {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  margin-bottom: 36px;
+  line-height: 1.9;
+}
+.ba-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.ba-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.ba-card__media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+.ba-card__panel {
+  position: relative;
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  filter: sepia(8%) saturate(90%) brightness(1.02);
+}
+.ba-card__panel-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: var(--ff-en);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--white-95);
+  padding: 4px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+.ba-card__panel--before {
+  background-image: url('https://placehold.co/600x600/D4C4BF/767676?text=BEFORE&font=playfair');
+}
+.ba-card__panel--after {
+  background-image: url('https://placehold.co/600x600/F2E4E1/C7938E?text=AFTER&font=playfair');
+}
+.ba-card__panel--before-2 {
+  background-image: url('https://placehold.co/600x600/EDE6E3/8A8A8A?text=BEFORE&font=playfair');
+}
+.ba-card__panel--after-2 {
+  background-image: url('https://placehold.co/600x600/FDF8F6/C9A96E?text=AFTER&font=playfair');
+}
+.ba-card__body {
+  padding: 20px 22px;
+}
+.ba-card__who {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.ba-card__period {
+  font-size: 0.6875rem;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+.ba-card__quote {
+  font-size: 0.8125rem;
+  color: var(--text-mid);
+  line-height: 1.85;
+}
+.ba-section__notice {
+  background: var(--white);
+  border: 1px dashed var(--border-dark);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  text-align: center;
+}
+.ba-section__notice strong { color: var(--text-mid); }
+@media (max-width: 720px) {
+  .ba-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ============================================================
+   SUBSCRIPTION BENEFITS (4並列)
+   ============================================================ */
+.sub-bene {
+  position: relative;
+  padding: var(--section-py) 24px;
+  background: var(--text);
+  isolation: isolate;
+  overflow: hidden;
+}
+.sub-bene::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('https://placehold.co/1920x800/2A1F1D/C9A96E?text=Subscription+Care&font=playfair');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  filter: saturate(0.8);
+}
+.sub-bene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg,
+    rgba(51, 51, 51, 0.92) 0%,
+    rgba(51, 51, 51, 0.96) 100%);
+}
+.sub-bene__inner { max-width: var(--content-width); margin: 0 auto; }
+.sub-bene__title {
+  text-align: center;
+  font-family: var(--ff-heading);
+  font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.sub-bene__title-accent {
+  white-space: nowrap;
+  color: var(--gold);
+}
+.sub-bene__title-en {
+  display: block;
+  font-family: var(--ff-en);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.18em;
+  margin-bottom: 10px;
+}
+.sub-bene__lead {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--white-85);
+  margin-bottom: 40px;
+  line-height: 1.9;
+}
+.sub-bene__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.sub-bene__card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(201, 169, 110, 0.32);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.sub-bene__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(201, 169, 110, 0.18);
+  color: var(--gold);
+  font-family: var(--ff-en);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+}
+.sub-bene__card-title {
+  font-family: var(--ff-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.sub-bene__card-text {
+  font-size: 0.75rem;
+  color: var(--white-85);
+  line-height: 1.85;
+}
+@media (max-width: 1024px) {
+  .sub-bene__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .sub-bene__grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* ============================================================
+   APPLICATION FORM (WCAG AA)
+   ============================================================ */
+.lp-form-section {
+  padding: var(--section-py) 24px;
+  background: var(--bg-light);
+  scroll-margin-top: var(--header-height);
+}
+.lp-form-section__inner { max-width: 720px; margin: 0 auto; }
+.lp-form {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 32px;
+  box-shadow: 0 4px 20px var(--shadow-light);
+}
+.lp-form__head {
+  text-align: center;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.lp-form__head h3 {
+  font-family: var(--ff-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.lp-form__head p {
+  font-size: 0.8125rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+.lp-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.lp-form__field {
+  display: block;
+  margin-bottom: 16px;
+}
+.lp-form__label {
+  display: flex;
+  align-items: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  gap: 8px;
+}
+.lp-form__label .req {
+  font-style: normal;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--accent);
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+}
+.lp-form__label .opt {
+  font-style: normal;
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  padding: 1px 7px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+}
+.lp-form__field input[type="text"],
+.lp-form__field input[type="email"],
+.lp-form__field input[type="tel"],
+.lp-form__field select,
+.lp-form__field textarea {
+  width: 100%;
+  font-family: var(--ff-body);
+  font-size: 0.9375rem;
+  color: var(--text);
+  padding: 12px 14px;
+  background: var(--white);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.lp-form__field select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--accent) 50%),
+    linear-gradient(-45deg, transparent 50%, var(--accent) 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 2px),
+    calc(100% - 13px) calc(50% - 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 32px;
+}
+.lp-form__field textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.7;
+}
+.lp-form__field input:focus,
+.lp-form__field select:focus,
+.lp-form__field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-shadow-light);
+}
+.lp-form__field.has-error input,
+.lp-form__field.has-error select,
+.lp-form__field.has-error textarea {
+  border-color: #C24545;
+  box-shadow: 0 0 0 3px rgba(194, 69, 69, 0.12);
+}
+.lp-form__error {
+  display: block;
+  min-height: 1em;
+  font-size: 0.75rem;
+  color: #C24545;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.lp-form__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0 4px;
+  font-size: 0.8125rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  cursor: pointer;
+}
+.lp-form__check input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.lp-form__check a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.lp-form__check .req {
+  font-style: normal;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--accent);
+  padding: 1px 6px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+  margin-left: 4px;
+  vertical-align: 1px;
+}
+.lp-form__error--privacy {
+  display: block;
+  min-height: 1em;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.lp-form__submit {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  font-family: var(--ff-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, transform .15s, box-shadow .2s;
+  letter-spacing: 0.04em;
+}
+.lp-form__submit:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--shadow-warm);
+}
+.lp-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+.lp-form__submit .arrow {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform .2s;
+}
+.lp-form__submit:hover .arrow { transform: translateX(4px); }
+.lp-form__note {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  text-align: center;
+}
+.lp-form__success {
+  background: var(--white);
+  border: 2px solid var(--success);
+  border-radius: var(--radius-md);
+  padding: 40px 32px;
+  text-align: center;
+  animation: successFadeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.lp-form__success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--success);
+  color: var(--white);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.lp-form__success h3 {
+  font-family: var(--ff-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.lp-form__success p {
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+.lp-form__success small {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+}
+@keyframes successFadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (max-width: 720px) {
+  .lp-form { padding: 24px 20px; }
+  .lp-form__row { grid-template-columns: 1fr; gap: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-form__success { animation: none; }
+  .lp-form__submit:hover { transform: none; }
+}
+
+/* ============================================================
+   FLOATING CTA (PC) — premium beauty tone
+   ============================================================ */
+.floating-cta {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 95;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .35s ease, transform .35s ease;
+  pointer-events: none;
+}
+.floating-cta.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.floating-cta__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px 12px 14px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: var(--ff-body);
+  font-weight: 700;
+  box-shadow: 0 12px 32px rgba(199, 147, 142, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: background .2s, transform .15s, box-shadow .2s;
+  position: relative;
+  overflow: hidden;
+}
+.floating-cta__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  animation: shimmer 3.5s ease-in-out infinite;
+}
+.floating-cta__link:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(199, 147, 142, 0.5);
+}
+.floating-cta__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.floating-cta__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.floating-cta__text strong {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.floating-cta__text small {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  opacity: 0.92;
+  margin-top: 2px;
+}
+.floating-cta__close {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--text-mid);
+  border: 1px solid var(--border);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  transition: background .2s, color .2s;
+}
+.floating-cta__close:hover {
+  background: var(--text);
+  color: var(--white);
+}
+@media (min-width: 1024px) {
+  .floating-cta { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-cta { transition: opacity .15s; transform: none !important; }
+  .floating-cta__link::before { animation: none; display: none; }
+  .floating-cta__link:hover { transform: none; }
+}
+
+/* ============================================================
+   MOBILE TABBAR (SP fixed bottom)
+   ============================================================ */
+.mobile-tabbar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 92;
+  background: var(--glass-white-98);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 20px var(--shadow-light);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  transform: translateY(110%);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.mobile-tabbar.is-visible { transform: translateY(0); }
+.mobile-tabbar.is-dismissed { transform: translateY(110%) !important; pointer-events: none; }
+.mobile-tabbar__items {
+  display: flex;
+  align-items: stretch;
+}
+.mobile-tabbar__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 8px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  text-decoration: none;
+  border-right: 1px solid var(--border);
+  min-height: 60px;
+}
+.mobile-tabbar__item:last-of-type { border-right: none; }
+.mobile-tabbar__item:active { background: var(--bg-light); }
+.mobile-tabbar__item--primary {
+  flex: 1.4;
+  background: var(--accent);
+  color: var(--white);
+}
+.mobile-tabbar__item--primary:active { background: var(--accent-hover); }
+.mobile-tabbar__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.mobile-tabbar__label {
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+}
+.mobile-tabbar__close {
+  position: absolute;
+  top: -28px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--text-mid);
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  line-height: 1;
+}
+@media (max-width: 720px) {
+  .mobile-tabbar { display: block; }
+  /* Prevent overlap with old sticky-cta — disable old one when tabbar present */
+  .sticky-cta { display: none !important; }
+  body { padding-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-tabbar { transition: transform .15s; }
+}
+
 /* === ECC v3 Phase 1 Common Upgrade (2026-05-03) === */
 /* 日本語改行最適化 */
 h1, h2, h3, h4 { text-wrap: balance; word-break: auto-phrase; }
@@ -1761,20 +2717,33 @@ p { text-wrap: pretty; word-break: auto-phrase; }
           <a href="#purchase" class="btn btn--primary btn--large btn--pulse">初回980円で美肌習慣を始める</a>
           <p class="hero__micro-copy">※ 初回限定980円（税込）・いつでも解約OK</p>
         </div>
-        <div class="hero__points">
-          <div class="hero__point">
-            <span class="hero__point-num">01</span>
-            <span class="hero__point-text">美容7成分<br>高濃度配合</span>
+        <div class="hero__trust-bar" role="list" aria-label="LUNA GLOWの実績数値">
+          <div class="hero__trust-item" role="listitem">
+            <span class="hero__trust-num" aria-label="配合美容成分7種類">
+              <span data-count="7" aria-hidden="true">0</span><small>種</small>
+            </span>
+            <span class="hero__trust-label">配合美容成分</span>
           </div>
-          <div class="hero__point">
-            <span class="hero__point-num">02</span>
-            <span class="hero__point-text">7つのフリー<br>安心処方</span>
+          <div class="hero__trust-item" role="listitem">
+            <span class="hero__trust-num" aria-label="累計愛用者50万人">
+              <span data-count="50" aria-hidden="true">0</span><small>万人</small>
+            </span>
+            <span class="hero__trust-label">累計愛用者<sup aria-label="脚注1">*1</sup></span>
           </div>
-          <div class="hero__point">
-            <span class="hero__point-num">03</span>
-            <span class="hero__point-text">GMP認定工場<br>国内製造</span>
+          <div class="hero__trust-item" role="listitem">
+            <span class="hero__trust-num" aria-label="ご評価いただいた率96.8%">
+              <span data-count="96.8" data-decimal="1" aria-hidden="true">0</span><small>%</small>
+            </span>
+            <span class="hero__trust-label">ご評価いただいた率<sup aria-label="脚注2">*2</sup></span>
+          </div>
+          <div class="hero__trust-item" role="listitem">
+            <span class="hero__trust-num" aria-label="累計販売50万本突破">
+              <span data-count="50" aria-hidden="true">0</span><small>万本</small>
+            </span>
+            <span class="hero__trust-label">累計販売数<sup aria-label="脚注1">*1</sup></span>
           </div>
         </div>
+        <p class="hero__footnote">*1 自社調べ（2021年〜2025年）／*2 利用者アンケート n=1,248（2025年12月実施）</p>
       </div>
       <div class="hero__visual">
         <picture>
@@ -2004,6 +2973,68 @@ p { text-wrap: pretty; word-break: auto-phrase; }
     </div>
   </section>
 
+  <!-- 5b. INGREDIENT DETAIL — fullwidth alternate -->
+  <section class="ing-detail" id="ing-detail" aria-label="主要成分の詳細">
+    <div class="ing-detail__intro">
+      <h2 class="sec-title"><span class="sec-title__en" aria-hidden="true">Inner Beauty</span>主要成分の<span class="sec-title__accent">役割</span></h2>
+      <p class="ing-detail__lead">それぞれの成分が、どのように内側の美しさをサポートするのか。<br>3つの主役成分を、1つずつご紹介します。</p>
+    </div>
+
+    <!-- Block 01: コラーゲン -->
+    <div class="ing-block ing-block--01">
+      <div class="ing-block__bg" aria-hidden="true"></div>
+      <div class="ing-block__inner">
+        <div class="ing-block__content">
+          <span class="ing-block__num">Ingredient 01</span>
+          <h3 class="ing-block__title">低分子コラーゲンが、<br>うるおいの土台を整える</h3>
+          <p class="ing-block__amount"><span data-count="5000" aria-hidden="true">0</span><small>mg / 1粒</small></p>
+          <p class="ing-block__body">通常のコラーゲンを<strong>1/60まで低分子化</strong>。粒子が細かいため、内側からうるおいの実感をサポートする目的で配合しています。マリンソースの高純度原料を採用しました。</p>
+          <ul class="ing-block__points">
+            <li>低分子化で吸収効率に配慮した処方</li>
+            <li>1粒に5,000mgの高濃度配合</li>
+            <li>マリン由来・原料原産地まで開示</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block 02: プラセンタ -->
+    <div class="ing-block ing-block--reverse ing-block--02">
+      <div class="ing-block__bg" aria-hidden="true"></div>
+      <div class="ing-block__inner">
+        <div class="ing-block__content">
+          <span class="ing-block__num">Ingredient 02</span>
+          <h3 class="ing-block__title">馬プラセンタが、<br>めぐる毎日を支える</h3>
+          <p class="ing-block__amount"><span data-count="10000" aria-hidden="true">0</span><small>mg相当</small></p>
+          <p class="ing-block__body">北海道産サラブレッド由来の馬プラセンタを採用。<strong>豊富なアミノ酸</strong>を含み、ゆらぎがちな毎日のリズムをサポートする目的で配合しています。</p>
+          <ul class="ing-block__points">
+            <li>北海道産・トレーサビリティ確保</li>
+            <li>豚プラセンタの約3倍のアミノ酸量</li>
+            <li>独自製法で素材本来の力を実感</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Block 03: ヒアルロン酸+セラミド -->
+    <div class="ing-block ing-block--03">
+      <div class="ing-block__bg" aria-hidden="true"></div>
+      <div class="ing-block__inner">
+        <div class="ing-block__content">
+          <span class="ing-block__num">Ingredient 03</span>
+          <h3 class="ing-block__title">ヒアルロン酸 × 米由来セラミド<br>すこやかな日々を整える</h3>
+          <p class="ing-block__amount"><span data-count="120" aria-hidden="true">0</span><small>mg + 1,800μg</small></p>
+          <p class="ing-block__body">1gで6Lの水分を保持するとされるヒアルロン酸と、国産米から抽出した天然セラミドのダブル設計。<strong>内側からのコンディション</strong>を整える目的で配合しました。</p>
+          <ul class="ing-block__points">
+            <li>うるおい保持力をWでサポート</li>
+            <li>国産米由来の天然セラミド採用</li>
+            <li>非加熱抽出で素材を活かす製法</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 実績数値バー -->
   <div class="stats-bar" role="region" aria-label="実績数値">
     <div class="stats-bar__inner">
@@ -2101,6 +3132,52 @@ p { text-wrap: pretty; word-break: auto-phrase; }
     </div>
   </section>
 
+  <!-- 6b. BEFORE / AFTER -->
+  <section class="ba-section" id="ba" aria-label="ご使用前後のイメージ">
+    <div class="ba-section__inner">
+      <div class="ba-section__tag-wrap"><span class="ba-section__sample-tag" aria-label="ポートフォリオサンプル明示">SAMPLE / PR</span></div>
+      <h2 class="sec-title"><span class="sec-title__en" aria-hidden="true">Real Voices</span>ご評価いただいた<span class="sec-title__accent">3ヶ月のイメージ</span></h2>
+      <p class="ba-section__lead">3ヶ月続けてくださったお客様にご感想をうかがいました。<br>下記の写真および所感は<strong>個人のご評価</strong>であり、変化には個人差があります。</p>
+      <div class="ba-grid">
+        <article class="ba-card">
+          <div class="ba-card__media" role="img" aria-label="使用前後のイメージ（個人の感想・個人差あり）">
+            <div class="ba-card__panel ba-card__panel--before">
+              <span class="ba-card__panel-label">BEFORE</span>
+            </div>
+            <div class="ba-card__panel ba-card__panel--after">
+              <span class="ba-card__panel-label">3 MONTHS</span>
+            </div>
+          </div>
+          <div class="ba-card__body">
+            <p class="ba-card__who">M.K さん（24歳・会社員）</p>
+            <p class="ba-card__period">使用期間：3ヶ月（2025年9月〜12月）</p>
+            <p class="ba-card__quote">「朝のメイクのノリが、以前より気にならなくなったとご評価いただきました。チュアブルだから飲み忘れも少なく、続けやすい。」</p>
+          </div>
+        </article>
+        <article class="ba-card">
+          <div class="ba-card__media" role="img" aria-label="使用前後のイメージ（個人の感想・個人差あり）">
+            <div class="ba-card__panel ba-card__panel--before-2">
+              <span class="ba-card__panel-label">BEFORE</span>
+            </div>
+            <div class="ba-card__panel ba-card__panel--after-2">
+              <span class="ba-card__panel-label">3 MONTHS</span>
+            </div>
+          </div>
+          <div class="ba-card__body">
+            <p class="ba-card__who">R.S さん（27歳・看護師）</p>
+            <p class="ba-card__period">使用期間：3ヶ月（2025年8月〜11月）</p>
+            <p class="ba-card__quote">「夜勤続きで生活リズムが乱れがちでも、ご自身の調子が整ってきた気がするとご評価いただきました。」</p>
+          </div>
+        </article>
+      </div>
+      <p class="ba-section__notice">
+        <strong>※ 上記は個人の感想であり、効果・効能を保証するものではありません。</strong><br>
+        変化の感じ方には<strong>個人差</strong>があります。掲載写真はポートフォリオ用イメージです。<br>
+        本ページは飛燕の自主制作によるサンプルであり、特定商品の宣伝広告ではありません。
+      </p>
+    </div>
+  </section>
+
   <!-- Diagonal -->
   <div class="diagonal diagonal--voices-to-strengths" aria-hidden="true"></div>
 
@@ -2146,11 +3223,42 @@ p { text-wrap: pretty; word-break: auto-phrase; }
   <!-- CTA: Strengths後 -->
   <div class="cta-band cta-band--strengths" role="region" aria-label="強み訴求後の購入案内">
     <div class="cta-band__inner">
-      <p class="cta-band__text">満足度96.8%の美肌習慣、あなたも始めてみませんか？</p>
-      <a href="#purchase" class="btn btn--primary btn--pulse">満足度96.8%の美肌習慣を始める</a>
+      <p class="cta-band__text">ご評価いただいた美肌習慣、あなたも始めてみませんか？</p>
+      <a href="#purchase" class="btn btn--primary btn--pulse">ご評価いただいた美肌習慣を始める</a>
       <p class="cta-band__micro">※ 初回980円・いつでも解約OK・15日間全額返金保証</p>
     </div>
   </div>
+
+  <!-- 7b. SUBSCRIPTION BENEFITS (4並列) -->
+  <section class="sub-bene" id="sub-bene" aria-label="定期便の特典">
+    <div class="sub-bene__inner">
+      <span class="sub-bene__title-en" aria-hidden="true">SUBSCRIPTION BENEFITS</span>
+      <h2 class="sub-bene__title">定期便だけの、<span class="sub-bene__title-accent">4つのご褒美</span></h2>
+      <p class="sub-bene__lead">続けやすさにこだわった、LUNA GLOWの定期便だけの特典です。<br>初回限定980円で、安心してお試しいただけます。</p>
+      <div class="sub-bene__grid">
+        <article class="sub-bene__card">
+          <span class="sub-bene__icon" aria-hidden="true">01</span>
+          <h3 class="sub-bene__card-title">初回80%OFF</h3>
+          <p class="sub-bene__card-text">通常価格¥4,980が初回限定<strong>¥980</strong>（税込・送料無料）。お気軽にスタートいただけます。</p>
+        </article>
+        <article class="sub-bene__card">
+          <span class="sub-bene__icon" aria-hidden="true">02</span>
+          <h3 class="sub-bene__card-title">回数縛りなし</h3>
+          <p class="sub-bene__card-text">「合わなかったらどうしよう」のご不安を解消。<strong>いつでも解約OK</strong>、解約金もかかりません。</p>
+        </article>
+        <article class="sub-bene__card">
+          <span class="sub-bene__icon" aria-hidden="true">03</span>
+          <h3 class="sub-bene__card-title">15日間全額返金保証</h3>
+          <p class="sub-bene__card-text">お体に合わなかった場合、<strong>開封後でも返金</strong>。じっくりお試しいただける安心の保証です。</p>
+        </article>
+        <article class="sub-bene__card">
+          <span class="sub-bene__icon" aria-hidden="true">04</span>
+          <h3 class="sub-bene__card-title">2回目以降も30%OFF</h3>
+          <p class="sub-bene__card-text">通常¥4,980が、定期便なら<strong>¥3,480</strong>（税込・送料無料）。長く続ける方にもうれしい価格設計。</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- 8. TRUST -->
   <section class="trust-section" id="quality" aria-label="品質保証">
@@ -2242,6 +3350,113 @@ p { text-wrap: pretty; word-break: auto-phrase; }
     </div>
   </section>
 
+  <!-- 9b. APPLICATION FORM -->
+  <section class="lp-form-section" id="form" aria-label="初回特別価格お申込みフォーム">
+    <div class="lp-form-section__inner">
+      <form class="lp-form" id="lpForm" novalidate aria-label="初回特別価格お申込みフォーム">
+        <div class="lp-form__head">
+          <h3>初回特別価格 ¥980 でお申込み</h3>
+          <p>下記フォームより、定期便コースのお申込みを受け付けます。<br>必須項目は3項目のみ。30秒で完了します。</p>
+        </div>
+
+        <div class="lp-form__row">
+          <label class="lp-form__field" data-field>
+            <span class="lp-form__label">お名前<em class="req" aria-hidden="true">必須</em></span>
+            <input type="text" name="name" autocomplete="name" placeholder="例) 飛燕 美咲"
+                   required aria-required="true" aria-describedby="err-name">
+            <span class="lp-form__error" id="err-name" data-error aria-live="polite"></span>
+          </label>
+          <label class="lp-form__field" data-field>
+            <span class="lp-form__label">メールアドレス<em class="req" aria-hidden="true">必須</em></span>
+            <input type="email" name="email" autocomplete="email" placeholder="example@email.com"
+                   required aria-required="true" aria-describedby="err-email">
+            <span class="lp-form__error" id="err-email" data-error aria-live="polite"></span>
+          </label>
+        </div>
+
+        <div class="lp-form__row">
+          <label class="lp-form__field" data-field>
+            <span class="lp-form__label">電話番号<em class="opt" aria-hidden="true">任意</em></span>
+            <input type="tel" name="tel" autocomplete="tel" placeholder="例) 09012345678"
+                   inputmode="tel" pattern="[0-9\-]*" aria-describedby="err-tel">
+            <span class="lp-form__error" id="err-tel" data-error aria-live="polite"></span>
+          </label>
+          <label class="lp-form__field" data-field>
+            <span class="lp-form__label">年齢層<em class="req" aria-hidden="true">必須</em></span>
+            <select name="age" required aria-required="true" aria-describedby="err-age">
+              <option value="">選択してください</option>
+              <option value="20s">20代</option>
+              <option value="30s">30代</option>
+              <option value="40s">40代</option>
+              <option value="50s">50代</option>
+              <option value="60+">60代以上</option>
+              <option value="other">その他</option>
+            </select>
+            <span class="lp-form__error" id="err-age" data-error aria-live="polite"></span>
+          </label>
+        </div>
+
+        <label class="lp-form__field" data-field>
+          <span class="lp-form__label">気になる肌悩み<em class="opt" aria-hidden="true">任意</em></span>
+          <select name="concern" aria-describedby="err-concern">
+            <option value="">選択してください（複数該当する場合は最も気になる項目）</option>
+            <option value="dryness">乾燥・うるおい不足</option>
+            <option value="dullness">くすみ・透明感</option>
+            <option value="elasticity">ハリ・弾力</option>
+            <option value="firmness">フェイスラインのゆるみ</option>
+            <option value="pores">毛穴の目立ち</option>
+            <option value="rough">肌のごわつき</option>
+            <option value="multiple">複数気になる</option>
+            <option value="prevention">将来のためのケア</option>
+          </select>
+          <span class="lp-form__error" id="err-concern" data-error aria-live="polite"></span>
+        </label>
+
+        <label class="lp-form__field" data-field>
+          <span class="lp-form__label">美容サプリのご購入経験<em class="req" aria-hidden="true">必須</em></span>
+          <select name="experience" required aria-required="true" aria-describedby="err-experience">
+            <option value="">選択してください</option>
+            <option value="first">はじめて美容サプリを試す</option>
+            <option value="few">過去に1〜2種類試したことがある</option>
+            <option value="some">複数の美容サプリを試したことがある</option>
+            <option value="current">現在、他の美容サプリを使用中</option>
+          </select>
+          <span class="lp-form__error" id="err-experience" data-error aria-live="polite"></span>
+        </label>
+
+        <label class="lp-form__field" data-field>
+          <span class="lp-form__label">ご質問・ご要望<em class="opt" aria-hidden="true">任意</em></span>
+          <textarea name="message" rows="4" placeholder="ご不明点や気になることがあればご記入ください"
+                    aria-describedby="err-message"></textarea>
+          <span class="lp-form__error" id="err-message" data-error aria-live="polite"></span>
+        </label>
+
+        <label class="lp-form__check" data-field>
+          <input type="checkbox" name="privacy" required aria-required="true" aria-describedby="err-privacy">
+          <span><a href="#" data-demo="true" tabindex="-1">個人情報の取扱い</a>に同意する<em class="req" aria-hidden="true">必須</em></span>
+        </label>
+        <span class="lp-form__error lp-form__error--privacy" id="err-privacy" data-error
+              data-field-name="privacy" aria-live="polite"></span>
+
+        <button type="submit" class="lp-form__submit" id="lpFormSubmit">
+          初回980円でお申込みする<span class="arrow" aria-hidden="true">→</span>
+        </button>
+
+        <p class="lp-form__note">
+          ※ 本フォームは飛燕の自主制作によるポートフォリオ用サンプルです。<br>
+          実際の送信・データ保存は行われません。
+        </p>
+      </form>
+
+      <div class="lp-form__success" id="lpFormSuccess" hidden role="status" aria-live="polite">
+        <span class="lp-form__success-icon" aria-hidden="true">&check;</span>
+        <h3>お申込みありがとうございます</h3>
+        <p>確認メールをお送りいたしました。<br>3営業日以内に商品を発送いたします。</p>
+        <small>※ ポートフォリオサンプルのため、実際の送信・発送は行われていません</small>
+      </div>
+    </div>
+  </section>
+
   <!-- 10. CTA FINAL -->
   <section class="cta-final" id="cta-final" aria-label="最終購入案内">
     <div class="cta-final__inner">
@@ -2286,10 +3501,41 @@ p { text-wrap: pretty; word-break: auto-phrase; }
     </div>
   </footer>
 
-  <!-- STICKY CTA (mobile) -->
-  <div class="sticky-cta">
+  <!-- STICKY CTA (mobile, fallback) -->
+  <div class="sticky-cta" aria-hidden="true">
     <a href="#purchase" class="sticky-cta__btn">初回980円で美肌習慣を始める</a>
   </div>
+
+  <!-- FLOATING CTA (PC) -->
+  <div class="floating-cta" id="floatingCta" role="complementary" aria-label="フローティング購入案内">
+    <a href="#purchase" class="floating-cta__link" aria-label="初回980円で美肌習慣を始める">
+      <span class="floating-cta__icon" aria-hidden="true">&#10024;</span>
+      <span class="floating-cta__text">
+        <strong>初回980円で始める</strong>
+        <small>いつでも解約OK / 返金保証</small>
+      </span>
+    </a>
+    <button type="button" class="floating-cta__close" id="floatingCtaClose" aria-label="フローティング案内を閉じる">&times;</button>
+  </div>
+
+  <!-- MOBILE TABBAR (SP) -->
+  <nav class="mobile-tabbar" id="mobileTabbar" aria-label="モバイル用クイックメニュー" aria-hidden="true">
+    <button type="button" class="mobile-tabbar__close" id="mobileTabbarClose" aria-label="クイックメニューを閉じる">&times;</button>
+    <div class="mobile-tabbar__items">
+      <a href="#faq" class="mobile-tabbar__item">
+        <span class="mobile-tabbar__icon" aria-hidden="true">?</span>
+        <span class="mobile-tabbar__label">FAQ</span>
+      </a>
+      <a href="#form" class="mobile-tabbar__item">
+        <span class="mobile-tabbar__icon" aria-hidden="true">&#9993;</span>
+        <span class="mobile-tabbar__label">問合せ</span>
+      </a>
+      <a href="#purchase" class="mobile-tabbar__item mobile-tabbar__item--primary" aria-label="初回980円でお申込み">
+        <span class="mobile-tabbar__icon" aria-hidden="true">&#10024;</span>
+        <span class="mobile-tabbar__label">¥980で始める</span>
+      </a>
+    </div>
+  </nav>
 
 <script>
 /* --- Mark JS as enabled (outside DOMContentLoaded for earliest paint) --- */
@@ -2480,9 +3726,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   var animTargets = document.querySelectorAll(
-    '.hero__point, .purchase__card, .pain__list li, .feature, .ingredient-card, ' +
+    '.hero__trust-item, .purchase__card, .pain__list li, .feature, .ingredient-card, ' +
     '.voice-card, .trust-item, .faq__item, .ingredients__free-list span, ' +
-    '.stats-bar__item, .strengths__card'
+    '.stats-bar__item, .strengths__card, .ing-block, .ba-card, .sub-bene__card'
   );
 
   var animArray = Array.from(animTargets);
@@ -2677,6 +3923,212 @@ document.addEventListener('DOMContentLoaded', function() {
   } else if (motionQuery.matches) {
     countUpElements.forEach(showCountUpFinal);
   }
+
+  /* --- Floating CTA (PC) ----------------------------------------- */
+  (function() {
+    var floatingCta = document.getElementById('floatingCta');
+    var floatingCtaClose = document.getElementById('floatingCtaClose');
+    if (!floatingCta) return;
+    var hero = document.querySelector('.hero');
+    var ctaFinal = document.getElementById('cta-final');
+    var dismissed = false;
+    var ctaRafId = -1;
+
+    function updateFloatingCta() {
+      if (dismissed) return;
+      var heroBottom = hero ? (hero.offsetTop + hero.offsetHeight) : 600;
+      var finalTop = ctaFinal ? ctaFinal.offsetTop - 200 : Number.MAX_VALUE;
+      var y = window.scrollY;
+      var should = y > heroBottom * 0.85 && y < finalTop;
+      floatingCta.classList.toggle('is-visible', should);
+    }
+
+    window.addEventListener('scroll', function() {
+      if (ctaRafId !== -1) return;
+      ctaRafId = requestAnimationFrame(function() {
+        try { updateFloatingCta(); } finally { ctaRafId = -1; }
+      });
+    }, { passive: true });
+
+    if (floatingCtaClose) {
+      floatingCtaClose.addEventListener('click', function() {
+        dismissed = true;
+        floatingCta.classList.remove('is-visible');
+      });
+    }
+    updateFloatingCta();
+  })();
+
+  /* --- Mobile Tabbar (SP) ---------------------------------------- */
+  (function() {
+    var tabbar = document.getElementById('mobileTabbar');
+    var tabbarClose = document.getElementById('mobileTabbarClose');
+    if (!tabbar) return;
+    var heroEl = document.querySelector('.hero');
+    var ctaFinalEl = document.getElementById('cta-final');
+    var formEl = document.getElementById('form');
+    var dismissed = false;
+    var rafId = -1;
+
+    function isMobile() { return window.matchMedia('(max-width: 720px)').matches; }
+
+    function updateTabbar() {
+      if (!isMobile() || dismissed) {
+        tabbar.classList.remove('is-visible');
+        tabbar.setAttribute('aria-hidden', 'true');
+        return;
+      }
+      var heroBottom = heroEl ? (heroEl.offsetTop + heroEl.offsetHeight) : 500;
+      var stopTop = (formEl ? formEl.offsetTop : (ctaFinalEl ? ctaFinalEl.offsetTop : Number.MAX_VALUE)) - 240;
+      var y = window.scrollY;
+      var should = y > heroBottom * 0.8 && y < stopTop;
+      tabbar.classList.toggle('is-visible', should);
+      tabbar.setAttribute('aria-hidden', should ? 'false' : 'true');
+    }
+
+    window.addEventListener('scroll', function() {
+      if (rafId !== -1) return;
+      rafId = requestAnimationFrame(function() {
+        try { updateTabbar(); } finally { rafId = -1; }
+      });
+    }, { passive: true });
+    window.addEventListener('resize', updateTabbar);
+
+    if (tabbarClose) {
+      tabbarClose.addEventListener('click', function() {
+        dismissed = true;
+        tabbar.classList.add('is-dismissed');
+        tabbar.setAttribute('aria-hidden', 'true');
+      });
+    }
+    /* Hide tabbar when any tabbar link is tapped (so it doesn't cover form) */
+    tabbar.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        tabbar.classList.remove('is-visible');
+      });
+    });
+    updateTabbar();
+  })();
+
+  /* --- LP Form: validation + submit ------------------------------ */
+  (function() {
+    var form = document.getElementById('lpForm');
+    var successEl = document.getElementById('lpFormSuccess');
+    var submitBtn = document.getElementById('lpFormSubmit');
+    if (!form || !successEl || !submitBtn) return;
+
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var TEL_RE = /^[0-9\-+\s]{7,15}$/;
+
+    function setError(field, msg) {
+      var wrap = field.closest('[data-field]') || field.parentElement;
+      var name = field.name || '';
+      var err = wrap ? wrap.querySelector('[data-error]') : null;
+      /* For checkbox: error span is sibling of wrap */
+      if (!err && name === 'privacy') {
+        err = document.querySelector('[data-error][data-field-name="privacy"]');
+      }
+      if (msg) {
+        if (wrap) wrap.classList.add('has-error');
+        if (err) err.textContent = msg;
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'true');
+      } else {
+        if (wrap) wrap.classList.remove('has-error');
+        if (err) err.textContent = '';
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'false');
+      }
+    }
+
+    function validateField(field) {
+      var name = field.name;
+      var v = (field.value || '').trim();
+      var required = field.hasAttribute('required');
+
+      if (field.type === 'checkbox') {
+        if (required && !field.checked) {
+          setError(field, '同意が必要です');
+          return false;
+        }
+        setError(field, '');
+        return true;
+      }
+
+      if (required && !v) {
+        setError(field, '必須項目です');
+        return false;
+      }
+      if (name === 'email' && v && !EMAIL_RE.test(v)) {
+        setError(field, 'メールアドレスの形式が正しくありません');
+        return false;
+      }
+      if (name === 'tel' && v && !TEL_RE.test(v)) {
+        setError(field, '電話番号の形式が正しくありません');
+        return false;
+      }
+      if (name === 'name' && v && v.length > 60) {
+        setError(field, 'お名前は60文字以内でご入力ください');
+        return false;
+      }
+      if (name === 'message' && v && v.length > 1000) {
+        setError(field, 'ご質問は1000文字以内でご入力ください');
+        return false;
+      }
+      setError(field, '');
+      return true;
+    }
+
+    function validateAll() {
+      var fields = form.querySelectorAll('input, select, textarea');
+      var ok = true;
+      fields.forEach(function(f) {
+        if (!validateField(f)) ok = false;
+      });
+      return ok;
+    }
+
+    /* blur: validate; input/change: clear error if previously errored */
+    form.querySelectorAll('input, select, textarea').forEach(function(f) {
+      f.addEventListener('blur', function() { validateField(f); });
+      f.addEventListener('input', function() {
+        var wrap = f.closest('[data-field]');
+        if (wrap && wrap.classList.contains('has-error')) validateField(f);
+      });
+      f.addEventListener('change', function() {
+        var wrap = f.closest('[data-field]');
+        if (wrap && wrap.classList.contains('has-error')) validateField(f);
+      });
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!validateAll()) {
+        var firstErr = form.querySelector('.has-error input, .has-error select, .has-error textarea');
+        if (firstErr) firstErr.focus();
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+      var originalLabel = submitBtn.innerHTML;
+      submitBtn.textContent = '送信中...';
+
+      setTimeout(function() {
+        form.hidden = true;
+        successEl.hidden = false;
+        successEl.setAttribute('tabindex', '-1');
+        setTimeout(function() {
+          if (successEl.focus) successEl.focus();
+          var top = successEl.getBoundingClientRect().top + window.scrollY -
+            ((document.querySelector('.header') || {}).offsetHeight || 0) - 16;
+          var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+          window.scrollTo({ top: top, behavior: motionQuery.matches ? 'auto' : 'smooth' });
+        }, 60);
+        /* In real impl, restore submitBtn on error. Sample only succeeds. */
+        submitBtn.innerHTML = originalLabel;
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
+      }, 800);
+    });
+  })();
 
   /* --- FAQ: Open all / close all --- */
   var faqSection = document.querySelector('.faq');

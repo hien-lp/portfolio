@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="完全マンツーマン指導のパーソナルジム BODY CRAFT。初回体験0円。運動未経験でも安心のオーダーメイドプログラム。渋谷駅徒歩3分。">
+  <meta name="description" content="完全マンツーマン指導のパーソナルジム BODY CRAFT。「続かない」を終わりにする3ヶ月プログラム。初回体験0円・運動未経験OK・全額返金保証。">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="パーソナルジム BODY CRAFT｜初回体験0円・完全マンツーマン">
-  <meta property="og:description" content="完全個室・完全マンツーマン。あなたの体力と目標に合わせたオーダーメイドプログラム。3ヶ月で体は変わる。">
+  <meta property="og:title" content="パーソナルジム BODY CRAFT｜「続かない」を終わりにする3ヶ月">
+  <meta property="og:description" content="続けるための仕組みが揃ったパーソナルジム。初回体験0円・完全マンツーマン・全額返金保証。">
   <meta property="og:type" content="website">
-  <!-- 本番では実際のドメインに変更 -->
-  <meta property="og:image" content="https://example.com/portfolio/01-personal-gym/images/hero.jpg">
+  <meta property="og:image" content="https://placehold.co/1200x630/2C2C2C/F5EFE4?text=BODY+CRAFT">
+  <meta property="og:site_name" content="BODY CRAFT (Portfolio Sample)">
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:url" content="https://example.com/portfolio/01-personal-gym/">
-  <!-- 本番で実際のアカウントに変更 -->
-  <meta name="twitter:site" content="@example">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#2C2C2C">
+  <meta name="color-scheme" content="light">
   <!--
     [デプロイ時推奨] 以下のセキュリティヘッダーをサーバー（Nginx/Cloudflare等）で設定してください:
-    Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.google.com/maps/;
+    Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://placehold.co; frame-src https://www.google.com/maps/;
     X-Frame-Options: DENY
     X-Content-Type-Options: nosniff
     Referrer-Policy: strict-origin-when-cross-origin
@@ -24,13 +26,82 @@
     Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   -->
   <title>パーソナルジム BODY CRAFT｜初回体験0円・完全マンツーマン</title>
-  <!-- ポートフォリオ用インラインSVG。本番では.icoファイル推奨 -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>B</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- 本番ではGoogle Fontsのセルフホスティングを推奨（SRI対応・パフォーマンス向上） -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="images/hero.webp" type="image/webp">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="./images/hero.webp" type="image/webp" fetchpriority="high">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HealthClub",
+        "name": "BODY CRAFT (Portfolio Sample)",
+        "description": "完全マンツーマン指導のパーソナルジム。「続けるための仕組み」を備えた3ヶ月プログラム。これは飛燕の自主制作によるポートフォリオサンプルです。",
+        "image": "https://placehold.co/1200x630/2C2C2C/F5EFE4?text=BODY+CRAFT",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "神宮前1-2-3 ○○ビル3F",
+          "addressLocality": "渋谷区",
+          "addressRegion": "東京都",
+          "postalCode": "150-0001",
+          "addressCountry": "JP"
+        },
+        "telephone": "+81-120-000-000",
+        "openingHours": "Mo-Su 07:00-22:00",
+        "priceRange": "¥¥",
+        "areaServed": ["東京都"],
+        "knowsAbout": ["パーソナルトレーニング", "ダイエット", "食事指導", "体質改善"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "運動経験がまったくないのですが大丈夫ですか？",
+            "acceptedAnswer": {"@type": "Answer", "text": "当ジムの会員様の約60%が運動未経験からスタートされています。体力に合わせてメニューを組むので、初日から無理なく始められます。"}
+          },
+          {
+            "@type": "Question",
+            "name": "本当に「続けられる」のでしょうか？",
+            "acceptedAnswer": {"@type": "Answer", "text": "BODY CRAFTには、毎週のカウンセリング・トレーニングログの可視化・LINEコミュニティと、続けるための仕組みが揃っています。3ヶ月継続率は92%（2025年実績）です。"}
+          },
+          {
+            "@type": "Question",
+            "name": "体験当日の持ち物は？",
+            "acceptedAnswer": {"@type": "Answer", "text": "室内シューズだけお持ちください。ウェア・タオル・お水は無料でご用意しています。"}
+          },
+          {
+            "@type": "Question",
+            "name": "体験後にしつこい勧誘はありますか？",
+            "acceptedAnswer": {"@type": "Answer", "text": "一切ありません。プランのご説明はしますが、その場で決める必要はありません。後日LINEでのご連絡もOKです。"}
+          },
+          {
+            "@type": "Question",
+            "name": "途中でプラン変更はできますか？",
+            "acceptedAnswer": {"@type": "Answer", "text": "月単位でいつでも変更可能です。まずはライトで始めて、慣れたらスタンダードに上げる方が多いです。"}
+          },
+          {
+            "@type": "Question",
+            "name": "食事制限は厳しいですか？",
+            "acceptedAnswer": {"@type": "Answer", "text": "極端な食事制限は行いません。日常の食事を少しずつ改善するアプローチなので、ストレスなく続けられます。"}
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "飛燕 ポートフォリオ", "item": "https://hien-lp.github.io/portfolio/"},
+          {"@type": "ListItem", "position": 2, "name": "BODY CRAFT パーソナルジム LP（自主制作）", "item": "https://hien-lp.github.io/portfolio/01-personal-gym/"}
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
 /* ============================================================
    BODY CRAFT — Personal Gym LP
@@ -44,18 +115,25 @@
 :root {
   /* --- Colors --- */
   --primary: #2C2C2C;
+  --primary-deep: #1F1F1F;
   --primary-light: #3D3D3D;
   --accent: #B8965A;
   --accent-hover: #A07E48;
+  --accent-deep: #8B7042;
   --accent-light: #F5EFE4;
   --accent-glow-0: rgba(184, 150, 90, 0);
   --accent-glow-25: rgba(184, 150, 90, .25);
+  --accent-glow-45: rgba(184, 150, 90, .45);
   --primary-97: rgba(44, 44, 44, .97);
+  --primary-94: rgba(44, 44, 44, .94);
   --primary-92: rgba(44, 44, 44, .92);
+  --primary-78: rgba(44, 44, 44, .78);
   --primary-70: rgba(44, 44, 44, .7);
   --primary-85: rgba(44, 44, 44, .85);
   --primary-60: rgba(44, 44, 44, .6);
   --primary-40: rgba(44, 44, 44, .4);
+  --primary-25: rgba(44, 44, 44, .25);
+  --primary-10: rgba(44, 44, 44, .1);
   --accent-08: rgba(184, 150, 90, .08);
   --accent-15: rgba(184, 150, 90, .15);
   --accent-20: rgba(184, 150, 90, .2);
@@ -68,14 +146,18 @@
   --text-light: #888888;
   --text-muted: #767676;
   --border: #E5E2DD;
+  --border-deep: #D8D3CB;
   --white: #FFFFFF;
   --success: #43A047;
+  --error: #C5391E;
 
   /* --- White alpha (DRY) --- */
   --white-08: rgba(255, 255, 255, .08);
   --white-10: rgba(255, 255, 255, .1);
   --white-15: rgba(255, 255, 255, .15);
+  --white-16: rgba(255, 255, 255, .16);
   --white-20: rgba(255, 255, 255, .2);
+  --white-22: rgba(255, 255, 255, .22);
   --white-25: rgba(255, 255, 255, .25);
   --white-35: rgba(255, 255, 255, .35);
   --white-40: rgba(255, 255, 255, .4);
@@ -92,15 +174,18 @@
 
   /* --- Layout --- */
   --content-width: 1120px;
-  --section-py: 80px;
+  --section-py: 88px;
   --header-height: 64px;
   --radius: 6px;
   --radius-lg: 12px;
+  --radius-xl: 18px;
 
   /* --- Z-index --- */
   --z-sticky: 90;
   --z-header: 100;
-  --z-mobile-nav: 101;
+  --z-floating: 1100;
+  --z-mobile-nav: 1200;
+  --z-floating-hamburger: 1300;
 }
 
 /* ============================================================
@@ -123,8 +208,12 @@ body.no-scroll { overflow: hidden; }
 
 img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
-ul, dl { list-style: none; }
+ul, dl, ol { list-style: none; }
 strong { font-weight: 700; }
+
+/* 日本語改行最適化 */
+h1, h2, h3, h4 { text-wrap: balance; word-break: auto-phrase; }
+p { text-wrap: pretty; word-break: auto-phrase; }
 
 /* --- Skip Link --- */
 .skip-link {
@@ -141,18 +230,33 @@ strong { font-weight: 700; }
   transform: translateY(-100%);
   transition: transform .2s;
 }
-.skip-link:focus {
-  transform: translateY(0);
-}
+.skip-link:focus { transform: translateY(0); }
 
-/* --- Section Title --- */
+/* --- Section labels & titles --- */
+.section-label {
+  display: block;
+  font-family: var(--ff-en);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 12px;
+}
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 48px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+}
+.section-title em {
+  color: var(--accent);
+  font-style: normal;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
 }
 
 /* --- Buttons --- */
@@ -172,10 +276,7 @@ strong { font-weight: 700; }
   min-height: 44px;
   min-width: 44px;
 }
-.btn__main {
-  display: block;
-  line-height: 1.4;
-}
+.btn__main { display: block; line-height: 1.4; }
 .btn__micro {
   display: block;
   font-size: 0.6875rem;
@@ -183,13 +284,8 @@ strong { font-weight: 700; }
   opacity: .8;
   margin-top: 2px;
 }
-.btn--accent {
-  background: var(--accent);
-  color: var(--white);
-  border-color: var(--accent);
-}
-.btn--accent:hover,
-.btn--accent:focus-visible {
+.btn--accent { background: var(--accent); color: var(--white); border-color: var(--accent); }
+.btn--accent:hover, .btn--accent:focus-visible {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
   transform: translateY(-2px);
@@ -197,13 +293,8 @@ strong { font-weight: 700; }
 }
 .btn--large { padding: 18px 48px; font-size: 1.0625rem; }
 .btn--small { padding: 10px 24px; font-size: 0.8125rem; max-width: 100%; margin-top: 16px; }
-.btn--outline-white {
-  background: transparent;
-  color: var(--white);
-  border-color: var(--white-40);
-}
-.btn--outline-white:hover,
-.btn--outline-white:focus-visible {
+.btn--outline-white { background: transparent; color: var(--white); border-color: var(--white-40); }
+.btn--outline-white:hover, .btn--outline-white:focus-visible {
   background: var(--white-10);
   border-color: var(--white);
 }
@@ -213,19 +304,11 @@ strong { font-weight: 700; }
   border-color: var(--white);
   font-weight: 700;
 }
-.btn--accent-inv:hover,
-.btn--accent-inv:focus-visible {
-  background: var(--bg-alt);
-  transform: translateY(-2px);
-}
-.btn--accent-inv .btn__micro {
-  color: var(--text-light);
-}
+.btn--accent-inv:hover, .btn--accent-inv:focus-visible { background: var(--bg-alt); transform: translateY(-2px); }
+.btn--accent-inv .btn__micro { color: var(--text-light); }
 
-/* CTA Pulse Animation */
-.btn--pulse {
-  animation: cta-pulse 2.5s ease-in-out 3;
-}
+/* CTA Pulse */
+.btn--pulse { animation: cta-pulse 2.5s ease-in-out 3; }
 @keyframes cta-pulse {
   0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow-25); }
   50% { box-shadow: 0 0 0 12px var(--accent-glow-0); }
@@ -239,7 +322,6 @@ strong { font-weight: 700; }
 
 .sp-only { display: none; }
 
-/* --- Screen reader only --- */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -261,14 +343,17 @@ strong { font-weight: 700; }
   left: 0;
   right: 0;
   z-index: var(--z-header);
-  background: rgba(250,250,248,.96);
+  background: rgba(250, 250, 248, 0.96);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
-  transition: box-shadow .3s;
+  transition: box-shadow .3s, transform .45s cubic-bezier(0.4, 0, 0.2, 1), opacity .45s, background .4s;
 }
-.header--scrolled {
-  box-shadow: 0 2px 16px rgba(0,0,0,.08);
+.header--scrolled { box-shadow: 0 2px 16px rgba(0, 0, 0, .08); }
+.header.is-fadeout {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 .header__inner {
   max-width: var(--content-width);
@@ -285,11 +370,19 @@ strong { font-weight: 700; }
   font-weight: 700;
   color: var(--primary);
   letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
-.header__nav {
-  display: flex;
-  gap: 28px;
+.header__logo-mark {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: relative;
+  top: 0;
 }
+.header__nav { display: flex; gap: 28px; }
 .header__nav a {
   font-size: 0.8125rem;
   font-weight: 700;
@@ -297,10 +390,7 @@ strong { font-weight: 700; }
   transition: color .2s;
   padding: 4px 0;
 }
-.header__nav a:hover,
-.header__nav a:focus-visible {
-  color: var(--primary);
-}
+.header__nav a:hover, .header__nav a:focus-visible { color: var(--primary); }
 .header__right {
   display: flex;
   align-items: center;
@@ -322,78 +412,195 @@ strong { font-weight: 700; }
   border-radius: var(--radius);
   transition: background .2s;
   min-height: 44px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
-.header__cta-btn:hover,
-.header__cta-btn:focus-visible {
-  background: var(--accent-hover);
-}
+.header__cta-btn:hover, .header__cta-btn:focus-visible { background: var(--accent-hover); }
 
 .header__hamburger { display: none; }
 
-/* Mobile nav */
-.mobile-nav {
+/* ============================================================
+   FLOATING HAMBURGER (SP, always visible)
+   ============================================================ */
+.floating-hamburger {
+  display: none;
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--white);
+  z-index: var(--z-floating-hamburger);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.42), 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+  border: none;
+  cursor: pointer;
+}
+.floating-hamburger:hover {
+  background: var(--primary-deep);
+  transform: translateY(-1px);
+}
+.floating-hamburger:active { transform: scale(0.96); }
+.floating-hamburger__line {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--white);
+  position: absolute;
+  left: 50%;
+  margin-left: -9px;
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s, background 0.2s;
+}
+.floating-hamburger__line:nth-child(1) { top: 17px; }
+.floating-hamburger__line:nth-child(2) { top: 22px; }
+.floating-hamburger__line:nth-child(3) { top: 27px; }
+body.is-menu-open .floating-hamburger { background: var(--accent); }
+body.is-menu-open .floating-hamburger__line:nth-child(1) {
+  transform: rotate(45deg) translate(3.5px, 3.5px);
+}
+body.is-menu-open .floating-hamburger__line:nth-child(2) { opacity: 0; }
+body.is-menu-open .floating-hamburger__line:nth-child(3) {
+  transform: rotate(-45deg) translate(3.5px, -3.5px);
+}
+
+/* ============================================================
+   MOBILE DRAWER
+   ============================================================ */
+.menu-drawer {
   position: fixed;
   inset: 0;
   z-index: var(--z-mobile-nav);
-  background: var(--primary-97);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(31, 31, 31, 0.97);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   visibility: hidden;
   opacity: 0;
-  transition: visibility .3s, opacity .3s;
+  transition: opacity 0.36s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.36s;
+  overflow-y: auto;
 }
-.mobile-nav.is-open {
+.menu-drawer.is-open {
   visibility: visible;
   opacity: 1;
+  transition: opacity 0.36s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0s;
 }
-.mobile-nav__close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 1.5rem;
-  cursor: pointer;
-  min-width: 44px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius);
-}
-.mobile-nav__close:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
-}
-.mobile-nav__links {
+.menu-drawer__inner {
+  padding: 100px 32px 60px;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
 }
-.mobile-nav__links a {
-  color: var(--white);
-  font-size: 1.125rem;
-  font-weight: 700;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-}
-.mobile-nav__tel {
+.menu-drawer__brand {
   font-family: var(--ff-en);
   font-size: 1.5rem;
   font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--white);
+  margin-bottom: 8px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
 }
-.mobile-nav__cta {
+.menu-drawer__brand-mark {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  position: relative;
+  top: -2px;
+}
+.menu-drawer__brand-mark::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
   background: var(--accent);
-  padding: 14px 36px;
-  border-radius: var(--radius);
-  font-weight: 700;
+  border-radius: 50%;
 }
+.menu-drawer__sub {
+  font-family: var(--ff-en);
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 56px;
+}
+.menu-drawer__nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 360px;
+}
+.menu-drawer__link {
+  font-family: var(--ff-body);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  padding: 18px 8px;
+  border-bottom: 1px solid var(--white-16);
+  position: relative;
+  transition: color 0.2s, padding-left 0.2s;
+  opacity: 0;
+  transform: translateY(20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+}
+.menu-drawer.is-open .menu-drawer__link {
+  animation: drawerLinkIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.menu-drawer.is-open .menu-drawer__link:nth-child(1) { animation-delay: 0.18s; }
+.menu-drawer.is-open .menu-drawer__link:nth-child(2) { animation-delay: 0.25s; }
+.menu-drawer.is-open .menu-drawer__link:nth-child(3) { animation-delay: 0.32s; }
+.menu-drawer.is-open .menu-drawer__link:nth-child(4) { animation-delay: 0.39s; }
+.menu-drawer.is-open .menu-drawer__link:nth-child(5) { animation-delay: 0.46s; }
+.menu-drawer.is-open .menu-drawer__link:nth-child(6) { animation-delay: 0.53s; }
+@keyframes drawerLinkIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+.menu-drawer__link::after {
+  content: '\2192';
+  color: var(--accent);
+  font-family: var(--ff-en);
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+.menu-drawer__link:active { color: var(--accent); padding-left: 14px; }
+.menu-drawer__cta {
+  width: 100%;
+  max-width: 360px;
+  margin-top: 48px;
+  padding: 18px 32px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 12px 28px var(--accent-glow-45);
+  opacity: 0;
+  transform: translateY(20px);
+  min-height: 44px;
+}
+.menu-drawer.is-open .menu-drawer__cta {
+  animation: drawerLinkIn 0.5s 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.menu-drawer__cta::after {
+  content: '\2192';
+  font-family: var(--ff-en);
+}
+body.is-menu-open { overflow: hidden; }
 
 /* ============================================================
    HERO
@@ -420,12 +627,7 @@ strong { font-weight: 700; }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    var(--primary-92) 0%,
-    var(--primary-70) 40%,
-    var(--primary-40) 100%
-  );
+  background: linear-gradient(135deg, var(--primary-92) 0%, var(--primary-70) 40%, var(--primary-40) 100%);
 }
 .hero__inner {
   position: relative;
@@ -435,9 +637,7 @@ strong { font-weight: 700; }
   padding: 120px 24px 80px;
   width: 100%;
 }
-.hero__text {
-  max-width: 600px;
-}
+.hero__text { max-width: 600px; }
 .hero__campaign {
   display: inline-flex;
   align-items: center;
@@ -460,8 +660,12 @@ strong { font-weight: 700; }
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 20px;
-  text-shadow: 0 2px 12px rgba(0,0,0,.4);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .4);
   letter-spacing: 0.02em;
+}
+.hero__title em {
+  color: var(--accent);
+  font-style: normal;
 }
 .hero__sub {
   font-size: 0.9375rem;
@@ -481,38 +685,56 @@ strong { font-weight: 700; }
 }
 
 /* ============================================================
-   STATS BAR (countup)
+   TRUST BAR (hero-classic-trust-bar) — directly under hero
    ============================================================ */
-.stats {
-  background: var(--primary);
+.trust-bar {
+  background: var(--primary-deep);
   border-bottom: 1px solid var(--white-08);
+  padding: 0;
+  position: relative;
 }
-.stats__inner {
+.trust-bar__inner {
   max-width: var(--content-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   text-align: center;
 }
-.stats__item {
+.trust-bar__item {
   padding: 28px 16px;
   border-right: 1px solid var(--white-08);
+  position: relative;
 }
-.stats__item:last-child { border-right: none; }
-.stats__num {
+.trust-bar__item:last-child { border-right: none; }
+.trust-bar__num {
   font-family: var(--ff-en);
-  font-size: 2.5rem;
+  font-size: 2.625rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--accent);
   display: block;
   line-height: 1;
+  letter-spacing: -0.01em;
 }
-.stats__label {
+.trust-bar__num small {
+  font-size: 0.45em;
+  font-weight: 500;
+  color: var(--white-70);
+  margin-left: 2px;
+}
+.trust-bar__label {
   display: block;
-  margin-top: 8px;
-  font-size: 0.6875rem;
-  color: var(--white-50);
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: var(--white-60);
   letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.trust-bar__label small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.625rem;
+  color: var(--white-35);
+  letter-spacing: 0.06em;
 }
 
 /* ============================================================
@@ -526,9 +748,7 @@ strong { font-weight: 700; }
   max-width: 720px;
   margin: 0 auto;
 }
-.pain__list {
-  margin-bottom: 32px;
-}
+.pain__list { margin-bottom: 32px; }
 .pain__item {
   padding: 16px 16px 16px 48px;
   position: relative;
@@ -587,62 +807,132 @@ strong { font-weight: 700; }
 .pain__cta { text-align: center; }
 
 /* ============================================================
-   FEATURES
+   REASONS (Fullwidth Alternate) — sec-feature-fullwidth-alternate
    ============================================================ */
-.features {
-  padding: var(--section-py) 24px;
-  background: var(--bg);
+.reasons { background: var(--bg); }
+.reason-block {
+  position: relative;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
 }
-.features__inner {
+.reason-block__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  transition: transform 8s linear;
+  filter: contrast(1.05) saturate(0.65) brightness(0.65);
+}
+.reason-block:hover .reason-block__bg { transform: scale(1.05); }
+
+/* 個別画像（インラインstyle排除）*/
+.reason-block--01 .reason-block__bg { background-image: url('./images/feature-01.webp'); }
+.reason-block--02 .reason-block__bg { background-image: url('./images/feature-02.webp'); }
+.reason-block--03 .reason-block__bg { background-image: url('./images/feature-03.webp'); }
+
+.reason-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg,
+    rgba(31, 31, 31, 0.94) 0%,
+    rgba(31, 31, 31, 0.78) 40%,
+    rgba(31, 31, 31, 0.40) 70%,
+    rgba(31, 31, 31, 0.10) 100%);
+}
+.reason-block--reverse::before {
+  background: linear-gradient(270deg,
+    rgba(31, 31, 31, 0.94) 0%,
+    rgba(31, 31, 31, 0.78) 40%,
+    rgba(31, 31, 31, 0.40) 70%,
+    rgba(31, 31, 31, 0.10) 100%);
+}
+
+.reason-block__inner {
+  width: 100%;
   max-width: var(--content-width);
   margin: 0 auto;
+  padding: 90px 24px;
+  display: flex;
 }
-.feature {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-  margin-bottom: 64px;
-}
-.feature:last-child { margin-bottom: 0; }
-.feature--reverse .feature__img { order: 2; }
-.feature--reverse .feature__body { order: 1; }
+.reason-block--reverse .reason-block__inner { justify-content: flex-end; }
 
-.feature__img {
-  overflow: hidden;
-  border-radius: var(--radius-lg);
+.reason-content {
+  max-width: 520px;
+  color: var(--white);
 }
-.feature__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  aspect-ratio: 3/2;
-  transition: transform .4s ease;
-}
-.feature__img:hover img {
-  transform: scale(1.03);
-}
-.feature__num {
+.reason-content__num {
   font-family: var(--ff-en);
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 700;
   color: var(--accent);
-  opacity: .15;
   line-height: 1;
-  display: block;
   margin-bottom: 8px;
 }
-.feature__title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 12px;
-  line-height: 1.5;
+.reason-content__num small {
+  font-family: var(--ff-en);
+  font-size: 0.18em;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  display: block;
+  margin-top: 8px;
+  color: var(--white-70);
+  text-transform: uppercase;
 }
-.feature__text {
+.reason-content__title {
+  font-size: 1.625rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+.reason-content__body {
   font-size: 0.9375rem;
-  color: var(--text-light);
-  line-height: 1.9;
+  color: var(--white-85);
+  line-height: 1.95;
+  margin-bottom: 20px;
+}
+.reason-content__points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--white-15);
+}
+.reason-content__points li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 0.875rem;
+  color: var(--white-85);
+  font-weight: 500;
+}
+.reason-content__points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.reason-content__points li::after {
+  content: '\2713';
+  position: absolute;
+  left: 2px;
+  top: 0.4em;
+  width: 12px;
+  height: 12px;
+  color: var(--white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 12px;
 }
 
 /* ============================================================
@@ -665,116 +955,149 @@ strong { font-weight: 700; }
 }
 
 /* ============================================================
-   RESULTS (Customer Story Cards)
+   BEFORE / AFTER (gym必須要素)
    ============================================================ */
-.results {
-  background: var(--primary);
-  color: var(--white);
+.before-after {
   padding: var(--section-py) 24px;
+  background: var(--bg-alt);
 }
-.results__inner {
+.before-after__inner {
   max-width: var(--content-width);
   margin: 0 auto;
 }
-.section-title--light {
-  color: var(--white);
-}
-.results__lead {
+.before-after__lead {
   text-align: center;
-  color: var(--white-70);
-  margin-bottom: 48px;
+  font-size: 0.9375rem;
+  color: var(--text-mid);
+  margin-top: -24px;
+  margin-bottom: 40px;
+  line-height: 1.85;
 }
-.results__grid {
+.before-after__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  max-width: var(--content-width);
-  margin: 0 auto;
 }
-.result-card {
-  background: var(--primary-light);
-  border: 1px solid var(--white-10);
+.ba-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  transition: transform .2s, box-shadow .2s;
-}
-.result-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,.3);
-}
-.result-card__header {
+  overflow: hidden;
   display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  transition: transform .25s, box-shadow .25s;
 }
-.result-card__avatar {
-  width: 48px;
-  height: 48px;
+.ba-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, .1);
+}
+.ba-card__visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--primary);
+}
+.ba-card__photo {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-deep));
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+.ba-card__photo--after {
+  background: linear-gradient(135deg, var(--accent-warm), var(--accent));
+}
+.ba-card__photo-tag {
+  font-family: var(--ff-en);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--white);
+  background: rgba(0, 0, 0, .35);
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.ba-card__photo--after .ba-card__photo-tag { background: rgba(255, 255, 255, .25); }
+.ba-card__arrow {
+  position: absolute;
+  top: 50%;
+  right: -16px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: var(--white);
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-}
-.result-card__initial {
-  color: var(--white);
   font-family: var(--ff-en);
   font-weight: 700;
-  font-size: 1.25rem;
-}
-.result-card__name {
-  font-weight: 700;
-  font-size: 0.9375rem;
-}
-.result-card__meta {
-  font-size: 0.75rem;
-  color: var(--white-60);
-}
-.result-card__quote {
-  position: relative;
-  padding-left: 20px;
-  border-left: 3px solid var(--accent);
-  margin-bottom: 24px;
-}
-.result-card__quote p {
   font-size: 0.875rem;
-  line-height: 1.8;
-  color: var(--white-85);
+  z-index: 2;
+  box-shadow: 0 4px 12px var(--accent-glow-25);
 }
-.result-card__results {
-  display: flex;
-  gap: 24px;
-  padding-top: 20px;
-  border-top: 1px solid var(--white-10);
-}
-.result-card__metric {
-  text-align: center;
+.ba-card__body {
+  padding: 24px;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
-.result-card__metric-value {
+.ba-card__profile {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.ba-card__name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+.ba-card__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 14px;
+}
+.ba-card__metric { text-align: center; }
+.ba-card__metric-value {
   display: block;
   font-family: var(--ff-en);
-  font-size: 2rem;
+  font-size: 1.375rem;
   font-weight: 700;
   color: var(--accent);
-  line-height: 1.2;
+  line-height: 1.1;
 }
-.result-card__metric-value small {
-  font-size: 0.875rem;
-  font-weight: 400;
+.ba-card__metric-value small {
+  font-size: 0.65em;
+  font-weight: 500;
+  color: var(--text-mid);
+  margin-left: 2px;
 }
-.result-card__metric-label {
-  font-size: 0.75rem;
-  color: var(--white-50);
+.ba-card__metric-label {
+  display: block;
+  font-size: 0.625rem;
+  color: var(--text-light);
   margin-top: 4px;
+  letter-spacing: 0.04em;
 }
-.results__note {
+.ba-card__quote {
+  font-size: 0.8125rem;
+  color: var(--text-mid);
+  line-height: 1.85;
+  font-style: italic;
+}
+.before-after__note {
   text-align: center;
-  margin-top: 24px;
+  margin-top: 28px;
   font-size: 0.75rem;
-  color: var(--white-35);
+  color: var(--text-light);
 }
 
 /* ============================================================
@@ -804,7 +1127,7 @@ strong { font-weight: 700; }
 }
 .trainer-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
   border-top-color: var(--accent-hover);
 }
 .trainer-card__name {
@@ -818,7 +1141,6 @@ strong { font-weight: 700; }
   color: var(--text-light);
   margin-bottom: 10px;
 }
-/* Cert badges (pill style) */
 .trainer-card__certs {
   display: flex;
   flex-wrap: wrap;
@@ -837,7 +1159,6 @@ strong { font-weight: 700; }
   border-radius: 999px;
   letter-spacing: 0.02em;
 }
-/* Stats mini number */
 .trainer-card__stat {
   font-size: 0.75rem;
   color: var(--text-light);
@@ -849,7 +1170,6 @@ strong { font-weight: 700; }
   font-weight: 700;
   color: var(--accent);
 }
-/* Trainer message */
 .trainer-card__msg {
   position: relative;
   text-align: left;
@@ -866,8 +1186,6 @@ strong { font-weight: 700; }
   font-style: italic;
   margin: 0;
 }
-
-/* Trainer avatar (initial icon) */
 .trainer-card__avatar {
   width: 120px;
   height: 120px;
@@ -877,17 +1195,11 @@ strong { font-weight: 700; }
   justify-content: center;
   margin: 0 auto 16px;
   border: 4px solid var(--white);
-  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .12);
 }
-.trainer-card__avatar--1 {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-}
-.trainer-card__avatar--2 {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-warm) 100%);
-}
-.trainer-card__avatar--3 {
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-muted) 100%);
-}
+.trainer-card__avatar--1 { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); }
+.trainer-card__avatar--2 { background: linear-gradient(135deg, var(--primary) 0%, var(--accent-warm) 100%); }
+.trainer-card__avatar--3 { background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-muted) 100%); }
 .trainer-card__initial {
   color: var(--white);
   font-size: 2.75rem;
@@ -931,7 +1243,7 @@ strong { font-weight: 700; }
 }
 .price-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
 }
 .price-card--rec {
   border: 2px solid var(--accent);
@@ -1034,51 +1346,130 @@ strong { font-weight: 700; }
 }
 
 /* ============================================================
-   FLOW
+   FLOW (sec-flow-step-progress)
    ============================================================ */
 .flow {
   padding: var(--section-py) 24px;
   background: var(--bg);
 }
 .flow__inner {
-  max-width: 800px;
+  max-width: 920px;
   margin: 0 auto;
 }
 .flow__steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  position: relative;
+  margin-top: 16px;
+}
+.flow__line {
+  position: absolute;
+  left: 27px;
+  top: 36px;
+  bottom: 36px;
+  width: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+.flow__line-progress {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-deep) 100%);
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .flow__step {
-  text-align: center;
   position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 18px 0 28px;
 }
+.flow__step:last-child { padding-bottom: 0; }
 .flow__step-num {
-  display: inline-block;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--border-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--ff-en);
-  font-size: 0.75rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-light);
+  transition: all .36s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 1;
+}
+.flow__step.is-active .flow__step-num {
   background: var(--primary);
-  padding: 6px 20px;
-  border-radius: 100px;
-  margin-bottom: 16px;
-  letter-spacing: 0.06em;
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+  transform: scale(1.05);
+}
+.flow__step-content {
+  padding-top: 4px;
+}
+.flow__step-tag {
+  font-family: var(--ff-en);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
 .flow__step-title {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 700;
-  margin-bottom: 8px;
   color: var(--primary);
+  margin-bottom: 8px;
+  line-height: 1.5;
 }
-.flow__step-text {
-  font-size: 0.8125rem;
-  color: var(--text-light);
-  line-height: 1.8;
+.flow__step-body {
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.85;
+  margin-bottom: 6px;
+}
+.flow__step-meta {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+  background: var(--accent-08);
+  padding: 3px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 900px) {
+  .flow__line { left: 50%; transform: translateX(-50%); }
+  .flow__step {
+    grid-template-columns: 1fr 72px 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .flow__step-num {
+    width: 72px;
+    height: 72px;
+    font-size: 1.625rem;
+  }
+  .flow__step:nth-child(odd) .flow__step-content {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    text-align: right;
+  }
+  .flow__step:nth-child(odd) .flow__step-num { grid-column: 2 / 3; grid-row: 1; }
+  .flow__step:nth-child(even) .flow__step-content { grid-column: 3 / 4; grid-row: 1; }
+  .flow__step:nth-child(even) .flow__step-num { grid-column: 2 / 3; grid-row: 1; }
 }
 
 /* ============================================================
-   VOICE
+   VOICE / TESTIMONIALS
    ============================================================ */
 .voice {
   padding: var(--section-py) 24px;
@@ -1118,9 +1509,7 @@ strong { font-weight: 700; }
   padding: 28px 24px;
   transition: transform .2s;
 }
-.voice-card:hover {
-  transform: translateY(-2px);
-}
+.voice-card:hover { transform: translateY(-2px); }
 .voice-card__stars {
   color: var(--accent);
   font-size: 1rem;
@@ -1142,6 +1531,12 @@ strong { font-weight: 700; }
   font-size: 0.6875rem;
   color: var(--text-light);
 }
+.voice__sample-note {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
 
 /* ============================================================
    FAQ
@@ -1154,9 +1549,7 @@ strong { font-weight: 700; }
   max-width: 720px;
   margin: 0 auto;
 }
-.faq__item {
-  border-bottom: 1px solid var(--border);
-}
+.faq__item { border-bottom: 1px solid var(--border); }
 .faq__question {
   padding: 18px 36px 18px 0;
   font-weight: 700;
@@ -1214,13 +1607,11 @@ strong { font-weight: 700; }
   overflow: hidden;
   border-radius: var(--radius-lg);
 }
-.access__map iframe {
-  display: block;
-}
+.access__map iframe { display: block; }
 .access__map-iframe {
   border: 0;
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 20px rgba(0,0,0,.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .15);
 }
 .access__dt {
   font-size: 0.75rem;
@@ -1230,20 +1621,17 @@ strong { font-weight: 700; }
   margin-top: 16px;
 }
 .access__dt:first-child { margin-top: 0; }
-.access__dd {
-  font-size: 0.9375rem;
-}
+.access__dd { font-size: 0.9375rem; }
 .access__dd a {
   color: var(--accent);
   font-weight: 700;
 }
 
 /* ============================================================
-   FINAL CTA
+   FINAL CTA + FORM
    ============================================================ */
 .cta-final {
-  padding: 80px 24px;
-  padding-bottom: 96px;
+  padding: 80px 24px 96px;
   background: var(--primary);
   text-align: center;
   position: relative;
@@ -1261,7 +1649,7 @@ strong { font-weight: 700; }
   pointer-events: none;
 }
 .cta-final__inner {
-  max-width: 600px;
+  max-width: 760px;
   margin: 0 auto;
   position: relative;
 }
@@ -1278,7 +1666,7 @@ strong { font-weight: 700; }
   letter-spacing: 0.02em;
 }
 .cta-final__title {
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   font-weight: 700;
   color: var(--white);
   line-height: 1.5;
@@ -1295,6 +1683,7 @@ strong { font-weight: 700; }
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 12px;
 }
 .cta-final__note {
   margin-top: 16px;
@@ -1302,18 +1691,275 @@ strong { font-weight: 700; }
   color: var(--white-35);
 }
 
+/* --- Quote form (form-quote-validated) --- */
+.quote-form {
+  margin-top: 56px;
+  padding: 36px 28px 32px;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  text-align: left;
+  color: var(--text);
+}
+.quote-form__head { text-align: center; margin-bottom: 24px; }
+.quote-form__head h3 {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.quote-form__head p {
+  font-size: 0.8125rem;
+  color: var(--text-light);
+  letter-spacing: 0.04em;
+}
+.quote-form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (min-width: 600px) {
+  .quote-form__row { grid-template-columns: 1fr 1fr; gap: 18px; }
+}
+.quote-form__field { display: flex; flex-direction: column; gap: 6px; }
+.quote-form__label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.quote-form__label .req {
+  font-style: normal;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  background: var(--accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.quote-form__label .opt {
+  font-style: normal;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-mid);
+  background: var(--bg-alt);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.quote-form input[type="text"],
+.quote-form input[type="email"],
+.quote-form input[type="tel"],
+.quote-form select,
+.quote-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--text);
+  background: var(--bg-alt);
+  border: 1.5px solid var(--border-deep);
+  border-radius: 8px;
+  transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
+  font-family: var(--ff-body);
+}
+.quote-form select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--text-light) 50%), linear-gradient(135deg, var(--text-light) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 36px;
+}
+.quote-form textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.65;
+}
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--white);
+  box-shadow: 0 0 0 3px var(--accent-glow-25);
+}
+.quote-form .has-error input,
+.quote-form .has-error select,
+.quote-form .has-error textarea {
+  border-color: var(--error);
+  background: #FCEFEC;
+}
+.quote-form__error {
+  font-size: 0.75rem;
+  color: var(--error);
+  letter-spacing: 0.04em;
+  min-height: 16px;
+  display: block;
+  margin-top: -2px;
+}
+.quote-form__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 8px 0 16px;
+  cursor: pointer;
+  user-select: none;
+}
+.quote-form__check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+  margin-top: 2px;
+}
+.quote-form__check span {
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.quote-form__check a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.quote-form__error--privacy {
+  margin-top: -8px;
+  margin-bottom: 12px;
+}
+.quote-form__field--full { margin-bottom: 8px; }
+.quote-form__submit {
+  width: 100%;
+  padding: 16px 24px;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+  box-shadow: 0 12px 28px var(--accent-glow-45);
+  font-family: var(--ff-body);
+}
+.quote-form__submit:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px var(--accent-glow-45);
+}
+.quote-form__submit:active { transform: translateY(0); }
+.quote-form__submit[disabled] {
+  background: var(--text-light);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+.quote-form__submit .arrow {
+  font-family: var(--ff-en);
+  transition: transform 0.22s;
+}
+.quote-form__submit:hover .arrow { transform: translateX(4px); }
+.quote-form__note {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 16px;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+.quote-form__success {
+  max-width: 640px;
+  margin: 48px auto 0;
+  padding: 56px 32px 48px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: var(--text);
+  animation: successFadeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes successFadeIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.quote-form__success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 28px var(--accent-glow-45);
+}
+.quote-form__success h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.quote-form__success p {
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  color: var(--text-mid);
+  max-width: 480px;
+  margin: 0 auto 8px;
+}
+.quote-form__success small {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  letter-spacing: 0.04em;
+}
+
 /* ============================================================
    FOOTER
    ============================================================ */
 .footer {
-  padding: 40px 24px 24px;
-  background: var(--primary);
+  padding: 48px 24px 28px;
+  background: var(--primary-deep);
   border-top: 1px solid var(--white-15);
   text-align: center;
+  color: var(--white);
 }
+.footer__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+.footer__sample-notice {
+  background: rgba(184, 150, 90, 0.12);
+  border: 1px solid var(--accent-20);
+  color: var(--white-85);
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  text-align: left;
+}
+.footer__sample-notice strong { color: var(--accent); }
 .footer__logo {
   font-family: var(--ff-en);
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--white);
   letter-spacing: 0.06em;
@@ -1322,7 +1968,7 @@ strong { font-weight: 700; }
 .footer__addr,
 .footer__hours {
   font-size: 0.6875rem;
-  color: var(--white-35);
+  color: var(--white-50);
   line-height: 1.8;
 }
 .footer__links {
@@ -1330,147 +1976,226 @@ strong { font-weight: 700; }
   display: flex;
   gap: 24px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .footer__link {
   font-size: 0.6875rem;
-  color: var(--white-35);
+  color: var(--white-50);
   transition: color .2s;
   min-height: 44px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
 }
-.footer__link:hover,
-.footer__link:focus-visible {
-  color: var(--white-70);
-}
+.footer__link:hover, .footer__link:focus-visible { color: var(--white-85); }
 .footer__copy {
   font-size: 0.625rem;
   color: var(--white-25);
+  display: block;
+  margin-top: 12px;
+}
+.footer__portfolio {
+  font-size: 0.625rem;
+  color: var(--white-35);
+  margin-top: 4px;
+}
+.footer__portfolio a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* ============================================================
-   STICKY CTA (mobile only)
+   FLOATING CTA (PC, scroll-triggered)
    ============================================================ */
-.sticky-cta {
-  display: none;
+.floating-cta {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-sticky);
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-  padding: 8px 12px;
-  gap: 8px;
+  right: 24px;
+  bottom: 28px;
+  z-index: var(--z-floating);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(140%) scale(0.92);
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  pointer-events: none;
 }
-.sticky-cta__tel,
-.sticky-cta__web {
-  flex: 1;
-  text-align: center;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  padding: 12px 0;
-  border-radius: var(--radius);
-  min-height: 44px;
-  display: flex;
+.floating-cta.is-visible {
+  opacity: 1;
+  visibility: visible;
+  animation: floatingSlideIn 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transition: opacity 0.3s ease, visibility 0s linear 0s;
+  pointer-events: auto;
+}
+@keyframes floatingSlideIn {
+  0%   { transform: translateX(140%) scale(0.9) rotate(2deg); opacity: 0; }
+  55%  { transform: translateX(-10%) scale(1.04) rotate(-1deg); opacity: 1; }
+  80%  { transform: translateX(2%) scale(0.99); }
+  100% { transform: translateX(0) scale(1) rotate(0); opacity: 1; }
+}
+.floating-cta__link {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-}
-.sticky-cta__tel {
-  background: var(--bg);
-  color: var(--primary);
-  border: 1px solid var(--border);
-}
-.sticky-cta__web {
+  gap: 14px;
+  padding: 14px 24px 14px 18px;
   background: var(--accent);
   color: var(--white);
+  border-radius: 999px;
+  box-shadow: 0 14px 36px var(--accent-glow-45), 0 4px 12px rgba(0, 0, 0, 0.28);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.32s cubic-bezier(0.4, 0, 0.2, 1), background 0.32s;
+  position: relative;
+  min-height: 44px;
 }
+.floating-cta__link::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 2px solid var(--accent);
+  opacity: 0;
+  animation: floatingPulse 2.6s infinite;
+  pointer-events: none;
+}
+@keyframes floatingPulse {
+  0% { transform: scale(0.96); opacity: 0.7; }
+  75% { transform: scale(1.12); opacity: 0; }
+  100% { transform: scale(1.12); opacity: 0; }
+}
+.floating-cta__link:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px var(--accent-glow-45), 0 6px 16px rgba(0, 0, 0, 0.32);
+}
+.floating-cta__icon {
+  width: 36px;
+  height: 36px;
+  background: var(--white-16);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-en);
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.floating-cta__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  align-items: flex-start;
+}
+.floating-cta__text strong {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.floating-cta__text small {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+.floating-cta__arrow {
+  font-family: var(--ff-en);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-left: 2px;
+}
+.floating-cta__link:hover .floating-cta__arrow { transform: translateX(4px); }
+.floating-cta__close {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 26px;
+  height: 26px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.32);
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.floating-cta__close:hover {
+  background: var(--primary-deep);
+  transform: scale(1.06);
+}
+
+/* ============================================================
+   MOBILE TABBAR (SP, bottom fixed)
+   ============================================================ */
+.mobile-tabbar { display: none; }
 
 /* ============================================================
    RESPONSIVE — Tablet (1024px)
    ============================================================ */
 @media (max-width: 1024px) {
   .trainer__grid { grid-template-columns: repeat(2, 1fr); }
-  .results__grid { grid-template-columns: repeat(3, 1fr); max-width: none; }
+  .before-after__grid { grid-template-columns: repeat(3, 1fr); }
   .price__grid { grid-template-columns: repeat(3, 1fr); }
-  .stats__inner { grid-template-columns: repeat(2, 1fr); }
-  .stats__item { border-bottom: 1px solid var(--white-08); }
-  .stats__item:nth-child(2n) { border-right: none; }
+  .trust-bar__inner { grid-template-columns: repeat(2, 1fr); }
+  .trust-bar__item { border-bottom: 1px solid var(--white-08); }
+  .trust-bar__item:nth-child(2n) { border-right: none; }
 }
 
 /* ============================================================
    RESPONSIVE — Mobile (768px)
    ============================================================ */
 @media (max-width: 768px) {
-  :root { --section-py: 56px; }
+  :root { --section-py: 64px; }
   .sp-only { display: inline; }
-  .section-title { font-size: 1.25rem; margin-bottom: 36px; }
+  .section-title { font-size: 1.375rem; margin-bottom: 36px; }
+  .section-label { font-size: 0.6875rem; }
 
   /* Header */
   .header__nav,
   .header__right { display: none; }
-  .header__hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    min-width: 44px;
-    min-height: 44px;
-    align-items: center;
-    justify-content: center;
-  }
-  .header__hamburger span {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: var(--primary);
-    transition: transform .3s, opacity .3s;
-  }
-  .header__hamburger.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .header__hamburger.is-active span:nth-child(2) { opacity: 0; }
-  .header__hamburger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* Hero */
   .hero { min-height: 100svh; }
   .hero__overlay {
-    background: linear-gradient(
-      to bottom,
-      var(--primary-85) 0%,
-      var(--primary-60) 100%
-    );
+    background: linear-gradient(to bottom, var(--primary-85) 0%, var(--primary-60) 100%);
   }
   .hero__inner { padding: 100px 20px 60px; }
-  .hero__title { font-size: 1.625rem; }
+  .hero__title { font-size: 1.75rem; }
   .hero__actions { flex-direction: column; }
   .hero__actions .btn { width: 100%; }
 
-  /* Stats */
-  .stats__num { font-size: 2rem; }
+  /* Trust bar */
+  .trust-bar__num { font-size: 2rem; }
 
-  /* Features */
-  .feature,
-  .feature--reverse {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  /* Reasons */
+  .reason-block { min-height: 380px; }
+  .reason-block__inner,
+  .reason-block--reverse .reason-block__inner {
+    padding: 64px 20px;
+    justify-content: flex-start;
   }
-  .feature--reverse .feature__img { order: 0; }
-  .feature--reverse .feature__body { order: 0; }
-  .feature__num { font-size: 2.5rem; }
+  .reason-block::before,
+  .reason-block--reverse::before {
+    background: linear-gradient(180deg,
+      rgba(31, 31, 31, 0.92) 0%,
+      rgba(31, 31, 31, 0.84) 60%,
+      rgba(31, 31, 31, 0.72) 100%);
+  }
+  .reason-content__num { font-size: 3.25rem; }
+  .reason-content__title { font-size: 1.25rem; }
 
-  /* Results */
-  .results__grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  /* Before/After */
+  .before-after__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
 
   /* Trainer */
   .trainer__grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
 
   /* Pricing */
   .price__grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
-
-  /* Flow */
-  .flow__steps { grid-template-columns: 1fr; gap: 24px; }
 
   /* Voice */
   .voice__grid { grid-template-columns: 1fr; }
@@ -1480,26 +2205,122 @@ strong { font-weight: 700; }
   .access__grid { grid-template-columns: 1fr; }
 
   /* CTA final */
-  .cta-final__title { font-size: 1.375rem; }
+  .cta-final__title { font-size: 1.5rem; }
   .cta-final__actions { flex-direction: column; align-items: center; }
   .cta-final__actions .btn { width: 100%; max-width: 320px; }
 
-  /* Sticky CTA */
-  .sticky-cta { display: flex; }
-  body { padding-bottom: 60px; }
+  /* Quote form */
+  .quote-form { padding: 28px 20px 24px; }
 
   /* Buttons */
   .btn--large { width: 100%; }
+
+  /* Floating CTA: hide PC, show SP tabbar */
+  .floating-cta { display: none; }
+
+  /* SP Mobile tabbar */
+  .mobile-tabbar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-floating);
+    background: linear-gradient(to top, var(--primary-deep), var(--primary));
+    box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.45);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    transform: translateY(110%);
+    transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .mobile-tabbar.is-visible { transform: translateY(0); }
+  .mobile-tabbar.is-dismissed { transform: translateY(110%) !important; pointer-events: none; }
+  .mobile-tabbar__items { display: flex; flex: 1; align-items: stretch; }
+  .mobile-tabbar__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 4px 12px;
+    color: var(--white);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    position: relative;
+    transition: background 0.2s;
+    border-right: 1px solid var(--white-10);
+    min-height: 44px;
+  }
+  .mobile-tabbar__item:last-of-type { border-right: none; }
+  .mobile-tabbar__item:active { background: var(--white-10); }
+  .mobile-tabbar__item--primary {
+    background: var(--accent);
+    flex: 1.4;
+    box-shadow: inset 0 1px 0 var(--white-16);
+  }
+  .mobile-tabbar__item--primary:active { background: var(--accent-hover); }
+  .mobile-tabbar__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--white-15);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-en);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .mobile-tabbar__item--primary .mobile-tabbar__icon { background: var(--white-22); }
+  .mobile-tabbar__label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+  }
+  .mobile-tabbar__close {
+    position: absolute;
+    top: -14px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    background: var(--bg);
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.34);
+    cursor: pointer;
+  }
+  .mobile-tabbar__close:active { background: var(--bg-alt); }
+
+  /* Floating hamburger SP */
+  .floating-hamburger { display: inline-flex; }
+  .header__cta-btn { display: none; }
+
+  body { padding-bottom: 60px; }
 }
 
 /* ============================================================
    RESPONSIVE — Small (375px)
    ============================================================ */
 @media (max-width: 375px) {
-  .stats__inner { grid-template-columns: 1fr; }
-  .stats__item { border-right: none; }
-  .stats__item:last-child { border-bottom: none; }
-  .stats__num { font-size: 1.625rem; }
+  .trust-bar__inner { grid-template-columns: 1fr; }
+  .trust-bar__item { border-right: none; }
+  .trust-bar__item:last-child { border-bottom: none; }
+  .trust-bar__num { font-size: 1.75rem; }
+}
+
+/* ============================================================
+   PC override — hide floating hamburger
+   ============================================================ */
+@media (min-width: 769px) {
+  .floating-hamburger { display: none !important; }
 }
 
 /* ============================================================
@@ -1507,25 +2328,29 @@ strong { font-weight: 700; }
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
-  .anim-target {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+  .anim-target { opacity: 1; transform: none; transition: none; }
   .pain__item,
-  .feature__img img,
-  .result-card,
+  .reason-block:hover .reason-block__bg,
+  .ba-card,
   .trainer-card,
   .price-card,
-  .voice-card {
-    transition: none;
+  .voice-card { transition: none; }
+  .floating-cta__link::before { animation: none !important; }
+  .floating-cta.is-visible {
+    animation: none !important;
+    transform: translateX(0) scale(1) !important;
   }
-  .feature__img:hover img {
-    transform: none;
+  .mobile-tabbar { transition: transform 0.001ms !important; }
+  .menu-drawer.is-open .menu-drawer__link,
+  .menu-drawer.is-open .menu-drawer__cta {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
@@ -1539,22 +2364,7 @@ strong { font-weight: 700; }
   opacity: 1;
   transform: none;
 }
-    /* === ECC v3 Phase 1 Common Upgrade (2026-05-03) === */
-    /* 日本語改行最適化 */
-    h1, h2, h3, h4 { text-wrap: balance; word-break: auto-phrase; }
-    p { text-wrap: pretty; word-break: auto-phrase; }
-    /* アクセシビリティ準拠 - 動きを減らす設定への対応 */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
-      }
-      .fade-in { opacity: 1 !important; transform: none !important; }
-    }
   </style>
-  <link rel="preload" as="image" href="./images/hero.webp" type="image/webp" fetchpriority="high">
 </head>
 <body>
   <!-- Skip link -->
@@ -1563,10 +2373,15 @@ strong { font-weight: 700; }
   <!-- HEADER -->
   <header class="header" id="top">
     <div class="header__inner">
-      <a href="#top" class="header__logo" aria-label="BODY CRAFT トップへ">BODY CRAFT</a>
+      <a href="#top" class="header__logo" aria-label="BODY CRAFT トップへ">
+        <span class="header__logo-mark" aria-hidden="true"></span>
+        BODY CRAFT
+      </a>
       <nav class="header__nav" aria-label="メインナビゲーション">
-        <a href="#features">特徴</a>
+        <a href="#reasons">特徴</a>
+        <a href="#before-after">実績</a>
         <a href="#price">料金</a>
+        <a href="#flow">流れ</a>
         <a href="#faq">FAQ</a>
         <a href="#access">アクセス</a>
       </nav>
@@ -1575,28 +2390,39 @@ strong { font-weight: 700; }
         <a href="tel:0120-000-000" class="header__tel" aria-label="電話で予約 0120-000-000">0120-000-000</a>
         <a href="#cta-final" class="header__cta-btn">体験予約</a>
       </div>
-      <button class="header__hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </header>
 
-  <!-- Mobile nav overlay -->
-  <div class="mobile-nav" id="mobile-nav" aria-label="ナビゲーションメニュー" inert>
-    <button class="mobile-nav__close" aria-label="メニューを閉じる">&times;</button>
-    <div class="mobile-nav__links">
-      <a href="#features">特徴</a>
-      <a href="#price">料金</a>
-      <a href="#faq">FAQ</a>
-      <a href="#access">アクセス</a>
-      <a href="tel:0120-000-000" class="mobile-nav__tel">0120-000-000</a>
-      <a href="#cta-final" class="mobile-nav__cta">無料体験を予約する</a>
+  <!-- Floating Hamburger (SP only, always visible) -->
+  <button type="button" class="floating-hamburger" id="headerHamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="menuDrawer">
+    <span class="floating-hamburger__line" aria-hidden="true"></span>
+    <span class="floating-hamburger__line" aria-hidden="true"></span>
+    <span class="floating-hamburger__line" aria-hidden="true"></span>
+  </button>
+
+  <!-- Drawer Menu (SP) -->
+  <div class="menu-drawer" id="menuDrawer" role="dialog" aria-modal="true" aria-label="メニュー" aria-hidden="true">
+    <div class="menu-drawer__inner">
+      <span class="menu-drawer__brand">
+        <span class="menu-drawer__brand-mark" aria-hidden="true"></span>
+        BODY CRAFT
+      </span>
+      <span class="menu-drawer__sub">PERSONAL GYM</span>
+      <nav class="menu-drawer__nav" aria-label="ドロワーナビゲーション">
+        <a href="#reasons" class="menu-drawer__link" data-drawer-link>特徴</a>
+        <a href="#before-after" class="menu-drawer__link" data-drawer-link>実績</a>
+        <a href="#price" class="menu-drawer__link" data-drawer-link>料金</a>
+        <a href="#flow" class="menu-drawer__link" data-drawer-link>ご利用の流れ</a>
+        <a href="#faq" class="menu-drawer__link" data-drawer-link>よくあるご質問</a>
+        <a href="#access" class="menu-drawer__link" data-drawer-link>アクセス</a>
+      </nav>
+      <a href="#cta-final" class="menu-drawer__cta" data-drawer-link>無料体験を予約する</a>
     </div>
   </div>
 
   <main id="main-content">
 
-    <!-- HERO (PASONA: Problem awareness) -->
+    <!-- HERO -->
     <section class="hero" aria-label="メインビジュアル">
       <div class="hero__bg">
         <picture>
@@ -1610,8 +2436,8 @@ strong { font-weight: 700; }
           <p class="hero__campaign">
             初回体験 <strong>&#165;0</strong>
           </p>
-          <h1 class="hero__title">「続かなかった」を終わりにする。<br>3ヶ月で、人生が変わる体へ。</h1>
-          <p class="hero__sub">完全個室・完全マンツーマン。<br>あなたの体力と目標に合わせた、オーダーメイドプログラム。</p>
+          <h1 class="hero__title">「続かなかった」を終わりにする。<br>3ヶ月で、<em>人生が変わる体</em>へ。</h1>
+          <p class="hero__sub">完全個室・完全マンツーマン。<br>続けるための仕組みが揃った、オーダーメイド・パーソナルジム。</p>
           <div class="hero__actions">
             <a href="#cta-final" class="btn btn--accent btn--pulse">
               <span class="btn__main">無料で体験してみる</span>
@@ -1624,10 +2450,33 @@ strong { font-weight: 700; }
       </div>
     </section>
 
-    <!-- PAIN POINTS (PASONA: Problem + Agitation) -->
+    <!-- TRUST BAR (hero-classic-trust-bar, 4 numbers) -->
+    <section class="trust-bar" aria-label="実績数値">
+      <div class="trust-bar__inner">
+        <div class="trust-bar__item">
+          <span class="trust-bar__num" data-count="92" data-suffix="%">0</span>
+          <span class="trust-bar__label">3ヶ月達成率<small>(2025年実績)</small></span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__num" data-count="12" data-suffix="週">0</span>
+          <span class="trust-bar__label">最短結果期間<small>(平均-5kg到達)</small></span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__num" data-count="365" data-suffix="日">0</span>
+          <span class="trust-bar__label">LINE食事サポート<small>(休日も伴走)</small></span>
+        </div>
+        <div class="trust-bar__item">
+          <span class="trust-bar__num" data-count="500" data-suffix="名+">0</span>
+          <span class="trust-bar__label">累計指導実績<small>(2024年〜)</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
     <section class="pain" aria-label="お悩み">
       <div class="pain__inner">
-        <h2 class="section-title">こんなお悩み、ありませんか？</h2>
+        <p class="section-label">Your Trouble</p>
+        <h2 class="section-title">こんな<em>お悩み</em>、ありませんか？</h2>
         <ul class="pain__list" role="list">
           <li class="pain__item">ジムに通ったけど、正しいやり方が分からず<strong>効果が出なかった</strong></li>
           <li class="pain__item">食事制限でダイエットしても<strong>リバウンドの繰り返し</strong></li>
@@ -1646,56 +2495,61 @@ strong { font-weight: 700; }
       </div>
     </section>
 
-    <!-- FEATURES (PASONA: Solution) -->
-    <section class="features" id="features" aria-label="特徴">
-      <div class="features__inner">
-        <h2 class="section-title">BODY CRAFTが<br class="sp-only">選ばれる3つの理由</h2>
-
-        <div class="feature">
-          <div class="feature__img">
-            <picture>
-              <source srcset="images/feature-01.webp" type="image/webp" sizes="(max-width: 768px) 100vw, 50vw">
-              <img src="images/feature-01.jpg" alt="ダンベルラックのあるトレーニングルーム" width="800" height="533" loading="lazy">
-            </picture>
-          </div>
-          <div class="feature__body">
-            <span class="feature__num">01</span>
-            <h3 class="feature__title">完全個室・完全マンツーマン</h3>
-            <p class="feature__text">トレーナーとあなた、1対1だけの空間。他のお客様と顔を合わせることはありません。周りの目を気にせず、自分のペースで集中できます。完全予約制なので待ち時間もゼロ。</p>
-          </div>
-        </div>
-
-        <div class="feature feature--reverse">
-          <div class="feature__img">
-            <picture>
-              <source srcset="images/feature-02.webp" type="image/webp" sizes="(max-width: 768px) 100vw, 50vw">
-              <img src="images/feature-02.jpg" alt="トレーナーとクライアントがフィストバンプしている" width="800" height="534" loading="lazy">
-            </picture>
-          </div>
-          <div class="feature__body">
-            <span class="feature__num">02</span>
-            <h3 class="feature__title">あなた専用のオーダーメイドプログラム</h3>
-            <p class="feature__text">「運動経験ゼロ」「腰痛がある」「とにかく痩せたい」――どんなスタートラインでも大丈夫。初回カウンセリングで体の状態と目標を把握し、あなただけのトレーニングメニューを設計します。</p>
+    <!-- REASONS (Fullwidth Alternate) -->
+    <section class="reasons" id="reasons" aria-label="選ばれる理由">
+      <!-- 1: テキスト左 -->
+      <div class="reason-block reason-block--01">
+        <div class="reason-block__bg" aria-hidden="true"></div>
+        <div class="reason-block__inner">
+          <div class="reason-content">
+            <p class="reason-content__num">01<small>Why BODY CRAFT</small></p>
+            <h3 class="reason-content__title">完全個室 × 完全マンツーマン。<br>「人目」も「迷い」もゼロに。</h3>
+            <p class="reason-content__body">トレーナーとあなた、1対1だけの空間。他のお客様と顔を合わせることはありません。完全予約制なので待ち時間もゼロ。「ジムは緊張する」という方ほど、初回で安心していただけます。</p>
+            <ul class="reason-content__points" role="list">
+              <li>完全個室・他会員と顔を合わせない設計</li>
+              <li>専属トレーナー固定制（毎回同じ担当）</li>
+              <li>完全予約制で待ち時間ゼロ</li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <div class="feature">
-          <div class="feature__img">
-            <picture>
-              <source srcset="images/feature-03.webp" type="image/webp" sizes="(max-width: 768px) 100vw, 50vw">
-              <img src="images/feature-03.jpg" alt="スマートフォンで健康的な食事を撮影している様子" width="800" height="533" loading="lazy">
-            </picture>
+      <!-- 2: テキスト右（reverse） -->
+      <div class="reason-block reason-block--reverse reason-block--02">
+        <div class="reason-block__bg" aria-hidden="true"></div>
+        <div class="reason-block__inner">
+          <div class="reason-content">
+            <p class="reason-content__num">02<small>Tailored Program</small></p>
+            <h3 class="reason-content__title">あなた専用の<br>オーダーメイドプログラム。</h3>
+            <p class="reason-content__body">「運動経験ゼロ」「腰痛がある」「とにかく痩せたい」――どんなスタートラインでも大丈夫。初回カウンセリングで体の状態と目標を把握し、あなただけの12週間メニューを設計します。月1回の見直しでムリなく更新。</p>
+            <ul class="reason-content__points" role="list">
+              <li>初回90分カウンセリングで体組成・姿勢を計測</li>
+              <li>12週プログラム × 月1メニュー更新</li>
+              <li>運動未経験スタート率60%（無理なく始められる）</li>
+            </ul>
           </div>
-          <div class="feature__body">
-            <span class="feature__num">03</span>
-            <h3 class="feature__title">LINEで毎日の食事をサポート</h3>
-            <p class="feature__text">トレーニングだけでは体は変わりません。毎日の食事をLINEで共有いただき、トレーナーがリアルタイムでアドバイス。極端な食事制限は一切なし。日常の食事から無理なく改善していきます。</p>
+        </div>
+      </div>
+
+      <!-- 3: テキスト左 -->
+      <div class="reason-block reason-block--03">
+        <div class="reason-block__bg" aria-hidden="true"></div>
+        <div class="reason-block__inner">
+          <div class="reason-content">
+            <p class="reason-content__num">03<small>Lasting System</small></p>
+            <h3 class="reason-content__title">続けるための仕組みが、<br>毎日の伴走になる。</h3>
+            <p class="reason-content__body">「ジムに来た日」だけでは体は変わりません。BODY CRAFTでは、毎週のカウンセリング・トレーニングログの可視化・LINE食事指導・会員限定コミュニティで、ジムに来ない日もあなたを支えます。だから、3ヶ月継続率92%。</p>
+            <ul class="reason-content__points" role="list">
+              <li>週1回のメンタルカウンセリング（途中離脱予防）</li>
+              <li>専用アプリでトレーニングログを可視化</li>
+              <li>LINE食事指導 + 会員限定コミュニティ</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA mid 1 (PASONA: Narrowing) -->
+    <!-- CTA mid 1 -->
     <section class="cta-band" aria-label="体験予約への導線">
       <div class="cta-band__inner">
         <p class="cta-band__text">まずは気軽に体験から。プロのトレーニングを実感してください。</p>
@@ -1706,189 +2560,210 @@ strong { font-weight: 700; }
       </div>
     </section>
 
-    <!-- RESULTS (Customer Story Cards) -->
-    <section class="results" id="results" aria-label="お客様の変化">
-      <div class="results__inner">
-        <h2 class="section-title section-title--light">お客様の変化</h2>
-        <p class="results__lead">BODY CRAFTで体を変えた方々の、リアルなストーリーをご紹介します。</p>
+    <!-- BEFORE / AFTER -->
+    <section class="before-after" id="before-after" aria-label="お客様の変化（Before/After）">
+      <div class="before-after__inner">
+        <p class="section-label">Before / After</p>
+        <h2 class="section-title">数字で見る、<em>3ヶ月の変化</em></h2>
+        <p class="before-after__lead">続けるための仕組みがあるから、出る結果。<br>BODY CRAFTで体を変えた方々のリアルな数字をご紹介します。</p>
 
-        <div class="results__grid">
-          <div class="result-card">
-            <div class="result-card__header">
-              <div class="result-card__avatar" aria-hidden="true">
-                <span class="result-card__initial">T</span>
+        <div class="before-after__grid">
+          <article class="ba-card">
+            <div class="ba-card__visual">
+              <div class="ba-card__photo ba-card__photo--before">
+                <span class="ba-card__photo-tag">Before</span>
               </div>
-              <div class="result-card__info">
-                <p class="result-card__name">T.K さん</p>
-                <p class="result-card__meta">40代男性 / 週2回 × 3ヶ月</p>
-              </div>
-            </div>
-            <div class="result-card__quote">
-              <p>健康診断で引っかかったのがきっかけ。自己流の筋トレは続かなかったけど、トレーナーと二人三脚だから頑張れました。妻に「顔つきが変わったね」と言われたのが一番うれしかった。</p>
-            </div>
-            <div class="result-card__results">
-              <div class="result-card__metric">
-                <span class="result-card__metric-value">-8.5<small>kg</small></span>
-                <span class="result-card__metric-label">体重</span>
-              </div>
-              <div class="result-card__metric">
-                <span class="result-card__metric-value">-6.2<small>%</small></span>
-                <span class="result-card__metric-label">体脂肪率</span>
+              <div class="ba-card__photo ba-card__photo--after">
+                <span class="ba-card__arrow" aria-hidden="true">&rarr;</span>
+                <span class="ba-card__photo-tag">After 12週</span>
               </div>
             </div>
-          </div>
+            <div class="ba-card__body">
+              <p class="ba-card__profile">40代男性 / 週2回 × 12週</p>
+              <p class="ba-card__name">T.K さん</p>
+              <div class="ba-card__metrics" role="list">
+                <div class="ba-card__metric" role="listitem">
+                  <span class="ba-card__metric-value">-8.5<small>kg</small></span>
+                  <span class="ba-card__metric-label">体重</span>
+                </div>
+                <div class="ba-card__metric" role="listitem">
+                  <span class="ba-card__metric-value">-6.2<small>%</small></span>
+                  <span class="ba-card__metric-label">体脂肪</span>
+                </div>
+                <div class="ba-card__metric" role="listitem">
+                  <span class="ba-card__metric-value">+2.1<small>kg</small></span>
+                  <span class="ba-card__metric-label">筋肉量</span>
+                </div>
+              </div>
+              <p class="ba-card__quote">「健康診断で引っかかったのがきっかけ。妻に『顔つきが変わった』と言われたのが一番うれしかった。」</p>
+            </div>
+          </article>
 
-          <div class="result-card">
-            <div class="result-card__header">
-              <div class="result-card__avatar" aria-hidden="true">
-                <span class="result-card__initial">M</span>
+          <article class="ba-card">
+            <div class="ba-card__visual">
+              <div class="ba-card__photo ba-card__photo--before">
+                <span class="ba-card__photo-tag">Before</span>
               </div>
-              <div class="result-card__info">
-                <p class="result-card__name">M.S さん</p>
-                <p class="result-card__meta">30代女性 / 週1回 × 3ヶ月</p>
-              </div>
-            </div>
-            <div class="result-card__quote">
-              <p>産後の体型がずっとコンプレックスだったけど、週1回でも変われることを実感。食事指導のおかげで、無理な我慢なく自然に痩せられました。</p>
-            </div>
-            <div class="result-card__results">
-              <div class="result-card__metric">
-                <span class="result-card__metric-value">-5.3<small>kg</small></span>
-                <span class="result-card__metric-label">体重</span>
-              </div>
-              <div class="result-card__metric">
-                <span class="result-card__metric-value">-5.0<small>%</small></span>
-                <span class="result-card__metric-label">体脂肪率</span>
+              <div class="ba-card__photo ba-card__photo--after">
+                <span class="ba-card__arrow" aria-hidden="true">&rarr;</span>
+                <span class="ba-card__photo-tag">After 12週</span>
               </div>
             </div>
-          </div>
+            <div class="ba-card__body">
+              <p class="ba-card__profile">30代女性 / 週1回 × 12週</p>
+              <p class="ba-card__name">M.S さん</p>
+              <div class="ba-card__metrics" role="list">
+                <div class="ba-card__metric" role="listitem">
+                  <span class="ba-card__metric-value">-5.3<small>kg</small></span>
+                  <span class="ba-card__metric-label">体重</span>
+                </div>
+                <div class="ba-card__metric" role="listitem">
+                  <span class="ba-card__metric-value">-5.0<small>%</small></span>
+                  <span class="ba-card__metric-label">体脂肪</span>
+                </div>
+                <div class="ba-card__metric" role="listitem">
+                  <span class="ba-card__metric-value">-6<small>cm</small></span>
+                  <span class="ba-card__metric-label">ウエスト</span>
+                </div>
+              </div>
+              <p class="ba-card__quote">「産後の体型がコンプレックスでしたが、週1回でも変われると実感。食事指導のおかげで無理なく続けられました。」</p>
+            </div>
+          </article>
 
-          <div class="result-card">
-            <div class="result-card__header">
-              <div class="result-card__avatar" aria-hidden="true">
-                <span class="result-card__initial">Y</span>
+          <article class="ba-card">
+            <div class="ba-card__visual">
+              <div class="ba-card__photo ba-card__photo--before">
+                <span class="ba-card__photo-tag">Before</span>
               </div>
-              <div class="result-card__info">
-                <p class="result-card__name">Y.N さん</p>
-                <p class="result-card__meta">30代女性 / 週2回 × 2ヶ月</p>
-              </div>
-            </div>
-            <div class="result-card__quote">
-              <p>正直、最初は「パーソナルジムって高いだけでしょ」と思ってました。でも2ヶ月でウエスト-7cm。去年入らなかったスカートが履けた時の感動は忘れません。</p>
-            </div>
-            <div class="result-card__results">
-              <div class="result-card__metric">
-                <span class="result-card__metric-value">-4.1<small>kg</small></span>
-                <span class="result-card__metric-label">体重</span>
-              </div>
-              <div class="result-card__metric">
-                <span class="result-card__metric-value">-7<small>cm</small></span>
-                <span class="result-card__metric-label">ウエスト</span>
+              <div class="ba-card__photo ba-card__photo--after">
+                <span class="ba-card__arrow" aria-hidden="true">&rarr;</span>
+                <span class="ba-card__photo-tag">After 8週</span>
               </div>
             </div>
-          </div>
+            <div class="ba-card__body">
+              <p class="ba-card__profile">30代女性 / 週2回 × 8週</p>
+              <p class="ba-card__name">Y.N さん</p>
+              <div class="ba-card__metrics" role="list">
+                <div class="ba-card__metric" role="listitem">
+                  <span class="ba-card__metric-value">-4.1<small>kg</small></span>
+                  <span class="ba-card__metric-label">体重</span>
+                </div>
+                <div class="ba-card__metric" role="listitem">
+                  <span class="ba-card__metric-value">-7<small>cm</small></span>
+                  <span class="ba-card__metric-label">ウエスト</span>
+                </div>
+                <div class="ba-card__metric" role="listitem">
+                  <span class="ba-card__metric-value">-3.8<small>%</small></span>
+                  <span class="ba-card__metric-label">体脂肪</span>
+                </div>
+              </div>
+              <p class="ba-card__quote">「最初は『パーソナルは高いだけ』と思ってました。8週でウエスト-7cm。去年入らなかったスカートが履けた瞬間は忘れません。」</p>
+            </div>
+          </article>
         </div>
-        <p class="results__note">※ 効果には個人差があります。食事指導との併用結果です。</p>
+        <p class="before-after__note">※ 効果には個人差があります。食事指導との併用結果です。実際のお客様事例をベースにしたポートフォリオサンプルです。</p>
       </div>
     </section>
 
-    <!-- TRAINER (Authority) -->
+    <!-- TRAINER -->
     <section class="trainer" aria-label="トレーナー紹介">
       <div class="trainer__inner">
-        <h2 class="section-title">トレーナー紹介</h2>
+        <p class="section-label">Our Trainers</p>
+        <h2 class="section-title">あなたを支える、<em>専属トレーナー</em></h2>
         <div class="trainer__grid">
-          <div class="trainer-card">
+          <article class="trainer-card">
             <div class="trainer-card__avatar trainer-card__avatar--1" aria-hidden="true">
               <span class="trainer-card__initial">Y</span>
             </div>
             <h3 class="trainer-card__name">山田 太郎</h3>
-            <p class="trainer-card__role">代表トレーナー</p>
-            <div class="trainer-card__certs">
-              <span class="trainer-card__cert-badge">NSCA-CPT</span>
-              <span class="trainer-card__cert-badge">NESTA-PFT</span>
+            <p class="trainer-card__role">代表トレーナー / 指導歴 8年</p>
+            <div class="trainer-card__certs" role="list">
+              <span class="trainer-card__cert-badge" role="listitem">NSCA-CPT</span>
+              <span class="trainer-card__cert-badge" role="listitem">NESTA-PFT</span>
             </div>
             <p class="trainer-card__stat"><span class="trainer-card__stat-num">200</span>名+ 担当実績</p>
             <div class="trainer-card__msg">
               <p>運動が苦手な方ほど、変化を実感できます。まずは一歩、踏み出してみてください。</p>
             </div>
-          </div>
-          <div class="trainer-card">
+          </article>
+          <article class="trainer-card">
             <div class="trainer-card__avatar trainer-card__avatar--2" aria-hidden="true">
               <span class="trainer-card__initial">S</span>
             </div>
             <h3 class="trainer-card__name">鈴木 花子</h3>
-            <p class="trainer-card__role">トレーナー</p>
-            <div class="trainer-card__certs">
-              <span class="trainer-card__cert-badge">NSCA-CPT</span>
-              <span class="trainer-card__cert-badge">管理栄養士</span>
+            <p class="trainer-card__role">トレーナー / 指導歴 5年</p>
+            <div class="trainer-card__certs" role="list">
+              <span class="trainer-card__cert-badge" role="listitem">NSCA-CPT</span>
+              <span class="trainer-card__cert-badge" role="listitem">管理栄養士</span>
             </div>
             <p class="trainer-card__stat"><span class="trainer-card__stat-num">150</span>名+ 担当実績</p>
             <div class="trainer-card__msg">
-              <p>食事も運動も、無理なく続くことが一番大切。一緒に楽しく体を変えましょう！</p>
+              <p>食事も運動も、無理なく続くことが一番大切。一緒に楽しく体を変えましょう。</p>
             </div>
-          </div>
-          <div class="trainer-card">
+          </article>
+          <article class="trainer-card">
             <div class="trainer-card__avatar trainer-card__avatar--3" aria-hidden="true">
               <span class="trainer-card__initial">K</span>
             </div>
             <h3 class="trainer-card__name">佐藤 健一</h3>
-            <p class="trainer-card__role">トレーナー</p>
-            <div class="trainer-card__certs">
-              <span class="trainer-card__cert-badge">JATI-ATI</span>
-              <span class="trainer-card__cert-badge">健康運動指導士</span>
+            <p class="trainer-card__role">トレーナー / 指導歴 6年</p>
+            <div class="trainer-card__certs" role="list">
+              <span class="trainer-card__cert-badge" role="listitem">JATI-ATI</span>
+              <span class="trainer-card__cert-badge" role="listitem">健康運動指導士</span>
             </div>
             <p class="trainer-card__stat"><span class="trainer-card__stat-num">150</span>名+ 担当実績</p>
             <div class="trainer-card__msg">
               <p>40代・50代の方の指導経験が豊富です。年齢を理由にあきらめないでください。</p>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- PRICING (PASONA: Offer) -->
+    <!-- PRICING -->
     <section class="price" id="price" aria-label="料金プラン">
       <div class="price__inner">
-        <h2 class="section-title">料金プラン</h2>
+        <p class="section-label">Membership</p>
+        <h2 class="section-title">あなたのペースで選べる、<em>3つのプラン</em></h2>
         <p class="price__note-top">すべてのプランに初回カウンセリング＋体験トレーニング（&#165;0）が含まれます。</p>
         <div class="price__grid">
-          <div class="price-card">
+          <article class="price-card">
             <h3 class="price-card__name">ライト</h3>
             <p class="price-card__freq">月4回（週1回）/ 60分</p>
             <p class="price-card__amount">&#165;29,800<span>/月（税込）</span></p>
             <ul class="price-card__list" role="list">
-              <li class="price-card__item">マンツーマン指導 60分x4</li>
+              <li class="price-card__item">マンツーマン指導 60分×4</li>
               <li class="price-card__item">オーダーメイドメニュー作成</li>
               <li class="price-card__item">ウェア・タオルレンタル無料</li>
             </ul>
             <a href="#cta-final" class="btn btn--accent btn--small">このプランで体験する</a>
-          </div>
-          <div class="price-card price-card--rec">
+          </article>
+          <article class="price-card price-card--rec">
             <span class="price-card__badge">一番人気</span>
             <h3 class="price-card__name">スタンダード</h3>
             <p class="price-card__freq">月8回（週2回）/ 60分</p>
             <p class="price-card__amount">&#165;49,800<span>/月（税込）</span></p>
             <ul class="price-card__list" role="list">
-              <li class="price-card__item">マンツーマン指導 60分x8</li>
+              <li class="price-card__item">マンツーマン指導 60分×8</li>
               <li class="price-card__item">オーダーメイドメニュー作成</li>
               <li class="price-card__item">LINE食事指導（毎日）</li>
               <li class="price-card__item">ウェア・タオルレンタル無料</li>
             </ul>
             <a href="#cta-final" class="btn btn--accent btn--small">このプランで体験する</a>
-          </div>
-          <div class="price-card">
+          </article>
+          <article class="price-card">
             <h3 class="price-card__name">プレミアム</h3>
             <p class="price-card__freq">月12回（週3回）/ 60分</p>
             <p class="price-card__amount">&#165;79,800<span>/月（税込）</span></p>
             <ul class="price-card__list" role="list">
-              <li class="price-card__item">マンツーマン指導 60分x12</li>
+              <li class="price-card__item">マンツーマン指導 60分×12</li>
               <li class="price-card__item">オーダーメイドメニュー作成</li>
               <li class="price-card__item">LINE食事指導（毎日）</li>
               <li class="price-card__item">プロテイン1ヶ月分</li>
               <li class="price-card__item">ウェア・タオルレンタル無料</li>
             </ul>
             <a href="#cta-final" class="btn btn--accent btn--small">このプランで体験する</a>
-          </div>
+          </article>
         </div>
         <p class="price__guarantee">
           <span class="price__guarantee-icon" aria-hidden="true">&#9733;</span>
@@ -1909,95 +2784,128 @@ strong { font-weight: 700; }
       </div>
     </section>
 
-    <!-- FLOW (PASONA: Narrowing - make action easy) -->
+    <!-- FLOW (sec-flow-step-progress 6 steps) -->
     <section class="flow" id="flow" aria-label="ご利用の流れ">
       <div class="flow__inner">
-        <h2 class="section-title">ご利用の流れ</h2>
-        <div class="flow__steps">
-          <div class="flow__step">
-            <span class="flow__step-num">STEP 1</span>
-            <h3 class="flow__step-title">Web予約</h3>
-            <p class="flow__step-text">フォームから希望日時を選択。当日予約も可能です。所要時間30秒。</p>
+        <p class="section-label">The Flow</p>
+        <h2 class="section-title">体験予約から成果まで、<em>6ステップ</em></h2>
+        <div class="flow__steps" id="flowSteps">
+          <div class="flow__line" aria-hidden="true">
+            <div class="flow__line-progress" id="flowLineProgress"></div>
           </div>
-          <div class="flow__step">
-            <span class="flow__step-num">STEP 2</span>
-            <h3 class="flow__step-title">カウンセリング＋体験</h3>
-            <p class="flow__step-text">目標・体の状態をヒアリング。あなた専用のメニューで60分の体験トレーニング。</p>
+
+          <div class="flow__step" data-step="1">
+            <div class="flow__step-num" aria-hidden="true">1</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 01 / Booking</p>
+              <h3 class="flow__step-title">Web予約（30秒で完了）</h3>
+              <p class="flow__step-body">フォームから希望日時を選択。当日予約も可能です。確認メールが届いたら準備完了。</p>
+              <span class="flow__step-meta">所要時間: 30秒</span>
+            </div>
           </div>
-          <div class="flow__step">
-            <span class="flow__step-num">STEP 3</span>
-            <h3 class="flow__step-title">プランご提案</h3>
-            <p class="flow__step-text">体験後にプランをご案内。その場で決める必要はありません。後日のご検討もOK。</p>
+
+          <div class="flow__step" data-step="2">
+            <div class="flow__step-num" aria-hidden="true">2</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 02 / Counseling</p>
+              <h3 class="flow__step-title">初回カウンセリング + 体組成計測</h3>
+              <p class="flow__step-body">目標・体の状態・生活習慣をヒアリング。InBodyで体組成を計測し、現在地を可視化します。</p>
+              <span class="flow__step-meta">目安: 30分</span>
+            </div>
+          </div>
+
+          <div class="flow__step" data-step="3">
+            <div class="flow__step-num" aria-hidden="true">3</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 03 / Trial</p>
+              <h3 class="flow__step-title">60分の体験トレーニング</h3>
+              <p class="flow__step-body">あなた専用に設計したメニューでトレーニング。「これなら続けられる」を体感してください。</p>
+              <span class="flow__step-meta">目安: 60分</span>
+            </div>
+          </div>
+
+          <div class="flow__step" data-step="4">
+            <div class="flow__step-num" aria-hidden="true">4</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 04 / Plan</p>
+              <h3 class="flow__step-title">プランご提案 + 12週プログラム設計</h3>
+              <p class="flow__step-body">体験後にプランをご案内。その場で決める必要はありません。後日のご検討もOK。</p>
+              <span class="flow__step-meta">目安: 後日でもOK</span>
+            </div>
+          </div>
+
+          <div class="flow__step" data-step="5">
+            <div class="flow__step-num" aria-hidden="true">5</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 05 / Training</p>
+              <h3 class="flow__step-title">トレーニング開始 + 毎日の伴走</h3>
+              <p class="flow__step-body">週1〜3回のセッション + LINE食事指導 + 会員限定コミュニティで、ジムに来ない日もサポート。</p>
+              <span class="flow__step-meta">期間: 12週間</span>
+            </div>
+          </div>
+
+          <div class="flow__step" data-step="6">
+            <div class="flow__step-num" aria-hidden="true">6</div>
+            <div class="flow__step-content">
+              <p class="flow__step-tag">Step 06 / Result</p>
+              <h3 class="flow__step-title">12週後 — 数字で結果を確認</h3>
+              <p class="flow__step-body">再計測で変化を可視化。ここからは「リバウンドしない体」を維持するメンテナンス期へ移行します。</p>
+              <span class="flow__step-meta">3ヶ月達成率: 92%</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STATS BAR — 参加者の声の前に配置（Social Proof + Authority） -->
-    <section class="stats" aria-label="実績数値">
-      <div class="stats__inner">
-        <div class="stats__item">
-          <span class="stats__num" data-count="500" data-suffix="名+">0</span>
-          <span class="stats__label">累計指導実績<small>(2024年〜)</small></span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num" data-count="92" data-suffix="%">0</span>
-          <span class="stats__label">3ヶ月継続率<small>(2025年実績)</small></span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num" data-count="4.9" data-suffix="/5.0" data-decimal="true">0</span>
-          <span class="stats__label">Google口コミ評価<small>(2025年4月時点)</small></span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num" data-count="60" data-suffix="%">0</span>
-          <span class="stats__label">未経験スタート</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- VOICE / TESTIMONIALS (Social Proof) -->
+    <!-- VOICE -->
     <section class="voice" id="voice" aria-label="お客様の声">
       <div class="voice__inner">
-        <h2 class="section-title">お客様の声</h2>
+        <p class="section-label">Voice</p>
+        <h2 class="section-title">続けられた人の、<em>リアルな言葉</em></h2>
         <p class="voice__satisfaction">お客様満足度 <strong>96.8%</strong><small>（n=312名 / 2025年実施 会員アンケートより）</small></p>
         <div class="voice__grid">
-          <div class="voice-card">
+          <article class="voice-card">
             <div class="voice-card__stars" aria-label="5段階中5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="voice-card__text">50代で初めてのジム通い。膝や腰に不安がありましたが、トレーナーが体の状態を見ながらメニューを調整してくれるので安心。<strong>半年で体重-10kg</strong>、ゴルフのスコアまで良くなりました。</p>
             <footer class="voice-card__who">
               <span>A.T さん</span>
               <small>50代男性・会社役員 / 通って6ヶ月</small>
             </footer>
-          </div>
-          <div class="voice-card">
+          </article>
+          <article class="voice-card">
             <div class="voice-card__stars" aria-label="5段階中5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="voice-card__text">結婚式に向けてダイエットを決意。完全個室だから人目を気にせずトレーニングに集中できました。<strong>3ヶ月でウエスト-8cm</strong>、ドレスのサイズダウンに成功して最高の当日を迎えられました。</p>
             <footer class="voice-card__who">
               <span>K.M さん</span>
               <small>20代女性・会社員 / 通って3ヶ月</small>
             </footer>
-          </div>
-          <div class="voice-card">
+          </article>
+          <article class="voice-card">
             <div class="voice-card__stars" aria-label="5段階中4">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
             <p class="voice-card__text">更年期で代謝が落ち、何をしても痩せなくなっていました。LINE食事指導で食生活を見直しつつ、<strong>週2回のトレーニングで体脂肪率-6%</strong>。体が軽くなって毎日が楽しいです。</p>
             <footer class="voice-card__who">
               <span>R.I さん</span>
               <small>40代女性・自営業 / 通って5ヶ月</small>
             </footer>
-          </div>
+          </article>
         </div>
-        <p class="results__note" style="text-align:center; margin-top:24px; font-size:0.75rem; color:var(--text-light);">※ 個人の感想です。効果には個人差があります。</p>
+        <p class="voice__sample-note">※ 個人の感想です。効果には個人差があります。これは飛燕の自主制作によるポートフォリオサンプルです。</p>
       </div>
     </section>
 
-    <!-- FAQ (Objection handling) -->
+    <!-- FAQ -->
     <section class="faq" id="faq" aria-label="よくあるご質問">
       <div class="faq__inner">
-        <h2 class="section-title">よくあるご質問</h2>
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">よくある<em>ご質問</em></h2>
         <div class="faq__list">
           <details class="faq__item" open>
             <summary class="faq__question">運動経験がまったくないのですが大丈夫ですか？</summary>
             <p class="faq__answer">当ジムの会員様の約60%が運動未経験からスタートされています。体力に合わせてメニューを組むので、初日から無理なく始められます。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question">本当に「続けられる」のでしょうか？</summary>
+            <p class="faq__answer">BODY CRAFTには、毎週のメンタルカウンセリング・トレーニングログの可視化・LINEコミュニティと、続けるための仕組みが揃っています。3ヶ月継続率は92%（2025年実績）です。</p>
           </details>
           <details class="faq__item">
             <summary class="faq__question">体験当日の持ち物は？</summary>
@@ -2022,7 +2930,8 @@ strong { font-weight: 700; }
     <!-- ACCESS -->
     <section class="access" id="access" aria-label="アクセス">
       <div class="access__inner">
-        <h2 class="section-title">アクセス</h2>
+        <p class="section-label">Access</p>
+        <h2 class="section-title">渋谷駅から、<em>徒歩3分</em></h2>
         <div class="access__grid">
           <div class="access__map">
             <iframe
@@ -2048,111 +2957,214 @@ strong { font-weight: 700; }
               <dt class="access__dt">定休日</dt>
               <dd class="access__dd">年中無休</dd>
               <dt class="access__dt">電話番号</dt>
-              <dd class="access__dd"><a href="tel:0120-000-000">0120-000-000</a></dd>
+              <dd class="access__dd"><a href="tel:0120-000-000" aria-label="電話で予約 0120-000-000">0120-000-000</a></dd>
             </dl>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA (PASONA: Action) -->
+    <!-- FINAL CTA + FORM -->
     <section class="cta-final" id="cta-final" aria-label="無料体験予約">
       <div class="cta-final__inner">
         <p class="cta-final__scarcity">体験枠には限りがあります</p>
-        <h2 class="cta-final__title">まずは無料体験から<br>始めませんか？</h2>
+        <h2 class="cta-final__title">まずは<em>無料カウンセリング</em>から、<br>始めませんか？</h2>
         <p class="cta-final__sub">カウンセリング＋体験トレーニング60分が<strong>0円</strong>。<br>あなたの目標に合わせたプランをご提案します。</p>
         <div class="cta-final__actions">
-          <!-- 本番では予約フォームURLに変更 -->
-          <a href="#" data-demo="true" class="btn btn--accent btn--large btn--pulse">
-            <span class="btn__main">無料体験を予約する</span>
+          <a href="#counselingForm" class="btn btn--accent btn--large btn--pulse">
+            <span class="btn__main">無料カウンセリングを予約する</span>
             <span class="btn__micro">30秒で完了・当日予約OK</span>
           </a>
           <a href="tel:0120-000-000" class="btn btn--outline-white">電話で予約 0120-000-000</a>
         </div>
         <p class="cta-final__note">所要時間 約90分 / 当日予約OK / 無理な勧誘なし</p>
+
+        <!-- COUNSELING FORM (form-quote-validated, gym-specific fields) -->
+        <form class="quote-form" id="counselingForm" novalidate aria-label="無料カウンセリング予約フォーム">
+          <div class="quote-form__head">
+            <h3>無料カウンセリング予約フォーム</h3>
+            <p>当日中に担当よりご連絡いたします（所要 30秒）</p>
+          </div>
+
+          <div class="quote-form__row">
+            <label class="quote-form__field" data-field>
+              <span class="quote-form__label">お名前<em class="req">必須</em></span>
+              <input type="text" name="name" autocomplete="name" placeholder="例: 飛燕 太郎" required aria-required="true">
+              <span class="quote-form__error" data-error aria-live="polite"></span>
+            </label>
+            <label class="quote-form__field" data-field>
+              <span class="quote-form__label">メールアドレス<em class="req">必須</em></span>
+              <input type="email" name="email" autocomplete="email" placeholder="example@email.com" required aria-required="true">
+              <span class="quote-form__error" data-error aria-live="polite"></span>
+            </label>
+          </div>
+
+          <div class="quote-form__row">
+            <label class="quote-form__field" data-field>
+              <span class="quote-form__label">電話番号<em class="req">必須</em></span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="例: 09012345678" required aria-required="true">
+              <span class="quote-form__error" data-error aria-live="polite"></span>
+            </label>
+            <label class="quote-form__field" data-field>
+              <span class="quote-form__label">性別<em class="opt">任意</em></span>
+              <select name="gender">
+                <option value="">選択してください</option>
+                <option>女性</option>
+                <option>男性</option>
+                <option>その他 / 回答しない</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="quote-form__row">
+            <label class="quote-form__field" data-field>
+              <span class="quote-form__label">年齢層<em class="req">必須</em></span>
+              <select name="ageRange" required aria-required="true">
+                <option value="">選択してください</option>
+                <option>20代</option>
+                <option>30代</option>
+                <option>40代</option>
+                <option>50代</option>
+                <option>60代以上</option>
+              </select>
+              <span class="quote-form__error" data-error aria-live="polite"></span>
+            </label>
+            <label class="quote-form__field" data-field>
+              <span class="quote-form__label">トレーニング歴<em class="opt">任意</em></span>
+              <select name="experience">
+                <option value="">選択してください</option>
+                <option>運動未経験（はじめて）</option>
+                <option>過去に少しだけ経験あり</option>
+                <option>定期的に運動している</option>
+                <option>本格的にトレーニング経験あり</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="quote-form__row">
+            <label class="quote-form__field" data-field>
+              <span class="quote-form__label">主な目的<em class="req">必須</em></span>
+              <select name="goal" required aria-required="true">
+                <option value="">選択してください</option>
+                <option>ダイエット・減量</option>
+                <option>ボディメイク・引き締め</option>
+                <option>筋力アップ</option>
+                <option>姿勢改善・腰痛対策</option>
+                <option>健康維持・体力向上</option>
+                <option>その他</option>
+              </select>
+              <span class="quote-form__error" data-error aria-live="polite"></span>
+            </label>
+            <label class="quote-form__field" data-field>
+              <span class="quote-form__label">体験希望時期<em class="req">必須</em></span>
+              <select name="timing" required aria-required="true">
+                <option value="">選択してください</option>
+                <option>今週中（当日OK）</option>
+                <option>来週中</option>
+                <option>2週間以内</option>
+                <option>1ヶ月以内</option>
+                <option>まだ未定（情報収集中）</option>
+              </select>
+              <span class="quote-form__error" data-error aria-live="polite"></span>
+            </label>
+          </div>
+
+          <label class="quote-form__field quote-form__field--full" data-field>
+            <span class="quote-form__label">気になっていること・ご質問<em class="opt">任意</em></span>
+            <textarea name="message" rows="3" placeholder="例: 腰痛があるのですが大丈夫でしょうか？ など"></textarea>
+          </label>
+
+          <label class="quote-form__check" data-field>
+            <input type="checkbox" name="privacy" required aria-required="true">
+            <span>
+              <a href="#" data-demo="true" tabindex="-1">個人情報の取扱い</a>に同意する
+              <em class="req">必須</em>
+            </span>
+          </label>
+          <span class="quote-form__error quote-form__error--privacy" data-error data-field-name="privacy" aria-live="polite"></span>
+
+          <button type="submit" class="quote-form__submit" id="counselingSubmit">
+            無料カウンセリングを予約する
+            <span class="arrow" aria-hidden="true">&rarr;</span>
+          </button>
+
+          <p class="quote-form__note">
+            ※ 本フォームは飛燕の自主制作によるポートフォリオ用サンプルです。<br>
+            実際の送信・データ保存は行われません。
+          </p>
+        </form>
+
+        <div class="quote-form__success" id="counselingSuccess" hidden role="status" aria-live="polite">
+          <span class="quote-form__success-icon" aria-hidden="true">&#10003;</span>
+          <h3>送信ありがとうございます</h3>
+          <p>当日中に担当トレーナーより、ご希望日時の調整についてご連絡いたします。<br>体験当日、お会いできるのを楽しみにしています。</p>
+          <small>※ ポートフォリオサンプルのため、実際の送信は行われていません</small>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "運動経験がまったくないのですが大丈夫ですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "当ジムの会員様の約60%が運動未経験からスタートされています。体力に合わせてメニューを組むので、初日から無理なく始められます。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "体験当日の持ち物は？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "室内シューズだけお持ちください。ウェア・タオル・お水は無料でご用意しています。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "体験後にしつこい勧誘はありますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "一切ありません。プランのご説明はしますが、その場で決める必要はありません。後日LINEでのご連絡もOKです。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "途中でプラン変更はできますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "月単位でいつでも変更可能です。まずはライトで始めて、慣れたらスタンダードに上げる方が多いです。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "食事制限は厳しいですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "極端な食事制限は行いません。日常の食事を少しずつ改善するアプローチなので、ストレスなく続けられます。"
-        }
-      }
-    ]
-  }
-  </script>
-
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
+      <div class="footer__sample-notice">
+        <strong>※ Portfolio Sample 表記</strong>　本ページは飛燕（フリーランスLP制作者）の自主制作によるポートフォリオ作品です。「BODY CRAFT」は架空のサービスブランドであり、実在の事業者・トレーナー・お客様を表すものではありません。価格・実績・お客様の声・Before/After はすべて自主制作のサンプルです。
+      </div>
       <p class="footer__logo">BODY CRAFT</p>
       <p class="footer__addr">〒150-0001 東京都渋谷区神宮前1-2-3 ○○ビル3F</p>
       <p class="footer__hours">営業時間 7:00-22:00 / 年中無休</p>
       <div class="footer__links">
         <a href="#" class="footer__link" data-demo="true">プライバシーポリシー</a>
         <a href="#" class="footer__link" data-demo="true">特定商取引法に基づく表記</a>
+        <a href="#" class="footer__link" data-demo="true">運営会社（架空）</a>
       </div>
-      <small class="footer__copy">&copy; 2026 BODY CRAFT. All rights reserved.</small>
+      <small class="footer__copy">&copy; 2026 BODY CRAFT (Sample) — Designed by 飛燕</small>
+      <p class="footer__portfolio">Portfolio: <a href="https://hien-lp.github.io/portfolio/" target="_blank" rel="noopener">hien-lp.github.io/portfolio</a></p>
     </div>
   </footer>
 
-  <!-- STICKY CTA (mobile) -->
-  <div class="sticky-cta" role="complementary" aria-label="予約ボタン">
-    <a href="tel:0120-000-000" class="sticky-cta__tel" aria-label="電話で予約">電話</a>
-    <a href="#cta-final" class="sticky-cta__web">無料体験を予約</a>
+  <!-- Floating CTA (PC) -->
+  <div class="floating-cta" id="floatingCta" aria-hidden="true">
+    <a href="#cta-final" class="floating-cta__link" id="floatingCtaLink">
+      <span class="floating-cta__icon" aria-hidden="true">&#165;</span>
+      <span class="floating-cta__text">
+        <strong>無料カウンセリング</strong>
+        <small>30秒で予約完了</small>
+      </span>
+      <span class="floating-cta__arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <button type="button" class="floating-cta__close" id="floatingCtaClose" aria-label="このボタンを閉じる">&times;</button>
   </div>
+
+  <!-- Mobile Tabbar (SP, bottom fixed) -->
+  <nav class="mobile-tabbar" id="mobileTabbar" aria-label="クイックアクション" aria-hidden="true">
+    <button type="button" class="mobile-tabbar__close" id="mobileTabbarClose" aria-label="このバーを閉じる">&times;</button>
+    <div class="mobile-tabbar__items">
+      <a href="tel:0120-000-000" class="mobile-tabbar__item" aria-label="電話で予約">
+        <span class="mobile-tabbar__icon" aria-hidden="true">&#9742;</span>
+        <span class="mobile-tabbar__label">お電話</span>
+      </a>
+      <a href="#" data-demo="true" class="mobile-tabbar__item" aria-label="LINEで相談">
+        <span class="mobile-tabbar__icon" aria-hidden="true">L</span>
+        <span class="mobile-tabbar__label">LINE</span>
+      </a>
+      <a href="#cta-final" class="mobile-tabbar__item mobile-tabbar__item--primary" aria-label="無料カウンセリング予約">
+        <span class="mobile-tabbar__icon" aria-hidden="true">&#165;</span>
+        <span class="mobile-tabbar__label">無料予約</span>
+      </a>
+    </div>
+  </nav>
 
   <script>
 document.documentElement.classList.replace('no-js', 'js');
 
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
   'use strict';
 
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* --- Smooth scroll (JS-only, no CSS scroll-behavior) --- */
+  /* --- Smooth scroll --- */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       var targetId = this.getAttribute('href');
@@ -2170,218 +3182,361 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* --- Header scroll shadow (RAF throttled) --- */
+  /* --- Header scroll shadow + SP fade-out past hero --- */
   var header = document.querySelector('.header');
+  var heroForHeader = document.querySelector('.hero');
+  var isMobileHeader = function () { return window.matchMedia('(max-width: 768px)').matches; };
   if (header) {
     var headerRafId = -1;
-    window.addEventListener('scroll', function () {
+    var onHeaderScroll = function () {
       if (headerRafId !== -1) return;
       headerRafId = requestAnimationFrame(function () {
         try {
-          header.classList.toggle('header--scrolled', window.scrollY > 40);
+          var y = window.scrollY;
+          header.classList.toggle('header--scrolled', y > 40);
+          if (isMobileHeader() && heroForHeader) {
+            var threshold = heroForHeader.offsetTop + heroForHeader.offsetHeight * 0.6;
+            header.classList.toggle('is-fadeout', y > threshold);
+          } else {
+            header.classList.remove('is-fadeout');
+          }
         } finally {
           headerRafId = -1;
         }
       });
-    }, { passive: true });
+    };
+    window.addEventListener('scroll', onHeaderScroll, { passive: true });
+    window.addEventListener('resize', onHeaderScroll, { passive: true });
+    onHeaderScroll();
   }
 
-  /* --- Hamburger menu --- */
-  var hamburger = document.querySelector('.header__hamburger');
-  var mobileNav = document.getElementById('mobile-nav');
-  var closeBtn = mobileNav ? mobileNav.querySelector('.mobile-nav__close') : null;
-  var headerLogo = document.querySelector('.header__logo');
-
-  function closeMobileNav() {
-    if (!mobileNav || !hamburger) return;
-    mobileNav.classList.remove('is-open');
-    mobileNav.setAttribute('inert', '');
-    hamburger.classList.remove('is-active');
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.setAttribute('aria-label', 'メニューを開く');
-    document.body.classList.remove('no-scroll');
-    /* Remove inert from header elements */
-    if (headerLogo) headerLogo.removeAttribute('inert');
-    /* Remove inert from main, footer, sticky-cta */
-    document.querySelector('main').removeAttribute('inert');
-    var footerEl = document.querySelector('footer');
-    if (footerEl) footerEl.removeAttribute('inert');
-    var stickyCta = document.querySelector('.sticky-cta');
-    if (stickyCta) stickyCta.removeAttribute('inert');
-    /* Delay role/aria-modal removal until transition completes (M9) */
-    var delay = parseFloat(getComputedStyle(mobileNav).transitionDuration) * 1000 || 300;
-    setTimeout(function () {
-      mobileNav.removeAttribute('role');
-      mobileNav.removeAttribute('aria-modal');
-    }, delay);
-  }
-
-  function openMobileNav() {
-    if (!mobileNav || !hamburger) return;
-    mobileNav.classList.add('is-open');
-    mobileNav.setAttribute('role', 'dialog');
-    mobileNav.setAttribute('aria-modal', 'true');
-    mobileNav.removeAttribute('inert');
-    hamburger.classList.add('is-active');
-    hamburger.setAttribute('aria-expanded', 'true');
-    hamburger.setAttribute('aria-label', 'メニューを閉じる');
-    document.body.classList.add('no-scroll');
-    /* Inert on header logo to prevent focus outside dialog */
-    if (headerLogo) headerLogo.setAttribute('inert', '');
-    /* Inert on main, footer, sticky-cta */
-    document.querySelector('main').setAttribute('inert', '');
-    var footerEl = document.querySelector('footer');
-    if (footerEl) footerEl.setAttribute('inert', '');
-    var stickyCta = document.querySelector('.sticky-cta');
-    if (stickyCta) stickyCta.setAttribute('inert', '');
-    /* Focus the close button */
-    if (closeBtn) closeBtn.focus();
-  }
-
-  if (hamburger && mobileNav) {
+  /* --- Floating Hamburger / Drawer Menu (SP) --- */
+  var hamburger = document.getElementById('headerHamburger');
+  var drawer = document.getElementById('menuDrawer');
+  if (hamburger && drawer) {
+    var drawerLinks = drawer.querySelectorAll('[data-drawer-link]');
+    var openDrawer = function () {
+      document.body.classList.add('is-menu-open');
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'メニューを閉じる');
+    };
+    var closeDrawer = function () {
+      document.body.classList.remove('is-menu-open');
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'メニューを開く');
+    };
     hamburger.addEventListener('click', function () {
-      var isOpen = mobileNav.classList.contains('is-open');
-      if (isOpen) {
-        closeMobileNav();
-      } else {
-        openMobileNav();
-      }
+      if (drawer.classList.contains('is-open')) closeDrawer();
+      else openDrawer();
     });
-
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function () {
-        closeMobileNav();
-        hamburger.focus();
-      });
-    }
-
-    mobileNav.querySelectorAll('.mobile-nav__links a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        closeMobileNav();
-        hamburger.focus();
-      });
-    });
-
+    drawerLinks.forEach(function (a) { a.addEventListener('click', closeDrawer); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
-        closeMobileNav();
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+        closeDrawer();
         hamburger.focus();
       }
     });
   }
 
-  /* --- Count-up animation for stats --- */
+  /* --- Count-up animation for trust-bar --- */
   function formatValue(val, isDecimal, suffix) {
     var num = isDecimal ? val.toFixed(1) : Math.floor(val).toLocaleString();
     return num + suffix;
   }
-
   function animateCountUp(el) {
     var target = parseFloat(el.getAttribute('data-count'));
     var suffix = el.getAttribute('data-suffix') || '';
     var isDecimal = el.getAttribute('data-decimal') === 'true';
     var duration = 1800;
     var startTime = null;
-
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
       var progress = Math.min((timestamp - startTime) / duration, 1);
       var eased = 1 - Math.pow(1 - progress, 3);
       var current = eased * target;
-
       el.textContent = formatValue(current, isDecimal, suffix);
-
       if (progress < 1) {
         requestAnimationFrame(step);
       }
     }
-
     if (prefersReduced) {
       el.textContent = formatValue(target, isDecimal, suffix);
     } else {
       requestAnimationFrame(step);
     }
   }
-
-  var statsObserved = false;
-  var statsNums = document.querySelectorAll('.stats__num[data-count]');
-  if (statsNums.length > 0) {
+  var trustObserved = false;
+  var trustNums = document.querySelectorAll('.trust-bar__num[data-count]');
+  if (trustNums.length > 0) {
     if (typeof IntersectionObserver === 'undefined') {
-      statsObserved = true;
-      statsNums.forEach(function (el) {
-        animateCountUp(el);
-      });
+      trustObserved = true;
+      trustNums.forEach(animateCountUp);
     } else {
-      var statsObserver = new IntersectionObserver(function (entries) {
-        if (statsObserved) return;
+      var trustObserver = new IntersectionObserver(function (entries) {
+        if (trustObserved) return;
         var isVisible = entries.some(function (e) { return e.isIntersecting; });
         if (isVisible) {
-          statsObserved = true;
-          statsNums.forEach(function (el) { animateCountUp(el); });
-          statsObserver.disconnect();
+          trustObserved = true;
+          trustNums.forEach(animateCountUp);
+          trustObserver.disconnect();
         }
       }, { threshold: 0.3 });
+      var trustContainer = trustNums[0] ? trustNums[0].closest('.trust-bar') : null;
+      if (trustContainer) trustObserver.observe(trustContainer);
+    }
+  }
 
-      var statsContainer = statsNums[0] ? statsNums[0].closest('.stats') : null;
-      if (statsContainer) {
-        statsObserver.observe(statsContainer);
-      }
+  /* --- Flow step progressive activation --- */
+  var flowSteps = document.querySelectorAll('.flow__step');
+  var flowLineProgress = document.getElementById('flowLineProgress');
+  if (flowSteps.length && flowLineProgress) {
+    if (prefersReduced || typeof IntersectionObserver === 'undefined') {
+      flowSteps.forEach(function (s) { s.classList.add('is-active'); });
+      flowLineProgress.style.height = '100%';
+    } else {
+      var activeCount = 0;
+      var updateLine = function () {
+        var pct = (activeCount / flowSteps.length) * 100;
+        flowLineProgress.style.height = pct + '%';
+      };
+      var flowIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-active');
+            activeCount = Math.max(activeCount, parseInt(entry.target.dataset.step, 10));
+            updateLine();
+            flowIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      flowSteps.forEach(function (s) { flowIO.observe(s); });
     }
   }
 
   /* --- Scroll-triggered fade-in --- */
   if (!prefersReduced) {
     var animSelectors = [
-      '.stats__item', '.pain__item', '.feature', '.result-card',
-      '.trainer-card', '.price-card', '.flow__step', '.voice-card', '.faq__item'
+      '.trust-bar__item', '.pain__item', '.reason-block', '.ba-card',
+      '.trainer-card', '.price-card', '.voice-card', '.faq__item'
     ].join(', ');
     var animTargets = document.querySelectorAll(animSelectors);
-
-    var animArray = Array.from(animTargets);
-
-    animArray.forEach(function (el) {
-      el.classList.add('anim-target');
-    });
+    var animArray = Array.prototype.slice.call(animTargets);
+    animArray.forEach(function (el) { el.classList.add('anim-target'); });
 
     if (typeof IntersectionObserver === 'undefined') {
-      animArray.forEach(function (el) {
-        el.classList.add('is-visible');
-      });
+      animArray.forEach(function (el) { el.classList.add('is-visible'); });
     } else {
-      var observer = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              var parent = entry.target.parentElement;
-              var siblings = Array.from(parent.children).filter(function (c) {
-                return c.classList.contains('anim-target');
-              });
-              var idx = siblings.indexOf(entry.target);
-              var delay = idx >= 0 ? idx * 80 : 0;
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var parent = entry.target.parentElement;
+            var siblings = Array.prototype.slice.call(parent.children).filter(function (c) {
+              return c.classList.contains('anim-target');
+            });
+            var idx = siblings.indexOf(entry.target);
+            var delay = idx >= 0 ? idx * 80 : 0;
+            entry.target.style.setProperty('--anim-delay', delay + 'ms');
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      animArray.forEach(function (el) { observer.observe(el); });
+    }
+  }
 
-              entry.target.style.setProperty('--anim-delay', delay + 'ms');
-              entry.target.classList.add('is-visible');
+  /* --- Floating CTA + Mobile Tabbar (scroll-triggered) --- */
+  var floatingCta = document.getElementById('floatingCta');
+  var floatingCtaClose = document.getElementById('floatingCtaClose');
+  var mobileTabbar = document.getElementById('mobileTabbar');
+  var mobileTabbarClose = document.getElementById('mobileTabbarClose');
+  var ctaSection = document.getElementById('cta-final');
+  var heroSection = document.querySelector('.hero');
+  var floatingDismissed = false;
+  var sideTabsDismissed = false;
+  var isMobile = function () { return window.matchMedia('(max-width: 768px)').matches; };
 
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-      );
+  if ((floatingCta || mobileTabbar) && ctaSection && heroSection) {
+    var pcVisible = false;
+    var spVisible = false;
+    var updateScrollCtas = function () {
+      var heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      var ctaTop = ctaSection.offsetTop - 280;
+      var y = window.scrollY;
+      var shouldShow = y > heroBottom * 0.85 && y < ctaTop;
 
-      animArray.forEach(function (el) {
-        observer.observe(el);
+      if (floatingCta) {
+        var wantPc = shouldShow && !floatingDismissed && !isMobile();
+        if (wantPc !== pcVisible) {
+          pcVisible = wantPc;
+          if (wantPc) {
+            floatingCta.classList.add('is-visible');
+            floatingCta.setAttribute('aria-hidden', 'false');
+          } else {
+            floatingCta.classList.remove('is-visible');
+            floatingCta.setAttribute('aria-hidden', 'true');
+          }
+        }
+      }
+      if (mobileTabbar) {
+        var wantSp = shouldShow && !sideTabsDismissed && isMobile();
+        if (wantSp !== spVisible) {
+          spVisible = wantSp;
+          if (wantSp) {
+            mobileTabbar.classList.add('is-visible');
+            mobileTabbar.classList.remove('is-dismissed');
+            mobileTabbar.setAttribute('aria-hidden', 'false');
+          } else {
+            mobileTabbar.classList.remove('is-visible');
+            mobileTabbar.setAttribute('aria-hidden', 'true');
+          }
+        }
+      }
+    };
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      window.requestAnimationFrame(function () { updateScrollCtas(); ticking = false; });
+      ticking = true;
+    }, { passive: true });
+    window.addEventListener('resize', function () {
+      window.requestAnimationFrame(updateScrollCtas);
+    }, { passive: true });
+    updateScrollCtas();
+
+    if (floatingCtaClose) {
+      floatingCtaClose.addEventListener('click', function () {
+        floatingDismissed = true;
+        if (floatingCta) {
+          floatingCta.classList.remove('is-visible');
+          floatingCta.setAttribute('aria-hidden', 'true');
+        }
+        pcVisible = false;
+      });
+    }
+    if (mobileTabbarClose) {
+      mobileTabbarClose.addEventListener('click', function () {
+        sideTabsDismissed = true;
+        if (mobileTabbar) {
+          mobileTabbar.classList.add('is-dismissed');
+          mobileTabbar.classList.remove('is-visible');
+          mobileTabbar.setAttribute('aria-hidden', 'true');
+        }
+        spVisible = false;
       });
     }
   }
 
-  /* --- Demo link click prevention --- */
-  document.querySelectorAll('[data-demo]').forEach(function(el) {
-    el.addEventListener('click', function(e) {
-      e.preventDefault();
+  /* --- Counseling Form (validated) --- */
+  var counselingForm = document.getElementById('counselingForm');
+  var counselingSuccess = document.getElementById('counselingSuccess');
+  if (counselingForm && counselingSuccess) {
+    var submitBtn = document.getElementById('counselingSubmit');
+    var setError = function (field, msg) {
+      var wrap = field.closest('[data-field]') || field.parentElement;
+      var err = wrap.querySelector('[data-error]');
+      if (msg) {
+        wrap.classList.add('has-error');
+        if (err) err.textContent = msg;
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'true');
+      } else {
+        wrap.classList.remove('has-error');
+        if (err) err.textContent = '';
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'false');
+      }
+    };
+    var validate = function () {
+      var valid = true;
+      var fields = counselingForm.querySelectorAll('[data-field]');
+      fields.forEach(function (wrap) {
+        var inputs = wrap.querySelectorAll('input, select, textarea');
+        inputs.forEach(function (inp) {
+          if (inp.name === 'privacy') {
+            var privacyErr = counselingForm.querySelector('[data-field-name="privacy"]');
+            if (!inp.checked) {
+              if (privacyErr) privacyErr.textContent = '同意のチェックをお願いします';
+              valid = false;
+            } else {
+              if (privacyErr) privacyErr.textContent = '';
+            }
+            return;
+          }
+          if (inp.required && !inp.value.trim()) {
+            setError(inp, '必須項目です');
+            valid = false;
+            return;
+          }
+          if (inp.type === 'email' && inp.value.trim()) {
+            var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim());
+            if (!emailOk) {
+              setError(inp, 'メールアドレスの形式が正しくありません');
+              valid = false;
+              return;
+            }
+          }
+          if (inp.type === 'tel' && inp.value.trim()) {
+            var telOk = /^[\d\-\+\(\)\s]{10,15}$/.test(inp.value.trim());
+            if (!telOk) {
+              setError(inp, '電話番号の形式が正しくありません');
+              valid = false;
+              return;
+            }
+          }
+          setError(inp, '');
+        });
+      });
+      return valid;
+    };
+    counselingForm.querySelectorAll('input, select, textarea').forEach(function (inp) {
+      inp.addEventListener('blur', function () {
+        if (inp.name === 'privacy') return;
+        if (inp.required && !inp.value.trim()) {
+          setError(inp, '必須項目です');
+        } else if (inp.type === 'email' && inp.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim())) {
+          setError(inp, 'メールアドレスの形式が正しくありません');
+        } else if (inp.type === 'tel' && inp.value.trim() && !/^[\d\-\+\(\)\s]{10,15}$/.test(inp.value.trim())) {
+          setError(inp, '電話番号の形式が正しくありません');
+        } else {
+          setError(inp, '');
+        }
+      });
+      inp.addEventListener('input', function () {
+        var wrap = inp.closest('[data-field]');
+        if (wrap && wrap.classList.contains('has-error') && inp.value.trim()) {
+          setError(inp, '');
+        }
+      });
     });
+    counselingForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validate()) {
+        var firstError = counselingForm.querySelector('.has-error input, .has-error select, .has-error textarea');
+        if (firstError) firstError.focus();
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+      submitBtn.textContent = '送信中...';
+      setTimeout(function () {
+        counselingForm.hidden = true;
+        counselingSuccess.hidden = false;
+        var top = counselingSuccess.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top: top, behavior: prefersReduced ? 'auto' : 'smooth' });
+        counselingSuccess.setAttribute('tabindex', '-1');
+        setTimeout(function () { counselingSuccess.focus(); }, 100);
+      }, 800);
+    });
+  }
+
+  /* --- Demo link click prevention --- */
+  document.querySelectorAll('[data-demo]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); });
   });
-});
+})();
   </script>
 </body>
 </html>
