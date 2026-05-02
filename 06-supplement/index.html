@@ -1346,7 +1346,22 @@
         font-size: 1.75rem;
       }
     }
+    /* === ECC v3 Phase 1 Common Upgrade (2026-05-03) === */
+    /* 日本語改行最適化 */
+    h1, h2, h3, h4 { text-wrap: balance; word-break: auto-phrase; }
+    p { text-wrap: pretty; word-break: auto-phrase; }
+    /* アクセシビリティ準拠 - 動きを減らす設定への対応 */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+    }
   </style>
+  <link rel="preload" as="image" href="./images/hero.jpg" fetchpriority="high">
 </head>
 
 <body>

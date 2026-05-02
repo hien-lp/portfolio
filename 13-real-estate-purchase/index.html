@@ -1,0 +1,3636 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOMECYCLE | 中古マンション買取・住み替えサポート</title>
+  <meta name="description" content="HOMECYCLEは中古マンションの循環型買取サービス。独自リノベ再販モデルで査定価格+15%。30-50代ファミリーの住み替え（売却+購入）を同時進行サポート。">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HOMECYCLE | 中古マンション買取・住み替えサポート">
+  <meta property="og:description" content="査定価格+15%。住み替え同時進行で仮住まい不要。中古マンションの循環型買取サービス。">
+  <meta property="og:image" content="https://placehold.co/1200x630/1A3D5C/F8F4ED">
+  <meta property="og:site_name" content="HOMECYCLE">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#1A3D5C">
+  <meta name="color-scheme" content="light">
+
+  <!-- Security (デプロイ時推奨ヘッダー: CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, HSTS をサーバーで設定) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Fonts: 推奨はセルフホスティング（本番運用時）。今は Google Fonts CDN 利用 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Cormorant+Garamond:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hero image preload (LCP optimization) -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=75" fetchpriority="high">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "RealEstateAgent",
+        "name": "HOMECYCLE (Portfolio Sample)",
+        "description": "中古マンションの循環型買取サービス。住み替え（売却＋購入）を同時並行でサポート。これは飛燕の自主制作によるポートフォリオサンプルです。",
+        "areaServed": ["東京都", "神奈川県", "千葉県", "埼玉県"],
+        "priceRange": "¥¥¥",
+        "knowsAbout": ["中古マンション買取", "住み替え", "リノベーション", "不動産売却"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "査定は本当に無料ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "はい、査定は完全無料です。オンライン査定・現地査定どちらも費用は発生しません。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "ローン残債があるのですが、売却できますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "対応可能です。残債と査定額の差額を住み替えローンや提携金融機関のつなぎ融資でカバーする選択肢をご提示します。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "住みながら売却できますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可能です。現地査定の1回のみご対応いただければ、その後の内覧対応は一切不要です。新居の引渡し日まで現マンションでお過ごしいただけます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "対応エリアはどこまでですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "東京都・神奈川県・千葉県・埼玉県の主要エリアで対応中です。"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "飛燕 ポートフォリオ",
+            "item": "https://hien-lp.github.io/portfolio/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "HOMECYCLE 中古マンション買取 LP（自主制作）",
+            "item": "https://hien-lp.github.io/portfolio/13-real-estate-purchase/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================
+       CSS Variables
+    ============================ */
+    :root {
+      /* Brand Colors */
+      --color-primary: #1A3D5C;
+      --color-primary-deep: #112B43;
+      --color-primary-soft: #2C557A;
+      --color-accent: #D97757;
+      --color-accent-soft: #E89B82;
+      --color-gold: #C9A961;
+      --color-gold-soft: #DCC289;
+      --color-cream: #F8F4ED;
+      --color-cream-warm: #F1EBDF;
+      --color-greige: #EAE3D7;
+      --color-greige-deep: #DCD3C2;
+
+      /* Text */
+      --color-text: #1F2326;
+      --color-text-secondary: #4A4F54;
+      --color-text-muted: #6E6A65;
+      --color-text-on-dark: #F8F4ED;
+      --color-text-on-dark-muted: #BBB0A0;
+
+      /* Border / Shadow */
+      --color-border: #D4CCBE;
+      --color-border-soft: #E5DECF;
+      --shadow-sm: 0 2px 8px rgba(26, 61, 92, 0.06);
+      --shadow-md: 0 8px 24px rgba(26, 61, 92, 0.08);
+      --shadow-lg: 0 18px 48px rgba(26, 61, 92, 0.14);
+      --shadow-card-hover: 0 24px 60px rgba(26, 61, 92, 0.18);
+
+      /* Fonts */
+      --font-ja: 'Noto Serif JP', 'Yu Mincho', serif;
+      --font-en-display: 'Cormorant Garamond', serif;
+      --font-en-ui: 'Sora', system-ui, sans-serif;
+
+      /* Layout */
+      --max-width: 1180px;
+      --container-padding: 5%;
+      --section-padding-y: clamp(80px, 10vw, 140px);
+      --header-height: 72px;
+      --transition: 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ============================
+       Reset & Base
+    ============================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 17px;
+      -webkit-text-size-adjust: 100%;
+    }
+    @media (min-width: 1024px) { html { font-size: 18px; } }
+
+    body {
+      font-family: var(--font-ja);
+      color: var(--color-text);
+      background: var(--color-cream);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; height: auto; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    ul, ol { list-style: none; }
+
+    :focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* Reduced motion 対応 */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+      .scroll-progress, .pulse-cta::after { animation: none !important; }
+      .hero__eyebrow, .hero__title, .hero__lead, .hero__ctas, .hero__trust, .hero__scroll {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .hero__title em::after { animation: none !important; transform: scaleX(1) !important; }
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 8px;
+      background: var(--color-primary);
+      color: var(--color-text-on-dark);
+      padding: 10px 18px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      z-index: 9999;
+      border-radius: 4px;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 8px; }
+
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;
+    }
+
+    /* ============================
+       Utility
+    ============================ */
+    .container {
+      width: calc(100% - var(--container-padding) * 2);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-en-display);
+      font-size: 0.875rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+    .section-label::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--color-accent);
+    }
+
+    .section-title {
+      font-family: var(--font-ja);
+      font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
+      color: var(--color-primary);
+      text-wrap: balance;
+      word-break: auto-phrase;
+    }
+    .section-title em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+    .section-lead {
+      font-size: clamp(0.95rem, 1.5vw, 1.0625rem);
+      color: var(--color-text-secondary);
+      margin-bottom: 56px;
+      max-width: 720px;
+      line-height: 1.95;
+    }
+
+    /* Scroll-triggered animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in[data-delay="100"] { transition-delay: 0.1s; }
+    .fade-in[data-delay="200"] { transition-delay: 0.2s; }
+    .fade-in[data-delay="300"] { transition-delay: 0.3s; }
+    .fade-in[data-delay="400"] { transition-delay: 0.4s; }
+    .fade-in[data-delay="500"] { transition-delay: 0.5s; }
+
+    /* ============================
+       Scroll Progress Bar
+    ============================ */
+    .scroll-progress {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: transparent;
+      z-index: 1001;
+      pointer-events: none;
+    }
+    .scroll-progress__fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
+      transition: width 0.1s linear;
+    }
+
+    /* ============================
+       Header
+    ============================ */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-height);
+      background: rgba(248, 244, 237, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      transition: background var(--transition), box-shadow var(--transition);
+      border-bottom: 1px solid transparent;
+    }
+    .header.is-scrolled {
+      background: rgba(248, 244, 237, 0.96);
+      box-shadow: var(--shadow-sm);
+      border-bottom-color: var(--color-border-soft);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .logo {
+      font-family: var(--font-en-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .logo__mark {
+      display: inline-block;
+      width: 10px; height: 10px;
+      border: 1.5px solid var(--color-accent);
+      border-radius: 50%;
+      position: relative;
+      top: -2px;
+    }
+    .logo__mark::before {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      background: var(--color-accent);
+      border-radius: 50%;
+    }
+    .logo__sub {
+      font-family: var(--font-ja);
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      color: var(--color-text-muted);
+      margin-left: 8px;
+    }
+    .header__nav {
+      display: none;
+      gap: 36px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+    }
+    .header__nav a { transition: color var(--transition); position: relative; padding: 4px 0; }
+    .header__nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--color-accent);
+      transition: width var(--transition);
+    }
+    .header__nav a:hover { color: var(--color-primary); }
+    .header__nav a:hover::after { width: 100%; }
+    @media (min-width: 1024px) {
+      .header__nav { display: inline-flex; }
+    }
+    .header__cta {
+      background: var(--color-primary);
+      color: var(--color-text-on-dark);
+      padding: 10px 22px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      border-radius: 999px;
+      transition: background var(--transition), transform var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header__cta:hover {
+      background: var(--color-primary-deep);
+      transform: translateY(-1px);
+    }
+    .header__cta::after {
+      content: '→';
+      font-family: var(--font-en-ui);
+      transition: transform var(--transition);
+    }
+    .header__cta:hover::after { transform: translateX(3px); }
+
+    /* ============================
+       Hero
+    ============================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: calc(var(--header-height) + 40px);
+      padding-bottom: 80px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(105deg, rgba(8, 22, 36, 0.97) 0%, rgba(8, 22, 36, 0.92) 28%, rgba(17, 43, 67, 0.82) 55%, rgba(26, 61, 92, 0.55) 80%, rgba(217, 119, 87, 0.4) 100%),
+        url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=75');
+      background-size: cover;
+      background-position: center;
+      filter: saturate(0.7) brightness(0.85);
+      will-change: transform;
+    }
+    .hero__bg-grain {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.18;
+      background-image: radial-gradient(rgba(248,244,237,0.25) 1px, transparent 1px);
+      background-size: 3px 3px;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+    .hero__inner {
+      position: relative;
+      width: calc(100% - var(--container-padding) * 2);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      color: var(--color-text-on-dark);
+    }
+    .hero__eyebrow {
+      font-family: var(--font-en-display);
+      font-size: 0.875rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero__eyebrow::before {
+      content: '';
+      width: 32px; height: 1px;
+      background: var(--color-gold);
+    }
+    .hero__title {
+      font-family: var(--font-ja);
+      font-size: clamp(2rem, 5.5vw, 3.75rem);
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+      max-width: 760px;
+    }
+    .hero__title em {
+      font-style: normal;
+      color: var(--color-gold);
+      position: relative;
+    }
+    .hero__title em::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -4px;
+      height: 6px;
+      background: var(--color-accent);
+      opacity: 0.4;
+      border-radius: 4px;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: heroUnderline 1.2s 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    @keyframes heroUnderline { to { transform: scaleX(1); } }
+
+    /* Hero load-in stagger */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero__eyebrow { animation: heroFadeUp 0.9s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both; }
+    .hero__title   { animation: heroFadeUp 0.9s 0.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
+    .hero__lead    { animation: heroFadeUp 0.9s 0.6s cubic-bezier(0.4, 0, 0.2, 1) both; }
+    .hero__ctas    { animation: heroFadeUp 0.9s 0.8s cubic-bezier(0.4, 0, 0.2, 1) both; }
+    .hero__trust   { animation: heroFadeUp 0.9s 1.0s cubic-bezier(0.4, 0, 0.2, 1) both; }
+    .hero__scroll  { animation: heroFadeUp 0.9s 1.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+    .hero__lead {
+      font-size: clamp(1rem, 1.7vw, 1.125rem);
+      line-height: 2;
+      max-width: 580px;
+      margin-bottom: 48px;
+      color: var(--color-text-on-dark-muted);
+    }
+
+    .hero__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .cta-primary {
+      background: var(--color-accent);
+      color: var(--color-text-on-dark);
+      padding: 18px 40px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      border-radius: 999px;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      box-shadow: 0 12px 28px rgba(217, 119, 87, 0.32);
+    }
+    .cta-primary::after {
+      content: '→';
+      font-family: var(--font-en-ui);
+      transition: transform var(--transition);
+    }
+    .cta-primary:hover {
+      background: #C5694B;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(217, 119, 87, 0.42);
+    }
+    .cta-primary:hover::after { transform: translateX(4px); }
+
+    .pulse-cta {
+      position: relative;
+    }
+    .pulse-cta::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 999px;
+      border: 2px solid var(--color-accent);
+      opacity: 0;
+      animation: pulse 2.4s infinite;
+      pointer-events: none;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.7; }
+      70% { transform: scale(1.08); opacity: 0; }
+      100% { transform: scale(1.08); opacity: 0; }
+    }
+
+    .cta-secondary {
+      background: rgba(248, 244, 237, 0.08);
+      border: 1px solid rgba(248, 244, 237, 0.42);
+      color: var(--color-text-on-dark);
+      padding: 17px 36px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      border-radius: 999px;
+      transition: all var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+    }
+    .cta-secondary:hover {
+      background: rgba(248, 244, 237, 0.15);
+      border-color: var(--color-text-on-dark);
+    }
+    .cta-secondary__icon {
+      display: inline-block;
+      width: 18px; height: 18px;
+      background: var(--color-text-on-dark);
+      color: var(--color-primary);
+      border-radius: 50%;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 18px;
+      font-family: var(--font-en-ui);
+    }
+
+    .hero__trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(248, 244, 237, 0.16);
+    }
+    .hero__trust-item {
+      font-family: var(--font-en-display);
+    }
+    .hero__trust-num {
+      font-family: var(--font-en-ui);
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: var(--color-gold);
+      letter-spacing: -0.02em;
+      display: block;
+    }
+    .hero__trust-label {
+      font-family: var(--font-ja);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      color: var(--color-text-on-dark-muted);
+      margin-top: 2px;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 28px;
+      right: 32px;
+      font-family: var(--font-en-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      color: var(--color-gold-soft);
+      writing-mode: vertical-rl;
+      padding-bottom: 56px;
+      opacity: 0.72;
+    }
+    .hero__scroll::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 40px;
+      background: var(--color-gold-soft);
+      animation: scrollLine 2.2s infinite;
+      transform-origin: top;
+    }
+    @keyframes scrollLine {
+      0% { transform: translateX(-50%) scaleY(0); transform-origin: top; }
+      50% { transform: translateX(-50%) scaleY(1); transform-origin: top; }
+      51% { transform: translateX(-50%) scaleY(1); transform-origin: bottom; }
+      100% { transform: translateX(-50%) scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ============================
+       §2 Problems
+    ============================ */
+    .problems {
+      padding: var(--section-padding-y) 0;
+      background: var(--color-cream);
+      position: relative;
+    }
+    .problems__head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 64px;
+    }
+    .problems__head .section-lead { margin-left: auto; margin-right: auto; }
+
+    .problems__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    @media (min-width: 720px) {
+      .problems__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    }
+    @media (min-width: 1024px) {
+      .problems__grid { grid-template-columns: repeat(3, 1fr); }
+      .problems__grid > :nth-child(4) { grid-column: 1 / 2; }
+      .problems__grid > :nth-child(5) { grid-column: 2 / 4; }
+    }
+
+    .problem-card {
+      background: #fff;
+      border: 1px solid var(--color-border-soft);
+      border-radius: 14px;
+      padding: 32px 28px;
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+    .problem-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-accent-soft);
+    }
+    .problem-card__num {
+      font-family: var(--font-en-display);
+      font-size: 0.875rem;
+      letter-spacing: 0.3em;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .problem-card__num::before {
+      content: '';
+      width: 18px; height: 1px;
+      background: var(--color-accent);
+    }
+    .problem-card__title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      line-height: 1.7;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      text-wrap: balance;
+      word-break: auto-phrase;
+    }
+    .problem-card__body {
+      font-size: 0.9375rem;
+      line-height: 1.95;
+      color: var(--color-text-secondary);
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+
+    .problems__bridge {
+      text-align: center;
+      margin-top: 72px;
+      font-family: var(--font-ja);
+      font-size: clamp(1.125rem, 2vw, 1.4rem);
+      font-weight: 500;
+      color: var(--color-primary);
+      line-height: 1.8;
+    }
+    .problems__bridge strong {
+      color: var(--color-accent);
+      font-weight: 700;
+      border-bottom: 2px solid var(--color-accent);
+      padding-bottom: 2px;
+    }
+
+    /* ============================
+       §3 Solution Promise
+    ============================ */
+    .promise {
+      padding: var(--section-padding-y) 0;
+      background: var(--color-greige);
+      position: relative;
+      overflow: hidden;
+    }
+    .promise::before {
+      content: 'CYCLE';
+      position: absolute;
+      top: 8%;
+      right: -2%;
+      font-family: var(--font-en-display);
+      font-size: clamp(8rem, 18vw, 16rem);
+      font-weight: 400;
+      color: rgba(26, 61, 92, 0.05);
+      letter-spacing: 0.12em;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .promise__head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .promise__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      position: relative;
+    }
+    @media (min-width: 900px) {
+      .promise__grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    }
+
+    .promise-card {
+      background: var(--color-cream);
+      border-radius: 18px;
+      padding: 44px 36px;
+      transition: transform var(--transition), box-shadow var(--transition);
+      transform-style: preserve-3d;
+      position: relative;
+      overflow: hidden;
+    }
+    .promise-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(217, 119, 87, 0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .promise-card:hover { box-shadow: var(--shadow-lg); }
+    .promise-card:hover::before { opacity: 1; }
+    .promise-card__num {
+      font-family: var(--font-en-display);
+      font-size: 3rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .promise-card__title {
+      font-size: 1.1875rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 14px;
+      line-height: 1.65;
+      text-wrap: balance;
+      word-break: auto-phrase;
+    }
+    .promise-card__body {
+      font-size: 0.9375rem;
+      line-height: 1.95;
+      color: var(--color-text-secondary);
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+
+    /* ============================
+       §4 Numbers (カウントアップ)
+    ============================ */
+    .numbers {
+      padding: var(--section-padding-y) 0;
+      background: var(--color-primary);
+      color: var(--color-text-on-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .numbers::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(at 20% 30%, rgba(217, 119, 87, 0.12) 0%, transparent 50%),
+        radial-gradient(at 80% 70%, rgba(201, 169, 97, 0.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .numbers__head { text-align: center; margin-bottom: 80px; position: relative; }
+    .numbers__head .section-title { color: var(--color-text-on-dark); }
+    .numbers__head .section-title em { color: var(--color-gold); }
+    .numbers__head .section-lead { color: var(--color-text-on-dark-muted); margin-left: auto; margin-right: auto; }
+
+    .numbers__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 24px;
+      position: relative;
+    }
+    @media (min-width: 720px) {
+      .numbers__grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .number-item {
+      text-align: center;
+      padding: 28px 16px;
+      border: 1px solid rgba(248, 244, 237, 0.14);
+      border-radius: 14px;
+      background: rgba(248, 244, 237, 0.03);
+      transition: background var(--transition), transform var(--transition), border-color var(--transition);
+    }
+    .number-item:hover {
+      background: rgba(248, 244, 237, 0.06);
+      border-color: rgba(201, 169, 97, 0.4);
+      transform: translateY(-3px);
+    }
+    .number-item__label {
+      font-family: var(--font-en-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.32em;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .number-item__value {
+      font-family: var(--font-en-ui);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--color-cream);
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .number-item__unit {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-gold-soft);
+      letter-spacing: 0.05em;
+    }
+    .number-item__caption {
+      font-size: 0.8125rem;
+      color: var(--color-text-on-dark-muted);
+      margin-top: 14px;
+      line-height: 1.7;
+    }
+
+    /* ============================
+       §5 Features (Full-width 左右交互)
+    ============================ */
+    .features { background: var(--color-cream); }
+
+    .feature-block {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .feature-block__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-size: cover;
+      background-position: center;
+      transition: transform 8s linear;
+    }
+    .feature-block:hover .feature-block__bg { transform: scale(1.05); }
+    .feature-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(90deg, rgba(8, 22, 36, 0.92) 0%, rgba(17, 43, 67, 0.78) 38%, rgba(17, 43, 67, 0.45) 70%, rgba(17, 43, 67, 0.18) 100%);
+    }
+    .feature-block--reverse::before {
+      background: linear-gradient(270deg, rgba(8, 22, 36, 0.92) 0%, rgba(17, 43, 67, 0.78) 38%, rgba(17, 43, 67, 0.45) 70%, rgba(17, 43, 67, 0.18) 100%);
+    }
+
+    .feature-block__inner {
+      width: calc(100% - var(--container-padding) * 2);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 96px 0;
+      color: var(--color-text-on-dark);
+      display: flex;
+    }
+    .feature-block--reverse .feature-block__inner { justify-content: flex-end; }
+
+    .feature-content {
+      max-width: 540px;
+    }
+    .feature-content__num {
+      font-family: var(--font-en-display);
+      font-size: 0.875rem;
+      letter-spacing: 0.45em;
+      color: var(--color-gold);
+      margin-bottom: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .feature-content__num::before {
+      content: '';
+      width: 36px; height: 1px;
+      background: var(--color-gold);
+    }
+    .feature-content__title {
+      font-family: var(--font-ja);
+      font-size: clamp(1.5rem, 3vw, 2.125rem);
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+      text-wrap: balance;
+      word-break: auto-phrase;
+    }
+    .feature-content__title em {
+      font-style: normal;
+      color: var(--color-gold);
+    }
+    .feature-content__body {
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--color-text-on-dark-muted);
+      margin-bottom: 28px;
+    }
+    .feature-content__points {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feature-content__points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9375rem;
+      line-height: 1.85;
+      color: var(--color-text-on-dark);
+    }
+    .feature-content__points li::before {
+      content: '✓';
+      color: var(--color-accent);
+      font-family: var(--font-en-ui);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ============================
+       §6 Flow (Step フロー進行アニメ)
+    ============================ */
+    .flow {
+      padding: var(--section-padding-y) 0;
+      background: var(--color-cream-warm);
+      position: relative;
+    }
+    .flow__head { text-align: center; margin-bottom: 72px; }
+    .flow__head .section-lead { margin-left: auto; margin-right: auto; }
+
+    .flow__steps {
+      position: relative;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .flow__line {
+      position: absolute;
+      left: 36px;
+      top: 36px;
+      bottom: 36px;
+      width: 2px;
+      background: var(--color-border);
+      z-index: 0;
+    }
+    .flow__line-progress {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-gold) 100%);
+      transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @media (min-width: 900px) {
+      .flow__line { left: 50%; transform: translateX(-50%); }
+    }
+
+    .flow__step {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      align-items: start;
+    }
+    @media (min-width: 900px) {
+      .flow__step {
+        grid-template-columns: 1fr 72px 1fr;
+        gap: 40px;
+      }
+      .flow__step:nth-child(odd) .flow__step-content { grid-column: 1 / 2; text-align: right; }
+      .flow__step:nth-child(odd) .flow__step-num { grid-column: 2 / 3; grid-row: 1 / 2; }
+      .flow__step:nth-child(even) .flow__step-content { grid-column: 3 / 4; }
+      .flow__step:nth-child(even) .flow__step-num { grid-column: 2 / 3; grid-row: 1 / 2; }
+    }
+    .flow__step-num {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--color-cream);
+      border: 2px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-en-display);
+      font-size: 1.625rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      transition: all var(--transition);
+      position: relative;
+    }
+    .flow__step.is-active .flow__step-num {
+      background: var(--color-primary);
+      border-color: var(--color-accent);
+      color: var(--color-gold);
+      box-shadow: 0 8px 24px rgba(26, 61, 92, 0.24);
+      transform: scale(1.05);
+    }
+    .flow__step-content {
+      padding: 8px 0 32px;
+    }
+    .flow__step-tag {
+      font-family: var(--font-en-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.32em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+    .flow__step-title {
+      font-size: 1.1875rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      line-height: 1.6;
+      text-wrap: balance;
+      word-break: auto-phrase;
+    }
+    .flow__step-body {
+      font-size: 0.9375rem;
+      line-height: 1.95;
+      color: var(--color-text-secondary);
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+    .flow__step-meta {
+      display: inline-block;
+      font-family: var(--font-en-ui);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--color-accent);
+      background: rgba(217, 119, 87, 0.08);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-top: 12px;
+    }
+
+    /* ============================
+       §7 Comparison Table
+    ============================ */
+    .comparison {
+      padding: var(--section-padding-y) 0;
+      background: var(--color-cream);
+    }
+    .comparison__head { text-align: center; margin-bottom: 56px; }
+    .comparison__head .section-lead { margin-left: auto; margin-right: auto; }
+
+    .comparison__table-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      overflow-x: auto;
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+    }
+    .comparison__table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      min-width: 580px;
+    }
+    .comparison__table th,
+    .comparison__table td {
+      padding: 22px 24px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-soft);
+      vertical-align: middle;
+    }
+    .comparison__table thead th {
+      font-family: var(--font-ja);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--color-text-secondary);
+      background: var(--color-cream-warm);
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+    .comparison__table thead th.is-highlight {
+      background: var(--color-primary);
+      color: var(--color-gold);
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      font-family: var(--font-en-display);
+    }
+    .comparison__table tbody th {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      width: 28%;
+    }
+    .comparison__table td {
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+    .comparison__table .is-highlight {
+      background: rgba(217, 119, 87, 0.06);
+      color: var(--color-primary);
+      font-weight: 600;
+      position: relative;
+    }
+    .comparison__table .is-highlight::before {
+      content: '◎';
+      color: var(--color-accent);
+      font-weight: 700;
+      margin-right: 6px;
+    }
+    .comparison__table tr:last-child th,
+    .comparison__table tr:last-child td { border-bottom: none; }
+
+    /* ============================
+       §8 Cases
+    ============================ */
+    .cases {
+      padding: var(--section-padding-y) 0;
+      background: var(--color-greige);
+    }
+    .cases__head { margin-bottom: 56px; max-width: 720px; }
+
+    .cases__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    @media (min-width: 720px) { .cases__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .cases__grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .case-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .case-card__media {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      position: relative;
+    }
+    .case-card__media img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .case-card:hover .case-card__media img { transform: scale(1.06); }
+    .case-card__media::after {
+      content: 'PORTFOLIO SAMPLE';
+      position: absolute;
+      top: 12px; right: 12px;
+      font-family: var(--font-en-display);
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      color: var(--color-cream);
+      background: rgba(17, 43, 67, 0.7);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .case-card__body { padding: 28px 26px 30px; }
+    .case-card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .case-card__meta span {
+      font-family: var(--font-en-ui);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--color-text-muted);
+      background: var(--color-cream-warm);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .case-card__title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+      line-height: 1.6;
+      text-wrap: balance;
+      word-break: auto-phrase;
+    }
+    .case-card__body-text {
+      font-size: 0.875rem;
+      line-height: 1.85;
+      color: var(--color-text-secondary);
+      margin-bottom: 18px;
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+    .case-card__price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border-soft);
+    }
+    .case-card__price-label {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.1em;
+    }
+    .case-card__price-value {
+      font-family: var(--font-en-ui);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+    .case-card__price-meta {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-left: auto;
+    }
+
+    /* ============================
+       §9 Testimonials
+    ============================ */
+    .testimonials {
+      padding: var(--section-padding-y) 0;
+      background: var(--color-cream);
+    }
+    .testimonials__head { text-align: center; margin-bottom: 64px; }
+    .testimonials__head .section-lead { margin-left: auto; margin-right: auto; }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    @media (min-width: 900px) { .testimonials__grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .testimonial {
+      background: var(--color-cream-warm);
+      border-radius: 18px;
+      padding: 36px 32px 32px;
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .testimonial:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .testimonial::before {
+      content: '"';
+      font-family: var(--font-en-display);
+      font-size: 5rem;
+      line-height: 0.8;
+      color: var(--color-accent);
+      opacity: 0.32;
+      position: absolute;
+      top: 20px; left: 24px;
+    }
+    .testimonial__quote {
+      font-size: 0.9375rem;
+      line-height: 1.95;
+      color: var(--color-text);
+      margin-bottom: 24px;
+      padding-top: 28px;
+      position: relative;
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
+    .testimonial__author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--color-border-soft);
+    }
+    .testimonial__avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-greige-deep), var(--color-border));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-en-display);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    .testimonial__author-info {
+      font-size: 0.8125rem;
+    }
+    .testimonial__author-name {
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 2px;
+    }
+    .testimonial__author-meta {
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+    }
+    .testimonial__sample-tag {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-family: var(--font-en-display);
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      color: var(--color-text-muted);
+      background: var(--color-cream);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+    }
+
+    /* ============================
+       §10 FAQ (Accordion)
+    ============================ */
+    .faq {
+      padding: var(--section-padding-y) 0;
+      background: var(--color-greige);
+    }
+    .faq__head { text-align: center; margin-bottom: 56px; }
+    .faq__list {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--color-border-soft);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .faq-item.is-open {
+      border-color: var(--color-accent-soft);
+      box-shadow: var(--shadow-sm);
+    }
+    .faq-item__btn {
+      width: 100%;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      text-align: left;
+      transition: background var(--transition);
+    }
+    .faq-item__btn:hover { background: var(--color-cream); }
+    .faq-item__q {
+      font-family: var(--font-en-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 28px;
+    }
+    .faq-item__title {
+      flex: 1;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.65;
+      text-wrap: balance;
+      word-break: auto-phrase;
+    }
+    .faq-item__icon {
+      width: 22px; height: 22px;
+      flex-shrink: 0;
+      position: relative;
+      transition: transform var(--transition);
+    }
+    .faq-item__icon::before,
+    .faq-item__icon::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      background: var(--color-text-muted);
+      transition: background var(--transition);
+    }
+    .faq-item__icon::before {
+      width: 12px; height: 1.5px;
+      transform: translate(-50%, -50%);
+    }
+    .faq-item__icon::after {
+      width: 1.5px; height: 12px;
+      transform: translate(-50%, -50%);
+      transition: transform 0.36s var(--transition), background var(--transition);
+    }
+    .faq-item.is-open .faq-item__icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    .faq-item.is-open .faq-item__icon::before,
+    .faq-item.is-open .faq-item__icon::after { background: var(--color-accent); }
+
+    .faq-item__panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-item__panel-inner {
+      padding: 4px 28px 26px 76px;
+      font-size: 0.9375rem;
+      line-height: 1.95;
+      color: var(--color-text-secondary);
+    }
+    .faq-item__panel-inner strong {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    /* ============================
+       §11 CTA (Full-width)
+    ============================ */
+    .cta-section {
+      position: relative;
+      padding: var(--section-padding-y) 0;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .cta-section__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(135deg, rgba(8, 22, 36, 0.94) 0%, rgba(17, 43, 67, 0.86) 50%, rgba(26, 61, 92, 0.72) 100%),
+        url('https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=1920&q=70');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      filter: saturate(0.85);
+    }
+    @media (max-width: 1023px) { .cta-section__bg { background-attachment: scroll; } }
+
+    .cta-section__inner {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--color-text-on-dark);
+      padding: 0 var(--container-padding);
+    }
+    .cta-section__eyebrow {
+      font-family: var(--font-en-display);
+      font-size: 0.875rem;
+      letter-spacing: 0.45em;
+      color: var(--color-gold);
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .cta-section__eyebrow::before,
+    .cta-section__eyebrow::after {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--color-gold);
+    }
+    .cta-section__title {
+      font-family: var(--font-ja);
+      font-size: clamp(1.625rem, 3.6vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0.05em;
+      margin-bottom: 28px;
+    }
+    .cta-section__title em {
+      font-style: normal;
+      color: var(--color-gold);
+    }
+    .cta-section__body {
+      font-size: 1rem;
+      line-height: 2;
+      max-width: 600px;
+      margin: 0 auto 44px;
+      color: var(--color-cream);
+      opacity: 0.92;
+    }
+    .cta-section__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .cta-section__note {
+      font-size: 0.8125rem;
+      color: var(--color-gold-soft);
+      letter-spacing: 0.06em;
+      display: inline-block;
+      padding: 8px 18px;
+      background: rgba(8, 22, 36, 0.45);
+      border-radius: 999px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* ============================
+       Quote Form (CTA section embedded)
+    ============================ */
+    .quote-form {
+      max-width: 680px;
+      margin: 48px auto 24px;
+      padding: 36px 32px 32px;
+      background: var(--color-cream);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(8, 22, 36, 0.36), 0 4px 12px rgba(8, 22, 36, 0.16);
+      text-align: left;
+      color: var(--color-text);
+      position: relative;
+    }
+    .quote-form__head {
+      text-align: center;
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--color-border-soft);
+    }
+    .quote-form__head h3 {
+      font-family: var(--font-ja);
+      font-size: 1.1875rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+    .quote-form__head p {
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+    }
+    .quote-form__row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    @media (min-width: 600px) {
+      .quote-form__row { grid-template-columns: 1fr 1fr; gap: 20px; }
+    }
+    .quote-form__field { display: flex; flex-direction: column; gap: 6px; }
+    .quote-form__label {
+      font-family: var(--font-ja);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .quote-form__label .req {
+      font-style: normal;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #fff;
+      background: var(--color-accent);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .quote-form__label .opt {
+      font-style: normal;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      background: var(--color-cream-warm);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .quote-form input[type="text"],
+    .quote-form input[type="email"],
+    .quote-form select,
+    .quote-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font: inherit;
+      font-size: 0.9375rem;
+      color: var(--color-text);
+      background: var(--color-cream-warm);
+      border: 1.5px solid var(--color-border-soft);
+      border-radius: 8px;
+      transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
+      font-family: var(--font-ja);
+    }
+    .quote-form select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%), linear-gradient(135deg, var(--color-text-muted) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 36px; }
+    .quote-form textarea {
+      resize: vertical;
+      min-height: 90px;
+      font-family: var(--font-ja);
+      line-height: 1.65;
+    }
+    .quote-form input:focus,
+    .quote-form select:focus,
+    .quote-form textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.16);
+    }
+    .quote-form .has-error input,
+    .quote-form .has-error select,
+    .quote-form .has-error textarea {
+      border-color: #C5391E;
+      background: #FCEFEC;
+    }
+    .quote-form__error {
+      font-size: 0.75rem;
+      color: #C5391E;
+      letter-spacing: 0.04em;
+      min-height: 16px;
+      display: block;
+      margin-top: -2px;
+    }
+    .quote-form__check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 8px 0 22px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .quote-form__check input[type="checkbox"] {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      accent-color: var(--color-accent);
+      margin-top: 2px;
+    }
+    .quote-form__check span {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .quote-form__check a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .quote-form__submit {
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--color-accent);
+      color: var(--color-text-on-dark);
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+      box-shadow: 0 12px 28px rgba(217, 119, 87, 0.32);
+      font-family: var(--font-ja);
+    }
+    .quote-form__submit:hover {
+      background: #C5694B;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(217, 119, 87, 0.42);
+    }
+    .quote-form__submit:active { transform: translateY(0); }
+    .quote-form__submit[disabled] {
+      background: var(--color-text-muted);
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+    .quote-form__submit .arrow {
+      font-family: var(--font-en-ui);
+      transition: transform 0.22s;
+    }
+    .quote-form__submit:hover .arrow { transform: translateX(4px); }
+    .quote-form__note {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-align: center;
+      margin-top: 14px;
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+    }
+    .quote-form__field--full { margin-bottom: 8px; }
+    .quote-form__error--privacy { margin-top: -12px; margin-bottom: 12px; }
+    .quote-form__success {
+      max-width: 680px;
+      margin: 48px auto 24px;
+      padding: 56px 32px 48px;
+      background: var(--color-cream);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(8, 22, 36, 0.36);
+      text-align: center;
+      color: var(--color-text);
+      animation: successFadeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes successFadeIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .quote-form__success-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px; height: 64px;
+      background: var(--color-accent);
+      color: var(--color-text-on-dark);
+      border-radius: 50%;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      box-shadow: 0 12px 28px rgba(217, 119, 87, 0.4);
+    }
+    .quote-form__success h3 {
+      font-family: var(--font-ja);
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+    .quote-form__success p {
+      font-size: 0.9375rem;
+      line-height: 1.85;
+      color: var(--color-text-secondary);
+      max-width: 480px;
+      margin: 0 auto 8px;
+      text-wrap: pretty;
+    }
+    .quote-form__success small {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      background: var(--color-cream-warm);
+      border-radius: 999px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .quote-form__success { animation: none; }
+    }
+
+    /* ============================
+       Footer
+    ============================ */
+    .footer {
+      background: var(--color-primary-deep);
+      color: var(--color-text-on-dark-muted);
+      padding: 64px 0 32px;
+      font-size: 0.875rem;
+    }
+    .footer__top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(248, 244, 237, 0.1);
+    }
+    @media (min-width: 720px) {
+      .footer__top { grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; }
+    }
+    .footer__brand .logo { color: var(--color-cream); margin-bottom: 16px; }
+    .footer__brand p { line-height: 1.85; font-size: 0.8125rem; }
+    .footer__col h4 {
+      font-family: var(--font-en-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+    .footer__col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer__col a {
+      font-size: 0.8125rem;
+      transition: color var(--transition);
+    }
+    .footer__col a:hover { color: var(--color-cream); }
+
+    .footer__bottom {
+      padding-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .footer__sample-notice {
+      background: rgba(217, 119, 87, 0.12);
+      border: 1px solid rgba(217, 119, 87, 0.32);
+      color: var(--color-gold-soft);
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .footer__sample-notice strong { color: var(--color-gold); }
+
+    /* ============================
+       Floating CTA (PC, scroll-triggered, dramatic entry)
+    ============================ */
+    .floating-cta {
+      position: fixed;
+      right: 24px;
+      bottom: 28px;
+      z-index: 1100;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(140%) translateY(0) scale(0.92);
+      transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+      pointer-events: none;
+    }
+    .floating-cta.is-visible {
+      opacity: 1;
+      visibility: visible;
+      animation: floatingSlideIn 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      transition: opacity 0.3s ease, visibility 0s linear 0s;
+      pointer-events: auto;
+    }
+    @keyframes floatingSlideIn {
+      0%   { transform: translateX(140%) scale(0.9) rotate(2deg); opacity: 0; }
+      55%  { transform: translateX(-10%) scale(1.04) rotate(-1deg); opacity: 1; }
+      80%  { transform: translateX(2%) scale(0.99) rotate(0.4deg); }
+      100% { transform: translateX(0) scale(1) rotate(0); opacity: 1; }
+    }
+    .floating-cta.is-visible .floating-cta__icon {
+      animation: iconPop 0.65s 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both, iconWiggle 3.6s 1.6s ease-in-out infinite;
+    }
+    @keyframes iconPop {
+      0%   { transform: scale(0) rotate(-90deg); }
+      60%  { transform: scale(1.18) rotate(8deg); }
+      100% { transform: scale(1) rotate(0); }
+    }
+    @keyframes iconWiggle {
+      0%, 88%, 100% { transform: rotate(0); }
+      91% { transform: rotate(-12deg); }
+      94% { transform: rotate(12deg); }
+      97% { transform: rotate(-6deg); }
+    }
+    .floating-cta.is-visible .floating-cta__arrow {
+      animation: arrowNudge 2.4s 1.2s ease-in-out infinite;
+    }
+    @keyframes arrowNudge {
+      0%, 60%, 100% { transform: translateX(0); }
+      70% { transform: translateX(5px); }
+      80% { transform: translateX(0); }
+    }
+    .floating-cta__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 24px 14px 18px;
+      background: var(--color-accent);
+      color: var(--color-text-on-dark);
+      border-radius: 999px;
+      box-shadow: 0 14px 36px rgba(217, 119, 87, 0.45), 0 4px 12px rgba(17, 43, 67, 0.28);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      letter-spacing: 0.06em;
+      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.32s cubic-bezier(0.4, 0, 0.2, 1), background 0.32s;
+      position: relative;
+    }
+    .floating-cta__link::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: inherit;
+      border: 2px solid var(--color-accent);
+      opacity: 0;
+      animation: floatingPulse 2.6s infinite;
+      pointer-events: none;
+    }
+    @keyframes floatingPulse {
+      0% { transform: scale(0.96); opacity: 0.7; }
+      75% { transform: scale(1.12); opacity: 0; }
+      100% { transform: scale(1.12); opacity: 0; }
+    }
+    .floating-cta__link:hover {
+      background: #C5694B;
+      transform: translateY(-3px);
+      box-shadow: 0 20px 44px rgba(217, 119, 87, 0.55), 0 6px 16px rgba(17, 43, 67, 0.32);
+    }
+    .floating-cta__icon {
+      width: 36px; height: 36px;
+      background: rgba(255, 255, 255, 0.16);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-en-ui);
+      font-size: 1rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      letter-spacing: 0;
+    }
+    .floating-cta__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+      align-items: flex-start;
+    }
+    .floating-cta__text strong {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .floating-cta__text small {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+    .floating-cta__arrow {
+      font-family: var(--font-en-ui);
+      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-left: 2px;
+    }
+    .floating-cta__link:hover .floating-cta__arrow { transform: translateX(4px); }
+    .floating-cta__close {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 26px;
+      height: 26px;
+      background: var(--color-primary);
+      color: var(--color-text-on-dark);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      line-height: 1;
+      box-shadow: 0 4px 10px rgba(17, 43, 67, 0.32);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .floating-cta__close:hover {
+      background: var(--color-primary-deep);
+      transform: scale(1.06);
+    }
+    /* Mobile: hide PC floating CTA, use mobile-tabbar instead */
+    @media (max-width: 720px) {
+      .floating-cta { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .floating-cta__link::before { animation: none !important; }
+      .floating-cta.is-visible {
+        animation: none !important;
+        transform: translateX(0) scale(1) !important;
+      }
+      .floating-cta.is-visible .floating-cta__icon,
+      .floating-cta.is-visible .floating-cta__arrow {
+        animation: none !important;
+      }
+    }
+
+    /* ============================
+       Mobile Tabbar (SP, bottom fixed)
+    ============================ */
+    .mobile-tabbar { display: none; }
+    @media (max-width: 720px) {
+      .mobile-tabbar {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        z-index: 1100;
+        background: linear-gradient(to top, var(--color-primary-deep), var(--color-primary));
+        box-shadow: 0 -10px 28px rgba(8, 22, 36, 0.45);
+        padding-bottom: env(safe-area-inset-bottom, 0);
+        transform: translateY(110%);
+        transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .mobile-tabbar.is-visible { transform: translateY(0); }
+      .mobile-tabbar.is-dismissed { transform: translateY(110%) !important; pointer-events: none; }
+      .mobile-tabbar__items { display: flex; flex: 1; align-items: stretch; }
+      .mobile-tabbar__item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 10px 4px 12px;
+        color: var(--color-text-on-dark);
+        font-size: 0.6875rem;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+        position: relative;
+        transition: background 0.2s;
+        border-right: 1px solid rgba(248, 244, 237, 0.1);
+      }
+      .mobile-tabbar__item:last-of-type { border-right: none; }
+      .mobile-tabbar__item:active { background: rgba(248, 244, 237, 0.1); }
+      .mobile-tabbar__item--primary {
+        background: var(--color-accent);
+        flex: 1.4;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      }
+      .mobile-tabbar__item--primary:active { background: #C5694B; }
+      .mobile-tabbar__icon {
+        width: 28px; height: 28px;
+        border-radius: 50%;
+        background: rgba(248, 244, 237, 0.14);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-en-ui);
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .mobile-tabbar__item--primary .mobile-tabbar__icon {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      .mobile-tabbar__label {
+        font-family: var(--font-ja);
+        font-size: 0.6875rem;
+        letter-spacing: 0.04em;
+      }
+      .mobile-tabbar__close {
+        position: absolute;
+        top: -14px; right: 12px;
+        width: 30px; height: 30px;
+        background: var(--color-cream);
+        color: var(--color-primary);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1;
+        box-shadow: 0 4px 12px rgba(8, 22, 36, 0.34);
+        border: 1.5px solid var(--color-primary);
+      }
+      .mobile-tabbar__close:active { background: var(--color-greige); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mobile-tabbar { transition: transform 0.001ms !important; }
+    }
+
+    /* ============================
+       Floating Hamburger (SP, always visible)
+    ============================ */
+    .floating-hamburger {
+      display: none;
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      width: 46px; height: 46px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--color-primary);
+      color: var(--color-text-on-dark);
+      z-index: 1300;
+      box-shadow: 0 6px 18px rgba(8, 22, 36, 0.42), 0 1px 3px rgba(8, 22, 36, 0.2);
+      transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+      cursor: pointer;
+    }
+    .floating-hamburger:hover {
+      background: var(--color-primary-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(8, 22, 36, 0.5), 0 2px 4px rgba(8, 22, 36, 0.22);
+    }
+    .floating-hamburger:active {
+      background: var(--color-primary-deep);
+      transform: scale(0.96);
+    }
+    .floating-hamburger__line {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: var(--color-cream);
+      position: absolute;
+      left: 50%;
+      margin-left: -9px;
+      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s, background 0.2s;
+    }
+    .floating-hamburger__line:nth-child(1) { top: 17px; }
+    .floating-hamburger__line:nth-child(2) { top: 22px; }
+    .floating-hamburger__line:nth-child(3) { top: 27px; }
+    body.is-menu-open .floating-hamburger {
+      background: var(--color-accent);
+    }
+    body.is-menu-open .floating-hamburger:hover {
+      background: #C5694B;
+    }
+    body.is-menu-open .floating-hamburger__line:nth-child(1) {
+      transform: rotate(45deg) translate(3.5px, 3.5px);
+    }
+    body.is-menu-open .floating-hamburger__line:nth-child(2) { opacity: 0; }
+    body.is-menu-open .floating-hamburger__line:nth-child(3) {
+      transform: rotate(-45deg) translate(3.5px, -3.5px);
+    }
+    @media (max-width: 720px) {
+      .floating-hamburger { display: inline-flex; }
+      .header__cta { display: none; }
+    }
+    @media (min-width: 1024px) {
+      .floating-hamburger { display: none !important; }
+    }
+
+    .menu-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: rgba(8, 22, 36, 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.36s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.36s;
+      overflow-y: auto;
+    }
+    .menu-drawer.is-open {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 0.36s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0s;
+    }
+    .menu-drawer__inner {
+      padding: 100px 32px 60px;
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .menu-drawer__brand {
+      font-family: var(--font-en-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--color-cream);
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .menu-drawer__brand-mark {
+      display: inline-block;
+      width: 10px; height: 10px;
+      border: 1.5px solid var(--color-accent);
+      border-radius: 50%;
+      position: relative;
+      top: -2px;
+    }
+    .menu-drawer__brand-mark::before {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      background: var(--color-accent);
+      border-radius: 50%;
+    }
+    .menu-drawer__sub {
+      font-family: var(--font-en-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.32em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      margin-bottom: 56px;
+    }
+    .menu-drawer__nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      max-width: 360px;
+    }
+    .menu-drawer__link {
+      font-family: var(--font-ja);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--color-cream);
+      letter-spacing: 0.06em;
+      padding: 18px 8px;
+      border-bottom: 1px solid rgba(248, 244, 237, 0.16);
+      position: relative;
+      transition: color 0.2s, padding-left 0.2s;
+      opacity: 0;
+      transform: translateY(20px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .menu-drawer.is-open .menu-drawer__link {
+      animation: drawerLinkIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    .menu-drawer.is-open .menu-drawer__link:nth-child(1) { animation-delay: 0.18s; }
+    .menu-drawer.is-open .menu-drawer__link:nth-child(2) { animation-delay: 0.25s; }
+    .menu-drawer.is-open .menu-drawer__link:nth-child(3) { animation-delay: 0.32s; }
+    .menu-drawer.is-open .menu-drawer__link:nth-child(4) { animation-delay: 0.39s; }
+    .menu-drawer.is-open .menu-drawer__link:nth-child(5) { animation-delay: 0.46s; }
+    @keyframes drawerLinkIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .menu-drawer__link::after {
+      content: '→';
+      color: var(--color-accent);
+      font-family: var(--font-en-ui);
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    .menu-drawer__link:active {
+      color: var(--color-gold);
+      padding-left: 14px;
+    }
+    .menu-drawer__cta {
+      width: 100%;
+      max-width: 360px;
+      margin-top: 48px;
+      padding: 18px 32px;
+      background: var(--color-accent);
+      color: var(--color-text-on-dark);
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 12px 28px rgba(217, 119, 87, 0.32);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .menu-drawer.is-open .menu-drawer__cta {
+      animation: drawerLinkIn 0.5s 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    .menu-drawer__cta::after {
+      content: '→';
+      font-family: var(--font-en-ui);
+    }
+
+    body.is-menu-open {
+      overflow: hidden;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .menu-drawer.is-open .menu-drawer__link,
+      .menu-drawer.is-open .menu-drawer__cta {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* Mobile: keep header visible, fade-out on scroll past hero */
+    .header.is-fadeout {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s, background 0.4s;
+    }
+    @media (max-width: 720px) {
+      .scroll-progress { top: var(--header-height); }
+      .hero { padding-top: calc(var(--header-height) + 32px); }
+    }
+
+    /* ============================
+       Mobile adjustments
+    ============================ */
+    @media (max-width: 719px) {
+      .header__nav { display: none; }
+      .hero__trust { gap: 20px 32px; }
+      .hero__scroll { display: none; }
+      .feature-block__inner { padding: 72px 0; }
+      .promise::before { font-size: 7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">メインコンテンツへスキップ</a>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" aria-hidden="true">
+  <div class="scroll-progress__fill" id="scrollProgress"></div>
+</div>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#" class="logo" aria-label="HOMECYCLE トップへ">
+      <span class="logo__mark" aria-hidden="true"></span>
+      HOMECYCLE
+      <span class="logo__sub">中古マンション買取</span>
+    </a>
+    <nav class="header__nav" aria-label="メインナビゲーション">
+      <a href="#promise">特徴</a>
+      <a href="#features">選ばれる理由</a>
+      <a href="#flow">住み替えの流れ</a>
+      <a href="#cases">買取事例</a>
+      <a href="#faq">よくあるご質問</a>
+    </nav>
+    <a href="#cta" class="header__cta">無料査定</a>
+  </div>
+</header>
+
+<!-- Floating Hamburger (SP only, always visible) -->
+<button type="button" class="floating-hamburger" id="headerHamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="menuDrawer">
+  <span class="floating-hamburger__line" aria-hidden="true"></span>
+  <span class="floating-hamburger__line" aria-hidden="true"></span>
+  <span class="floating-hamburger__line" aria-hidden="true"></span>
+</button>
+
+<!-- Drawer Menu (SP) -->
+<div class="menu-drawer" id="menuDrawer" role="dialog" aria-modal="true" aria-label="メニュー" aria-hidden="true">
+  <div class="menu-drawer__inner">
+    <span class="menu-drawer__brand">
+      <span class="menu-drawer__brand-mark" aria-hidden="true"></span>
+      HOMECYCLE
+    </span>
+    <span class="menu-drawer__sub">中古マンション買取</span>
+    <nav class="menu-drawer__nav" aria-label="ドロワーナビゲーション">
+      <a href="#promise" class="menu-drawer__link" data-drawer-link>特徴</a>
+      <a href="#features" class="menu-drawer__link" data-drawer-link>選ばれる理由</a>
+      <a href="#flow" class="menu-drawer__link" data-drawer-link>住み替えの流れ</a>
+      <a href="#cases" class="menu-drawer__link" data-drawer-link>買取事例</a>
+      <a href="#faq" class="menu-drawer__link" data-drawer-link>よくあるご質問</a>
+    </nav>
+    <a href="#cta" class="menu-drawer__cta" data-drawer-link>無料査定をはじめる</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- §1 Hero -->
+<section class="hero" aria-label="ヒーロー">
+  <div class="hero__bg" id="heroBg" aria-hidden="true"></div>
+  <div class="hero__bg-grain" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <p class="hero__eyebrow">For Families on the Move</p>
+    <h1 class="hero__title">
+      住みたい家に、<br>
+      家族で<em>乗り換える</em>。
+    </h1>
+    <p class="hero__lead">
+      HOMECYCLEは中古マンションの循環型買取サービス。<br>
+      独自リノベ再販モデルだから、査定価格は同条件の他社平均より＋15%。<br>
+      売却と購入を同時並行で支えるから、仮住まいも、二度の引越しも、もういりません。
+    </p>
+    <div class="hero__ctas">
+      <a href="#cta" class="cta-primary pulse-cta">無料査定をはじめる</a>
+      <a href="#flow" class="cta-secondary"><span class="cta-secondary__icon">?</span>住み替えの流れを見る</a>
+    </div>
+    <div class="hero__trust" role="list">
+      <div class="hero__trust-item" role="listitem">
+        <span class="hero__trust-num">+15<small style="font-size:0.7em;">%</small></span>
+        <span class="hero__trust-label">平均査定価格 vs 他社</span>
+      </div>
+      <div class="hero__trust-item" role="listitem">
+        <span class="hero__trust-num">3<small style="font-size:0.7em;">日</small></span>
+        <span class="hero__trust-label">最短査定期間</span>
+      </div>
+      <div class="hero__trust-item" role="listitem">
+        <span class="hero__trust-num">92<small style="font-size:0.7em;">%</small></span>
+        <span class="hero__trust-label">住み替え同時成立率</span>
+      </div>
+      <div class="hero__trust-item" role="listitem">
+        <span class="hero__trust-num">500<small style="font-size:0.7em;">+</small></span>
+        <span class="hero__trust-label">累計買取件数</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">SCROLL</div>
+</section>
+
+<!-- §2 Problems -->
+<section class="problems" id="problems" aria-label="お悩み">
+  <div class="container">
+    <div class="problems__head fade-in">
+      <p class="section-label">Problems</p>
+      <h2 class="section-title">こんな<em>住み替えの壁</em>に、<br>立ち止まっていませんか。</h2>
+      <p class="section-lead">
+        中古マンションの売却＋次の住まい探しを同時に進めようとすると、想像以上に多くの壁にぶつかります。
+        HOMECYCLEは、そのひとつひとつに具体的な答えを用意しています。
+      </p>
+    </div>
+    <div class="problems__grid">
+      <article class="problem-card fade-in" data-delay="100">
+        <p class="problem-card__num">CASE 01</p>
+        <h3 class="problem-card__title">売却が決まらないと、次の家を決められない</h3>
+        <p class="problem-card__body">「ローンが二重になるから先に売って」と言われ、家族で住みたい家が見つかっても契約に踏み切れない。</p>
+      </article>
+      <article class="problem-card fade-in" data-delay="200">
+        <p class="problem-card__num">CASE 02</p>
+        <h3 class="problem-card__title">仮住まいと2度の引越しが現実的にきつい</h3>
+        <p class="problem-card__body">小さな子どもや親と暮らす世帯にとって、引越しを2回繰り返すコストも体力も無視できません。</p>
+      </article>
+      <article class="problem-card fade-in" data-delay="300">
+        <p class="problem-card__num">CASE 03</p>
+        <h3 class="problem-card__title">ローン残債があり、売却を諦めかけている</h3>
+        <p class="problem-card__body">残債と売却額のバランスが見えず、買い替え自体を「いまは無理」と判断してしまう。</p>
+      </article>
+      <article class="problem-card fade-in" data-delay="400">
+        <p class="problem-card__num">CASE 04</p>
+        <h3 class="problem-card__title">仲介の内覧対応で、生活が落ち着かない</h3>
+        <p class="problem-card__body">週末ごとに知らない人を招く生活が数ヶ月続く。子どもの予定や在宅勤務にも影響が出てしまう。</p>
+      </article>
+      <article class="problem-card fade-in" data-delay="500">
+        <p class="problem-card__num">CASE 05</p>
+        <h3 class="problem-card__title">そもそも、いま売って損をしないのか分からない</h3>
+        <p class="problem-card__body">築年数・周辺相場・将来の金利動向。情報は多いのに、自分のケースにあてはめた「適正価格」が見えない。</p>
+      </article>
+    </div>
+    <p class="problems__bridge fade-in">
+      ひとつでも当てはまったら、<br>
+      <strong>「住み替え型の買取」</strong> が答えになるかもしれません。
+    </p>
+  </div>
+</section>
+
+<!-- §3 Solution Promise -->
+<section class="promise" id="promise" aria-label="HOMECYCLEの約束">
+  <div class="container">
+    <div class="promise__head fade-in">
+      <p class="section-label">Our Promise</p>
+      <h2 class="section-title">HOMECYCLEがお届けする、<br><em>3つの安心</em>。</h2>
+    </div>
+    <div class="promise__grid">
+      <article class="promise-card fade-in" data-delay="100" data-tilt>
+        <p class="promise-card__num">01</p>
+        <h3 class="promise-card__title">査定価格は、他社平均より＋15%。</h3>
+        <p class="promise-card__body">
+          独自リノベ再販モデルだから、買取後の出口戦略が明確。だからこそ、市場価格より高い査定をご提示できます。同条件の他社見積りと比較してご確認ください。
+        </p>
+      </article>
+      <article class="promise-card fade-in" data-delay="200" data-tilt>
+        <p class="promise-card__num">02</p>
+        <h3 class="promise-card__title">売却と購入を、同じ担当が伴走。</h3>
+        <p class="promise-card__body">
+          専属コンシェルジュが、売却スケジュールと新居選びを並走で設計。「先に売るか、先に買うか」のジレンマを、決済日の調整で解消します。
+        </p>
+      </article>
+      <article class="promise-card fade-in" data-delay="300" data-tilt>
+        <p class="promise-card__num">03</p>
+        <h3 class="promise-card__title">仮住まい不要。引越しは、一度だけ。</h3>
+        <p class="promise-card__body">
+          現マンションの引渡しと新居入居のタイミングを揃え、「一度の引越し」で住み替えを完了。お子様の通学リズムも、生活も乱しません。
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- §4 Numbers -->
+<section class="numbers" aria-label="数字で見るHOMECYCLE">
+  <div class="container">
+    <div class="numbers__head fade-in">
+      <p class="section-label" style="color: var(--color-gold);">By The Numbers</p>
+      <h2 class="section-title">数字で見る、<em>HOMECYCLE</em>。</h2>
+      <p class="section-lead">
+        サービス開始から積み重ねてきた、住み替え世帯のための実績。
+      </p>
+    </div>
+    <div class="numbers__grid">
+      <div class="number-item fade-in" data-delay="100">
+        <p class="number-item__label">Price Up</p>
+        <p class="number-item__value">
+          <span class="counter" data-target="15" data-suffix="">0</span>
+          <span class="number-item__unit">% UP</span>
+        </p>
+        <p class="number-item__caption">同条件の他社見積りと比較した平均査定額</p>
+      </div>
+      <div class="number-item fade-in" data-delay="200">
+        <p class="number-item__label">Speed</p>
+        <p class="number-item__value">
+          <span class="counter" data-target="3">0</span>
+          <span class="number-item__unit">日</span>
+        </p>
+        <p class="number-item__caption">最短査定期間（オンライン査定の場合）</p>
+      </div>
+      <div class="number-item fade-in" data-delay="300">
+        <p class="number-item__label">Success</p>
+        <p class="number-item__value">
+          <span class="counter" data-target="92">0</span>
+          <span class="number-item__unit">%</span>
+        </p>
+        <p class="number-item__caption">売却と購入を同時に完了したご家族の割合</p>
+      </div>
+      <div class="number-item fade-in" data-delay="400">
+        <p class="number-item__label">Track Record</p>
+        <p class="number-item__value">
+          <span class="counter" data-target="500">0</span>
+          <span class="number-item__unit">件 +</span>
+        </p>
+        <p class="number-item__caption">サービス開始からの累計買取件数</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §5 Features (Full-width 左右交互) -->
+<section class="features" id="features" aria-label="選ばれる理由">
+
+  <div class="feature-block">
+    <div class="feature-block__bg" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=70');"></div>
+    <div class="feature-block__inner">
+      <div class="feature-content fade-in">
+        <p class="feature-content__num">REASON 01</p>
+        <h3 class="feature-content__title">「<em>再販前提</em>の買取」が、価格差を生む。</h3>
+        <p class="feature-content__body">
+          HOMECYCLEは買取後に独自リノベを行い、次のご家族へ再販します。出口価格が見えているから、買取査定にプレミアムを乗せられる。それが他社平均より＋15%の根拠です。
+        </p>
+        <ul class="feature-content__points">
+          <li>築20年以上の物件こそ、リノベ後の価値が伸びやすい</li>
+          <li>専属の建築デザイナー・施工チームを内製化</li>
+          <li>査定根拠書を発行。価格の理由を、数字で説明します</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-block feature-block--reverse">
+    <div class="feature-block__bg" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=70');"></div>
+    <div class="feature-block__inner">
+      <div class="feature-content fade-in">
+        <p class="feature-content__num">REASON 02</p>
+        <h3 class="feature-content__title">売却と購入、<em>1人の担当</em>が並走する。</h3>
+        <p class="feature-content__body">
+          住み替えで一番のストレスは「売却の不動産屋と購入の不動産屋が違う」こと。HOMECYCLEは1名のコンシェルジュが両方のスケジュールを設計し、決済日まで一貫して伴走します。
+        </p>
+        <ul class="feature-content__points">
+          <li>売却と購入のタイミング設計を初回相談で提示</li>
+          <li>新居の物件提案も同コンシェルジュが担当</li>
+          <li>決済日・引渡し日・引越し日の3点同時設計</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div class="feature-block__bg" style="background-image: url('https://images.unsplash.com/photo-1556909195-1f0c0fb94ab0?auto=format&fit=crop&w=1920&q=70');"></div>
+    <div class="feature-block__inner">
+      <div class="feature-content fade-in">
+        <p class="feature-content__num">REASON 03</p>
+        <h3 class="feature-content__title">ローン残債が、住み替えを止めない。</h3>
+        <p class="feature-content__body">
+          残債と売却額のバランス、つなぎ融資、住み替えローンの組み合わせ。一般的にはハードルが高い選択肢を、HOMECYCLEの提携金融機関ネットワークで実現可能性のある形に整えます。
+        </p>
+        <ul class="feature-content__points">
+          <li>提携金融機関と連動した住み替えローン提案</li>
+          <li>残債とのバランスを資金計画書で可視化</li>
+          <li>つなぎ融資・買取保証の選択肢を初回でご提示</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- §6 Flow -->
+<section class="flow" id="flow" aria-label="住み替えの流れ">
+  <div class="container">
+    <div class="flow__head fade-in">
+      <p class="section-label">The Flow</p>
+      <h2 class="section-title">住み替えの流れは、<br><em>6つのステップ</em>。</h2>
+      <p class="section-lead">
+        初回ご相談から新居でのお引越しまで、最短30日で完結するケースもございます。
+      </p>
+    </div>
+
+    <div class="flow__steps" id="flowSteps">
+      <div class="flow__line" aria-hidden="true">
+        <div class="flow__line-progress" id="flowLineProgress"></div>
+      </div>
+
+      <div class="flow__step" data-step="1">
+        <div class="flow__step-num">1</div>
+        <div class="flow__step-content">
+          <p class="flow__step-tag">Step 01 / Inquiry</p>
+          <h3 class="flow__step-title">無料オンライン査定（最短当日）</h3>
+          <p class="flow__step-body">物件情報をフォームから送信いただくと、当日中に概算査定をご返信。お電話・LINEでもOK。</p>
+          <span class="flow__step-meta">所要時間: 5分</span>
+        </div>
+      </div>
+
+      <div class="flow__step" data-step="2">
+        <div class="flow__step-num">2</div>
+        <div class="flow__step-content">
+          <p class="flow__step-tag">Step 02 / Site Visit</p>
+          <h3 class="flow__step-title">現地査定 + 住み替えヒアリング</h3>
+          <p class="flow__step-body">専属コンシェルジュが現地訪問。同時に「次の住まい」のご希望も伺い、初回プランを設計します。</p>
+          <span class="flow__step-meta">目安: 1〜2時間</span>
+        </div>
+      </div>
+
+      <div class="flow__step" data-step="3">
+        <div class="flow__step-num">3</div>
+        <div class="flow__step-content">
+          <p class="flow__step-tag">Step 03 / Quote</p>
+          <h3 class="flow__step-title">買取価格 + 住み替えプランのご提示</h3>
+          <p class="flow__step-body">査定根拠書・資金計画書・新居候補3〜5件を1つのレポートに。3日以内にお渡しします。</p>
+          <span class="flow__step-meta">納期: 最短3日</span>
+        </div>
+      </div>
+
+      <div class="flow__step" data-step="4">
+        <div class="flow__step-num">4</div>
+        <div class="flow__step-content">
+          <p class="flow__step-tag">Step 04 / Contract</p>
+          <h3 class="flow__step-title">売買契約 + 新居の購入契約</h3>
+          <p class="flow__step-body">同じ日に2契約を結ぶことも可能。決済日・引渡し日を同タイミングに揃えます。</p>
+          <span class="flow__step-meta">引渡し: 30〜60日後で調整</span>
+        </div>
+      </div>
+
+      <div class="flow__step" data-step="5">
+        <div class="flow__step-num">5</div>
+        <div class="flow__step-content">
+          <p class="flow__step-tag">Step 05 / Move</p>
+          <h3 class="flow__step-title">引渡し + ご入居（一度の引越し）</h3>
+          <p class="flow__step-body">提携引越し業者と連動。前住居からの搬出と新居への搬入を1日で完結する設計です。</p>
+          <span class="flow__step-meta">引越し回数: 1回</span>
+        </div>
+      </div>
+
+      <div class="flow__step" data-step="6">
+        <div class="flow__step-num">6</div>
+        <div class="flow__step-content">
+          <p class="flow__step-tag">Step 06 / Aftercare</p>
+          <h3 class="flow__step-title">入居後フォロー（90日サポート）</h3>
+          <p class="flow__step-body">不動産取得税の手続き、住宅ローン控除書類、住所変更の代行支援。入居後90日間のフォローが付きます。</p>
+          <span class="flow__step-meta">サポート: 90日間</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §7 Comparison Table -->
+<section class="comparison" aria-label="買取と仲介の比較">
+  <div class="container">
+    <div class="comparison__head fade-in">
+      <p class="section-label">Buy vs Brokerage</p>
+      <h2 class="section-title">仲介と何が違う？<br><em>買取と仲介の比較表</em>。</h2>
+      <p class="section-lead">
+        どちらが自分のケースに合うか、客観的に比較いただける一覧をご用意しました。
+      </p>
+    </div>
+    <div class="comparison__table-wrap fade-in">
+      <table class="comparison__table">
+        <thead>
+          <tr>
+            <th scope="col">比較項目</th>
+            <th scope="col" class="is-highlight">HOMECYCLE 買取</th>
+            <th scope="col">一般的な仲介</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">売却までの期間</th>
+            <td class="is-highlight">最短3日〜30日</td>
+            <td>3〜6ヶ月（売れ残り含む）</td>
+          </tr>
+          <tr>
+            <th scope="row">仲介手数料</th>
+            <td class="is-highlight">不要</td>
+            <td>売価の約3% + 6万円（税別）</td>
+          </tr>
+          <tr>
+            <th scope="row">内覧対応</th>
+            <td class="is-highlight">不要（現地査定1回のみ）</td>
+            <td>平均15回〜20回</td>
+          </tr>
+          <tr>
+            <th scope="row">売却価格の確定</th>
+            <td class="is-highlight">査定時点で確定</td>
+            <td>市場価格に応じて変動</td>
+          </tr>
+          <tr>
+            <th scope="row">買い替え連動</th>
+            <td class="is-highlight">同コンシェルジュが並走</td>
+            <td>各社で別担当となるケースが多い</td>
+          </tr>
+          <tr>
+            <th scope="row">契約不適合責任</th>
+            <td class="is-highlight">免責（HOMECYCLEが負担）</td>
+            <td>原則として売主が負担</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- §8 Cases -->
+<section class="cases" id="cases" aria-label="買取事例">
+  <div class="container">
+    <div class="cases__head fade-in">
+      <p class="section-label">Cases</p>
+      <h2 class="section-title">住み替えに踏み出した、<em>3つのご家族</em>。</h2>
+      <p class="section-lead">
+        実際のお取引事例として再構成した、自主制作のサンプルケースをご紹介します。
+      </p>
+    </div>
+    <div class="cases__grid">
+      <article class="case-card fade-in" data-delay="100">
+        <div class="case-card__media">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=640&q=75" alt="横浜市・築15年3LDKマンションのイメージ" loading="lazy">
+        </div>
+        <div class="case-card__body">
+          <div class="case-card__meta">
+            <span>横浜市</span>
+            <span>築15年</span>
+            <span>3LDK</span>
+            <span>67㎡</span>
+          </div>
+          <h3 class="case-card__title">小学校入学に合わせ、駅近マンションへ住み替え</h3>
+          <p class="case-card__body-text">
+            お子様の小学校入学時期に合わせ、駅徒歩6分の3LDKへ。査定提示から契約まで7日、引越しは1回で完了。
+          </p>
+          <div class="case-card__price">
+            <span class="case-card__price-label">買取額</span>
+            <span class="case-card__price-value">¥4,200万</span>
+            <span class="case-card__price-meta">7日で完了</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card fade-in" data-delay="200">
+        <div class="case-card__media">
+          <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=640&q=75" alt="武蔵小杉・築8年2LDKマンションのイメージ" loading="lazy">
+        </div>
+        <div class="case-card__body">
+          <div class="case-card__meta">
+            <span>武蔵小杉</span>
+            <span>築8年</span>
+            <span>2LDK</span>
+            <span>58㎡</span>
+          </div>
+          <h3 class="case-card__title">第二子出産前に、リビング広めの物件へ買い替え</h3>
+          <p class="case-card__body-text">
+            出産2ヶ月前のスケジュールで内覧不要の買取を選択。査定〜決済まで5日、産前の引越しも1日で完結。
+          </p>
+          <div class="case-card__price">
+            <span class="case-card__price-label">買取額</span>
+            <span class="case-card__price-value">¥5,800万</span>
+            <span class="case-card__price-meta">5日で完了</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case-card fade-in" data-delay="300">
+        <div class="case-card__media">
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=640&q=75" alt="浦安市・築18年4LDKマンションのイメージ" loading="lazy">
+        </div>
+        <div class="case-card__body">
+          <div class="case-card__meta">
+            <span>浦安市</span>
+            <span>築18年</span>
+            <span>4LDK</span>
+            <span>82㎡</span>
+          </div>
+          <h3 class="case-card__title">残債1,200万でも、戸建てへ住み替えを実現</h3>
+          <p class="case-card__body-text">
+            ローン残債との差を住み替えローンで吸収し、戸建てへ。資金計画書の可視化が決め手に。
+          </p>
+          <div class="case-card__price">
+            <span class="case-card__price-label">買取額</span>
+            <span class="case-card__price-value">¥3,900万</span>
+            <span class="case-card__price-meta">10日で完了</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- §9 Testimonials -->
+<section class="testimonials" aria-label="お客様の声">
+  <div class="container">
+    <div class="testimonials__head fade-in">
+      <p class="section-label">Voices</p>
+      <h2 class="section-title">住み替えを終えた、<br><em>3組の声</em>。</h2>
+      <p class="section-lead">
+        ポートフォリオ用に再構成した自主制作のサンプル談話です。実在の方を特定するものではありません。
+      </p>
+    </div>
+    <div class="testimonials__grid">
+      <article class="testimonial fade-in" data-delay="100">
+        <span class="testimonial__sample-tag">Sample</span>
+        <p class="testimonial__quote">
+          売却と購入のタイミングが合わず、ずっと諦めていました。HOMECYCLEさんは初回相談で「この日に同時決済が可能です」と道筋を見せてくれて、本気で動き出せました。
+        </p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">T</div>
+          <div class="testimonial__author-info">
+            <p class="testimonial__author-name">田中様（35歳・3人家族）</p>
+            <p class="testimonial__author-meta">横浜市 / 3LDK→3LDK 駅近</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial fade-in" data-delay="200">
+        <span class="testimonial__sample-tag">Sample</span>
+        <p class="testimonial__quote">
+          残債が1,200万円残っていて、買い替えは無理だと思っていました。資金計画書で「残債と新規ローンのバランス」を一枚にまとめてもらえたのが大きかったです。
+        </p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">Y</div>
+          <div class="testimonial__author-info">
+            <p class="testimonial__author-name">山田様（48歳・4人家族）</p>
+            <p class="testimonial__author-meta">浦安市 / マンション→戸建て</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial fade-in" data-delay="300">
+        <span class="testimonial__sample-tag">Sample</span>
+        <p class="testimonial__quote">
+          下の子がまだ小さく、内覧対応で生活が崩れるのが怖くて。買取なら現地査定1回で済むと聞き即決。家族のリズムを守ったまま売却できました。
+        </p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">S</div>
+          <div class="testimonial__author-info">
+            <p class="testimonial__author-name">佐藤様（42歳・2人家族）</p>
+            <p class="testimonial__author-meta">武蔵小杉 / 2LDK→3LDK</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- §10 FAQ -->
+<section class="faq" id="faq" aria-label="よくあるご質問">
+  <div class="container">
+    <div class="faq__head fade-in">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">よくある<em>ご質問</em>。</h2>
+      <p class="section-lead">
+        住み替えの買取で多くいただくご質問にお答えします。
+      </p>
+    </div>
+    <div class="faq__list">
+      <div class="faq-item fade-in">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__q">Q1</span>
+          <span class="faq-item__title">査定は本当に無料ですか？</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__panel">
+          <div class="faq-item__panel-inner">
+            <strong>はい、査定は完全無料です。</strong>オンライン査定・現地査定どちらも費用は発生しません。買取をご希望されない場合でも費用は一切いただきません。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__q">Q2</span>
+          <span class="faq-item__title">ローン残債があるのですが、売却できますか？</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__panel">
+          <div class="faq-item__panel-inner">
+            <strong>はい、対応可能です。</strong>残債と査定額の差額を住み替えローンや提携金融機関のつなぎ融資でカバーする選択肢をご提示します。資金計画書で可視化してから判断いただけます。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__q">Q3</span>
+          <span class="faq-item__title">売却後すぐに引越しが必要ですか？</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__panel">
+          <div class="faq-item__panel-inner">
+            <strong>引渡し日は柔軟に調整可能です。</strong>新居の引渡し日に合わせて決済を設定するため、仮住まいなしで一度の引越しが可能です。お子様の通学リズムや在宅勤務にも配慮します。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__q">Q4</span>
+          <span class="faq-item__title">査定価格に納得できなければ断れますか？</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__panel">
+          <div class="faq-item__panel-inner">
+            <strong>もちろんお断りいただけます。</strong>査定はあくまで参考価格です。他社見積もりとの比較や、ご家族の状況変化により判断を保留・撤回されても問題ありません。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__q">Q5</span>
+          <span class="faq-item__title">住みながら売却できますか？</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__panel">
+          <div class="faq-item__panel-inner">
+            <strong>はい、可能です。</strong>現地査定の1回のみご対応いただければ、その後の内覧対応は一切不要です。新居の引渡し日まで現マンションでお過ごしいただけます。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__q">Q6</span>
+          <span class="faq-item__title">仲介より本当に高く買取してもらえるのですか？</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__panel">
+          <div class="faq-item__panel-inner">
+            <strong>同条件の他社見積もりとの比較で平均＋15%です。</strong>独自リノベ再販モデルにより出口価格が見えるため、買取査定にプレミアムを乗せられます。査定根拠書で具体的な算出ロジックをご説明します。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__q">Q7</span>
+          <span class="faq-item__title">査定にかかる時間はどれくらい？</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__panel">
+          <div class="faq-item__panel-inner">
+            <strong>オンライン査定は最短当日、正式査定は3日以内にご提示します。</strong>現地査定は1〜2時間、住み替えのご希望ヒアリングを同時に進めます。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in">
+        <button class="faq-item__btn" aria-expanded="false">
+          <span class="faq-item__q">Q8</span>
+          <span class="faq-item__title">対応エリアはどこまでですか？</span>
+          <span class="faq-item__icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-item__panel">
+          <div class="faq-item__panel-inner">
+            <strong>東京都・神奈川県・千葉県・埼玉県の主要エリアで対応中です。</strong>その他のエリアは個別にお問い合わせください。リモート査定ベースでも対応可能なケースがございます。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §11 CTA -->
+<section class="cta-section" id="cta" aria-label="お問い合わせ">
+  <div class="cta-section__bg" aria-hidden="true"></div>
+  <div class="cta-section__inner fade-in">
+    <p class="cta-section__eyebrow">Get Started</p>
+    <h2 class="cta-section__title">
+      まずは、<em>5分の無料査定</em>から。<br>
+      家族の住み替えを、一緒に設計しましょう。
+    </h2>
+    <p class="cta-section__body">
+      物件情報を入力いただくと、当日中に概算査定をご返信。<br>
+      査定後の検討も自由です。お見積りの比較材料としてもご利用ください。
+    </p>
+    <div class="cta-section__ctas">
+      <a href="#quoteForm" class="cta-primary pulse-cta">無料オンライン査定</a>
+      <a href="#" class="cta-secondary"><span class="cta-secondary__icon">L</span>LINEで相談する</a>
+    </div>
+    <p class="cta-section__note">受付時間 平日 9:00-18:00 / 土曜 10:00-16:00 / 日祝休</p>
+
+    <form class="quote-form" id="quoteForm" novalidate aria-label="無料査定フォーム">
+      <div class="quote-form__head">
+        <h3>無料オンライン査定フォーム</h3>
+        <p>当日中に概算査定をお返しします（最短5分）</p>
+      </div>
+
+      <div class="quote-form__row">
+        <label class="quote-form__field" data-field>
+          <span class="quote-form__label">お名前<em class="req">必須</em></span>
+          <input type="text" name="name" autocomplete="name" placeholder="飛燕 太郎" required aria-required="true">
+          <span class="quote-form__error" data-error aria-live="polite"></span>
+        </label>
+        <label class="quote-form__field" data-field>
+          <span class="quote-form__label">メールアドレス<em class="req">必須</em></span>
+          <input type="email" name="email" autocomplete="email" placeholder="example@email.com" required aria-required="true">
+          <span class="quote-form__error" data-error aria-live="polite"></span>
+        </label>
+      </div>
+
+      <div class="quote-form__row">
+        <label class="quote-form__field" data-field>
+          <span class="quote-form__label">物件種別<em class="req">必須</em></span>
+          <select name="propertyType" required aria-required="true">
+            <option value="">選択してください</option>
+            <option>中古マンション</option>
+            <option>戸建て</option>
+            <option>土地</option>
+            <option>その他</option>
+          </select>
+          <span class="quote-form__error" data-error aria-live="polite"></span>
+        </label>
+        <label class="quote-form__field" data-field>
+          <span class="quote-form__label">間取り<em class="opt">任意</em></span>
+          <select name="layout">
+            <option value="">選択してください</option>
+            <option>1LDK / 1K</option>
+            <option>2LDK / 2DK</option>
+            <option>3LDK / 3DK</option>
+            <option>4LDK以上</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="quote-form__row">
+        <label class="quote-form__field" data-field>
+          <span class="quote-form__label">所在地（市区町村まで）<em class="req">必須</em></span>
+          <input type="text" name="location" autocomplete="address-level2" placeholder="例: 神奈川県横浜市港北区" required aria-required="true">
+          <span class="quote-form__error" data-error aria-live="polite"></span>
+        </label>
+        <label class="quote-form__field" data-field>
+          <span class="quote-form__label">築年数<em class="opt">任意</em></span>
+          <select name="age">
+            <option value="">選択してください</option>
+            <option>新築〜5年</option>
+            <option>6〜10年</option>
+            <option>11〜20年</option>
+            <option>21〜30年</option>
+            <option>31年以上</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="quote-form__field quote-form__field--full" data-field>
+        <span class="quote-form__label">ご質問・住み替えのご希望<em class="opt">任意</em></span>
+        <textarea name="message" rows="3" placeholder="例: 上のお子様の小学校入学に合わせて住み替え検討中。来春までに完了希望。"></textarea>
+      </label>
+
+      <label class="quote-form__check" data-field>
+        <input type="checkbox" name="privacy" required aria-required="true">
+        <span>
+          <a href="#" tabindex="-1">個人情報の取扱い</a>に同意する
+          <em class="req">必須</em>
+        </span>
+      </label>
+      <span class="quote-form__error quote-form__error--privacy" data-error data-field-name="privacy" aria-live="polite"></span>
+
+      <button type="submit" class="quote-form__submit" id="quoteFormSubmit">
+        無料査定を申し込む
+        <span class="arrow" aria-hidden="true">→</span>
+      </button>
+
+      <p class="quote-form__note">
+        ※ 本フォームは飛燕の自主制作によるポートフォリオ用サンプルです。<br>
+        実際の送信・データ保存は行われません。
+      </p>
+    </form>
+
+    <div class="quote-form__success" id="quoteFormSuccess" hidden role="status" aria-live="polite">
+      <span class="quote-form__success-icon" aria-hidden="true">✓</span>
+      <h3>送信ありがとうございます</h3>
+      <p>当日中に担当コンシェルジュより、概算査定とご相談スケジュールをご返信いたします。</p>
+      <small>※ ポートフォリオサンプルのため、実際の送信は行われていません</small>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Floating CTA (PC) -->
+<div class="floating-cta" id="floatingCta" aria-hidden="true">
+  <a href="#cta" class="floating-cta__link" id="floatingCtaLink">
+    <span class="floating-cta__icon" aria-hidden="true">¥</span>
+    <span class="floating-cta__text">
+      <strong>無料査定</strong>
+      <small>5分で完了</small>
+    </span>
+    <span class="floating-cta__arrow" aria-hidden="true">→</span>
+  </a>
+  <button type="button" class="floating-cta__close" id="floatingCtaClose" aria-label="このボタンを閉じる">×</button>
+</div>
+
+<!-- Mobile Tabbar (SP, bottom fixed) -->
+<nav class="mobile-tabbar" id="mobileTabbar" aria-label="クイックアクション" aria-hidden="true">
+  <button type="button" class="mobile-tabbar__close" id="mobileTabbarClose" aria-label="このバーを閉じる">×</button>
+  <div class="mobile-tabbar__items">
+    <a href="tel:0312345678" class="mobile-tabbar__item">
+      <span class="mobile-tabbar__icon" aria-hidden="true">☎</span>
+      <span class="mobile-tabbar__label">お電話</span>
+    </a>
+    <a href="#cta" class="mobile-tabbar__item">
+      <span class="mobile-tabbar__icon" aria-hidden="true">L</span>
+      <span class="mobile-tabbar__label">LINE</span>
+    </a>
+    <a href="#cta" class="mobile-tabbar__item mobile-tabbar__item--primary">
+      <span class="mobile-tabbar__icon" aria-hidden="true">¥</span>
+      <span class="mobile-tabbar__label">無料査定</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__sample-notice">
+      <strong>※ Portfolio Sample 表記</strong>　本ページは飛燕（フリーランスLP制作者）の自主制作によるポートフォリオ作品です。「HOMECYCLE」は架空のサービスブランドであり、実在の事業者・物件・人物を表すものではありません。価格・実績・お客様の声はすべて自主制作のサンプルです。
+    </div>
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="#" class="logo">
+          <span class="logo__mark" aria-hidden="true"></span>
+          HOMECYCLE
+          <span class="logo__sub">中古マンション買取</span>
+        </a>
+        <p>住みたい家に、家族で乗り換える。<br>循環型買取で、住み替えのすき間ゼロ。</p>
+      </div>
+      <div class="footer__col">
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#promise">サービス概要</a></li>
+          <li><a href="#features">選ばれる理由</a></li>
+          <li><a href="#flow">住み替えの流れ</a></li>
+          <li><a href="#cases">買取事例</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#faq">よくあるご質問</a></li>
+          <li><a href="#cta">お問い合わせ</a></li>
+          <li><a href="#">運営会社（架空）</a></li>
+          <li><a href="#">特定商取引法に基づく表記（架空）</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 HOMECYCLE (Sample) — Designed by 飛燕</p>
+      <p>Portfolio: <a href="https://hien-lp.github.io/portfolio/" target="_blank" rel="noopener">hien-lp.github.io/portfolio</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Header scroll state + SP fade-out ---------- */
+  const header = document.getElementById('header');
+  const _heroForHeader = document.querySelector('.hero');
+  const isMobileHeader = () => window.matchMedia('(max-width: 720px)').matches;
+  const onScroll = () => {
+    if (!header) return;
+    const y = window.scrollY;
+    if (y > 12) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+
+    if (isMobileHeader() && _heroForHeader) {
+      const threshold = _heroForHeader.offsetTop + _heroForHeader.offsetHeight * 0.6;
+      if (y > threshold) header.classList.add('is-fadeout');
+      else header.classList.remove('is-fadeout');
+    } else {
+      header.classList.remove('is-fadeout');
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Scroll progress bar ---------- */
+  const progressFill = document.getElementById('scrollProgress');
+  if (progressFill) {
+    const updateProgress = () => {
+      const h = document.documentElement;
+      const scrollTop = h.scrollTop || document.body.scrollTop;
+      const scrollHeight = h.scrollHeight - h.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progressFill.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  /* ---------- Hero parallax (subtle) ---------- */
+  const heroBg = document.getElementById('heroBg');
+  if (heroBg && !reduceMotion) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      window.requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < window.innerHeight * 1.2) {
+          heroBg.style.transform = 'translateY(' + (y * 0.18) + 'px)';
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }, { passive: true });
+  }
+
+  /* ---------- Fade-in observer ---------- */
+  const fadeEls = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(el => io.observe(el));
+  } else {
+    fadeEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  /* ---------- Counter animation (Section 4) ---------- */
+  const counters = document.querySelectorAll('.counter');
+  if (counters.length && 'IntersectionObserver' in window) {
+    const animate = (el) => {
+      const target = parseInt(el.getAttribute('data-target'), 10);
+      const duration = 1600;
+      const startTime = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const value = Math.floor(eased * target);
+        el.textContent = value;
+        if (t < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      };
+      if (reduceMotion) {
+        el.textContent = target;
+      } else {
+        requestAnimationFrame(step);
+      }
+    };
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          counterIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(c => counterIO.observe(c));
+  }
+
+  /* ---------- Flow step progressive activation ---------- */
+  const flowSteps = document.querySelectorAll('.flow__step');
+  const flowLineProgress = document.getElementById('flowLineProgress');
+  if (flowSteps.length && flowLineProgress && 'IntersectionObserver' in window) {
+    let activeCount = 0;
+    const updateLine = () => {
+      const total = flowSteps.length;
+      const pct = (activeCount / total) * 100;
+      flowLineProgress.style.height = pct + '%';
+    };
+    const flowIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-active');
+          activeCount = Math.max(activeCount, parseInt(entry.target.dataset.step, 10));
+          updateLine();
+          flowIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    flowSteps.forEach(s => flowIO.observe(s));
+  }
+
+  /* ---------- Tilt hover (subtle 3D for promise cards) ---------- */
+  const tiltEls = document.querySelectorAll('[data-tilt]');
+  if (!reduceMotion && window.matchMedia('(min-width: 1024px)').matches) {
+    tiltEls.forEach((el) => {
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        el.style.transform = 'perspective(900px) rotateX(' + (-y * 4) + 'deg) rotateY(' + (x * 4) + 'deg) translateY(-4px)';
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  /* ---------- FAQ Accordion ---------- */
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item) => {
+    const btn = item.querySelector('.faq-item__btn');
+    const panel = item.querySelector('.faq-item__panel');
+    if (!btn || !panel) return;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+      if (isOpen) {
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        panel.style.maxHeight = '0px';
+      } else {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---------- Scroll-triggered CTAs (PC floating + SP side-tabs) ---------- */
+  const floatingCta = document.getElementById('floatingCta');
+  const floatingCtaClose = document.getElementById('floatingCtaClose');
+  const mobileTabbar = document.getElementById('mobileTabbar');
+  const mobileTabbarClose = document.getElementById('mobileTabbarClose');
+  const ctaSection = document.getElementById('cta');
+  const heroSection = document.querySelector('.hero');
+  let floatingDismissed = false;
+  let sideTabsDismissed = false;
+  const isMobile = () => window.matchMedia('(max-width: 720px)').matches;
+
+  if ((floatingCta || mobileTabbar) && ctaSection && heroSection) {
+    let pcVisible = false;
+    let spVisible = false;
+    const updateScrollCtas = () => {
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+      const ctaTop = ctaSection.offsetTop - 280;
+      const y = window.scrollY;
+      const shouldShow = y > heroBottom * 0.85 && y < ctaTop;
+
+      // PC floating
+      if (floatingCta) {
+        const wantPc = shouldShow && !floatingDismissed && !isMobile();
+        if (wantPc !== pcVisible) {
+          pcVisible = wantPc;
+          if (wantPc) {
+            floatingCta.classList.add('is-visible');
+            floatingCta.setAttribute('aria-hidden', 'false');
+          } else {
+            floatingCta.classList.remove('is-visible');
+            floatingCta.setAttribute('aria-hidden', 'true');
+          }
+        }
+      }
+
+      // SP side tabs
+      if (mobileTabbar) {
+        const wantSp = shouldShow && !sideTabsDismissed && isMobile();
+        if (wantSp !== spVisible) {
+          spVisible = wantSp;
+          if (wantSp) {
+            mobileTabbar.classList.add('is-visible');
+            mobileTabbar.classList.remove('is-dismissed');
+            mobileTabbar.setAttribute('aria-hidden', 'false');
+          } else {
+            mobileTabbar.classList.remove('is-visible');
+            mobileTabbar.setAttribute('aria-hidden', 'true');
+          }
+        }
+      }
+    };
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      window.requestAnimationFrame(() => { updateScrollCtas(); ticking = false; });
+      ticking = true;
+    }, { passive: true });
+    window.addEventListener('resize', () => {
+      window.requestAnimationFrame(updateScrollCtas);
+    }, { passive: true });
+    updateScrollCtas();
+
+    if (floatingCtaClose) {
+      floatingCtaClose.addEventListener('click', () => {
+        floatingDismissed = true;
+        if (floatingCta) {
+          floatingCta.classList.remove('is-visible');
+          floatingCta.setAttribute('aria-hidden', 'true');
+        }
+        pcVisible = false;
+      });
+    }
+    if (mobileTabbarClose) {
+      mobileTabbarClose.addEventListener('click', () => {
+        sideTabsDismissed = true;
+        if (mobileTabbar) {
+          mobileTabbar.classList.add('is-dismissed');
+          mobileTabbar.classList.remove('is-visible');
+          mobileTabbar.setAttribute('aria-hidden', 'true');
+        }
+        spVisible = false;
+      });
+    }
+  }
+
+  /* ---------- Hamburger drawer (SP) ---------- */
+  const hamburger = document.getElementById('headerHamburger');
+  const drawer = document.getElementById('menuDrawer');
+  if (hamburger && drawer) {
+    const drawerLinks = drawer.querySelectorAll('[data-drawer-link]');
+    const openDrawer = () => {
+      document.body.classList.add('is-menu-open');
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'メニューを閉じる');
+    };
+    const closeDrawer = () => {
+      document.body.classList.remove('is-menu-open');
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'メニューを開く');
+    };
+    hamburger.addEventListener('click', () => {
+      if (drawer.classList.contains('is-open')) closeDrawer();
+      else openDrawer();
+    });
+    drawerLinks.forEach((a) => {
+      a.addEventListener('click', () => closeDrawer());
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
+    });
+  }
+
+  /* ---------- Quote Form ---------- */
+  const quoteForm = document.getElementById('quoteForm');
+  const quoteSuccess = document.getElementById('quoteFormSuccess');
+  if (quoteForm && quoteSuccess) {
+    const submitBtn = document.getElementById('quoteFormSubmit');
+    const setError = (field, msg) => {
+      const wrap = field.closest('[data-field]') || field.parentElement;
+      const err = wrap.querySelector('[data-error]');
+      if (msg) {
+        wrap.classList.add('has-error');
+        if (err) err.textContent = msg;
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'true');
+      } else {
+        wrap.classList.remove('has-error');
+        if (err) err.textContent = '';
+        if (field.setAttribute) field.setAttribute('aria-invalid', 'false');
+      }
+    };
+    const validate = () => {
+      let valid = true;
+      const fields = quoteForm.querySelectorAll('[data-field]');
+      fields.forEach((wrap) => {
+        const inputs = wrap.querySelectorAll('input, select, textarea');
+        inputs.forEach((inp) => {
+          if (inp.name === 'privacy') {
+            if (!inp.checked) {
+              const err = quoteForm.querySelector('[data-field-name="privacy"]');
+              if (err) err.textContent = '同意のチェックをお願いします';
+              valid = false;
+            } else {
+              const err = quoteForm.querySelector('[data-field-name="privacy"]');
+              if (err) err.textContent = '';
+            }
+            return;
+          }
+          if (inp.required && !inp.value.trim()) {
+            setError(inp, '必須項目です');
+            valid = false;
+            return;
+          }
+          if (inp.type === 'email' && inp.value.trim()) {
+            const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim());
+            if (!emailOk) {
+              setError(inp, 'メールアドレスの形式が正しくありません');
+              valid = false;
+              return;
+            }
+          }
+          setError(inp, '');
+        });
+      });
+      return valid;
+    };
+    quoteForm.querySelectorAll('input, select, textarea').forEach((inp) => {
+      inp.addEventListener('blur', () => {
+        if (inp.name === 'privacy') return;
+        if (inp.required && !inp.value.trim()) setError(inp, '必須項目です');
+        else if (inp.type === 'email' && inp.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim())) {
+          setError(inp, 'メールアドレスの形式が正しくありません');
+        } else setError(inp, '');
+      });
+      inp.addEventListener('input', () => {
+        const wrap = inp.closest('[data-field]');
+        if (wrap && wrap.classList.contains('has-error') && inp.value.trim()) {
+          setError(inp, '');
+        }
+      });
+    });
+    quoteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!validate()) {
+        const firstError = quoteForm.querySelector('.has-error input, .has-error select, .has-error textarea');
+        if (firstError) firstError.focus();
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+      submitBtn.textContent = '送信中...';
+      // ポートフォリオ用ダミー送信（800ms 遅延でリアル感）
+      setTimeout(() => {
+        quoteForm.style.display = 'none';
+        quoteSuccess.hidden = false;
+        const top = quoteSuccess.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+        // フォーカスを成功メッセージに移動（スクリーンリーダー対応）
+        if (typeof quoteSuccess.focus === 'function') {
+          quoteSuccess.setAttribute('tabindex', '-1');
+          setTimeout(() => quoteSuccess.focus(), 100);
+        }
+      }, 800);
+    });
+  }
+
+  /* ---------- Smooth-scroll for internal anchors ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id === '#' || id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const headerOffset = 72;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
