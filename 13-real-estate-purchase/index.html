@@ -101,50 +101,117 @@
   </script>
 
   <style>
+    /*
+    ============================================================
+    [AI-SLOP BANLIST] このLPで明示禁止のパターン（v2-mechanism §1.3 conditional generation 確率抑制）
+    ------------------------------------------------------------
+    FONT:    Inter / Roboto / Arial / Tiempos / Source Serif / Space Grotesk
+             Meiryo / MS PGothic（palt未対応で構造的に premium 不可）
+    COLOR:   #16d5e6系 teal、紫×シアン グラデ、metric 数字への gradient text
+    PATTERN: 全カード左サイドアクセントバー、24/24/24 cards-in-cards、
+             rounded-lg 一律、glassmorphism 乱用、Lucide default icons、
+             "live" 点滅ステータスドット、ヒーロー直下3列フィーチャーグリッド
+    EASING:  ease / ease-in-out / linear / bounce / elastic / Material(0.4,0,0.2,1) / overshoot
+             v3 Authored motion family — 2-dialect 限定:
+               --ease-entry: easeOutQuint(0.22,1,0.36,1) / --ease-exit: easeInOutCubic(0.65,0,0.35,1)
+    DURATION: hero reveal 200ms以下（curve 圧縮で知覚不能 — 600-900ms 帯必須）
+    LCP:     hero img に loading="lazy" 厳禁（preload + fetchpriority="high" 必須）
+    ============================================================
+    */
+
     /* ============================
        CSS Variables
     ============================ */
     :root {
-      /* Brand Colors */
-      --color-primary: #1A3D5C;
-      --color-primary-deep: #112B43;
-      --color-primary-soft: #2C557A;
-      --color-accent: #D97757;
-      --color-accent-soft: #E89B82;
-      --color-gold: #C9A961;
-      --color-gold-soft: #DCC289;
-      --color-cream: #F8F4ED;
-      --color-cream-warm: #F1EBDF;
-      --color-greige: #EAE3D7;
-      --color-greige-deep: #DCD3C2;
+      /* === v4 引き算 palette: 5色基本（warm editorial 純化）=== */
+      --color-ink: #1A2A3A;          /* 主役 dark navy */
+      --color-ink-soft: #4A5560;     /* 補助テキスト */
+      --color-ink-mute: #7A8290;     /* キャプション */
+      --color-paper: #F4EFE6;        /* メイン背景 warm cream */
+      --color-paper-soft: #EAE3D5;   /* セクション分け */
+      --color-accent: #C2734F;       /* warm clay = copper を渋く（gold 撤廃して統合）*/
+      --color-line: #D4CCBE;
+      --color-on-dark: #F4EFE6;
 
-      /* Text */
-      --color-text: #1F2326;
-      --color-text-secondary: #4A4F54;
-      --color-text-muted: #6E6A65;
-      --color-text-on-dark: #F8F4ED;
-      --color-text-on-dark-muted: #BBB0A0;
+      /* === Legacy aliases（既存 class が暴走しないように）=== */
+      --color-primary: var(--color-ink);
+      --color-primary-deep: var(--color-ink);
+      --color-primary-darkest: #0E1820;
+      --color-primary-soft: var(--color-ink-soft);
+      --color-accent-deep: var(--color-accent);
+      --color-accent-soft: var(--color-line);
+      --color-gold: var(--color-accent);
+      --color-gold-deep: var(--color-accent);
+      --color-gold-soft: var(--color-line);
+      --color-gold-pale: var(--color-paper);
+      --color-cream: var(--color-paper);
+      --color-cream-warm: var(--color-paper-soft);
+      --color-greige: var(--color-paper-soft);
+      --color-greige-deep: var(--color-line);
+      --color-text: var(--color-ink);
+      --color-text-secondary: var(--color-ink-soft);
+      --color-text-muted: var(--color-ink-mute);
+      --color-text-on-dark: var(--color-on-dark);
+      --color-text-on-dark-muted: var(--color-line);
+      --color-border: var(--color-line);
+      --color-border-soft: var(--color-line);
 
-      /* Border / Shadow */
-      --color-border: #D4CCBE;
-      --color-border-soft: #E5DECF;
-      --shadow-sm: 0 2px 8px rgba(26, 61, 92, 0.06);
-      --shadow-md: 0 8px 24px rgba(26, 61, 92, 0.08);
-      --shadow-lg: 0 18px 48px rgba(26, 61, 92, 0.14);
-      --shadow-card-hover: 0 24px 60px rgba(26, 61, 92, 0.18);
+      /* === Shadows: 2 tier に削減 === */
+      --shadow-sm: 0 2px 8px rgba(26, 42, 58, 0.06);
+      --shadow-md: 0 12px 32px rgba(26, 42, 58, 0.10);
+      --shadow-lg: var(--shadow-md);
+      --shadow-xl: var(--shadow-md);
+      --shadow-card-hover: 0 18px 48px rgba(26, 42, 58, 0.14);
+      --shadow-gold: var(--shadow-md);
 
-      /* Fonts */
+      /* === Gradients: 1個のみ === */
+      --grad-navy-deep: linear-gradient(160deg, var(--color-ink) 0%, #0E1820 100%);
+      --grad-gold-foil: var(--color-accent);  /* gradient 撤廃、solid */
+      --grad-cream-paper: var(--color-paper);
+
+      /* === Fonts: 2 family のみ（Cormorant 撤廃、Sora で eyebrow も）=== */
       --font-ja: 'Noto Serif JP', 'Yu Mincho', serif;
-      --font-en-display: 'Cormorant Garamond', serif;
       --font-en-ui: 'Sora', system-ui, sans-serif;
+      --font-en-display: var(--font-en-ui);  /* Cormorant alias解除、Sora に統合 */
 
-      /* Layout */
-      --max-width: 1180px;
-      --container-padding: 5%;
-      --section-padding-y: clamp(80px, 10vw, 140px);
+      /* === Layout: padding 拡大（80-140 → 120-200） === */
+      --max-width: 1140px;
+      --container-padding: 6%;
+      --section-padding-y: clamp(120px, 14vw, 200px);
       --header-height: 72px;
-      --transition: 0.36s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      /* === Authored Motion Family v3 — single dialect (Studio AD指摘対応) === */
+      --ease-entry: cubic-bezier(0.22, 1, 0.36, 1);  /* easeOutQuint — primary dialect (hover/transition/reveal/all entry) */
+      --ease-exit:  cubic-bezier(0.65, 0, 0.35, 1);  /* easeInOutCubic — large transitions only (rare) */
+
+      --transition: 0.36s var(--ease-entry);
+      --transition-slow: 0.6s var(--ease-entry);
+
+      /* === Legacy aliases (v2 polish 互換、v3で collapse) === */
+      --ease-out-quint: var(--ease-entry);
+      --ease-out-expo: var(--ease-entry);            /* collapsed to entry */
+      --ease-in-out-cubic: var(--ease-exit);
+
+      /* === Duration scale === */
+      --dur-fast:   180ms;
+      --dur-base:   320ms;
+      --dur-medium: 480ms;
+      --dur-hero:   720ms;   /* hero reveal — 600-900ms premium band */
+      --dur-pin:    1200ms;
+    }
+
+    /* ============================
+       Paper grain (page-wide, fixed under floating CTAs, pointer-events: none)
+    ============================ */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.05;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.10 0 0 0 0 0.17 0 0 0 0 0.27 0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      background-size: 220px 220px;
     }
 
     /* ============================
@@ -176,6 +243,16 @@
     img { max-width: 100%; display: block; height: auto; }
     button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
     ul, ol { list-style: none; }
+
+    /* v2 polish: 本文 orphan/widow 防止 — Knuth-Plass-like 末尾4行最適化 */
+    p, .section-lead,
+    .problem-card__body, .promise-card__body,
+    .feature-content__body, .flow__step-body,
+    .case-card__body, .testimonial__quote,
+    .faq-item__body {
+      text-wrap: pretty;
+      word-break: auto-phrase;
+    }
 
     :focus-visible {
       outline: 2px solid var(--color-accent);
@@ -234,19 +311,27 @@
     .section-label {
       font-family: var(--font-en-display);
       font-size: 0.875rem;
-      letter-spacing: 0.4em;
+      font-style: italic;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
       color: var(--color-accent);
       margin-bottom: 14px;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       font-weight: 500;
     }
     .section-label::before {
       content: '';
-      width: 24px; height: 1px;
-      background: var(--color-accent);
+      width: 28px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-accent));
+    }
+    .section-label::after {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.18);
     }
 
     .section-title {
@@ -259,10 +344,14 @@
       color: var(--color-primary);
       text-wrap: balance;
       word-break: auto-phrase;
+      font-feature-settings: 'palt' 1, 'pkna' 1;
     }
     .section-title em {
       font-style: normal;
       color: var(--color-accent);
+      position: relative;
+      background: linear-gradient(180deg, transparent 65%, rgba(217, 119, 87, 0.16) 65%, rgba(217, 119, 87, 0.16) 92%, transparent 92%);
+      padding: 0 0.04em;
     }
     .section-lead {
       font-size: clamp(0.95rem, 1.5vw, 1.0625rem);
@@ -270,17 +359,86 @@
       margin-bottom: 56px;
       max-width: 720px;
       line-height: 1.95;
+      font-feature-settings: 'palt' 1, 'pkna' 1;
+    }
+    /* Section watermark utility (huge transparent english) */
+    .section-watermark {
+      position: absolute;
+      pointer-events: none;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      color: rgba(26, 61, 92, 0.045);
+      white-space: nowrap;
+      user-select: none;
+      z-index: 0;
+    }
+    .section-watermark--gold { color: rgba(201, 169, 97, 0.10); }
+    .section-watermark--cream { color: rgba(248, 244, 237, 0.06); }
+    .section-watermark--top-right { top: -0.2em; right: -2vw; font-size: clamp(7rem, 16vw, 14rem); }
+    .section-watermark--bottom-left { bottom: -0.2em; left: -2vw; font-size: clamp(7rem, 16vw, 14rem); }
+
+    /* Section divider — refined editorial rule */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto 64px;
+    }
+    .section-divider__line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-border));
+    }
+    .section-divider__line + .section-divider__line {
+      background: linear-gradient(90deg, var(--color-border), transparent);
+    }
+    .section-divider__mark {
+      width: 8px; height: 8px;
+      border: 1px solid var(--color-gold);
+      transform: rotate(45deg);
+      position: relative;
+    }
+    .section-divider__mark::before {
+      content: '';
+      position: absolute;
+      inset: 1.5px;
+      background: var(--color-gold);
     }
 
-    /* Scroll-triggered animations */
+    /* Scroll-triggered animations (IO + class toggle, JS fallback)
+       Premium polish: easing を easeOutQuint に切替 = ballistic decay 整合 */
     .fade-in {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity var(--transition-slow), transform var(--transition-slow);
+      transition: opacity 0.72s var(--ease-out-quint), transform 0.72s var(--ease-out-quint);
     }
     .fade-in.is-visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* Scroll-driven animations (compositor thread, L1) — 対応ブラウザでは IO+class より優先 */
+    @supports (animation-timeline: view()) {
+      .fade-in {
+        /* JS class toggle 不要 — scroll position が animation progress を駆動 */
+        opacity: 0;
+        transform: translateY(28px);
+        animation: fadeInScrollDriven linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 35%;
+        transition: none;
+      }
+      .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInScrollDriven {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
     .fade-in[data-delay="100"] { transition-delay: 0.1s; }
     .fade-in[data-delay="200"] { transition-delay: 0.2s; }
@@ -429,14 +587,14 @@
     .hero__bg {
       position: absolute;
       inset: 0;
-      z-index: -2;
+      z-index: -3;
       background-image:
-        linear-gradient(105deg, rgba(8, 22, 36, 0.97) 0%, rgba(8, 22, 36, 0.92) 28%, rgba(17, 43, 67, 0.82) 55%, rgba(26, 61, 92, 0.55) 80%, rgba(217, 119, 87, 0.4) 100%),
+        linear-gradient(105deg, rgba(8, 22, 36, 0.97) 0%, rgba(8, 22, 36, 0.92) 28%, rgba(17, 43, 67, 0.78) 55%, rgba(26, 61, 92, 0.50) 80%, rgba(217, 119, 87, 0.32) 100%),
         url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=75');
       background-size: cover;
       background-position: center;
-      filter: saturate(0.7) brightness(0.85);
-      will-change: transform;
+      filter: saturate(0.78) brightness(0.88) contrast(1.04);
+      /* will-change は JS 側で動く直前に付与し、不要時は外す（GPUメモリ常時消費を回避） */
     }
     .hero__bg-grain {
       position: absolute;
@@ -448,6 +606,33 @@
       mix-blend-mode: overlay;
       pointer-events: none;
     }
+    /* Hero gold vignette — subtle radial glow from upper-left */
+    .hero__bg-glow {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(50% 60% at 12% 18%, rgba(201, 169, 97, 0.18) 0%, transparent 70%),
+        radial-gradient(40% 50% at 92% 88%, rgba(217, 119, 87, 0.14) 0%, transparent 75%);
+    }
+    /* Hero giant watermark */
+    .hero__watermark {
+      position: absolute;
+      bottom: -0.18em;
+      left: -1.5vw;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(7rem, 16vw, 18rem);
+      line-height: 0.9;
+      letter-spacing: 0.06em;
+      color: rgba(248, 244, 237, 0.045);
+      pointer-events: none;
+      user-select: none;
+      z-index: -1;
+      white-space: nowrap;
+    }
     .hero__inner {
       position: relative;
       width: calc(100% - var(--container-padding) * 2);
@@ -458,7 +643,8 @@
     .hero__eyebrow {
       font-family: var(--font-en-display);
       font-size: 0.875rem;
-      letter-spacing: 0.45em;
+      font-style: italic;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
       color: var(--color-gold);
       margin-bottom: 28px;
@@ -468,48 +654,159 @@
     }
     .hero__eyebrow::before {
       content: '';
-      width: 32px; height: 1px;
-      background: var(--color-gold);
+      width: 36px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold));
     }
+    .hero__eyebrow::after {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.20);
+    }
+    /* v3 polish: Type-as-image hero — prefix と emphasis を別レイヤ化 */
     .hero__title {
       font-family: var(--font-ja);
-      font-size: clamp(2rem, 5.5vw, 3.75rem);
-      font-weight: 700;
-      line-height: 1.4;
-      letter-spacing: 0.05em;
       margin-bottom: 32px;
-      max-width: 760px;
+      max-width: 1020px;
+      font-feature-settings: 'palt' 1, 'pkna' 1;
+      text-wrap: balance;
+      word-break: auto-phrase;
     }
-    .hero__title em {
+    .hero__title-prefix {
+      display: block;
+      font-size: clamp(1.5rem, 3.6vw, 2.5rem);   /* 24-40px — 控えめなeyebrow tier */
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      color: var(--color-text-on-dark);
+      opacity: 0.85;
+    }
+    .hero__title-emphasis {
+      display: block;
       font-style: normal;
-      color: var(--color-gold);
+      font-weight: 700;
+      /* v3 type-as-image: 44-176px display tier、mobile widow 防止のため下限を 2.75rem に */
+      font-size: clamp(2.75rem, 12vw, 11rem);
+      line-height: 0.94;                          /* 詰めて graphic block 化 */
+      letter-spacing: -0.03em;                    /* display tight tracking、mobile 1-line 確保 */
+      color: var(--color-gold);                   /* solid gold — banlist 整合（gradient text 撤廃）*/
       position: relative;
+      text-shadow: 0 2px 32px rgba(0, 0, 0, 0.24);
     }
-    .hero__title em::after {
+    @media (min-width: 1024px) {
+      .hero__title-emphasis {
+        font-size: clamp(6rem, 13vw, 11rem);      /* desktop は最大化 */
+        letter-spacing: -0.02em;
+      }
+    }
+    .hero__title-emphasis::after {
       content: '';
       position: absolute;
-      left: 0; right: 0; bottom: -4px;
-      height: 6px;
+      left: 0; right: 8%;
+      bottom: -6px;
+      height: 8px;
       background: var(--color-accent);
-      opacity: 0.4;
+      opacity: 0.42;
       border-radius: 4px;
       transform: scaleX(0);
       transform-origin: left;
-      animation: heroUnderline 1.2s 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation: heroUnderline 1.2s 0.8s var(--ease-entry) forwards;
     }
     @keyframes heroUnderline { to { transform: scaleX(1); } }
+
+    /* === v3 polish: HOMECYCLE 循環 metaphor SVG === */
+    .hero__cycle {
+      position: absolute;
+      top: 50%;
+      right: 4%;
+      width: clamp(220px, 22vw, 360px);
+      height: clamp(220px, 22vw, 360px);
+      transform: translateY(-50%);
+      z-index: 1;
+      opacity: 0;
+      animation: heroCycleFadeIn 1.6s 1.2s var(--ease-entry) both;
+      pointer-events: none;
+    }
+    .hero__cycle-orbit {
+      transform-origin: center;
+      animation: heroCycleRotate 60s linear infinite;
+    }
+    .hero__cycle-center {
+      transform-origin: center;
+      animation: heroCenterPulse 4.4s var(--ease-entry) infinite;
+    }
+    @keyframes heroCycleFadeIn {
+      from { opacity: 0; transform: translateY(-50%) scale(0.92); }
+      to   { opacity: 1; transform: translateY(-50%) scale(1); }
+    }
+    @keyframes heroCycleRotate {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes heroCenterPulse {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.65; }
+    }
+    /* Hide on tablet & mobile (desktop only — content には影響しない subtle craft) */
+    @media (max-width: 1023px) {
+      .hero__cycle { display: none; }
+    }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .hero__cycle { animation: none; opacity: 1; }
+      .hero__cycle-orbit { animation: none; }
+      .hero__cycle-center { animation: none; }
+    }
+
+    /* Hero supporting badges row */
+    .hero__badges {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 16px;
+      margin-bottom: 26px;
+      font-family: var(--font-en-ui);
+      font-size: 0.6875rem;
+      letter-spacing: 0.18em;
+      color: var(--color-gold-pale);
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(201, 169, 97, 0.42);
+      border-radius: 999px;
+      background: rgba(8, 22, 36, 0.32);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      text-transform: uppercase;
+    }
+    .hero__badge::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      box-shadow: 0 0 8px rgba(201, 169, 97, 0.6);
+    }
+    .hero__badge--seal::before {
+      background: var(--color-accent);
+      box-shadow: 0 0 8px rgba(217, 119, 87, 0.7);
+    }
 
     /* Hero load-in stagger */
     @keyframes heroFadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .hero__eyebrow { animation: heroFadeUp 0.9s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both; }
-    .hero__title   { animation: heroFadeUp 0.9s 0.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
-    .hero__lead    { animation: heroFadeUp 0.9s 0.6s cubic-bezier(0.4, 0, 0.2, 1) both; }
-    .hero__ctas    { animation: heroFadeUp 0.9s 0.8s cubic-bezier(0.4, 0, 0.2, 1) both; }
-    .hero__trust   { animation: heroFadeUp 0.9s 1.0s cubic-bezier(0.4, 0, 0.2, 1) both; }
-    .hero__scroll  { animation: heroFadeUp 0.9s 1.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
+    .hero__eyebrow { animation: heroFadeUp 0.9s 0.2s var(--ease-out-quint) both; }
+    .hero__title   { animation: heroFadeUp 0.9s 0.4s var(--ease-out-quint) both; }
+    .hero__lead    { animation: heroFadeUp 0.9s 0.6s var(--ease-out-quint) both; }
+    .hero__ctas    { animation: heroFadeUp 0.9s 0.8s var(--ease-out-quint) both; }
+    .hero__trust   { animation: heroFadeUp 0.9s 1.0s var(--ease-out-quint) both; }
+    .hero__scroll  { animation: heroFadeUp 0.9s 1.4s var(--ease-out-quint) both; }
 
     .hero__lead {
       font-size: clamp(1rem, 1.7vw, 1.125rem);
@@ -527,31 +824,75 @@
     }
 
     .cta-primary {
-      background: var(--color-accent);
+      background: linear-gradient(135deg, var(--color-accent) 0%, #DC8060 50%, var(--color-accent-deep) 100%);
       color: var(--color-text-on-dark);
       padding: 18px 40px;
       font-size: 1rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       border-radius: 999px;
-      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
       display: inline-flex;
       align-items: center;
       gap: 12px;
       position: relative;
-      box-shadow: 0 12px 28px rgba(217, 119, 87, 0.32);
+      box-shadow:
+        0 12px 28px rgba(217, 119, 87, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(140, 60, 40, 0.20);
+      isolation: isolate;
+      overflow: hidden;
     }
+    .cta-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.32) 50%, transparent 70%);
+      transform: translateX(-110%);
+      transition: transform 0.7s var(--ease-entry);
+      pointer-events: none;
+    }
+    .cta-primary:hover::before { transform: translateX(110%); }
     .cta-primary::after {
       content: '→';
       font-family: var(--font-en-ui);
       transition: transform var(--transition);
     }
     .cta-primary:hover {
-      background: #C5694B;
+      filter: brightness(1.05);
       transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(217, 119, 87, 0.42);
+      box-shadow:
+        0 18px 36px rgba(217, 119, 87, 0.46),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        inset 0 -1px 0 rgba(140, 60, 40, 0.22);
     }
     .cta-primary:hover::after { transform: translateX(4px); }
+    @media (prefers-reduced-motion: reduce) {
+      .cta-primary::before { transition: none; transform: translateX(-110%); }
+    }
+    /* CTA microcopy chip — 「3分で完了」「秘密厳守」 */
+    .cta-microcopy {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+      margin-top: 16px;
+      font-family: var(--font-ja);
+      font-size: 0.75rem;
+      color: var(--color-text-on-dark-muted);
+      letter-spacing: 0.06em;
+    }
+    .cta-microcopy span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cta-microcopy span::before {
+      content: '✓';
+      color: var(--color-gold);
+      font-weight: 700;
+      font-family: var(--font-en-ui);
+    }
 
     .pulse-cta {
       position: relative;
@@ -607,27 +948,79 @@
     .hero__trust {
       display: flex;
       flex-wrap: wrap;
-      gap: 28px 48px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(248, 244, 237, 0.16);
+      gap: 28px 56px;
+      padding-top: 36px;
+      position: relative;
+      border-top: 1px solid transparent;
+      background:
+        linear-gradient(rgba(8,22,36,0)) padding-box,
+        linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.42) 30%, rgba(201, 169, 97, 0.42) 70%, transparent 100%) border-box;
+      border-image: linear-gradient(90deg, transparent 0%, rgba(201, 169, 97, 0.42) 30%, rgba(201, 169, 97, 0.42) 70%, transparent 100%) 1;
+    }
+    .hero__trust::before {
+      content: 'TRUSTED METRICS';
+      position: absolute;
+      top: -8px;
+      left: 0;
+      transform: translateY(-100%);
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: 0.625rem;
+      letter-spacing: 0.42em;
+      color: var(--color-gold);
+      opacity: 0.7;
     }
     .hero__trust-item {
       font-family: var(--font-en-display);
+      position: relative;
+    }
+    .hero__trust-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 6px; bottom: 6px;
+      right: -28px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(201, 169, 97, 0.32), transparent);
+    }
+    @media (max-width: 719.98px) {
+      .hero__trust-item:not(:last-child)::after { display: none; }
     }
     .hero__trust-num {
-      font-family: var(--font-en-ui);
-      font-size: 1.875rem;
+      font-family: var(--font-en-display);
+      font-size: 2.375rem;
       font-weight: 600;
       color: var(--color-gold);
-      letter-spacing: -0.02em;
-      display: block;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 2px;
+      line-height: 1;
+      font-feature-settings: 'tnum' 1, 'lnum' 1;
+    }
+    .hero__trust-num small {
+      font-size: 0.55em;
+      font-weight: 500;
+      color: var(--color-gold-soft);
+      margin-left: 2px;
+      letter-spacing: 0;
     }
     .hero__trust-label {
       font-family: var(--font-ja);
       font-size: 0.75rem;
       letter-spacing: 0.18em;
       color: var(--color-text-on-dark-muted);
-      margin-top: 2px;
+      margin-top: 6px;
+      display: block;
+    }
+    .hero__trust-tag {
+      display: inline-block;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: 0.625rem;
+      letter-spacing: 0.32em;
+      color: var(--color-accent-soft);
+      text-transform: uppercase;
+      margin-bottom: 4px;
     }
 
     .hero__scroll {
@@ -635,12 +1028,13 @@
       bottom: 28px;
       right: 32px;
       font-family: var(--font-en-display);
+      font-style: italic;
       font-size: 0.75rem;
-      letter-spacing: 0.4em;
+      letter-spacing: 0.42em;
       color: var(--color-gold-soft);
       writing-mode: vertical-rl;
       padding-bottom: 56px;
-      opacity: 0.72;
+      opacity: 0.78;
     }
     .hero__scroll::after {
       content: '';
@@ -666,15 +1060,28 @@
     ============================ */
     .problems {
       padding: var(--section-padding-y) 0;
-      background: var(--color-cream);
+      background:
+        linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-warm) 100%);
       position: relative;
+      overflow: hidden;
+    }
+    .problems::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.36) 50%, transparent);
     }
     .problems__head {
       text-align: center;
       max-width: 720px;
       margin: 0 auto 64px;
+      position: relative;
     }
     .problems__head .section-lead { margin-left: auto; margin-right: auto; }
+    .problems__head .section-label {
+      justify-content: center;
+    }
 
     .problems__grid {
       display: grid;
@@ -699,12 +1106,23 @@
       padding: 32px 28px;
       position: relative;
       transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      overflow: hidden;
+    }
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-accent));
+      transition: width 0.6s var(--ease-entry);
     }
     .problem-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
       border-color: var(--color-accent-soft);
     }
+    .problem-card:hover::before { width: 100%; }
     .problem-card__num {
       font-family: var(--font-en-display);
       font-size: 0.875rem;
@@ -758,7 +1176,10 @@
     ============================ */
     .promise {
       padding: var(--section-padding-y) 0;
-      background: var(--color-greige);
+      background:
+        radial-gradient(at 12% 14%, rgba(201, 169, 97, 0.10) 0%, transparent 45%),
+        radial-gradient(at 88% 86%, rgba(217, 119, 87, 0.07) 0%, transparent 45%),
+        var(--color-greige);
       position: relative;
       overflow: hidden;
     }
@@ -768,6 +1189,7 @@
       top: 8%;
       right: -2%;
       font-family: var(--font-en-display);
+      font-style: italic;
       font-size: clamp(8rem, 18vw, 16rem);
       font-weight: 400;
       color: rgba(26, 61, 92, 0.05);
@@ -775,10 +1197,26 @@
       pointer-events: none;
       line-height: 1;
     }
+    .promise::after {
+      content: 'PROMISE';
+      position: absolute;
+      bottom: 6%;
+      left: -2%;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: clamp(6rem, 13vw, 12rem);
+      font-weight: 500;
+      color: rgba(201, 169, 97, 0.08);
+      letter-spacing: 0.16em;
+      pointer-events: none;
+      line-height: 1;
+    }
     .promise__head {
       text-align: center;
       margin-bottom: 64px;
+      position: relative;
     }
+    .promise__head .section-label { justify-content: center; }
     .promise__grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -790,13 +1228,15 @@
     }
 
     .promise-card {
-      background: var(--color-cream);
+      background:
+        linear-gradient(180deg, #FBF9F4 0%, var(--color-cream) 100%);
       border-radius: 18px;
       padding: 44px 36px;
       transition: transform var(--transition), box-shadow var(--transition);
       transform-style: preserve-3d;
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(212, 204, 190, 0.6);
     }
     .promise-card::before {
       content: '';
@@ -806,16 +1246,39 @@
       opacity: 0;
       transition: opacity var(--transition);
     }
+    /* Gold corner ornament */
+    .promise-card::after {
+      content: '';
+      position: absolute;
+      top: 18px; right: 18px;
+      width: 32px; height: 32px;
+      border-top: 1px solid var(--color-gold);
+      border-right: 1px solid var(--color-gold);
+      opacity: 0.5;
+      transition: opacity var(--transition);
+    }
     .promise-card:hover { box-shadow: var(--shadow-lg); }
     .promise-card:hover::before { opacity: 1; }
+    .promise-card:hover::after { opacity: 1; }
     .promise-card__num {
       font-family: var(--font-en-display);
-      font-size: 3rem;
+      font-style: italic;
+      font-size: 3.25rem;
       font-weight: 500;
       color: var(--color-accent);
       line-height: 1;
       margin-bottom: 20px;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-feature-settings: 'lnum' 1;
+    }
+    .promise-card__num::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--color-gold), transparent);
     }
     .promise-card__title {
       font-size: 1.1875rem;
@@ -839,7 +1302,8 @@
     ============================ */
     .numbers {
       padding: var(--section-padding-y) 0;
-      background: var(--color-primary);
+      background:
+        linear-gradient(160deg, var(--color-primary-darkest) 0%, var(--color-primary-deep) 38%, var(--color-primary) 75%, var(--color-primary-soft) 100%);
       color: var(--color-text-on-dark);
       position: relative;
       overflow: hidden;
@@ -849,14 +1313,41 @@
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(at 20% 30%, rgba(217, 119, 87, 0.12) 0%, transparent 50%),
-        radial-gradient(at 80% 70%, rgba(201, 169, 97, 0.10) 0%, transparent 50%);
+        radial-gradient(at 20% 30%, rgba(217, 119, 87, 0.14) 0%, transparent 50%),
+        radial-gradient(at 80% 70%, rgba(201, 169, 97, 0.16) 0%, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(248, 244, 237, 0.04) 0%, transparent 40%);
       pointer-events: none;
     }
-    .numbers__head { text-align: center; margin-bottom: 80px; position: relative; }
+    /* Numbers grand watermark */
+    .numbers::after {
+      content: 'METRICS';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: clamp(10rem, 28vw, 24rem);
+      font-weight: 500;
+      color: rgba(201, 169, 97, 0.04);
+      letter-spacing: 0.06em;
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .numbers__head { text-align: center; margin-bottom: 80px; position: relative; z-index: 1; }
     .numbers__head .section-title { color: var(--color-text-on-dark); }
-    .numbers__head .section-title em { color: var(--color-gold); }
+    .numbers__head .section-title em {
+      color: var(--color-gold);
+      background: linear-gradient(180deg, var(--color-gold-pale) 0%, var(--color-gold) 50%, var(--color-gold-deep) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
     .numbers__head .section-lead { color: var(--color-text-on-dark-muted); margin-left: auto; margin-right: auto; }
+    .numbers__head .section-label { justify-content: center; color: var(--color-gold) !important; }
+    .numbers__head .section-label::before { background: linear-gradient(90deg, transparent, var(--color-gold)); }
+    .numbers__head .section-label::after { background: var(--color-gold); box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.22); }
+    .numbers__grid { position: relative; z-index: 1; }
 
     .numbers__grid {
       display: grid;
@@ -870,41 +1361,74 @@
 
     .number-item {
       text-align: center;
-      padding: 28px 16px;
+      padding: 36px 18px 32px;
       border: 1px solid rgba(248, 244, 237, 0.14);
       border-radius: 14px;
-      background: rgba(248, 244, 237, 0.03);
-      transition: background var(--transition), transform var(--transition), border-color var(--transition);
+      background:
+        linear-gradient(180deg, rgba(248, 244, 237, 0.06) 0%, rgba(248, 244, 237, 0.02) 100%);
+      transition: background var(--transition), transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .number-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+      transition: width 0.6s var(--ease-entry);
     }
     .number-item:hover {
-      background: rgba(248, 244, 237, 0.06);
-      border-color: rgba(201, 169, 97, 0.4);
-      transform: translateY(-3px);
+      background: linear-gradient(180deg, rgba(248, 244, 237, 0.10) 0%, rgba(248, 244, 237, 0.04) 100%);
+      border-color: rgba(201, 169, 97, 0.42);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(8, 22, 36, 0.4);
     }
+    .number-item:hover::before { width: 80%; }
     .number-item__label {
       font-family: var(--font-en-display);
+      font-style: italic;
       font-size: 0.75rem;
       letter-spacing: 0.32em;
       color: var(--color-gold);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .number-item__label::before,
+    .number-item__label::after {
+      content: '';
+      width: 12px;
+      height: 1px;
+      background: rgba(201, 169, 97, 0.42);
     }
     .number-item__value {
-      font-family: var(--font-en-ui);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 600;
+      font-family: var(--font-en-display);
+      font-size: clamp(3rem, 6.5vw, 4.5rem);
+      font-weight: 500;
       line-height: 1;
-      letter-spacing: -0.02em;
-      color: var(--color-cream);
+      letter-spacing: -0.01em;
       display: inline-flex;
       align-items: baseline;
       gap: 4px;
+      font-feature-settings: 'tnum' 1, 'lnum' 1;
+      background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-gold-pale) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .number-item__unit {
-      font-size: 0.875rem;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--color-gold-soft);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
+      -webkit-text-fill-color: currentColor;
     }
     .number-item__caption {
       font-size: 0.8125rem;
@@ -932,19 +1456,53 @@
       z-index: -2;
       background-size: cover;
       background-position: center;
-      transition: transform 8s linear;
+      transform: scale(1.02);
+      transition: transform 1.6s var(--ease-entry), filter 1.2s ease;
+      filter: saturate(0.85) contrast(1.04);
     }
-    .feature-block:hover .feature-block__bg { transform: scale(1.05); }
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .feature-block:hover .feature-block__bg { transform: scale(1.06); filter: saturate(0.95) contrast(1.06); }
+    }
     .feature-block::before {
       content: '';
       position: absolute;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(90deg, rgba(8, 22, 36, 0.92) 0%, rgba(17, 43, 67, 0.78) 38%, rgba(17, 43, 67, 0.45) 70%, rgba(17, 43, 67, 0.18) 100%);
+      background:
+        linear-gradient(90deg, rgba(8, 22, 36, 0.94) 0%, rgba(17, 43, 67, 0.80) 38%, rgba(17, 43, 67, 0.45) 70%, rgba(17, 43, 67, 0.18) 100%),
+        radial-gradient(at 18% 50%, rgba(201, 169, 97, 0.10) 0%, transparent 35%);
     }
     .feature-block--reverse::before {
-      background: linear-gradient(270deg, rgba(8, 22, 36, 0.92) 0%, rgba(17, 43, 67, 0.78) 38%, rgba(17, 43, 67, 0.45) 70%, rgba(17, 43, 67, 0.18) 100%);
+      background:
+        linear-gradient(270deg, rgba(8, 22, 36, 0.94) 0%, rgba(17, 43, 67, 0.80) 38%, rgba(17, 43, 67, 0.45) 70%, rgba(17, 43, 67, 0.18) 100%),
+        radial-gradient(at 82% 50%, rgba(201, 169, 97, 0.10) 0%, transparent 35%);
     }
+    /* Gold thin rule between blocks */
+    .feature-block + .feature-block::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.42) 50%, transparent);
+      z-index: 2;
+    }
+    /* Section watermark per feature */
+    .feature-block__sigil {
+      position: absolute;
+      top: 12%;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: clamp(6rem, 14vw, 12rem);
+      font-weight: 500;
+      color: rgba(248, 244, 237, 0.04);
+      line-height: 1;
+      letter-spacing: 0.08em;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+    .feature-block .feature-block__sigil { right: -3vw; }
+    .feature-block--reverse .feature-block__sigil { left: -3vw; right: auto; }
 
     .feature-block__inner {
       width: calc(100% - var(--container-padding) * 2);
@@ -961,8 +1519,9 @@
     }
     .feature-content__num {
       font-family: var(--font-en-display);
+      font-style: italic;
       font-size: 0.875rem;
-      letter-spacing: 0.45em;
+      letter-spacing: 0.42em;
       color: var(--color-gold);
       margin-bottom: 18px;
       display: inline-flex;
@@ -972,21 +1531,33 @@
     .feature-content__num::before {
       content: '';
       width: 36px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold));
+    }
+    .feature-content__num::after {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
       background: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.22);
     }
     .feature-content__title {
       font-family: var(--font-ja);
-      font-size: clamp(1.5rem, 3vw, 2.125rem);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
       font-weight: 700;
       line-height: 1.5;
       margin-bottom: 24px;
       letter-spacing: 0.04em;
       text-wrap: balance;
       word-break: auto-phrase;
+      font-feature-settings: 'palt' 1, 'pkna' 1;
     }
     .feature-content__title em {
       font-style: normal;
       color: var(--color-gold);
+      background: linear-gradient(180deg, var(--color-gold-pale) 0%, var(--color-gold) 60%, var(--color-gold-deep) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .feature-content__body {
       font-size: 1rem;
@@ -1021,10 +1592,27 @@
     ============================ */
     .flow {
       padding: var(--section-padding-y) 0;
-      background: var(--color-cream-warm);
+      background:
+        linear-gradient(180deg, var(--color-cream-warm) 0%, var(--color-cream) 50%, var(--color-cream-warm) 100%);
       position: relative;
+      overflow: hidden;
     }
-    .flow__head { text-align: center; margin-bottom: 72px; }
+    .flow::before {
+      content: 'JOURNEY';
+      position: absolute;
+      top: 6%;
+      right: -3%;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: clamp(7rem, 15vw, 13rem);
+      font-weight: 500;
+      color: rgba(26, 61, 92, 0.04);
+      letter-spacing: 0.10em;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .flow__head { text-align: center; margin-bottom: 72px; position: relative; }
+    .flow__head .section-label { justify-content: center; }
     .flow__head .section-lead { margin-left: auto; margin-right: auto; }
 
     .flow__steps {
@@ -1047,7 +1635,7 @@
       width: 100%;
       height: 0%;
       background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-gold) 100%);
-      transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: height 0.5s var(--ease-entry);
     }
     @media (min-width: 900px) {
       .flow__line { left: 50%; transform: translateX(-50%); }
@@ -1081,18 +1669,34 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-en-display);
-      font-size: 1.625rem;
+      font-style: italic;
+      font-size: 1.75rem;
       font-weight: 600;
       color: var(--color-text-muted);
-      transition: all var(--transition);
+      transition: all 0.5s var(--ease-entry);
       position: relative;
+      font-feature-settings: 'lnum' 1;
+    }
+    .flow__step-num::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid var(--color-gold);
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
     .flow__step.is-active .flow__step-num {
-      background: var(--color-primary);
+      background: linear-gradient(135deg, var(--color-primary-deep) 0%, var(--color-primary) 60%, var(--color-primary-soft) 100%);
       border-color: var(--color-accent);
       color: var(--color-gold);
-      box-shadow: 0 8px 24px rgba(26, 61, 92, 0.24);
-      transform: scale(1.05);
+      box-shadow:
+        0 8px 24px rgba(26, 61, 92, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+      transform: scale(1.08);
+    }
+    .flow__step.is-active .flow__step-num::before {
+      opacity: 0.45;
     }
     .flow__step-content {
       padding: 8px 0 32px;
@@ -1140,9 +1744,27 @@
     ============================ */
     .comparison {
       padding: var(--section-padding-y) 0;
-      background: var(--color-cream);
+      background:
+        linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-warm) 100%);
+      position: relative;
+      overflow: hidden;
     }
-    .comparison__head { text-align: center; margin-bottom: 56px; }
+    .comparison::before {
+      content: 'COMPARE';
+      position: absolute;
+      top: 6%;
+      right: -3%;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: clamp(7rem, 14vw, 12rem);
+      font-weight: 500;
+      color: rgba(26, 61, 92, 0.045);
+      letter-spacing: 0.10em;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .comparison__head { text-align: center; margin-bottom: 56px; position: relative; }
+    .comparison__head .section-label { justify-content: center; }
     .comparison__head .section-lead { margin-left: auto; margin-right: auto; }
 
     .comparison__table-wrap {
@@ -1150,7 +1772,9 @@
       margin: 0 auto;
       overflow-x: auto;
       border-radius: 16px;
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      border: 1px solid var(--color-border-soft);
     }
     .comparison__table {
       width: 100%;
@@ -1176,11 +1800,21 @@
       padding-bottom: 24px;
     }
     .comparison__table thead th.is-highlight {
-      background: var(--color-primary);
+      background: linear-gradient(135deg, var(--color-primary-deep) 0%, var(--color-primary) 60%, var(--color-primary-soft) 100%);
       color: var(--color-gold);
       font-size: 1rem;
       letter-spacing: 0.18em;
       font-family: var(--font-en-display);
+      font-style: italic;
+      font-weight: 600;
+      position: relative;
+    }
+    .comparison__table thead th.is-highlight::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-gold-deep), var(--color-gold), var(--color-gold-pale), var(--color-gold), var(--color-gold-deep));
     }
     .comparison__table tbody th {
       font-size: 0.9375rem;
@@ -1213,9 +1847,27 @@
     ============================ */
     .cases {
       padding: var(--section-padding-y) 0;
-      background: var(--color-greige);
+      background:
+        radial-gradient(at 90% 8%, rgba(217, 119, 87, 0.06) 0%, transparent 40%),
+        var(--color-greige);
+      position: relative;
+      overflow: hidden;
     }
-    .cases__head { margin-bottom: 56px; max-width: 720px; }
+    .cases::before {
+      content: 'PORTFOLIO';
+      position: absolute;
+      bottom: -2%;
+      left: -2%;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: clamp(7rem, 15vw, 13rem);
+      font-weight: 500;
+      color: rgba(26, 61, 92, 0.04);
+      letter-spacing: 0.10em;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .cases__head { margin-bottom: 56px; max-width: 720px; position: relative; }
 
     .cases__grid {
       display: grid;
@@ -1246,20 +1898,36 @@
     .case-card__media img {
       width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease;
+      transition: transform 1.2s var(--ease-entry), filter 0.6s ease;
+      filter: saturate(0.92) contrast(1.04);
     }
-    .case-card:hover .case-card__media img { transform: scale(1.06); }
+    .case-card:hover .case-card__media img { transform: scale(1.06); filter: saturate(1) contrast(1.06); }
+    /* Subtle gradient veil on case image (lower-third) */
+    .case-card__media::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, transparent 60%, rgba(8, 22, 36, 0.32) 100%);
+      pointer-events: none;
+    }
     .case-card__media::after {
       content: 'PORTFOLIO SAMPLE';
       position: absolute;
       top: 12px; right: 12px;
+      z-index: 2;
       font-family: var(--font-en-display);
+      font-style: italic;
       font-size: 0.625rem;
-      letter-spacing: 0.2em;
-      color: var(--color-cream);
-      background: rgba(17, 43, 67, 0.7);
-      padding: 4px 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      color: var(--color-gold-pale);
+      background: rgba(8, 22, 36, 0.78);
+      padding: 5px 12px;
       border-radius: 999px;
+      border: 1px solid rgba(201, 169, 97, 0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .case-card__body { padding: 28px 26px 30px; }
     .case-card__meta {
@@ -1272,11 +1940,17 @@
       font-family: var(--font-en-ui);
       font-size: 0.6875rem;
       font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--color-text-muted);
+      letter-spacing: 0.08em;
+      color: var(--color-primary-soft);
       background: var(--color-cream-warm);
-      padding: 4px 10px;
-      border-radius: 4px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--color-border-soft);
+    }
+    .case-card__meta span:first-child {
+      color: var(--color-primary);
+      background: var(--color-greige);
+      border-color: var(--color-border);
     }
     .case-card__title {
       font-size: 1.0625rem;
@@ -1308,10 +1982,12 @@
       letter-spacing: 0.1em;
     }
     .case-card__price-value {
-      font-family: var(--font-en-ui);
-      font-size: 1.25rem;
+      font-family: var(--font-en-display);
+      font-size: 1.5rem;
       font-weight: 600;
+      letter-spacing: -0.01em;
       color: var(--color-accent);
+      font-feature-settings: 'tnum' 1, 'lnum' 1;
     }
     .case-card__price-meta {
       font-size: 0.75rem;
@@ -1324,9 +2000,28 @@
     ============================ */
     .testimonials {
       padding: var(--section-padding-y) 0;
-      background: var(--color-cream);
+      background:
+        radial-gradient(at 50% 100%, rgba(201, 169, 97, 0.06) 0%, transparent 50%),
+        var(--color-cream);
+      position: relative;
+      overflow: hidden;
     }
-    .testimonials__head { text-align: center; margin-bottom: 64px; }
+    .testimonials::before {
+      content: 'VOICES';
+      position: absolute;
+      top: 4%;
+      left: -2%;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: clamp(7rem, 15vw, 13rem);
+      font-weight: 500;
+      color: rgba(26, 61, 92, 0.04);
+      letter-spacing: 0.10em;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .testimonials__head { text-align: center; margin-bottom: 64px; position: relative; }
+    .testimonials__head .section-label { justify-content: center; }
     .testimonials__head .section-lead { margin-left: auto; margin-right: auto; }
 
     .testimonials__grid {
@@ -1350,10 +2045,15 @@
     .testimonial::before {
       content: '"';
       font-family: var(--font-en-display);
-      font-size: 5rem;
-      line-height: 0.8;
-      color: var(--color-accent);
-      opacity: 0.32;
+      font-style: italic;
+      font-size: 6rem;
+      font-weight: 600;
+      line-height: 0.7;
+      background: linear-gradient(180deg, var(--color-accent) 0%, var(--color-gold) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0.4;
       position: absolute;
       top: 20px; left: 24px;
     }
@@ -1375,17 +2075,28 @@
       border-top: 1px solid var(--color-border-soft);
     }
     .testimonial__avatar {
-      width: 44px; height: 44px;
+      width: 48px; height: 48px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--color-greige-deep), var(--color-border));
+      background:
+        linear-gradient(135deg, var(--color-greige-deep), var(--color-border));
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-en-display);
-      font-size: 0.9375rem;
+      font-style: italic;
+      font-size: 1.125rem;
       font-weight: 600;
       color: var(--color-primary);
       flex-shrink: 0;
+      border: 1px solid var(--color-gold);
+      position: relative;
+    }
+    .testimonial__avatar::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 169, 97, 0.32);
     }
     .testimonial__author-info {
       font-size: 0.8125rem;
@@ -1418,9 +2129,27 @@
     ============================ */
     .faq {
       padding: var(--section-padding-y) 0;
-      background: var(--color-greige);
+      background:
+        linear-gradient(180deg, var(--color-greige) 0%, var(--color-greige-deep) 100%);
+      position: relative;
+      overflow: hidden;
     }
-    .faq__head { text-align: center; margin-bottom: 56px; }
+    .faq::before {
+      content: 'QUESTIONS';
+      position: absolute;
+      bottom: -3%;
+      right: -2%;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-size: clamp(6rem, 13vw, 11rem);
+      font-weight: 500;
+      color: rgba(26, 61, 92, 0.04);
+      letter-spacing: 0.10em;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .faq__head { text-align: center; margin-bottom: 56px; position: relative; }
+    .faq__head .section-label { justify-content: center; }
     .faq__list {
       max-width: 820px;
       margin: 0 auto;
@@ -1452,12 +2181,14 @@
     .faq-item__btn:hover { background: var(--color-cream); }
     .faq-item__q {
       font-family: var(--font-en-display);
-      font-size: 1.25rem;
+      font-style: italic;
+      font-size: 1.375rem;
       font-weight: 600;
       color: var(--color-accent);
       line-height: 1;
       flex-shrink: 0;
-      width: 28px;
+      width: 32px;
+      font-feature-settings: 'lnum' 1;
     }
     .faq-item__title {
       flex: 1;
@@ -1489,7 +2220,7 @@
     .faq-item__icon::after {
       width: 1.5px; height: 12px;
       transform: translate(-50%, -50%);
-      transition: transform 0.36s var(--transition), background var(--transition);
+      transition: transform var(--transition), background var(--transition);
     }
     .faq-item.is-open .faq-item__icon::after {
       transform: translate(-50%, -50%) rotate(90deg);
@@ -1500,7 +2231,7 @@
     .faq-item__panel {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: max-height 0.4s var(--ease-entry);
     }
     .faq-item__panel-inner {
       padding: 4px 28px 26px 76px;
@@ -1525,16 +2256,40 @@
     .cta-section__bg {
       position: absolute;
       inset: 0;
-      z-index: -2;
+      z-index: -3;
       background-image:
-        linear-gradient(135deg, rgba(8, 22, 36, 0.94) 0%, rgba(17, 43, 67, 0.86) 50%, rgba(26, 61, 92, 0.72) 100%),
+        linear-gradient(135deg, rgba(8, 22, 36, 0.95) 0%, rgba(17, 43, 67, 0.86) 50%, rgba(26, 61, 92, 0.72) 100%),
         url('https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=1920&q=70');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
-      filter: saturate(0.85);
+      /* background-attachment: fixed は iOS/Safari でレンダリング不能 + 全デバイスでスクロール時の再ペイント負荷が大きいため不採用 */
+      filter: saturate(0.88) contrast(1.04);
     }
-    @media (max-width: 1023px) { .cta-section__bg { background-attachment: scroll; } }
+    .cta-section__bg-glow {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(40% 50% at 50% 100%, rgba(217, 119, 87, 0.20) 0%, transparent 70%),
+        radial-gradient(35% 45% at 14% 12%, rgba(201, 169, 97, 0.18) 0%, transparent 70%);
+    }
+    .cta-section__watermark {
+      position: absolute;
+      bottom: -0.18em;
+      right: -2vw;
+      font-family: var(--font-en-display);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(7rem, 16vw, 16rem);
+      line-height: 0.9;
+      letter-spacing: 0.06em;
+      color: rgba(248, 244, 237, 0.045);
+      pointer-events: none;
+      user-select: none;
+      z-index: -1;
+      white-space: nowrap;
+    }
 
     .cta-section__inner {
       max-width: 880px;
@@ -1545,8 +2300,9 @@
     }
     .cta-section__eyebrow {
       font-family: var(--font-en-display);
+      font-style: italic;
       font-size: 0.875rem;
-      letter-spacing: 0.45em;
+      letter-spacing: 0.42em;
       color: var(--color-gold);
       margin-bottom: 20px;
       display: inline-flex;
@@ -1556,20 +2312,26 @@
     .cta-section__eyebrow::before,
     .cta-section__eyebrow::after {
       content: '';
-      width: 28px; height: 1px;
-      background: var(--color-gold);
+      width: 32px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
     }
     .cta-section__title {
       font-family: var(--font-ja);
-      font-size: clamp(1.625rem, 3.6vw, 2.5rem);
+      font-size: clamp(1.625rem, 3.6vw, 2.625rem);
       font-weight: 700;
       line-height: 1.55;
       letter-spacing: 0.05em;
       margin-bottom: 28px;
+      font-feature-settings: 'palt' 1, 'pkna' 1;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.18);
     }
     .cta-section__title em {
       font-style: normal;
       color: var(--color-gold);
+      background: linear-gradient(180deg, var(--color-gold-pale) 0%, var(--color-gold) 50%, var(--color-gold-deep) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .cta-section__body {
       font-size: 1rem;
@@ -1604,13 +2366,24 @@
     .quote-form {
       max-width: 680px;
       margin: 48px auto 24px;
-      padding: 36px 32px 32px;
-      background: var(--color-cream);
+      padding: 40px 36px 36px;
+      background:
+        linear-gradient(180deg, #FBF9F4 0%, var(--color-cream) 100%);
       border-radius: 18px;
-      box-shadow: 0 24px 60px rgba(8, 22, 36, 0.36), 0 4px 12px rgba(8, 22, 36, 0.16);
+      box-shadow: 0 32px 72px rgba(8, 22, 36, 0.42), 0 4px 12px rgba(8, 22, 36, 0.18);
       text-align: left;
       color: var(--color-text);
       position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    /* Gold ribbon at top */
+    .quote-form::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 24px; right: 24px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--color-gold-deep), var(--color-gold), var(--color-gold-pale), var(--color-gold), var(--color-gold-deep), transparent);
+      border-radius: 0 0 3px 3px;
     }
     .quote-form__head {
       text-align: center;
@@ -1620,15 +2393,31 @@
     }
     .quote-form__head h3 {
       font-family: var(--font-ja);
-      font-size: 1.1875rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--color-primary);
-      margin-bottom: 6px;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .quote-form__head h3::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      border: 1px solid var(--color-gold);
+      transform: rotate(45deg);
+      margin-right: 12px;
+      vertical-align: middle;
+      position: relative;
+      top: -2px;
     }
     .quote-form__head p {
       font-size: 0.8125rem;
       color: var(--color-text-muted);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
+    }
+    .quote-form__head p strong {
+      color: var(--color-accent);
+      font-weight: 700;
     }
     .quote-form__row {
       display: grid;
@@ -1675,15 +2464,22 @@
     .quote-form select,
     .quote-form textarea {
       width: 100%;
-      padding: 12px 14px;
+      padding: 13px 16px;
       font: inherit;
       font-size: 0.9375rem;
       color: var(--color-text);
       background: var(--color-cream-warm);
       border: 1.5px solid var(--color-border-soft);
       border-radius: 8px;
-      transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
+      transition: border-color 0.22s, box-shadow 0.22s, background 0.22s, transform 0.22s;
       font-family: var(--font-ja);
+    }
+    .quote-form input[type="text"]:hover,
+    .quote-form input[type="email"]:hover,
+    .quote-form select:hover,
+    .quote-form textarea:hover {
+      border-color: var(--color-gold);
+      background: #fff;
     }
     .quote-form select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%), linear-gradient(135deg, var(--color-text-muted) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 36px; }
     .quote-form textarea {
@@ -1698,7 +2494,10 @@
       outline: none;
       border-color: var(--color-accent);
       background: #fff;
-      box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.16);
+      box-shadow:
+        0 0 0 3px rgba(217, 119, 87, 0.18),
+        0 4px 14px rgba(217, 119, 87, 0.14);
+      transform: translateY(-1px);
     }
     .quote-form .has-error input,
     .quote-form .has-error select,
@@ -1744,26 +2543,48 @@
     }
     .quote-form__submit {
       width: 100%;
-      padding: 16px 24px;
-      background: var(--color-accent);
+      padding: 18px 28px;
+      background: linear-gradient(135deg, var(--color-accent) 0%, #DC8060 50%, var(--color-accent-deep) 100%);
       color: var(--color-text-on-dark);
       border-radius: 999px;
-      font-size: 1rem;
+      font-size: 1.0625rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 14px;
       cursor: pointer;
-      transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
-      box-shadow: 0 12px 28px rgba(217, 119, 87, 0.32);
+      transition: filter 0.22s, transform 0.22s, box-shadow 0.22s;
+      box-shadow:
+        0 14px 32px rgba(217, 119, 87, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(140, 60, 40, 0.20);
       font-family: var(--font-ja);
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
     }
+    .quote-form__submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.32) 50%, transparent 70%);
+      transform: translateX(-110%);
+      transition: transform 0.7s var(--ease-entry);
+      pointer-events: none;
+    }
+    .quote-form__submit:hover::before { transform: translateX(110%); }
     .quote-form__submit:hover {
-      background: #C5694B;
+      filter: brightness(1.05);
       transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(217, 119, 87, 0.42);
+      box-shadow:
+        0 20px 42px rgba(217, 119, 87, 0.46),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        inset 0 -1px 0 rgba(140, 60, 40, 0.22);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .quote-form__submit::before { transition: none; transform: translateX(-110%); }
     }
     .quote-form__submit:active { transform: translateY(0); }
     .quote-form__submit[disabled] {
@@ -1796,7 +2617,7 @@
       box-shadow: 0 24px 60px rgba(8, 22, 36, 0.36);
       text-align: center;
       color: var(--color-text);
-      animation: successFadeIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: successFadeIn 0.5s var(--ease-entry);
     }
     @keyframes successFadeIn {
       from { opacity: 0; transform: translateY(20px) scale(0.96); }
@@ -1921,7 +2742,7 @@
     .floating-cta.is-visible {
       opacity: 1;
       visibility: visible;
-      animation: floatingSlideIn 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      animation: floatingSlideIn 0.85s var(--ease-entry) forwards;
       transition: opacity 0.3s ease, visibility 0s linear 0s;
       pointer-events: auto;
     }
@@ -1932,7 +2753,7 @@
       100% { transform: translateX(0) scale(1) rotate(0); opacity: 1; }
     }
     .floating-cta.is-visible .floating-cta__icon {
-      animation: iconPop 0.65s 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both, iconWiggle 3.6s 1.6s ease-in-out infinite;
+      animation: iconPop 0.65s 0.45s var(--ease-entry) both, iconWiggle 3.6s 1.6s ease-in-out infinite;
     }
     @keyframes iconPop {
       0%   { transform: scale(0) rotate(-90deg); }
@@ -1958,14 +2779,17 @@
       align-items: center;
       gap: 14px;
       padding: 14px 24px 14px 18px;
-      background: var(--color-accent);
+      background: linear-gradient(135deg, var(--color-accent) 0%, #DC8060 50%, var(--color-accent-deep) 100%);
       color: var(--color-text-on-dark);
       border-radius: 999px;
-      box-shadow: 0 14px 36px rgba(217, 119, 87, 0.45), 0 4px 12px rgba(17, 43, 67, 0.28);
+      box-shadow:
+        0 14px 36px rgba(217, 119, 87, 0.48),
+        0 4px 12px rgba(17, 43, 67, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
       font-weight: 600;
       font-size: 0.9375rem;
       letter-spacing: 0.06em;
-      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.32s cubic-bezier(0.4, 0, 0.2, 1), background 0.32s;
+      transition: transform 0.32s var(--ease-entry), box-shadow 0.32s var(--ease-entry), filter 0.32s;
       position: relative;
     }
     .floating-cta__link::before {
@@ -1984,9 +2808,12 @@
       100% { transform: scale(1.12); opacity: 0; }
     }
     .floating-cta__link:hover {
-      background: #C5694B;
+      filter: brightness(1.05);
       transform: translateY(-3px);
-      box-shadow: 0 20px 44px rgba(217, 119, 87, 0.55), 0 6px 16px rgba(17, 43, 67, 0.32);
+      box-shadow:
+        0 20px 44px rgba(217, 119, 87, 0.58),
+        0 6px 16px rgba(17, 43, 67, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
     }
     .floating-cta__icon {
       width: 36px; height: 36px;
@@ -2021,7 +2848,7 @@
     }
     .floating-cta__arrow {
       font-family: var(--font-en-ui);
-      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.32s var(--ease-entry);
       margin-left: 2px;
     }
     .floating-cta__link:hover .floating-cta__arrow { transform: translateX(4px); }
@@ -2047,7 +2874,7 @@
       transform: scale(1.06);
     }
     /* Mobile: hide PC floating CTA, use mobile-tabbar instead */
-    @media (max-width: 720px) {
+    @media (max-width: 719.98px) {
       .floating-cta { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -2066,7 +2893,7 @@
        Mobile Tabbar (SP, bottom fixed)
     ============================ */
     .mobile-tabbar { display: none; }
-    @media (max-width: 720px) {
+    @media (max-width: 719.98px) {
       .mobile-tabbar {
         display: flex;
         position: fixed;
@@ -2076,7 +2903,7 @@
         box-shadow: 0 -10px 28px rgba(8, 22, 36, 0.45);
         padding-bottom: env(safe-area-inset-bottom, 0);
         transform: translateY(110%);
-        transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: transform 0.55s var(--ease-entry);
       }
       .mobile-tabbar.is-visible { transform: translateY(0); }
       .mobile-tabbar.is-dismissed { transform: translateY(110%) !important; pointer-events: none; }
@@ -2183,7 +3010,7 @@
       position: absolute;
       left: 50%;
       margin-left: -9px;
-      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s, background 0.2s;
+      transition: transform 0.32s var(--ease-entry), opacity 0.2s, background 0.2s;
     }
     .floating-hamburger__line:nth-child(1) { top: 17px; }
     .floating-hamburger__line:nth-child(2) { top: 22px; }
@@ -2201,7 +3028,7 @@
     body.is-menu-open .floating-hamburger__line:nth-child(3) {
       transform: rotate(-45deg) translate(3.5px, -3.5px);
     }
-    @media (max-width: 720px) {
+    @media (max-width: 719.98px) {
       .floating-hamburger { display: inline-flex; }
       .header__cta { display: none; }
     }
@@ -2218,13 +3045,13 @@
       -webkit-backdrop-filter: blur(20px);
       visibility: hidden;
       opacity: 0;
-      transition: opacity 0.36s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.36s;
+      transition: opacity 0.36s var(--ease-entry), visibility 0s linear 0.36s;
       overflow-y: auto;
     }
     .menu-drawer.is-open {
       visibility: visible;
       opacity: 1;
-      transition: opacity 0.36s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0s;
+      transition: opacity 0.36s var(--ease-entry), visibility 0s linear 0s;
     }
     .menu-drawer__inner {
       padding: 100px 32px 60px;
@@ -2234,7 +3061,29 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
     }
+    .menu-drawer__close {
+      position: absolute;
+      top: 18px; right: 18px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(248, 244, 237, 0.08);
+      border: 1px solid rgba(248, 244, 237, 0.32);
+      color: var(--color-cream);
+      font-size: 1.5rem;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.22s, border-color 0.22s, transform 0.22s;
+      cursor: pointer;
+    }
+    .menu-drawer__close:hover {
+      background: rgba(248, 244, 237, 0.16);
+      border-color: var(--color-cream);
+    }
+    .menu-drawer__close:active { transform: scale(0.94); }
     .menu-drawer__brand {
       font-family: var(--font-en-display);
       font-size: 1.5rem;
@@ -2293,7 +3142,7 @@
       justify-content: space-between;
     }
     .menu-drawer.is-open .menu-drawer__link {
-      animation: drawerLinkIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      animation: drawerLinkIn 0.5s var(--ease-entry) forwards;
     }
     .menu-drawer.is-open .menu-drawer__link:nth-child(1) { animation-delay: 0.18s; }
     .menu-drawer.is-open .menu-drawer__link:nth-child(2) { animation-delay: 0.25s; }
@@ -2334,7 +3183,7 @@
       transform: translateY(20px);
     }
     .menu-drawer.is-open .menu-drawer__cta {
-      animation: drawerLinkIn 0.5s 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      animation: drawerLinkIn 0.5s 0.55s var(--ease-entry) forwards;
     }
     .menu-drawer__cta::after {
       content: '→';
@@ -2358,9 +3207,9 @@
       transform: translateY(-100%);
       opacity: 0;
       pointer-events: none;
-      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s, background 0.4s;
+      transition: transform 0.45s var(--ease-entry), opacity 0.45s, background 0.4s;
     }
-    @media (max-width: 720px) {
+    @media (max-width: 719.98px) {
       .scroll-progress { top: var(--header-height); }
       .hero { padding-top: calc(var(--header-height) + 32px); }
     }
@@ -2368,12 +3217,547 @@
     /* ============================
        Mobile adjustments
     ============================ */
-    @media (max-width: 719px) {
+    @media (max-width: 719.98px) {
       .header__nav { display: none; }
       .hero__trust { gap: 20px 32px; }
       .hero__scroll { display: none; }
       .feature-block__inner { padding: 72px 0; }
       .promise::before { font-size: 7rem; }
+    }
+
+    /* ====================================================================
+       v4 引き算 polish OVERRIDES (2026-05-09)
+       — 23色→5色、装飾削減、Cinematic dark hero → Editorial cream hero
+       — 統一感優先、余白で語る、One material idea コミット
+    ==================================================================== */
+
+    /* === 装飾の一括削除（craft signature: paper grain + circular SVG のみ残す）=== */
+    .section-watermark,
+    .section-divider,
+    .hero__watermark,
+    .hero__bg-grain,
+    .hero__bg-glow,
+    .promise::before,
+    .features::before,
+    .flow::before,
+    .cases::before,
+    .voices::before,
+    .testimonial::before,
+    .scroll-progress {
+      display: none !important;
+    }
+
+    /* === Hero: Cinematic dark → Editorial cream === */
+    .hero {
+      background: var(--color-paper);
+      min-height: auto;
+      padding-top: calc(var(--header-height) + 80px);
+      padding-bottom: 120px;
+    }
+    .hero__bg {
+      background-image: linear-gradient(180deg, var(--color-paper) 0%, var(--color-paper-soft) 100%);
+      filter: none;
+      opacity: 1;
+    }
+    .hero__inner { color: var(--color-ink); }
+    .hero__eyebrow {
+      color: var(--color-accent);
+      font-family: var(--font-en-ui);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.32em;
+    }
+    .hero__eyebrow::before { background: linear-gradient(90deg, transparent, var(--color-accent)); }
+    .hero__eyebrow::after { background: var(--color-accent); box-shadow: none; }
+
+    /* Hero badges: glassmorphism 撤廃 → simple line badges */
+    .hero__badges { color: var(--color-ink-mute); margin-bottom: 36px; }
+    .hero__badge {
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: 1px solid var(--color-line);
+      color: var(--color-ink-soft);
+      letter-spacing: 0.12em;
+    }
+    .hero__badge::before { background: var(--color-accent); box-shadow: none; }
+
+    /* Hero title — cream background に映える色 */
+    .hero__title-prefix { color: var(--color-ink-soft); opacity: 1; }
+    .hero__title-emphasis {
+      color: var(--color-accent);
+      text-shadow: none;
+    }
+    .hero__title-emphasis::after {
+      background: var(--color-ink);
+      opacity: 0.18;
+    }
+
+    .hero__lead { color: var(--color-ink-soft); }
+
+    /* Hero trust strip 簡素化 */
+    .hero__trust {
+      border-top: 1px solid var(--color-line);
+      padding-top: 28px;
+      color: var(--color-ink-mute);
+    }
+    .hero__trust-item::after { background: var(--color-line); }
+    .hero__trust-num { color: var(--color-accent); font-weight: 600; }
+    .hero__trust-label { color: var(--color-ink-mute); }
+
+    /* Header — cream background に */
+    .header {
+      background: rgba(244, 239, 230, 0.92);
+      border-bottom-color: transparent;
+    }
+    .header.is-scrolled {
+      background: rgba(244, 239, 230, 0.98);
+    }
+    .header__cta {
+      background: var(--color-ink);
+      color: var(--color-paper);
+    }
+    .header__cta:hover { background: var(--color-accent); }
+
+    /* HOMECYCLE 循環 SVG: cream 背景に映える色調整 */
+    .hero__cycle circle[stroke^="rgba(201"] { stroke: rgba(194, 115, 79, 0.28); }
+    .hero__cycle text { fill: var(--color-accent); }
+
+    /* === Section: padding 拡大 + 背景 paper === */
+    section {
+      background: var(--color-paper);
+    }
+    .section-padding { padding-block: var(--section-padding-y); }
+
+    /* === Section labels: italic Cormorant 撤廃 → Sora caps tracking === */
+    .section-label {
+      font-family: var(--font-en-ui);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.32em;
+      color: var(--color-accent);
+    }
+    .section-label::before { background: linear-gradient(90deg, transparent, var(--color-accent)); }
+    .section-label::after { background: var(--color-accent); box-shadow: none; }
+
+    /* === Section title: 単色 ink、emphasis 控えめ === */
+    .section-title {
+      color: var(--color-ink);
+    }
+    .section-title em {
+      color: var(--color-accent);
+      background: transparent;
+      padding: 0;
+    }
+
+    /* === CTA: gradient 撤廃 → solid accent === */
+    .cta-primary {
+      background: var(--color-accent);
+      color: var(--color-paper);
+    }
+    .cta-primary:hover {
+      background: var(--color-ink);
+    }
+    .cta-secondary {
+      background: transparent;
+      border: 1px solid var(--color-ink);
+      color: var(--color-ink);
+    }
+    .cta-secondary:hover {
+      background: var(--color-ink);
+      color: var(--color-paper);
+    }
+
+    /* === Cards: shadow 削減、border 1本のみ === */
+    .problem-card, .promise-card, .feature-content, .case-card,
+    .testimonial, .faq-item, .flow__step {
+      box-shadow: none;
+      border: 1px solid var(--color-line);
+      background: var(--color-paper);
+    }
+    .problem-card:hover, .promise-card:hover, .case-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: none;
+    }
+
+    /* === Feature blocks: dark gradient 撤廃 === */
+    .feature-block {
+      background: var(--color-paper-soft);
+    }
+    .feature-block::before,
+    .feature-block::after {
+      display: none;
+    }
+    .feature-block__inner { color: var(--color-ink); }
+    .feature-content__title { color: var(--color-ink); }
+    .feature-content__body { color: var(--color-ink-soft); }
+    .feature-content__sigil { color: var(--color-accent); }
+
+    /* === Flow steps: 円のgradient 撤廃 === */
+    .flow__step-circle {
+      background: var(--color-paper);
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+    }
+    .flow__step-circle::before { display: none; }
+    .flow__line { background: var(--color-line); }
+    .flow__line-progress { background: var(--color-accent); }
+
+    /* === FAQ: simple line === */
+    .faq-item__title { color: var(--color-ink); }
+    .faq-item__icon { color: var(--color-accent); }
+
+    /* === Footer: navy → ink solid === */
+    .footer {
+      background: var(--color-ink);
+      color: var(--color-paper);
+    }
+    .footer a { color: var(--color-line); }
+    .footer a:hover { color: var(--color-paper); }
+
+    /* === Mobile tab bar / drawer: simple === */
+    .mobile-tabbar { background: var(--color-paper); border-top: 1px solid var(--color-line); }
+    .menu-drawer { background: var(--color-paper); }
+    .menu-drawer__link { color: var(--color-ink); }
+
+    /* === Floating CTA: minimal === */
+    .floating-cta {
+      animation: none;
+      box-shadow: var(--shadow-md);
+    }
+    .floating-cta::before, .floating-cta::after { display: none; }
+
+    /* === Italic Cormorant の italic 表現を撤廃（残ってる箇所） === */
+    em, .italic {
+      font-style: normal;
+    }
+    .hero__title-emphasis { font-style: normal; }
+    /* ==========================================================================
+       LP-13 v5 image-spec patches (2026-05-13)
+       53 image slots / 51 GPT-commissioned visuals.
+       Each <img data-prompt-id="X-Y"> corresponds to docs/images-spec.md §X.Y.
+       All images fall back gracefully via onerror="this.style.display='none'".
+       ========================================================================== */
+
+    img[data-prompt-id] {
+      background: transparent;
+    }
+
+    /* Header / footer logo image slots */
+    .logo__wordmark-img,
+    .logo__mark-img {
+      display: inline-block;
+      vertical-align: middle;
+      height: 28px;
+      width: auto;
+    }
+    .logo__mark-img { height: 32px; margin-right: 6px; }
+
+    /* Hero main editorial photo (behind gradient overlay) */
+    .hero__main-photo {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hero__main-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+      mix-blend-mode: multiply;
+    }
+
+    /* Hero badge icon */
+    .hero__badge-icon {
+      width: 14px;
+      height: 14px;
+      vertical-align: middle;
+      margin-right: 6px;
+      opacity: 0.85;
+    }
+
+    /* Problem card illustration */
+    .problem-card__illust {
+      display: block;
+      width: 72px;
+      height: 72px;
+      margin: 0 0 16px;
+      object-fit: contain;
+      opacity: 0.88;
+    }
+
+    /* Promise card illustration */
+    .promise-card__illust {
+      display: block;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 20px;
+      object-fit: contain;
+      opacity: 0.88;
+    }
+
+    /* Number item icon */
+    .number-item__icon {
+      display: block;
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 8px;
+      object-fit: contain;
+      opacity: 0.75;
+    }
+
+    /* Feature content points — v4 subtraction left these on cream-on-cream;
+       restore readability against the light feature-block background. */
+    .feature-content__points li {
+      color: var(--color-ink);
+    }
+    .feature-content__points li::before {
+      color: var(--color-accent);
+    }
+
+    /* Feature block — editorial inset photo inside feature-content (the
+       feature-block__bg behind handles the main image, this gives a smaller
+       editorial detail shot alongside the body copy). */
+    .feature-content__inset {
+      margin: 32px 0 0;
+      max-width: 320px;
+      aspect-ratio: 1 / 1;
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(201, 169, 97, 0.18);
+    }
+    .feature-content__inset img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .feature-content__inset figcaption {
+      position: absolute;
+      left: 12px;
+      bottom: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--color-gold-pale);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Flow step icon */
+    .flow__step-icon {
+      display: block;
+      width: 48px;
+      height: 48px;
+      margin: 0 0 14px;
+      object-fit: contain;
+      opacity: 0.78;
+    }
+
+    /* Comparison diagram */
+    .comparison__diagram {
+      margin: 0 auto 48px;
+      max-width: 720px;
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .comparison__diagram img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Case card — before/after dual photo */
+    .case-card__media-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--color-border-soft);
+      aspect-ratio: 8 / 3;
+      overflow: hidden;
+    }
+    .case-card__media-pair figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-card__media-pair figure img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .case-card__media-pair figcaption {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      padding: 3px 9px;
+      background: rgba(8, 22, 36, 0.78);
+      color: var(--color-gold-pale);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      pointer-events: none;
+    }
+
+    /* Testimonial portrait */
+    .testimonial__portrait {
+      display: block;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      margin-right: 12px;
+      object-fit: cover;
+      border: 1px solid var(--color-border);
+      flex-shrink: 0;
+    }
+
+    /* Media section (NEW v5) */
+    .media-section {
+      padding: clamp(60px, 7vw, 100px) 0;
+      background: var(--color-cream);
+      position: relative;
+    }
+    .media-section__head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .media-section__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 28px 40px;
+      align-items: center;
+      justify-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .media-section__logo {
+      max-height: 28px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.55;
+      filter: grayscale(1);
+      transition: opacity var(--transition);
+    }
+    .media-section__logo:hover {
+      opacity: 0.85;
+    }
+
+    /* Team section (NEW v5) */
+    .team-section {
+      padding: var(--section-padding-y) 0;
+      background: var(--color-cream-warm);
+      position: relative;
+    }
+    .team-section__head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .team-section__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    @media (max-width: 1023px) {
+      .team-section__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+    .team-section__portrait {
+      aspect-ratio: 4 / 5;
+      max-width: 320px;
+      margin: 0 auto;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .team-section__portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .team-section__role {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+    .team-section__name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+      margin: 0 0 20px;
+      color: var(--color-text);
+    }
+    .team-section__name small {
+      display: block;
+      font-size: 0.7em;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+      letter-spacing: 0.08em;
+    }
+    .team-section__quote {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      line-height: 1.95;
+      color: var(--color-text-secondary);
+      margin: 0 0 24px;
+    }
+    .team-section__office-photo {
+      margin: 48px auto 0;
+      max-width: 1180px;
+      aspect-ratio: 3 / 2;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .team-section__office-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* CTA Section — editorial background scene */
+    .cta-section__scene-photo {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .cta-section__scene-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+      mix-blend-mode: lighten;
     }
   </style>
 </head>
@@ -2390,6 +3774,9 @@
 <header class="header" id="header">
   <div class="container header__inner">
     <a href="#" class="logo" aria-label="HOMECYCLE トップへ">
+      <img class="logo__mark-img" src="images/logo-mark.svg" alt="" aria-hidden="true"
+           data-prompt-id="1-2" data-label="ロゴmark 96×96"
+           width="32" height="32" onerror="this.style.display='none'">
       <span class="logo__mark" aria-hidden="true"></span>
       HOMECYCLE
       <span class="logo__sub">中古マンション買取</span>
@@ -2415,6 +3802,9 @@
 <!-- Drawer Menu (SP) -->
 <div class="menu-drawer" id="menuDrawer" role="dialog" aria-modal="true" aria-label="メニュー" aria-hidden="true">
   <div class="menu-drawer__inner">
+    <button type="button" class="menu-drawer__close" id="menuDrawerClose" aria-label="メニューを閉じる">
+      <span aria-hidden="true">×</span>
+    </button>
     <span class="menu-drawer__brand">
       <span class="menu-drawer__brand-mark" aria-hidden="true"></span>
       HOMECYCLE
@@ -2435,13 +3825,111 @@
 
 <!-- §1 Hero -->
 <section class="hero" aria-label="ヒーロー">
+  <div class="hero__main-photo" aria-hidden="true">
+    <img src="images/hero-main.webp" alt=""
+         data-prompt-id="2-1" data-label="Hero メイン editorial 写真 (3:2)"
+         width="2400" height="1600" fetchpriority="high"
+         onerror="this.style.display='none'">
+  </div>
   <div class="hero__bg" id="heroBg" aria-hidden="true"></div>
+  <div class="hero__bg-glow" aria-hidden="true"></div>
   <div class="hero__bg-grain" aria-hidden="true"></div>
+  <span class="hero__watermark" aria-hidden="true">HOMECYCLE</span>
+  <!-- v3 polish: HOMECYCLE 循環 metaphor — 家A→HOMECYCLE→家B→別家族→家A の cycle visualization -->
+  <svg class="hero__cycle" viewBox="0 0 360 360" aria-hidden="true">
+    <!-- Outer dashed orbit -->
+    <circle cx="180" cy="180" r="140" fill="none"
+            stroke="rgba(201, 169, 97, 0.22)" stroke-width="1"
+            stroke-dasharray="3 8"/>
+    <!-- Inner subtle orbit -->
+    <circle cx="180" cy="180" r="68" fill="none"
+            stroke="rgba(201, 169, 97, 0.12)" stroke-width="1"/>
+
+    <!-- Center: HOMECYCLE logotype -->
+    <g class="hero__cycle-center">
+      <circle cx="180" cy="180" r="44"
+              fill="rgba(8, 22, 36, 0.55)"
+              stroke="#C9A961" stroke-width="1.2"/>
+      <circle cx="180" cy="180" r="38"
+              fill="none" stroke="rgba(201, 169, 97, 0.4)" stroke-width="0.5"/>
+      <text x="180" y="174" text-anchor="middle"
+            font-family="'Cormorant Garamond', serif"
+            font-size="9" font-style="italic"
+            fill="#EFE0BC"
+            letter-spacing="2.2">HOME</text>
+      <line x1="160" y1="178" x2="200" y2="178"
+            stroke="#C9A961" stroke-width="0.6" opacity="0.7"/>
+      <text x="180" y="190" text-anchor="middle"
+            font-family="'Cormorant Garamond', serif"
+            font-size="9" font-style="italic"
+            fill="#EFE0BC"
+            letter-spacing="2.2">CYCLE</text>
+    </g>
+
+    <!-- Orbiting nodes (家A top / 家B bottom) + arrows -->
+    <g class="hero__cycle-orbit">
+      <!-- Arrow from House A to House B (clockwise, right side) -->
+      <path d="M 248,98 A 116,116 0 0,1 248,262" fill="none"
+            stroke="#D97757" stroke-width="1.2"
+            stroke-dasharray="4 5" opacity="0.72"/>
+      <path d="M 245,257 L 254,265 L 242,267 Z" fill="#D97757" opacity="0.88"/>
+      <!-- Arrow from House B back to House A (counter-clockwise, left side) -->
+      <path d="M 112,262 A 116,116 0 0,1 112,98" fill="none"
+            stroke="rgba(217, 119, 87, 0.6)" stroke-width="1.2"
+            stroke-dasharray="4 5" opacity="0.55"/>
+      <path d="M 115,103 L 106,95 L 118,93 Z" fill="rgba(217, 119, 87, 0.7)"/>
+
+      <!-- House A (top) -->
+      <g transform="translate(180, 56)">
+        <circle r="28" fill="rgba(248, 244, 237, 0.06)"
+                stroke="rgba(201, 169, 97, 0.55)" stroke-width="1.4"/>
+        <!-- house silhouette -->
+        <path d="M -12,6 L -12,-2 L 0,-12 L 12,-2 L 12,6 Z"
+              fill="none" stroke="#C9A961" stroke-width="1.5"
+              stroke-linejoin="round"/>
+        <rect x="-3.5" y="-1" width="7" height="7"
+              fill="#C9A961" opacity="0.7"/>
+        <!-- subtle dot above -->
+        <circle r="2" cy="-22" fill="#C9A961" opacity="0.6"/>
+      </g>
+
+      <!-- House B (bottom) -->
+      <g transform="translate(180, 304)">
+        <circle r="28" fill="rgba(248, 244, 237, 0.06)"
+                stroke="rgba(201, 169, 97, 0.55)" stroke-width="1.4"/>
+        <path d="M -12,6 L -12,-2 L 0,-12 L 12,-2 L 12,6 Z"
+              fill="none" stroke="#C9A961" stroke-width="1.5"
+              stroke-linejoin="round"/>
+        <rect x="-3.5" y="-1" width="7" height="7"
+              fill="#C9A961" opacity="0.7"/>
+        <!-- subtle dot below -->
+        <circle r="2" cy="22" fill="#C9A961" opacity="0.6"/>
+      </g>
+    </g>
+  </svg>
+
   <div class="hero__inner">
     <p class="hero__eyebrow">For Families on the Move</p>
+    <div class="hero__badges" aria-label="信頼バッジ">
+      <span class="hero__badge">
+        <img class="hero__badge-icon" src="images/trust-icon-01.svg" alt=""
+             data-prompt-id="2-2" data-label="宅建業免許 seal icon"
+             onerror="this.style.display='none'">宅建業免許 国土交通大臣 (1) 第00000号
+      </span>
+      <span class="hero__badge hero__badge--seal">
+        <img class="hero__badge-icon" src="images/trust-icon-02.svg" alt=""
+             data-prompt-id="2-3" data-label="関東圏 map icon"
+             onerror="this.style.display='none'">関東圏 4都県対応
+      </span>
+      <span class="hero__badge">
+        <img class="hero__badge-icon" src="images/trust-icon-03.svg" alt=""
+             data-prompt-id="2-4" data-label="秘密厳守 envelope-seal icon"
+             onerror="this.style.display='none'">秘密厳守
+      </span>
+    </div>
     <h1 class="hero__title">
-      住みたい家に、<br>
-      家族で<em>乗り換える</em>。
+      <span class="hero__title-prefix">住みたい家に、家族で</span>
+      <em class="hero__title-emphasis">乗り換える。</em>
     </h1>
     <p class="hero__lead">
       HOMECYCLEは中古マンションの循環型買取サービス。<br>
@@ -2452,22 +3940,17 @@
       <a href="#cta" class="cta-primary pulse-cta">無料査定をはじめる</a>
       <a href="#flow" class="cta-secondary"><span class="cta-secondary__icon">?</span>住み替えの流れを見る</a>
     </div>
+    <p class="cta-microcopy">
+      <span>3分で完了</span>
+      <span>査定費用0円</span>
+      <span>強引な営業なし</span>
+    </p>
     <div class="hero__trust" role="list">
+      <!-- v4: Stats 4 → 1 削減（+15% を主役、他は他section へ）-->
       <div class="hero__trust-item" role="listitem">
-        <span class="hero__trust-num">+15<small style="font-size:0.7em;">%</small></span>
-        <span class="hero__trust-label">平均査定価格 vs 他社</span>
-      </div>
-      <div class="hero__trust-item" role="listitem">
-        <span class="hero__trust-num">3<small style="font-size:0.7em;">日</small></span>
-        <span class="hero__trust-label">最短査定期間</span>
-      </div>
-      <div class="hero__trust-item" role="listitem">
-        <span class="hero__trust-num">92<small style="font-size:0.7em;">%</small></span>
-        <span class="hero__trust-label">住み替え同時成立率</span>
-      </div>
-      <div class="hero__trust-item" role="listitem">
-        <span class="hero__trust-num">500<small style="font-size:0.7em;">+</small></span>
-        <span class="hero__trust-label">累計買取件数</span>
+        <span class="hero__trust-tag">Premium</span>
+        <span class="hero__trust-num">+15<small>%</small></span>
+        <span class="hero__trust-label">他社平均との査定価格差</span>
       </div>
     </div>
   </div>
@@ -2487,26 +3970,41 @@
     </div>
     <div class="problems__grid">
       <article class="problem-card fade-in" data-delay="100">
+        <img class="problem-card__illust" src="images/problem-01.webp" alt=""
+             data-prompt-id="3-1" data-label="売却→次の家のジレンマ illust"
+             loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 01</p>
         <h3 class="problem-card__title">売却が決まらないと、次の家を決められない</h3>
         <p class="problem-card__body">「ローンが二重になるから先に売って」と言われ、家族で住みたい家が見つかっても契約に踏み切れない。</p>
       </article>
       <article class="problem-card fade-in" data-delay="200">
+        <img class="problem-card__illust" src="images/problem-02.webp" alt=""
+             data-prompt-id="3-2" data-label="仮住まい2度引越し illust"
+             loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 02</p>
         <h3 class="problem-card__title">仮住まいと2度の引越しが現実的にきつい</h3>
         <p class="problem-card__body">小さな子どもや親と暮らす世帯にとって、引越しを2回繰り返すコストも体力も無視できません。</p>
       </article>
       <article class="problem-card fade-in" data-delay="300">
+        <img class="problem-card__illust" src="images/problem-03.webp" alt=""
+             data-prompt-id="3-3" data-label="ローン残債で諦め illust"
+             loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 03</p>
         <h3 class="problem-card__title">ローン残債があり、売却を諦めかけている</h3>
         <p class="problem-card__body">残債と売却額のバランスが見えず、買い替え自体を「いまは無理」と判断してしまう。</p>
       </article>
       <article class="problem-card fade-in" data-delay="400">
+        <img class="problem-card__illust" src="images/problem-04.webp" alt=""
+             data-prompt-id="3-4" data-label="内覧で生活崩壊 illust"
+             loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 04</p>
         <h3 class="problem-card__title">仲介の内覧対応で、生活が落ち着かない</h3>
         <p class="problem-card__body">週末ごとに知らない人を招く生活が数ヶ月続く。子どもの予定や在宅勤務にも影響が出てしまう。</p>
       </article>
       <article class="problem-card fade-in" data-delay="500">
+        <img class="problem-card__illust" src="images/problem-05.webp" alt=""
+             data-prompt-id="3-5" data-label="適正価格が見えない illust"
+             loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 05</p>
         <h3 class="problem-card__title">そもそも、いま売って損をしないのか分からない</h3>
         <p class="problem-card__body">築年数・周辺相場・将来の金利動向。情報は多いのに、自分のケースにあてはめた「適正価格」が見えない。</p>
@@ -2528,6 +4026,9 @@
     </div>
     <div class="promise__grid">
       <article class="promise-card fade-in" data-delay="100" data-tilt>
+        <img class="promise-card__illust" src="images/promise-01.webp" alt=""
+             data-prompt-id="4-1" data-label="査定価格+15% illust"
+             loading="lazy" onerror="this.style.display='none'">
         <p class="promise-card__num">01</p>
         <h3 class="promise-card__title">査定価格は、他社平均より＋15%。</h3>
         <p class="promise-card__body">
@@ -2535,6 +4036,9 @@
         </p>
       </article>
       <article class="promise-card fade-in" data-delay="200" data-tilt>
+        <img class="promise-card__illust" src="images/promise-02.webp" alt=""
+             data-prompt-id="4-2" data-label="売却+購入を1人が並走 illust"
+             loading="lazy" onerror="this.style.display='none'">
         <p class="promise-card__num">02</p>
         <h3 class="promise-card__title">売却と購入を、同じ担当が伴走。</h3>
         <p class="promise-card__body">
@@ -2542,6 +4046,9 @@
         </p>
       </article>
       <article class="promise-card fade-in" data-delay="300" data-tilt>
+        <img class="promise-card__illust" src="images/promise-03.webp" alt=""
+             data-prompt-id="4-3" data-label="仮住まい不要・引越し1度 illust"
+             loading="lazy" onerror="this.style.display='none'">
         <p class="promise-card__num">03</p>
         <h3 class="promise-card__title">仮住まい不要。引越しは、一度だけ。</h3>
         <p class="promise-card__body">
@@ -2564,6 +4071,9 @@
     </div>
     <div class="numbers__grid">
       <div class="number-item fade-in" data-delay="100">
+        <img class="number-item__icon" src="images/number-icon-01.svg" alt=""
+             data-prompt-id="5-1" data-label="+15% UP symbol icon"
+             onerror="this.style.display='none'">
         <p class="number-item__label">Price Up</p>
         <p class="number-item__value">
           <span class="counter" data-target="15" data-suffix="">0</span>
@@ -2572,6 +4082,9 @@
         <p class="number-item__caption">同条件の他社見積りと比較した平均査定額</p>
       </div>
       <div class="number-item fade-in" data-delay="200">
+        <img class="number-item__icon" src="images/number-icon-02.svg" alt=""
+             data-prompt-id="5-2" data-label="3日 hourglass icon"
+             onerror="this.style.display='none'">
         <p class="number-item__label">Speed</p>
         <p class="number-item__value">
           <span class="counter" data-target="3">0</span>
@@ -2580,6 +4093,9 @@
         <p class="number-item__caption">最短査定期間（オンライン査定の場合）</p>
       </div>
       <div class="number-item fade-in" data-delay="300">
+        <img class="number-item__icon" src="images/number-icon-03.svg" alt=""
+             data-prompt-id="5-3" data-label="92% completion ring icon"
+             onerror="this.style.display='none'">
         <p class="number-item__label">Success</p>
         <p class="number-item__value">
           <span class="counter" data-target="92">0</span>
@@ -2588,6 +4104,9 @@
         <p class="number-item__caption">売却と購入を同時に完了したご家族の割合</p>
       </div>
       <div class="number-item fade-in" data-delay="400">
+        <img class="number-item__icon" src="images/number-icon-04.svg" alt=""
+             data-prompt-id="5-4" data-label="500件+ stacked squares icon"
+             onerror="this.style.display='none'">
         <p class="number-item__label">Track Record</p>
         <p class="number-item__value">
           <span class="counter" data-target="500">0</span>
@@ -2603,7 +4122,9 @@
 <section class="features" id="features" aria-label="選ばれる理由">
 
   <div class="feature-block">
-    <div class="feature-block__bg" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=70');"></div>
+    <div class="feature-block__bg" data-prompt-id="6-1" data-label="Feature 01 main bg photo"
+         style="background-image: url('images/feature-01-main.webp');"></div>
+    <span class="feature-block__sigil" aria-hidden="true">Premium</span>
     <div class="feature-block__inner">
       <div class="feature-content fade-in">
         <p class="feature-content__num">REASON 01</p>
@@ -2616,12 +4137,20 @@
           <li>専属の建築デザイナー・施工チームを内製化</li>
           <li>査定根拠書を発行。価格の理由を、数字で説明します</li>
         </ul>
+        <figure class="feature-content__inset">
+          <img src="images/feature-01-detail.webp" alt="" loading="lazy"
+               data-prompt-id="6-2" data-label="Feature 01 detail inset (1:1)"
+               width="320" height="320" onerror="this.style.display='none';this.closest('figure').style.display='none'">
+          <figcaption>Architect's craft, an inside look</figcaption>
+        </figure>
       </div>
     </div>
   </div>
 
   <div class="feature-block feature-block--reverse">
-    <div class="feature-block__bg" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=70');"></div>
+    <div class="feature-block__bg" data-prompt-id="6-3" data-label="Feature 02 main bg photo"
+         style="background-image: url('images/feature-02-main.webp');"></div>
+    <span class="feature-block__sigil" aria-hidden="true">Concierge</span>
     <div class="feature-block__inner">
       <div class="feature-content fade-in">
         <p class="feature-content__num">REASON 02</p>
@@ -2634,12 +4163,20 @@
           <li>新居の物件提案も同コンシェルジュが担当</li>
           <li>決済日・引渡し日・引越し日の3点同時設計</li>
         </ul>
+        <figure class="feature-content__inset">
+          <img src="images/feature-02-detail.webp" alt="" loading="lazy"
+               data-prompt-id="6-4" data-label="Feature 02 detail inset (1:1)"
+               width="320" height="320" onerror="this.style.display='none';this.closest('figure').style.display='none'">
+          <figcaption>One person, two simultaneous timelines</figcaption>
+        </figure>
       </div>
     </div>
   </div>
 
   <div class="feature-block">
-    <div class="feature-block__bg" style="background-image: url('https://images.unsplash.com/photo-1556909195-1f0c0fb94ab0?auto=format&fit=crop&w=1920&q=70');"></div>
+    <div class="feature-block__bg" data-prompt-id="6-5" data-label="Feature 03 main bg photo"
+         style="background-image: url('images/feature-03-main.webp');"></div>
+    <span class="feature-block__sigil" aria-hidden="true">Finance</span>
     <div class="feature-block__inner">
       <div class="feature-content fade-in">
         <p class="feature-content__num">REASON 03</p>
@@ -2652,6 +4189,12 @@
           <li>残債とのバランスを資金計画書で可視化</li>
           <li>つなぎ融資・買取保証の選択肢を初回でご提示</li>
         </ul>
+        <figure class="feature-content__inset">
+          <img src="images/feature-03-detail.webp" alt="" loading="lazy"
+               data-prompt-id="6-6" data-label="Feature 03 detail inset (1:1)"
+               width="320" height="320" onerror="this.style.display='none';this.closest('figure').style.display='none'">
+          <figcaption>Counted, balanced, accounted</figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -2677,6 +4220,9 @@
       <div class="flow__step" data-step="1">
         <div class="flow__step-num">1</div>
         <div class="flow__step-content">
+          <img class="flow__step-icon" src="images/flow-icon-01.svg" alt=""
+               data-prompt-id="7-1" data-label="Step 01 Inquiry envelope+question"
+               onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 01 / Inquiry</p>
           <h3 class="flow__step-title">無料オンライン査定（最短当日）</h3>
           <p class="flow__step-body">物件情報をフォームから送信いただくと、当日中に概算査定をご返信。お電話・LINEでもOK。</p>
@@ -2687,6 +4233,9 @@
       <div class="flow__step" data-step="2">
         <div class="flow__step-num">2</div>
         <div class="flow__step-content">
+          <img class="flow__step-icon" src="images/flow-icon-02.svg" alt=""
+               data-prompt-id="7-2" data-label="Step 02 Site Visit footprints"
+               onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 02 / Site Visit</p>
           <h3 class="flow__step-title">現地査定 + 住み替えヒアリング</h3>
           <p class="flow__step-body">専属コンシェルジュが現地訪問。同時に「次の住まい」のご希望も伺い、初回プランを設計します。</p>
@@ -2697,6 +4246,9 @@
       <div class="flow__step" data-step="3">
         <div class="flow__step-num">3</div>
         <div class="flow__step-content">
+          <img class="flow__step-icon" src="images/flow-icon-03.svg" alt=""
+               data-prompt-id="7-3" data-label="Step 03 Quote scroll-with-seal"
+               onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 03 / Quote</p>
           <h3 class="flow__step-title">買取価格 + 住み替えプランのご提示</h3>
           <p class="flow__step-body">査定根拠書・資金計画書・新居候補3〜5件を1つのレポートに。3日以内にお渡しします。</p>
@@ -2707,6 +4259,9 @@
       <div class="flow__step" data-step="4">
         <div class="flow__step-num">4</div>
         <div class="flow__step-content">
+          <img class="flow__step-icon" src="images/flow-icon-04.svg" alt=""
+               data-prompt-id="7-4" data-label="Step 04 Contract handshake"
+               onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 04 / Contract</p>
           <h3 class="flow__step-title">売買契約 + 新居の購入契約</h3>
           <p class="flow__step-body">同じ日に2契約を結ぶことも可能。決済日・引渡し日を同タイミングに揃えます。</p>
@@ -2717,6 +4272,9 @@
       <div class="flow__step" data-step="5">
         <div class="flow__step-num">5</div>
         <div class="flow__step-content">
+          <img class="flow__step-icon" src="images/flow-icon-05.svg" alt=""
+               data-prompt-id="7-5" data-label="Step 05 Move box-with-key"
+               onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 05 / Move</p>
           <h3 class="flow__step-title">引渡し + ご入居（一度の引越し）</h3>
           <p class="flow__step-body">提携引越し業者と連動。前住居からの搬出と新居への搬入を1日で完結する設計です。</p>
@@ -2727,6 +4285,9 @@
       <div class="flow__step" data-step="6">
         <div class="flow__step-num">6</div>
         <div class="flow__step-content">
+          <img class="flow__step-icon" src="images/flow-icon-06.svg" alt=""
+               data-prompt-id="7-6" data-label="Step 06 Aftercare umbrella-over-house"
+               onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 06 / Aftercare</p>
           <h3 class="flow__step-title">入居後フォロー（90日サポート）</h3>
           <p class="flow__step-body">不動産取得税の手続き、住宅ローン控除書類、住所変更の代行支援。入居後90日間のフォローが付きます。</p>
@@ -2747,6 +4308,11 @@
         どちらが自分のケースに合うか、客観的に比較いただける一覧をご用意しました。
       </p>
     </div>
+    <figure class="comparison__diagram fade-in">
+      <img src="images/comparison-diagram.webp" alt="HOMECYCLE 買取と一般的な仲介の経路比較図"
+           data-prompt-id="8-1" data-label="買取vs仲介 比較 editorial diagram (16:7)"
+           loading="lazy" onerror="this.style.display='none'">
+    </figure>
     <div class="comparison__table-wrap fade-in">
       <table class="comparison__table">
         <thead>
@@ -2806,7 +4372,20 @@
     <div class="cases__grid">
       <article class="case-card fade-in" data-delay="100">
         <div class="case-card__media">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=640&q=75" alt="横浜市・築15年3LDKマンションのイメージ" loading="lazy">
+          <div class="case-card__media-pair">
+            <figure>
+              <img src="images/case-01-before.webp" alt="Case 01: リノベ前の3LDKマンション居間" loading="lazy"
+                   data-prompt-id="9-1" data-label="Case 01 before (4:3)"
+                   onerror="this.style.display='none'">
+              <figcaption>Before</figcaption>
+            </figure>
+            <figure>
+              <img src="images/case-01-after.webp" alt="Case 01: リノベ後の3LDKマンション居間" loading="lazy"
+                   data-prompt-id="9-2" data-label="Case 01 after (4:3)"
+                   onerror="this.style.display='none'">
+              <figcaption>After</figcaption>
+            </figure>
+          </div>
         </div>
         <div class="case-card__body">
           <div class="case-card__meta">
@@ -2829,7 +4408,20 @@
 
       <article class="case-card fade-in" data-delay="200">
         <div class="case-card__media">
-          <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=640&q=75" alt="武蔵小杉・築8年2LDKマンションのイメージ" loading="lazy">
+          <div class="case-card__media-pair">
+            <figure>
+              <img src="images/case-02-before.webp" alt="Case 02: リノベ前の2LDK居間" loading="lazy"
+                   data-prompt-id="9-3" data-label="Case 02 before (4:3)"
+                   onerror="this.style.display='none'">
+              <figcaption>Before</figcaption>
+            </figure>
+            <figure>
+              <img src="images/case-02-after.webp" alt="Case 02: 3LDK広めリビングへ住み替え後" loading="lazy"
+                   data-prompt-id="9-4" data-label="Case 02 after (4:3)"
+                   onerror="this.style.display='none'">
+              <figcaption>After</figcaption>
+            </figure>
+          </div>
         </div>
         <div class="case-card__body">
           <div class="case-card__meta">
@@ -2852,7 +4444,20 @@
 
       <article class="case-card fade-in" data-delay="300">
         <div class="case-card__media">
-          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=640&q=75" alt="浦安市・築18年4LDKマンションのイメージ" loading="lazy">
+          <div class="case-card__media-pair">
+            <figure>
+              <img src="images/case-03-before.webp" alt="Case 03: マンション外観（住み替え前）" loading="lazy"
+                   data-prompt-id="9-5" data-label="Case 03 before (4:3)"
+                   onerror="this.style.display='none'">
+              <figcaption>Before</figcaption>
+            </figure>
+            <figure>
+              <img src="images/case-03-after.webp" alt="Case 03: 戸建てへ住み替え後" loading="lazy"
+                   data-prompt-id="9-6" data-label="Case 03 after (4:3)"
+                   onerror="this.style.display='none'">
+              <figcaption>After</figcaption>
+            </figure>
+          </div>
         </div>
         <div class="case-card__body">
           <div class="case-card__meta">
@@ -2876,6 +4481,40 @@
   </div>
 </section>
 
+<!-- §8.5 Media (v5 NEW) -->
+<section class="media-section" aria-label="メディア掲載">
+  <div class="container">
+    <div class="media-section__head fade-in">
+      <p class="section-label">As Featured In</p>
+      <h2 class="section-title">業界・メディアでの<em>取り上げ実績</em>。</h2>
+    </div>
+    <div class="media-section__grid fade-in">
+      <img class="media-section__logo" src="images/media-01-nikkei-house-press.svg" alt="NIKKEI HOUSE PRESS"
+           data-prompt-id="11-1" data-label="架空メディア 01 wordmark"
+           onerror="this.style.display='none'">
+      <img class="media-section__logo" src="images/media-02-sumai-no-sekkei.svg" alt="住まいの設計"
+           data-prompt-id="11-2" data-label="架空メディア 02 wordmark"
+           onerror="this.style.display='none'">
+      <img class="media-section__logo" src="images/media-03-tokyo-real-life.svg" alt="TOKYO REAL LIFE"
+           data-prompt-id="11-3" data-label="架空メディア 03 wordmark"
+           onerror="this.style.display='none'">
+      <img class="media-section__logo" src="images/media-04-ie-wo-kangaeru.svg" alt="家を考える"
+           data-prompt-id="11-4" data-label="架空メディア 04 wordmark"
+           onerror="this.style.display='none'">
+      <img class="media-section__logo" src="images/media-05-urban-housing-today.svg" alt="URBAN HOUSING TODAY"
+           data-prompt-id="11-5" data-label="架空メディア 05 wordmark"
+           onerror="this.style.display='none'">
+      <img class="media-section__logo" src="images/media-06-real-estate-quarterly.svg" alt="REAL ESTATE QUARTERLY"
+           data-prompt-id="11-6" data-label="架空メディア 06 wordmark"
+           onerror="this.style.display='none'">
+    </div>
+    <p class="cta-microcopy" style="justify-content:center;margin-top:24px;">
+      <span>※ Portfolio Sample</span>
+      <span>架空の媒体名です</span>
+    </p>
+  </div>
+</section>
+
 <!-- §9 Testimonials -->
 <section class="testimonials" aria-label="お客様の声">
   <div class="container">
@@ -2893,7 +4532,10 @@
           売却と購入のタイミングが合わず、ずっと諦めていました。HOMECYCLEさんは初回相談で「この日に同時決済が可能です」と道筋を見せてくれて、本気で動き出せました。
         </p>
         <div class="testimonial__author">
-          <div class="testimonial__avatar">T</div>
+          <img class="testimonial__portrait" src="images/portrait-01.webp" alt=""
+               data-prompt-id="10-1" data-label="田中様 editorial line portrait"
+               loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="testimonial__avatar" style="display:none">T</div>
           <div class="testimonial__author-info">
             <p class="testimonial__author-name">田中様（35歳・3人家族）</p>
             <p class="testimonial__author-meta">横浜市 / 3LDK→3LDK 駅近</p>
@@ -2907,7 +4549,10 @@
           残債が1,200万円残っていて、買い替えは無理だと思っていました。資金計画書で「残債と新規ローンのバランス」を一枚にまとめてもらえたのが大きかったです。
         </p>
         <div class="testimonial__author">
-          <div class="testimonial__avatar">Y</div>
+          <img class="testimonial__portrait" src="images/portrait-02.webp" alt=""
+               data-prompt-id="10-2" data-label="山田様 editorial line portrait"
+               loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="testimonial__avatar" style="display:none">Y</div>
           <div class="testimonial__author-info">
             <p class="testimonial__author-name">山田様（48歳・4人家族）</p>
             <p class="testimonial__author-meta">浦安市 / マンション→戸建て</p>
@@ -2921,7 +4566,10 @@
           下の子がまだ小さく、内覧対応で生活が崩れるのが怖くて。買取なら現地査定1回で済むと聞き即決。家族のリズムを守ったまま売却できました。
         </p>
         <div class="testimonial__author">
-          <div class="testimonial__avatar">S</div>
+          <img class="testimonial__portrait" src="images/portrait-03.webp" alt=""
+               data-prompt-id="10-3" data-label="佐藤様 editorial line portrait"
+               loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="testimonial__avatar" style="display:none">S</div>
           <div class="testimonial__author-info">
             <p class="testimonial__author-name">佐藤様（42歳・2人家族）</p>
             <p class="testimonial__author-meta">武蔵小杉 / 2LDK→3LDK</p>
@@ -2929,6 +4577,41 @@
         </div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- §9.5 Team / Representative (v5 NEW) -->
+<section class="team-section" aria-label="代表者紹介">
+  <div class="container">
+    <div class="team-section__head fade-in">
+      <p class="section-label">Our Representative</p>
+      <h2 class="section-title">住み替えという家族の決断に、<br><em>20年以上</em>、伴走してきました。</h2>
+    </div>
+    <div class="team-section__grid fade-in">
+      <figure class="team-section__portrait">
+        <img src="images/team-representative.webp" alt="HOMECYCLE 代表 editorial portrait"
+             data-prompt-id="12-1" data-label="代表者 editorial line portrait (4:5)"
+             loading="lazy" onerror="this.style.display='none'">
+      </figure>
+      <div class="team-section__bio">
+        <p class="team-section__role">Representative Director</p>
+        <h3 class="team-section__name">飛燕 太郎<small>HIEN TARO / 代表取締役</small></h3>
+        <p class="team-section__quote">
+          中古マンションの仲介・買取・リノベ再販に20年以上携わってきました。<br>
+          家族の住み替えは、ライフステージごとに何度も訪れる「決断」です。<br>
+          そのたびに、仮住まいの不安や売却タイミングの悩みで、本来の選択肢が狭まる現実を見てきました。
+        </p>
+        <p class="team-section__quote">
+          HOMECYCLEは、その制約を「同時進行 + 高査定」で外すために設計しました。<br>
+          売却と購入を分けない。仮住まいに住まない。そんな住み替えの「次のかたち」を、ご家族と一緒に組み立てます。
+        </p>
+      </div>
+    </div>
+    <figure class="team-section__office-photo fade-in">
+      <img src="images/team-office.webp" alt="HOMECYCLE オフィス内観"
+           data-prompt-id="12-2" data-label="オフィス editorial photo (3:2)"
+           loading="lazy" onerror="this.style.display='none'">
+    </figure>
   </div>
 </section>
 
@@ -3052,7 +4735,14 @@
 
 <!-- §11 CTA -->
 <section class="cta-section" id="cta" aria-label="お問い合わせ">
+  <div class="cta-section__scene-photo" aria-hidden="true">
+    <img src="images/cta-scene.webp" alt=""
+         data-prompt-id="13-1" data-label="CTA 補助 editorial scene (16:9)"
+         loading="lazy" onerror="this.style.display='none'">
+  </div>
   <div class="cta-section__bg" aria-hidden="true"></div>
+  <div class="cta-section__bg-glow" aria-hidden="true"></div>
+  <span class="cta-section__watermark" aria-hidden="true">HOMECYCLE</span>
   <div class="cta-section__inner fade-in">
     <p class="cta-section__eyebrow">Get Started</p>
     <h2 class="cta-section__title">
@@ -3067,12 +4757,18 @@
       <a href="#quoteForm" class="cta-primary pulse-cta">無料オンライン査定</a>
       <a href="#" class="cta-secondary"><span class="cta-secondary__icon">L</span>LINEで相談する</a>
     </div>
+    <p class="cta-microcopy" style="justify-content: center;">
+      <span>3分で完了</span>
+      <span>査定費用0円</span>
+      <span>秘密厳守</span>
+      <span>強引な営業なし</span>
+    </p>
     <p class="cta-section__note">受付時間 平日 9:00-18:00 / 土曜 10:00-16:00 / 日祝休</p>
 
     <form class="quote-form" id="quoteForm" novalidate aria-label="無料査定フォーム">
       <div class="quote-form__head">
         <h3>無料オンライン査定フォーム</h3>
-        <p>当日中に概算査定をお返しします（最短5分）</p>
+        <p>当日中に概算査定をお返しします <strong>（最短5分）</strong></p>
       </div>
 
       <div class="quote-form__row">
@@ -3208,6 +4904,9 @@
     <div class="footer__top">
       <div class="footer__brand">
         <a href="#" class="logo">
+          <img class="logo__mark-img" src="images/logo-mark.svg" alt="" aria-hidden="true"
+               data-prompt-id="1-2" data-label="ロゴmark (footer)"
+               width="32" height="32" onerror="this.style.display='none'">
           <span class="logo__mark" aria-hidden="true"></span>
           HOMECYCLE
           <span class="logo__sub">中古マンション買取</span>
@@ -3228,6 +4927,7 @@
         <ul>
           <li><a href="#faq">よくあるご質問</a></li>
           <li><a href="#cta">お問い合わせ</a></li>
+          <li><a href="#">代表者紹介（架空）</a></li>
           <li><a href="#">運営会社（架空）</a></li>
           <li><a href="#">特定商取引法に基づく表記（架空）</a></li>
         </ul>
@@ -3249,7 +4949,7 @@
   /* ---------- Header scroll state + SP fade-out ---------- */
   const header = document.getElementById('header');
   const _heroForHeader = document.querySelector('.hero');
-  const isMobileHeader = () => window.matchMedia('(max-width: 720px)').matches;
+  const isMobileHeader = () => window.matchMedia('(max-width: 719.98px)').matches;
   const onScroll = () => {
     if (!header) return;
     const y = window.scrollY;
@@ -3286,12 +4986,23 @@
   const heroBg = document.getElementById('heroBg');
   if (heroBg && !reduceMotion) {
     let ticking = false;
+    let inViewport = true;
+    // 動く直前に GPU レイヤを確保し、ヒーローを通り過ぎたら解放（GPUメモリ常時消費を回避）
+    heroBg.style.willChange = 'transform';
     window.addEventListener('scroll', () => {
       if (ticking) return;
       window.requestAnimationFrame(() => {
         const y = window.scrollY;
-        if (y < window.innerHeight * 1.2) {
+        const limit = window.innerHeight * 1.2;
+        if (y < limit) {
           heroBg.style.transform = 'translateY(' + (y * 0.18) + 'px)';
+          if (!inViewport) {
+            heroBg.style.willChange = 'transform';
+            inViewport = true;
+          }
+        } else if (inViewport) {
+          heroBg.style.willChange = 'auto';
+          inViewport = false;
         }
         ticking = false;
       });
@@ -3392,7 +5103,15 @@
     const btn = item.querySelector('.faq-item__btn');
     const panel = item.querySelector('.faq-item__panel');
     if (!btn || !panel) return;
+    let isAnimating = false;
+    const handleEnd = (e) => {
+      if (e && e.propertyName && e.propertyName !== 'max-height') return;
+      isAnimating = false;
+      panel.removeEventListener('transitionend', handleEnd);
+    };
     btn.addEventListener('click', () => {
+      if (isAnimating) return;
+      isAnimating = true;
       const isOpen = item.classList.contains('is-open');
       if (isOpen) {
         item.classList.remove('is-open');
@@ -3403,6 +5122,14 @@
         btn.setAttribute('aria-expanded', 'true');
         panel.style.maxHeight = panel.scrollHeight + 'px';
       }
+      panel.addEventListener('transitionend', handleEnd);
+      // フォールバック保険（transitionend 未発火時）
+      setTimeout(() => {
+        if (isAnimating) {
+          isAnimating = false;
+          panel.removeEventListener('transitionend', handleEnd);
+        }
+      }, 600);
     });
   });
 
@@ -3415,7 +5142,11 @@
   const heroSection = document.querySelector('.hero');
   let floatingDismissed = false;
   let sideTabsDismissed = false;
-  const isMobile = () => window.matchMedia('(max-width: 720px)').matches;
+  const isMobile = () => window.matchMedia('(max-width: 719.98px)').matches;
+
+  // 初期状態（非表示）でもキーボードフォーカスが届かないよう inert を付与
+  if (floatingCta) floatingCta.setAttribute('inert', '');
+  if (mobileTabbar) mobileTabbar.setAttribute('inert', '');
 
   if ((floatingCta || mobileTabbar) && ctaSection && heroSection) {
     let pcVisible = false;
@@ -3434,9 +5165,11 @@
           if (wantPc) {
             floatingCta.classList.add('is-visible');
             floatingCta.setAttribute('aria-hidden', 'false');
+            floatingCta.removeAttribute('inert');
           } else {
             floatingCta.classList.remove('is-visible');
             floatingCta.setAttribute('aria-hidden', 'true');
+            floatingCta.setAttribute('inert', '');
           }
         }
       }
@@ -3450,9 +5183,11 @@
             mobileTabbar.classList.add('is-visible');
             mobileTabbar.classList.remove('is-dismissed');
             mobileTabbar.setAttribute('aria-hidden', 'false');
+            mobileTabbar.removeAttribute('inert');
           } else {
             mobileTabbar.classList.remove('is-visible');
             mobileTabbar.setAttribute('aria-hidden', 'true');
+            mobileTabbar.setAttribute('inert', '');
           }
         }
       }
@@ -3474,6 +5209,7 @@
         if (floatingCta) {
           floatingCta.classList.remove('is-visible');
           floatingCta.setAttribute('aria-hidden', 'true');
+          floatingCta.setAttribute('inert', '');
         }
         pcVisible = false;
       });
@@ -3485,6 +5221,7 @@
           mobileTabbar.classList.add('is-dismissed');
           mobileTabbar.classList.remove('is-visible');
           mobileTabbar.setAttribute('aria-hidden', 'true');
+          mobileTabbar.setAttribute('inert', '');
         }
         spVisible = false;
       });
@@ -3496,29 +5233,66 @@
   const drawer = document.getElementById('menuDrawer');
   if (hamburger && drawer) {
     const drawerLinks = drawer.querySelectorAll('[data-drawer-link]');
+    // 背景フォーカス遮断対象（drawer 自身は除外）
+    const headerEl = document.getElementById('header');
+    const mainEl = document.getElementById('main');
+    const footerEl = document.querySelector('.footer');
+    const floatingCtaEl = document.getElementById('floatingCta');
+    const mobileTabbarEl = document.getElementById('mobileTabbar');
+    const inertTargets = [headerEl, mainEl, footerEl, floatingCtaEl, mobileTabbarEl, hamburger].filter(Boolean);
+
+    const setBackgroundInert = (on) => {
+      inertTargets.forEach((el) => {
+        if (on) el.setAttribute('inert', '');
+        else el.removeAttribute('inert');
+      });
+    };
+
+    const focusFirstDrawerItem = () => {
+      // 閉じるボタンを優先フォーカス（ユーザーがすぐ Escape できるように）
+      const closeFirst = drawer.querySelector('#menuDrawerClose');
+      const first = closeFirst || drawer.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+      if (first && typeof first.focus === 'function') first.focus();
+    };
+
     const openDrawer = () => {
       document.body.classList.add('is-menu-open');
       drawer.classList.add('is-open');
       drawer.setAttribute('aria-hidden', 'false');
       hamburger.setAttribute('aria-expanded', 'true');
       hamburger.setAttribute('aria-label', 'メニューを閉じる');
+      // hamburger も含めて背景全体を inert にする（drawer の close ボタン代替は Esc + リンクタップ）
+      setBackgroundInert(true);
+      // フォーカスを最初のドロワーリンクへ
+      setTimeout(focusFirstDrawerItem, 50);
     };
-    const closeDrawer = () => {
+    const closeDrawer = (restoreFocus) => {
       document.body.classList.remove('is-menu-open');
       drawer.classList.remove('is-open');
       drawer.setAttribute('aria-hidden', 'true');
+      setBackgroundInert(false);
       hamburger.setAttribute('aria-expanded', 'false');
       hamburger.setAttribute('aria-label', 'メニューを開く');
+      // フォーカスを hamburger に戻す（WCAG 2.4.3 / Focus Order）
+      if (restoreFocus !== false && typeof hamburger.focus === 'function') {
+        hamburger.focus();
+      }
     };
     hamburger.addEventListener('click', () => {
       if (drawer.classList.contains('is-open')) closeDrawer();
       else openDrawer();
     });
     drawerLinks.forEach((a) => {
-      a.addEventListener('click', () => closeDrawer());
+      // リンククリック時はスムーススクロールが走るので、フォーカスは戻さず drawer のみ閉じる
+      a.addEventListener('click', () => closeDrawer(false));
     });
+    // 明示的な閉じるボタン
+    const drawerCloseBtn = document.getElementById('menuDrawerClose');
+    if (drawerCloseBtn) {
+      drawerCloseBtn.addEventListener('click', () => closeDrawer(true));
+    }
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer(true);
     });
   }
 
@@ -3616,14 +5390,19 @@
   }
 
   /* ---------- Smooth-scroll for internal anchors ---------- */
+  // セレクタインジェクション防止：#xxx 形式で英数字/-/_ のみ許容
+  const isSafeIdSelector = (s) => /^#[A-Za-z][A-Za-z0-9_-]*$/.test(s);
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
-      if (id === '#' || id.length < 2) return;
+      if (!id || id === '#' || id.length < 2) return;
+      if (!isSafeIdSelector(id)) return;
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      const headerOffset = 72;
+      // ヘッダー実高さを動的取得（マジックナンバー回避）
+      const headerEl = document.getElementById('header');
+      const headerOffset = headerEl ? headerEl.offsetHeight : 72;
       const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
       window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
