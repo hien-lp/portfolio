@@ -3455,6 +3455,9 @@
     }
     .logo__mark-img { height: 32px; margin-right: 6px; }
 
+    /* Hide the legacy CSS-generated mark now that we have a real SVG mark. */
+    .logo .logo__mark { display: none; }
+
     /* Hero main editorial photo (behind gradient overlay) */
     .hero__main-photo {
       position: absolute;
@@ -3479,6 +3482,15 @@
       vertical-align: middle;
       margin-right: 6px;
       opacity: 0.85;
+    }
+
+    /* Microcopy icon (under hero / above CTA list rows) */
+    .cta-microcopy-icon {
+      width: 13px;
+      height: 13px;
+      vertical-align: middle;
+      margin-right: 5px;
+      opacity: 0.7;
     }
 
     /* Problem card illustration */
@@ -3912,17 +3924,17 @@
     <p class="hero__eyebrow">For Families on the Move</p>
     <div class="hero__badges" aria-label="信頼バッジ">
       <span class="hero__badge">
-        <img class="hero__badge-icon" src="images/trust-icon-01.svg" alt=""
+        <img class="hero__badge-icon" src="images/trust-badge-license.svg" alt=""
              data-prompt-id="2-2" data-label="宅建業免許 seal icon"
              onerror="this.style.display='none'">宅建業免許 国土交通大臣 (1) 第00000号
       </span>
       <span class="hero__badge hero__badge--seal">
-        <img class="hero__badge-icon" src="images/trust-icon-02.svg" alt=""
+        <img class="hero__badge-icon" src="images/trust-badge-kanto.svg" alt=""
              data-prompt-id="2-3" data-label="関東圏 map icon"
              onerror="this.style.display='none'">関東圏 4都県対応
       </span>
       <span class="hero__badge">
-        <img class="hero__badge-icon" src="images/trust-icon-03.svg" alt=""
+        <img class="hero__badge-icon" src="images/trust-badge-confidential.svg" alt=""
              data-prompt-id="2-4" data-label="秘密厳守 envelope-seal icon"
              onerror="this.style.display='none'">秘密厳守
       </span>
@@ -3941,9 +3953,18 @@
       <a href="#flow" class="cta-secondary"><span class="cta-secondary__icon">?</span>住み替えの流れを見る</a>
     </div>
     <p class="cta-microcopy">
-      <span>3分で完了</span>
-      <span>査定費用0円</span>
-      <span>強引な営業なし</span>
+      <span>
+        <img class="cta-microcopy-icon" src="images/trust-badge-3min.svg" alt=""
+             onerror="this.style.display='none'">3分で完了
+      </span>
+      <span>
+        <img class="cta-microcopy-icon" src="images/trust-badge-free-assessment.svg" alt=""
+             onerror="this.style.display='none'">査定費用0円
+      </span>
+      <span>
+        <img class="cta-microcopy-icon" src="images/trust-badge-no-pressure.svg" alt=""
+             onerror="this.style.display='none'">強引な営業なし
+      </span>
     </p>
     <div class="hero__trust" role="list">
       <!-- v4: Stats 4 → 1 削減（+15% を主役、他は他section へ）-->
@@ -4758,10 +4779,22 @@
       <a href="#" class="cta-secondary"><span class="cta-secondary__icon">L</span>LINEで相談する</a>
     </div>
     <p class="cta-microcopy" style="justify-content: center;">
-      <span>3分で完了</span>
-      <span>査定費用0円</span>
-      <span>秘密厳守</span>
-      <span>強引な営業なし</span>
+      <span>
+        <img class="cta-microcopy-icon" src="images/trust-badge-3min.svg" alt=""
+             onerror="this.style.display='none'">3分で完了
+      </span>
+      <span>
+        <img class="cta-microcopy-icon" src="images/trust-badge-free-assessment.svg" alt=""
+             onerror="this.style.display='none'">査定費用0円
+      </span>
+      <span>
+        <img class="cta-microcopy-icon" src="images/trust-badge-confidential.svg" alt=""
+             onerror="this.style.display='none'">秘密厳守
+      </span>
+      <span>
+        <img class="cta-microcopy-icon" src="images/trust-badge-no-pressure.svg" alt=""
+             onerror="this.style.display='none'">強引な営業なし
+      </span>
     </p>
     <p class="cta-section__note">受付時間 平日 9:00-18:00 / 土曜 10:00-16:00 / 日祝休</p>
 

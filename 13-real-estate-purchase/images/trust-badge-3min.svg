@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">3分で完了</title>
+  <desc id="desc">Thin gold timer icon with subtle sand particles.</desc>
+  <g fill="none" stroke="#C9A961" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 12h20"/>
+    <path d="M22 52h20"/>
+    <path d="M24 12c0 10 16 10 16 20S24 42 24 52"/>
+    <path d="M40 12c0 10-16 10-16 20s16 10 16 20"/>
+    <path d="M27.5 22.2c2.7 2.7 6.3 2.7 9 0"/>
+    <path d="M27.2 44.4c2.8-3.4 6.8-3.4 9.6 0"/>
+    <path d="M32 29.5v5"/>
+    <circle cx="32" cy="37.5" r=".7"/>
+    <circle cx="29.4" cy="40.5" r=".6"/>
+    <circle cx="34.6" cy="40.6" r=".6"/>
+  </g>
+</svg>
