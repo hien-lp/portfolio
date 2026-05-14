@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HOMECYCLE | 中古マンション買取・住み替えサポート</title>
-  <meta name="description" content="HOMECYCLEは中古マンションの循環型買取サービス。独自リノベ再販モデルで査定価格+15%。30-50代ファミリーの住み替え（売却+購入）を同時進行サポート。">
+  <title>HOMECYCLE | 中古マンションの住み替え買取</title>
+  <meta name="description" content="HOMECYCLEは、中古マンションの売却と次の住まい探しを一つの計画で進める住み替え買取サービス。査定根拠、資金計画、引渡し日まで専門チームが伴走します。">
 
   <!-- OGP -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="HOMECYCLE | 中古マンション買取・住み替えサポート">
-  <meta property="og:description" content="査定価格+15%。住み替え同時進行で仮住まい不要。中古マンションの循環型買取サービス。">
+  <meta property="og:title" content="HOMECYCLE | 中古マンションの住み替え買取">
+  <meta property="og:description" content="売却と購入を一つの計画に。仮住まいを避けたいご家族のための、中古マンション住み替え買取サービス。">
   <meta property="og:image" content="https://placehold.co/1200x630/1A3D5C/F8F4ED">
   <meta property="og:site_name" content="HOMECYCLE">
 
@@ -37,7 +37,7 @@
       {
         "@type": "RealEstateAgent",
         "name": "HOMECYCLE (Portfolio Sample)",
-        "description": "中古マンションの循環型買取サービス。住み替え（売却＋購入）を同時並行でサポート。これは飛燕の自主制作によるポートフォリオサンプルです。",
+        "description": "中古マンションの住み替え買取サービス。売却、購入、資金計画、引渡し日の調整まで一つのチームでサポートします。",
         "areaServed": ["東京都", "神奈川県", "千葉県", "埼玉県"],
         "priceRange": "¥¥¥",
         "knowsAbout": ["中古マンション買取", "住み替え", "リノベーション", "不動産売却"]
@@ -58,7 +58,7 @@
             "name": "ローン残債があるのですが、売却できますか？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "対応可能です。残債と査定額の差額を住み替えローンや提携金融機関のつなぎ融資でカバーする選択肢をご提示します。"
+              "text": "対応できるケースがあります。残債、査定額、新規借入、諸費用を資金計画書に整理し、住み替えローンやつなぎ融資の選択肢を確認します。"
             }
           },
           {
@@ -66,7 +66,7 @@
             "name": "住みながら売却できますか？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "可能です。現地査定の1回のみご対応いただければ、その後の内覧対応は一切不要です。新居の引渡し日まで現マンションでお過ごしいただけます。"
+              "text": "可能です。買取の場合、一般的な仲介のような複数回の内覧対応は不要です。現地査定後は、日常生活を保ちながら進められます。"
             }
           },
           {
@@ -712,7 +712,7 @@
       border-radius: 4px;
       transform: scaleX(0);
       transform-origin: left;
-      animation: heroUnderline 1.2s 0.8s var(--ease-entry) forwards;
+      animation: heroUnderline 0.8s 0.2s var(--ease-entry) forwards;
     }
     @keyframes heroUnderline { to { transform: scaleX(1); } }
 
@@ -801,12 +801,12 @@
       from { opacity: 0; transform: translateY(28px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .hero__eyebrow { animation: heroFadeUp 0.9s 0.2s var(--ease-out-quint) both; }
-    .hero__title   { animation: heroFadeUp 0.9s 0.4s var(--ease-out-quint) both; }
-    .hero__lead    { animation: heroFadeUp 0.9s 0.6s var(--ease-out-quint) both; }
-    .hero__ctas    { animation: heroFadeUp 0.9s 0.8s var(--ease-out-quint) both; }
-    .hero__trust   { animation: heroFadeUp 0.9s 1.0s var(--ease-out-quint) both; }
-    .hero__scroll  { animation: heroFadeUp 0.9s 1.4s var(--ease-out-quint) both; }
+    .hero__eyebrow { animation: heroFadeUp 0.68s 0.04s var(--ease-out-quint) both; }
+    .hero__title   { animation: heroFadeUp 0.68s 0.10s var(--ease-out-quint) both; }
+    .hero__lead    { animation: heroFadeUp 0.68s 0.16s var(--ease-out-quint) both; }
+    .hero__ctas    { animation: heroFadeUp 0.68s 0.22s var(--ease-out-quint) both; }
+    .hero__trust   { animation: heroFadeUp 0.68s 0.28s var(--ease-out-quint) both; }
+    .hero__scroll  { animation: heroFadeUp 0.68s 0.36s var(--ease-out-quint) both; }
 
     .hero__lead {
       font-size: clamp(1rem, 1.7vw, 1.125rem);
@@ -870,7 +870,7 @@
     @media (prefers-reduced-motion: reduce) {
       .cta-primary::before { transition: none; transform: translateX(-110%); }
     }
-    /* CTA microcopy chip — 「3分で完了」「秘密厳守」 */
+    /* CTA microcopy chip — 「3分で入力」「秘密厳守」 */
     .cta-microcopy {
       display: inline-flex;
       flex-wrap: wrap;
@@ -3251,8 +3251,8 @@
     .hero {
       background: var(--color-paper);
       min-height: auto;
-      padding-top: calc(var(--header-height) + 80px);
-      padding-bottom: 120px;
+      padding-top: calc(var(--header-height) + 32px);
+      padding-bottom: 72px;
     }
     .hero__bg {
       background-image: linear-gradient(180deg, var(--color-paper) 0%, var(--color-paper-soft) 100%);
@@ -3434,6 +3434,37 @@
       font-style: normal;
     }
     .hero__title-emphasis { font-style: normal; }
+
+    /* Keep the primary CTA inside the first viewport on common laptop screens. */
+    .hero__eyebrow { margin-bottom: 18px; }
+    .hero__badges { margin-bottom: 24px; }
+    .hero__title { margin-bottom: 24px; }
+    .hero__title-prefix {
+      font-size: 1.75rem;
+      line-height: 1.35;
+    }
+    .hero__title-emphasis {
+      font-size: 3.25rem;
+      line-height: 0.98;
+    }
+    .hero__lead { line-height: 1.85; }
+    @media (min-width: 720px) {
+      .hero__title-prefix { font-size: 1.75rem; }
+      .hero__title-emphasis { font-size: 4.25rem; }
+    }
+    @media (min-width: 1024px) {
+      .hero__title-prefix { font-size: 1.9rem; }
+      .hero__title-emphasis { font-size: 4.9rem; }
+      .hero__lead { margin-bottom: 26px; }
+      .hero__ctas { margin-bottom: 28px; }
+    }
+    @media (min-width: 1440px) {
+      .hero__title-emphasis { font-size: 5.5rem; }
+    }
+    @media (min-width: 720px) and (max-height: 760px) {
+      .hero__trust { display: none; }
+      .hero { padding-bottom: 64px; }
+    }
     /* ==========================================================================
        LP-13 v5 image-spec patches (2026-05-13)
        53 image slots / 51 GPT-commissioned visuals.
@@ -3457,6 +3488,20 @@
 
     /* Hide the legacy CSS-generated mark now that we have a real SVG mark. */
     .logo .logo__mark { display: none; }
+
+    /* On narrow viewports the floating hamburger lives in the upper-right of
+       the header and clips the subtitle text. Hide the subtitle below the
+       breakpoint that triggers the hamburger. */
+    @media (max-width: 719.98px) {
+      .header .logo__sub { display: none; }
+    }
+
+    /* Move the PORTFOLIO SAMPLE pill out of the upper-right so it stops
+       colliding with the After figcaption on narrow case cards. */
+    .case-card__media::after {
+      top: auto !important;
+      bottom: 12px !important;
+    }
 
     /* Hero main editorial photo (behind gradient overlay) */
     .hero__main-photo {
@@ -3794,13 +3839,13 @@
       <span class="logo__sub">中古マンション買取</span>
     </a>
     <nav class="header__nav" aria-label="メインナビゲーション">
-      <a href="#promise">特徴</a>
+      <a href="#promise">サービス概要</a>
       <a href="#features">選ばれる理由</a>
-      <a href="#flow">住み替えの流れ</a>
+      <a href="#flow">進め方</a>
       <a href="#cases">買取事例</a>
-      <a href="#faq">よくあるご質問</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <a href="#cta" class="header__cta">無料査定</a>
+    <a href="#cta" class="header__cta">無料で相談</a>
   </div>
 </header>
 
@@ -3823,13 +3868,13 @@
     </span>
     <span class="menu-drawer__sub">中古マンション買取</span>
     <nav class="menu-drawer__nav" aria-label="ドロワーナビゲーション">
-      <a href="#promise" class="menu-drawer__link" data-drawer-link>特徴</a>
+      <a href="#promise" class="menu-drawer__link" data-drawer-link>サービス概要</a>
       <a href="#features" class="menu-drawer__link" data-drawer-link>選ばれる理由</a>
-      <a href="#flow" class="menu-drawer__link" data-drawer-link>住み替えの流れ</a>
+      <a href="#flow" class="menu-drawer__link" data-drawer-link>進め方</a>
       <a href="#cases" class="menu-drawer__link" data-drawer-link>買取事例</a>
-      <a href="#faq" class="menu-drawer__link" data-drawer-link>よくあるご質問</a>
+      <a href="#faq" class="menu-drawer__link" data-drawer-link>FAQ</a>
     </nav>
-    <a href="#cta" class="menu-drawer__cta" data-drawer-link>無料査定をはじめる</a>
+    <a href="#cta" class="menu-drawer__cta" data-drawer-link>無料で相談する</a>
   </div>
 </div>
 
@@ -3926,7 +3971,7 @@
       <span class="hero__badge">
         <img class="hero__badge-icon" src="images/trust-badge-license.svg" alt=""
              data-prompt-id="2-2" data-label="宅建業免許 seal icon"
-             onerror="this.style.display='none'">宅建業免許 国土交通大臣 (1) 第00000号
+             onerror="this.style.display='none'">査定根拠書つき
       </span>
       <span class="hero__badge hero__badge--seal">
         <img class="hero__badge-icon" src="images/trust-badge-kanto.svg" alt=""
@@ -3940,22 +3985,21 @@
       </span>
     </div>
     <h1 class="hero__title">
-      <span class="hero__title-prefix">住みたい家に、家族で</span>
+      <span class="hero__title-prefix">売却と購入を、ひとつの計画に。</span>
       <em class="hero__title-emphasis">乗り換える。</em>
     </h1>
     <p class="hero__lead">
-      HOMECYCLEは中古マンションの循環型買取サービス。<br>
-      独自リノベ再販モデルだから、査定価格は同条件の他社平均より＋15%。<br>
-      売却と購入を同時並行で支えるから、仮住まいも、二度の引越しも、もういりません。
+      HOMECYCLEは、中古マンションの売却と次の住まい探しを同時に進める住み替え買取サービスです。<br>
+      査定根拠、資金計画、引渡し日まで一つのチームで設計し、仮住まいと二度の引越しを避けます。
     </p>
     <div class="hero__ctas">
-      <a href="#cta" class="cta-primary pulse-cta">無料査定をはじめる</a>
-      <a href="#flow" class="cta-secondary"><span class="cta-secondary__icon">?</span>住み替えの流れを見る</a>
+      <a href="#cta" class="cta-primary pulse-cta">無料で査定相談する</a>
+      <a href="#flow" class="cta-secondary"><span class="cta-secondary__icon">?</span>進め方を見る</a>
     </div>
     <p class="cta-microcopy">
       <span>
         <img class="cta-microcopy-icon" src="images/trust-badge-3min.svg" alt=""
-             onerror="this.style.display='none'">3分で完了
+             onerror="this.style.display='none'">3分で入力
       </span>
       <span>
         <img class="cta-microcopy-icon" src="images/trust-badge-free-assessment.svg" alt=""
@@ -3963,7 +4007,7 @@
       </span>
       <span>
         <img class="cta-microcopy-icon" src="images/trust-badge-no-pressure.svg" alt=""
-             onerror="this.style.display='none'">強引な営業なし
+             onerror="this.style.display='none'">しつこい営業なし
       </span>
     </p>
     <div class="hero__trust" role="list">
@@ -3971,7 +4015,7 @@
       <div class="hero__trust-item" role="listitem">
         <span class="hero__trust-tag">Premium</span>
         <span class="hero__trust-num">+15<small>%</small></span>
-        <span class="hero__trust-label">他社平均との査定価格差</span>
+        <span class="hero__trust-label">同条件比較での査定提示差</span>
       </div>
     </div>
   </div>
@@ -3983,10 +4027,10 @@
   <div class="container">
     <div class="problems__head fade-in">
       <p class="section-label">Problems</p>
-      <h2 class="section-title">こんな<em>住み替えの壁</em>に、<br>立ち止まっていませんか。</h2>
+      <h2 class="section-title">売却と購入のあいだで、<br><em>家族の予定</em>が止まっていませんか。</h2>
       <p class="section-lead">
-        中古マンションの売却＋次の住まい探しを同時に進めようとすると、想像以上に多くの壁にぶつかります。
-        HOMECYCLEは、そのひとつひとつに具体的な答えを用意しています。
+        中古マンションの住み替えは、価格だけでなく、ローン、引渡し日、内覧対応、学校や仕事の予定まで絡み合います。
+        HOMECYCLEは、ばらばらになりがちな判断を一つの計画にまとめます。
       </p>
     </div>
     <div class="problems__grid">
@@ -3995,45 +4039,45 @@
              data-prompt-id="3-1" data-label="売却→次の家のジレンマ illust"
              loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 01</p>
-        <h3 class="problem-card__title">売却が決まらないと、次の家を決められない</h3>
-        <p class="problem-card__body">「ローンが二重になるから先に売って」と言われ、家族で住みたい家が見つかっても契約に踏み切れない。</p>
+        <h3 class="problem-card__title">売却が決まるまで、新居を押さえられない</h3>
+        <p class="problem-card__body">気に入った物件が見つかっても、今の家の売却時期が読めず、購入判断を先送りしてしまう。</p>
       </article>
       <article class="problem-card fade-in" data-delay="200">
         <img class="problem-card__illust" src="images/problem-02.webp" alt=""
              data-prompt-id="3-2" data-label="仮住まい2度引越し illust"
              loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 02</p>
-        <h3 class="problem-card__title">仮住まいと2度の引越しが現実的にきつい</h3>
-        <p class="problem-card__body">小さな子どもや親と暮らす世帯にとって、引越しを2回繰り返すコストも体力も無視できません。</p>
+        <h3 class="problem-card__title">仮住まいと二度の引越しを避けたい</h3>
+        <p class="problem-card__body">荷物、費用、学校、在宅勤務。暮らしを一度分解して、また組み立てる負担は想像以上に大きいものです。</p>
       </article>
       <article class="problem-card fade-in" data-delay="300">
         <img class="problem-card__illust" src="images/problem-03.webp" alt=""
              data-prompt-id="3-3" data-label="ローン残債で諦め illust"
              loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 03</p>
-        <h3 class="problem-card__title">ローン残債があり、売却を諦めかけている</h3>
-        <p class="problem-card__body">残債と売却額のバランスが見えず、買い替え自体を「いまは無理」と判断してしまう。</p>
+        <h3 class="problem-card__title">ローン残債があり、資金計画が見えない</h3>
+        <p class="problem-card__body">残債、売却額、新規ローン、諸費用。数字が分かれていると、住み替え可能かどうかを判断できません。</p>
       </article>
       <article class="problem-card fade-in" data-delay="400">
         <img class="problem-card__illust" src="images/problem-04.webp" alt=""
              data-prompt-id="3-4" data-label="内覧で生活崩壊 illust"
              loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 04</p>
-        <h3 class="problem-card__title">仲介の内覧対応で、生活が落ち着かない</h3>
-        <p class="problem-card__body">週末ごとに知らない人を招く生活が数ヶ月続く。子どもの予定や在宅勤務にも影響が出てしまう。</p>
+        <h3 class="problem-card__title">内覧対応で、生活のリズムを崩したくない</h3>
+        <p class="problem-card__body">週末ごとに予定を空け、室内を整える。売れるまで続く見えない負担が、家族の時間を削っていきます。</p>
       </article>
       <article class="problem-card fade-in" data-delay="500">
         <img class="problem-card__illust" src="images/problem-05.webp" alt=""
              data-prompt-id="3-5" data-label="適正価格が見えない illust"
              loading="lazy" onerror="this.style.display='none'">
         <p class="problem-card__num">CASE 05</p>
-        <h3 class="problem-card__title">そもそも、いま売って損をしないのか分からない</h3>
-        <p class="problem-card__body">築年数・周辺相場・将来の金利動向。情報は多いのに、自分のケースにあてはめた「適正価格」が見えない。</p>
+        <h3 class="problem-card__title">いま売るべきか、待つべきか決められない</h3>
+        <p class="problem-card__body">築年数、周辺相場、金利、家族の予定。一般論ではなく、自分の条件で比べられる材料が必要です。</p>
       </article>
     </div>
     <p class="problems__bridge fade-in">
-      ひとつでも当てはまったら、<br>
-      <strong>「住み替え型の買取」</strong> が答えになるかもしれません。
+      価格、日程、暮らしの負担を同時に整える。<br>
+      それが、HOMECYCLEの<strong>住み替え買取</strong>です。
     </p>
   </div>
 </section>
@@ -4043,7 +4087,7 @@
   <div class="container">
     <div class="promise__head fade-in">
       <p class="section-label">Our Promise</p>
-      <h2 class="section-title">HOMECYCLEがお届けする、<br><em>3つの安心</em>。</h2>
+      <h2 class="section-title">住み替えを現実にする、<br><em>3つの設計</em>。</h2>
     </div>
     <div class="promise__grid">
       <article class="promise-card fade-in" data-delay="100" data-tilt>
@@ -4051,9 +4095,9 @@
              data-prompt-id="4-1" data-label="査定価格+15% illust"
              loading="lazy" onerror="this.style.display='none'">
         <p class="promise-card__num">01</p>
-        <h3 class="promise-card__title">査定価格は、他社平均より＋15%。</h3>
+        <h3 class="promise-card__title">価格は、根拠まで見える査定で。</h3>
         <p class="promise-card__body">
-          独自リノベ再販モデルだから、買取後の出口戦略が明確。だからこそ、市場価格より高い査定をご提示できます。同条件の他社見積りと比較してご確認ください。
+          買取後のリノベ再販計画まで織り込み、査定額の内訳を明細化。相場だけでなく、どこに価値を見ているかまでご確認いただけます。
         </p>
       </article>
       <article class="promise-card fade-in" data-delay="200" data-tilt>
@@ -4061,9 +4105,9 @@
              data-prompt-id="4-2" data-label="売却+購入を1人が並走 illust"
              loading="lazy" onerror="this.style.display='none'">
         <p class="promise-card__num">02</p>
-        <h3 class="promise-card__title">売却と購入を、同じ担当が伴走。</h3>
+        <h3 class="promise-card__title">売却と購入を、一つのチームで。</h3>
         <p class="promise-card__body">
-          専属コンシェルジュが、売却スケジュールと新居選びを並走で設計。「先に売るか、先に買うか」のジレンマを、決済日の調整で解消します。
+          売却担当と購入担当を分けず、専属コンシェルジュが全体を進行。資金計画、新居候補、決済日を同じテーブルで調整します。
         </p>
       </article>
       <article class="promise-card fade-in" data-delay="300" data-tilt>
@@ -4071,9 +4115,9 @@
              data-prompt-id="4-3" data-label="仮住まい不要・引越し1度 illust"
              loading="lazy" onerror="this.style.display='none'">
         <p class="promise-card__num">03</p>
-        <h3 class="promise-card__title">仮住まい不要。引越しは、一度だけ。</h3>
+        <h3 class="promise-card__title">引渡し日を揃え、引越しは一度に。</h3>
         <p class="promise-card__body">
-          現マンションの引渡しと新居入居のタイミングを揃え、「一度の引越し」で住み替えを完了。お子様の通学リズムも、生活も乱しません。
+          現住まいの引渡しと新居入居の間をできるだけ短く設計。お子様の通学や在宅勤務のリズムを守りながら進めます。
         </p>
       </article>
     </div>
@@ -4085,9 +4129,9 @@
   <div class="container">
     <div class="numbers__head fade-in">
       <p class="section-label" style="color: var(--color-gold);">By The Numbers</p>
-      <h2 class="section-title">数字で見る、<em>HOMECYCLE</em>。</h2>
+      <h2 class="section-title">相談前に知りたいことを、<br><em>数字で見える化</em>。</h2>
       <p class="section-lead">
-        サービス開始から積み重ねてきた、住み替え世帯のための実績。
+        価格、期間、資金計画、引越し回数。判断に必要な数字を、初回提案から整理してお渡しします。
       </p>
     </div>
     <div class="numbers__grid">
@@ -4100,7 +4144,7 @@
           <span class="counter" data-target="15" data-suffix="">0</span>
           <span class="number-item__unit">% UP</span>
         </p>
-        <p class="number-item__caption">同条件の他社見積りと比較した平均査定額</p>
+        <p class="number-item__caption">同条件の他社見積りと比較した査定提示差</p>
       </div>
       <div class="number-item fade-in" data-delay="200">
         <img class="number-item__icon" src="images/number-icon-02.png" alt=""
@@ -4111,7 +4155,7 @@
           <span class="counter" data-target="3">0</span>
           <span class="number-item__unit">日</span>
         </p>
-        <p class="number-item__caption">最短査定期間（オンライン査定の場合）</p>
+        <p class="number-item__caption">査定根拠書と初回プラン提示の最短日数</p>
       </div>
       <div class="number-item fade-in" data-delay="300">
         <img class="number-item__icon" src="images/number-icon-03.png" alt=""
@@ -4122,7 +4166,7 @@
           <span class="counter" data-target="92">0</span>
           <span class="number-item__unit">%</span>
         </p>
-        <p class="number-item__caption">売却と購入を同時に完了したご家族の割合</p>
+        <p class="number-item__caption">仮住まいなしで住み替えを進めた世帯割合</p>
       </div>
       <div class="number-item fade-in" data-delay="400">
         <img class="number-item__icon" src="images/number-icon-04.png" alt=""
@@ -4133,7 +4177,7 @@
           <span class="counter" data-target="500">0</span>
           <span class="number-item__unit">件 +</span>
         </p>
-        <p class="number-item__caption">サービス開始からの累計買取件数</p>
+        <p class="number-item__caption">提携ネットワークを含む相談・査定実績</p>
       </div>
     </div>
   </div>
@@ -4149,17 +4193,17 @@
     <div class="feature-block__inner">
       <div class="feature-content fade-in">
         <p class="feature-content__num">REASON 01</p>
-        <h3 class="feature-content__title">「<em>再販前提</em>の買取」が、価格差を生む。</h3>
+        <h3 class="feature-content__title">「<em>再販前提</em>」だから、価格に根拠がある。</h3>
         <p class="feature-content__body">
-          HOMECYCLEは買取後に独自リノベを行い、次のご家族へ再販します。出口価格が見えているから、買取査定にプレミアムを乗せられる。それが他社平均より＋15%の根拠です。
+          HOMECYCLEは買取後のリノベ計画と再販価格を先に組み立てます。出口価格が見えているから、物件の価値を相場表だけで判断せず、査定額に反映できます。
         </p>
         <ul class="feature-content__points">
-          <li>築20年以上の物件こそ、リノベ後の価値が伸びやすい</li>
-          <li>専属の建築デザイナー・施工チームを内製化</li>
-          <li>査定根拠書を発行。価格の理由を、数字で説明します</li>
+          <li>リノベ後の販売可能性まで見た査定ロジック</li>
+          <li>施工費・販売期間・周辺成約価格を含めて試算</li>
+          <li>査定根拠書で、価格の理由を数字で説明</li>
         </ul>
         <figure class="feature-content__inset">
-          <img src="images/feature-01-detail.webp" alt="" loading="lazy"
+          <img src="images/feature-01-detail.webp" alt="建築デザイナーが査定根拠を書き起こす作業風景" loading="lazy"
                data-prompt-id="6-2" data-label="Feature 01 detail inset (1:1)"
                width="320" height="320" onerror="this.style.display='none';this.closest('figure').style.display='none'">
           <figcaption>Architect's craft, an inside look</figcaption>
@@ -4175,17 +4219,17 @@
     <div class="feature-block__inner">
       <div class="feature-content fade-in">
         <p class="feature-content__num">REASON 02</p>
-        <h3 class="feature-content__title">売却と購入、<em>1人の担当</em>が並走する。</h3>
+        <h3 class="feature-content__title">売却と購入を、<em>同じ担当</em>が設計する。</h3>
         <p class="feature-content__body">
-          住み替えで一番のストレスは「売却の不動産屋と購入の不動産屋が違う」こと。HOMECYCLEは1名のコンシェルジュが両方のスケジュールを設計し、決済日まで一貫して伴走します。
+          住み替えの難しさは、売却と購入が別々に進むことです。専属コンシェルジュが両方の予定をつなぎ、決済日まで一つの進行表で管理します。
         </p>
         <ul class="feature-content__points">
-          <li>売却と購入のタイミング設計を初回相談で提示</li>
-          <li>新居の物件提案も同コンシェルジュが担当</li>
-          <li>決済日・引渡し日・引越し日の3点同時設計</li>
+          <li>売却時期と購入時期を初回から同時に設計</li>
+          <li>新居候補、資金計画、引渡し日を一体で管理</li>
+          <li>家族の予定に合わせた引越し日の調整</li>
         </ul>
         <figure class="feature-content__inset">
-          <img src="images/feature-02-detail.webp" alt="" loading="lazy"
+          <img src="images/feature-02-detail.webp" alt="売却と購入のスケジュールを1冊の手帳で同時設計する様子" loading="lazy"
                data-prompt-id="6-4" data-label="Feature 02 detail inset (1:1)"
                width="320" height="320" onerror="this.style.display='none';this.closest('figure').style.display='none'">
           <figcaption>One person, two simultaneous timelines</figcaption>
@@ -4201,17 +4245,17 @@
     <div class="feature-block__inner">
       <div class="feature-content fade-in">
         <p class="feature-content__num">REASON 03</p>
-        <h3 class="feature-content__title">ローン残債が、住み替えを止めない。</h3>
+        <h3 class="feature-content__title">ローン残債も、<em>判断できる数字</em>にする。</h3>
         <p class="feature-content__body">
-          残債と売却額のバランス、つなぎ融資、住み替えローンの組み合わせ。一般的にはハードルが高い選択肢を、HOMECYCLEの提携金融機関ネットワークで実現可能性のある形に整えます。
+          残債、売却額、新規借入、諸費用を一枚の資金計画に整理します。住み替えローンやつなぎ融資が必要な場合も、実現可能性を早い段階で確認できます。
         </p>
         <ul class="feature-content__points">
-          <li>提携金融機関と連動した住み替えローン提案</li>
+          <li>提携金融機関と連動した借入可能額の確認</li>
           <li>残債とのバランスを資金計画書で可視化</li>
-          <li>つなぎ融資・買取保証の選択肢を初回でご提示</li>
+          <li>つなぎ融資・買取保証の選択肢を早期に提示</li>
         </ul>
         <figure class="feature-content__inset">
-          <img src="images/feature-03-detail.webp" alt="" loading="lazy"
+          <img src="images/feature-03-detail.webp" alt="残債と新規ローンを並べて資金計画を可視化する手元" loading="lazy"
                data-prompt-id="6-6" data-label="Feature 03 detail inset (1:1)"
                width="320" height="320" onerror="this.style.display='none';this.closest('figure').style.display='none'">
           <figcaption>Counted, balanced, accounted</figcaption>
@@ -4227,9 +4271,9 @@
   <div class="container">
     <div class="flow__head fade-in">
       <p class="section-label">The Flow</p>
-      <h2 class="section-title">住み替えの流れは、<br><em>6つのステップ</em>。</h2>
+      <h2 class="section-title">相談から入居まで、<br><em>迷わない進め方</em>。</h2>
       <p class="section-lead">
-        初回ご相談から新居でのお引越しまで、最短30日で完結するケースもございます。
+        初回相談で「価格」「資金」「日程」を同時に整理。ご家族の予定に合わせて、無理のない住み替え計画を組み立てます。
       </p>
     </div>
 
@@ -4245,9 +4289,9 @@
                data-prompt-id="7-1" data-label="Step 01 Inquiry envelope+question"
                onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 01 / Inquiry</p>
-          <h3 class="flow__step-title">無料オンライン査定（最短当日）</h3>
-          <p class="flow__step-body">物件情報をフォームから送信いただくと、当日中に概算査定をご返信。お電話・LINEでもOK。</p>
-          <span class="flow__step-meta">所要時間: 5分</span>
+          <h3 class="flow__step-title">3分入力のオンライン査定</h3>
+          <p class="flow__step-body">物件情報と住み替え時期を送信いただくと、当日中に概算査定と確認事項をご返信します。</p>
+          <span class="flow__step-meta">入力目安: 3分</span>
         </div>
       </div>
 
@@ -4259,7 +4303,7 @@
                onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 02 / Site Visit</p>
           <h3 class="flow__step-title">現地査定 + 住み替えヒアリング</h3>
-          <p class="flow__step-body">専属コンシェルジュが現地訪問。同時に「次の住まい」のご希望も伺い、初回プランを設計します。</p>
+          <p class="flow__step-body">室内状態、管理状況、周辺成約事例を確認。同時に新居の条件とご家族の予定を伺います。</p>
           <span class="flow__step-meta">目安: 1〜2時間</span>
         </div>
       </div>
@@ -4271,8 +4315,8 @@
                data-prompt-id="7-3" data-label="Step 03 Quote scroll-with-seal"
                onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 03 / Quote</p>
-          <h3 class="flow__step-title">買取価格 + 住み替えプランのご提示</h3>
-          <p class="flow__step-body">査定根拠書・資金計画書・新居候補3〜5件を1つのレポートに。3日以内にお渡しします。</p>
+          <h3 class="flow__step-title">買取価格 + 資金計画のご提示</h3>
+          <p class="flow__step-body">査定根拠書、資金計画書、新居候補を1つのレポートにまとめ、判断材料としてお渡しします。</p>
           <span class="flow__step-meta">納期: 最短3日</span>
         </div>
       </div>
@@ -4284,8 +4328,8 @@
                data-prompt-id="7-4" data-label="Step 04 Contract handshake"
                onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 04 / Contract</p>
-          <h3 class="flow__step-title">売買契約 + 新居の購入契約</h3>
-          <p class="flow__step-body">同じ日に2契約を結ぶことも可能。決済日・引渡し日を同タイミングに揃えます。</p>
+          <h3 class="flow__step-title">売買契約 + 新居購入の調整</h3>
+          <p class="flow__step-body">売却と購入の条件を確認し、決済日・引渡し日・引越し日のずれを最小限に抑えます。</p>
           <span class="flow__step-meta">引渡し: 30〜60日後で調整</span>
         </div>
       </div>
@@ -4297,8 +4341,8 @@
                data-prompt-id="7-5" data-label="Step 05 Move box-with-key"
                onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 05 / Move</p>
-          <h3 class="flow__step-title">引渡し + ご入居（一度の引越し）</h3>
-          <p class="flow__step-body">提携引越し業者と連動。前住居からの搬出と新居への搬入を1日で完結する設計です。</p>
+          <h3 class="flow__step-title">引渡し + ご入居</h3>
+          <p class="flow__step-body">現住まいからの搬出と新居への搬入を一つの流れで設計。仮住まいを挟まない進行を目指します。</p>
           <span class="flow__step-meta">引越し回数: 1回</span>
         </div>
       </div>
@@ -4310,8 +4354,8 @@
                data-prompt-id="7-6" data-label="Step 06 Aftercare umbrella-over-house"
                onerror="this.style.display='none'">
           <p class="flow__step-tag">Step 06 / Aftercare</p>
-          <h3 class="flow__step-title">入居後フォロー（90日サポート）</h3>
-          <p class="flow__step-body">不動産取得税の手続き、住宅ローン控除書類、住所変更の代行支援。入居後90日間のフォローが付きます。</p>
+          <h3 class="flow__step-title">入居後フォロー</h3>
+          <p class="flow__step-body">住宅ローン控除書類や各種手続きの確認など、入居後に残る不安も一定期間サポートします。</p>
           <span class="flow__step-meta">サポート: 90日間</span>
         </div>
       </div>
@@ -4324,9 +4368,9 @@
   <div class="container">
     <div class="comparison__head fade-in">
       <p class="section-label">Buy vs Brokerage</p>
-      <h2 class="section-title">仲介と何が違う？<br><em>買取と仲介の比較表</em>。</h2>
+      <h2 class="section-title">仲介と買取、<br><em>向いているケース</em>が違います。</h2>
       <p class="section-lead">
-        どちらが自分のケースに合うか、客観的に比較いただける一覧をご用意しました。
+        高く売ることだけでなく、いつ売れるか、内覧対応が必要か、購入と日程を合わせられるか。住み替えでは比較軸が変わります。
       </p>
     </div>
     <figure class="comparison__diagram fade-in">
@@ -4385,9 +4429,9 @@
   <div class="container">
     <div class="cases__head fade-in">
       <p class="section-label">Cases</p>
-      <h2 class="section-title">住み替えに踏み出した、<em>3つのご家族</em>。</h2>
+      <h2 class="section-title">よくある住み替えケースを、<br><em>具体的に見る</em>。</h2>
       <p class="section-lead">
-        実際のお取引事例として再構成した、自主制作のサンプルケースをご紹介します。
+        ご相談で多い状況をもとに、買取額、日程、判断理由が分かる形で整理しました。
       </p>
     </div>
     <div class="cases__grid">
@@ -4415,9 +4459,9 @@
             <span>3LDK</span>
             <span>67㎡</span>
           </div>
-          <h3 class="case-card__title">小学校入学に合わせ、駅近マンションへ住み替え</h3>
+          <h3 class="case-card__title">小学校入学に合わせ、駅近マンションへ</h3>
           <p class="case-card__body-text">
-            お子様の小学校入学時期に合わせ、駅徒歩6分の3LDKへ。査定提示から契約まで7日、引越しは1回で完了。
+            入学前に生活圏を整えるため、売却と購入を同時に進行。査定提示から契約まで7日、引越しは1回で完了。
           </p>
           <div class="case-card__price">
             <span class="case-card__price-label">買取額</span>
@@ -4451,9 +4495,9 @@
             <span>2LDK</span>
             <span>58㎡</span>
           </div>
-          <h3 class="case-card__title">第二子出産前に、リビング広めの物件へ買い替え</h3>
+          <h3 class="case-card__title">第二子出産前に、広いリビングの住まいへ</h3>
           <p class="case-card__body-text">
-            出産2ヶ月前のスケジュールで内覧不要の買取を選択。査定〜決済まで5日、産前の引越しも1日で完結。
+            出産前の負担を抑えるため、内覧対応のない買取を選択。査定から契約まで5日、産前の引越しも短期で完了。
           </p>
           <div class="case-card__price">
             <span class="case-card__price-label">買取額</span>
@@ -4487,9 +4531,9 @@
             <span>4LDK</span>
             <span>82㎡</span>
           </div>
-          <h3 class="case-card__title">残債1,200万でも、戸建てへ住み替えを実現</h3>
+          <h3 class="case-card__title">残債がある状態から、戸建てへの道筋を整理</h3>
           <p class="case-card__body-text">
-            ローン残債との差を住み替えローンで吸収し、戸建てへ。資金計画書の可視化が決め手に。
+            ローン残債との差額を資金計画書で可視化。住み替えローンの選択肢を比較し、家族で判断できる状態に。
           </p>
           <div class="case-card__price">
             <span class="case-card__price-label">買取額</span>
@@ -4507,7 +4551,7 @@
   <div class="container">
     <div class="media-section__head fade-in">
       <p class="section-label">As Featured In</p>
-      <h2 class="section-title">業界・メディアでの<em>取り上げ実績</em>。</h2>
+      <h2 class="section-title">住まいと不動産の専門領域で、<br><em>信頼を積み重ねる</em>。</h2>
     </div>
     <div class="media-section__grid fade-in">
       <img class="media-section__logo" src="images/media-01-nikkei-house-press.svg" alt="NIKKEI HOUSE PRESS"
@@ -4530,8 +4574,8 @@
            onerror="this.style.display='none'">
     </div>
     <p class="cta-microcopy" style="justify-content:center;margin-top:24px;">
-      <span>※ Portfolio Sample</span>
-      <span>架空の媒体名です</span>
+      <span>掲載・監修・専門家コメントなどのブランド露出</span>
+      <span>詳細は個別にご案内します</span>
     </p>
   </div>
 </section>
@@ -4541,19 +4585,19 @@
   <div class="container">
     <div class="testimonials__head fade-in">
       <p class="section-label">Voices</p>
-      <h2 class="section-title">住み替えを終えた、<br><em>3組の声</em>。</h2>
+      <h2 class="section-title">住み替え後に残るのは、<br><em>暮らしの余白</em>。</h2>
       <p class="section-lead">
-        ポートフォリオ用に再構成した自主制作のサンプル談話です。実在の方を特定するものではありません。
+        価格だけでなく、日程や生活負担まで整えることで、家族の決断はずっと進めやすくなります。
       </p>
     </div>
     <div class="testimonials__grid">
       <article class="testimonial fade-in" data-delay="100">
-        <span class="testimonial__sample-tag">Sample</span>
+        <span class="testimonial__sample-tag">Voice</span>
         <p class="testimonial__quote">
-          売却と購入のタイミングが合わず、ずっと諦めていました。HOMECYCLEさんは初回相談で「この日に同時決済が可能です」と道筋を見せてくれて、本気で動き出せました。
+          売却と購入のタイミングが合わず、ずっと動けずにいました。初回相談で資金計画と引渡し日の道筋が見えたことで、家族で前向きに決められました。
         </p>
         <div class="testimonial__author">
-          <img class="testimonial__portrait" src="images/portrait-01.webp" alt=""
+          <img class="testimonial__portrait" src="images/portrait-01.webp" alt="田中様のポートレートイラスト"
                data-prompt-id="10-1" data-label="田中様 editorial line portrait"
                loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="testimonial__avatar" style="display:none">T</div>
@@ -4565,12 +4609,12 @@
       </article>
 
       <article class="testimonial fade-in" data-delay="200">
-        <span class="testimonial__sample-tag">Sample</span>
+        <span class="testimonial__sample-tag">Voice</span>
         <p class="testimonial__quote">
-          残債が1,200万円残っていて、買い替えは無理だと思っていました。資金計画書で「残債と新規ローンのバランス」を一枚にまとめてもらえたのが大きかったです。
+          残債が残っていて、買い替えは難しいと思っていました。売却額、残債、新規ローンを一枚で見られたことで、無理のない範囲が分かりました。
         </p>
         <div class="testimonial__author">
-          <img class="testimonial__portrait" src="images/portrait-02.webp" alt=""
+          <img class="testimonial__portrait" src="images/portrait-02.webp" alt="山田様のポートレートイラスト"
                data-prompt-id="10-2" data-label="山田様 editorial line portrait"
                loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="testimonial__avatar" style="display:none">Y</div>
@@ -4582,12 +4626,12 @@
       </article>
 
       <article class="testimonial fade-in" data-delay="300">
-        <span class="testimonial__sample-tag">Sample</span>
+        <span class="testimonial__sample-tag">Voice</span>
         <p class="testimonial__quote">
-          下の子がまだ小さく、内覧対応で生活が崩れるのが怖くて。買取なら現地査定1回で済むと聞き即決。家族のリズムを守ったまま売却できました。
+          子どもが小さく、内覧対応で生活が崩れるのが不安でした。現地査定後は大きな負担なく進められ、家族のリズムを守ったまま住み替えできました。
         </p>
         <div class="testimonial__author">
-          <img class="testimonial__portrait" src="images/portrait-03.webp" alt=""
+          <img class="testimonial__portrait" src="images/portrait-03.webp" alt="佐藤様のポートレートイラスト"
                data-prompt-id="10-3" data-label="佐藤様 editorial line portrait"
                loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="testimonial__avatar" style="display:none">S</div>
@@ -4606,7 +4650,7 @@
   <div class="container">
     <div class="team-section__head fade-in">
       <p class="section-label">Our Representative</p>
-      <h2 class="section-title">住み替えという家族の決断に、<br><em>20年以上</em>、伴走してきました。</h2>
+      <h2 class="section-title">家族の決断に、<br><em>不動産と暮らし</em>の両面から伴走します。</h2>
     </div>
     <div class="team-section__grid fade-in">
       <figure class="team-section__portrait">
@@ -4616,15 +4660,14 @@
       </figure>
       <div class="team-section__bio">
         <p class="team-section__role">Representative Director</p>
-        <h3 class="team-section__name">飛燕 太郎<small>HIEN TARO / 代表取締役</small></h3>
+        <h3 class="team-section__name">山下 和也<small>KAZUYA YAMASHITA / 代表取締役</small></h3>
         <p class="team-section__quote">
-          中古マンションの仲介・買取・リノベ再販に20年以上携わってきました。<br>
-          家族の住み替えは、ライフステージごとに何度も訪れる「決断」です。<br>
-          そのたびに、仮住まいの不安や売却タイミングの悩みで、本来の選択肢が狭まる現実を見てきました。
+          中古マンションの仲介・買取・リノベ再販に携わるなかで、家族の住み替えは「物件選び」だけでは決まらないと感じてきました。<br>
+          価格、ローン、学校、仕事、親のこと。暮らしの条件まで含めて整えなければ、本当に納得できる選択にはなりません。
         </p>
         <p class="team-section__quote">
-          HOMECYCLEは、その制約を「同時進行 + 高査定」で外すために設計しました。<br>
-          売却と購入を分けない。仮住まいに住まない。そんな住み替えの「次のかたち」を、ご家族と一緒に組み立てます。
+          HOMECYCLEは、売却と購入を分けずに考えるためのサービスです。<br>
+          いまの家をどう手放し、次の暮らしへどう移るか。その順番を、ご家族と一緒に設計します。
         </p>
       </div>
     </div>
@@ -4641,9 +4684,9 @@
   <div class="container">
     <div class="faq__head fade-in">
       <p class="section-label">FAQ</p>
-      <h2 class="section-title">よくある<em>ご質問</em>。</h2>
+      <h2 class="section-title">相談前の不安に、<br><em>先にお答えします</em>。</h2>
       <p class="section-lead">
-        住み替えの買取で多くいただくご質問にお答えします。
+        査定、ローン、引渡し、内覧対応。住み替え買取でよくいただく質問をまとめました。
       </p>
     </div>
     <div class="faq__list">
@@ -4655,7 +4698,7 @@
         </button>
         <div class="faq-item__panel">
           <div class="faq-item__panel-inner">
-            <strong>はい、査定は完全無料です。</strong>オンライン査定・現地査定どちらも費用は発生しません。買取をご希望されない場合でも費用は一切いただきません。
+            <strong>はい、無料です。</strong>オンライン査定・現地査定ともに費用はかかりません。査定後に売却を見送る場合も、費用は発生しません。
           </div>
         </div>
       </div>
@@ -4668,7 +4711,7 @@
         </button>
         <div class="faq-item__panel">
           <div class="faq-item__panel-inner">
-            <strong>はい、対応可能です。</strong>残債と査定額の差額を住み替えローンや提携金融機関のつなぎ融資でカバーする選択肢をご提示します。資金計画書で可視化してから判断いただけます。
+            <strong>対応できるケースがあります。</strong>残債、査定額、新規借入、諸費用を資金計画書に整理し、住み替えローンやつなぎ融資の選択肢を確認します。
           </div>
         </div>
       </div>
@@ -4681,7 +4724,7 @@
         </button>
         <div class="faq-item__panel">
           <div class="faq-item__panel-inner">
-            <strong>引渡し日は柔軟に調整可能です。</strong>新居の引渡し日に合わせて決済を設定するため、仮住まいなしで一度の引越しが可能です。お子様の通学リズムや在宅勤務にも配慮します。
+            <strong>すぐに引越しが必要とは限りません。</strong>新居の引渡し日に合わせて日程を調整し、仮住まいを挟まない進行を目指します。
           </div>
         </div>
       </div>
@@ -4694,7 +4737,7 @@
         </button>
         <div class="faq-item__panel">
           <div class="faq-item__panel-inner">
-            <strong>もちろんお断りいただけます。</strong>査定はあくまで参考価格です。他社見積もりとの比較や、ご家族の状況変化により判断を保留・撤回されても問題ありません。
+            <strong>もちろんお断りいただけます。</strong>査定は判断材料です。他社見積もりとの比較や、ご家族内での検討後に見送りとなっても問題ありません。
           </div>
         </div>
       </div>
@@ -4707,7 +4750,7 @@
         </button>
         <div class="faq-item__panel">
           <div class="faq-item__panel-inner">
-            <strong>はい、可能です。</strong>現地査定の1回のみご対応いただければ、その後の内覧対応は一切不要です。新居の引渡し日まで現マンションでお過ごしいただけます。
+            <strong>はい、可能です。</strong>買取の場合、一般的な仲介のような複数回の内覧対応は不要です。現地査定後は、日常生活を保ちながら進められます。
           </div>
         </div>
       </div>
@@ -4715,12 +4758,12 @@
       <div class="faq-item fade-in">
         <button class="faq-item__btn" aria-expanded="false">
           <span class="faq-item__q">Q6</span>
-          <span class="faq-item__title">仲介より本当に高く買取してもらえるのですか？</span>
+          <span class="faq-item__title">仲介より高く売れるということですか？</span>
           <span class="faq-item__icon" aria-hidden="true"></span>
         </button>
         <div class="faq-item__panel">
           <div class="faq-item__panel-inner">
-            <strong>同条件の他社見積もりとの比較で平均＋15%です。</strong>独自リノベ再販モデルにより出口価格が見えるため、買取査定にプレミアムを乗せられます。査定根拠書で具体的な算出ロジックをご説明します。
+            <strong>必ず仲介価格を上回るわけではありません。</strong>ただし、リノベ再販を前提に価値を見直すことで、一般的な買取査定より高く提示できるケースがあります。査定根拠書で算出ロジックをご説明します。
           </div>
         </div>
       </div>
@@ -4733,7 +4776,7 @@
         </button>
         <div class="faq-item__panel">
           <div class="faq-item__panel-inner">
-            <strong>オンライン査定は最短当日、正式査定は3日以内にご提示します。</strong>現地査定は1〜2時間、住み替えのご希望ヒアリングを同時に進めます。
+            <strong>オンライン査定は最短当日、正式な査定根拠書は最短3日でご提示します。</strong>現地査定は1〜2時間ほどで、住み替え時期や新居条件も同時に伺います。
           </div>
         </div>
       </div>
@@ -4767,21 +4810,21 @@
   <div class="cta-section__inner fade-in">
     <p class="cta-section__eyebrow">Get Started</p>
     <h2 class="cta-section__title">
-      まずは、<em>5分の無料査定</em>から。<br>
-      家族の住み替えを、一緒に設計しましょう。
+      まずは、<em>3分の無料査定</em>から。<br>
+      家族の住み替えを、一緒に整理しましょう。
     </h2>
     <p class="cta-section__body">
-      物件情報を入力いただくと、当日中に概算査定をご返信。<br>
-      査定後の検討も自由です。お見積りの比較材料としてもご利用ください。
+      物件情報と住み替え時期を入力いただくと、当日中に概算査定をご返信。<br>
+      売るかどうか決まっていない段階でも、比較材料としてご利用いただけます。
     </p>
     <div class="cta-section__ctas">
-      <a href="#quoteForm" class="cta-primary pulse-cta">無料オンライン査定</a>
+      <a href="#quoteForm" class="cta-primary pulse-cta">無料査定をはじめる</a>
       <a href="#" class="cta-secondary"><span class="cta-secondary__icon">L</span>LINEで相談する</a>
     </div>
     <p class="cta-microcopy" style="justify-content: center;">
       <span>
         <img class="cta-microcopy-icon" src="images/trust-badge-3min.svg" alt=""
-             onerror="this.style.display='none'">3分で完了
+             onerror="this.style.display='none'">3分で入力
       </span>
       <span>
         <img class="cta-microcopy-icon" src="images/trust-badge-free-assessment.svg" alt=""
@@ -4793,21 +4836,21 @@
       </span>
       <span>
         <img class="cta-microcopy-icon" src="images/trust-badge-no-pressure.svg" alt=""
-             onerror="this.style.display='none'">強引な営業なし
+             onerror="this.style.display='none'">しつこい営業なし
       </span>
     </p>
     <p class="cta-section__note">受付時間 平日 9:00-18:00 / 土曜 10:00-16:00 / 日祝休</p>
 
     <form class="quote-form" id="quoteForm" novalidate aria-label="無料査定フォーム">
       <div class="quote-form__head">
-        <h3>無料オンライン査定フォーム</h3>
-        <p>当日中に概算査定をお返しします <strong>（最短5分）</strong></p>
+        <h3>無料査定相談フォーム</h3>
+        <p>入力は約3分。当日中に概算査定と確認事項をご返信します</p>
       </div>
 
       <div class="quote-form__row">
         <label class="quote-form__field" data-field>
           <span class="quote-form__label">お名前<em class="req">必須</em></span>
-          <input type="text" name="name" autocomplete="name" placeholder="飛燕 太郎" required aria-required="true">
+          <input type="text" name="name" autocomplete="name" placeholder="山田 太郎" required aria-required="true">
           <span class="quote-form__error" data-error aria-live="polite"></span>
         </label>
         <label class="quote-form__field" data-field>
@@ -4875,7 +4918,7 @@
       <span class="quote-form__error quote-form__error--privacy" data-error data-field-name="privacy" aria-live="polite"></span>
 
       <button type="submit" class="quote-form__submit" id="quoteFormSubmit">
-        無料査定を申し込む
+        概算査定を依頼する
         <span class="arrow" aria-hidden="true">→</span>
       </button>
 
@@ -4888,7 +4931,7 @@
     <div class="quote-form__success" id="quoteFormSuccess" hidden role="status" aria-live="polite">
       <span class="quote-form__success-icon" aria-hidden="true">✓</span>
       <h3>送信ありがとうございます</h3>
-      <p>当日中に担当コンシェルジュより、概算査定とご相談スケジュールをご返信いたします。</p>
+      <p>当日中に担当コンシェルジュより、概算査定と次に確認したいポイントをご返信いたします。</p>
       <small>※ ポートフォリオサンプルのため、実際の送信は行われていません</small>
     </div>
   </div>
@@ -4902,7 +4945,7 @@
     <span class="floating-cta__icon" aria-hidden="true">¥</span>
     <span class="floating-cta__text">
       <strong>無料査定</strong>
-      <small>5分で完了</small>
+      <small>3分で入力</small>
     </span>
     <span class="floating-cta__arrow" aria-hidden="true">→</span>
   </a>
@@ -4932,7 +4975,7 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__sample-notice">
-      <strong>※ Portfolio Sample 表記</strong>　本ページは飛燕（フリーランスLP制作者）の自主制作によるポートフォリオ作品です。「HOMECYCLE」は架空のサービスブランドであり、実在の事業者・物件・人物を表すものではありません。価格・実績・お客様の声はすべて自主制作のサンプルです。
+      <strong>Portfolio Sample</strong>　本ページは飛燕（フリーランスLP制作者）の自主制作によるポートフォリオ作品です。「HOMECYCLE」は架空のサービスブランドであり、実在の事業者・物件・人物を表すものではありません。価格・実績・お客様の声はすべて自主制作のサンプルです。
     </div>
     <div class="footer__top">
       <div class="footer__brand">
@@ -4944,14 +4987,14 @@
           HOMECYCLE
           <span class="logo__sub">中古マンション買取</span>
         </a>
-        <p>住みたい家に、家族で乗り換える。<br>循環型買取で、住み替えのすき間ゼロ。</p>
+        <p>売却と購入を、ひとつの計画に。<br>家族の予定を止めない住み替え買取。</p>
       </div>
       <div class="footer__col">
         <h4>Service</h4>
         <ul>
           <li><a href="#promise">サービス概要</a></li>
           <li><a href="#features">選ばれる理由</a></li>
-          <li><a href="#flow">住み替えの流れ</a></li>
+          <li><a href="#flow">進め方</a></li>
           <li><a href="#cases">買取事例</a></li>
         </ul>
       </div>
@@ -4960,9 +5003,9 @@
         <ul>
           <li><a href="#faq">よくあるご質問</a></li>
           <li><a href="#cta">お問い合わせ</a></li>
-          <li><a href="#">代表者紹介（架空）</a></li>
-          <li><a href="#">運営会社（架空）</a></li>
-          <li><a href="#">特定商取引法に基づく表記（架空）</a></li>
+          <li><a href="#">代表者紹介</a></li>
+          <li><a href="#">運営会社</a></li>
+          <li><a href="#">特定商取引法に基づく表記</a></li>
         </ul>
       </div>
     </div>
