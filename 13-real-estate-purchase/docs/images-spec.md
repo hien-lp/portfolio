@@ -12,6 +12,7 @@
 ## 0. 共通スタイルガイド（全画像に適用）
 
 ### 美意識（必ず守る）
+
 - **Editorial / 紙面誌的**: 派手なSaaS / 量産仲介LP / 蛍光色は禁止
 - **Warm cream tones**: 背景は `#F8F4ED` (cream) / `#F1EBDF` (warm-paper) ベース
 - **Vintage gold accent** (`#C9A961`) と **navy** (`#1A3D5C`) と **copper-orange** (`#D97757`) のみ
@@ -19,6 +20,7 @@
 - **No AI face uncanny**: 人物は写真でなく editorial 線画イラスト
 
 ### 禁止リスト（grepで自動検出される項目）
+
 - ❌ Teal (#16d5e6系) — Claude Designデフォルト色は使用不可
 - ❌ 紫×シアン グラデーション
 - ❌ 蛍光緑 / ど派手な原色赤
@@ -28,12 +30,15 @@
 - ❌ 文字を画像に焼き込み（テキストはHTMLで配置するため）
 
 ### 推奨ツール
+
 - **DALL-E 3 (ChatGPT Plus)**: 写真 / イラスト両対応、品質高
 - **GPT Image-1 (API)**: バッチ生成時、解像度指定可
 - **画像補正**: Squoosh.app で WebP変換 + 圧縮
 
 ### ファイル命名規則
+
 全画像は `portfolio/13-real-estate-purchase/images/` 配下に保存:
+
 - `logo-wordmark.svg` / `logo-mark.svg` — SVGで発注（後述）
 - `hero-main.webp` — 写真ベース
 - `illust-XX-name.webp` — イラスト
@@ -124,16 +129,19 @@
 
 ヒーローの信頼バッジに小さなアイコンを添える。現状はテキストのみ。
 
-| ID | 内容 | プロンプト要素 |
-|----|------|--------------|
-| 2-2 | 宅建業免許 | small gold seal icon with calligraphic "S" mark |
+
+| ID  | 内容       | プロンプト要素                                         |
+| --- | -------- | ----------------------------------------------- |
+| 2-2 | 宅建業免許    | small gold seal icon with calligraphic "S" mark |
 | 2-3 | 関東圏4都県対応 | minimal map outline of Kanto area in navy lines |
-| 2-4 | 秘密厳守 | vintage envelope with wax seal in gold |
-| 2-5 | 査定費用0円 | yen symbol within a delicate gold circle |
-| 2-6 | 3分で完了 | hourglass icon with sand particles in gold |
-| 2-7 | 強引な営業なし | calm hand-drawn open palm gesture line drawing |
+| 2-4 | 秘密厳守     | vintage envelope with wax seal in gold          |
+| 2-5 | 査定費用0円   | yen symbol within a delicate gold circle        |
+| 2-6 | 3分で完了    | hourglass icon with sand particles in gold      |
+| 2-7 | 強引な営業なし  | calm hand-drawn open palm gesture line drawing  |
+
 
 **共通プロンプト テンプレ**（各バッジに適用）:
+
 ```
 Minimal editorial line illustration icon, 64×64px, [SUBJECT from table above].
 Style: single-weight thin lines in vintage gold (#C9A961) or navy (#1A3D5C),
@@ -154,15 +162,18 @@ NO 3D effects. Output: flat SVG-style vector design.
 
 各 problem-card の上部に editorial line illustration を追加。
 
-| ID | お悩みテーマ | プロンプト要素 |
-|----|------------|--------------|
-| 3-1 | 売却→次の家のジレンマ | two empty houses with a question mark balance scale between them |
-| 3-2 | 仮住まいと2度の引越し | three moving boxes stacked with a calendar showing multiple X marks |
-| 3-3 | ローン残債で諦め | open notebook with a pen, showing a weighted scale tipping unevenly |
-| 3-4 | 内覧対応で生活崩壊 | family silhouette inside a house with multiple stranger silhouettes peering in |
-| 3-5 | 適正価格が見えない | magnifying glass over a question-marked price tag, fog-obscured background |
+
+| ID  | お悩みテーマ      | プロンプト要素                                                                        |
+| --- | ----------- | ------------------------------------------------------------------------------ |
+| 3-1 | 売却→次の家のジレンマ | two empty houses with a question mark balance scale between them               |
+| 3-2 | 仮住まいと2度の引越し | three moving boxes stacked with a calendar showing multiple X marks            |
+| 3-3 | ローン残債で諦め    | open notebook with a pen, showing a weighted scale tipping unevenly            |
+| 3-4 | 内覧対応で生活崩壊   | family silhouette inside a house with multiple stranger silhouettes peering in |
+| 3-5 | 適正価格が見えない   | magnifying glass over a question-marked price tag, fog-obscured background     |
+
 
 **共通プロンプト**:
+
 ```
 Editorial line illustration in the style of New Yorker magazine or Japanese
 calligraphy. Subject: [from table above]. Single line weight in navy #1A3D5C
@@ -179,13 +190,16 @@ Mood: contemplative, problem-acknowledging, not alarming.
 
 ## 4. 約束 (Promise) — 3 Pillar illustrations（3点）
 
-| ID | Pillar | プロンプト要素 |
-|----|--------|--------------|
-| 4-1 | 査定価格+15% | upward-trending bar chart with a delicate gold crown above the highest bar |
-| 4-2 | 売却と購入を1人が並走 | two parallel paths with a single figure walking between them, threads connecting |
+
+| ID  | Pillar       | プロンプト要素                                                                                 |
+| --- | ------------ | --------------------------------------------------------------------------------------- |
+| 4-1 | 査定価格+15%     | upward-trending bar chart with a delicate gold crown above the highest bar              |
+| 4-2 | 売却と購入を1人が並走  | two parallel paths with a single figure walking between them, threads connecting        |
 | 4-3 | 仮住まい不要、引越し一度 | one home symbol with arrows merging into a singular calendar date marked with gold seal |
 
+
 **共通プロンプト**:
+
 ```
 Editorial line illustration, vintage gold (#C9A961) accent on navy (#1A3D5C)
 line weight. Subject: [from table above]. Style: minimal architectural drawing
@@ -199,26 +213,9 @@ accents (max 15% of composition). Editorial classic trust mood.
 
 ---
 
-## 5. 数字 (Numbers) — Symbol icons（4点）
 
-数字の上に小さなsymbol iconを配置。
 
-| ID | 数字 | Symbol |
-|----|------|--------|
-| 5-1 | +15% UP | upward arrow with elegant flourish |
-| 5-2 | 3日 | minimal hourglass with grain detail |
-| 5-3 | 92% | circular completion ring at ~92% fill |
-| 5-4 | 500件+ | stacked geometric squares (5 visible, +others implied) |
 
-**共通プロンプト**:
-```
-Minimal symbol icon, 80×80px, [SUBJECT from table above]. Vintage gold #C9A961
-single-weight line on transparent background. Output as flat SVG-style design.
-NO shadows, NO 3D effects, NO color fills. Editorial restraint —
-think Anthropic icon set crossed with Japanese family crest (kamon) tradition.
-```
-
-- **保存先**: `images/number-icon-XX.svg`（4ファイル）
 
 ---
 
@@ -230,6 +227,7 @@ think Anthropic icon set crossed with Japanese family crest (kamon) tradition.
 ### Feature 01: 再販前提の買取（査定価格+15%）
 
 #### 6-1. feature-01-main.webp — メイン editorial photo
+
 ```
 Editorial wide photograph (16:9, 1600×900) of a beautifully renovated Japanese
 mid-century apartment interior, late afternoon. Focus on craftsmanship details:
@@ -242,6 +240,7 @@ shot emphasizing horizontal lines and quiet emptiness. Mood: premium, restrained
 ```
 
 #### 6-2. feature-01-detail.webp — Detail photo (1:1)
+
 ```
 Close-up editorial detail shot (1:1, 800×800) of an architect's hand holding a
 fountain pen, sketching a floor plan on warm cream paper, with a vintage gold-rimmed
@@ -253,6 +252,7 @@ Mood: thoughtful craftsmanship, premium consulting.
 ### Feature 02: コンシェルジュ並走（同担当が売却+購入）
 
 #### 6-3. feature-02-main.webp
+
 ```
 Editorial wide photograph (16:9, 1600×900) of two architectural blueprints overlaid
 on a refined wooden meeting table, alongside a single brass compass, a Japanese
@@ -264,6 +264,7 @@ Mood: collaborative planning, restrained luxury.
 ```
 
 #### 6-4. feature-02-detail.webp (1:1)
+
 ```
 Editorial close-up (1:1, 800×800) of two open day planners side by side on a desk,
 with a single fountain pen drawing arrows between dates on each calendar.
@@ -275,6 +276,7 @@ scheduling, deliberate planning.
 ### Feature 03: ローン残債対応（提携金融機関ネットワーク）
 
 #### 6-5. feature-03-main.webp
+
 ```
 Editorial wide photograph (16:9, 1600×900) of a refined desk scene: an open
 financial planning document with multiple hand-drawn arrows in gold ink connecting
@@ -286,6 +288,7 @@ NO faces, NO logos, NO readable text. Mood: meticulous financial care, premium t
 ```
 
 #### 6-6. feature-03-detail.webp (1:1)
+
 ```
 Editorial close-up (1:1, 800×800) of a hand counting wooden architectural model
 houses on a paper-textured surface, with a brass desk weight and a single coin
@@ -301,16 +304,19 @@ Mood: deliberate financial counting, thoughtful balance.
 
 各 step の `.flow__step-num` の下に小さな editorial icon を追加。
 
-| ID | Step | Icon |
-|----|------|------|
-| 7-1 | 01 Inquiry | open envelope with question mark gently emerging |
-| 7-2 | 02 Site Visit | walking footprints leading to a doorway |
-| 7-3 | 03 Quote | unfurled scroll with seal at bottom |
-| 7-4 | 04 Contract | two handshaking hand silhouettes |
-| 7-5 | 05 Move | single moving box with a key on top |
-| 7-6 | 06 Aftercare | umbrella opening over a small house |
+
+| ID  | Step          | Icon                                             |
+| --- | ------------- | ------------------------------------------------ |
+| 7-1 | 01 Inquiry    | open envelope with question mark gently emerging |
+| 7-2 | 02 Site Visit | walking footprints leading to a doorway          |
+| 7-3 | 03 Quote      | unfurled scroll with seal at bottom              |
+| 7-4 | 04 Contract   | two handshaking hand silhouettes                 |
+| 7-5 | 05 Move       | single moving box with a key on top              |
+| 7-6 | 06 Aftercare  | umbrella opening over a small house              |
+
 
 **共通プロンプト**:
+
 ```
 Minimal flow-step icon, 96×96px, [SUBJECT from table above]. Vintage gold
 #C9A961 single-weight line on transparent background. Output as flat SVG-style.
@@ -350,6 +356,7 @@ hand-drawn imperfection. Series-coherent (all 6 icons match each other's style).
 ### Case 01: 横浜市 / 築15年 / 3LDK → 駅近マンション
 
 #### 9-1. case-01-before.webp (4:3, 800×600)
+
 ```
 Editorial photograph (4:3, 800×600) of an empty Japanese family apartment living
 room before renovation. Slightly dated 2000s aesthetic — old fluorescent ceiling
@@ -360,6 +367,7 @@ Composition: wide-angle from doorway. NO people. Mood: pre-renovation honesty.
 ```
 
 #### 9-2. case-01-after.webp (4:3, 800×600)
+
 ```
 Editorial photograph (4:3, 800×600) of the SAME apartment after sophisticated
 renovation: warm wooden flooring, off-white walls, a single linen sofa, low
@@ -372,6 +380,7 @@ photo's angle for direct comparison. Mood: premium transformation.
 ### Case 02: 武蔵小杉 / 築8年 / 2LDK → 3LDK広めリビング
 
 #### 9-3. case-02-before.webp (4:3)
+
 ```
 Editorial photo (4:3, 800×600) of a compact 2LDK Japanese apartment with a cramped
 living-dining area, basic IKEA-like furniture, slightly cluttered with everyday
@@ -381,6 +390,7 @@ documentary, sympathetic. Mood: real-family pre-transition.
 ```
 
 #### 9-4. case-02-after.webp (4:3)
+
 ```
 Editorial photo (4:3, 800×600) of a renovated 3LDK Japanese apartment with a
 spacious living area, single low-slung sofa, plenty of clear wooden floor space
@@ -392,6 +402,7 @@ feature. Mood: room to grow, calm family life.
 ### Case 03: 浦安市 / 築18年 / 4LDKマンション → 戸建て
 
 #### 9-5. case-03-before.webp (4:3)
+
 ```
 Editorial photo (4:3, 800×600) of a Japanese mid-rise apartment building exterior,
 viewed from outside on a cloudy day. Older 2000s-era beige tile facade, balconies
@@ -400,6 +411,7 @@ Honest, no embellishment. Mood: pre-decision urban apartment life.
 ```
 
 #### 9-6. case-03-after.webp (4:3)
+
 ```
 Editorial photo (4:3, 800×600) of a refined modern Japanese two-story detached
 home exterior in a quiet suburban neighborhood. Warm wood + white plaster facade,
@@ -416,13 +428,16 @@ transition, premium quietude.
 
 **重要**: AI写真の顔は uncanny になるため、**editorial line portrait illustration** で発注。
 
-| ID | お客様 | 描写 |
-|----|--------|------|
-| 10-1 | 田中様（35歳・3人家族） | a man in his mid-30s in a knit sweater, gentle smile, holding a coffee cup, looking thoughtfully off-frame |
-| 10-2 | 山田様（48歳・4人家族） | a man in his late 40s in a tailored shirt, reading-glasses perched on nose, looking down at a document with calm focus |
+
+| ID   | お客様           | 描写                                                                                                                                    |
+| ---- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 10-1 | 田中様（35歳・3人家族） | a man in his mid-30s in a knit sweater, gentle smile, holding a coffee cup, looking thoughtfully off-frame                            |
+| 10-2 | 山田様（48歳・4人家族） | a man in his late 40s in a tailored shirt, reading-glasses perched on nose, looking down at a document with calm focus                |
 | 10-3 | 佐藤様（42歳・2人家族） | a woman in her early 40s, hair tied back, sitting on a sofa with one knee tucked, looking at a child (off-frame) with quiet affection |
 
+
 **共通プロンプト**:
+
 ```
 Editorial line portrait illustration, 600×600px (1:1), [SUBJECT from table above].
 Style: hand-drawn ink line portrait in the manner of New Yorker magazine illustrator
@@ -447,16 +462,19 @@ LP-13 v5 で新規追加。掲載媒体のロゴ slot。
 
 **注意**: 実在メディアの商標を使うと著作権リスクがあるため、**架空メディア6社の editorial wordmark** を生成。
 
-| ID | 架空メディア名 | スタイル |
-|----|------------|---------|
-| 11-1 | NIKKEI HOUSE PRESS | newspaper-style bold serif wordmark |
-| 11-2 | 住まいの設計 | Japanese classical magazine title vertical wordmark |
-| 11-3 | TOKYO REAL LIFE | modern editorial sans-serif wordmark |
-| 11-4 | 家を考える | Japanese script-style flowing brush wordmark |
-| 11-5 | URBAN HOUSING TODAY | condensed bold serif wordmark with subtitle |
-| 11-6 | HOMECYCLE feature in REAL ESTATE QUARTERLY | refined italic wordmark |
+
+| ID   | 架空メディア名                                    | スタイル                                                |
+| ---- | ------------------------------------------ | --------------------------------------------------- |
+| 11-1 | NIKKEI HOUSE PRESS                         | newspaper-style bold serif wordmark                 |
+| 11-2 | 住まいの設計                                     | Japanese classical magazine title vertical wordmark |
+| 11-3 | TOKYO REAL LIFE                            | modern editorial sans-serif wordmark                |
+| 11-4 | 家を考える                                      | Japanese script-style flowing brush wordmark        |
+| 11-5 | URBAN HOUSING TODAY                        | condensed bold serif wordmark with subtitle         |
+| 11-6 | HOMECYCLE feature in REAL ESTATE QUARTERLY | refined italic wordmark                             |
+
 
 **共通プロンプト**:
+
 ```
 Minimal magazine/newspaper logo wordmark in editorial style.
 Subject: [from table above]. Color: pure black or navy (#1A3D5C) on transparent
@@ -535,63 +553,78 @@ LP-13 v5 で新規追加。Trust強化のため代表者紹介 + オフィスシ
 ## 全画像 — 発注チェックリスト
 
 ### ブランド資産（4）
-- [ ] 1-1 logo-wordmark.svg
-- [ ] 1-2 logo-mark.svg
-- [ ] 1-3 favicon.ico
-- [ ] 1-4 paper-grain.svg（既存、変更なし）
+
+- 1-1 logo-wordmark.svg
+- 1-2 logo-mark.svg
+- 1-3 favicon.ico
+- 1-4 paper-grain.svg（既存、変更なし）
 
 ### ヒーロー（8）
-- [ ] 2-1 hero-main.webp
-- [ ] 2-2〜2-7 trust-icon-{01..06}.svg
-- [ ] 2-8 hero-cycle illustration（既存、変更なし）
+
+- 2-1 hero-main.webp
+- 2-2〜2-7 trust-icon-{01..06}.svg
+- 2-8 hero-cycle illustration（既存、変更なし）
 
 ### お悩み（5）
-- [ ] 3-1〜3-5 problem-{01..05}.webp
+
+- 3-1〜3-5 problem-{01..05}.webp
 
 ### 約束（3）
-- [ ] 4-1〜4-3 promise-{01..03}.webp
+
+- 4-1〜4-3 promise-{01..03}.webp
 
 ### 数字（4）
-- [ ] 5-1〜5-4 number-icon-{01..04}.svg
+
+- 5-1〜5-4 number-icon-{01..04}.svg
 
 ### 選ばれる理由（6）
-- [ ] 6-1〜6-2 feature-01-{main,detail}.webp
-- [ ] 6-3〜6-4 feature-02-{main,detail}.webp
-- [ ] 6-5〜6-6 feature-03-{main,detail}.webp
+
+- 6-1〜6-2 feature-01-{main,detail}.webp
+- 6-3〜6-4 feature-02-{main,detail}.webp
+- 6-5〜6-6 feature-03-{main,detail}.webp
 
 ### 流れ（6）
-- [ ] 7-1〜7-6 flow-icon-{01..06}.svg
+
+- 7-1〜7-6 flow-icon-{01..06}.svg
 
 ### 比較（1）
-- [ ] 8-1 comparison-diagram.webp
+
+- 8-1 comparison-diagram.webp
 
 ### 買取事例（6）
-- [ ] 9-1〜9-2 case-01-{before,after}.webp
-- [ ] 9-3〜9-4 case-02-{before,after}.webp
-- [ ] 9-5〜9-6 case-03-{before,after}.webp
+
+- 9-1〜9-2 case-01-{before,after}.webp
+- 9-3〜9-4 case-02-{before,after}.webp
+- 9-5〜9-6 case-03-{before,after}.webp
 
 ### お客様の声（3）
-- [ ] 10-1〜10-3 portrait-{01..03}.webp
+
+- 10-1〜10-3 portrait-{01..03}.webp
 
 ### メディア掲載（6 — 新規）
-- [ ] 11-1〜11-6 media-{01..06}-name.svg
+
+- 11-1〜11-6 media-{01..06}-name.svg
 
 ### チーム/会社（2 — 新規）
-- [ ] 12-1 team-representative.webp
-- [ ] 12-2 team-office.webp
+
+- 12-1 team-representative.webp
+- 12-2 team-office.webp
 
 ### CTA（1）
-- [ ] 13-1 cta-scene.webp
+
+- 13-1 cta-scene.webp
 
 ---
 
 ## 合計
 
-| 種別 | 数 | 主用ツール |
-|------|---|----------|
-| SVG ベクター（ロゴ・アイコン） | 23 | DALL-E 3 → SVGトレース or 手書きSVG |
-| 編集写真風 photo (webp) | 24 | DALL-E 3 / GPT Image-1（写実プロンプト） |
-| 線画 portrait/illustration (webp) | 6 | DALL-E 3（New Yorker style プロンプト） |
+
+| 種別                              | 数   | 主用ツール                            |
+| ------------------------------- | --- | -------------------------------- |
+| SVG ベクター（ロゴ・アイコン）               | 23  | DALL-E 3 → SVGトレース or 手書きSVG     |
+| 編集写真風 photo (webp)              | 24  | DALL-E 3 / GPT Image-1（写実プロンプト）  |
+| 線画 portrait/illustration (webp) | 6   | DALL-E 3（New Yorker style プロンプト） |
+
 
 **合計 53 slots / 51 GPT発注**（paper-grain.svg と hero-cycle SVG は既存）
 
@@ -605,6 +638,7 @@ DALL-E 3 / GPT-4 Vision (Plus) は **連続生成で文脈を保持する**。
 **共通スタイル"を最初の数往復で確立してから個別生成**すると整合性が出る。
 
 おすすめ発注順:
+
 1. **共通スタイル確立**: 「これからHOMECYCLEというLPの全画像を発注する。スタイルガイドはこれ→」（上記 §0 を貼り付け、サンプル1枚生成してOK出す）
 2. **ブランド資産** (logo / mark) — 数往復で確立
 3. **同系統まとめて**: trust-icons 6個 → problem 5個 → promise 3個 → number 4個 → flow 6個 を順に
@@ -625,9 +659,9 @@ images/[filename].webp
 
 各画像生成後、以下3項目をチェック:
 
-- [ ] **色の整合性**: 禁止色（teal/紫シアン/蛍光色）が混入していない
-- [ ] **AI slop指紋**: 不自然な手指/顔/文字焼き込みがない
-- [ ] **brand_cohort整合**: Anthropic / Notion / Resend の画像と並べて違和感ない
+- **色の整合性**: 禁止色（teal/紫シアン/蛍光色）が混入していない
+- **AI slop指紋**: 不自然な手指/顔/文字焼き込みがない
+- **brand_cohort整合**: Anthropic / Notion / Resend の画像と並べて違和感ない
 
 NG なら同じプロンプトに `"avoid: teal, vibrant colors, generic stock photo feel"` を追加して再生成。
 
@@ -653,6 +687,9 @@ LP-13 HTML側は `data-prompt-id="2-1"` のような ID で slot を識別する
 
 ## 改訂履歴
 
-| 版 | 日付 | 改訂内容 |
-|----|------|--------|
+
+| 版    | 日付         | 改訂内容                                  |
+| ---- | ---------- | ------------------------------------- |
 | v1.0 | 2026-05-13 | 初版 — 53 image slots / 51 GPT発注プロンプト整備 |
+
+
