@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80" role="img" aria-labelledby="title desc">
+  <title id="title">TOKYO REAL LIFE</title>
+  <desc id="desc">Fictional modern editorial sans-serif wordmark.</desc>
+  <text x="120" y="48" text-anchor="middle"
+        font-family="'Helvetica Neue', Arial, 'Noto Sans JP', sans-serif"
+        font-size="21" font-weight="500" letter-spacing=".18em" fill="#1A3D5C">TOKYO REAL LIFE</text>
+  <text x="120" y="63" text-anchor="middle"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="7.5" letter-spacing=".28em" fill="#1A3D5C" opacity=".7">URBAN HOMES &amp; CULTURE</text>
+</svg>

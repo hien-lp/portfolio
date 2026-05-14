@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80" role="img" aria-labelledby="title desc">
+  <title id="title">URBAN HOUSING TODAY</title>
+  <desc id="desc">Fictional condensed bold serif wordmark with subtitle.</desc>
+  <text x="120" y="39" text-anchor="middle"
+        font-family="'Georgia', 'Times New Roman', 'Noto Serif JP', serif"
+        font-size="18" font-weight="700" letter-spacing=".055em" fill="#1A3D5C">URBAN HOUSING</text>
+  <text x="120" y="57" text-anchor="middle"
+        font-family="'Georgia', 'Times New Roman', serif"
+        font-size="15" font-weight="700" letter-spacing=".18em" fill="#1A3D5C">TODAY</text>
+  <text x="120" y="69" text-anchor="middle"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="6.5" letter-spacing=".24em" fill="#1A3D5C" opacity=".72">MARKET · DESIGN · CITY</text>
+</svg>

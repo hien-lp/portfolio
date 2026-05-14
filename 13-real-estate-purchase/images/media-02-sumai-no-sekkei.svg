@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80" role="img" aria-labelledby="title desc">
+  <title id="title">住まいの設計</title>
+  <desc id="desc">Fictional Japanese classical magazine vertical wordmark.</desc>
+  <text x="120" y="42" text-anchor="middle"
+        font-family="'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif"
+        font-size="25" font-weight="600" letter-spacing=".14em" fill="#1A3D5C">住まいの設計</text>
+  <text x="121" y="63" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="8.5" letter-spacing=".22em" fill="#1A3D5C" opacity=".78">LIVING ARCHITECTURE</text>
+</svg>

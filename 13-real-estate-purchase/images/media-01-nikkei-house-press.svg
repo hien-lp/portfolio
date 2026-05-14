@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80" role="img" aria-labelledby="title desc">
+  <title id="title">NIKKEI HOUSE PRESS</title>
+  <desc id="desc">Fictional newspaper-style bold serif editorial wordmark.</desc>
+  <text x="120" y="39" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', 'Noto Serif JP', serif"
+        font-size="19" font-weight="700" letter-spacing=".09em" fill="#111111">NIKKEI</text>
+  <text x="120" y="61" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', 'Noto Serif JP', serif"
+        font-size="14" font-weight="700" letter-spacing=".16em" fill="#111111">HOUSE PRESS</text>
+</svg>
