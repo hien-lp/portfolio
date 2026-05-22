@@ -300,31 +300,9 @@ Mood: deliberate financial counting, thoughtful balance.
 
 ---
 
-## 7. 流れ (Flow) — Step icons（6点）
-
-各 step の `.flow__step-num` の下に小さな editorial icon を追加。
 
 
-| ID  | Step          | Icon                                             |
-| --- | ------------- | ------------------------------------------------ |
-| 7-1 | 01 Inquiry    | open envelope with question mark gently emerging |
-| 7-2 | 02 Site Visit | walking footprints leading to a doorway          |
-| 7-3 | 03 Quote      | unfurled scroll with seal at bottom              |
-| 7-4 | 04 Contract   | two handshaking hand silhouettes                 |
-| 7-5 | 05 Move       | single moving box with a key on top              |
-| 7-6 | 06 Aftercare  | umbrella opening over a small house              |
 
-
-**共通プロンプト**:
-
-```
-Minimal flow-step icon, 96×96px, [SUBJECT from table above]. Vintage gold
-#C9A961 single-weight line on transparent background. Output as flat SVG-style.
-NO shadows, NO color fills, NO text. Editorial restraint, slight Japanese ink
-hand-drawn imperfection. Series-coherent (all 6 icons match each other's style).
-```
-
-- **保存先**: `images/flow-icon-XX.svg`（6ファイル）
 
 ---
 
@@ -454,36 +432,9 @@ Composition: shoulders-up portrait, gentle 3/4 angle.
 
 ---
 
-## 11. メディア掲載 (Media) — 新規セクション（6点）
-
-LP-13 v5 で新規追加。掲載媒体のロゴ slot。
-
-### 11-1〜11-6. media logos
-
-**注意**: 実在メディアの商標を使うと著作権リスクがあるため、**架空メディア6社の editorial wordmark** を生成。
 
 
-| ID   | 架空メディア名                                    | スタイル                                                |
-| ---- | ------------------------------------------ | --------------------------------------------------- |
-| 11-1 | NIKKEI HOUSE PRESS                         | newspaper-style bold serif wordmark                 |
-| 11-2 | 住まいの設計                                     | Japanese classical magazine title vertical wordmark |
-| 11-3 | TOKYO REAL LIFE                            | modern editorial sans-serif wordmark                |
-| 11-4 | 家を考える                                      | Japanese script-style flowing brush wordmark        |
-| 11-5 | URBAN HOUSING TODAY                        | condensed bold serif wordmark with subtitle         |
-| 11-6 | HOMECYCLE feature in REAL ESTATE QUARTERLY | refined italic wordmark                             |
 
-
-**共通プロンプト**:
-
-```
-Minimal magazine/newspaper logo wordmark in editorial style.
-Subject: [from table above]. Color: pure black or navy (#1A3D5C) on transparent
-background. Output: SVG-style flat vector, 240×80px. NO decorative elements,
-NO icons (text only). Refined, restrained, looking like a real Japanese
-publication masthead. Use a serif typeface that matches the publication's tone.
-```
-
-- **保存先**: `images/media-XX-name.svg`（6ファイル）
 
 ---
 
@@ -530,23 +481,9 @@ LP-13 v5 で新規追加。Trust強化のため代表者紹介 + オフィスシ
 
 ---
 
-## 13. CTA Section — 補助 editorial scene（1点）
 
-### 13-1. cta-scene.webp
 
-- **用途**: CTA section の `.cta-section__bg` 装飾（subtle、opacity 低め）
-- **アスペクト比**: 16:9（横長 cover）、解像度 1600×900px
-- **プロンプト**:
-  ```
-  Editorial photograph (16:9, 1600×900px) of a serene scene: a single key with a
-  vintage brass keychain resting on a warm cream paper envelope, a small ceramic
-  vase with a single dried flower stem nearby, all on a refined wooden desk
-  surface. Late afternoon side light, shallow depth of field. Warm cream
-  palette (#F8F4ED) dominant. NO people, NO logos, NO text. Mood: pivotal moment,
-  decision-making, quiet anticipation. Style: Anthropic + Kinfolk + Japanese
-  tea ceremony aesthetic. 35mm film grain, slightly desaturated.
-  ```
-- **保存先**: `images/cta-scene.webp`
+
 
 ---
 
