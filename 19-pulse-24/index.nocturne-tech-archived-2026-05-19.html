@@ -1,0 +1,4395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>PULSE 24 ｜ ジムをやめた人の、最後のジム。月3,278円・24時間。</title>
+<meta name="description" content="ジムをやめた経験がある人のための、24時間スマートジム。月3,278円・入会金0円・予約不要。完全個室マシン、AI体組成計、アプリ管理、エステ・脱毛・サウナも。Tシャツ1枚、QR入室1秒。まずは7日間、無料で。">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="robots" content="index, follow">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="PULSE 24 ｜ ジムをやめた人の、最後のジム。月3,278円・24時間。">
+<meta property="og:description" content="月3,278円・入会金0円・24時間オープン。続けられる仕組みだけを集めました。">
+<meta property="og:image" content="./assets/img/pulse24-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://example.com/19-pulse-24/">
+<meta property="og:site_name" content="PULSE 24">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PULSE 24 ｜ ジムをやめた人の、最後のジム。">
+<meta name="twitter:description" content="月3,278円・入会金0円・24時間オープン。続けられる仕組みだけを集めました。">
+<meta name="twitter:image" content="./assets/img/pulse24-og.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="./assets/img/pulse24-mark.png">
+<link rel="apple-touch-icon" href="./assets/img/pulse24-app-icon.png">
+
+<!-- Google Fonts preconnect (4種) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- LCP image preload -->
+<link rel="preload" as="image" href="./assets/img/pulse24-hero.png" fetchpriority="high">
+
+<!--
+============================================================
+[AI-SLOP BANLIST] — このLPで明示禁止のパターン
+------------------------------------------------------------
+FONT:    Inter / Roboto / Arial / Sora / Tiempos / Source Serif / Meiryo / MS PGothic
+COLOR:   teal / cyan / aqua / turquoise (#14b8a6系)、紫×シアン gradient、generic AI gradient (blue→pink→purple)
+PATTERN: glassmorphism / frosted-glass (LIVE indicator のみ許容)、3D rendered / Octane / Unreal CGI、neon glow rave / synthwave、全カード角丸16px統一、Hero に flex row center center、Lucide-react デフォルトアイコン
+EASING:  ease / ease-in-out / linear / bounce / elastic（custom cubic-bezier のみ）
+DURATION: hero reveal 200ms以下（curve圧縮で知覚不能）
+MOTION:  Tailwind animation (bounce/pulse/ping)、パーティクル背景、floating dots、200ms hover scale(1.05)
+COPY:    最強/圧倒的/革命/絶対/100%/必ず/保証します
+============================================================
+
+[DEPLOY SECURITY HEADERS — サーバー側で設定推奨]
+Content-Security-Policy: default-src 'self'; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+※ Google Fontsはセルフホスティング推奨
+============================================================
+-->
+
+<style>
+/* ============================================================
+   PULSE 24 — Nocturne Editorial × Tech Convenience
+   Design System: oklch + HEX fallback / 4 cubic-bezier easing
+   ============================================================ */
+
+:root {
+  /* === COLOR — oklch with HEX fallback === */
+  --color-base: #0A0A0A;
+  --color-base-soft: #14141A;
+  --color-base-alt: #1C1C24;
+  --color-primary: #6E3FE7;
+  --color-primary-deep: #4B1FB4;
+  --color-primary-soft: #8A62EC;
+  --color-accent: #2EE389;
+  --color-accent-deep: #14B065;
+  --color-warning: #FFD52E;
+  --color-surface: #FAFAFA;
+  --color-surface-alt: #F1ECFD;
+  --color-text-on-dark: #FAFAFA;
+  --color-text-on-dark-muted: #B5B5C5;
+  --color-text-on-dark-subtle: #7F7F90;
+  --color-text-on-light: #0A0A0A;
+  --color-text-on-light-muted: #4A4A55;
+  --color-text-on-light-subtle: #8A8A95;
+  --color-border-on-dark: #2F2F38;
+  --color-border-on-light: #E5E5EA;
+}
+
+@supports (color: oklch(0 0 0)) {
+  :root {
+    --color-base: oklch(0.16 0.005 270);
+    --color-base-soft: oklch(0.21 0.012 270);
+    --color-base-alt: oklch(0.26 0.014 270);
+    --color-primary: oklch(0.55 0.24 290);
+    --color-primary-deep: oklch(0.42 0.22 290);
+    --color-primary-soft: oklch(0.62 0.20 290);
+    --color-accent: oklch(0.85 0.22 155);
+    --color-accent-deep: oklch(0.69 0.19 155);
+    --color-warning: oklch(0.91 0.18 95);
+    --color-surface: oklch(0.98 0.002 270);
+    --color-surface-alt: oklch(0.95 0.03 290);
+    --color-text-on-dark: oklch(0.98 0.002 270);
+    --color-text-on-dark-muted: oklch(0.75 0.012 270);
+    --color-text-on-dark-subtle: oklch(0.55 0.010 270);
+    --color-text-on-light: oklch(0.16 0.005 270);
+    --color-text-on-light-muted: oklch(0.36 0.008 270);
+    --color-text-on-light-subtle: oklch(0.58 0.010 270);
+    --color-border-on-dark: oklch(0.28 0.013 270);
+    --color-border-on-light: oklch(0.92 0.005 270);
+  }
+}
+
+:root {
+  /* === EASING — 4 cubic-bezier curves (slop-banned: ease / ease-in-out / linear) === */
+  --ease-pulse: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snap: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+
+  /* === DURATION === */
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-medium: 480ms;
+  --dur-slow: 720ms;
+  --dur-hero: 800ms;
+  --dur-pulse: 2500ms;
+
+  /* === TYPOGRAPHY SCALE — fluid clamp === */
+  --font-display: clamp(48px, 9vw, 96px);
+  --font-h1: clamp(32px, 5.5vw, 56px);
+  --font-h2: clamp(24px, 3.5vw, 40px);
+  --font-h3: clamp(20px, 2.2vw, 28px);
+  --font-h4: clamp(16px, 1.8vw, 20px);
+  --font-body: 16px;
+  --font-small: 14px;
+  --font-mini: 12px;
+  --font-mega-num: clamp(72px, 14vw, 180px);
+
+  /* === SPACING === */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+  --space-6xl: 192px;
+
+  /* === CONTAINER === */
+  --container-narrow: 880px;
+  --container-default: 1180px;
+  --container-wide: 1320px;
+  --container-mega: 1440px;
+
+  /* === RADIUS — 意図的ミックス (16px統一禁止) === */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  /* === HEADER === */
+  --header-h: 72px;
+  --header-h-scrolled: 60px;
+}
+
+/* === RESET === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", system-ui, sans-serif;
+  font-feature-settings: "palt" 1, "kern" 1, "liga" 1;
+  font-kerning: normal;
+  font-weight: 400;
+  font-size: var(--font-body);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--color-text-on-dark);
+  background: var(--color-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+img, picture, video, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  letter-spacing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* === TYPOGRAPHY UTILITIES === */
+.font-display {
+  font-family: "Anton", "Zen Kaku Gothic New", sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  font-feature-settings: "ss01" 1;
+}
+
+.font-heading {
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  font-feature-settings: "palt" 1;
+}
+
+.font-num {
+  font-family: "IBM Plex Sans", "Noto Sans JP", sans-serif;
+  font-feature-settings: "tnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+  font-feature-settings: "palt" 1;
+}
+
+p {
+  text-wrap: pretty;
+  line-height: 1.8;
+}
+
+/* === SKIP LINK === */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-accent);
+  color: var(--color-base);
+  padding: 8px 16px;
+  z-index: 1000;
+  font-weight: 700;
+  border-radius: 0 0 var(--radius-md) 0;
+  transition: top var(--dur-base) var(--ease-snap);
+}
+.skip-link:focus-visible {
+  top: 0;
+}
+
+/* === FOCUS VISIBLE === */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* === SHARED — PULSE BEAT KEYFRAME (signature) === */
+@keyframes pulse-beat {
+  0%, 50%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.06);
+    opacity: 0.82;
+  }
+  75% {
+    transform: scale(1.03);
+    opacity: 0.92;
+  }
+}
+.pulse-beat {
+  animation: pulse-beat var(--dur-pulse) var(--ease-pulse) infinite;
+  transform-origin: center;
+}
+
+/* === REVEAL ANIMATIONS === */
+@keyframes reveal-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes reveal-scale {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes reveal-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes typing-cursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--dur-slow) var(--ease-out-quint), transform var(--dur-slow) var(--ease-out-quint);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll-driven hero scale (@supports gated) */
+@supports (animation-timeline: view()) {
+  .hero-image-wrap {
+    animation: hero-zoom linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+}
+@keyframes hero-zoom {
+  from { transform: scale(1.0); }
+  to { transform: scale(1.08); }
+}
+
+/* === LAYOUT — CONTAINER === */
+.container {
+  width: 100%;
+  max-width: var(--container-default);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+.container-wide {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .container, .container-narrow, .container-wide {
+    padding-inline: var(--space-2xl);
+  }
+}
+
+/* === EYEBROW (section kicker) === */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: "IBM Plex Sans", "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-primary-soft);
+  margin-bottom: var(--space-md);
+}
+.eyebrow::before {
+  content: "—";
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  margin: 0;
+  letter-spacing: 0;
+}
+.eyebrow--accent {
+  color: var(--color-accent);
+}
+.eyebrow--on-light {
+  color: var(--color-primary);
+}
+
+/* === SECTION HEADING (L-shape asymmetric) === */
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-3xl);
+}
+@media (min-width: 1024px) {
+  .section-head {
+    grid-template-columns: 15% 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+  .section-head__meta {
+    padding-top: var(--space-sm);
+    border-top: 1px solid currentColor;
+    opacity: 0.8;
+  }
+}
+
+.section-head__meta {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-text-on-dark-muted);
+}
+
+.section-head__title {
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  font-size: var(--font-h1);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.section-head__lead {
+  margin-top: var(--space-lg);
+  font-size: clamp(15px, 1.4vw, 17px);
+  color: var(--color-text-on-dark-muted);
+  max-width: 56ch;
+  line-height: 1.85;
+}
+
+/* === CTA BUTTONS === */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  transition: transform var(--dur-base) var(--ease-snap), box-shadow var(--dur-base) var(--ease-snap), background-color var(--dur-base) var(--ease-snap);
+  will-change: transform;
+}
+
+.cta--primary {
+  background: var(--color-accent);
+  color: var(--color-base);
+  padding: 18px 32px;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  box-shadow: 0 12px 30px -10px rgba(46, 227, 137, 0.55);
+}
+.cta--primary:hover {
+  background: var(--color-accent-deep);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -12px rgba(46, 227, 137, 0.65);
+}
+.cta--primary:active {
+  transform: translateY(-1px);
+}
+
+.cta--secondary {
+  background: transparent;
+  color: var(--color-text-on-dark);
+  padding: 16px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+}
+.cta--secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.cta--ghost-light {
+  background: transparent;
+  color: var(--color-text-on-light);
+  padding: 16px 28px;
+  border: 1px solid rgba(10, 10, 10, 0.18);
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+}
+.cta--ghost-light:hover {
+  background: rgba(10, 10, 10, 0.04);
+  border-color: var(--color-primary);
+}
+
+.cta__arrow {
+  display: inline-block;
+  transition: transform var(--dur-base) var(--ease-snap);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+}
+.cta:hover .cta__arrow {
+  transform: translateX(4px);
+}
+
+.cta--mobile {
+  padding: 16px 24px;
+  font-size: 15px;
+}
+
+.cta-microcopy {
+  display: block;
+  margin-top: var(--space-sm);
+  font-size: 12px;
+  color: var(--color-text-on-dark-subtle);
+  letter-spacing: 0.04em;
+}
+.cta-microcopy--light {
+  color: var(--color-text-on-light-subtle);
+}
+
+/* === LIVE INDICATOR === */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 6px 12px;
+  background: rgba(20, 20, 26, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pill);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-on-dark-muted);
+  font-weight: 500;
+}
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(46, 227, 137, 0.6);
+}
+.live-text {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+.live-time {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-on-dark);
+}
+
+/* ============================================================
+   1. HEADER (sticky + LIVE + magnetic CTA)
+   ============================================================ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: rgba(10, 10, 10, 0.0);
+  transition: background-color var(--dur-base) var(--ease-snap), height var(--dur-base) var(--ease-snap), border-color var(--dur-base) var(--ease-snap);
+  border-bottom: 1px solid transparent;
+}
+.site-header.is-scrolled {
+  height: var(--header-h-scrolled);
+  background: rgba(10, 10, 10, 0.94);
+  border-bottom-color: var(--color-border-on-dark);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+  gap: var(--space-lg);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  position: relative;
+}
+.brand__mark {
+  width: 32px;
+  height: 32px;
+  background: var(--color-primary);
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.brand__mark-letter {
+  font-family: "Anton", sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--color-text-on-dark);
+  letter-spacing: -0.02em;
+  margin-top: 1px;
+}
+.brand__mark-dot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+.brand__wordmark {
+  font-family: "Anton", sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--color-text-on-dark);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+.brand__divider {
+  display: inline-block;
+  width: 2px;
+  height: 16px;
+  background: var(--color-primary);
+}
+
+.site-nav {
+  display: none;
+  gap: var(--space-xl);
+  align-items: center;
+}
+.site-nav a {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-on-dark-muted);
+  font-weight: 500;
+  transition: color var(--dur-fast) var(--ease-snap);
+}
+.site-nav a:hover { color: var(--color-text-on-dark); }
+
+@media (min-width: 1024px) {
+  .site-nav { display: flex; }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.header-live {
+  display: none;
+}
+@media (min-width: 768px) {
+  .header-live { display: inline-flex; }
+}
+
+.header-cta {
+  background: var(--color-accent);
+  color: var(--color-base);
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  transition: transform var(--dur-base) var(--ease-snap), background-color var(--dur-base) var(--ease-snap);
+  display: none;
+  white-space: nowrap;
+}
+.header-cta:hover {
+  background: var(--color-accent-deep);
+  transform: translateY(-2px);
+}
+@media (min-width: 768px) {
+  .header-cta { display: inline-flex; align-items: center; gap: 6px; }
+}
+
+.hamburger {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  position: relative;
+  z-index: 110;
+  background: transparent;
+  border: 1px solid var(--color-border-on-dark);
+}
+.hamburger__bars {
+  display: block;
+  width: 18px;
+  height: 12px;
+  position: relative;
+}
+.hamburger__bars::before,
+.hamburger__bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-text-on-dark);
+  transition: transform var(--dur-base) var(--ease-snap), top var(--dur-base) var(--ease-snap);
+}
+.hamburger__bars::before { top: 2px; }
+.hamburger__bars::after { top: 8px; }
+.hamburger[aria-expanded="true"] .hamburger__bars::before { top: 5px; transform: rotate(45deg); }
+.hamburger[aria-expanded="true"] .hamburger__bars::after { top: 5px; transform: rotate(-45deg); }
+@media (min-width: 1024px) { .hamburger { display: none; } }
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: var(--color-base);
+  z-index: 105;
+  padding: calc(var(--header-h) + var(--space-2xl)) var(--space-lg) var(--space-2xl);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-snap), visibility 0s linear var(--dur-base);
+  overflow-y: auto;
+}
+.mobile-nav[aria-hidden="false"] {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity var(--dur-base) var(--ease-snap), visibility 0s linear 0s;
+}
+.mobile-nav__list {
+  display: grid;
+  gap: var(--space-lg);
+}
+.mobile-nav__list a {
+  display: block;
+  padding: var(--space-md) 0;
+  font-size: 22px;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--color-border-on-dark);
+}
+.mobile-nav__cta {
+  margin-top: var(--space-2xl);
+  display: grid;
+  gap: var(--space-md);
+}
+
+/* ============================================================
+   2. HERO (L-shape asymmetric, magazine layout)
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: calc(var(--header-h) + var(--space-2xl));
+  padding-bottom: var(--space-4xl);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  background: var(--color-base);
+}
+
+.hero-image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  will-change: transform;
+}
+.hero-image-wrap picture,
+.hero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(at 80% 20%, rgba(110, 63, 231, 0.32) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.85) 100%);
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-wide);
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 15% 1fr;
+    padding-inline: var(--space-2xl);
+  }
+}
+
+.hero__rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-text-on-dark-subtle);
+  font-weight: 500;
+}
+.hero__rail-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, var(--color-primary) 0%, transparent 100%);
+  margin-left: 4px;
+}
+
+.hero__content {
+  max-width: 760px;
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.hero__heading {
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: clamp(36px, 6.4vw, 72px);
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-md);
+  text-wrap: balance;
+}
+.hero__heading-line {
+  display: block;
+}
+.hero__heading-em {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(180deg, transparent 70%, rgba(110, 63, 231, 0.55) 70%, rgba(110, 63, 231, 0.55) 92%, transparent 92%);
+  padding: 0 4px;
+}
+
+.hero__heading-display {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(32px, 5.8vw, 68px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--color-primary-soft);
+  opacity: 0.32;
+  margin-top: var(--space-sm);
+  text-transform: uppercase;
+  display: block;
+}
+
+.hero__sub {
+  font-size: clamp(15px, 1.4vw, 18px);
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: var(--space-2xl);
+  max-width: 50ch;
+  line-height: 1.85;
+}
+
+.hero__price {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+  margin-bottom: var(--space-2xl);
+  border-top: 1px solid var(--color-border-on-dark);
+  border-bottom: 1px solid var(--color-border-on-dark);
+}
+@media (min-width: 540px) {
+  .hero__price {
+    grid-template-columns: 1.4fr 1px 1fr;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+}
+.hero__price-divider {
+  display: none;
+  background: var(--color-border-on-dark);
+  height: 80px;
+  width: 1px;
+}
+@media (min-width: 540px) {
+  .hero__price-divider { display: block; }
+}
+.hero__price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero__price-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-text-on-dark-subtle);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.hero__price-mega {
+  font-family: "Anton", "IBM Plex Sans", sans-serif;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 0.9;
+  color: var(--color-text-on-dark);
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.hero__price-mega--accent {
+  color: var(--color-accent);
+}
+.hero__price-unit {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--color-text-on-dark-muted);
+  font-weight: 500;
+}
+.hero__price-note {
+  font-size: 12px;
+  color: var(--color-text-on-dark-subtle);
+  margin-top: 4px;
+}
+
+.hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+}
+.hero__pill {
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  color: var(--color-text-on-dark-muted);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.hero__cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+.hero__cta-group .cta { min-width: 220px; }
+
+.hero__microcopy {
+  font-size: 12px;
+  color: var(--color-text-on-dark-subtle);
+  margin-top: var(--space-sm);
+  letter-spacing: 0.04em;
+}
+
+/* Typing animation for h1 */
+.typewriter {
+  display: inline-block;
+}
+.typewriter span {
+  opacity: 0;
+  display: inline-block;
+}
+.typewriter.in-view span {
+  animation: char-in 0.6s var(--ease-out-quint) both;
+}
+
+@keyframes char-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   3. TRUST BAR (3 numbers + counter-up)
+   ============================================================ */
+.trust {
+  background: var(--color-base-soft);
+  padding-block: var(--space-4xl);
+  border-top: 1px solid var(--color-border-on-dark);
+  border-bottom: 1px solid var(--color-border-on-dark);
+}
+.trust__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .trust__grid {
+    grid-template-columns: 1fr 1px 1fr 1px 1fr;
+    gap: 0;
+    text-align: left;
+  }
+}
+.trust__divider {
+  background: var(--color-border-on-dark);
+  width: 1px;
+  height: 100%;
+  margin-inline: auto;
+  display: none;
+}
+@media (min-width: 768px) {
+  .trust__divider { display: block; }
+}
+.trust__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-inline: var(--space-lg);
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .trust__item { align-items: flex-start; }
+}
+.trust__num {
+  font-family: "Anton", "IBM Plex Sans", sans-serif;
+  font-size: var(--font-mega-num);
+  line-height: 0.9;
+  color: var(--color-text-on-dark);
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-feature-settings: "tnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+.trust__num-unit {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: var(--color-text-on-dark-muted);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.trust__underline {
+  width: 64px;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 900ms var(--ease-out-quint);
+}
+.trust__item.in-view .trust__underline {
+  transform: scaleX(1);
+}
+.trust__label {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-on-dark);
+}
+.trust__sub {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-text-on-dark-subtle);
+  font-weight: 500;
+}
+
+/* ============================================================
+   4. PROBLEM (5 items, 2-2-1 magazine layout)
+   ============================================================ */
+.problem {
+  background: var(--color-base);
+  padding-block: var(--space-5xl);
+}
+
+.problem__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+@media (min-width: 768px) {
+  .problem__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+}
+@media (min-width: 1024px) {
+  .problem__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .problem__item:nth-child(5) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+  .problem__item:nth-child(5) .problem__text-wrap {
+    padding-right: var(--space-2xl);
+  }
+}
+
+.problem__item {
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-lg);
+  background: var(--color-base);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+  transition: border-color var(--dur-base) var(--ease-snap), transform var(--dur-base) var(--ease-snap), background-color var(--dur-base) var(--ease-snap);
+}
+.problem__item:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  background: var(--color-base-soft);
+}
+
+.problem__num {
+  font-family: "Anton", "IBM Plex Sans", sans-serif;
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 0.9;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  font-feature-settings: "tnum" 1;
+}
+
+.problem__text {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.6;
+  color: var(--color-text-on-dark);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-xs);
+}
+.problem__sub {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--color-text-on-dark-muted);
+}
+
+/* ============================================================
+   5. AGITATION (gradient bg)
+   ============================================================ */
+.agitation {
+  background: linear-gradient(180deg, var(--color-base) 0%, var(--color-primary-deep) 100%);
+  padding-block: var(--space-5xl);
+  position: relative;
+  overflow: hidden;
+}
+.agitation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(at 50% 50%, rgba(46, 227, 137, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.agitation__inner {
+  position: relative;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+  padding-inline: var(--space-lg);
+}
+.agitation__quote {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 900;
+  font-size: clamp(26px, 4vw, 44px);
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-lg);
+}
+.agitation__quote-line {
+  display: block;
+  margin-bottom: 6px;
+}
+.agitation__quote-em {
+  background: linear-gradient(180deg, transparent 65%, rgba(46, 227, 137, 0.32) 65%, rgba(46, 227, 137, 0.32) 95%, transparent 95%);
+  padding: 0 6px;
+}
+.agitation__strike {
+  text-decoration: line-through;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 3px;
+  color: var(--color-text-on-dark-muted);
+}
+
+/* ============================================================
+   6. SOLUTION INTRO (light section)
+   ============================================================ */
+.solution {
+  background: var(--color-surface);
+  color: var(--color-text-on-light);
+  padding-block: var(--space-5xl);
+  text-align: center;
+}
+.solution__inner {
+  max-width: 880px;
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+.solution__mark {
+  width: 88px;
+  height: 88px;
+  background: var(--color-primary);
+  border-radius: 19px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto var(--space-2xl);
+  position: relative;
+}
+.solution__mark-letter {
+  font-family: "Anton", sans-serif;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--color-text-on-dark);
+  letter-spacing: -0.02em;
+  margin-top: 2px;
+}
+.solution__mark-dot {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+.solution__mark-ring {
+  position: absolute;
+  inset: -16px;
+  border: 1px solid var(--color-primary);
+  border-radius: 28px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.solution__heading {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 4.4vw, 48px);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--color-text-on-light);
+  margin-bottom: var(--space-lg);
+}
+.solution__heading-em {
+  position: relative;
+  display: inline-block;
+}
+.solution__heading-em::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  height: 10px;
+  background: var(--color-accent);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.solution__body {
+  font-size: clamp(15px, 1.5vw, 18px);
+  color: var(--color-text-on-light-muted);
+  line-height: 2;
+  max-width: 56ch;
+  margin-inline: auto;
+}
+.solution__body-em {
+  color: var(--color-text-on-light);
+  font-weight: 700;
+}
+
+/* ============================================================
+   7. 4 REASONS (4 columns, light)
+   ============================================================ */
+.reasons {
+  background: var(--color-surface);
+  color: var(--color-text-on-light);
+  padding-block: var(--space-5xl);
+  border-top: 1px solid var(--color-border-on-light);
+}
+
+.reasons__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+@media (min-width: 640px) {
+  .reasons__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+}
+@media (min-width: 1024px) {
+  .reasons__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+.reason {
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border-on-light);
+  border-radius: var(--radius-lg);
+  background: #fff;
+  transition: border-color var(--dur-base) var(--ease-snap), transform var(--dur-base) var(--ease-snap), box-shadow var(--dur-base) var(--ease-snap);
+}
+.reason:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -20px rgba(110, 63, 231, 0.22);
+}
+.reason__num {
+  font-family: "Anton", "IBM Plex Sans", sans-serif;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  display: inline-block;
+}
+.reason__eyebrow {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-text-on-light-subtle);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  display: block;
+}
+.reason__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  color: var(--color-text-on-light);
+  margin-bottom: var(--space-md);
+}
+.reason__body {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--color-text-on-light-muted);
+}
+
+/* ============================================================
+   8. FACILITY (full-width alternating)
+   ============================================================ */
+.facility {
+  background: var(--color-base);
+  padding-block: var(--space-5xl) 0;
+}
+.facility__head {
+  padding-bottom: var(--space-3xl);
+}
+.facility__list {
+  display: flex;
+  flex-direction: column;
+}
+.facility__item {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .facility__item {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  .facility__item--reverse .facility__media {
+    order: 2;
+  }
+  .facility__item--reverse .facility__body {
+    order: 1;
+  }
+}
+
+.facility__media {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-base-soft);
+  aspect-ratio: 16 / 9;
+}
+@media (min-width: 1024px) {
+  .facility__media { aspect-ratio: auto; min-height: 540px; }
+}
+.facility__media picture, .facility__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1600ms var(--ease-pulse);
+  will-change: transform;
+}
+.facility__item:hover .facility__media img {
+  transform: scale(1.04);
+}
+
+.facility__body {
+  background: var(--color-base-soft);
+  padding: var(--space-3xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .facility__body { padding: var(--space-3xl) var(--space-2xl); }
+}
+@media (min-width: 1024px) {
+  .facility__body { padding: var(--space-4xl) clamp(48px, 6vw, 96px); }
+}
+
+.facility__index {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  display: block;
+}
+.facility__eyebrow {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(16px, 1.8vw, 20px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary-soft);
+  margin-bottom: var(--space-md);
+  display: block;
+}
+.facility__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 900;
+  font-size: clamp(22px, 2.8vw, 36px);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-lg);
+}
+.facility__body p {
+  font-size: 15px;
+  color: var(--color-text-on-dark-muted);
+  line-height: 1.95;
+  margin-bottom: var(--space-xl);
+}
+.facility__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+.facility__tag {
+  padding: 6px 14px;
+  background: rgba(110, 63, 231, 0.12);
+  border: 1px solid rgba(110, 63, 231, 0.32);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  color: var(--color-primary-soft);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+/* ============================================================
+   9. PERSONAS (3 cards, magazine layout)
+   ============================================================ */
+.personas {
+  background: var(--color-surface);
+  color: var(--color-text-on-light);
+  padding-block: var(--space-5xl);
+}
+
+.personas__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+@media (min-width: 768px) {
+  .personas__grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-2xl);
+  }
+  .persona:nth-child(3) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+}
+@media (min-width: 1024px) {
+  .personas__grid {
+    grid-template-columns: 1.1fr 0.9fr 1fr;
+  }
+  .persona:nth-child(3) {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.persona {
+  background: #fff;
+  border: 1px solid var(--color-border-on-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-snap), box-shadow var(--dur-base) var(--ease-snap);
+  display: flex;
+  flex-direction: column;
+}
+.persona:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 64px -24px rgba(10, 10, 10, 0.18);
+}
+
+.persona__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--color-surface-alt);
+  overflow: hidden;
+}
+.persona__media picture, .persona__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.persona__case {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  padding: 4px 10px;
+  background: var(--color-base);
+  color: var(--color-text-on-dark);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+}
+
+.persona__body {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex: 1;
+}
+.persona__name {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--color-text-on-light);
+}
+.persona__age {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 13px;
+  color: var(--color-text-on-light-subtle);
+  font-weight: 500;
+}
+.persona__meta {
+  font-size: 13px;
+  color: var(--color-text-on-light-subtle);
+  letter-spacing: 0.04em;
+}
+.persona__quote {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--color-text-on-light-muted);
+  border-left: 2px solid var(--color-primary);
+  padding-left: var(--space-md);
+}
+.persona__quote-em {
+  color: var(--color-text-on-light);
+  font-weight: 700;
+}
+.persona__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border-on-light);
+}
+.persona__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.persona__stat-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-on-light-subtle);
+}
+.persona__stat-value {
+  font-family: "Anton", "IBM Plex Sans", sans-serif;
+  font-size: 18px;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   10. APP (gradient bg, 2col)
+   ============================================================ */
+.app-section {
+  background: linear-gradient(180deg, var(--color-base) 0%, var(--color-primary-deep) 100%);
+  padding-block: var(--space-5xl);
+  position: relative;
+  overflow: hidden;
+}
+.app-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(at 80% 50%, rgba(46, 227, 137, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.app-section__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .app-section__grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-4xl);
+  }
+}
+
+.app-section__heading {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-lg);
+}
+.app-section__lead {
+  font-size: clamp(15px, 1.4vw, 17px);
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: var(--space-xl);
+  line-height: 1.95;
+  max-width: 50ch;
+}
+
+.app-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+.app-feature {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: var(--space-md);
+  align-items: start;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.app-feature:last-child { border-bottom: 0; }
+.app-feature__icon {
+  width: 24px;
+  height: 24px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.app-feature__icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--color-base);
+  stroke-width: 2.8;
+  fill: none;
+}
+.app-feature__text {
+  font-size: 15px;
+  color: var(--color-text-on-dark);
+  line-height: 1.7;
+}
+
+.app-mockup {
+  position: relative;
+  max-width: 320px;
+  margin-inline: auto;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4));
+}
+.app-mockup picture, .app-mockup img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
+.app-mockup-fallback {
+  width: 100%;
+  aspect-ratio: 6 / 10;
+  background: linear-gradient(180deg, #FAFAFA 0%, #F1ECFD 100%);
+  border-radius: 36px;
+  border: 1px solid var(--color-border-on-light);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  gap: 16px;
+}
+.app-mockup-fallback__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.app-mockup-fallback__brand {
+  width: 36px;
+  height: 36px;
+  background: var(--color-primary);
+  border-radius: 8px;
+  position: relative;
+}
+.app-mockup-fallback__brand::after {
+  content: "P";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: "Anton", sans-serif;
+  font-size: 22px;
+}
+.app-mockup-fallback__profile {
+  width: 32px;
+  height: 32px;
+  background: #E5E5EA;
+  border-radius: 50%;
+}
+.app-mockup-fallback__greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.app-mockup-fallback__greeting-sm {
+  font-size: 12px;
+  color: var(--color-text-on-light-subtle);
+}
+.app-mockup-fallback__greeting-lg {
+  font-family: "Anton", sans-serif;
+  font-size: 24px;
+  color: var(--color-text-on-light);
+  letter-spacing: -0.01em;
+}
+.app-mockup-fallback__card {
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.app-mockup-fallback__card--violet {
+  background: var(--color-primary);
+  color: #fff;
+}
+.app-mockup-fallback__card--white {
+  background: #fff;
+  border: 1px solid var(--color-border-on-light);
+}
+.app-mockup-fallback__card-title {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.app-mockup-fallback__card-value {
+  font-family: "Anton", sans-serif;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.app-mockup-fallback__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.app-mockup-fallback__stat {
+  text-align: left;
+}
+.app-mockup-fallback__stat-label {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-on-light-subtle);
+}
+.app-mockup-fallback__stat-value {
+  font-family: "Anton", sans-serif;
+  font-size: 16px;
+  color: var(--color-text-on-light);
+  letter-spacing: -0.01em;
+}
+
+/* ============================================================
+   11. SAFETY (4-step flow with LIVE)
+   ============================================================ */
+.safety {
+  background: var(--color-base);
+  padding-block: var(--space-5xl);
+  position: relative;
+}
+.safety::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(110, 63, 231, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(46, 227, 137, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+}
+.safety__head {
+  position: relative;
+}
+.safety__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  position: relative;
+  margin-top: var(--space-2xl);
+}
+@media (min-width: 640px) {
+  .safety__steps {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+}
+@media (min-width: 1024px) {
+  .safety__steps {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+.safety-step {
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-lg);
+  background: var(--color-base-soft);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: border-color var(--dur-base) var(--ease-snap), background-color var(--dur-base) var(--ease-snap);
+}
+.safety-step:hover {
+  border-color: var(--color-accent);
+  background: var(--color-base-alt);
+}
+.safety-step__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.safety-step__num {
+  font-family: "Anton", sans-serif;
+  font-size: 32px;
+  line-height: 0.9;
+  color: var(--color-primary-soft);
+  letter-spacing: -0.02em;
+}
+.safety-step__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+.safety-step__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: var(--color-text-on-dark);
+}
+.safety-step__body {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--color-text-on-dark-muted);
+}
+
+/* ============================================================
+   12. BEFORE/AFTER (2 cards)
+   ============================================================ */
+.ba {
+  background: var(--color-surface);
+  color: var(--color-text-on-light);
+  padding-block: var(--space-5xl);
+}
+.ba__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  margin-top: var(--space-2xl);
+}
+@media (min-width: 768px) {
+  .ba__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.ba-card {
+  background: #fff;
+  border: 1px solid var(--color-border-on-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.ba-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--color-surface-alt);
+  overflow: hidden;
+}
+.ba-card__media picture, .ba-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ba-card__pills {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  display: flex;
+  gap: var(--space-xs);
+}
+.ba-card__pill {
+  padding: 4px 10px;
+  background: var(--color-base);
+  color: var(--color-text-on-dark);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+}
+.ba-card__pill--after {
+  background: var(--color-accent);
+  color: var(--color-base);
+}
+
+.ba-card__body {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.ba-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.ba-card__profile {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--color-text-on-light);
+  letter-spacing: 0.04em;
+}
+.ba-card__period {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-on-light-subtle);
+  font-weight: 500;
+}
+.ba-card__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  padding-block: var(--space-md);
+  border-block: 1px solid var(--color-border-on-light);
+}
+.ba-card__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ba-card__stat-value {
+  font-family: "Anton", "IBM Plex Sans", sans-serif;
+  font-size: clamp(22px, 2.4vw, 30px);
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+  font-feature-settings: "tnum" 1;
+}
+.ba-card__stat-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-on-light-subtle);
+}
+.ba-card__quote {
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--color-text-on-light-muted);
+  border-left: 2px solid var(--color-primary);
+  padding-left: var(--space-md);
+}
+.ba-card__quote-em {
+  color: var(--color-text-on-light);
+  font-weight: 700;
+}
+
+.ba__disclaimer {
+  margin-top: var(--space-2xl);
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-on-light-subtle);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* ============================================================
+   13. PRICING
+   ============================================================ */
+.pricing {
+  background: var(--color-base);
+  padding-block: var(--space-5xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-main {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
+  padding: clamp(40px, 6vw, 64px) clamp(24px, 4vw, 48px);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(at 30% 30%, rgba(46, 227, 137, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+.pricing-main__eyebrow {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  display: block;
+  position: relative;
+}
+.pricing-main__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 28px);
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.04em;
+  position: relative;
+}
+.pricing-main__price-row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+.pricing-main__yen {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--color-text-on-dark);
+  letter-spacing: -0.02em;
+}
+.pricing-main__price {
+  font-family: "Anton", "IBM Plex Sans", sans-serif;
+  font-size: clamp(56px, 11vw, 96px);
+  line-height: 0.9;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+  font-feature-settings: "tnum" 1;
+}
+.pricing-main__unit {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: clamp(15px, 1.6vw, 20px);
+  color: var(--color-text-on-dark);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.pricing-main__note {
+  font-size: 13px;
+  color: var(--color-text-on-dark-muted);
+  margin-bottom: var(--space-2xl);
+  letter-spacing: 0.04em;
+  position: relative;
+}
+.pricing-main__includes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  text-align: left;
+  max-width: 480px;
+  margin: 0 auto var(--space-2xl);
+  position: relative;
+}
+@media (min-width: 540px) {
+  .pricing-main__includes { grid-template-columns: 1fr 1fr; }
+}
+.pricing-main__include {
+  display: flex;
+  align-items: start;
+  gap: var(--space-sm);
+  font-size: 14px;
+  color: var(--color-text-on-dark);
+  line-height: 1.6;
+}
+.pricing-main__check {
+  width: 20px;
+  height: 20px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.pricing-main__check svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--color-base);
+  stroke-width: 2.8;
+  fill: none;
+}
+.pricing-main .cta {
+  position: relative;
+}
+
+.pricing-options {
+  margin-top: var(--space-3xl);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  max-width: 880px;
+  margin-inline: auto;
+}
+@media (min-width: 540px) { .pricing-options { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .pricing-options { grid-template-columns: repeat(4, 1fr); } }
+
+.pricing-option {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-md);
+  background: var(--color-base-soft);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  transition: border-color var(--dur-base) var(--ease-snap), transform var(--dur-base) var(--ease-snap);
+}
+.pricing-option:hover {
+  border-color: var(--color-primary-soft);
+  transform: translateY(-3px);
+}
+.pricing-option__name {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-text-on-dark);
+  letter-spacing: 0.04em;
+}
+.pricing-option__price {
+  font-family: "Anton", "IBM Plex Sans", sans-serif;
+  font-size: 22px;
+  color: var(--color-accent);
+  letter-spacing: -0.01em;
+  margin-block: 4px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.pricing-option__price-unit {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  color: var(--color-text-on-dark-muted);
+  font-weight: 500;
+}
+.pricing-option__desc {
+  font-size: 12px;
+  color: var(--color-text-on-dark-muted);
+  line-height: 1.7;
+}
+
+.campaign {
+  margin-top: var(--space-3xl);
+  max-width: 720px;
+  margin-inline: auto;
+  padding: var(--space-xl);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  background: rgba(46, 227, 137, 0.04);
+  text-align: center;
+  position: relative;
+}
+.campaign__eyebrow {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.campaign__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2vw, 22px);
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+.campaign__detail {
+  font-size: 14px;
+  color: var(--color-text-on-dark-muted);
+  line-height: 1.8;
+}
+.campaign__remaining {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  padding: 4px 12px;
+  background: var(--color-warning);
+  color: var(--color-base);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   14. FLOW (3 steps)
+   ============================================================ */
+.flow {
+  background: var(--color-surface);
+  color: var(--color-text-on-light);
+  padding-block: var(--space-5xl);
+}
+.flow__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+  position: relative;
+}
+@media (min-width: 768px) {
+  .flow__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+  }
+}
+.flow-step {
+  padding: var(--space-2xl);
+  background: #fff;
+  border: 1px solid var(--color-border-on-light);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+}
+.flow-step__num {
+  font-family: "Anton", sans-serif;
+  font-size: 56px;
+  line-height: 0.9;
+  color: var(--color-primary-soft);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
+}
+.flow-step__title {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--color-text-on-light);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+.flow-step__body {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--color-text-on-light-muted);
+}
+
+/* ============================================================
+   15. TESTIMONIALS (3 cards, asymmetric)
+   ============================================================ */
+.testimonials {
+  background: var(--color-base-soft);
+  padding-block: var(--space-5xl);
+  border-top: 1px solid var(--color-border-on-dark);
+  border-bottom: 1px solid var(--color-border-on-dark);
+}
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+@media (min-width: 768px) {
+  .testimonials__grid {
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+}
+.testimonial {
+  padding: var(--space-xl);
+  background: var(--color-base);
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.testimonial__stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--color-warning);
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+.testimonial__quote {
+  font-size: 15px;
+  line-height: 1.95;
+  color: var(--color-text-on-dark);
+}
+.testimonial__quote-em {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+.testimonial__meta {
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border-on-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
+}
+.testimonial__name {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-text-on-dark);
+  letter-spacing: 0.04em;
+}
+.testimonial__sub {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--color-text-on-dark-subtle);
+}
+
+/* ============================================================
+   16. FAQ
+   ============================================================ */
+.faq {
+  background: var(--color-surface);
+  color: var(--color-text-on-light);
+  padding-block: var(--space-5xl);
+}
+.faq__list {
+  max-width: 880px;
+  margin-inline: auto;
+  margin-top: var(--space-2xl);
+}
+.faq__item {
+  border-bottom: 1px solid var(--color-border-on-light);
+}
+.faq__item:first-child { border-top: 1px solid var(--color-border-on-light); }
+
+.faq__summary {
+  display: grid;
+  grid-template-columns: 36px 1fr 36px;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: clamp(15px, 1.6vw, 17px);
+  color: var(--color-text-on-light);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  transition: color var(--dur-fast) var(--ease-snap);
+}
+.faq__summary::-webkit-details-marker { display: none; }
+.faq__summary:hover { color: var(--color-primary); }
+
+.faq__badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: "Anton", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+.faq__icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border-on-light);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  transition: background-color var(--dur-base) var(--ease-snap), border-color var(--dur-base) var(--ease-snap), transform var(--dur-base) var(--ease-snap);
+}
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  background: var(--color-text-on-light);
+  transition: transform var(--dur-base) var(--ease-snap), background-color var(--dur-base) var(--ease-snap);
+}
+.faq__icon::before { width: 12px; height: 2px; }
+.faq__icon::after { width: 2px; height: 12px; }
+.faq__item[open] .faq__icon {
+  background: var(--color-base);
+  border-color: var(--color-base);
+  transform: rotate(45deg);
+}
+.faq__item[open] .faq__icon::before,
+.faq__item[open] .faq__icon::after {
+  background: #fff;
+}
+
+.faq__body {
+  padding: 0 calc(36px + var(--space-md)) var(--space-xl);
+  font-size: 14px;
+  line-height: 1.95;
+  color: var(--color-text-on-light-muted);
+}
+.faq__body strong {
+  color: var(--color-text-on-light);
+  font-weight: 700;
+}
+
+/* ============================================================
+   17. FINAL CTA + FOOTER
+   ============================================================ */
+.final-cta {
+  position: relative;
+  background: var(--color-base);
+  padding-block: var(--space-5xl);
+  overflow: hidden;
+}
+.final-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.final-cta__bg picture, .final-cta__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.final-cta__bg-fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(at 30% 30%, rgba(110, 63, 231, 0.4) 0%, transparent 50%),
+    radial-gradient(at 70% 70%, rgba(46, 227, 137, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #6E3FE7 0%, #0A0A0A 100%);
+}
+.final-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.88) 100%);
+  z-index: 1;
+}
+.final-cta__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+  text-align: center;
+}
+.final-cta__display {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+  font-feature-settings: "ss01" 1;
+}
+.final-cta__heading {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 900;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--color-text-on-dark);
+  margin-bottom: var(--space-lg);
+}
+.final-cta__lead {
+  font-size: clamp(15px, 1.4vw, 17px);
+  color: var(--color-text-on-dark-muted);
+  line-height: 1.95;
+  margin-bottom: var(--space-2xl);
+}
+.final-cta__lead-em {
+  color: var(--color-text-on-dark);
+  font-weight: 700;
+}
+.final-cta__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+@media (min-width: 540px) {
+  .final-cta__buttons { flex-direction: row; justify-content: center; flex-wrap: wrap; }
+}
+.cta-store {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 14px 24px;
+  background: var(--color-base);
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-md);
+  color: var(--color-text-on-dark);
+  text-decoration: none;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  transition: border-color var(--dur-base) var(--ease-snap), background-color var(--dur-base) var(--ease-snap), transform var(--dur-base) var(--ease-snap);
+  min-width: 200px;
+  justify-content: center;
+}
+.cta-store:hover {
+  border-color: var(--color-accent);
+  background: rgba(46, 227, 137, 0.06);
+  transform: translateY(-2px);
+}
+.cta-store__icon {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  color: var(--color-accent);
+}
+.final-cta__sample-note {
+  font-size: 11px;
+  color: var(--color-text-on-dark-subtle);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+
+/* === FOOTER === */
+.site-footer {
+  background: var(--color-base-soft);
+  padding-block: var(--space-3xl) var(--space-2xl);
+  border-top: 1px solid var(--color-border-on-dark);
+}
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+@media (min-width: 768px) {
+  .site-footer__grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.footer-brand__mark {
+  width: 80px;
+  height: 80px;
+  background: var(--color-primary);
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin-bottom: var(--space-sm);
+}
+.footer-brand__mark-letter {
+  font-family: "Anton", sans-serif;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--color-text-on-dark);
+  letter-spacing: -0.02em;
+  margin-top: 2px;
+}
+.footer-brand__mark-dot {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 10px;
+  height: 10px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+.footer-brand__title {
+  font-family: "Anton", sans-serif;
+  font-size: 22px;
+  color: var(--color-text-on-dark);
+  letter-spacing: -0.01em;
+}
+.footer-brand__tagline {
+  font-size: 13px;
+  color: var(--color-text-on-dark-muted);
+  font-style: italic;
+}
+.footer-brand__meta {
+  font-size: 12px;
+  color: var(--color-text-on-dark-subtle);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+.footer-col__title {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-text-on-dark-subtle);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+.footer-col__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.footer-col__list a {
+  font-size: 14px;
+  color: var(--color-text-on-dark-muted);
+  letter-spacing: 0.04em;
+  transition: color var(--dur-fast) var(--ease-snap);
+}
+.footer-col__list a:hover { color: var(--color-text-on-dark); }
+
+.site-footer__bottom {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border-on-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+.site-footer__copyright {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--color-text-on-dark-subtle);
+}
+.site-footer__legal {
+  font-size: 11px;
+  color: var(--color-text-on-dark-subtle);
+  line-height: 1.6;
+  margin-top: var(--space-md);
+  max-width: 100%;
+  letter-spacing: 0.02em;
+}
+
+/* === MOBILE STICKY BOTTOM CTA === */
+.sticky-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  padding: var(--space-md);
+  background: var(--color-base);
+  border-top: 1px solid var(--color-border-on-dark);
+  display: flex;
+  justify-content: center;
+  transform: translateY(110%);
+  transition: transform var(--dur-base) var(--ease-snap);
+}
+.sticky-bottom.is-visible {
+  transform: translateY(0);
+}
+.sticky-bottom .cta--primary {
+  width: 100%;
+  max-width: 480px;
+  padding: 14px 24px;
+}
+@media (min-width: 768px) {
+  .sticky-bottom { display: none; }
+}
+
+/* === SR ONLY === */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* === PREFERS REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pulse-beat, .live-dot { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .typewriter span { opacity: 1 !important; transform: none !important; }
+  .hero-image-wrap { animation: none !important; transform: none !important; }
+}
+
+/* === SECTION DIVIDERS === */
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: var(--color-border-on-dark);
+  margin: 0;
+}
+
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">本文へスキップ</a>
+
+<!-- ===========================================================
+     1. HEADER (sticky + LIVE indicator + magnetic CTA)
+     Trigger: 損失回避（過去の失敗を持ち出す）
+=========================================================== -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <a href="#" class="brand" aria-label="PULSE 24 ホームへ">
+      <span class="brand__mark" aria-hidden="true">
+        <span class="brand__mark-letter">P</span>
+        <span class="brand__mark-dot pulse-beat"></span>
+      </span>
+      <span class="brand__wordmark">
+        <span>PULSE</span>
+        <span class="brand__divider"></span>
+        <span>24</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="#problem">悩み</a>
+      <a href="#reasons">特長</a>
+      <a href="#facility">設備</a>
+      <a href="#personas">会員の声</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="header-actions">
+      <span class="live-indicator header-live" aria-live="polite">
+        <span class="live-dot pulse-beat" aria-hidden="true"></span>
+        <span class="live-text">LIVE</span>
+        <span class="live-time" id="liveTimeHeader" data-now>00:00 JST</span>
+      </span>
+      <a href="#pricing" class="header-cta js-magnetic" data-magnet="6">
+        7日間 無料で試す
+        <span class="cta__arrow" aria-hidden="true">→</span>
+      </a>
+      <button class="hamburger" type="button" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileNav">
+        <span class="hamburger__bars" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav (dialog) -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="モバイルナビゲーション" aria-hidden="true">
+  <nav>
+    <ul class="mobile-nav__list">
+      <li><a href="#problem" data-mobile-close>その「やめた経験」</a></li>
+      <li><a href="#reasons" data-mobile-close>続く理由</a></li>
+      <li><a href="#facility" data-mobile-close>設備</a></li>
+      <li><a href="#personas" data-mobile-close>会員の声</a></li>
+      <li><a href="#safety" data-mobile-close>安全について</a></li>
+      <li><a href="#pricing" data-mobile-close>料金</a></li>
+      <li><a href="#faq" data-mobile-close>よくある質問</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-nav__cta">
+    <a href="#pricing" class="cta cta--primary cta--mobile" data-mobile-close>
+      7日間 無料で試す
+      <span class="cta__arrow" aria-hidden="true">→</span>
+    </a>
+    <span class="cta-microcopy">クレジットカード不要 ・ いつでも解約</span>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ===========================================================
+     2. HERO — L字組み + Anton + price block + CTA
+     Trigger: 損失回避（「やめた人の最後のジム」） + 返報性（7日無料）
+=========================================================== -->
+<section class="hero" aria-labelledby="heroTitle">
+  <div class="hero-image-wrap" aria-hidden="true">
+    <picture>
+      <source srcset="./assets/img/pulse24-hero.webp" type="image/webp">
+      <img src="./assets/img/pulse24-hero.png"
+           alt=""
+           width="1920" height="1080"
+           fetchpriority="high"
+           decoding="async"
+           onerror="this.style.display='none';">
+    </picture>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-grid">
+    <aside class="hero__rail" aria-hidden="true">
+      <span>2026 / Smart Gym</span>
+      <span class="hero__rail-line"></span>
+      <span>Tokyo · 42 Locations</span>
+    </aside>
+
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <span class="live-indicator" aria-live="polite">
+          <span class="live-dot pulse-beat" aria-hidden="true"></span>
+          <span class="live-text">24H FIT STUDIO</span>
+          <span class="live-time" id="liveTimeHero" data-now>00:00 JST</span>
+        </span>
+      </div>
+
+      <h1 class="hero__heading" id="heroTitle">
+        <span class="hero__heading-line typewriter" data-text="ジムをやめた人の、">ジムをやめた人の、</span>
+        <span class="hero__heading-line">
+          <span class="hero__heading-em">最後のジム</span>。
+        </span>
+        <span class="hero__heading-display" aria-hidden="true">LAST GYM.</span>
+      </h1>
+
+      <p class="hero__sub">
+        月3,278円・入会金0円・24時間オープン。<br>
+        続けられる仕組みだけを集めました。
+      </p>
+
+      <div class="hero__price">
+        <div class="hero__price-block">
+          <span class="hero__price-label">Monthly</span>
+          <span class="hero__price-mega">
+            <span style="font-size:0.6em;">¥</span>3,278<span class="hero__price-unit">/月</span>
+          </span>
+          <span class="hero__price-note">税込 ・ 入会金0円</span>
+        </div>
+        <span class="hero__price-divider" aria-hidden="true"></span>
+        <div class="hero__price-block">
+          <span class="hero__price-label">Free Trial</span>
+          <span class="hero__price-mega hero__price-mega--accent">
+            7<span class="hero__price-unit">日間</span>
+          </span>
+          <span class="hero__price-note">まずは、無料で</span>
+        </div>
+      </div>
+
+      <ul class="hero__pills" aria-label="主要特徴">
+        <li class="hero__pill">24h オープン</li>
+        <li class="hero__pill">予約不要</li>
+        <li class="hero__pill">完全個室</li>
+        <li class="hero__pill">エステ／脱毛／サウナ</li>
+      </ul>
+
+      <div class="hero__cta-group">
+        <a href="#pricing" class="cta cta--primary js-magnetic" data-magnet="8">
+          7日間 無料ではじめる
+          <span class="cta__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="#pricing" class="cta cta--secondary">
+          料金プランを見る
+        </a>
+      </div>
+      <p class="hero__microcopy">※ クレジットカード不要・アプリで即入会・10秒で解約OK</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     3. TRUST BAR — 3 数字 + counter-up
+     Trigger: 社会的証明（数字）+ 権威性（規模）
+=========================================================== -->
+<section class="trust" aria-labelledby="trustTitle">
+  <h2 id="trustTitle" class="sr-only">実績</h2>
+  <div class="container">
+    <div class="trust__grid">
+      <div class="trust__item js-trust">
+        <span class="trust__sub">Locations</span>
+        <span class="trust__num">
+          <span class="js-counter" data-target="42" data-duration="1400">0</span><span class="trust__num-unit">店舗</span>
+        </span>
+        <span class="trust__underline"></span>
+        <span class="trust__label">全国展開中</span>
+      </div>
+      <div class="trust__divider" aria-hidden="true"></div>
+      <div class="trust__item js-trust">
+        <span class="trust__sub">Members</span>
+        <span class="trust__num">
+          <span class="js-counter" data-target="120000" data-duration="1600" data-comma="1">0</span><span class="trust__num-unit">人</span>
+        </span>
+        <span class="trust__underline"></span>
+        <span class="trust__label">累計入会者数</span>
+      </div>
+      <div class="trust__divider" aria-hidden="true"></div>
+      <div class="trust__item js-trust">
+        <span class="trust__sub">Retention</span>
+        <span class="trust__num">
+          <span class="js-counter" data-target="89" data-duration="1400">0</span><span class="trust__num-unit">%</span>
+        </span>
+        <span class="trust__underline"></span>
+        <span class="trust__label">半年継続率</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     4. PROBLEM — 5項目 2-2-1 マガジン配置
+     Trigger: 一貫性（自分の悩みリスト同調）
+=========================================================== -->
+<section class="problem" id="problem" aria-labelledby="problemTitle">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__meta">
+        <span>Problem · 01</span>
+      </div>
+      <div>
+        <span class="eyebrow">Problem</span>
+        <h2 class="section-head__title" id="problemTitle">
+          その「やめた経験」、あなただけじゃない。
+        </h2>
+        <p class="section-head__lead">
+          高い月会費、人目、予約システム、ジムウェア。続かなかった理由のほとんどは、「気合」じゃなくて「仕組み」の話でした。
+        </p>
+      </div>
+    </div>
+
+    <div class="problem__grid">
+      <article class="problem__item reveal">
+        <span class="problem__num">01</span>
+        <div class="problem__text-wrap">
+          <p class="problem__text">「今月も、行けなかった月会費。」<br>気づけば10ヶ月で12万円。</p>
+          <p class="problem__sub">月1万円超のジムを「明日こそ」と思いながら半年。気がつくと年単位の出費が、何にも変わらず消えていく。</p>
+        </div>
+      </article>
+      <article class="problem__item reveal">
+        <span class="problem__num">02</span>
+        <div class="problem__text-wrap">
+          <p class="problem__text">着替え、シャワー、鏡。<br>「人目が気になる」だけで足が遠のく。</p>
+          <p class="problem__sub">運動以前のところで疲れる。「メイクをして、ウェアを揃えて、人混みのなかで30分」が、もうハードルだった。</p>
+        </div>
+      </article>
+      <article class="problem__item reveal">
+        <span class="problem__num">03</span>
+        <div class="problem__text-wrap">
+          <p class="problem__text">22時に閉まる、9時に開く。<br>自分の生活には、合わなかった。</p>
+          <p class="problem__sub">仕事終わりの22時には閉まっていて、朝の早起きは続かない。「行ける時間」が無いまま、月だけが過ぎていく。</p>
+        </div>
+      </article>
+      <article class="problem__item reveal">
+        <span class="problem__num">04</span>
+        <div class="problem__text-wrap">
+          <p class="problem__text">「予約」「持ち物」「移動」。<br>続かない理由は、いつも準備の前で止まる。</p>
+          <p class="problem__sub">予約画面を開いた瞬間、ジムバッグを思い出す。それだけで、「明日にしよう」が始まる。</p>
+        </div>
+      </article>
+      <article class="problem__item reveal">
+        <span class="problem__num">05</span>
+        <div class="problem__text-wrap">
+          <p class="problem__text">Tシャツとスニーカー。<br>それを揃えるところから、もう疲れる。</p>
+          <p class="problem__sub">ジムウェアを買いに行くために、休日を1日使う。「始める前」のコストが、いちばん高かった。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     5. AGITATION — gradient bg
+     Trigger: 損失回避（このままだと…）+ 認知転換
+=========================================================== -->
+<section class="agitation" aria-labelledby="agitationTitle">
+  <h2 id="agitationTitle" class="sr-only">課題の再定義</h2>
+  <div class="agitation__inner reveal">
+    <p class="agitation__quote">
+      <span class="agitation__quote-line">「またダメだった。」</span>
+      <span class="agitation__quote-line">そう思った瞬間、本当はジムじゃなく、</span>
+      <span class="agitation__quote-line">
+        <span class="agitation__quote-em">〈続けられる仕組み〉</span>を探していた。
+      </span>
+    </p>
+  </div>
+</section>
+
+<!-- ===========================================================
+     6. SOLUTION INTRO — light section, logo pulse-beat
+     Trigger: 希望提示 + 一貫性 + 返報性
+=========================================================== -->
+<section class="solution" aria-labelledby="solutionTitle">
+  <div class="solution__inner">
+    <div class="solution__mark pulse-beat" aria-hidden="true">
+      <span class="solution__mark-ring"></span>
+      <span class="solution__mark-letter">P</span>
+      <span class="solution__mark-dot"></span>
+    </div>
+    <span class="eyebrow eyebrow--on-light">Solution</span>
+    <h2 class="solution__heading" id="solutionTitle">
+      だから、<span class="solution__heading-em">PULSE 24</span> をつくりました。
+    </h2>
+    <p class="solution__body">
+      <span class="solution__body-em">「行く」前のハードル</span>を、ぜんぶ外した24時間ジム。<br>
+      月3,278円。予約なし。完全個室。Tシャツのまま、QR1秒で入室。<br>
+      <span class="solution__body-em">通うんじゃなく、立ち寄るだけ。</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===========================================================
+     7. 4 REASONS — light section, 4 columns
+     Trigger: 一貫性（4つすべて当てはまる）+ 権威性
+=========================================================== -->
+<section class="reasons" id="reasons" aria-labelledby="reasonsTitle">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__meta">
+        <span>Why PULSE 24 · 02</span>
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--on-light">Why PULSE 24</span>
+        <h2 class="section-head__title" id="reasonsTitle" style="color: var(--color-text-on-light);">
+          続く理由を、4つだけ用意しました。
+        </h2>
+      </div>
+    </div>
+
+    <div class="reasons__grid">
+      <article class="reason reveal">
+        <span class="reason__num">01</span>
+        <span class="reason__eyebrow">24h Open · No Reservation</span>
+        <h3 class="reason__title">思い立った瞬間が、ジムの時間。</h3>
+        <p class="reason__body">
+          24時間オープン、予約不要。仕事帰りの22時、眠れない夜中、出勤前の朝6時。「いま行きたい」を、そのまま叶える設計です。
+        </p>
+      </article>
+      <article class="reason reveal">
+        <span class="reason__num">02</span>
+        <span class="reason__eyebrow">Private Machine Zone</span>
+        <h3 class="reason__title">Tシャツ1枚で、来てください。</h3>
+        <p class="reason__body">
+          パーティションで区切られた完全個室マシンエリア。視線ゼロ、服装自由、メイクなしOK。最新マシン12種を、ひとり占めできます。
+        </p>
+      </article>
+      <article class="reason reveal">
+        <span class="reason__num">03</span>
+        <span class="reason__eyebrow">AI Body Scan + App</span>
+        <h3 class="reason__title">「やった分」が、数字で見える。</h3>
+        <p class="reason__body">
+          AI体組成計が体脂肪率・筋肉量・基礎代謝を毎回測定。アプリで6ヶ月分の変化がグラフになります。「見える」から、続く理由になる。
+        </p>
+      </article>
+      <article class="reason reveal">
+        <span class="reason__num">04</span>
+        <span class="reason__eyebrow">¥3,278 / Month</span>
+        <h3 class="reason__title">コーヒー1杯より、安い1日。</h3>
+        <p class="reason__body">
+          月額¥3,278（税込）。入会金0円、年会費0円。1日あたり109円。ペットボトル1本ぶんで、24時間ジム。いつでもアプリから1タップで解約できます。
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     8. FACILITY — full-width × 4, alternating
+     Trigger: 権威性（4種設備）+ 視覚的説得
+=========================================================== -->
+<section class="facility" id="facility" aria-labelledby="facilityTitle">
+  <div class="container facility__head">
+    <div class="section-head">
+      <div class="section-head__meta">
+        <span>Facility · 03</span>
+      </div>
+      <div>
+        <span class="eyebrow">Facility</span>
+        <h2 class="section-head__title" id="facilityTitle">
+          ジムだけど、ジムじゃない。
+        </h2>
+        <p class="section-head__lead">
+          マシン、サウナ、エステ、脱毛。ひとつの月額で、整える時間も、磨く時間も。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <ol class="facility__list">
+    <li class="facility__item reveal">
+      <div class="facility__media">
+        <picture>
+          <source srcset="./assets/img/pulse24-machine.webp" type="image/webp">
+          <img src="./assets/img/pulse24-machine.png"
+               alt="完全個室パーティション内の最新マシン"
+               width="1600" height="900"
+               loading="lazy"
+               decoding="async"
+               onerror="this.style.display='none';">
+        </picture>
+      </div>
+      <div class="facility__body">
+        <span class="facility__index">01 / Machine Zone</span>
+        <span class="facility__eyebrow">Machine Zone</span>
+        <h3 class="facility__title">見られない、ひとりの12種。</h3>
+        <p>
+          パーティションで仕切られた完全個室。鏡もマシンも、あなたひとりのために。最新マシン12種、スマホで負荷を記録。次回も「前回の続き」から始められます。
+        </p>
+        <ul class="facility__tags" aria-label="マシンエリアの特徴">
+          <li class="facility__tag">マシン12種</li>
+          <li class="facility__tag">完全個室</li>
+          <li class="facility__tag">服装自由</li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="facility__item facility__item--reverse reveal">
+      <div class="facility__media">
+        <picture>
+          <source srcset="./assets/img/pulse24-esthe.webp" type="image/webp">
+          <img src="./assets/img/pulse24-esthe.png"
+               alt="セルフ高機能エステブース"
+               width="1600" height="900"
+               loading="lazy"
+               decoding="async"
+               onerror="this.style.display='none';">
+        </picture>
+      </div>
+      <div class="facility__body">
+        <span class="facility__index">02 / Self Esthe</span>
+        <span class="facility__eyebrow">Self Esthe</span>
+        <h3 class="facility__title">トレーニングのご褒美、隣にあります。</h3>
+        <p>
+          HIFU・EMS・キャビテーション対応の高機能マシンが、追加料金なしで。運動のあとに10分だけ。トレーニング無しでエステだけ、もOKです。
+        </p>
+        <ul class="facility__tags" aria-label="エステエリアの特徴">
+          <li class="facility__tag">HIFU</li>
+          <li class="facility__tag">EMS</li>
+          <li class="facility__tag">予約制</li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="facility__item reveal">
+      <div class="facility__media">
+        <picture>
+          <source srcset="./assets/img/pulse24-datsumou.webp" type="image/webp">
+          <img src="./assets/img/pulse24-datsumou.png"
+               alt="男女別エリアのセルフ脱毛ブース"
+               width="1600" height="900"
+               loading="lazy"
+               decoding="async"
+               onerror="this.style.display='none';">
+        </picture>
+      </div>
+      <div class="facility__body">
+        <span class="facility__index">03 / Hair Removal</span>
+        <span class="facility__eyebrow">Hair Removal</span>
+        <h3 class="facility__title">脱毛サロン1回ぶんで、月通い放題。</h3>
+        <p>
+          医療機関と同等のハイパワー脱毛機を、男女別の完全個室で。月+¥1,980で月2回まで使い放題。サロン通い、卒業しませんか。
+        </p>
+        <ul class="facility__tags" aria-label="脱毛エリアの特徴">
+          <li class="facility__tag">ハイパワー脱毛機</li>
+          <li class="facility__tag">男女別エリア</li>
+          <li class="facility__tag">+¥1,980/月</li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="facility__item facility__item--reverse reveal">
+      <div class="facility__media">
+        <picture>
+          <source srcset="./assets/img/pulse24-sauna.webp" type="image/webp">
+          <img src="./assets/img/pulse24-sauna.png"
+               alt="フィンランド式ドライサウナ"
+               width="1600" height="900"
+               loading="lazy"
+               decoding="async"
+               onerror="this.style.display='none';">
+        </picture>
+      </div>
+      <div class="facility__body">
+        <span class="facility__index">04 / Finnish Sauna</span>
+        <span class="facility__eyebrow">Finnish Sauna</span>
+        <h3 class="facility__title">整える30分も、ジムの時間。</h3>
+        <p>
+          本格ドライサウナと水風呂を完備。シャワー・タオル・アメニティは24時間無料。仕事の後、ジムじゃなく「整いに来た」日もOKです。
+        </p>
+        <ul class="facility__tags" aria-label="サウナエリアの特徴">
+          <li class="facility__tag">ドライサウナ</li>
+          <li class="facility__tag">水風呂</li>
+          <li class="facility__tag">タオル無料</li>
+        </ul>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ===========================================================
+     9. PERSONAS — 3 cards magazine layout
+     Trigger: 社会的証明（似た境遇）+ 自己投影
+=========================================================== -->
+<section class="personas" id="personas" aria-labelledby="personasTitle">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__meta" style="color: var(--color-text-on-light-subtle); border-color: var(--color-border-on-light);">
+        <span>Real Members · 04</span>
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--on-light">Real Members</span>
+        <h2 class="section-head__title" id="personasTitle" style="color: var(--color-text-on-light);">
+          続けている人の、ふつうの30分。
+        </h2>
+        <p class="section-head__lead" style="color: var(--color-text-on-light-muted);">
+          ドラマチックな成功談ではなく、リアルな生活のなかにジムがある。3人の使い方を、そのまま載せます。
+        </p>
+      </div>
+    </div>
+
+    <div class="personas__grid">
+      <article class="persona reveal">
+        <div class="persona__media">
+          <span class="persona__case">Case 01</span>
+          <picture>
+            <source srcset="./assets/img/pulse24-persona-takashi.webp" type="image/webp">
+            <img src="./assets/img/pulse24-persona-takashi.png"
+                 alt="タカシさんのポートレート"
+                 width="1024" height="1024"
+                 loading="lazy"
+                 decoding="async"
+                 onerror="this.style.display='none';">
+          </picture>
+        </div>
+        <div class="persona__body">
+          <div class="persona__name">タカシさん<span class="persona__age">／33歳</span></div>
+          <div class="persona__meta">IT企業勤務 ・ 独身 ・ 東京・五反田店</div>
+          <p class="persona__quote">
+            残業のあと、家に帰る前にひと駅手前で降りる。30分マシン、10分サウナ、終わり。<br><br>
+            「コンビニで弁当買うのと同じノリです。深夜でも誰もいないし、Tシャツのまま行ける。<span class="persona__quote-em">続ける気合いとか、もういらなかった。</span>」
+          </p>
+          <div class="persona__stats">
+            <div class="persona__stat">
+              <span class="persona__stat-label">Visit</span>
+              <span class="persona__stat-value">週3</span>
+            </div>
+            <div class="persona__stat">
+              <span class="persona__stat-label">Time</span>
+              <span class="persona__stat-value">22:00〜</span>
+            </div>
+            <div class="persona__stat">
+              <span class="persona__stat-label">Result</span>
+              <span class="persona__stat-value">-8kg</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="persona reveal">
+        <div class="persona__media">
+          <span class="persona__case">Case 02</span>
+          <picture>
+            <source srcset="./assets/img/pulse24-persona-yumiko.webp" type="image/webp">
+            <img src="./assets/img/pulse24-persona-yumiko.png"
+                 alt="ユミコさんのポートレート"
+                 width="1024" height="1024"
+                 loading="lazy"
+                 decoding="async"
+                 onerror="this.style.display='none';">
+          </picture>
+        </div>
+        <div class="persona__body">
+          <div class="persona__name">ユミコさん<span class="persona__age">／42歳</span></div>
+          <div class="persona__meta">二児の母 ・ 主婦 ・ 神奈川・武蔵小杉店</div>
+          <p class="persona__quote">
+            子どもの幼稚園送り出して、自分の45分。マシン20分、エステ20分、シャワーで終わり。<br><br>
+            「<span class="persona__quote-em">自分のための45分</span>って、ここ何年か無くて。エステも追加で月980円って、最初うそでしょって思いました（笑）」
+          </p>
+          <div class="persona__stats">
+            <div class="persona__stat">
+              <span class="persona__stat-label">Visit</span>
+              <span class="persona__stat-value">週2</span>
+            </div>
+            <div class="persona__stat">
+              <span class="persona__stat-label">Time</span>
+              <span class="persona__stat-value">10:00〜</span>
+            </div>
+            <div class="persona__stat">
+              <span class="persona__stat-label">Result</span>
+              <span class="persona__stat-value">体力維持</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="persona reveal">
+        <div class="persona__media">
+          <span class="persona__case">Case 03</span>
+          <picture>
+            <source srcset="./assets/img/pulse24-persona-riku.webp" type="image/webp">
+            <img src="./assets/img/pulse24-persona-riku.png"
+                 alt="リクさんのポートレート"
+                 width="1024" height="1024"
+                 loading="lazy"
+                 decoding="async"
+                 onerror="this.style.display='none';">
+          </picture>
+        </div>
+        <div class="persona__body">
+          <div class="persona__name">リクさん<span class="persona__age">／21歳</span></div>
+          <div class="persona__meta">大学3年生 ・ 一人暮らし ・ 東京・高田馬場店</div>
+          <p class="persona__quote">
+            1限の前に45分。シャワー浴びてそのまま大学へ。朝活の習慣ができてから、夜のスマホ時間が減った。<br><br>
+            「バイト代から月3,278円ってコーヒー1日1杯ぶん。<span class="persona__quote-em">学割なしでこの値段なら、社会人になっても続けます。</span>」
+          </p>
+          <div class="persona__stats">
+            <div class="persona__stat">
+              <span class="persona__stat-label">Visit</span>
+              <span class="persona__stat-value">週4</span>
+            </div>
+            <div class="persona__stat">
+              <span class="persona__stat-label">Time</span>
+              <span class="persona__stat-value">6:00〜</span>
+            </div>
+            <div class="persona__stat">
+              <span class="persona__stat-label">Result</span>
+              <span class="persona__stat-value">引締</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     10. APP — gradient bg, アプリ画像 + 5機能リスト
+     Trigger: 権威性（テクノロジー）+ 一貫性（数値化）
+=========================================================== -->
+<section class="app-section" aria-labelledby="appTitle">
+  <div class="container">
+    <div class="app-section__grid">
+      <div class="app-section__text reveal">
+        <span class="eyebrow">App</span>
+        <h2 class="app-section__heading" id="appTitle">
+          続けられる仕組み、内蔵。
+        </h2>
+        <p class="app-section__lead">
+          AI体組成計とアプリで、運動・体型・健康を可視化。「やった分だけ見える」から、続く。
+        </p>
+
+        <ul class="app-features">
+          <li class="app-feature">
+            <span class="app-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
+            </span>
+            <span class="app-feature__text">AI体組成計で体脂肪率・筋肉量・基礎代謝を毎回測定</span>
+          </li>
+          <li class="app-feature">
+            <span class="app-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
+            </span>
+            <span class="app-feature__text">アプリで過去6ヶ月の推移をグラフ化</span>
+          </li>
+          <li class="app-feature">
+            <span class="app-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
+            </span>
+            <span class="app-feature__text">QRコードで1秒入室、面倒な手続きはゼロ</span>
+          </li>
+          <li class="app-feature">
+            <span class="app-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
+            </span>
+            <span class="app-feature__text">マシン・サウナ・脱毛の予約もアプリで完結</span>
+          </li>
+          <li class="app-feature">
+            <span class="app-feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>
+            </span>
+            <span class="app-feature__text">カウンセリング・トレーナー相談もアプリ内チャット</span>
+          </li>
+        </ul>
+
+        <a href="#pricing" class="cta cta--primary js-magnetic" data-magnet="6">
+          アプリで体験する
+          <span class="cta__arrow" aria-hidden="true">→</span>
+        </a>
+        <span class="cta-microcopy">1分でダウンロード ・ クレジットカード不要</span>
+      </div>
+
+      <div class="app-mockup-wrap reveal">
+        <div class="app-mockup" id="appMockupReal" style="display:none;">
+          <picture>
+            <source srcset="./assets/img/pulse24-app-mockup.webp" type="image/webp">
+            <img src="./assets/img/pulse24-app-mockup.png"
+                 alt="PULSE 24 アプリのダッシュボード画面"
+                 width="1200" height="2000"
+                 loading="lazy"
+                 decoding="async"
+                 onload="document.getElementById('appMockupReal').style.display='block';document.getElementById('appMockupFallback').style.display='none';"
+                 onerror="document.getElementById('appMockupReal').style.display='none';">
+          </picture>
+        </div>
+        <div class="app-mockup app-mockup-fallback" id="appMockupFallback" aria-hidden="true">
+          <div class="app-mockup-fallback__bar">
+            <div class="app-mockup-fallback__brand"></div>
+            <div class="app-mockup-fallback__profile"></div>
+          </div>
+          <div class="app-mockup-fallback__greeting">
+            <span class="app-mockup-fallback__greeting-sm">Good morning,</span>
+            <span class="app-mockup-fallback__greeting-lg">Takashi</span>
+          </div>
+          <div class="app-mockup-fallback__card app-mockup-fallback__card--violet">
+            <span class="app-mockup-fallback__card-title">This Week</span>
+            <span class="app-mockup-fallback__card-value">3 / 4</span>
+          </div>
+          <div class="app-mockup-fallback__card app-mockup-fallback__card--white">
+            <span class="app-mockup-fallback__card-title" style="color:var(--color-text-on-light-subtle);">Body Composition</span>
+            <div class="app-mockup-fallback__stats">
+              <div class="app-mockup-fallback__stat">
+                <span class="app-mockup-fallback__stat-label">Fat</span>
+                <span class="app-mockup-fallback__stat-value">22%</span>
+              </div>
+              <div class="app-mockup-fallback__stat">
+                <span class="app-mockup-fallback__stat-label">Muscle</span>
+                <span class="app-mockup-fallback__stat-value">32kg</span>
+              </div>
+              <div class="app-mockup-fallback__stat">
+                <span class="app-mockup-fallback__stat-label">Weight</span>
+                <span class="app-mockup-fallback__stat-value">68kg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     11. SAFETY — 4 step flow + LIVE (差別化)
+     Trigger: 権威性（警備会社連動）+ 損失回避
+=========================================================== -->
+<section class="safety" id="safety" aria-labelledby="safetyTitle">
+  <div class="container">
+    <div class="section-head safety__head">
+      <div class="section-head__meta">
+        <span>Safety · 05</span>
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--accent">Safety</span>
+        <h2 class="section-head__title" id="safetyTitle">
+          無人ジム = 怖い、を、なくしました。
+        </h2>
+        <p class="section-head__lead">
+          警察・警備会社と提携。AI画像解析、緊急ボタン、24時間人の目が、あなたを見守ります。
+        </p>
+      </div>
+    </div>
+
+    <ol class="safety__steps">
+      <li class="safety-step reveal">
+        <div class="safety-step__head">
+          <span class="safety-step__num">01</span>
+          <span class="safety-step__live">
+            <span class="live-dot pulse-beat" aria-hidden="true"></span>
+            LIVE
+          </span>
+        </div>
+        <h3 class="safety-step__title">アプリで認証して入店</h3>
+        <p class="safety-step__body">QR1秒、本人確認自動。誰が・いつ入ったかは全店記録されます。</p>
+      </li>
+      <li class="safety-step reveal">
+        <div class="safety-step__head">
+          <span class="safety-step__num">02</span>
+          <span class="safety-step__live">
+            <span class="live-dot pulse-beat" aria-hidden="true"></span>
+            LIVE
+          </span>
+        </div>
+        <h3 class="safety-step__title">AI画像解析で異常検知</h3>
+        <p class="safety-step__body">倒れ込み・滞留を自動検知。AIが「人の目」を補強します。</p>
+      </li>
+      <li class="safety-step reveal">
+        <div class="safety-step__head">
+          <span class="safety-step__num">03</span>
+          <span class="safety-step__live">
+            <span class="live-dot pulse-beat" aria-hidden="true"></span>
+            LIVE
+          </span>
+        </div>
+        <h3 class="safety-step__title">緊急ボタン → 警備会社10分以内</h3>
+        <p class="safety-step__body">全店24h待機。ボタン1つで警備員が到着、警察連携もスムーズ。</p>
+      </li>
+      <li class="safety-step reveal">
+        <div class="safety-step__head">
+          <span class="safety-step__num">04</span>
+          <span class="safety-step__live">
+            <span class="live-dot pulse-beat" aria-hidden="true"></span>
+            LIVE
+          </span>
+        </div>
+        <h3 class="safety-step__title">365日、人の目が見守る</h3>
+        <p class="safety-step__body">録画保存30日、平日昼間はスタッフ常駐。AIと人の二段構えです。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===========================================================
+     12. BEFORE/AFTER — 2 cases
+     Trigger: 社会的証明（具体例）+ 損失回避
+=========================================================== -->
+<section class="ba" id="ba" aria-labelledby="baTitle">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__meta" style="color: var(--color-text-on-light-subtle); border-color: var(--color-border-on-light);">
+        <span>Results · 06</span>
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--on-light">Results</span>
+        <h2 class="section-head__title" id="baTitle" style="color: var(--color-text-on-light);">
+          「30分 × 続けた」の、ふつうの結果。
+        </h2>
+        <p class="section-head__lead" style="color: var(--color-text-on-light-muted);">
+          劇的なBefore/Afterは載せません。続けた人の、リアルな数字だけを。
+        </p>
+      </div>
+    </div>
+
+    <div class="ba__grid">
+      <article class="ba-card reveal">
+        <div class="ba-card__media">
+          <div class="ba-card__pills" aria-hidden="true">
+            <span class="ba-card__pill">Before</span>
+            <span class="ba-card__pill ba-card__pill--after">After</span>
+          </div>
+          <picture>
+            <source srcset="./assets/img/pulse24-ba-male.webp" type="image/webp">
+            <img src="./assets/img/pulse24-ba-male.png"
+                 alt="30代男性 4ヶ月のビフォーアフター"
+                 width="1600" height="900"
+                 loading="lazy"
+                 decoding="async"
+                 onerror="this.style.display='none';">
+          </picture>
+        </div>
+        <div class="ba-card__body">
+          <div class="ba-card__head">
+            <span class="ba-card__profile">男性 30代</span>
+            <span class="ba-card__period">4ヶ月通った</span>
+          </div>
+          <div class="ba-card__stats">
+            <div class="ba-card__stat">
+              <span class="ba-card__stat-value">-8kg</span>
+              <span class="ba-card__stat-label">Weight</span>
+            </div>
+            <div class="ba-card__stat">
+              <span class="ba-card__stat-value">-6%</span>
+              <span class="ba-card__stat-label">Body Fat</span>
+            </div>
+            <div class="ba-card__stat">
+              <span class="ba-card__stat-value">+3kg</span>
+              <span class="ba-card__stat-label">Muscle</span>
+            </div>
+          </div>
+          <p class="ba-card__quote">
+            「ジムは3回挫折してました。<span class="ba-card__quote-em">4ヶ月続いたのは、たぶん人生で初めて。</span>完全個室と24時間が、自分には合ってました。」
+          </p>
+        </div>
+      </article>
+
+      <article class="ba-card reveal">
+        <div class="ba-card__media">
+          <div class="ba-card__pills" aria-hidden="true">
+            <span class="ba-card__pill">Before</span>
+            <span class="ba-card__pill ba-card__pill--after">After</span>
+          </div>
+          <picture>
+            <source srcset="./assets/img/pulse24-ba-female.webp" type="image/webp">
+            <img src="./assets/img/pulse24-ba-female.png"
+                 alt="40代女性 6ヶ月のビフォーアフター"
+                 width="1600" height="900"
+                 loading="lazy"
+                 decoding="async"
+                 onerror="this.style.display='none';">
+          </picture>
+        </div>
+        <div class="ba-card__body">
+          <div class="ba-card__head">
+            <span class="ba-card__profile">女性 40代</span>
+            <span class="ba-card__period">6ヶ月通った</span>
+          </div>
+          <div class="ba-card__stats">
+            <div class="ba-card__stat">
+              <span class="ba-card__stat-value">-5kg</span>
+              <span class="ba-card__stat-label">Weight</span>
+            </div>
+            <div class="ba-card__stat">
+              <span class="ba-card__stat-value">-4%</span>
+              <span class="ba-card__stat-label">Body Fat</span>
+            </div>
+            <div class="ba-card__stat">
+              <span class="ba-card__stat-value">改善</span>
+              <span class="ba-card__stat-label">Posture</span>
+            </div>
+          </div>
+          <p class="ba-card__quote">
+            「子育てで自分のことは後回しでしたが、半年通えました。<span class="ba-card__quote-em">エステも一緒にできるから、自分時間として続けられた</span>と思います。」
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <p class="ba__disclaimer">
+      ※ 効果には個人差があります。掲載の数値はお客様個人の感想・実績であり、効果を保証するものではありません。記載の利用ペース・期間に基づく一例です。
+    </p>
+  </div>
+</section>
+
+<!-- ===========================================================
+     13. PRICING — Main + Options + キャンペーン
+     Trigger: 希少性 + 返報性（入会金0円）
+=========================================================== -->
+<section class="pricing" id="pricing" aria-labelledby="pricingTitle">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__meta">
+        <span>Pricing · 07</span>
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--accent">Pricing</span>
+        <h2 class="section-head__title" id="pricingTitle">
+          プランは、1つだけ。
+        </h2>
+        <p class="section-head__lead">
+          「初月だけ安い」「2年縛り」「キャンセル料」は、ありません。月¥3,278、そのままです。
+        </p>
+      </div>
+    </div>
+
+    <div class="pricing-main reveal">
+      <span class="pricing-main__eyebrow">PULSE 24 MONTHLY</span>
+      <h3 class="pricing-main__title">月額メンバーシップ</h3>
+      <div class="pricing-main__price-row">
+        <span class="pricing-main__yen">¥</span>
+        <span class="pricing-main__price">3,278</span>
+        <span class="pricing-main__unit">/月（税込）</span>
+      </div>
+      <p class="pricing-main__note">入会金0円 ・ 年会費0円 ・ いつでもアプリから解約OK</p>
+
+      <ul class="pricing-main__includes" aria-label="含まれる内容">
+        <li class="pricing-main__include">
+          <span class="pricing-main__check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+          <span>24時間、全国42店舗を通い放題</span>
+        </li>
+        <li class="pricing-main__include">
+          <span class="pricing-main__check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+          <span>完全個室マシンエリア 12種使い放題</span>
+        </li>
+        <li class="pricing-main__include">
+          <span class="pricing-main__check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+          <span>AI体組成計＋アプリで成果可視化</span>
+        </li>
+        <li class="pricing-main__include">
+          <span class="pricing-main__check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+          <span>サウナ・シャワー・タオル無料</span>
+        </li>
+        <li class="pricing-main__include">
+          <span class="pricing-main__check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+          <span>初回カウンセリング30分 無料</span>
+        </li>
+      </ul>
+
+      <a href="#final" class="cta cta--primary js-magnetic" data-magnet="8">
+        ¥0で、まず7日間。
+        <span class="cta__arrow" aria-hidden="true">→</span>
+      </a>
+      <span class="cta-microcopy">8日目以降に¥3,278/月 ・ 解約はアプリから1タップ</span>
+    </div>
+
+    <div class="pricing-options" aria-label="オプションプラン">
+      <div class="pricing-option">
+        <span class="pricing-option__name">エステ追加</span>
+        <span class="pricing-option__price">+¥980<span class="pricing-option__price-unit">/月</span></span>
+        <p class="pricing-option__desc">使い放題に</p>
+      </div>
+      <div class="pricing-option">
+        <span class="pricing-option__name">脱毛追加</span>
+        <span class="pricing-option__price">+¥1,980<span class="pricing-option__price-unit">/月</span></span>
+        <p class="pricing-option__desc">月2回まで</p>
+      </div>
+      <div class="pricing-option">
+        <span class="pricing-option__name">サウナ追加</span>
+        <span class="pricing-option__price">+¥480<span class="pricing-option__price-unit">/月</span></span>
+        <p class="pricing-option__desc">使い放題に</p>
+      </div>
+      <div class="pricing-option">
+        <span class="pricing-option__name">フルパック</span>
+        <span class="pricing-option__price">+¥2,980<span class="pricing-option__price-unit">/月</span></span>
+        <p class="pricing-option__desc">全部入り（-¥460お得）</p>
+      </div>
+    </div>
+
+    <div class="campaign reveal" role="region" aria-label="開業記念キャンペーン">
+      <span class="campaign__eyebrow">
+        <span class="live-dot pulse-beat" aria-hidden="true"></span>
+        2026.05 OPEN 開業記念キャンペーン
+      </span>
+      <h3 class="campaign__title">先着10名様限定：入会金永久無料 + 初月会費50%OFF</h3>
+      <p class="campaign__detail">本ページからのお申込みに限ります。</p>
+      <span class="campaign__remaining">残り 3 名（5/19 16:00時点）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     14. FLOW — 3 steps
+     Trigger: 一貫性（3ステップ）+ 容易性
+=========================================================== -->
+<section class="flow" id="flow" aria-labelledby="flowTitle">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__meta" style="color: var(--color-text-on-light-subtle); border-color: var(--color-border-on-light);">
+        <span>Flow · 08</span>
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--on-light">Flow</span>
+        <h2 class="section-head__title" id="flowTitle" style="color: var(--color-text-on-light);">
+          始めるのは、3ステップ。
+        </h2>
+        <p class="section-head__lead" style="color: var(--color-text-on-light-muted);">
+          書類記入も、店舗訪問も、要りません。スマホで完結します。
+        </p>
+      </div>
+    </div>
+
+    <ol class="flow__grid">
+      <li class="flow-step reveal">
+        <span class="flow-step__num">01</span>
+        <h3 class="flow-step__title">アプリをDL</h3>
+        <p class="flow-step__body">App Store / Google Play から、無料でダウンロード。所要時間1分。</p>
+      </li>
+      <li class="flow-step reveal">
+        <span class="flow-step__num">02</span>
+        <h3 class="flow-step__title">個人情報を入力</h3>
+        <p class="flow-step__body">氏名・連絡先・支払い方法。クレカ不要、口座振替・QR決済対応。</p>
+      </li>
+      <li class="flow-step reveal">
+        <span class="flow-step__num">03</span>
+        <h3 class="flow-step__title">即入会・即利用</h3>
+        <p class="flow-step__body">QRコード発行、10分で「7日間無料」スタート。最寄り店舗でそのまま開始。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===========================================================
+     15. TESTIMONIALS — 3 voices
+     Trigger: 社会的証明 + 共感
+=========================================================== -->
+<section class="testimonials" aria-labelledby="testimonialsTitle">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__meta">
+        <span>Voices · 09</span>
+      </div>
+      <div>
+        <span class="eyebrow">Voices</span>
+        <h2 class="section-head__title" id="testimonialsTitle">
+          続いた人の、ふつうの声。
+        </h2>
+      </div>
+    </div>
+
+    <div class="testimonials__grid">
+      <article class="testimonial reveal">
+        <div class="testimonial__stars" aria-label="評価 5">★★★★★</div>
+        <p class="testimonial__quote">
+          他のジムは半年で挫折したけど、PULSE 24 はもう1年続いてる。<span class="testimonial__quote-em">完全個室と24時間が大きい。</span>仕事が遅くなった日も、22時から30分だけ寄れる。それで十分でした。
+        </p>
+        <div class="testimonial__meta">
+          <span class="testimonial__name">ケイタさん</span>
+          <span class="testimonial__sub">29歳 ・ 営業職 ・ 1年継続</span>
+        </div>
+      </article>
+      <article class="testimonial reveal">
+        <div class="testimonial__stars" aria-label="評価 5">★★★★★</div>
+        <p class="testimonial__quote">
+          月3千円ちょっとでエステも脱毛もできるって最初信じられなかった。<span class="testimonial__quote-em">本当にコスパ最強です。</span>
+        </p>
+        <div class="testimonial__meta">
+          <span class="testimonial__name">ナナミさん</span>
+          <span class="testimonial__sub">26歳 ・ 看護師 ・ 8ヶ月</span>
+        </div>
+      </article>
+      <article class="testimonial reveal">
+        <div class="testimonial__stars" aria-label="評価 5">★★★★★</div>
+        <p class="testimonial__quote">
+          アプリの体組成グラフが続ける動機になる。<span class="testimonial__quote-em">数字で見えるって本当に大事。</span>週3ペースで通えてます。
+        </p>
+        <div class="testimonial__meta">
+          <span class="testimonial__name">ヒロシさん</span>
+          <span class="testimonial__sub">38歳 ・ エンジニア ・ 6ヶ月</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     16. FAQ — 10 questions, details name="faq"
+     Trigger: 損失回避（不安全部潰す）+ 一貫性
+=========================================================== -->
+<section class="faq" id="faq" aria-labelledby="faqTitle">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__meta" style="color: var(--color-text-on-light-subtle); border-color: var(--color-border-on-light);">
+        <span>FAQ · 10</span>
+      </div>
+      <div>
+        <span class="eyebrow eyebrow--on-light">FAQ</span>
+        <h2 class="section-head__title" id="faqTitle" style="color: var(--color-text-on-light);">
+          きっと、ここに書いてあります。
+        </h2>
+      </div>
+    </div>
+
+    <div class="faq__list">
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>本当に月額¥3,278で全店舗が使えますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          はい。月額¥3,278（税込）で、<strong>全国42店舗すべて利用可能</strong>です。引っ越し・出張先でもそのまま通えます。追加料金や店舗別料金は一切ありません。
+        </div>
+      </details>
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>24時間、本当に誰もいないんですか？トラブル時は？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          深夜・早朝はスタッフ無人ですが、<strong>店内に24時間監視カメラと緊急ボタン</strong>を設置。緊急時は警備会社が10分以内に到着します。平日10:00〜18:00はスタッフが常駐するため、相談・見学・操作レクチャーはその時間帯にどうぞ。録画は30日保存します。
+        </div>
+      </details>
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>機械の使い方が分かりません。初心者でも大丈夫？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          はい、会員さまの<strong>80%以上が運動初心者</strong>です。マシン横のQRコードを読むと使い方動画が即表示されます。初回利用時は<strong>無料カウンセリング30分</strong>を予約可能で、トレーナーがマンツーマンで使い方をご案内します。
+        </div>
+      </details>
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>解約は本当に簡単ですか？違約金は？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          違約金・解約手数料はありません。<strong>アプリから1タップ、所要10秒で解約完了</strong>。「次回引き落とし日まで利用継続→以降停止」の流れです。連絡や電話、店舗訪問は一切不要です。
+        </div>
+      </details>
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>7日間無料体験中に解約したら、お金はかかりますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          一切かかりません。<strong>クレジットカード情報の登録も不要</strong>で、7日間以内に「やめる」を選べば、料金請求は発生しません。気軽にお試しください。
+        </div>
+      </details>
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>服装の決まりはありますか？シャワーは？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          服装自由です。<strong>Tシャツ・短パン・スニーカーがあればOK</strong>。スーツやワンピースのままでも入店できます（着替えは更衣室で）。シャワー室は24時間使用可能、シャンプー・ボディソープ・タオル無料です。
+        </div>
+      </details>
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>女性ひとりでも安全に利用できますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          はい。<strong>監視カメラ24時間稼働・緊急ボタン全エリア設置・脱毛/シャワーは男女別エリア</strong>で運用しています。会員の約45%が女性、深夜帯の女性利用も多数あります。ご不安な方は平日昼間のスタッフ常駐時間にぜひ一度ご見学を。
+        </div>
+      </details>
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>運動初心者でも続けられますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          会員の80%以上が運動初心者です。<strong>マシン横のQRコードで使い方動画</strong>、<strong>アプリ内のチャット相談</strong>、<strong>初回30分カウンセリング</strong>の3点で、最初の1ヶ月をサポートします。半年継続率は89%。
+        </div>
+      </details>
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>支払い方法は何が使えますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          <strong>クレジットカード・口座振替・QR決済（PayPay、楽天Pay、d払い、auPAY）</strong>に対応しています。7日間無料体験中はカード情報の登録不要です。
+        </div>
+      </details>
+      <details class="faq__item" name="faq">
+        <summary class="faq__summary">
+          <span class="faq__badge" aria-hidden="true">Q</span>
+          <span>混雑する時間帯はありますか？</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__body">
+          各店の<strong>混雑予報をアプリで確認</strong>できます。一般的に19:00〜21:00がピーク、深夜帯（23:00〜5:00）と朝（5:00〜8:00）はほぼ貸切状態です。「人目が気になる人」「集中したい人」は深夜・早朝の利用が圧倒的に快適です。
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     17. FINAL CTA + FOOTER
+     Trigger: 希少性 + 損失回避 + 返報性
+=========================================================== -->
+<section class="final-cta" id="final" aria-labelledby="finalTitle">
+  <div class="final-cta__bg" aria-hidden="true">
+    <div class="final-cta__bg-fallback"></div>
+    <picture>
+      <source srcset="./assets/img/pulse24-bg-grain.webp" type="image/webp">
+      <img src="./assets/img/pulse24-bg-grain.png"
+           alt=""
+           width="1920" height="1080"
+           loading="lazy"
+           decoding="async"
+           onerror="this.style.display='none';">
+    </picture>
+  </div>
+  <div class="final-cta__overlay" aria-hidden="true"></div>
+
+  <div class="final-cta__inner">
+    <p class="final-cta__display" aria-hidden="true">LAST GYM.<br>START NOW.</p>
+    <h2 class="final-cta__heading" id="finalTitle">
+      まずは、7日間だけ無料で。
+    </h2>
+    <p class="final-cta__lead">
+      クレジットカード不要・アプリで即入会。<br>
+      <span class="final-cta__lead-em">続かなかったら、10秒で解約できる。</span><br>
+      ジム選びに、リスクはいらない。
+    </p>
+
+    <div class="final-cta__buttons">
+      <a href="#" class="cta-store" data-store="appstore" aria-label="App Store でダウンロード">
+        <span class="cta-store__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.05 12.04c-.03-3.04 2.49-4.5 2.6-4.57-1.42-2.07-3.62-2.36-4.4-2.39-1.87-.19-3.66 1.1-4.61 1.1-.97 0-2.42-1.08-4-1.05-2.04.03-3.94 1.18-4.99 2.99-2.15 3.72-.55 9.21 1.54 12.22 1.02 1.47 2.23 3.12 3.82 3.06 1.55-.06 2.13-.99 4-.99 1.86 0 2.4.99 4.02.96 1.66-.03 2.71-1.5 3.71-2.98 1.18-1.7 1.66-3.36 1.68-3.45-.04-.02-3.21-1.23-3.24-4.9zM14.61 4.18c.84-1.02 1.41-2.43 1.25-3.84-1.21.05-2.68.81-3.55 1.83-.77.9-1.45 2.34-1.27 3.72 1.35.1 2.73-.69 3.57-1.71z"/></svg>
+        </span>
+        App Store でDL
+      </a>
+      <a href="#" class="cta-store" data-store="googleplay" aria-label="Google Play でダウンロード">
+        <span class="cta-store__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3.6 1.1c-.36.36-.6.92-.6 1.66v18.49c0 .74.24 1.3.6 1.66l.07.06L13.94 12.6v-.2L3.67 2.13l-.07-.07zM17.5 16.16l-3.41-3.41v-.2l3.41-3.41.08.05 4.04 2.3c1.15.65 1.15 1.72 0 2.38l-4.04 2.29-.08.05zM14.09 12.69L17.59 16.21 5.97 23.07c-.37.21-.71.18-.95-.04l9.07-10.34zM5.02.93c.24-.22.58-.25.95-.04l11.62 6.86-3.5 3.51z"/></svg>
+        </span>
+        Google Play でDL
+      </a>
+    </div>
+
+    <p class="final-cta__sample-note" aria-hidden="false">
+      ※ 本ページは飛燕（HIEN）が制作した架空のサンプルLPです。
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="footer-brand">
+        <span class="footer-brand__mark" aria-hidden="true">
+          <span class="footer-brand__mark-letter">P</span>
+          <span class="footer-brand__mark-dot pulse-beat"></span>
+        </span>
+        <span class="footer-brand__title">PULSE 24</span>
+        <span class="footer-brand__tagline">Fit your rhythm. 鼓動のリズムで、続ける。</span>
+        <span class="footer-brand__meta">全国42店舗 ／ 24時間オープン ／ アプリで完結</span>
+      </div>
+
+      <div>
+        <h3 class="footer-col__title">Service</h3>
+        <ul class="footer-col__list">
+          <li><a href="#reasons">特長</a></li>
+          <li><a href="#facility">設備</a></li>
+          <li><a href="#pricing">料金</a></li>
+          <li><a href="#safety">安全について</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-col__title">Company</h3>
+        <ul class="footer-col__list">
+          <li><a href="#">会社情報</a></li>
+          <li><a href="#">店舗一覧</a></li>
+          <li><a href="#">採用情報</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">特定商取引法に基づく表記</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span class="site-footer__copyright">© 2026 PULSE 24, Inc. All rights reserved.</span>
+      <span class="site-footer__copyright">月額¥3,278（税込） ・ 入会金0円 ・ いつでも解約可能</span>
+    </div>
+    <p class="site-footer__legal">
+      掲載の数値・お客様の声は個人の感想・実績であり、効果を保証するものではありません。価格は2026年5月時点。改定の場合はアプリ・公式サイトでお知らせします。店舗・設備の一部はオプション契約が必要な場合があります。
+    </p>
+  </div>
+</footer>
+
+</main>
+
+<!-- Mobile sticky bottom CTA -->
+<div class="sticky-bottom" id="stickyBottom" aria-hidden="true">
+  <a href="#pricing" class="cta cta--primary">
+    7日間 無料で試す
+    <span class="cta__arrow" aria-hidden="true">→</span>
+  </a>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isPC = window.matchMedia('(min-width: 1024px)').matches;
+
+  // ========================================================
+  // 1. Header scroll state
+  // ========================================================
+  var header = document.getElementById('siteHeader');
+  var stickyBottom = document.getElementById('stickyBottom');
+  var lastScrollY = window.scrollY;
+
+  function onScroll() {
+    var y = window.scrollY;
+    if (y > 60) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+    // sticky bottom appears after first viewport
+    if (stickyBottom) {
+      if (y > window.innerHeight * 0.8) {
+        stickyBottom.classList.add('is-visible');
+        stickyBottom.setAttribute('aria-hidden', 'false');
+      } else {
+        stickyBottom.classList.remove('is-visible');
+        stickyBottom.setAttribute('aria-hidden', 'true');
+      }
+    }
+    lastScrollY = y;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ========================================================
+  // 2. Mobile menu
+  // ========================================================
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+
+  function openMenu() {
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'メニューを閉じる');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'メニューを開く');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', function() {
+      if (hamburger.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+    var closers = mobileNav.querySelectorAll('[data-mobile-close]');
+    for (var i = 0; i < closers.length; i++) {
+      closers[i].addEventListener('click', closeMenu);
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        hamburger.focus();
+      }
+    });
+  }
+
+  // ========================================================
+  // 3. LIVE time update — 60s interval
+  // ========================================================
+  function updateLiveTime() {
+    var nodes = document.querySelectorAll('[data-now]');
+    var d = new Date();
+    var hh = String(d.getHours()).padStart(2, '0');
+    var mm = String(d.getMinutes()).padStart(2, '0');
+    var str = hh + ':' + mm + ' JST';
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].textContent = str;
+    }
+  }
+  updateLiveTime();
+  setInterval(updateLiveTime, 60000);
+
+  // ========================================================
+  // 4. Counter up — IntersectionObserver
+  // ========================================================
+  function easeOutQuint(t) { return 1 - Math.pow(1 - t, 5); }
+  function formatNumber(n, useComma) {
+    var rounded = Math.floor(n);
+    if (useComma) {
+      return rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    return String(rounded);
+  }
+  function runCounter(el) {
+    var target = parseFloat(el.dataset.target);
+    var duration = parseInt(el.dataset.duration, 10) || 1400;
+    var useComma = el.dataset.comma === '1';
+    if (prefersReducedMotion) {
+      el.textContent = formatNumber(target, useComma);
+      return;
+    }
+    var start = performance.now();
+    function tick(now) {
+      var elapsed = now - start;
+      var t = Math.min(elapsed / duration, 1);
+      var eased = easeOutQuint(t);
+      el.textContent = formatNumber(target * eased, useComma);
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = formatNumber(target, useComma);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ========================================================
+  // 5. Reveal observer (counter + fade-in)
+  // ========================================================
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    var revealEls = document.querySelectorAll('.reveal');
+    for (var i = 0; i < revealEls.length; i++) {
+      // staggered delay via inline style
+      var d = (i % 4) * 60;
+      revealEls[i].style.transitionDelay = d + 'ms';
+      revealObs.observe(revealEls[i]);
+    }
+
+    var trustItems = document.querySelectorAll('.js-trust');
+    var trustObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          var counters = entry.target.querySelectorAll('.js-counter');
+          for (var j = 0; j < counters.length; j++) {
+            runCounter(counters[j]);
+          }
+          trustObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    for (var k = 0; k < trustItems.length; k++) trustObs.observe(trustItems[k]);
+  } else {
+    // fallback: show everything
+    var fallback = document.querySelectorAll('.reveal');
+    for (var f = 0; f < fallback.length; f++) fallback[f].classList.add('in-view');
+    var fallbackCounters = document.querySelectorAll('.js-counter');
+    for (var fc = 0; fc < fallbackCounters.length; fc++) {
+      var fb = fallbackCounters[fc];
+      var t = parseFloat(fb.dataset.target);
+      var c = fb.dataset.comma === '1';
+      fb.textContent = formatNumber(t, c);
+    }
+  }
+
+  // ========================================================
+  // 6. Typing animation for h1
+  // ========================================================
+  var typewriters = document.querySelectorAll('.typewriter');
+  typewriters.forEach(function(tw) {
+    var text = tw.dataset.text || tw.textContent;
+    tw.textContent = '';
+    var chars = Array.from(text);
+    chars.forEach(function(ch, idx) {
+      var span = document.createElement('span');
+      span.textContent = ch;
+      if (!prefersReducedMotion) {
+        span.style.animationDelay = (idx * 50) + 'ms';
+      }
+      tw.appendChild(span);
+    });
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+      var twObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            twObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      twObs.observe(tw);
+    } else {
+      tw.classList.add('in-view');
+    }
+  });
+  // Force hero typewriter to start immediately
+  setTimeout(function() {
+    var heroTw = document.querySelector('.hero .typewriter');
+    if (heroTw && !heroTw.classList.contains('in-view')) {
+      heroTw.classList.add('in-view');
+    }
+  }, 200);
+
+  // ========================================================
+  // 7. Magnetic CTA hover — PC only, prefers-reduced-motion guard
+  // ========================================================
+  if (isPC && !prefersReducedMotion) {
+    var magnets = document.querySelectorAll('.js-magnetic');
+    for (var m = 0; m < magnets.length; m++) {
+      (function(btn) {
+        var max = parseInt(btn.dataset.magnet || '8', 10);
+        var rafId = null;
+        btn.addEventListener('mousemove', function(e) {
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(function() {
+            var rect = btn.getBoundingClientRect();
+            var x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+            var y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+            btn.style.transform = 'translate(' + (x * max) + 'px, ' + (y * max) + 'px)';
+          });
+        });
+        btn.addEventListener('mouseleave', function() {
+          if (rafId) cancelAnimationFrame(rafId);
+          btn.style.transform = '';
+        });
+      })(magnets[m]);
+    }
+  }
+
+  // ========================================================
+  // 8. App mockup image fallback hide
+  // ========================================================
+  var appReal = document.getElementById('appMockupReal');
+  var appFallback = document.getElementById('appMockupFallback');
+  if (appReal && appFallback) {
+    var realImg = appReal.querySelector('img');
+    if (realImg) {
+      realImg.addEventListener('load', function() {
+        if (realImg.naturalWidth > 0) {
+          appReal.style.display = 'block';
+          appFallback.style.display = 'none';
+        }
+      });
+    }
+  }
+
+  // ========================================================
+  // 9. Update viewport class on resize (debounced)
+  // ========================================================
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      isPC = window.matchMedia('(min-width: 1024px)').matches;
+    }, 150);
+  });
+
+})();
+</script>
+
+</body>
+</html>

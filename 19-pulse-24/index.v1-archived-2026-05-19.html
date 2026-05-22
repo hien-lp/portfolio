@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PULSE 24 ｜ 月額3,278円・24時間オープンのスマートジム</title>
+  <meta name="description" content="PULSE 24 は月額3,278円・入会金0円・24時間オープンのスマートジム。完全個室マシン、エステ、脱毛、サウナ併設。AI体組成計とアプリで成果を可視化。ジム続かない人へ。">
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PULSE 24 ｜ 24時間オープンのスマートジム">
+  <meta property="og:description" content="月額3,278円・入会金0円・24時間。AI体組成計とアプリで続けられる。">
+  <meta property="og:image" content="./assets/img/pulse24-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PULSE 24 — 24h Fit Studio">
+  <meta property="og:url" content="https://hien-lp.github.io/portfolio/19-pulse-24/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="./assets/img/pulse24-og.png">
+  <meta name="twitter:image:alt" content="PULSE 24 — 24h Fit Studio">
+  <meta property="og:site_name" content="PULSE 24">
+  <meta name="color-scheme" content="dark light">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#6E3FE7">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/img/pulse24-mark.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="./assets/img/pulse24-mark.png">
+  <!-- Security -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- Recommended HTTP headers (set on server):
+       Content-Security-Policy, X-Frame-Options: DENY, Permissions-Policy, HSTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+  <!-- Hero preload -->
+  <link rel="preload" as="image" href="./assets/img/pulse24-hero.webp" type="image/webp" fetchpriority="high">
+  <style>
+    /* ============================================================
+       CSS Baseline — palt / text-wrap / cubic-bezier / oklch
+       ============================================================ */
+    :root {
+      /* === Brand Colors === */
+      --color-primary: #6E3FE7;       /* deep violet */
+      --color-primary-soft: #8A62EC;
+      --color-primary-deep: #4B1FB4;
+      --color-accent: #2EE389;        /* electric green */
+      --color-accent-deep: #14B065;
+      --color-warning: #FFD52E;       /* sun yellow */
+      --color-base: #0A0A0A;
+      --color-base-soft: #14141A;
+      --color-base-alt: #1C1C24;
+      --color-surface: #FAFAFA;
+      --color-surface-warm: #F2F2F5;
+      --color-text-on-dark: #FAFAFA;
+      --color-text-on-dark-muted: #B5B5C5;
+      --color-text-on-dark-subtle: #7F7F90;
+      --color-text-on-light: #0A0A0A;
+      --color-text-on-light-muted: #4A4A55;
+      --color-text-on-light-subtle: #8A8A95;
+      --color-border-on-dark: #2F2F38;
+      --color-border-on-light: #E0E0E5;
+
+      /* === Typography === */
+      --font-en: 'Sora', system-ui, -apple-system, sans-serif;
+      --font-ja: 'Noto Sans JP', system-ui, sans-serif;
+      --font-display: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+
+      /* === Easing & Motion === */
+      --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+      --duration-base: 320ms;
+      --duration-slow: 720ms;
+
+      /* === Spacing & Layout === */
+      --space-2xs: 4px;
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      --space-2xl: 96px;
+      --space-3xl: 128px;
+
+      --container-max: 1240px;
+      --container-narrow: 980px;
+      --container-wide: 1440px;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+
+      --header-h: 64px;
+    }
+
+    /* === Reset === */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      margin: 0;
+      font-family: var(--font-ja);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--color-text-on-light);
+      background: var(--color-surface);
+      font-feature-settings: "palt" 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    img, picture { max-width: 100%; display: block; height: auto; }
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+      text-wrap: balance;
+      margin: 0;
+    }
+    p { text-wrap: pretty; margin: 0; }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--duration-base) var(--ease-out-quint);
+    }
+    button {
+      font: inherit;
+      cursor: pointer;
+      border: 0;
+      background: none;
+    }
+    ul, ol { padding: 0; margin: 0; list-style: none; }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+      position: relative;
+    }
+    .container--narrow { max-width: var(--container-narrow); }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 8px;
+      padding: 8px 16px;
+      background: var(--color-base);
+      color: var(--color-surface);
+      border-radius: var(--radius-sm);
+      z-index: 999;
+      transition: top var(--duration-base) var(--ease-out-quint);
+    }
+    .skip-link:focus { top: 8px; }
+
+    /* === AI-SLOP BANLIST ===
+       Inter / Roboto / Arial を一切使わない (Sora/Noto Sans JP のみ)
+       teal/cyan #14b8a6 / glassmorphism / 3D / neon glow 禁止
+    */
+
+    /* ============================================================
+       Header — sticky, transparent → solid on scroll
+       ============================================================ */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: transparent;
+      transition: background var(--duration-base) var(--ease-out-quint),
+                  backdrop-filter var(--duration-base) var(--ease-out-quint);
+    }
+    .header.is-scrolled {
+      background: rgba(10, 10, 10, 0.86);
+      backdrop-filter: saturate(140%) blur(12px);
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--header-h);
+    }
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+      height: 36px;
+    }
+    .header-logo img,
+    .header-logo picture,
+    .header-logo picture img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .header.is-scrolled .header-logo img {
+      filter: invert(1) brightness(1.6);
+    }
+    .header-nav {
+      display: none;
+    }
+    @media (min-width: 900px) {
+      .header-nav {
+        display: flex;
+        gap: 28px;
+        font-family: var(--font-en);
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .header-nav a {
+        color: var(--color-text-on-light);
+        position: relative;
+        padding: 4px 0;
+      }
+      .header-nav a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--color-accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform var(--duration-base) var(--ease-out-quint);
+      }
+      .header-nav a:hover::after { transform: scaleX(1); }
+      .header.is-scrolled .header-nav a {
+        color: var(--color-text-on-dark);
+      }
+    }
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      background: var(--color-accent);
+      color: var(--color-base);
+      font-family: var(--font-en);
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 6px 22px -8px rgba(46, 227, 137, 0.55);
+      transition: transform var(--duration-base) var(--ease-out-quint),
+                  box-shadow var(--duration-base) var(--ease-out-quint);
+    }
+    .header-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px -8px rgba(46, 227, 137, 0.75);
+    }
+    .header-cta-icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      position: relative;
+    }
+    @media (min-width: 900px) { .menu-toggle { display: none; } }
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text-on-light);
+      transition: transform var(--duration-base) var(--ease-out-quint),
+                  opacity var(--duration-base) var(--ease-out-quint),
+                  background var(--duration-base) var(--ease-out-quint);
+      margin: 0 auto;
+    }
+    .header.is-scrolled .menu-toggle span {
+      background: var(--color-text-on-dark);
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(10px);
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility var(--duration-base), opacity var(--duration-base) var(--ease-out-quint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+      z-index: 99;
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--color-text-on-dark);
+    }
+    .mobile-nav.is-open {
+      visibility: visible;
+      opacity: 1;
+    }
+    .mobile-nav a {
+      padding: 12px 24px;
+      transition: color var(--duration-base) var(--ease-out-quint);
+    }
+    .mobile-nav a:hover { color: var(--color-accent); }
+    .mobile-nav .header-cta {
+      margin-top: 24px;
+    }
+
+    /* ============================================================
+       Hero
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: calc(var(--header-h) + 40px) 0 var(--space-2xl);
+      color: var(--color-text-on-dark);
+      overflow: hidden;
+      background: var(--color-base);
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.72) 60%, rgba(10,10,10,0.92) 100%),
+        radial-gradient(ellipse at 80% 20%, rgba(110, 63, 231, 0.32) 0%, transparent 50%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      background: rgba(46, 227, 137, 0.16);
+      border: 1px solid rgba(46, 227, 137, 0.4);
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--color-accent);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse-dot 1.6s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 7vw, 72px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: 0.01em;
+    }
+    .hero h1 .accent {
+      color: var(--color-accent);
+    }
+    .hero-sub {
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height: 1.9;
+      color: var(--color-text-on-dark-muted);
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+    .hero-price-block {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 40px;
+      align-items: flex-end;
+    }
+    .hero-price {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hero-price-label {
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--color-text-on-dark-subtle);
+      text-transform: uppercase;
+    }
+    .hero-price-amount {
+      font-family: var(--font-en);
+      font-size: clamp(34px, 6vw, 52px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--color-text-on-dark);
+    }
+    .hero-price-amount small {
+      font-size: 0.45em;
+      font-weight: 500;
+      color: var(--color-text-on-dark-muted);
+      margin-left: 6px;
+    }
+    .hero-price-tax {
+      font-size: 11px;
+      color: var(--color-text-on-dark-subtle);
+      margin-left: 4px;
+    }
+    .hero-price-divider {
+      width: 1px;
+      height: 56px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .hero-feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-feature-list li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .hero-feature-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .btn-primary,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 32px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-en);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      transition: transform var(--duration-base) var(--ease-out-quint),
+                  box-shadow var(--duration-base) var(--ease-out-quint),
+                  background var(--duration-base) var(--ease-out-quint);
+    }
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-base);
+      box-shadow: 0 12px 30px -10px rgba(46, 227, 137, 0.55);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px -10px rgba(46, 227, 137, 0.75);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text-on-dark);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .hero-microcopy {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--color-text-on-dark-subtle);
+    }
+
+    /* ============================================================
+       Trust Bar
+       ============================================================ */
+    .trust-bar {
+      padding: var(--space-2xl) 0;
+      background: var(--color-base-soft);
+      color: var(--color-text-on-dark);
+      border-bottom: 1px solid var(--color-border-on-dark);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+    @media (max-width: 720px) {
+      .trust-grid { grid-template-columns: 1fr; gap: var(--space-md); }
+    }
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    .trust-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 20%;
+      bottom: 20%;
+      width: 1px;
+      background: var(--color-border-on-dark);
+    }
+    @media (max-width: 720px) {
+      .trust-item:not(:last-child)::after { display: none; }
+    }
+    .trust-num {
+      font-family: var(--font-en);
+      font-size: clamp(40px, 7vw, 64px);
+      font-weight: 800;
+      line-height: 1;
+      color: var(--color-text-on-dark);
+      margin-bottom: 8px;
+    }
+    .trust-num .accent { color: var(--color-accent); }
+    .trust-num small {
+      font-size: 0.35em;
+      font-weight: 500;
+      color: var(--color-text-on-dark-muted);
+      margin-left: 4px;
+    }
+    .trust-label {
+      font-size: 14px;
+      color: var(--color-text-on-dark-muted);
+      letter-spacing: 0.04em;
+    }
+    .trust-eng {
+      font-family: var(--font-en);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      color: var(--color-text-on-dark-subtle);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       Section Common
+       ============================================================ */
+    .section {
+      padding: var(--space-3xl) 0;
+      position: relative;
+    }
+    .section--light { background: var(--color-surface); color: var(--color-text-on-light); }
+    .section--dark { background: var(--color-base); color: var(--color-text-on-dark); }
+    .section--accent { background: var(--color-primary); color: var(--color-text-on-dark); }
+    .section-eyebrow {
+      display: inline-block;
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .section--dark .section-eyebrow,
+    .section--accent .section-eyebrow { color: var(--color-accent); }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5.5vw, 52px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .section-lead {
+      font-size: 16px;
+      line-height: 1.95;
+      color: var(--color-text-on-light-muted);
+      margin-bottom: var(--space-xl);
+      max-width: 720px;
+    }
+    .section--dark .section-lead,
+    .section--accent .section-lead { color: var(--color-text-on-dark-muted); }
+    .section-head { margin-bottom: var(--space-xl); }
+    .section-head--center { text-align: center; }
+    .section-head--center .section-lead { margin-left: auto; margin-right: auto; }
+
+    /* ============================================================
+       Problem (P)
+       ============================================================ */
+    .problem {
+      background: var(--color-base);
+      color: var(--color-text-on-dark);
+    }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+    }
+    .problem-item {
+      display: flex;
+      gap: 16px;
+      padding: 24px;
+      background: var(--color-base-soft);
+      border: 1px solid var(--color-border-on-dark);
+      border-radius: var(--radius-md);
+      transition: transform var(--duration-base) var(--ease-out-quint),
+                  border-color var(--duration-base) var(--ease-out-quint);
+    }
+    .problem-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(110, 63, 231, 0.6);
+    }
+    .problem-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(110, 63, 231, 0.18);
+      color: var(--color-primary-soft);
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .problem-text {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--color-text-on-dark);
+    }
+    .problem-text strong { color: var(--color-accent); font-weight: 600; }
+
+    /* Agitation */
+    .agitation {
+      background: linear-gradient(180deg, var(--color-base) 0%, var(--color-primary-deep) 100%);
+      color: var(--color-text-on-dark);
+      text-align: center;
+      padding: var(--space-2xl) 0;
+    }
+    .agitation-text {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3.5vw, 34px);
+      font-weight: 700;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .agitation-text .strike {
+      text-decoration: line-through;
+      color: var(--color-text-on-dark-muted);
+    }
+
+    /* ============================================================
+       Solution intro
+       ============================================================ */
+    .solution {
+      background: var(--color-surface);
+      text-align: center;
+      padding: var(--space-3xl) 0;
+    }
+    .solution-mark {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 24px;
+    }
+    .solution-mark img,
+    .solution-mark picture,
+    .solution-mark picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .solution-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .solution-title .brand {
+      font-family: var(--font-en);
+      color: var(--color-primary);
+    }
+
+    /* ============================================================
+       4 Reasons
+       ============================================================ */
+    .reasons {
+      background: var(--color-surface);
+      padding: var(--space-3xl) 0;
+    }
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-md);
+    }
+    .reason-card {
+      padding: 32px 28px;
+      background: var(--color-surface-warm);
+      border: 1px solid var(--color-border-on-light);
+      border-radius: var(--radius-md);
+      position: relative;
+      transition: transform var(--duration-base) var(--ease-out-quint),
+                  border-color var(--duration-base) var(--ease-out-quint),
+                  box-shadow var(--duration-base) var(--ease-out-quint);
+    }
+    .reason-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-primary);
+      box-shadow: 0 18px 40px -20px rgba(110, 63, 231, 0.4);
+    }
+    .reason-num {
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+    .reason-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+    .reason-text {
+      font-size: 14px;
+      color: var(--color-text-on-light-muted);
+      line-height: 1.85;
+    }
+
+    /* ============================================================
+       Facility (full-width alternate)
+       ============================================================ */
+    .facility {
+      background: var(--color-base);
+      color: var(--color-text-on-dark);
+      padding: var(--space-3xl) 0 var(--space-2xl);
+    }
+    .facility-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+      min-height: 480px;
+    }
+    .facility-item + .facility-item { margin-top: var(--space-md); }
+    .facility-item--reverse { direction: rtl; }
+    .facility-item--reverse > * { direction: ltr; }
+    .facility-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .facility-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.6s var(--ease-out-quint);
+    }
+    .facility-item:hover .facility-image img { transform: scale(1.04); }
+    .facility-body {
+      padding: 56px 48px;
+      background: var(--color-base-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (max-width: 800px) {
+      .facility-item, .facility-item--reverse { grid-template-columns: 1fr; direction: ltr; min-height: auto; }
+      .facility-image { aspect-ratio: 16/9; }
+      .facility-body { padding: 40px 28px; }
+    }
+    .facility-num {
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .facility-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.35;
+    }
+    .facility-text {
+      font-size: 14px;
+      line-height: 1.95;
+      color: var(--color-text-on-dark-muted);
+      margin-bottom: 24px;
+    }
+    .facility-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .facility-tag {
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(46, 227, 137, 0.12);
+      border: 1px solid rgba(46, 227, 137, 0.32);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.06em;
+    }
+
+    /* ============================================================
+       Personas
+       ============================================================ */
+    .personas {
+      background: var(--color-surface);
+      padding: var(--space-3xl) 0;
+    }
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+    }
+    .persona-card {
+      background: white;
+      border: 1px solid var(--color-border-on-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform var(--duration-base) var(--ease-out-quint),
+                  box-shadow var(--duration-base) var(--ease-out-quint);
+    }
+    .persona-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px -24px rgba(0,0,0,0.18);
+    }
+    .persona-photo {
+      aspect-ratio: 1/1;
+      position: relative;
+      overflow: hidden;
+      background: var(--color-surface-warm);
+    }
+    .persona-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .persona-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--color-base);
+      color: var(--color-accent);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+    }
+    .persona-body {
+      padding: 24px 24px 28px;
+    }
+    .persona-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .persona-desc {
+      font-size: 13px;
+      color: var(--color-text-on-light-muted);
+      margin-bottom: 18px;
+    }
+    .persona-stats {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border-on-light);
+    }
+    .persona-stat {
+      flex: 1;
+      min-width: 80px;
+    }
+    .persona-stat-num {
+      font-family: var(--font-en);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.2;
+    }
+    .persona-stat-label {
+      font-size: 11px;
+      color: var(--color-text-on-light-subtle);
+      letter-spacing: 0.04em;
+    }
+    .persona-quote {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--color-border-on-light);
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--color-text-on-light-muted);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       App Section
+       ============================================================ */
+    .app {
+      background: linear-gradient(180deg, var(--color-base) 0%, var(--color-primary-deep) 100%);
+      color: var(--color-text-on-dark);
+      padding: var(--space-3xl) 0;
+      overflow: hidden;
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: center;
+    }
+    @media (max-width: 800px) {
+      .app-grid { grid-template-columns: 1fr; gap: var(--space-lg); }
+    }
+    .app-features {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 32px;
+    }
+    .app-features li {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .app-features li::before {
+      content: "✓";
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--color-accent);
+      color: var(--color-base);
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .app-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .app-image img {
+      max-width: 320px;
+      width: 100%;
+      filter: drop-shadow(0 30px 60px rgba(0,0,0,0.4));
+    }
+
+    /* ============================================================
+       Before / After
+       ============================================================ */
+    .ba {
+      background: var(--color-surface);
+      padding: var(--space-3xl) 0;
+    }
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+    @media (min-width: 800px) {
+      .ba-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .ba-card {
+      background: white;
+      border: 1px solid var(--color-border-on-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .ba-image {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .ba-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .ba-overlay {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      display: flex;
+      gap: 8px;
+    }
+    .ba-pill {
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--color-base);
+      color: var(--color-accent);
+      font-family: var(--font-en);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+    .ba-body {
+      padding: 28px 24px;
+    }
+    .ba-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .ba-stats {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+    .ba-stat {
+      flex: 1;
+    }
+    .ba-stat-num {
+      font-family: var(--font-en);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .ba-stat-num .accent { color: var(--color-accent); }
+    .ba-stat-label {
+      font-size: 11px;
+      color: var(--color-text-on-light-subtle);
+      letter-spacing: 0.06em;
+    }
+    .ba-comment {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--color-text-on-light-muted);
+    }
+    .ba-disclaimer {
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--color-text-on-light-subtle);
+      text-align: center;
+    }
+
+    /* ============================================================
+       Pricing
+       ============================================================ */
+    .pricing {
+      background: var(--color-base);
+      color: var(--color-text-on-dark);
+      padding: var(--space-3xl) 0;
+    }
+    .pricing-main {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-deep) 100%);
+      border-radius: var(--radius-lg);
+      padding: 56px 40px;
+      text-align: center;
+      margin-bottom: var(--space-md);
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-main::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(46,227,137,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .pricing-eyebrow {
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .pricing-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4.5vw, 40px);
+      font-weight: 800;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .pricing-amount {
+      font-family: var(--font-en);
+      font-size: clamp(56px, 11vw, 96px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .pricing-amount small {
+      font-size: 0.35em;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+    .pricing-amount .accent { color: var(--color-accent); }
+    .pricing-tax {
+      font-size: 13px;
+      color: var(--color-text-on-dark-muted);
+      margin-bottom: 32px;
+    }
+    .pricing-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .pricing-features li {
+      padding: 8px 18px;
+      background: rgba(255,255,255,0.12);
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 500;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .pricing-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 20px 40px;
+      border-radius: var(--radius-pill);
+      background: var(--color-accent);
+      color: var(--color-base);
+      font-family: var(--font-en);
+      font-weight: 700;
+      font-size: 16px;
+      transition: transform var(--duration-base) var(--ease-out-quint),
+                  box-shadow var(--duration-base) var(--ease-out-quint);
+      box-shadow: 0 16px 40px -12px rgba(46, 227, 137, 0.55);
+      position: relative;
+      z-index: 1;
+    }
+    .pricing-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 48px -12px rgba(46, 227, 137, 0.75);
+    }
+    .pricing-microcopy {
+      font-size: 12px;
+      color: var(--color-text-on-dark-subtle);
+      margin-top: 16px;
+    }
+    .pricing-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .pricing-option {
+      padding: 24px 20px;
+      background: var(--color-base-soft);
+      border: 1px solid var(--color-border-on-dark);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .pricing-option-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .pricing-option-price {
+      font-family: var(--font-en);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 4px;
+    }
+    .pricing-option-price small {
+      font-size: 0.5em;
+      color: var(--color-text-on-dark-muted);
+      margin-left: 4px;
+    }
+    .pricing-option-desc {
+      font-size: 12px;
+      color: var(--color-text-on-dark-muted);
+    }
+
+    /* ============================================================
+       Flow 3-step
+       ============================================================ */
+    .flow {
+      background: var(--color-surface);
+      padding: var(--space-3xl) 0;
+    }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-md);
+      counter-reset: flow-counter;
+      position: relative;
+    }
+    .flow-step {
+      padding: 32px 28px;
+      background: white;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-on-light);
+      position: relative;
+      counter-increment: flow-counter;
+    }
+    .flow-step::before {
+      content: counter(flow-counter, decimal-leading-zero);
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      font-family: var(--font-en);
+      font-size: 56px;
+      font-weight: 800;
+      color: var(--color-primary);
+      opacity: 0.15;
+      line-height: 1;
+    }
+    .flow-step-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-right: 60px;
+    }
+    .flow-step-desc {
+      font-size: 13px;
+      line-height: 1.85;
+      color: var(--color-text-on-light-muted);
+    }
+
+    /* ============================================================
+       Testimonials
+       ============================================================ */
+    .testimonials {
+      background: var(--color-base-soft);
+      color: var(--color-text-on-dark);
+      padding: var(--space-3xl) 0;
+    }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+    }
+    .testi-card {
+      padding: 32px 28px;
+      background: var(--color-base);
+      border: 1px solid var(--color-border-on-dark);
+      border-radius: var(--radius-md);
+    }
+    .testi-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 16px;
+    }
+    .testi-stars span {
+      color: var(--color-warning);
+      font-size: 14px;
+    }
+    .testi-quote {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--color-text-on-dark);
+      margin-bottom: 24px;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--color-border-on-dark);
+    }
+    .testi-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-on-dark);
+    }
+    .testi-meta {
+      font-size: 11px;
+      color: var(--color-text-on-dark-subtle);
+    }
+
+    /* ============================================================
+       FAQ
+       ============================================================ */
+    .faq {
+      background: var(--color-surface);
+      padding: var(--space-3xl) 0;
+    }
+    .faq-list {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--color-border-on-light);
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.6;
+      transition: color var(--duration-base) var(--ease-out-quint);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: var(--color-primary); }
+    .faq-item summary::before {
+      content: "Q";
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 50%;
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .faq-item summary::after {
+      content: "+";
+      margin-left: auto;
+      font-family: var(--font-en);
+      font-size: 24px;
+      color: var(--color-primary);
+      transition: transform var(--duration-base) var(--ease-out-quint);
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 0 0 24px 44px;
+      font-size: 14px;
+      line-height: 1.95;
+      color: var(--color-text-on-light-muted);
+    }
+
+    /* ============================================================
+       Final CTA
+       ============================================================ */
+    .final-cta {
+      padding: var(--space-3xl) 0;
+      color: var(--color-text-on-dark);
+      position: relative;
+      overflow: hidden;
+      background: var(--color-base);
+    }
+    .final-cta-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .final-cta-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .final-cta-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at center, rgba(110, 63, 231, 0.55) 0%, transparent 60%),
+        rgba(10,10,10,0.78);
+    }
+    .final-cta-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .final-cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 6vw, 58px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .final-cta-sub {
+      font-size: 16px;
+      line-height: 1.95;
+      color: var(--color-text-on-dark-muted);
+      margin-bottom: 40px;
+    }
+    .final-cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .final-cta-microcopy {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--color-text-on-dark-subtle);
+    }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    .footer {
+      background: var(--color-base-soft);
+      color: var(--color-text-on-dark-muted);
+      padding: var(--space-2xl) 0 var(--space-md);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: var(--space-xl);
+      padding-bottom: var(--space-xl);
+      border-bottom: 1px solid var(--color-border-on-dark);
+    }
+    @media (max-width: 720px) {
+      .footer-top { grid-template-columns: 1fr; gap: var(--space-md); }
+    }
+    .footer-brand-mark {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 16px;
+    }
+    .footer-brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      line-height: 1.85;
+      max-width: 400px;
+    }
+    .footer-col-title {
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--color-text-on-dark);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .footer-list li {
+      padding: 6px 0;
+      font-size: 13px;
+    }
+    .footer-list a:hover { color: var(--color-accent); }
+    .footer-bottom {
+      padding-top: var(--space-md);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--color-text-on-dark-subtle);
+    }
+
+    /* ============================================================
+       Reveal animations (reduced-motion safe)
+       ============================================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--duration-slow) var(--ease-out-quint),
+                  transform var(--duration-slow) var(--ease-out-quint);
+    }
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .fade-in { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
+
+  <!-- ========== Header ========== -->
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a href="#top" class="header-logo" aria-label="PULSE 24 トップへ">
+        <picture>
+          <source srcset="./assets/img/pulse24-logo.webp" type="image/webp">
+          <img src="./assets/img/pulse24-logo.png" alt="PULSE 24 — 24h Fit Studio" width="180" height="60" onerror="this.style.display='none'">
+        </picture>
+        <span class="sr-only">PULSE 24</span>
+      </a>
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <a href="#facility">設備</a>
+        <a href="#persona">利用シーン</a>
+        <a href="#pricing">料金</a>
+        <a href="#flow">入会の流れ</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#cta" class="header-cta">
+        <svg class="header-cta-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        7日間 無料で試す
+      </a>
+      <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="モバイルナビゲーション" aria-hidden="true">
+      <a href="#facility">設備</a>
+      <a href="#persona">利用シーン</a>
+      <a href="#pricing">料金</a>
+      <a href="#flow">入会の流れ</a>
+      <a href="#faq">FAQ</a>
+      <a href="#cta" class="header-cta">7日間 無料で試す</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ========== Hero ========== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <picture class="hero-image" aria-hidden="true">
+        <source srcset="./assets/img/pulse24-hero.webp" type="image/webp">
+        <img src="./assets/img/pulse24-hero.png" alt="" loading="eager" fetchpriority="high" width="1920" height="1080">
+      </picture>
+      <div class="container hero-content">
+        <span class="hero-eyebrow">24H FIT STUDIO · LAUNCH</span>
+        <h1 id="hero-title">
+          ジム、<br>
+          <span class="accent">続かない</span>人へ。
+        </h1>
+        <p class="hero-sub">
+          月額3,278円・入会金0円・24時間オープン。<br>
+          完全個室マシン、AI体組成計、アプリ管理。<br>
+          ジムの「ハードル」を限界まで下げました。
+        </p>
+
+        <div class="hero-price-block">
+          <div class="hero-price">
+            <span class="hero-price-label">Monthly</span>
+            <span class="hero-price-amount">¥3,278<small>/月</small></span>
+            <span class="hero-price-tax">税込・入会金0円</span>
+          </div>
+          <div class="hero-price-divider" aria-hidden="true"></div>
+          <div class="hero-price">
+            <span class="hero-price-label">Trial</span>
+            <span class="hero-price-amount"><span class="accent">7</span><small>日間</small></span>
+            <span class="hero-price-tax">まずは無料で</span>
+          </div>
+        </div>
+
+        <ul class="hero-feature-list" role="list">
+          <li>24時間オープン</li>
+          <li>予約不要</li>
+          <li>完全個室マシン</li>
+          <li>エステ/脱毛/サウナ併設</li>
+        </ul>
+
+        <div class="hero-cta-group">
+          <a href="#cta" class="btn-primary">
+            7日間 無料で試す
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#pricing" class="btn-secondary">料金プランを見る</a>
+        </div>
+        <p class="hero-microcopy">※ クレジットカード不要・アプリで即入会・いつでも解約可能</p>
+      </div>
+    </section>
+
+    <!-- ========== Trust Bar ========== -->
+    <section class="trust-bar" aria-label="信頼指標">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-item fade-in">
+            <div class="trust-num"><span class="accent" data-counter="42">42</span><small>店舗</small></div>
+            <div class="trust-label">全国展開中</div>
+            <div class="trust-eng">Locations</div>
+          </div>
+          <div class="trust-item fade-in">
+            <div class="trust-num"><span class="accent" data-counter="120000">120,000</span><small>人</small></div>
+            <div class="trust-label">累計入会者数</div>
+            <div class="trust-eng">Members</div>
+          </div>
+          <div class="trust-item fade-in">
+            <div class="trust-num"><span class="accent" data-counter="89">89</span><small>%</small></div>
+            <div class="trust-label">半年継続率</div>
+            <div class="trust-eng">Retention</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Problem (P) ========== -->
+    <section class="section problem" aria-labelledby="problem-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-eyebrow">Problem</span>
+          <h2 class="section-title" id="problem-title">こんな悩み、<br>ありませんか？</h2>
+        </div>
+        <div class="problem-grid">
+          <div class="problem-item fade-in">
+            <div class="problem-num">01</div>
+            <p class="problem-text">月額<strong>1万円超</strong>のジム、結局通えず<strong>退会した</strong>経験がある</p>
+          </div>
+          <div class="problem-item fade-in">
+            <div class="problem-num">02</div>
+            <p class="problem-text">シャワーや更衣室の<strong>人目</strong>が気になって落ち着かない</p>
+          </div>
+          <div class="problem-item fade-in">
+            <div class="problem-num">03</div>
+            <p class="problem-text">仕事終わりや<strong>早朝</strong>、空いているジムがなくて諦めた</p>
+          </div>
+          <div class="problem-item fade-in">
+            <div class="problem-num">04</div>
+            <p class="problem-text">予約システムが面倒で、<strong>行く気</strong>が失せてしまう</p>
+          </div>
+          <div class="problem-item fade-in">
+            <div class="problem-num">05</div>
+            <p class="problem-text">ジムウェアやシューズの<strong>準備</strong>がハードルになっている</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Agitation ========== -->
+    <section class="agitation" aria-labelledby="agitation-title">
+      <div class="container container--narrow">
+        <h2 class="agitation-text" id="agitation-title">
+          <span class="strike">続けたいのに、続かない。</span><br>
+          そんな自分に、もう疲れていませんか？
+        </h2>
+      </div>
+    </section>
+
+    <!-- ========== Solution ========== -->
+    <section class="solution" aria-labelledby="solution-title">
+      <div class="container container--narrow">
+        <div class="solution-mark" aria-hidden="true">
+          <picture>
+            <source srcset="./assets/img/pulse24-mark.webp" type="image/webp">
+            <img src="./assets/img/pulse24-mark.png" alt="" width="88" height="88" onerror="this.style.display='none'">
+          </picture>
+        </div>
+        <h2 class="solution-title" id="solution-title">
+          <span class="brand">PULSE 24</span>が、<br>
+          そのすべてを解決します。
+        </h2>
+        <p class="section-lead" style="text-align:center; margin-left:auto; margin-right:auto;">
+          24時間オープン・予約不要・完全個室マシン・月額3,278円。<br>
+          ジムの「ハードル」を限界まで下げ、続けられる仕組みを設計しました。
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== 4 Reasons ========== -->
+    <section class="reasons" id="reasons" aria-labelledby="reasons-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-eyebrow">Why PULSE 24</span>
+          <h2 class="section-title" id="reasons-title">選ばれる、4つの理由</h2>
+        </div>
+        <div class="reasons-grid">
+          <div class="reason-card fade-in">
+            <div class="reason-num">REASON 01</div>
+            <h3 class="reason-title">24時間オープン<br>予約不要</h3>
+            <p class="reason-text">思い立ったらいつでも。仕事終わり、朝活、深夜の30分。あなたの生活リズムにフィット。</p>
+          </div>
+          <div class="reason-card fade-in">
+            <div class="reason-num">REASON 02</div>
+            <h3 class="reason-title">完全個室<br>マシンエリア</h3>
+            <p class="reason-text">人目ゼロ・服装自由。家からそのままTシャツでもOK。最新マシン全12種を独り占め。</p>
+          </div>
+          <div class="reason-card fade-in">
+            <div class="reason-num">REASON 03</div>
+            <h3 class="reason-title">AI体組成計<br>アプリ管理</h3>
+            <p class="reason-text">体脂肪率・筋肉量を毎回測定。アプリで進捗が見える。続ける動機が生まれます。</p>
+          </div>
+          <div class="reason-card fade-in">
+            <div class="reason-num">REASON 04</div>
+            <h3 class="reason-title">月額¥3,278<br>入会金0円</h3>
+            <p class="reason-text">コンビニ感覚で通えるサブスク。いつでも解約可能。月のコーヒー代より気軽に。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Facility ========== -->
+    <section class="facility" id="facility" aria-labelledby="facility-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-eyebrow">Facility</span>
+          <h2 class="section-title" id="facility-title">設備・施設のご紹介</h2>
+        </div>
+      </div>
+
+      <div class="container">
+        <article class="facility-item fade-in">
+          <picture class="facility-image">
+            <source srcset="./assets/img/pulse24-machine.webp" type="image/webp">
+            <img src="./assets/img/pulse24-machine.png" alt="" loading="lazy" width="1600" height="900">
+          </picture>
+          <div class="facility-body">
+            <span class="facility-num">01 · MACHINE ZONE</span>
+            <h3 class="facility-title">完全個室マシンエリア</h3>
+            <p class="facility-text">パーティションで仕切られた個室で、誰にも見られず集中。最新マシンを全12種ご用意。スマホで操作する負荷管理システムで初心者でも安心。</p>
+            <div class="facility-tags">
+              <span class="facility-tag">マシン12種</span>
+              <span class="facility-tag">完全個室</span>
+              <span class="facility-tag">服装自由</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="facility-item facility-item--reverse fade-in">
+          <picture class="facility-image">
+            <source srcset="./assets/img/pulse24-esthe.webp" type="image/webp">
+            <img src="./assets/img/pulse24-esthe.png" alt="" loading="lazy" width="1600" height="900">
+          </picture>
+          <div class="facility-body">
+            <span class="facility-num">02 · ESTHE</span>
+            <h3 class="facility-title">セルフ高機能エステ</h3>
+            <p class="facility-text">HIFU・EMS・キャビテーション対応マシンが使い放題。トレーニング後のリフレッシュに、または単体利用も歓迎。完全予約制で女性も安心。</p>
+            <div class="facility-tags">
+              <span class="facility-tag">HIFU</span>
+              <span class="facility-tag">EMS</span>
+              <span class="facility-tag">追加料金なし</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="facility-item fade-in">
+          <picture class="facility-image">
+            <source srcset="./assets/img/pulse24-datsumou.webp" type="image/webp">
+            <img src="./assets/img/pulse24-datsumou.png" alt="" loading="lazy" width="1600" height="900">
+          </picture>
+          <div class="facility-body">
+            <span class="facility-num">03 · HAIR REMOVAL</span>
+            <h3 class="facility-title">セルフ脱毛エリア</h3>
+            <p class="facility-text">医療機関と同等のハイパワー脱毛機を完全個室で。男女別エリア・部位別の使い分けOK。月額会員は月2回まで使い放題（オプション加入時）。</p>
+            <div class="facility-tags">
+              <span class="facility-tag">ハイパワー脱毛機</span>
+              <span class="facility-tag">男女別エリア</span>
+              <span class="facility-tag">予約制</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="facility-item facility-item--reverse fade-in">
+          <picture class="facility-image">
+            <source srcset="./assets/img/pulse24-sauna.webp" type="image/webp">
+            <img src="./assets/img/pulse24-sauna.png" alt="" loading="lazy" width="1600" height="900">
+          </picture>
+          <div class="facility-body">
+            <span class="facility-num">04 · SAUNA</span>
+            <h3 class="facility-title">フィンランド式サウナ</h3>
+            <p class="facility-text">本格ドライサウナと水風呂を併設。整いの時間で、ご褒美感も両立。シャワー室は24時間使用可能。タオルもアメニティも完備。</p>
+            <div class="facility-tags">
+              <span class="facility-tag">ドライサウナ</span>
+              <span class="facility-tag">水風呂</span>
+              <span class="facility-tag">タオル無料</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== Personas ========== -->
+    <section class="personas" id="persona" aria-labelledby="persona-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-eyebrow">Use Cases</span>
+          <h2 class="section-title" id="persona-title">こんな方が<br>通っています</h2>
+          <p class="section-lead">運動初心者から朝活派まで、生活リズムに合わせた使い方ができます。実際の会員様の利用パターンをご紹介します。</p>
+        </div>
+        <div class="persona-grid">
+          <article class="persona-card fade-in">
+            <div class="persona-photo">
+              <picture>
+                <source srcset="./assets/img/pulse24-persona-takashi.webp" type="image/webp">
+                <img src="./assets/img/pulse24-persona-takashi.png" alt="" loading="lazy" width="600" height="600">
+              </picture>
+              <span class="persona-tag">CASE 01</span>
+            </div>
+            <div class="persona-body">
+              <h3 class="persona-name">タカシさん／33歳</h3>
+              <p class="persona-desc">IT企業勤務 ・ 独身 ・ 東京</p>
+              <div class="persona-stats">
+                <div class="persona-stat">
+                  <div class="persona-stat-num">22:00〜</div>
+                  <div class="persona-stat-label">仕事終わり</div>
+                </div>
+                <div class="persona-stat">
+                  <div class="persona-stat-num">週3回</div>
+                  <div class="persona-stat-label">通うペース</div>
+                </div>
+                <div class="persona-stat">
+                  <div class="persona-stat-num">-8kg</div>
+                  <div class="persona-stat-label">半年成果</div>
+                </div>
+              </div>
+              <p class="persona-quote">「夜遅くても誰も気にしない。30分だけ筋トレして帰る、コンビニ感覚で続けられてます。」</p>
+            </div>
+          </article>
+
+          <article class="persona-card fade-in">
+            <div class="persona-photo">
+              <picture>
+                <source srcset="./assets/img/pulse24-persona-yumiko.webp" type="image/webp">
+                <img src="./assets/img/pulse24-persona-yumiko.png" alt="" loading="lazy" width="600" height="600">
+              </picture>
+              <span class="persona-tag">CASE 02</span>
+            </div>
+            <div class="persona-body">
+              <h3 class="persona-name">ユミコさん／42歳</h3>
+              <p class="persona-desc">二児の母 ・ 主婦 ・ 神奈川</p>
+              <div class="persona-stats">
+                <div class="persona-stat">
+                  <div class="persona-stat-num">10:00〜</div>
+                  <div class="persona-stat-label">送迎合間</div>
+                </div>
+                <div class="persona-stat">
+                  <div class="persona-stat-num">週2回</div>
+                  <div class="persona-stat-label">通うペース</div>
+                </div>
+                <div class="persona-stat">
+                  <div class="persona-stat-num">体力維持</div>
+                  <div class="persona-stat-label">目的</div>
+                </div>
+              </div>
+              <p class="persona-quote">「子供の送り迎えの合間に短時間で。エステも一緒にできて、自分時間にしてます。」</p>
+            </div>
+          </article>
+
+          <article class="persona-card fade-in">
+            <div class="persona-photo">
+              <picture>
+                <source srcset="./assets/img/pulse24-persona-riku.webp" type="image/webp">
+                <img src="./assets/img/pulse24-persona-riku.png" alt="" loading="lazy" width="600" height="600">
+              </picture>
+              <span class="persona-tag">CASE 03</span>
+            </div>
+            <div class="persona-body">
+              <h3 class="persona-name">リクさん／21歳</h3>
+              <p class="persona-desc">大学3年生 ・ 東京</p>
+              <div class="persona-stats">
+                <div class="persona-stat">
+                  <div class="persona-stat-num">6:00〜</div>
+                  <div class="persona-stat-label">朝活</div>
+                </div>
+                <div class="persona-stat">
+                  <div class="persona-stat-num">週4回</div>
+                  <div class="persona-stat-label">通うペース</div>
+                </div>
+                <div class="persona-stat">
+                  <div class="persona-stat-num">引き締め</div>
+                  <div class="persona-stat-label">目的</div>
+                </div>
+              </div>
+              <p class="persona-quote">「学割なし、月3,278円で通い放題。バイト代で十分。朝活の習慣ができて生活リズムが整いました。」</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== App ========== -->
+    <section class="app" aria-labelledby="app-title">
+      <div class="container">
+        <div class="app-grid">
+          <div>
+            <span class="section-eyebrow">App + AI</span>
+            <h2 class="section-title" id="app-title">続けられる<br>仕組み、内蔵。</h2>
+            <p class="section-lead">AI体組成計とアプリで、運動・体型・健康を可視化。「やった分だけ見える」から、続く。</p>
+            <ul class="app-features">
+              <li>AI体組成計で<strong>体脂肪率・筋肉量・基礎代謝</strong>を毎回測定</li>
+              <li>アプリで<strong>過去6ヶ月の推移</strong>をグラフ化、変化が一目で分かる</li>
+              <li>QRコードで<strong>1秒入室</strong>、面倒な手続きはゼロ</li>
+              <li>マシン・サウナ・脱毛の<strong>予約もアプリで完結</strong></li>
+              <li>カウンセリング・トレーナー相談も<strong>アプリ内チャット</strong>でOK</li>
+            </ul>
+            <a href="#cta" class="btn-primary">
+              アプリで体験する
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <div class="app-image fade-in">
+            <picture>
+              <source srcset="./assets/img/pulse24-app-mockup.webp" type="image/webp">
+              <img src="./assets/img/pulse24-app-mockup.png" alt="" loading="lazy" width="600" height="1000">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Before/After ========== -->
+    <section class="ba" id="ba" aria-labelledby="ba-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-eyebrow">Results</span>
+          <h2 class="section-title" id="ba-title">通った人の、<br>リアルな変化。</h2>
+        </div>
+        <div class="ba-grid">
+          <article class="ba-card fade-in">
+            <div class="ba-image">
+              <picture>
+                <source srcset="./assets/img/pulse24-ba-male.webp" type="image/webp">
+                <img src="./assets/img/pulse24-ba-male.png" alt="" loading="lazy" width="1600" height="900">
+              </picture>
+              <div class="ba-overlay">
+                <span class="ba-pill">Before</span>
+                <span class="ba-pill" style="background:var(--color-accent); color:var(--color-base);">After</span>
+              </div>
+            </div>
+            <div class="ba-body">
+              <h3 class="ba-name">男性 30代 ・ 4ヶ月通った</h3>
+              <div class="ba-stats">
+                <div class="ba-stat">
+                  <div class="ba-stat-num"><span class="accent">-8</span><small>kg</small></div>
+                  <div class="ba-stat-label">体重</div>
+                </div>
+                <div class="ba-stat">
+                  <div class="ba-stat-num"><span class="accent">-6</span><small>%</small></div>
+                  <div class="ba-stat-label">体脂肪率</div>
+                </div>
+                <div class="ba-stat">
+                  <div class="ba-stat-num"><span class="accent">+3</span><small>kg</small></div>
+                  <div class="ba-stat-label">筋肉量</div>
+                </div>
+              </div>
+              <p class="ba-comment">「ジムは続かない自分でも、4ヶ月。完全個室と24時間オープンが効きました。仕事終わりの習慣になっています。」</p>
+            </div>
+          </article>
+
+          <article class="ba-card fade-in">
+            <div class="ba-image">
+              <picture>
+                <source srcset="./assets/img/pulse24-ba-female.webp" type="image/webp">
+                <img src="./assets/img/pulse24-ba-female.png" alt="" loading="lazy" width="1600" height="900">
+              </picture>
+              <div class="ba-overlay">
+                <span class="ba-pill">Before</span>
+                <span class="ba-pill" style="background:var(--color-accent); color:var(--color-base);">After</span>
+              </div>
+            </div>
+            <div class="ba-body">
+              <h3 class="ba-name">女性 40代 ・ 6ヶ月通った</h3>
+              <div class="ba-stats">
+                <div class="ba-stat">
+                  <div class="ba-stat-num"><span class="accent">-5</span><small>kg</small></div>
+                  <div class="ba-stat-label">体重</div>
+                </div>
+                <div class="ba-stat">
+                  <div class="ba-stat-num"><span class="accent">-4</span><small>%</small></div>
+                  <div class="ba-stat-label">体脂肪率</div>
+                </div>
+                <div class="ba-stat">
+                  <div class="ba-stat-num"><span class="accent">姿勢↑</span></div>
+                  <div class="ba-stat-label">改善実感</div>
+                </div>
+              </div>
+              <p class="ba-comment">「育児の合間に短時間で。エステも併用して、肌の調子もよくなりました。月3,278円で全部できるのが嬉しい。」</p>
+            </div>
+          </article>
+        </div>
+        <p class="ba-disclaimer">※ 効果には個人差があります。掲載の数値は会員様の個人の感想・実績であり、効果を保証するものではありません。</p>
+      </div>
+    </section>
+
+    <!-- ========== Pricing ========== -->
+    <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-eyebrow">Pricing</span>
+          <h2 class="section-title" id="pricing-title">シンプルな、1プラン。</h2>
+          <p class="section-lead" style="text-align:center; margin-left:auto; margin-right:auto; color:var(--color-text-on-dark-muted);">月額¥3,278（税込）一本のみ。入会金・初期費用は0円。エステ・脱毛・サウナは月額に含まれます（一部利用回数制限あり）。</p>
+        </div>
+
+        <div class="pricing-main fade-in">
+          <div class="pricing-eyebrow">PULSE 24 MONTHLY</div>
+          <h3 class="pricing-title">月額メンバーシップ</h3>
+          <div class="pricing-amount">¥<span class="accent">3,278</span><small>/月</small></div>
+          <p class="pricing-tax">税込 ・ 入会金0円 ・ いつでも解約可能</p>
+          <ul class="pricing-features" role="list">
+            <li>24時間通い放題</li>
+            <li>全国42店舗利用OK</li>
+            <li>AI体組成計・アプリ管理</li>
+            <li>マシン12種 完全個室</li>
+            <li>サウナ・タオル無料</li>
+          </ul>
+          <a href="#cta" class="pricing-cta">
+            7日間 無料で試す
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <p class="pricing-microcopy">クレジットカード不要・アプリで即入会</p>
+        </div>
+
+        <div class="pricing-options">
+          <div class="pricing-option">
+            <div class="pricing-option-name">エステ追加</div>
+            <div class="pricing-option-price">+¥980<small>/月</small></div>
+            <div class="pricing-option-desc">使い放題に</div>
+          </div>
+          <div class="pricing-option">
+            <div class="pricing-option-name">脱毛追加</div>
+            <div class="pricing-option-price">+¥1,980<small>/月</small></div>
+            <div class="pricing-option-desc">月2回まで</div>
+          </div>
+          <div class="pricing-option">
+            <div class="pricing-option-name">サウナ追加</div>
+            <div class="pricing-option-price">+¥480<small>/月</small></div>
+            <div class="pricing-option-desc">使い放題に</div>
+          </div>
+          <div class="pricing-option">
+            <div class="pricing-option-name">フルパック</div>
+            <div class="pricing-option-price">+¥2,980<small>/月</small></div>
+            <div class="pricing-option-desc">全オプション</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Flow ========== -->
+    <section class="flow" id="flow" aria-labelledby="flow-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-eyebrow">How to Join</span>
+          <h2 class="section-title" id="flow-title">入会の流れ <br>たった3ステップ。</h2>
+        </div>
+        <div class="flow-steps">
+          <div class="flow-step fade-in">
+            <h3 class="flow-step-title">アプリをDL</h3>
+            <p class="flow-step-desc">App Store / Google Play から「PULSE 24」アプリをダウンロード。所要時間1分。</p>
+          </div>
+          <div class="flow-step fade-in">
+            <h3 class="flow-step-title">個人情報を入力</h3>
+            <p class="flow-step-desc">氏名・連絡先・支払い方法を入力。クレジットカード以外に、口座振替・QRコード決済にも対応。</p>
+          </div>
+          <div class="flow-step fade-in">
+            <h3 class="flow-step-title">即入会・即利用</h3>
+            <p class="flow-step-desc">登録完了後、その場で発行されるQRコードで入店OK。最短10分で「7日間無料」が始まります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Testimonials ========== -->
+    <section class="testimonials" aria-labelledby="testi-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-eyebrow">Voice</span>
+          <h2 class="section-title" id="testi-title">会員様の声</h2>
+        </div>
+        <div class="testi-grid">
+          <article class="testi-card fade-in">
+            <div class="testi-stars" aria-label="評価5">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testi-quote">「他のジムは半年で挫折したけど、PULSE 24 はもう1年続いてる。完全個室と24時間が大きい。」</p>
+            <div class="testi-author">
+              <div>
+                <div class="testi-name">ケイタさん</div>
+                <div class="testi-meta">29歳 ・ 営業職 ・ 利用1年</div>
+              </div>
+            </div>
+          </article>
+          <article class="testi-card fade-in">
+            <div class="testi-stars" aria-label="評価5">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testi-quote">「月3千円ちょっとでエステも脱毛もできるって最初信じられなかった。本当にコスパ最強です。」</p>
+            <div class="testi-author">
+              <div>
+                <div class="testi-name">ナナミさん</div>
+                <div class="testi-meta">26歳 ・ 看護師 ・ 利用8ヶ月</div>
+              </div>
+            </div>
+          </article>
+          <article class="testi-card fade-in">
+            <div class="testi-stars" aria-label="評価5">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testi-quote">「アプリの体組成グラフが続ける動機になる。数字で見えるって本当に大事。週3回ペースで通えてます。」</p>
+            <div class="testi-author">
+              <div>
+                <div class="testi-name">ヒロシさん</div>
+                <div class="testi-meta">38歳 ・ エンジニア ・ 利用6ヶ月</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section-head section-head--center">
+          <span class="section-eyebrow">FAQ</span>
+          <h2 class="section-title" id="faq-title">よくあるご質問</h2>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" name="faq">
+            <summary>本当に月額¥3,278で全店舗が使えますか？</summary>
+            <div class="faq-answer">はい。月額¥3,278（税込）で、全国42店舗すべて利用可能です。引っ越しや出張先でもそのまま通えます。追加料金は一切かかりません。</div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary>24時間無人とのことですが、トラブル時の対応は？</summary>
+            <div class="faq-answer">店内には24時間監視カメラと緊急ボタンを設置。緊急時には警備会社が10分以内に駆けつけます。また平日10:00〜18:00はスタッフが常駐し、相談・質問にお応えします。</div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary>初心者ですがマシンの使い方が分かりません。</summary>
+            <div class="faq-answer">アプリ内の動画ガイドと、マシンに貼られたQRコードからすぐに使い方を確認できます。また初回利用時に無料カウンセリング（30分）をアプリから予約可能。プロのトレーナーが使い方をレクチャーします。</div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary>解約はいつでもできますか？</summary>
+            <div class="faq-answer">はい。アプリから1タップでいつでも解約可能。違約金や解約手数料は一切ありません。次回の引き落とし日までは引き続きご利用いただけます。</div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary>7日間無料体験中に解約したらお金はかかりますか？</summary>
+            <div class="faq-answer">かかりません。7日間以内に解約すれば一切料金は発生せず、クレジットカード情報も不要です。気軽にお試しください。</div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary>シャワーや更衣室はありますか？</summary>
+            <div class="faq-answer">全店舗にシャワー室・更衣室・パウダールームを完備。24時間使えます。タオルとアメニティ（シャンプー・ボディソープ）も無料でご用意。</div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary>運動初心者でも続けられますか？</summary>
+            <div class="faq-answer">PULSE 24 会員の80%以上が運動初心者です。マシンの使い方が分かるアプリガイド、無料カウンセリング、AI体組成計による進捗の見える化により、半年継続率89%を達成しています。</div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary>支払い方法は何が使えますか？</summary>
+            <div class="faq-answer">クレジットカード、デビットカード、口座振替、QRコード決済（PayPay、楽天ペイ、d払い、au PAY）に対応しています。</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Final CTA ========== -->
+    <section class="final-cta" id="cta" aria-labelledby="cta-title">
+      <picture class="final-cta-bg" aria-hidden="true">
+        <source srcset="./assets/img/pulse24-bg-gradient.webp" type="image/webp">
+        <img src="./assets/img/pulse24-bg-gradient.png" alt="" loading="lazy" width="1920" height="1080">
+      </picture>
+      <div class="container final-cta-inner">
+        <h2 class="final-cta-title" id="cta-title">
+          まずは、<br>
+          7日間だけ無料で。
+        </h2>
+        <p class="final-cta-sub">
+          クレジットカード不要・アプリで即入会。<br>
+          肌に合わなかったらアプリから1タップで解約OK。<br>
+          ジム選びに、リスクはいらない。
+        </p>
+        <div class="final-cta-buttons">
+          <a href="#" class="btn-primary">
+            App Store でDL
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" class="btn-secondary">Google Play でDL</a>
+        </div>
+        <p class="final-cta-microcopy">※ 本ページは飛燕（HIEN）が制作した架空のサンプルLPです。実在するサービスではありません。</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-mark">
+            <picture>
+              <source srcset="./assets/img/pulse24-mark.webp" type="image/webp">
+              <img src="./assets/img/pulse24-mark.png" alt="PULSE 24" width="80" height="80" onerror="this.style.display='none'">
+            </picture>
+          </div>
+          <p class="footer-tagline">
+            PULSE 24 ・ 24h Fit Studio<br>
+            月額¥3,278で、いつでも、あなたのペース。
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Service</div>
+          <ul class="footer-list">
+            <li><a href="#facility">設備</a></li>
+            <li><a href="#pricing">料金</a></li>
+            <li><a href="#flow">入会の流れ</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-list">
+            <li><a href="#">会社概要</a></li>
+            <li><a href="#">利用規約</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+            <li><a href="#">特定商取引法</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PULSE 24. All rights reserved.</span>
+        <span>Designed by 飛燕（HIEN）・ Sample work</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // === Reduced motion guard ===
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // === Header scroll state ===
+      const headerEl = document.querySelector('.header');
+      let headerScrollTicking = false;
+      let headerIsScrolled = false;
+      function applyHeaderScrollState() {
+        headerScrollTicking = false;
+        if (!headerEl) return;
+        const shouldBeScrolled = window.scrollY > 60;
+        if (shouldBeScrolled === headerIsScrolled) return;
+        headerIsScrolled = shouldBeScrolled;
+        headerEl.classList.toggle('is-scrolled', shouldBeScrolled);
+      }
+      function onScrollHeader() {
+        if (headerScrollTicking) return;
+        headerScrollTicking = true;
+        requestAnimationFrame(applyHeaderScrollState);
+      }
+      applyHeaderScrollState();
+      window.addEventListener('scroll', onScrollHeader, { passive: true });
+
+      // === Mobile menu toggle ===
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      function closeMenu() {
+        if (!mobileNav || !menuToggle) return;
+        mobileNav.classList.remove('is-open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', function () {
+          const isOpen = mobileNav.classList.toggle('is-open');
+          mobileNav.setAttribute('aria-hidden', String(!isOpen));
+          menuToggle.setAttribute('aria-expanded', String(isOpen));
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+        mobileNav.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', closeMenu);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
+            closeMenu();
+            menuToggle.focus();
+          }
+        });
+      }
+
+      // === Fade-in observer ===
+      if ('IntersectionObserver' in window) {
+        const fadeObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.fade-in').forEach(function (el) {
+          fadeObserver.observe(el);
+        });
+      } else {
+        document.querySelectorAll('.fade-in').forEach(function (el) {
+          el.classList.add('is-visible');
+        });
+      }
+
+      // === Counter-up ===
+      function animateCounter(el) {
+        if (prefersReducedMotion) {
+          el.textContent = el.dataset.counter;
+          return;
+        }
+        const target = parseInt(el.dataset.counter, 10);
+        if (!target) return;
+        const isPercent = target <= 100 && el.parentElement && el.parentElement.textContent.includes('%');
+        const duration = 1400;
+        const startTs = performance.now();
+        function tick(now) {
+          const progress = Math.min(1, (now - startTs) / duration);
+          const eased = 1 - Math.pow(1 - progress, 4);
+          const current = Math.floor(target * eased);
+          el.textContent = target >= 1000 ? current.toLocaleString() : current;
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target.toLocaleString();
+        }
+        requestAnimationFrame(tick);
+      }
+      if ('IntersectionObserver' in window) {
+        const counterObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              counterObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+        document.querySelectorAll('[data-counter]').forEach(function (el) {
+          counterObserver.observe(el);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
