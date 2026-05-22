@@ -525,8 +525,21 @@ img[data-label]::after {
   font-size: var(--fs-sub);
   line-height: 1.6;
   color: var(--c-white-85);
+  margin-bottom: 0.5rem;
+}
+/* 二項対立フレーム強調用 em（copy-binary-frame-quotes） */
+.hero__lead em {
+  font-style: normal;
+  color: var(--c-teal-light);
+  font-weight: 700;
+}
+.hero__lead-sub {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--c-white-70);
   margin-bottom: var(--sp-element);
 }
+.hero__lead-sub strong { color: var(--c-white); }
 
 /* Hero badges (ハードル低下) */
 .hero__badges {
@@ -1116,6 +1129,40 @@ img[data-label]::after {
 .cta-band__text strong {
   font-weight: 700;
 }
+
+/* 「○○も大幅削減」三連発（copy-reason-template-triple, BtoB v1.1） */
+.cta-band__triplet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4px;
+}
+.cta-band__triplet-item {
+  position: relative;
+  padding: 6px 14px 6px 28px;
+  background: var(--c-white-12);
+  border: 1px solid var(--c-white-20);
+  border-radius: var(--radius-full);
+  color: var(--c-white);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.cta-band__triplet-item::before {
+  content: '';
+  position: absolute;
+  left: 10px; top: 50%;
+  width: 12px; height: 12px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--c-teal-light);
+  box-shadow: 0 0 0 3px var(--c-white-20);
+}
+.cta-band__triplet-item strong { font-weight: 700; color: var(--c-white); }
+.cta-band--alt .cta-band__triplet-item { background: var(--c-teal-20); border-color: var(--c-teal-35); }
 
 .cta-band__br-sp {
   display: block;
@@ -2349,12 +2396,14 @@ p { text-wrap: pretty; word-break: auto-phrase; }
 }
 
 /* ---------- Logos / Partners Section (BtoB社会的証明) ---------- */
+/* Pattern: comp-logo-cloud-marquee（横スクロール無限）+ comp-logo-cloud-grid のハイブリッド */
 .partners {
   background: var(--c-white);
-  padding: var(--sp-block) 20px;
+  padding: var(--sp-block) 0;
   border-bottom: 1px solid var(--c-grey-100);
+  overflow: hidden;
 }
-.partners__inner { max-width: var(--max-width); margin: 0 auto; text-align: center; }
+.partners__inner { max-width: var(--max-width); margin: 0 auto; text-align: center; padding: 0 20px; }
 .partners__label {
   font-family: var(--ff-en);
   font-size: var(--fs-caption);
@@ -2364,17 +2413,33 @@ p { text-wrap: pretty; word-break: auto-phrase; }
   text-transform: uppercase;
   margin-bottom: 20px;
 }
-.partners__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px 20px;
-  align-items: center;
+/* 横スクロール無限マーキー（PC・SP共通／GPU合成・JS不要） */
+.partners__marquee {
+  position: relative;
+  margin-top: 8px;
+  /* 端のフェードアウト効果（BtoB定石） */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
-@media (min-width: 768px) { .partners__grid { grid-template-columns: repeat(6, 1fr); gap: 16px 32px; } }
+.partners__track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: partners-scroll 36s linear infinite;
+  will-change: transform;
+}
+.partners__marquee:hover .partners__track,
+.partners__marquee:focus-within .partners__track { animation-play-state: paused; }
+@keyframes partners-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
 .partners__logo {
   display: flex; align-items: center; justify-content: center;
-  height: 48px;
-  padding: 8px 12px;
+  flex: 0 0 auto;
+  min-width: 156px;
+  height: 56px;
+  padding: 8px 20px;
   font-family: var(--ff-en);
   font-size: 0.8125rem;
   font-weight: 700;
@@ -2392,6 +2457,9 @@ p { text-wrap: pretty; word-break: auto-phrase; }
   font-size: 0.6875rem;
   color: var(--c-grey-500);
   margin-top: 14px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .partners__track { animation: none; transform: none; flex-wrap: wrap; justify-content: center; width: 100%; }
 }
 
 /* ---------- Full-width Reasons (左右交互) ---------- */
@@ -3077,6 +3145,9 @@ p { text-wrap: pretty; word-break: auto-phrase; }
 }
 
 /* Form Success state */
+.lp-form__success[hidden] {
+  display: none !important;
+}
 .lp-form__success {
   display: flex;
   flex-direction: column;
@@ -3257,9 +3328,25 @@ p { text-wrap: pretty; word-break: auto-phrase; }
   padding: 16px 20px;
 }
 .lp-footnote ol { padding-left: 1.4em; list-style: decimal; }
-.lp-footnote li { margin-bottom: 4px; }
+.lp-footnote li { margin-bottom: 4px; scroll-margin-top: calc(var(--header-height) + 16px); }
+.lp-footnote li:target {
+  background: var(--c-teal-12);
+  outline: 2px solid var(--c-teal-35);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  transition: background 0.6s ease, outline 0.6s ease;
+}
+.lp-footref {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 1px;
+}
+.lp-footref:hover { color: var(--c-teal-light); }
+.lp-footref:focus-visible { outline: 2px solid var(--c-teal-light); outline-offset: 2px; border-radius: 2px; }
 </style>
-<link rel="preload" as="image" href="./images/hero.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero.webp" type="image/webp" fetchpriority="high">
 
 </head>
 <body>
@@ -3317,6 +3404,9 @@ p { text-wrap: pretty; word-break: auto-phrase; }
           <span class="hero__title-accent">実践マーケティング</span>セミナー
         </h1>
         <p class="hero__lead anim-target" style="--anim-delay:0.2s">
+          「<strong>明日からSNSを変えたい現場</strong>」と「<strong>3年後の成長を仕込みたい経営者</strong>」、<br class="hero__br-sp">どちらの一歩も、この<em>1日</em>から。
+        </p>
+        <p class="hero__lead-sub anim-target" style="--anim-delay:0.22s">
           Web集客・SNS活用・広告最適化<br class="hero__br-sp">の3本柱を<strong>1日で習得</strong>
         </p>
         <ul class="hero__badges anim-target" style="--anim-delay:0.25s">
@@ -3352,14 +3442,14 @@ p { text-wrap: pretty; word-break: auto-phrase; }
               <span class="counter" data-target="487">0</span><small>社</small>
             </span>
             <span class="sr-only">487社</span>
-            <span class="hero__trust-label">参加企業数<sup>※1</sup></span>
+            <span class="hero__trust-label">参加企業数<sup><a href="#footnote-1" class="lp-footref" aria-label="脚注1へ移動">※1</a></sup></span>
           </div>
           <div class="hero__trust-item" role="listitem">
             <span class="hero__trust-num" aria-hidden="true">
               +<span class="counter" data-target="187">0</span><small>%</small>
             </span>
             <span class="sr-only">+187%</span>
-            <span class="hero__trust-label">平均CVR改善率<sup>※2</sup></span>
+            <span class="hero__trust-label">平均CVR改善率<sup><a href="#footnote-2" class="lp-footref" aria-label="脚注2へ移動">※2</a></sup></span>
           </div>
           <div class="hero__trust-item" role="listitem">
             <span class="hero__trust-num" aria-hidden="true">
@@ -3373,7 +3463,7 @@ p { text-wrap: pretty; word-break: auto-phrase; }
               <span class="counter" data-target="96.8" data-decimal="1">0</span><small>%</small>
             </span>
             <span class="sr-only">96.8%</span>
-            <span class="hero__trust-label">参加者満足度<sup>※3</sup></span>
+            <span class="hero__trust-label">参加者満足度<sup><a href="#footnote-3" class="lp-footref" aria-label="脚注3へ移動">※3</a></sup></span>
           </div>
         </div>
         <p class="hero__footnote anim-target" style="--anim-delay:0.55s">
@@ -3384,24 +3474,57 @@ p { text-wrap: pretty; word-break: auto-phrase; }
       <div class="hero__bg-shape" aria-hidden="true"></div>
     </section>
 
-    <!-- ===== PARTNERS LOGO GRID (社会的証明) ===== -->
-    <section class="partners" aria-label="参加企業ロゴ">
+    <!-- ===== PARTNERS LOGO MARQUEE (社会的証明 / comp-logo-cloud-marquee) ===== -->
+    <section class="partners" aria-labelledby="partners-label">
       <div class="partners__inner">
-        <p class="partners__label">主な参加企業（一部抜粋・敬称略）</p>
-        <ul class="partners__grid" role="list">
-          <li class="partners__logo">SAKURA Tech</li>
-          <li class="partners__logo">MINATO Group</li>
-          <li class="partners__logo">FUJI Solutions</li>
-          <li class="partners__logo">YAMABUKI Co.</li>
-          <li class="partners__logo">AOI Partners</li>
-          <li class="partners__logo">KOTOBUKI Inc.</li>
-          <li class="partners__logo">HARUKA Lab</li>
-          <li class="partners__logo">SEIRYU Works</li>
-          <li class="partners__logo">TSUBAKI Media</li>
-          <li class="partners__logo">SHIRAKABA &amp; Co.</li>
-          <li class="partners__logo">RINDOU System</li>
-          <li class="partners__logo">他 470社以上</li>
-        </ul>
+        <p class="partners__label" id="partners-label">主な参加企業（一部抜粋・敬称略）</p>
+      </div>
+      <!-- マーキー: aria-hidden + sr-only の本物リストで二重提供 -->
+      <div class="partners__marquee" role="presentation" aria-hidden="true">
+        <div class="partners__track">
+          <!-- セット1 -->
+          <span class="partners__logo">SAKURA Tech</span>
+          <span class="partners__logo">MINATO Group</span>
+          <span class="partners__logo">FUJI Solutions</span>
+          <span class="partners__logo">YAMABUKI Co.</span>
+          <span class="partners__logo">AOI Partners</span>
+          <span class="partners__logo">KOTOBUKI Inc.</span>
+          <span class="partners__logo">HARUKA Lab</span>
+          <span class="partners__logo">SEIRYU Works</span>
+          <span class="partners__logo">TSUBAKI Media</span>
+          <span class="partners__logo">SHIRAKABA &amp; Co.</span>
+          <span class="partners__logo">RINDOU System</span>
+          <span class="partners__logo">他 470社以上</span>
+          <!-- セット2（ループ用複製） -->
+          <span class="partners__logo" aria-hidden="true">SAKURA Tech</span>
+          <span class="partners__logo" aria-hidden="true">MINATO Group</span>
+          <span class="partners__logo" aria-hidden="true">FUJI Solutions</span>
+          <span class="partners__logo" aria-hidden="true">YAMABUKI Co.</span>
+          <span class="partners__logo" aria-hidden="true">AOI Partners</span>
+          <span class="partners__logo" aria-hidden="true">KOTOBUKI Inc.</span>
+          <span class="partners__logo" aria-hidden="true">HARUKA Lab</span>
+          <span class="partners__logo" aria-hidden="true">SEIRYU Works</span>
+          <span class="partners__logo" aria-hidden="true">TSUBAKI Media</span>
+          <span class="partners__logo" aria-hidden="true">SHIRAKABA &amp; Co.</span>
+          <span class="partners__logo" aria-hidden="true">RINDOU System</span>
+          <span class="partners__logo" aria-hidden="true">他 470社以上</span>
+        </div>
+      </div>
+      <ul class="sr-only" aria-label="参加企業ロゴ一覧">
+        <li>SAKURA Tech</li>
+        <li>MINATO Group</li>
+        <li>FUJI Solutions</li>
+        <li>YAMABUKI Co.</li>
+        <li>AOI Partners</li>
+        <li>KOTOBUKI Inc.</li>
+        <li>HARUKA Lab</li>
+        <li>SEIRYU Works</li>
+        <li>TSUBAKI Media</li>
+        <li>SHIRAKABA &amp; Co.</li>
+        <li>RINDOU System</li>
+        <li>他 470社以上</li>
+      </ul>
+      <div class="partners__inner">
         <p class="partners__note">※ 表記は架空のサンプルです。本セミナーはポートフォリオ用デモLPです。</p>
       </div>
     </section>
@@ -3601,10 +3724,15 @@ p { text-wrap: pretty; word-break: auto-phrase; }
       </div>
     </section>
 
-    <!-- ===== CTA BAND 1 ===== -->
+    <!-- ===== CTA BAND 1 / 「○○も大幅削減」三連発見出し（copy-reason-template-triple） ===== -->
     <section class="cta-band" aria-label="セミナー申し込み">
       <div class="cta-band__inner">
-        <p class="cta-band__text anim-target">
+        <ul class="cta-band__triplet anim-target" role="list" aria-label="このセミナーで削減できる3つ">
+          <li class="cta-band__triplet-item"><strong>広告費</strong>も大幅削減</li>
+          <li class="cta-band__triplet-item"><strong>運用工数</strong>も大幅削減</li>
+          <li class="cta-band__triplet-item"><strong>意思決定</strong>も大幅短縮</li>
+        </ul>
+        <p class="cta-band__text anim-target" style="--anim-delay:0.05s">
           <strong>参加費無料。</strong>さらに参加者全員に<br class="cta-band__br-sp">
           「集客チェックリスト50」をプレゼント。
         </p>
@@ -3677,7 +3805,7 @@ p { text-wrap: pretty; word-break: auto-phrase; }
         <div class="speakers__grid">
           <article class="speakers__card anim-target">
             <div class="speakers__avatar" aria-hidden="true"><span class="speakers__initial">T.Y</span></div>
-            <p class="speakers__name">田中 裕也<span class="speakers__name-en">Yuya Tanaka</span></p>
+            <h3 class="speakers__name">田中 裕也<span class="speakers__name-en">Yuya Tanaka</span></h3>
             <p class="speakers__role">株式会社グロースパートナーズ 代表取締役 / 戦略担当</p>
             <ul class="speaker__career" role="list">
               <li class="speaker__career-item">大手広告代理店にて10年、300社以上のWebマーケティングを支援</li>
@@ -3687,7 +3815,7 @@ p { text-wrap: pretty; word-break: auto-phrase; }
           </article>
           <article class="speakers__card anim-target" style="--anim-delay:0.1s">
             <div class="speakers__avatar" aria-hidden="true"><span class="speakers__initial">M.S</span></div>
-            <p class="speakers__name">佐々木 美和<span class="speakers__name-en">Miwa Sasaki</span></p>
+            <h3 class="speakers__name">佐々木 美和<span class="speakers__name-en">Miwa Sasaki</span></h3>
             <p class="speakers__role">SNSグロース合同会社 代表 / SNS担当</p>
             <ul class="speaker__career" role="list">
               <li class="speaker__career-item">BtoBアカウント運用で平均フォロワー <strong>+5.2倍/年</strong> の実績</li>
@@ -3697,7 +3825,7 @@ p { text-wrap: pretty; word-break: auto-phrase; }
           </article>
           <article class="speakers__card anim-target" style="--anim-delay:0.2s">
             <div class="speakers__avatar" aria-hidden="true"><span class="speakers__initial">K.N</span></div>
-            <p class="speakers__name">中村 健太<span class="speakers__name-en">Kenta Nakamura</span></p>
+            <h3 class="speakers__name">中村 健太<span class="speakers__name-en">Kenta Nakamura</span></h3>
             <p class="speakers__role">アドプロ合同会社 シニアマーケター / 広告運用担当</p>
             <ul class="speaker__career" role="list">
               <li class="speaker__career-item">累計運用予算 <strong>12億円超</strong> のリスティング・SNS広告を最適化</li>
@@ -3707,7 +3835,7 @@ p { text-wrap: pretty; word-break: auto-phrase; }
           </article>
           <article class="speakers__card anim-target" style="--anim-delay:0.3s">
             <div class="speakers__avatar" aria-hidden="true"><span class="speakers__initial">A.O</span></div>
-            <p class="speakers__name">小川 彩<span class="speakers__name-en">Aya Ogawa</span></p>
+            <h3 class="speakers__name">小川 彩<span class="speakers__name-en">Aya Ogawa</span></h3>
             <p class="speakers__role">データ＆アナリティクス事業部 リード / 計測担当</p>
             <ul class="speaker__career" role="list">
               <li class="speaker__career-item">GA4移行支援 <strong>120社以上</strong>、レポート設計テンプレートを公開</li>
@@ -3884,17 +4012,17 @@ p { text-wrap: pretty; word-break: auto-phrase; }
         <div class="stats__item anim-target">
           <span class="stats__number" data-count="2480" data-suffix="名" aria-hidden="true">0</span>
           <span class="sr-only">2,480名</span>
-          <span class="stats__label">累計参加者数<sup>※4</sup></span>
+          <span class="stats__label">累計参加者数<sup><a href="#footnote-4" class="lp-footref" aria-label="脚注4へ移動">※4</a></sup></span>
         </div>
         <div class="stats__item anim-target" style="--anim-delay:0.1s">
           <span class="stats__number" data-count="96.8" data-suffix="%" aria-hidden="true">0</span>
           <span class="sr-only">96.8%</span>
-          <span class="stats__label">参加者満足度<sup>※3</sup></span>
+          <span class="stats__label">参加者満足度<sup><a href="#footnote-3" class="lp-footref" aria-label="脚注3へ移動">※3</a></sup></span>
         </div>
         <div class="stats__item anim-target" style="--anim-delay:0.2s">
           <span class="stats__number" data-count="73" data-suffix="%" aria-hidden="true">0</span>
           <span class="sr-only">73%</span>
-          <span class="stats__label">リピート参加率<sup>※5</sup></span>
+          <span class="stats__label">リピート参加率<sup><a href="#footnote-5" class="lp-footref" aria-label="脚注5へ移動">※5</a></sup></span>
         </div>
       </div>
       <p class="stats__note">※3 直近12回開催の事後アンケート結果（5段階評価で4以上の割合）／ ※4 2022年4月〜2026年4月累計／ ※5 同期間中、複数回参加者の比率</p>
@@ -4088,44 +4216,44 @@ p { text-wrap: pretty; word-break: auto-phrase; }
       </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
+    <!-- ===== FAQ (comp-accordion-aria-single-open) ===== -->
     <section class="faq" id="faq">
       <div class="faq__inner">
         <p class="faq__eyebrow anim-target" aria-hidden="true">FAQ</p>
         <h2 class="faq__title anim-target">よくあるご質問</h2>
-        <div class="faq__list">
-          <details class="faq__item anim-target">
-            <summary class="faq__question">マーケティングの知識がまったくなくても参加できますか？</summary>
+        <div class="faq__list" role="list" data-accordion-single="false">
+          <details class="faq__item anim-target" role="listitem">
+            <summary class="faq__question" aria-expanded="false">マーケティングの知識がまったくなくても参加できますか？</summary>
             <div class="faq__answer">
               <p class="faq__answer-text">はい、初心者の方を対象としたセミナーです。専門用語は噛み砕いて説明しますので、安心してご参加ください。</p>
             </div>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.05s">
-            <summary class="faq__question">本当に無料ですか？後から費用が発生しませんか？</summary>
+          <details class="faq__item anim-target" role="listitem" style="--anim-delay:0.05s">
+            <summary class="faq__question" aria-expanded="false">本当に無料ですか？後から費用が発生しませんか？</summary>
             <div class="faq__answer">
               <p class="faq__answer-text">完全無料です。セミナー後に弊社サービスのご案内はございますが、強引な営業は一切いたしません。</p>
             </div>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.1s">
-            <summary class="faq__question">オンラインでの参加は可能ですか？</summary>
+          <details class="faq__item anim-target" role="listitem" style="--anim-delay:0.1s">
+            <summary class="faq__question" aria-expanded="false">オンラインでの参加は可能ですか？</summary>
             <div class="faq__answer">
               <p class="faq__answer-text">今回は会場参加のみとなります。ワークやグループディスカッションがあるため、対面での開催としております。</p>
             </div>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.15s">
-            <summary class="faq__question">1人での参加でも大丈夫ですか？</summary>
+          <details class="faq__item anim-target" role="listitem" style="--anim-delay:0.15s">
+            <summary class="faq__question" aria-expanded="false">1人での参加でも大丈夫ですか？</summary>
             <div class="faq__answer">
               <p class="faq__answer-text">参加者の約8割がお一人でのご参加です。同じ課題を持つ方と自然に交流できる場をご用意しています。</p>
             </div>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.2s">
-            <summary class="faq__question">キャンセルはできますか？</summary>
+          <details class="faq__item anim-target" role="listitem" style="--anim-delay:0.2s">
+            <summary class="faq__question" aria-expanded="false">キャンセルはできますか？</summary>
             <div class="faq__answer">
               <p class="faq__answer-text">開催3日前までにご連絡いただければキャンセル可能です。席に限りがありますので、お早めにご連絡ください。</p>
             </div>
           </details>
-          <details class="faq__item anim-target" style="--anim-delay:0.25s">
-            <summary class="faq__question">駐車場はありますか？</summary>
+          <details class="faq__item anim-target" role="listitem" style="--anim-delay:0.25s">
+            <summary class="faq__question" aria-expanded="false">駐車場はありますか？</summary>
             <div class="faq__answer">
               <p class="faq__answer-text">渋谷マークシティの有料駐車場をご利用いただけます。公共交通機関でのご来場を推奨しております。</p>
             </div>
@@ -4238,14 +4366,14 @@ p { text-wrap: pretty; word-break: auto-phrase; }
         </ul>
       </div>
 
-      <!-- 数字の脚注（景表法配慮） -->
+      <!-- 数字の脚注（景表法配慮）/ 本文 sup と id で双方向トレーサビリティ -->
       <div class="lp-footnote" aria-label="数値の出典">
         <ol>
-          <li>参加企業487社：2022年4月〜2026年4月の自社開催セミナー累計（重複参加企業を含む）</li>
-          <li>平均CVR改善率+187%：受講後3ヶ月以内の自己申告ベース、有効回答数218件の平均値（個人差があります）</li>
-          <li>参加者満足度96.8%：直近12回開催の事後アンケート、5段階評価で4以上を回答した参加者の比率</li>
-          <li>累計参加者2,480名：2022年4月〜2026年4月、現地開催のみカウント</li>
-          <li>リピート参加率73%：同期間中、複数回参加した個人の比率</li>
+          <li id="footnote-1">参加企業487社：2022年4月〜2026年4月の自社開催セミナー累計（重複参加企業を含む）</li>
+          <li id="footnote-2">平均CVR改善率+187%：受講後3ヶ月以内の自己申告ベース、有効回答数218件の平均値（個人差があります）</li>
+          <li id="footnote-3">参加者満足度96.8%：直近12回開催の事後アンケート、5段階評価で4以上を回答した参加者の比率</li>
+          <li id="footnote-4">累計参加者2,480名：2022年4月〜2026年4月、現地開催のみカウント</li>
+          <li id="footnote-5">リピート参加率73%：同期間中、複数回参加した個人の比率</li>
         </ol>
       </div>
     </section>
@@ -5056,6 +5184,19 @@ document.addEventListener('DOMContentLoaded', function () {
     tripleCtaBtns[tc].addEventListener('click', function (e) {
       /* Already routed via href="#final-cta" — let global smooth-scroll handler take over */
     });
+  }
+
+  /* ========== FAQ Accordion ARIA Sync (comp-accordion-aria-single-open) ========== */
+  /* details/summary は aria-expanded を自動更新しない実装が一部スクリーンリーダーで残るため明示的に同期 */
+  var faqItems = document.querySelectorAll('.faq__item');
+  for (var fa = 0; fa < faqItems.length; fa++) {
+    (function (item) {
+      var summary = item.querySelector('summary');
+      if (!summary) return;
+      item.addEventListener('toggle', function () {
+        summary.setAttribute('aria-expanded', item.open ? 'true' : 'false');
+      });
+    })(faqItems[fa]);
   }
 
   /* ========== Voices Carousel ========== */
