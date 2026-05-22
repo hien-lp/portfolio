@@ -12,3 +12,6 @@ Thumbs.db
 # 本番不要
 *.log
 node_modules/
+
+# ローカル backup スナップショット（手動 polish 用、push しない）
+*.backup-pre-*
