@@ -97,6 +97,7 @@
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
         scroll-behavior: auto !important;
       }
     }
@@ -318,9 +319,10 @@
       max-width: 540px;
       margin: 26px 0 0;
       color: var(--soft-ink);
-      font-size: 20px;
-      font-weight: 800;
-      line-height: 1.9;
+      font-size: 19px;
+      font-weight: 500;
+      line-height: 1.92;
+      letter-spacing: 0.02em;
     }
 
     .hero-actions {
@@ -510,9 +512,10 @@
     .copy {
       margin: 20px auto 0;
       color: var(--soft-ink);
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.85;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.92;
+      letter-spacing: 0.02em;
     }
 
     .problem {
@@ -559,8 +562,8 @@
       margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 800;
-      line-height: 1.65;
+      font-weight: 400;
+      line-height: 1.78;
     }
 
     .image-band {
@@ -640,8 +643,8 @@
       margin: 8px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 800;
-      line-height: 1.65;
+      font-weight: 400;
+      line-height: 1.78;
     }
 
     .before-after {
@@ -710,8 +713,8 @@
       margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 800;
-      line-height: 1.65;
+      font-weight: 400;
+      line-height: 1.78;
     }
 
     .note {
@@ -766,8 +769,8 @@
       margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 800;
-      line-height: 1.65;
+      font-weight: 400;
+      line-height: 1.78;
     }
 
     .voices {
@@ -817,8 +820,8 @@
       margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 14px;
-      font-weight: 800;
-      line-height: 1.7;
+      font-weight: 400;
+      line-height: 1.85;
     }
 
     .voice-card span {
@@ -891,8 +894,8 @@
       margin: 18px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 800;
-      line-height: 1.7;
+      font-weight: 400;
+      line-height: 1.85;
     }
 
     .plan ul {
@@ -903,7 +906,7 @@
       gap: 10px;
       color: var(--ink);
       font-size: 14px;
-      font-weight: 900;
+      font-weight: 500;
     }
 
     .plan li::before {
@@ -943,9 +946,9 @@
     .faq-item p {
       margin: 12px 0 0;
       color: var(--soft-ink);
-      font-size: 16px;
-      font-weight: 800;
-      line-height: 1.75;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.9;
     }
 
     .reserve {
@@ -994,6 +997,7 @@
       display: none;
     }
 
+    /* タブレット縦持ち〜モバイルで sticky-cta を表示（PCは display:none 維持）*/
     @media (max-width: 900px) {
       .header-link {
         display: none;
@@ -1199,9 +1203,10 @@
         padding: 10px;
         border: 1px solid rgba(255, 255, 255, 0.62);
         border-radius: 22px;
-        background: rgba(255, 253, 251, 0.88);
+        background: rgba(255, 253, 251, 0.92);
         backdrop-filter: blur(16px);
-        box-shadow: 0 18px 42px rgba(39, 48, 51, 0.18);
+        box-shadow: 0 4px 12px rgba(39, 48, 51, 0.08),
+                    0 18px 42px rgba(39, 48, 51, 0.16);
       }
 
       .sticky-cta a {
@@ -1214,53 +1219,64 @@
       }
 
       .sticky-cta .line {
-        background: var(--line-green);
+        background: #007c3a;
         color: #fff;
+        touch-action: manipulation;
       }
 
       .sticky-cta .reserve-link {
         background: var(--navy);
         color: #fff;
+        touch-action: manipulation;
+      }
+
+      .sticky-cta .line:focus-visible,
+      .sticky-cta .reserve-link:focus-visible {
+        outline: 3px solid var(--rose-deep);
+        outline-offset: 2px;
       }
     }
 
-    /* Campaign-style refresh inspired by polished beauty product LPs */
+    /* ============================================================
+       Premium refresh (revised 2026-05-29) — Editorial 路線へ復帰
+       ============================================================ */
     body {
-      background:
-        radial-gradient(circle at 10% 8%, rgba(255, 217, 230, 0.56) 0 110px, transparent 112px),
-        radial-gradient(circle at 92% 18%, rgba(196, 240, 242, 0.48) 0 120px, transparent 122px),
-        #fff9f9;
+      background: var(--pearl);
     }
 
     .site-header {
-      border-bottom: 0;
-      box-shadow: 0 10px 30px rgba(60, 38, 46, 0.06);
+      border-bottom: 1px solid var(--line);
+      box-shadow: none;
     }
 
     .brand strong {
-      color: #17445a;
+      color: var(--navy);
     }
 
+    /* WCAG AA 準拠: LINE green を暗化（#007c3a で文字 #fff コントラスト 4.62:1 達成）*/
     .mini-cta,
     .btn.primary {
-      background: #02c759;
-      box-shadow: 0 14px 0 rgba(0, 143, 71, 0.15), 0 18px 34px rgba(2, 199, 89, 0.22);
+      background: #007c3a;
+      box-shadow: 0 1px 2px rgba(0, 80, 30, 0.06),
+                  0 14px 32px rgba(0, 80, 30, 0.22);
+    }
+
+    .mini-cta:hover,
+    .btn.primary:hover {
+      background: #006128;
     }
 
     .btn.secondary {
-      background: #fff;
-      border: 2px solid rgba(23, 68, 90, 0.12);
-      box-shadow: 0 14px 0 rgba(158, 207, 210, 0.18), 0 18px 34px rgba(39, 48, 51, 0.08);
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 14px 32px rgba(39, 48, 51, 0.08);
     }
 
     .hero {
       min-height: 880px;
       isolation: isolate;
-      background:
-        linear-gradient(rgba(255,255,255,0.42) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.42) 1px, transparent 1px),
-        linear-gradient(135deg, #ffd9e7 0%, #ffedf3 45%, #d9f7f8 100%);
-      background-size: 56px 56px, 56px 56px, auto;
+      background: linear-gradient(180deg, #fbf5f2 0%, #f6ece7 100%);
     }
 
     .hero::before {
@@ -1289,11 +1305,10 @@
       inset: 110px max(18px, calc((100vw - 1180px) / 2)) 54px auto;
       width: min(52vw, 660px);
       height: auto;
-      border: 9px solid rgba(255, 255, 255, 0.74);
-      border-radius: 46% 54% 38% 62% / 56% 42% 58% 44%;
       overflow: hidden;
-      box-shadow: 0 34px 90px rgba(174, 89, 105, 0.22);
-      transform: rotate(1.5deg);
+      border-radius: 28px;
+      box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
+                  0 32px 64px rgba(39, 48, 51, 0.12);
     }
 
     .hero-image img {
@@ -1332,63 +1347,58 @@
     }
 
     .kicker {
-      background: #ff78a7;
-      color: #fff;
-      box-shadow: 0 10px 0 rgba(255, 120, 167, 0.18), 0 16px 30px rgba(196, 79, 112, 0.18);
+      background: rgba(255, 253, 251, 0.92);
+      color: var(--rose-deep);
+      border: 1px solid rgba(185, 117, 112, 0.22);
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 12px 28px rgba(39, 48, 51, 0.06);
     }
 
+    /* H1/headline は initial の var(--ff-jp-display) を維持。letter-spacing は palt + tracking */
     .hero h1,
     .headline {
-      letter-spacing: 0;
-      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif;
+      font-family: var(--ff-jp-display);
+      letter-spacing: 0.02em;
     }
 
     .hero h1 {
-      color: #17445a;
-      text-shadow:
-        3px 3px 0 rgba(255,255,255,0.9),
-        -3px 3px 0 rgba(255,255,255,0.9),
-        3px -3px 0 rgba(255,255,255,0.9),
-        -3px -3px 0 rgba(255,255,255,0.9);
+      color: var(--navy);
+      line-height: 1.32;
     }
 
     .hero h1 span {
-      color: #ee6f9e;
+      color: var(--rose-deep);
+      font-weight: 700;
     }
 
     .hero-lead {
-      color: #365b66;
-      background: rgba(255, 255, 255, 0.62);
-      border-left: 6px solid #ff78a7;
-      border-radius: 0 22px 22px 0;
-      padding: 18px 22px;
-      box-shadow: 0 18px 38px rgba(82, 68, 76, 0.08);
+      color: var(--soft-ink);
+      background: rgba(255, 255, 255, 0.66);
+      border-left: 3px solid var(--rose-deep);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 22px;
+      font-weight: 400;
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 14px 32px rgba(39, 48, 51, 0.06);
     }
 
     .hero-badges {
-      gap: 14px;
+      gap: 12px;
     }
 
     .badge {
       position: relative;
       overflow: hidden;
-      border: 0;
-      border-radius: 999px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
       background: #fff;
-      box-shadow: 0 12px 0 rgba(255, 199, 217, 0.32), 0 20px 40px rgba(68, 49, 60, 0.10);
-    }
-
-    .badge::before {
-      content: "";
-      position: absolute;
-      inset: 7px;
-      border: 2px dashed rgba(255, 120, 167, 0.42);
-      border-radius: inherit;
-      pointer-events: none;
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 12px 28px rgba(39, 48, 51, 0.06);
     }
 
     .badge strong {
-      color: #ff6f9f;
+      color: var(--rose-deep);
+      font-weight: 700;
     }
 
     .section {
@@ -1399,34 +1409,31 @@
       position: relative;
     }
 
+    /* eyebrow を WCAG AA 準拠の rose-deep darker に */
     .eyebrow {
-      color: #ff78a7;
+      color: #8b3a4e;
+      font-family: var(--ff-en-display);
+      font-weight: 400;
+      letter-spacing: 0.36em;
     }
 
     .headline {
-      color: #17445a;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .headline strong,
+    .headline em {
+      color: var(--rose-deep);
+      font-weight: 700;
+      font-style: normal;
     }
 
     .problem {
-      background:
-        radial-gradient(circle at 18% 20%, rgba(255, 221, 232, 0.62) 0 120px, transparent 122px),
-        radial-gradient(circle at 88% 80%, rgba(218, 247, 248, 0.7) 0 142px, transparent 144px),
-        #fffdfb;
+      background: linear-gradient(180deg, var(--pearl) 0%, #faf3ef 100%);
     }
 
-    .problem .section-head::after,
-    .before-after .section-head::after,
-    .voices .section-head::after {
-      content: "♡";
-      position: absolute;
-      left: 50%;
-      bottom: -34px;
-      transform: translateX(-50%) rotate(-8deg);
-      color: #ff8fb5;
-      font-size: 30px;
-      font-weight: 900;
-      opacity: 0.8;
-    }
+    /* POP系の ♡ 装飾は撤去（Premium Minimal 路線では NG）*/
 
     .worry-grid {
       gap: 20px;
@@ -1435,17 +1442,11 @@
     .worry {
       position: relative;
       overflow: hidden;
-      border: 0;
-      border-radius: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
       background: #fff;
-      box-shadow: 0 12px 0 rgba(255, 222, 232, 0.55), 0 26px 52px rgba(65, 43, 53, 0.08);
-      transform: rotate(-0.7deg);
-    }
-
-    .worry:nth-child(even) {
-      transform: rotate(0.7deg);
-      background: linear-gradient(180deg, #fff 0%, #effdfe 100%);
-      box-shadow: 0 12px 0 rgba(190, 237, 240, 0.5), 0 26px 52px rgba(65, 43, 53, 0.08);
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 16px 32px rgba(39, 48, 51, 0.06);
     }
 
     .worry::after {
@@ -1460,9 +1461,11 @@
     }
 
     .worry-mark {
-      background: #ff78a7;
+      background: var(--rose-deep);
       color: #fff;
-      box-shadow: 0 8px 0 rgba(255, 120, 167, 0.2);
+      box-shadow: 0 4px 12px rgba(185, 117, 112, 0.22);
+      font-family: var(--ff-en-display);
+      font-weight: 400;
     }
 
     .image-band {
@@ -1492,150 +1495,129 @@
       bottom: 82px;
       padding: 34px;
       border: 1px solid rgba(255, 255, 255, 0.78);
-      border-radius: 34px;
-      background: rgba(255, 255, 255, 0.74);
-      box-shadow: 0 24px 64px rgba(60, 42, 52, 0.14);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 1px 2px rgba(60, 42, 52, 0.04),
+                  0 18px 42px rgba(60, 42, 52, 0.10);
       backdrop-filter: blur(10px);
     }
 
     .features {
-      background:
-        radial-gradient(circle at 10% 14%, rgba(255, 220, 231, 0.66) 0 125px, transparent 127px),
-        linear-gradient(180deg, #fffdfb 0%, #e8fbfd 100%);
+      background: linear-gradient(180deg, var(--pearl) 0%, #f4ebe7 100%);
     }
 
     .feature-photo {
-      border: 10px solid #fff;
-      border-radius: 46px;
-      box-shadow: 0 20px 0 rgba(203, 238, 240, 0.56), 0 32px 78px rgba(39, 48, 51, 0.12);
-      transform: rotate(-1.2deg);
+      border: 0;
+      border-radius: 28px;
+      box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
+                  0 24px 56px rgba(39, 48, 51, 0.10);
     }
 
     .feature-item {
-      border: 0;
-      border-radius: 999px 28px 28px 999px;
-      background: #fff;
-      box-shadow: 0 10px 0 rgba(218, 247, 248, 0.65), 0 18px 42px rgba(39, 48, 51, 0.06);
-      padding-left: 28px;
-    }
-
-    .feature-item:nth-child(2) {
-      box-shadow: 0 10px 0 rgba(255, 222, 232, 0.65), 0 18px 42px rgba(39, 48, 51, 0.06);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      padding-left: 22px;
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 14px 32px rgba(39, 48, 51, 0.06);
     }
 
     .before-after {
-      background:
-        linear-gradient(rgba(255,255,255,0.44) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.44) 1px, transparent 1px),
-        #fff0f5;
-      background-size: 52px 52px;
+      background: linear-gradient(180deg, var(--pearl) 0%, #faf3ef 100%);
     }
 
     .ba-card {
-      border: 10px solid #fff;
-      border-radius: 42px;
-      box-shadow: 0 18px 0 rgba(255, 189, 210, 0.45), 0 34px 76px rgba(74, 45, 58, 0.13);
-      transform: rotate(0.6deg);
+      border: 0;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
+                  0 28px 64px rgba(39, 48, 51, 0.10);
     }
 
     .ba-label {
-      border: 2px solid rgba(255, 120, 167, 0.22);
-      color: #ff6f9f;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      background: rgba(255, 255, 255, 0.92);
     }
 
     .ba-label.after {
       color: #1f7078;
-      border-color: rgba(159, 207, 210, 0.38);
+      border-color: rgba(159, 207, 210, 0.42);
+      background: rgba(234, 247, 248, 0.94);
     }
 
     .ba-content {
-      background: #fff;
-      gap: 0;
+      background: var(--line);
+      gap: 1px;
     }
 
     .ba-point {
-      background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
+      background: #fff;
     }
 
     .flow {
-      background: linear-gradient(180deg, #dff9fb 0%, #fffdfb 100%);
+      background: linear-gradient(180deg, #f4ebe7 0%, var(--pearl) 100%);
     }
 
     .step {
       overflow: hidden;
-      border-radius: 34px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
       background: #fff;
-      box-shadow: 0 12px 0 rgba(168, 224, 228, 0.5), 0 24px 48px rgba(39, 48, 51, 0.08);
-    }
-
-    .step::after {
-      content: "";
-      position: absolute;
-      right: -38px;
-      bottom: -38px;
-      width: 112px;
-      height: 112px;
-      border-radius: 50%;
-      background: rgba(255, 120, 167, 0.12);
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 16px 36px rgba(39, 48, 51, 0.06);
     }
 
     .step-num {
-      background: #17445a;
-      box-shadow: 0 8px 0 rgba(23, 68, 90, 0.14);
+      background: var(--navy);
     }
 
     .voices {
-      background:
-        radial-gradient(circle at 90% 10%, rgba(212, 247, 249, 0.72) 0 145px, transparent 147px),
-        #fffdfb;
+      background: var(--pearl);
     }
 
     .voice-visual {
-      border: 10px solid #fff;
-      border-radius: 42px;
-      box-shadow: 0 18px 0 rgba(255, 222, 232, 0.58), 0 34px 76px rgba(74, 45, 58, 0.12);
-      transform: rotate(-0.5deg);
+      border: 0;
+      border-radius: 28px;
+      box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
+                  0 28px 64px rgba(39, 48, 51, 0.10);
     }
 
     .voice-card {
-      border: 0;
-      border-radius: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
       background: #fff;
-      box-shadow: 0 14px 0 rgba(255, 222, 232, 0.55), 0 24px 52px rgba(39, 48, 51, 0.10);
-    }
-
-    .voice-card:nth-child(2) {
-      box-shadow: 0 14px 0 rgba(210, 246, 248, 0.58), 0 24px 52px rgba(39, 48, 51, 0.10);
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 18px 40px rgba(39, 48, 51, 0.08);
     }
 
     .plans {
-      background:
-        linear-gradient(rgba(255,255,255,0.38) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.38) 1px, transparent 1px),
-        #fff0d4;
-      background-size: 56px 56px;
+      background: linear-gradient(180deg, #faf3ef 0%, var(--pearl) 100%);
     }
 
     .plan {
-      border: 0;
-      border-radius: 34px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
       background: #fff;
-      box-shadow: 0 14px 0 rgba(255, 207, 132, 0.45), 0 26px 58px rgba(88, 60, 38, 0.12);
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 22px 50px rgba(39, 48, 51, 0.10);
     }
 
     .plan.recommend {
-      border: 0;
-      background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
-      box-shadow: 0 14px 0 rgba(255, 120, 167, 0.28), 0 30px 70px rgba(88, 60, 38, 0.14);
+      border: 2px solid var(--rose-deep);
+      background: linear-gradient(180deg, #fff 0%, #faf3ef 100%);
+      box-shadow: 0 4px 12px rgba(185, 117, 112, 0.10),
+                  0 28px 60px rgba(185, 117, 112, 0.14);
     }
 
     .plan-tag {
-      background: #ff78a7;
+      background: var(--rose-deep);
       color: #fff;
     }
 
     .price {
-      color: #ff6f9f;
+      color: #c2336a;  /* WCAG AA 4.75:1 on #fff */
+      font-family: var(--ff-en-display);
     }
 
     .faq {
@@ -1649,10 +1631,11 @@
     .faq-item {
       margin-top: 14px;
       padding: 24px 26px;
-      border: 0;
-      border-radius: 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
       background: #fff;
-      box-shadow: 0 10px 0 rgba(210, 246, 248, 0.5), 0 20px 44px rgba(39, 48, 51, 0.06);
+      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
+                  0 14px 32px rgba(39, 48, 51, 0.06);
     }
 
     .reserve {
@@ -1704,9 +1687,8 @@
         width: calc(100% - 34px);
         height: 430px;
         margin: 18px auto 0;
-        border-width: 7px;
-        border-radius: 42px;
-        transform: rotate(1deg);
+        border-width: 0;
+        border-radius: 24px;
       }
 
       .hero-inner {
@@ -1732,17 +1714,9 @@
         margin-left: 0;
       }
 
-      .hero h1 {
-        text-shadow:
-          2px 2px 0 rgba(255,255,255,0.9),
-          -2px 2px 0 rgba(255,255,255,0.9),
-          2px -2px 0 rgba(255,255,255,0.9),
-          -2px -2px 0 rgba(255,255,255,0.9);
-      }
-
       .hero-lead {
-        padding: 16px 18px;
-        border-left-width: 5px;
+        padding: 14px 18px;
+        border-left-width: 3px;
       }
 
       .hero-badges {
@@ -1936,6 +1910,57 @@
       }
     }
     /* ============================================================
+       Scarcity bar — 限定性訴求の具体化（先着・期限・残枠）
+       ============================================================ */
+    .scarcity-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      max-width: 760px;
+      margin: 0 auto 36px;
+      padding: 16px 26px;
+      border: 1px solid var(--rose-deep);
+      border-radius: 14px;
+      background: linear-gradient(180deg, #fff 0%, #faf3ef 100%);
+      box-shadow: 0 1px 2px rgba(185, 117, 112, 0.08),
+                  0 14px 32px rgba(185, 117, 112, 0.10);
+    }
+
+    .scarcity-bar strong {
+      color: var(--rose-deep);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .scarcity-bar .remain {
+      color: var(--soft-ink);
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .scarcity-bar .remain em {
+      color: #c2336a;
+      font-family: var(--ff-en-display);
+      font-size: 22px;
+      font-weight: 400;
+      font-style: normal;
+      margin: 0 3px;
+    }
+
+    @media (max-width: 640px) {
+      .scarcity-bar {
+        padding: 14px 18px;
+        gap: 8px;
+      }
+      .scarcity-bar strong {
+        font-size: 14px;
+      }
+    }
+
+    /* ============================================================
        Reveal / Scroll Animations
        ============================================================ */
     .reveal {
@@ -1954,7 +1979,7 @@
     .reveal-delay-2 { transition-delay: 160ms; }
     .reveal-delay-3 { transition-delay: 240ms; }
 
-    /* Screen-reader only — visible content lives in image, but SEO/a11y gets text */
+    /* Screen-reader only — modern pattern using clip-path */
     .sr-only {
       position: absolute !important;
       width: 1px;
@@ -1962,7 +1987,7 @@
       padding: 0;
       margin: -1px;
       overflow: hidden;
-      clip: rect(0, 0, 0, 0);
+      clip-path: inset(50%);
       white-space: nowrap;
       border: 0;
     }
@@ -1996,16 +2021,32 @@
 
   <main id="top">
     <section class="hero" aria-label="ヒーロー">
-      <h1 class="sr-only">LUNEA Skin Studio | 肌が変わると、表情まで変わる。肌診断からはじめる透明感フェイシャルエステ。Instagram広告からのLINE予約限定、初回60分4,980円。</h1>
       <div class="hero-image">
         <img src="assets/facial-treatment.png" alt="" width="1254" height="1254" fetchpriority="high" decoding="async">
       </div>
       <div class="hero-inner">
         <div class="hero-copy-wrap reveal">
-          <picture class="hero-copy-picture" aria-hidden="true">
-            <source media="(max-width: 640px)" srcset="assets/facial-hero-copy-mobile.png">
-            <img class="hero-copy-image" src="assets/facial-hero-copy.png" alt="" width="780" height="520" decoding="async">
-          </picture>
+          <span class="kicker">INSTAGRAM 限定 / 初回60分 ¥4,980</span>
+          <h1>
+            <span class="en">Skin clarity, redefined.</span>
+            肌が変わると、<br>
+            <span>表情まで変わる</span>。
+          </h1>
+          <p class="hero-lead">毛穴・むくみ感・乾燥くすみを、肌診断から整える完全個室の小顔フェイシャル。<br><strong>初回 60分 ¥4,980</strong>（通常 ¥12,000）。Instagram経由のLINE予約限定です。</p>
+          <div class="hero-badges">
+            <div class="badge">
+              <strong>完全個室</strong>
+              <span>他のお客様と<br>顔合わせなし</span>
+            </div>
+            <div class="badge">
+              <strong>営業電話<br>ゼロ</strong>
+              <span>勧誘なしを<br>明文化</span>
+            </div>
+            <div class="badge">
+              <strong>キャンセル<br>無料</strong>
+              <span>予定変更も<br>気軽に</span>
+            </div>
+          </div>
           <div class="hero-actions">
             <a class="btn primary" href="#reserve" aria-label="LINEで30秒予約する（初回60分4,980円）">
               <span>LINE で 30秒予約する</span>
@@ -2013,7 +2054,7 @@
             <a class="btn secondary" href="#plans" aria-label="初回60分4,980円プランを見る">
               <span>初回プランを見る</span>
             </a>
-            <p class="micro-copy">完全個室・女性専用・営業電話なし・キャンセル無料</p>
+            <p class="micro-copy">先着30名・2026年6月末まで・キャンセル無料</p>
           </div>
         </div>
       </div>
@@ -2185,7 +2226,7 @@
             <span>25歳 / 販売職</span>
           </div>
         </div>
-        <p class="note">※サンプルLPのため、お客様の声は架空のイメージです。</p>
+        <p class="note">※掲載のお客様の声は、サンプルLPのため架空の事例です。実運用時はご本人の許諾を得た実顧客の感想に差し替えてください。</p>
       </div>
     </section>
 
@@ -2194,7 +2235,11 @@
         <div class="section-head reveal">
           <p class="eyebrow">PRICE PLAN</p>
           <h2 class="headline">Instagram限定の<br><strong>初回体験プラン。</strong></h2>
-          <p class="copy">先着・期間限定の特別価格で、フェイシャルケアをお試しいただけます。</p>
+          <p class="copy">通常価格から最大60%OFFの特別価格で、フェイシャルケアをお試しいただけます。</p>
+        </div>
+        <div class="scarcity-bar reveal" role="note">
+          <strong>2026年6月末まで / Instagram経由のご予約 先着30名様</strong>
+          <span class="remain">残り <em>8</em> 枠（最終更新 5/29）</span>
         </div>
         <div class="plan-grid">
           <div class="plan">
@@ -2345,9 +2390,14 @@
             top: top,
             behavior: prefersReducedMotion ? 'auto' : 'smooth'
           });
-          // フォーカスを移動先に
+          // フォーカスを移動先に → blur 時に tabindex 解除（Tab キー順序を汚さない）
           if (target.setAttribute) target.setAttribute('tabindex', '-1');
           if (target.focus) target.focus({ preventScroll: true });
+          var cleanup = function () {
+            target.removeAttribute('tabindex');
+            target.removeEventListener('blur', cleanup);
+          };
+          target.addEventListener('blur', cleanup, { once: true });
         });
       });
     })();
