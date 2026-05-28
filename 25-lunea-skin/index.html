@@ -1,0 +1,2356 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="noindex,nofollow">
+  <title>LUNEA Skin Studio | フェイシャルエステ・小顔印象ケア（サンプルLP）</title>
+  <meta name="description" content="LUNEA Skin Studio は、20-30代女性のための上品で透明感のあるフェイシャルサロンLP。Instagram限定の初回体験プランとLINE予約導線を備えたサンプルLP。">
+  <meta name="theme-color" content="#b97570">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LUNEA Skin Studio | フェイシャルエステ・小顔印象ケア">
+  <meta property="og:description" content="うるおいと透明感で、写真に写る自分に少しの自信を。Instagram限定 初回体験プランあり。">
+  <meta property="og:image" content="assets/facial-hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://hien-lp.github.io/portfolio/25-lunea-skin/">
+  <!--
+    Production deployment headers (server-side):
+    - Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; form-action 'self'; frame-ancestors 'none'
+    - X-Frame-Options: DENY
+    - X-Content-Type-Options: nosniff
+    - Referrer-Policy: strict-origin-when-cross-origin
+    - Permissions-Policy: geolocation=(), camera=(), microphone=()
+    - Strict-Transport-Security: max-age=31536000; includeSubDomains
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/facial-hero.png" fetchpriority="high">
+  <style>
+    /*
+      AI-slop banlist:
+      - Inter / Roboto / Arial / Meiryo                                       ← 禁止フォント（palt 未対応）
+      - teal-only / cyan / aqua（neon-cyber）                                  ← 禁止カラー（コスメLPで埋没）
+      - 効能断定表現「治る/改善する/必ず小顔/シミ消える/シワ改善/美白」          ← 薬機法 NG
+      - 過度な glassmorphism / 派手な gradient + neon                          ← サロンの品格を損ねる
+      - generic ease / linear easing                                          ← 禁止 timing
+      - 紫グラデーション + 白背景のテンプレデザイン                              ← 同上
+    */
+
+    :root {
+      --ink: #273033;
+      --soft-ink: #536064;
+      --line: rgba(39, 48, 51, 0.12);
+      --pearl: #fffdfb;
+      --mist: #eaf7f8;
+      --aqua: #9fcfd2;
+      --rose: #e7b9b2;
+      --rose-deep: #b97570;
+      --gold: #c8a46b;
+      --sand: #f7efe8;
+      --navy: #223742;
+      --line-green: #06c755;
+
+      /* typography tokens — Premium Minimal + Editorial */
+      --ff-en-display: "Marcellus", "Cormorant Garamond", serif;
+      --ff-jp-display: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+      --ff-body: "Zen Kaku Gothic New", "Yu Gothic", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", sans-serif;
+
+      /* timing / easing — industry baseline v1.1 */
+      --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --dur-fast: 200ms;
+      --dur-base: 320ms;
+      --dur-slow: 720ms;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: var(--pearl);
+      color: var(--ink);
+      font-family: var(--ff-body);
+      font-feature-settings: "palt" 1;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* industry baseline v1.1 — text wrapping */
+    h1, h2, h3, .headline, .hero h1 {
+      text-wrap: balance;
+    }
+    p, .copy, .hero-lead, .lead {
+      text-wrap: pretty;
+    }
+
+    /* accessibility — reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      padding-bottom: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 74px;
+      padding: 0 clamp(20px, 5vw, 64px);
+      background: rgba(255, 253, 251, 0.86);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+      transition: box-shadow var(--dur-base) var(--ease-out-quint),
+                  background var(--dur-base) var(--ease-out-quint),
+                  min-height var(--dur-base) var(--ease-out-quint);
+    }
+
+    .site-header.is-scrolled {
+      min-height: 60px;
+      background: rgba(255, 253, 251, 0.96);
+      box-shadow: 0 6px 20px rgba(39, 48, 51, 0.08);
+    }
+
+    .brand {
+      text-decoration: none;
+      touch-action: manipulation;
+    }
+
+    .brand:focus-visible {
+      outline: 3px solid var(--rose-deep);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      font-weight: 900;
+    }
+
+    .brand strong {
+      font-family: var(--ff-en-display);
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+    }
+
+    .brand span {
+      margin-top: 4px;
+      color: var(--rose-deep);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-link {
+      color: var(--soft-ink);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .mini-cta {
+      min-height: 44px;
+      padding: 0 20px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--line-green);
+      color: #fff;
+      font-family: var(--ff-body);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 12px 28px rgba(6, 199, 85, 0.22);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform var(--dur-fast) var(--ease-out-quint),
+                  box-shadow var(--dur-fast) var(--ease-out-quint),
+                  background var(--dur-fast) var(--ease-out-quint);
+    }
+
+    .mini-cta::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'><path d='M12 2C6.5 2 2 5.7 2 10.3c0 2.7 1.6 5.1 4.1 6.7-.2.6-.7 2.2-.8 2.6-.1.5.2.5.4.4.2-.1 2.6-1.8 3.7-2.5.9.1 1.7.2 2.6.2 5.5 0 10-3.7 10-8.3S17.5 2 12 2z'/></svg>");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .mini-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(6, 199, 85, 0.28);
+      background: #04a847;
+    }
+
+    .mini-cta:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 16px rgba(6, 199, 85, 0.22);
+    }
+
+    .mini-cta:focus-visible {
+      outline: 3px solid var(--navy);
+      outline-offset: 3px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 820px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #fffdfb 0%, #edf9fa 48%, #fff2ef 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255, 253, 251, 0.98) 0%, rgba(255, 253, 251, 0.82) 42%, rgba(255, 253, 251, 0.06) 70%),
+        linear-gradient(180deg, rgba(255, 253, 251, 0.06) 0%, rgba(255, 253, 251, 0.92) 100%);
+      z-index: 1;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 68% 50%;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(1120px, calc(100% - 48px));
+      min-height: 820px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      align-items: center;
+      gap: 40px;
+      padding: 70px 0;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--rose-deep);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      box-shadow: 0 14px 34px rgba(183, 117, 112, 0.12);
+    }
+
+    .hero h1 {
+      font-family: var(--ff-jp-display);
+      margin: 24px 0 0;
+      color: var(--navy);
+      font-size: clamp(40px, 5.6vw, 68px);
+      font-weight: 500;
+      line-height: 1.22;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 span {
+      color: var(--rose-deep);
+      font-weight: 700;
+    }
+
+    .hero h1 .en {
+      display: block;
+      font-family: var(--ff-en-display);
+      font-size: 0.36em;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-lead {
+      max-width: 540px;
+      margin: 26px 0 0;
+      color: var(--soft-ink);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      position: relative;
+      min-height: 60px;
+      padding: 0 30px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: var(--ff-body);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      box-shadow: 0 16px 36px rgba(34, 55, 66, 0.16);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform var(--dur-fast) var(--ease-out-quint),
+                  box-shadow var(--dur-fast) var(--ease-out-quint),
+                  background var(--dur-fast) var(--ease-out-quint);
+      overflow: hidden;
+    }
+
+    .btn.primary {
+      background: var(--line-green);
+      color: #fff;
+      box-shadow: 0 16px 36px rgba(6, 199, 85, 0.28);
+    }
+
+    .btn.primary:hover {
+      background: #04a847;
+      transform: translateY(-3px);
+      box-shadow: 0 22px 48px rgba(6, 199, 85, 0.36);
+    }
+
+    .btn.primary:active {
+      transform: translateY(-1px);
+    }
+
+    /* シマー光沢アニメ — CTA の視線誘導 */
+    .btn.primary::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 60%,
+        transparent 100%);
+      transform: skewX(-22deg);
+      pointer-events: none;
+      animation: btnShimmer 3.6s var(--ease-out-quint) infinite;
+    }
+
+    @keyframes btnShimmer {
+      0%   { left: -75%; }
+      55%  { left: 130%; }
+      100% { left: 130%; }
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--navy);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn.secondary:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(34, 55, 66, 0.18);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--rose-deep);
+      outline-offset: 4px;
+    }
+
+    /* CTA下のマイクロコピー */
+    .micro-copy {
+      width: 100%;
+      margin: 14px 0 0;
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+    }
+    .micro-copy::before {
+      content: "✓ ";
+      color: var(--line-green);
+      font-weight: 900;
+    }
+
+    .hero-badges {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 570px;
+      margin-top: 34px;
+    }
+
+    .badge {
+      min-height: 92px;
+      padding: 18px 12px;
+      border: 1px solid rgba(200, 164, 107, 0.35);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      text-align: center;
+      box-shadow: 0 16px 36px rgba(39, 48, 51, 0.08);
+    }
+
+    .badge strong {
+      display: block;
+      color: var(--rose-deep);
+      font-size: 23px;
+      line-height: 1.05;
+      font-weight: 900;
+    }
+
+    .badge span {
+      display: block;
+      margin-top: 9px;
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .section {
+      padding: clamp(72px, 9vw, 116px) clamp(22px, 5vw, 64px);
+    }
+
+    .container {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 46px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-family: var(--ff-en-display);
+      margin: 0 0 14px;
+      color: var(--rose-deep);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      font-family: var(--ff-jp-display);
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 500;
+      line-height: 1.32;
+      letter-spacing: 0.02em;
+    }
+
+    .headline strong,
+    .headline em {
+      color: var(--rose-deep);
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    /* .eyebrow base — see original definition below; this block extends for Editorial typography */
+
+    .copy {
+      margin: 20px auto 0;
+      color: var(--soft-ink);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.85;
+    }
+
+    .problem {
+      background: var(--pearl);
+    }
+
+    .worry-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .worry {
+      min-height: 210px;
+      padding: 28px 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(180deg, #fff 0%, #fbf5f2 100%);
+      box-shadow: 0 18px 42px rgba(39, 48, 51, 0.06);
+    }
+
+    .worry-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--mist);
+      color: var(--rose-deep);
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .worry strong {
+      display: block;
+      margin-top: 20px;
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .worry p {
+      margin: 12px 0 0;
+      color: var(--soft-ink);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .image-band {
+      position: relative;
+      min-height: 760px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .image-band img {
+      height: 760px;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+
+    .image-band::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 251, 0.02) 0%, rgba(255, 253, 251, 0.92) 100%),
+        linear-gradient(90deg, rgba(255, 253, 251, 0.92), rgba(255, 253, 251, 0.12));
+    }
+
+    .band-copy {
+      position: absolute;
+      z-index: 1;
+      left: max(28px, calc((100vw - 1120px) / 2));
+      bottom: 70px;
+      width: min(560px, calc(100% - 56px));
+    }
+
+    .features {
+      background: linear-gradient(180deg, #fffdfb 0%, #eef9fa 100%);
+    }
+
+    .feature-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+      gap: clamp(26px, 5vw, 58px);
+      align-items: center;
+    }
+
+    .feature-photo {
+      overflow: hidden;
+      border-radius: 28px;
+      box-shadow: 0 26px 60px rgba(39, 48, 51, 0.13);
+    }
+
+    .feature-photo img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .feature-item {
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 16px 36px rgba(39, 48, 51, 0.06);
+    }
+
+    .feature-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .feature-item p {
+      margin: 8px 0 0;
+      color: var(--soft-ink);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .before-after {
+      background: var(--pearl);
+    }
+
+    .ba-card {
+      overflow: hidden;
+      border-radius: 30px;
+      background: #fff;
+      box-shadow: 0 26px 66px rgba(39, 48, 51, 0.12);
+    }
+
+    .ba-image {
+      position: relative;
+    }
+
+    .ba-image img {
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .ba-labels {
+      position: absolute;
+      inset: 22px 22px auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .ba-label {
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(39, 48, 51, 0.12);
+    }
+
+    .ba-label.after {
+      background: rgba(234, 247, 248, 0.94);
+      color: #27656b;
+    }
+
+    .ba-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .ba-point {
+      padding: 28px;
+      background: #fff;
+    }
+
+    .ba-point strong {
+      display: block;
+      color: var(--navy);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .ba-point p {
+      margin: 12px 0 0;
+      color: var(--soft-ink);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .note {
+      margin-top: 18px;
+      color: rgba(39, 48, 51, 0.56);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .flow {
+      background: linear-gradient(180deg, #eef9fa 0%, #fffdfb 100%);
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .step {
+      position: relative;
+      min-height: 240px;
+      padding: 28px 22px;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 18px 42px rgba(39, 48, 51, 0.07);
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .step strong {
+      display: block;
+      margin-top: 22px;
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .step p {
+      margin: 12px 0 0;
+      color: var(--soft-ink);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .voices {
+      background: var(--pearl);
+    }
+
+    .voice-visual {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      box-shadow: 0 26px 66px rgba(39, 48, 51, 0.12);
+    }
+
+    .voice-visual img {
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+    }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: -54px;
+      position: relative;
+      z-index: 2;
+      padding: 0 28px;
+    }
+
+    .voice-card {
+      min-height: 210px;
+      padding: 26px 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 44px rgba(39, 48, 51, 0.1);
+    }
+
+    .voice-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    .voice-card p {
+      margin: 12px 0 0;
+      color: var(--soft-ink);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    .voice-card span {
+      display: block;
+      margin-top: 16px;
+      color: var(--rose-deep);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .plans {
+      background: linear-gradient(180deg, #fffdfb 0%, #f7efe8 100%);
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .plan {
+      position: relative;
+      min-height: 390px;
+      padding: 34px 26px 28px;
+      border-radius: 28px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 48px rgba(39, 48, 51, 0.08);
+    }
+
+    .plan.recommend {
+      border: 2px solid rgba(200, 164, 107, 0.52);
+      transform: translateY(-10px);
+    }
+
+    .plan-tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--mist);
+      color: #27656b;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .plan h3 {
+      margin: 18px 0 0;
+      color: var(--navy);
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 1.3;
+    }
+
+    .price {
+      margin-top: 20px;
+      color: var(--rose-deep);
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .price small {
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .plan p {
+      margin: 18px 0 0;
+      color: var(--soft-ink);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    .plan ul {
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .plan li::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      vertical-align: 1px;
+    }
+
+    .faq {
+      background: #fff;
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    .faq-item p {
+      margin: 12px 0 0;
+      color: var(--soft-ink);
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.75;
+    }
+
+    .reserve {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .reserve::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(34, 55, 66, 0.94) 0%, rgba(34, 55, 66, 0.78) 52%, rgba(34, 55, 66, 0.22) 100%),
+        url("assets/facial-interior.png") center / cover;
+      opacity: 1;
+    }
+
+    .reserve .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .reserve .eyebrow,
+    .reserve .headline,
+    .reserve .copy {
+      color: #fff;
+    }
+
+    .reserve-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .reserve .btn.secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    .sticky-cta {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .header-link {
+        display: none;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .worry-grid,
+      .flow-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-layout,
+      .ba-content {
+        grid-template-columns: 1fr;
+      }
+
+      .plan-grid,
+      .voice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .plan.recommend {
+        transform: none;
+      }
+
+      .voice-grid {
+        margin-top: 18px;
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding-bottom: 82px;
+      }
+
+      .site-header {
+        min-height: 64px;
+        padding: 0 16px;
+      }
+
+      .brand strong {
+        font-size: 18px;
+      }
+
+      .brand span {
+        font-size: 10px;
+      }
+
+      .mini-cta {
+        min-height: 38px;
+        padding: 0 13px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(255, 253, 251, 0.95) 0%, rgba(255, 253, 251, 0.70) 42%, rgba(255, 253, 251, 0.12) 78%, rgba(255, 253, 251, 0.96) 100%);
+      }
+
+      .hero-image {
+        position: relative;
+        height: 430px;
+      }
+
+      .hero-image img {
+        object-position: 60% 50%;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        width: 100%;
+        padding: 38px 22px 42px;
+      }
+
+      .kicker {
+        min-height: 32px;
+        padding: 0 14px;
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: clamp(38px, 11vw, 48px);
+      }
+
+      .hero-lead {
+        font-size: 16px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-badges {
+        grid-template-columns: 1fr;
+      }
+
+      .badge {
+        min-height: 76px;
+      }
+
+      .section {
+        padding: 64px 22px;
+      }
+
+      .section-head {
+        margin-bottom: 34px;
+      }
+
+      .eyebrow {
+        font-size: 13px;
+      }
+
+      .copy {
+        font-size: 15px;
+      }
+
+      .worry-grid,
+      .flow-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .worry,
+      .step {
+        min-height: 0;
+      }
+
+      .image-band,
+      .image-band img {
+        min-height: 620px;
+        height: 620px;
+      }
+
+      .band-copy {
+        left: 22px;
+        right: 22px;
+        bottom: 36px;
+        width: auto;
+      }
+
+      .feature-photo {
+        border-radius: 22px;
+      }
+
+      .ba-card,
+      .voice-visual {
+        border-radius: 22px;
+      }
+
+      .ba-image img {
+        aspect-ratio: 4 / 5;
+      }
+
+      .ba-labels {
+        inset: 14px 14px auto;
+      }
+
+      .ba-label {
+        padding: 9px 12px;
+        font-size: 12px;
+      }
+
+      .ba-point {
+        padding: 24px 20px;
+      }
+
+      .voice-visual img {
+        aspect-ratio: 4 / 5;
+      }
+
+      .plan {
+        min-height: 0;
+      }
+
+      .reserve::before {
+        background:
+          linear-gradient(180deg, rgba(34, 55, 66, 0.96) 0%, rgba(34, 55, 66, 0.86) 100%),
+          url("assets/facial-interior.png") center / cover;
+      }
+
+      .reserve-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .sticky-cta {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        z-index: 60;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.62);
+        border-radius: 22px;
+        background: rgba(255, 253, 251, 0.88);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 18px 42px rgba(39, 48, 51, 0.18);
+      }
+
+      .sticky-cta a {
+        min-height: 48px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .sticky-cta .line {
+        background: var(--line-green);
+        color: #fff;
+      }
+
+      .sticky-cta .reserve-link {
+        background: var(--navy);
+        color: #fff;
+      }
+    }
+
+    /* Campaign-style refresh inspired by polished beauty product LPs */
+    body {
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255, 217, 230, 0.56) 0 110px, transparent 112px),
+        radial-gradient(circle at 92% 18%, rgba(196, 240, 242, 0.48) 0 120px, transparent 122px),
+        #fff9f9;
+    }
+
+    .site-header {
+      border-bottom: 0;
+      box-shadow: 0 10px 30px rgba(60, 38, 46, 0.06);
+    }
+
+    .brand strong {
+      color: #17445a;
+    }
+
+    .mini-cta,
+    .btn.primary {
+      background: #02c759;
+      box-shadow: 0 14px 0 rgba(0, 143, 71, 0.15), 0 18px 34px rgba(2, 199, 89, 0.22);
+    }
+
+    .btn.secondary {
+      background: #fff;
+      border: 2px solid rgba(23, 68, 90, 0.12);
+      box-shadow: 0 14px 0 rgba(158, 207, 210, 0.18), 0 18px 34px rgba(39, 48, 51, 0.08);
+    }
+
+    .hero {
+      min-height: 880px;
+      isolation: isolate;
+      background:
+        linear-gradient(rgba(255,255,255,0.42) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.42) 1px, transparent 1px),
+        linear-gradient(135deg, #ffd9e7 0%, #ffedf3 45%, #d9f7f8 100%);
+      background-size: 56px 56px, 56px 56px, auto;
+    }
+
+    .hero::before {
+      z-index: 1;
+      background:
+        radial-gradient(circle at 12% 76%, rgba(255,255,255,0.82) 0 78px, transparent 82px),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.68) 0 112px, transparent 116px),
+        linear-gradient(90deg, rgba(255, 249, 251, 0.88) 0%, rgba(255, 249, 251, 0.62) 40%, rgba(255, 249, 251, 0.08) 74%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: -78px;
+      height: 190px;
+      z-index: 3;
+      background: #fffdfb;
+      clip-path: ellipse(58% 42% at 50% 100%);
+      pointer-events: none;
+    }
+
+    .hero-image {
+      z-index: 2;
+      inset: 110px max(18px, calc((100vw - 1180px) / 2)) 54px auto;
+      width: min(52vw, 660px);
+      height: auto;
+      border: 9px solid rgba(255, 255, 255, 0.74);
+      border-radius: 46% 54% 38% 62% / 56% 42% 58% 44%;
+      overflow: hidden;
+      box-shadow: 0 34px 90px rgba(174, 89, 105, 0.22);
+      transform: rotate(1.5deg);
+    }
+
+    .hero-image img {
+      object-position: 62% 50%;
+      filter: saturate(1.05) brightness(1.03);
+    }
+
+    .hero-inner {
+      min-height: 806px;
+      width: min(1160px, calc(100% - 48px));
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.8fr);
+      padding-top: 96px;
+    }
+
+    .hero-copy-wrap {
+      position: relative;
+      z-index: 2;
+      width: min(640px, 58vw);
+    }
+
+    .hero-copy-picture,
+    .hero-copy-image {
+      display: block;
+      width: 100%;
+    }
+
+    .hero-copy-image {
+      height: auto;
+      margin-left: -18px;
+      filter: drop-shadow(0 22px 34px rgba(82, 68, 76, 0.12));
+    }
+
+    .hero .hero-actions {
+      margin-top: 22px;
+      margin-left: 18px;
+    }
+
+    .kicker {
+      background: #ff78a7;
+      color: #fff;
+      box-shadow: 0 10px 0 rgba(255, 120, 167, 0.18), 0 16px 30px rgba(196, 79, 112, 0.18);
+    }
+
+    .hero h1,
+    .headline {
+      letter-spacing: 0;
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif;
+    }
+
+    .hero h1 {
+      color: #17445a;
+      text-shadow:
+        3px 3px 0 rgba(255,255,255,0.9),
+        -3px 3px 0 rgba(255,255,255,0.9),
+        3px -3px 0 rgba(255,255,255,0.9),
+        -3px -3px 0 rgba(255,255,255,0.9);
+    }
+
+    .hero h1 span {
+      color: #ee6f9e;
+    }
+
+    .hero-lead {
+      color: #365b66;
+      background: rgba(255, 255, 255, 0.62);
+      border-left: 6px solid #ff78a7;
+      border-radius: 0 22px 22px 0;
+      padding: 18px 22px;
+      box-shadow: 0 18px 38px rgba(82, 68, 76, 0.08);
+    }
+
+    .hero-badges {
+      gap: 14px;
+    }
+
+    .badge {
+      position: relative;
+      overflow: hidden;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 12px 0 rgba(255, 199, 217, 0.32), 0 20px 40px rgba(68, 49, 60, 0.10);
+    }
+
+    .badge::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 2px dashed rgba(255, 120, 167, 0.42);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .badge strong {
+      color: #ff6f9f;
+    }
+
+    .section {
+      position: relative;
+    }
+
+    .section-head {
+      position: relative;
+    }
+
+    .eyebrow {
+      color: #ff78a7;
+    }
+
+    .headline {
+      color: #17445a;
+    }
+
+    .problem {
+      background:
+        radial-gradient(circle at 18% 20%, rgba(255, 221, 232, 0.62) 0 120px, transparent 122px),
+        radial-gradient(circle at 88% 80%, rgba(218, 247, 248, 0.7) 0 142px, transparent 144px),
+        #fffdfb;
+    }
+
+    .problem .section-head::after,
+    .before-after .section-head::after,
+    .voices .section-head::after {
+      content: "♡";
+      position: absolute;
+      left: 50%;
+      bottom: -34px;
+      transform: translateX(-50%) rotate(-8deg);
+      color: #ff8fb5;
+      font-size: 30px;
+      font-weight: 900;
+      opacity: 0.8;
+    }
+
+    .worry-grid {
+      gap: 20px;
+    }
+
+    .worry {
+      position: relative;
+      overflow: hidden;
+      border: 0;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 12px 0 rgba(255, 222, 232, 0.55), 0 26px 52px rgba(65, 43, 53, 0.08);
+      transform: rotate(-0.7deg);
+    }
+
+    .worry:nth-child(even) {
+      transform: rotate(0.7deg);
+      background: linear-gradient(180deg, #fff 0%, #effdfe 100%);
+      box-shadow: 0 12px 0 rgba(190, 237, 240, 0.5), 0 26px 52px rgba(65, 43, 53, 0.08);
+    }
+
+    .worry::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 94px;
+      height: 94px;
+      border-radius: 50%;
+      background: rgba(255, 120, 167, 0.15);
+    }
+
+    .worry-mark {
+      background: #ff78a7;
+      color: #fff;
+      box-shadow: 0 8px 0 rgba(255, 120, 167, 0.2);
+    }
+
+    .image-band {
+      min-height: 820px;
+      background:
+        linear-gradient(rgba(255,255,255,0.42) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.42) 1px, transparent 1px),
+        #ffeaf2;
+      background-size: 64px 64px;
+      border-top: 18px solid #fff;
+      border-bottom: 18px solid #fff;
+    }
+
+    .image-band img {
+      height: 820px;
+      filter: saturate(1.04) brightness(1.02);
+    }
+
+    .image-band::after {
+      background:
+        linear-gradient(90deg, rgba(255, 247, 250, 0.94) 0%, rgba(255, 247, 250, 0.72) 42%, rgba(255, 247, 250, 0.12) 76%),
+        radial-gradient(circle at 16% 16%, rgba(255,255,255,0.85) 0 110px, transparent 112px),
+        radial-gradient(circle at 82% 86%, rgba(192,239,242,0.4) 0 130px, transparent 132px);
+    }
+
+    .band-copy {
+      bottom: 82px;
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 24px 64px rgba(60, 42, 52, 0.14);
+      backdrop-filter: blur(10px);
+    }
+
+    .features {
+      background:
+        radial-gradient(circle at 10% 14%, rgba(255, 220, 231, 0.66) 0 125px, transparent 127px),
+        linear-gradient(180deg, #fffdfb 0%, #e8fbfd 100%);
+    }
+
+    .feature-photo {
+      border: 10px solid #fff;
+      border-radius: 46px;
+      box-shadow: 0 20px 0 rgba(203, 238, 240, 0.56), 0 32px 78px rgba(39, 48, 51, 0.12);
+      transform: rotate(-1.2deg);
+    }
+
+    .feature-item {
+      border: 0;
+      border-radius: 999px 28px 28px 999px;
+      background: #fff;
+      box-shadow: 0 10px 0 rgba(218, 247, 248, 0.65), 0 18px 42px rgba(39, 48, 51, 0.06);
+      padding-left: 28px;
+    }
+
+    .feature-item:nth-child(2) {
+      box-shadow: 0 10px 0 rgba(255, 222, 232, 0.65), 0 18px 42px rgba(39, 48, 51, 0.06);
+    }
+
+    .before-after {
+      background:
+        linear-gradient(rgba(255,255,255,0.44) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.44) 1px, transparent 1px),
+        #fff0f5;
+      background-size: 52px 52px;
+    }
+
+    .ba-card {
+      border: 10px solid #fff;
+      border-radius: 42px;
+      box-shadow: 0 18px 0 rgba(255, 189, 210, 0.45), 0 34px 76px rgba(74, 45, 58, 0.13);
+      transform: rotate(0.6deg);
+    }
+
+    .ba-label {
+      border: 2px solid rgba(255, 120, 167, 0.22);
+      color: #ff6f9f;
+    }
+
+    .ba-label.after {
+      color: #1f7078;
+      border-color: rgba(159, 207, 210, 0.38);
+    }
+
+    .ba-content {
+      background: #fff;
+      gap: 0;
+    }
+
+    .ba-point {
+      background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
+    }
+
+    .flow {
+      background: linear-gradient(180deg, #dff9fb 0%, #fffdfb 100%);
+    }
+
+    .step {
+      overflow: hidden;
+      border-radius: 34px;
+      background: #fff;
+      box-shadow: 0 12px 0 rgba(168, 224, 228, 0.5), 0 24px 48px rgba(39, 48, 51, 0.08);
+    }
+
+    .step::after {
+      content: "";
+      position: absolute;
+      right: -38px;
+      bottom: -38px;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: rgba(255, 120, 167, 0.12);
+    }
+
+    .step-num {
+      background: #17445a;
+      box-shadow: 0 8px 0 rgba(23, 68, 90, 0.14);
+    }
+
+    .voices {
+      background:
+        radial-gradient(circle at 90% 10%, rgba(212, 247, 249, 0.72) 0 145px, transparent 147px),
+        #fffdfb;
+    }
+
+    .voice-visual {
+      border: 10px solid #fff;
+      border-radius: 42px;
+      box-shadow: 0 18px 0 rgba(255, 222, 232, 0.58), 0 34px 76px rgba(74, 45, 58, 0.12);
+      transform: rotate(-0.5deg);
+    }
+
+    .voice-card {
+      border: 0;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 14px 0 rgba(255, 222, 232, 0.55), 0 24px 52px rgba(39, 48, 51, 0.10);
+    }
+
+    .voice-card:nth-child(2) {
+      box-shadow: 0 14px 0 rgba(210, 246, 248, 0.58), 0 24px 52px rgba(39, 48, 51, 0.10);
+    }
+
+    .plans {
+      background:
+        linear-gradient(rgba(255,255,255,0.38) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.38) 1px, transparent 1px),
+        #fff0d4;
+      background-size: 56px 56px;
+    }
+
+    .plan {
+      border: 0;
+      border-radius: 34px;
+      background: #fff;
+      box-shadow: 0 14px 0 rgba(255, 207, 132, 0.45), 0 26px 58px rgba(88, 60, 38, 0.12);
+    }
+
+    .plan.recommend {
+      border: 0;
+      background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
+      box-shadow: 0 14px 0 rgba(255, 120, 167, 0.28), 0 30px 70px rgba(88, 60, 38, 0.14);
+    }
+
+    .plan-tag {
+      background: #ff78a7;
+      color: #fff;
+    }
+
+    .price {
+      color: #ff6f9f;
+    }
+
+    .faq {
+      background: #fffdfb;
+    }
+
+    .faq-list {
+      border-top: 0;
+    }
+
+    .faq-item {
+      margin-top: 14px;
+      padding: 24px 26px;
+      border: 0;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 10px 0 rgba(210, 246, 248, 0.5), 0 20px 44px rgba(39, 48, 51, 0.06);
+    }
+
+    .reserve {
+      background: #17445a;
+    }
+
+    .reserve::before {
+      background:
+        linear-gradient(90deg, rgba(23, 68, 90, 0.96) 0%, rgba(23, 68, 90, 0.80) 48%, rgba(23, 68, 90, 0.30) 100%),
+        url("assets/facial-interior.png") center / cover;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: 800px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        opacity: 0.86;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
+        background-size: 42px 42px, 42px 42px, auto;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(255, 247, 250, 0.34) 0%, rgba(255, 247, 250, 0.05) 72%, rgba(255, 253, 251, 0.9) 100%);
+      }
+
+      .hero::after {
+        height: 86px;
+        bottom: -38px;
+      }
+
+      .hero-image {
+        order: 1;
+        position: relative;
+        inset: auto;
+        width: calc(100% - 34px);
+        height: 430px;
+        margin: 18px auto 0;
+        border-width: 7px;
+        border-radius: 42px;
+        transform: rotate(1deg);
+      }
+
+      .hero-inner {
+        order: 2;
+        position: relative;
+        z-index: 4;
+        display: block;
+        grid-template-columns: 1fr;
+        padding-top: 22px;
+      }
+
+      .hero-copy-wrap {
+        width: 100%;
+      }
+
+      .hero-copy-image {
+        margin-left: 0;
+        filter: drop-shadow(0 14px 24px rgba(82, 68, 76, 0.11));
+      }
+
+      .hero .hero-actions {
+        margin-top: 18px;
+        margin-left: 0;
+      }
+
+      .hero h1 {
+        text-shadow:
+          2px 2px 0 rgba(255,255,255,0.9),
+          -2px 2px 0 rgba(255,255,255,0.9),
+          2px -2px 0 rgba(255,255,255,0.9),
+          -2px -2px 0 rgba(255,255,255,0.9);
+      }
+
+      .hero-lead {
+        padding: 16px 18px;
+        border-left-width: 5px;
+      }
+
+      .hero-badges {
+        grid-template-columns: 1fr;
+      }
+
+      .image-band,
+      .image-band img {
+        min-height: 650px;
+        height: 650px;
+      }
+
+      .band-copy {
+        padding: 24px 20px;
+        border-radius: 28px;
+      }
+
+      .feature-item {
+        border-radius: 24px;
+      }
+
+      .ba-card,
+      .voice-visual {
+        border-width: 7px;
+        border-radius: 30px;
+        transform: none;
+      }
+
+      .voice-grid {
+        margin-top: 26px;
+      }
+
+      .faq-item {
+        padding: 22px 20px;
+      }
+    }
+
+    /* Real salon reference hero refresh */
+    .hero {
+      min-height: 860px;
+      background: #f4ebe7;
+    }
+
+    .hero::before {
+      z-index: 2;
+      background:
+        linear-gradient(90deg, rgba(246, 239, 235, 0.98) 0%, rgba(246, 239, 235, 0.92) 38%, rgba(246, 239, 235, 0.16) 68%, rgba(246, 239, 235, 0) 100%);
+    }
+
+    .hero::after {
+      left: max(24px, calc((100vw - 1180px) / 2));
+      right: auto;
+      top: 132px;
+      bottom: auto;
+      width: min(440px, 36vw);
+      height: 1px;
+      background: rgba(161, 124, 108, 0.26);
+      clip-path: none;
+      z-index: 4;
+    }
+
+    .hero-image {
+      z-index: 1;
+      inset: 72px 0 0 auto;
+      width: min(59vw, 830px);
+      height: calc(100% - 72px);
+      border: 0;
+      border-radius: 0 0 0 96px;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .hero-image img {
+      object-position: 58% 50%;
+      filter: saturate(0.97) brightness(1.03);
+    }
+
+    .hero-inner {
+      z-index: 4;
+      min-height: 840px;
+      width: min(1180px, calc(100% - 48px));
+      grid-template-columns: minmax(0, 610px) minmax(0, 1fr);
+      align-items: center;
+      padding: 104px 0 54px;
+    }
+
+    .hero-copy-wrap {
+      width: min(610px, 100%);
+    }
+
+    .hero-copy-image {
+      margin-left: 0;
+      filter: drop-shadow(0 24px 42px rgba(83, 67, 59, 0.12));
+    }
+
+    .hero .hero-actions {
+      margin: 22px 0 0;
+    }
+
+    .hero .btn.secondary {
+      background: rgba(255, 253, 250, 0.94);
+      color: #5f4b44;
+      border: 1px solid rgba(161, 124, 108, 0.28);
+      box-shadow: 0 14px 32px rgba(83, 67, 59, 0.08);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: 780px;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        width: min(620px, calc(100% - 36px));
+      }
+
+      .hero-image {
+        width: 62vw;
+        opacity: 0.72;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        display: block;
+        min-height: auto;
+        padding-bottom: 34px;
+        background: #f4ebe7;
+      }
+
+      .hero::before {
+        z-index: 2;
+        background:
+          linear-gradient(180deg, rgba(244, 235, 231, 0) 0%, rgba(244, 235, 231, 0) 45%, rgba(244, 235, 231, 0.94) 72%, #f4ebe7 100%);
+      }
+
+      .hero::after {
+        display: none;
+      }
+
+      .hero-image {
+        position: relative;
+        z-index: 1;
+        inset: auto;
+        width: 100%;
+        height: 430px;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        transform: none;
+        opacity: 1;
+      }
+
+      .hero-image img {
+        object-position: 53% 50%;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 4;
+        width: min(100% - 28px, 420px);
+        min-height: auto;
+        margin: -54px auto 0;
+        padding: 0;
+        display: block;
+      }
+
+      .hero-copy-wrap {
+        width: 100%;
+      }
+
+      .hero-copy-image {
+        width: 100%;
+        max-width: 390px;
+        margin: 0 auto;
+        filter: drop-shadow(0 18px 34px rgba(83, 67, 59, 0.13));
+      }
+
+      .hero .hero-actions {
+        width: min(100%, 360px);
+        margin: 18px auto 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .hero .btn {
+        width: 100%;
+        min-height: 54px;
+        font-size: 15px;
+      }
+    }
+    /* ============================================================
+       Reveal / Scroll Animations
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s var(--ease-out-quint),
+                  transform 0.7s var(--ease-out-quint);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 80ms; }
+    .reveal-delay-2 { transition-delay: 160ms; }
+    .reveal-delay-3 { transition-delay: 240ms; }
+
+    /* Screen-reader only — visible content lives in image, but SEO/a11y gets text */
+    .sr-only {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* CTA micro-copy のレイアウト調整（hero では中央寄せ）*/
+    .hero-actions .micro-copy {
+      flex-basis: 100%;
+      text-align: left;
+    }
+
+    /* SVG ペイント問題回避（buttonクリックを SVG が奪わない）*/
+    .btn svg,
+    .mini-cta svg {
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href="#top" class="brand" aria-label="LUNEA Skin Studio トップへ">
+      <strong>LUNEA</strong>
+      <span>Skin Studio</span>
+    </a>
+    <nav class="header-actions" aria-label="主要導線">
+      <a class="header-link" href="#features">特徴</a>
+      <a class="header-link" href="#plans">料金</a>
+      <a class="header-link" href="#faq">FAQ</a>
+      <a class="mini-cta" href="#reserve" aria-label="LINEで30秒予約">30秒で LINE 予約</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="ヒーロー">
+      <h1 class="sr-only">LUNEA Skin Studio | 肌が変わると、表情まで変わる。肌診断からはじめる透明感フェイシャルエステ。Instagram広告からのLINE予約限定、初回60分4,980円。</h1>
+      <div class="hero-image">
+        <img src="assets/facial-treatment.png" alt="" width="1254" height="1254" fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero-inner">
+        <div class="hero-copy-wrap reveal">
+          <picture class="hero-copy-picture" aria-hidden="true">
+            <source media="(max-width: 640px)" srcset="assets/facial-hero-copy-mobile.png">
+            <img class="hero-copy-image" src="assets/facial-hero-copy.png" alt="" width="780" height="520" decoding="async">
+          </picture>
+          <div class="hero-actions">
+            <a class="btn primary" href="#reserve" aria-label="LINEで30秒予約する（初回60分4,980円）">
+              <span>LINE で 30秒予約する</span>
+            </a>
+            <a class="btn secondary" href="#plans" aria-label="初回60分4,980円プランを見る">
+              <span>初回プランを見る</span>
+            </a>
+            <p class="micro-copy">完全個室・女性専用・営業電話なし・キャンセル無料</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem" id="problem" aria-label="肌悩み">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">SKIN WORRIES</p>
+          <h2 class="headline">写真に写る自分に、<br><strong>少し自信が持てない日</strong>へ。</h2>
+          <p class="copy">肌悩みはひとつではありません。LUNEAは肌状態と生活リズムに合わせて、清潔感のある素肌印象へ導きます。</p>
+        </div>
+        <div class="worry-grid">
+          <div class="worry reveal reveal-delay-1">
+            <div class="worry-mark">01</div>
+            <strong>毛穴の目立ち</strong>
+            <p>メイクで隠しても夕方には気になる、鼻まわりや頬のざらつき。</p>
+          </div>
+          <div class="worry reveal reveal-delay-2">
+            <div class="worry-mark">02</div>
+            <strong>むくみ感</strong>
+            <p>朝の顔が重たく見える、写真でフェイスラインがぼやける。</p>
+          </div>
+          <div class="worry reveal reveal-delay-3">
+            <div class="worry-mark">03</div>
+            <strong>乾燥くすみ</strong>
+            <p>しっかり寝ても肌がどんより見えて、透明感が物足りない。</p>
+          </div>
+          <div class="worry reveal reveal-delay-3">
+            <div class="worry-mark">04</div>
+            <strong>肌荒れ印象</strong>
+            <p>季節やストレスで揺らぎやすく、清潔感に自信が持てない。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="image-band" aria-label="サービス紹介">
+      <img src="assets/facial-treatment.png" alt="" width="1254" height="1254" loading="lazy" decoding="async">
+      <div class="band-copy reveal">
+        <span class="kicker">PRIVATE FACIAL CARE</span>
+        <h2 class="headline">肌も、輪郭印象も。<br><strong>一度で軽やかに。</strong></h2>
+        <p class="copy">やさしいハンドトリートメントと毛穴ケアで、うるおいに満ちたすっきり肌印象を目指します。</p>
+      </div>
+    </section>
+
+    <section class="section features" id="features" aria-label="サロンの特徴">
+      <div class="container">
+        <div class="feature-layout">
+          <div class="feature-photo reveal">
+            <img src="assets/facial-interior.png" alt="清潔感のある高級フェイシャルサロン内観" width="1254" height="1254" loading="lazy" decoding="async">
+          </div>
+          <div class="reveal reveal-delay-1">
+            <p class="eyebrow">SALON FEATURES</p>
+            <h2 class="headline">他店と違う、<br><strong>肌から整える小顔フェイシャル</strong>。</h2>
+            <p class="copy">肌表面だけでなく、表情ぐせ・むくみ感・毛穴汚れまで見て、あなたに合わせたケアを組み立てます。</p>
+            <div class="feature-list">
+              <div class="feature-item">
+                <strong>肌診断から始めるオーダーメイド施術</strong>
+                <p>乾燥、皮脂、毛穴、赤み印象を見ながら、その日の肌に合わせて施術内容を調整。</p>
+              </div>
+              <div class="feature-item">
+                <strong>毛穴洗浄 × うるおい導入</strong>
+                <p>ざらつき汚れをすっきり整え、仕上げにみずみずしいうるおいをチャージ。</p>
+              </div>
+              <div class="feature-item">
+                <strong>フェイスライン印象までケア</strong>
+                <p>首・デコルテまで流して、写真映えするすっきりとした印象へ。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section before-after" id="before-after" aria-label="ビフォーアフター">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">BEFORE / AFTER</p>
+          <h2 class="headline">うるおいと清潔感で、<br><strong>印象は変わる</strong>。</h2>
+          <p class="copy">Instagram広告で伝わりやすい、視覚的な変化訴求。肌のつや、明るさ、フェイスライン印象をわかりやすく見せます。</p>
+        </div>
+        <div class="ba-card reveal reveal-delay-1">
+          <div class="ba-image">
+            <img src="assets/facial-before-after.png" alt="フェイシャルエステの印象変化イメージ" width="1254" height="1254" loading="lazy" decoding="async">
+            <div class="ba-labels">
+              <div class="ba-label">Before</div>
+              <div class="ba-label after">After</div>
+            </div>
+          </div>
+          <div class="ba-content">
+            <div class="ba-point">
+              <strong>施術前の印象</strong>
+              <p>乾燥くすみやむくみ感で、顔全体が少し重たく見えやすい状態。</p>
+            </div>
+            <div class="ba-point">
+              <strong>施術後の印象</strong>
+              <p>うるおいによるつやと、すっきりしたフェイスライン印象で自信のある表情へ。</p>
+            </div>
+          </div>
+        </div>
+        <p class="note">※写真は施術イメージです。効果実感には個人差があります。※小顔はフェイスラインがすっきり見える印象表現です。</p>
+      </div>
+    </section>
+
+    <section class="section flow" id="flow" aria-label="ご利用の流れ">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">FIRST VISIT FLOW</p>
+          <h2 class="headline">はじめてでも安心。<br><strong>予約から施術まで。</strong></h2>
+        </div>
+        <div class="flow-grid">
+          <div class="step reveal reveal-delay-1">
+            <div class="step-num">01</div>
+            <strong>LINEで予約</strong>
+            <p>希望日時とお悩みを送るだけ。空き枠をスタッフがご案内します。</p>
+          </div>
+          <div class="step reveal reveal-delay-2">
+            <div class="step-num">02</div>
+            <strong>肌診断・カウンセリング</strong>
+            <p>毛穴、乾燥、むくみ感などを確認し、当日の施術内容を決めます。</p>
+          </div>
+          <div class="step reveal reveal-delay-3">
+            <div class="step-num">03</div>
+            <strong>フェイシャル施術</strong>
+            <p>クレンジング、毛穴ケア、ハンドトリートメント、保湿ケアを実施。</p>
+          </div>
+          <div class="step reveal reveal-delay-3">
+            <div class="step-num">04</div>
+            <strong>アフターケア提案</strong>
+            <p>翌日からのホームケアと、理想の来店ペースをご提案します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="image-band" aria-label="カウンセリング">
+      <img src="assets/facial-consult.png" alt="カウンセリングで肌状態を相談する女性" width="1254" height="1254" loading="lazy" decoding="async">
+      <div class="band-copy reveal">
+        <span class="kicker">COUNSELING</span>
+        <h2 class="headline">悩みを言葉にするだけで、<br><strong>ケアは変わる。</strong></h2>
+        <p class="copy">押し売りではなく、肌状態と理想の印象を丁寧に共有。必要なケアだけを提案します。</p>
+      </div>
+    </section>
+
+    <section class="section voices" id="voices" aria-label="お客様の声">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">CUSTOMER VOICE</p>
+          <h2 class="headline">自分の肌に、<br><strong>少し前向きになれた</strong>。</h2>
+        </div>
+        <div class="voice-visual reveal reveal-delay-1">
+          <img src="assets/facial-voices.png" alt="お客様の声イメージ" width="1254" height="1254" loading="lazy" decoding="async">
+        </div>
+        <div class="voice-grid">
+          <div class="voice-card reveal reveal-delay-1">
+            <strong>毛穴のざらつきが気になりにくくなりました</strong>
+            <p>初回でも肌がなめらかに見えて、翌日のメイクが楽しくなりました。</p>
+            <span>28歳 / 会社員</span>
+          </div>
+          <div class="voice-card reveal reveal-delay-2">
+            <strong>写真を撮る時のフェイスラインが気にならない</strong>
+            <p>仕事帰りに通える雰囲気で、月1のご褒美として続けたいです。</p>
+            <span>31歳 / 営業職</span>
+          </div>
+          <div class="voice-card reveal reveal-delay-3">
+            <strong>肌の相談をしやすくて安心でした</strong>
+            <p>無理な勧誘がなく、今必要なケアを教えてもらえたのが良かったです。</p>
+            <span>25歳 / 販売職</span>
+          </div>
+        </div>
+        <p class="note">※サンプルLPのため、お客様の声は架空のイメージです。</p>
+      </div>
+    </section>
+
+    <section class="section plans" id="plans" aria-label="初回体験プラン">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">PRICE PLAN</p>
+          <h2 class="headline">Instagram限定の<br><strong>初回体験プラン。</strong></h2>
+          <p class="copy">先着・期間限定の特別価格で、フェイシャルケアをお試しいただけます。</p>
+        </div>
+        <div class="plan-grid">
+          <div class="plan">
+            <span class="plan-tag">毛穴ケア</span>
+            <h3>クリアスキン<br>フェイシャル</h3>
+            <div class="price">4,980<small>円</small></div>
+            <p>毛穴のざらつきや皮脂汚れが気になる方へ。</p>
+            <ul>
+              <li>肌診断</li>
+              <li>毛穴クレンジング</li>
+              <li>保湿パック</li>
+            </ul>
+          </div>
+          <div class="plan recommend">
+            <span class="plan-tag">人気No.1</span>
+            <h3>小顔見え<br>グロウフェイシャル</h3>
+            <div class="price">6,980<small>円</small></div>
+            <p>肌のつやとフェイスライン印象を同時に整えたい方へ。</p>
+            <ul>
+              <li>肌診断</li>
+              <li>毛穴洗浄</li>
+              <li>小顔見えトリートメント</li>
+            </ul>
+          </div>
+          <div class="plan">
+            <span class="plan-tag">集中ケア</span>
+            <h3>透明感ブースト<br>スペシャル</h3>
+            <div class="price">9,800<small>円</small></div>
+            <p>乾燥くすみやメイクのりをしっかり整えたい方へ。</p>
+            <ul>
+              <li>肌診断</li>
+              <li>毛穴洗浄</li>
+              <li>高保湿パック</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">※価格は架空サロンLPの制作サンプルです。実運用時は提供内容・税込表記・キャンセル規定に合わせて調整してください。</p>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq" aria-label="よくある質問">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="headline">よくある質問</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <strong>Q. エステが初めてでも大丈夫ですか?</strong>
+            <p>A. 初回はカウンセリングから始めます。肌状態や不安な点を確認してから施術内容を決めるのでご安心ください。</p>
+          </div>
+          <div class="faq-item">
+            <strong>Q. メイクしたまま来店できますか?</strong>
+            <p>A. はい。施術前にクレンジングを行います。施術後に予定がある方はメイク道具をご持参ください。</p>
+          </div>
+          <div class="faq-item">
+            <strong>Q. どのくらいの頻度で通うのがおすすめですか?</strong>
+            <p>A. まずは月1回を目安に、肌状態や目標に合わせてペースをご提案します。</p>
+          </div>
+          <div class="faq-item">
+            <strong>Q. 勧誘はありますか?</strong>
+            <p>A. 無理な勧誘は行いません。必要なケアやプランを説明し、ご希望に合わせてご案内します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reserve" id="reserve" aria-label="予約">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">RESERVATION</p>
+          <h2 class="headline">綺麗になれそう、を<br><strong>今日の予約に。</strong></h2>
+          <p class="copy">LINEから空き枠・メニュー・肌悩みを気軽に相談できます。Instagram限定初回体験も受付中です。</p>
+          <div class="reserve-actions">
+            <a class="btn primary" href="https://line.me/R/ti/p/@lunea-skin-sample" aria-label="LINEで30秒予約する">
+              <span>LINE で 30秒予約する</span>
+            </a>
+            <a class="btn secondary" href="tel:0120-000-000" aria-label="お電話で相談する 0120-000-000">
+              <span>電話で相談する</span>
+            </a>
+            <p class="micro-copy">完全個室・女性専用・営業電話なし・キャンセル無料 ※サンプルLPのため、LINE/電話番号は架空です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-cta" role="region" aria-label="固定予約導線">
+    <a class="line" href="https://line.me/R/ti/p/@lunea-skin-sample" aria-label="LINEで30秒予約する">LINE で予約</a>
+    <a class="reserve-link" href="#plans" aria-label="料金プランを見る">料金を見る</a>
+  </div>
+
+  <!-- ============================================================
+       JavaScript — Scroll reveal / smooth scroll / sticky header / FAQ accordion
+       ============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      // 1) IntersectionObserver で reveal アニメ
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && reveals.length) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else {
+        // フォールバック: 即座に表示
+        reveals.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      // 2) sticky header の scroll shadow
+      var header = document.querySelector('.site-header');
+      if (header) {
+        var SCROLL_THRESHOLD = 24;
+        var ticking = false;
+        function updateScroll() {
+          var scrolled = window.scrollY > SCROLL_THRESHOLD;
+          header.classList.toggle('is-scrolled', scrolled);
+          ticking = false;
+        }
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(updateScroll);
+            ticking = true;
+          }
+        }, { passive: true });
+        updateScroll();
+      }
+
+      // 3) アンカー smooth scroll（reduced-motion を尊重）
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var href = anchor.getAttribute('href');
+          if (!href || href.length < 2) return;
+          var target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          var headerH = header ? header.offsetHeight : 0;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+          window.scrollTo({
+            top: top,
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+          });
+          // フォーカスを移動先に
+          if (target.setAttribute) target.setAttribute('tabindex', '-1');
+          if (target.focus) target.focus({ preventScroll: true });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
