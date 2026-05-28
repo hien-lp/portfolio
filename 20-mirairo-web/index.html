@@ -1,0 +1,2601 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ミライロウェブ | 中小企業のWeb集客伴走サービス</title>
+    <meta name="description" content="ミライロウェブは、制作・広告・SNS・改善運用までを月額で支援するWebマーケティング伴走サービスです。">
+    <meta name="robots" content="noindex,nofollow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'">
+    <link rel="canonical" href="https://example.com/portfolio/20-mirairo-web/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ミライロウェブ | 中小企業のWeb集客伴走サービス">
+    <meta property="og:description" content="制作・広告・SNS・改善運用までを月額で支援するWebマーケティング伴走サービスです。">
+    <meta property="og:image" content="og-image.svg">
+    <meta property="og:url" content="https://example.com/portfolio/20-mirairo-web/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+    <!--
+      Production deployment hints (server-side, not in HTML):
+      - Content-Security-Policy
+      - X-Frame-Options: DENY
+      - X-Content-Type-Options: nosniff
+      - Referrer-Policy: strict-origin-when-cross-origin
+      - Permissions-Policy: geolocation=(), camera=(), microphone=()
+      - Strict-Transport-Security: max-age=31536000; includeSubDomains
+      Google Fonts: 本番ではセルフホスティング（@font-face + woff2）推奨でCLS / privacy 改善。
+    -->
+    <style>
+      /*
+        AI-slop banlist:
+        - Inter / Roboto / Arial (sub font 含めて不使用)
+        - teal-only color schemes (neon-cyber 系)
+        - glassmorphism overuse
+        - generic ease / linear easing
+        - 過度な gradient + neon
+      */
+
+      :root {
+        /* brand palette (renamed from --red etc for clarity) */
+        --brand-primary: #2368ff;
+        --brand-primary-strong: #1552d9;
+        --brand-primary-soft: color-mix(in oklch, var(--brand-primary) 14%, white);
+        --accent-yellow: #ffcc58;
+        --mint: #bddedc;
+        --pink: #f7dce4;
+        --teal: #0b6174;
+        --chat-green: #02c001;
+        --peach: #ffb291;
+        --coral: #ef9aa6;
+
+        /* ink scale */
+        --ink: #333333;
+        --ink-strong: #111111;
+        --ink-soft: #666666;
+        --ink-mute: #6b6b6b;        /* WCAG AA 4.5:1 on white at 13px (was #777, 4.48:1) */
+        --ink-comment: #33413b;     /* vertical-comment 系 */
+        --blue-ink: #123044;
+
+        /* surface */
+        --white: #ffffff;
+        --gray: #f5f5f5;
+        --line: #e4e4e4;
+        --backdrop: rgba(11, 23, 38, .55);
+
+        --shadow: 0 16px 34px rgba(22, 35, 44, .08);
+        --shadow-soft: 0 8px 20px rgba(22, 35, 44, .06);
+
+        /* timing / easing (industry baseline v1.1) */
+        --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+        --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+        --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        --dur-fast: 200ms;
+        --dur-base: 320ms;
+        --dur-slow: 720ms;
+
+        /* z layers */
+        --z-header: 50;
+        --z-floating: 45;
+        --z-dialog: 80;
+
+        /* header height (BP-aware, used by scroll-padding-top + .site-header) */
+        --header-h: 88px;
+      }
+
+      * {
+        box-sizing: border-box;
+        letter-spacing: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--header-h);
+        font-feature-settings: "palt" 1;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Noto Sans JP", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+        color: var(--ink);
+        background: var(--white);
+        font-weight: 700;
+        line-height: 1.7;
+      }
+
+      h1, h2, h3, h4 {
+        text-wrap: balance;
+      }
+
+      p {
+        text-wrap: pretty;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible {
+        outline: 4px solid var(--accent-yellow);
+        outline-offset: 4px;
+      }
+
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .svg-sprite {
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+
+      /* Visually-hidden (SR/SEO only) */
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Skip link (a11y) */
+      .skip-link {
+        position: absolute;
+        top: -100px;
+        left: 12px;
+        z-index: calc(var(--z-dialog) + 1);
+        padding: 10px 18px;
+        border-radius: 8px;
+        background: var(--ink-strong);
+        color: var(--white);
+        font-size: 14px;
+        transition: top var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .skip-link:focus-visible {
+        top: 12px;
+      }
+
+      /* Portfolio demo notice (top) */
+      .demo-notice {
+        padding: 8px 16px;
+        background: var(--ink-strong);
+        color: var(--white);
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.5;
+        font-weight: 600;
+      }
+
+      .demo-notice strong {
+        color: var(--accent-yellow);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: var(--z-header);
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        min-height: var(--header-h);
+        padding: 13px 30px;
+        background: rgba(255, 255, 255, .97);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, .05);
+        backdrop-filter: saturate(160%) blur(6px);
+      }
+
+      .brand,
+      .footer-brand {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: .95;
+        color: var(--brand-primary);
+        flex: 0 0 auto;
+      }
+
+      .brand-ja {
+        font-size: 45px;
+        font-weight: 900;
+        transform: scaleX(1.08);
+        font-feature-settings: "palt";
+      }
+
+      .brand-en {
+        margin-top: 4px;
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: lowercase;
+      }
+
+      .global-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 52px;
+        flex: 1 1 auto;
+        font-size: 15px;
+        color: var(--ink);
+      }
+
+      .global-nav a {
+        white-space: nowrap;
+        position: relative;
+        padding: 4px 0;
+        transition: color var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .global-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 2px;
+        background: var(--brand-primary);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform var(--dur-base) var(--ease-out-quint);
+      }
+
+      .global-nav a:hover::after,
+      .global-nav a:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      .header-actions {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex: 0 0 auto;
+      }
+
+      /* Hamburger button (mobile) */
+      .hamburger {
+        display: none;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+        position: relative;
+        flex: 0 0 44px;
+      }
+
+      .hamburger span {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        height: 3px;
+        background: var(--ink-strong);
+        border-radius: 2px;
+        transition: transform var(--dur-base) var(--ease-out-quint), opacity var(--dur-fast) var(--ease-out-quint), top var(--dur-base) var(--ease-out-quint);
+      }
+
+      .hamburger span:nth-child(1) { top: 13px; }
+      .hamburger span:nth-child(2) { top: 21px; }
+      .hamburger span:nth-child(3) { top: 29px; }
+
+      /* Mobile nav dialog */
+      .mobile-nav {
+        position: fixed;
+        inset: 0;
+        z-index: var(--z-dialog);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity var(--dur-base) var(--ease-out-quint), visibility 0s linear var(--dur-base);
+      }
+
+      .mobile-nav[data-open="true"] {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity var(--dur-base) var(--ease-out-quint);
+      }
+
+      .mobile-nav-backdrop {
+        position: absolute;
+        inset: 0;
+        background: var(--backdrop);
+      }
+
+      .mobile-nav-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: min(320px, 80%);
+        background: var(--white);
+        padding: 70px 28px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        transform: translateX(100%);
+        transition: transform var(--dur-base) var(--ease-out-quint);
+        overflow-y: auto;
+      }
+
+      .mobile-nav[data-open="true"] .mobile-nav-panel {
+        transform: translateX(0);
+      }
+
+      .mobile-nav-panel a {
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--line);
+        font-size: 16px;
+        color: var(--ink-strong);
+      }
+
+      .mobile-nav-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        font-size: 0;
+      }
+
+      .mobile-nav-close::before,
+      .mobile-nav-close::after {
+        content: "";
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        top: 50%;
+        height: 3px;
+        background: var(--ink-strong);
+        border-radius: 2px;
+      }
+
+      .mobile-nav-close::before { transform: rotate(45deg); }
+      .mobile-nav-close::after { transform: rotate(-45deg); }
+
+      .tel-pill,
+      .red-pill,
+      .cta-phone,
+      .cta-red {
+        border-radius: 999px;
+        min-height: 45px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--white);
+      }
+
+      .tel-pill {
+        flex-direction: column;
+        min-width: 205px;
+        padding: 8px 22px;
+        background: var(--ink);
+        line-height: 1.18;
+        position: relative;
+      }
+
+      .tel-pill strong { font-size: 18px; }
+      .tel-pill span { font-size: 12px; }
+
+      .tel-pill .demo-tag {
+        position: absolute;
+        bottom: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--ink-soft);
+      }
+
+      .red-pill {
+        min-width: 128px;
+        padding: 8px 25px;
+        background: var(--brand-primary);
+        font-size: 18px;
+        transition: transform var(--dur-fast) var(--ease-out-quint), background var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .red-pill:hover,
+      .cta-red:hover,
+      .floating-chat:hover {
+        transform: translateY(-2px);
+        background: var(--brand-primary-strong);
+      }
+
+      .hero {
+        padding: 26px 14px 60px;
+        background: var(--white);
+      }
+
+      .hero-inner {
+        max-width: 1340px;
+        width: 100%;
+        min-height: 608px;
+        margin: 0 auto;
+        border: 4px solid var(--brand-primary);
+        border-radius: 30px;
+        display: grid;
+        grid-template-columns: 45% 55%;
+        align-items: center;
+        padding: 42px 70px 34px 96px;
+        overflow: hidden;
+        background: var(--white);
+      }
+
+      .hero-copy,
+      .hero h1,
+      .hero-art,
+      .cta-pair,
+      .service-grid {
+        min-width: 0;
+      }
+
+      .hero-kicker {
+        margin: 0 0 12px;
+        font-size: 20px;
+        line-height: 1.65;
+      }
+
+      h1, h2, h3, h4, p {
+        margin-top: 0;
+      }
+
+      .hero h1 {
+        margin: 0 0 32px;
+        color: var(--brand-primary);
+        line-height: 1;
+      }
+
+      .hero-logo {
+        display: block;
+        font-size: 84px;
+        font-weight: 900;
+        line-height: .95;
+        transform: scaleX(1.08);
+        transform-origin: left center;
+        font-feature-settings: "palt";
+      }
+
+      .hero-logo-en {
+        display: block;
+        margin-top: 8px;
+        padding-left: 104px;
+        font-size: 36px;
+        font-weight: 900;
+      }
+
+      .hero-lead {
+        margin-bottom: 28px;
+        font-size: 27px;
+        line-height: 1.75;
+      }
+
+      .hero-note {
+        max-width: 520px;
+        margin: 0 0 24px;
+        font-size: 17px;
+        line-height: 1.9;
+      }
+
+      .hero-ctas {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .hero-cta {
+        min-width: 280px;
+        padding: 14px 36px;
+        font-size: 22px;
+      }
+
+      .hero-cta-note {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink-soft);
+      }
+
+      .hero-art {
+        position: relative;
+        min-width: 0;
+      }
+
+      .hero-art svg {
+        width: 100%;
+        max-width: 660px;
+        margin-left: auto;
+        aspect-ratio: 640 / 470;
+      }
+
+      .vertical-comment {
+        position: absolute;
+        top: 92px;
+        right: 4px;
+        writing-mode: vertical-rl;
+        font-size: 24px;
+        line-height: 1.45;
+        color: var(--ink-comment);
+      }
+
+      .vertical-comment::before,
+      .vertical-comment::after {
+        content: "";
+        position: absolute;
+        width: 26px;
+        height: 4px;
+        background: var(--ink-comment);
+        border-radius: 4px;
+      }
+
+      .vertical-comment::before {
+        right: -20px;
+        top: -18px;
+        transform: rotate(-65deg);
+      }
+
+      .vertical-comment::after {
+        right: -3px;
+        top: -25px;
+        transform: rotate(78deg);
+      }
+
+      .gray { background: var(--gray); }
+
+      .cta-band { padding: 60px 20px 46px; }
+
+      .cta-pair {
+        max-width: 960px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .cta-phone {
+        min-height: 70px;
+        padding: 13px 26px;
+        background: var(--ink);
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 13px;
+        line-height: 1.25;
+      }
+
+      .cta-phone span { font-size: 13px; }
+      .cta-phone strong { font-size: 30px; }
+      .cta-phone small { font-size: 12px; }
+
+      .cta-red {
+        min-height: 70px;
+        background: var(--brand-primary);
+        font-size: 27px;
+        box-shadow: inset 0 -4px 0 rgba(0, 0, 0, .06);
+        transition: transform var(--dur-fast) var(--ease-out-quint), background var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .service-grid-section { padding: 70px 20px 82px; }
+
+      .section-narrow { max-width: 1000px; margin: 0 auto; }
+
+      .speech-row {
+        display: grid;
+        grid-template-columns: 420px 1fr 150px;
+        align-items: center;
+        gap: 22px;
+        margin-bottom: 40px;
+      }
+
+      .speech-bubble {
+        position: relative;
+        min-height: 82px;
+        margin: 0;
+        padding: 17px 24px;
+        border-radius: 8px;
+        background: var(--white);
+        font-size: 23px;
+        line-height: 1.45;
+        box-shadow: var(--shadow);
+      }
+
+      .speech-bubble::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -18px;
+        border-top: 18px solid var(--white);
+        border-right: 22px solid transparent;
+      }
+
+      .speech-text { margin: 0; font-size: 16px; }
+
+      .small-person {
+        position: relative;
+        width: 115px;
+        height: 115px;
+        border-radius: 50%;
+        background: var(--white);
+      }
+
+      .small-person::before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: 43px;
+        top: 24px;
+        border-radius: 50%;
+        background: var(--peach);
+        box-shadow: 12px -8px 0 var(--blue-ink);
+      }
+
+      .small-person::after {
+        content: "";
+        position: absolute;
+        width: 53px;
+        height: 50px;
+        left: 33px;
+        top: 54px;
+        border-radius: 26px 26px 10px 10px;
+        background: var(--coral);
+      }
+
+      .small-person span::before,
+      .small-person span::after {
+        content: "";
+        position: absolute;
+        width: 92px;
+        height: 3px;
+        left: -95px;
+        background: var(--ink);
+        transform-origin: right center;
+      }
+
+      .small-person span::before { top: 43px; transform: rotate(12deg); }
+      .small-person span::after { top: 70px; transform: rotate(-13deg); }
+
+      .service-grid {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+      }
+
+      .mini-card {
+        min-height: 160px;
+        padding: 20px 12px 18px;
+        border-radius: 28px;
+        background: var(--white);
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, .02);
+        transition: transform var(--dur-base) var(--ease-out-quint), box-shadow var(--dur-base) var(--ease-out-quint);
+      }
+
+      .mini-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .mini-card svg { width: 58px; height: 58px; }
+      .mini-card h3 { min-height: 52px; margin: 0; font-size: 17px; line-height: 1.5; }
+
+      .voice, .about, .flow, .faq, .news { padding: 72px 20px 82px; }
+
+      .section-title {
+        max-width: 1180px;
+        margin: 0 auto 28px;
+        text-align: center;
+      }
+
+      .section-title span {
+        display: block;
+        color: var(--ink);
+        font-size: 48px;
+        line-height: 1.1;
+        font-weight: 900;
+      }
+
+      .section-title h2 {
+        margin: 10px 0 0;
+        color: var(--ink-strong);
+        font-size: 20px;
+        line-height: 1.6;
+      }
+
+      .title-lines {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 34px;
+      }
+
+      .title-lines::before,
+      .title-lines::after {
+        content: "";
+        height: 4px;
+        background: var(--ink-strong);
+      }
+
+      .title-lines h2 { grid-column: 2; }
+
+      .center-copy {
+        max-width: 780px;
+        margin: 0 auto 38px;
+        text-align: center;
+        font-size: 19px;
+        line-height: 1.8;
+      }
+
+      .center-copy strong { color: var(--brand-primary); }
+
+      .voice-list {
+        max-width: 1160px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .voice-card {
+        overflow: hidden;
+        border-radius: 14px;
+        background: var(--white);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        transition: transform var(--dur-base) var(--ease-out-quint);
+      }
+
+      .voice-card:hover { transform: translateY(-4px); }
+      .voice-card h3 { margin: 18px 18px 8px; font-size: 18px; }
+
+      .voice-result {
+        display: inline-block;
+        margin: 0 18px 10px;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: var(--brand-primary);
+        color: var(--white);
+        font-size: 13px;
+        font-weight: 900;
+        line-height: 1.4;
+      }
+
+      .voice-card p {
+        margin: 0 18px 22px;
+        font-size: 14px;
+        line-height: 1.7;
+        font-weight: 600;
+      }
+
+      .voice-card .voice-result + p { margin-top: 0; }
+
+      .mock-thumb { height: 150px; position: relative; background: #eef6f7; }
+
+      .mock-thumb::before {
+        content: "";
+        position: absolute;
+        inset: 25px 28px;
+        border-radius: 10px;
+        background: var(--white);
+        border: 4px solid var(--blue-ink);
+      }
+
+      .mock-thumb::after {
+        content: "";
+        position: absolute;
+        width: 86px;
+        height: 14px;
+        left: 48px;
+        top: 54px;
+        border-radius: 8px;
+        background: var(--brand-primary);
+        box-shadow: 0 28px 0 var(--mint), 92px 28px 0 var(--accent-yellow);
+      }
+
+      .thumb-b { background: #fff5d8; }
+      .thumb-c { background: #edf1ff; }
+      .thumb-d { background: var(--pink); }
+
+      .our-service { padding: 78px 20px 88px; }
+
+      .agitation-strip {
+        max-width: 920px;
+        margin: 0 auto 56px;
+        padding: 30px 36px 26px;
+        border-radius: 18px;
+        background: var(--white);
+        border: 2px dashed var(--brand-primary);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .agitation-lead {
+        margin: 0 0 16px;
+        text-align: center;
+        font-size: 22px;
+        line-height: 1.4;
+        color: var(--brand-primary);
+      }
+
+      .agitation-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .agitation-list li {
+        padding: 12px 16px;
+        border-radius: 10px;
+        background: var(--gray);
+        font-size: 16px;
+        line-height: 1.65;
+        display: grid;
+        gap: 4px;
+      }
+
+      .agitation-list strong { color: var(--brand-primary-strong); font-size: 1.05em; }
+      .agitation-list small { color: var(--ink-mute); font-size: 12px; font-weight: 600; }
+
+      .problem-stage {
+        max-width: 1160px;
+        min-height: 520px;
+        margin: 48px auto 45px;
+        display: grid;
+        grid-template-columns: 1fr 330px 1fr;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .problem-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 22px;
+      }
+
+      .problem-list li {
+        min-height: 118px;
+        padding: 18px 20px;
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 15px;
+        align-items: center;
+        border-radius: 18px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .problem-list svg { width: 66px; height: 66px; }
+      .problem-list span { font-size: 18px; line-height: 1.55; }
+
+      .center-worker {
+        position: relative;
+        height: 500px;
+        background: radial-gradient(ellipse at center, rgba(189, 222, 220, .55) 0, rgba(189, 222, 220, .55) 45%, transparent 46%);
+      }
+
+      .worker-head {
+        position: absolute;
+        width: 72px;
+        height: 72px;
+        top: 78px;
+        left: 132px;
+        border-radius: 50%;
+        background: var(--peach);
+        box-shadow: 27px -16px 0 var(--teal);
+      }
+
+      .worker-body {
+        position: absolute;
+        width: 130px;
+        height: 175px;
+        top: 145px;
+        left: 103px;
+        border-radius: 65px 65px 22px 22px;
+        background: var(--accent-yellow);
+      }
+
+      .worker-body::before,
+      .worker-body::after {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 122px;
+        top: 108px;
+        border-radius: 18px;
+        background: var(--teal);
+      }
+
+      .worker-body::before { left: 26px; transform: rotate(10deg); }
+      .worker-body::after { right: 24px; transform: rotate(-12deg); }
+
+      .worker-screen {
+        position: absolute;
+        width: 150px;
+        height: 94px;
+        left: 174px;
+        top: 246px;
+        border-radius: 12px;
+        border: 6px solid var(--blue-ink);
+        background: var(--white);
+      }
+
+      .worker-screen::before {
+        content: "";
+        position: absolute;
+        width: 84px;
+        height: 13px;
+        left: 25px;
+        top: 25px;
+        border-radius: 7px;
+        background: var(--brand-primary);
+        box-shadow: 0 24px 0 var(--mint);
+      }
+
+      .market-row {
+        max-width: 1160px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .market-row article {
+        padding: 28px 26px 30px;
+        border-radius: 15px;
+        background: var(--white);
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+
+      .market-row strong {
+        display: block;
+        min-height: 70px;
+        font-size: 22px;
+        line-height: 1.55;
+      }
+
+      .market-row svg { width: 100px; height: 100px; margin: 14px auto 18px; }
+      .market-row p { margin: 0; font-size: 15px; line-height: 1.8; font-weight: 600; }
+
+      .about-main {
+        max-width: 1050px;
+        margin: 0 auto 46px;
+        display: grid;
+        grid-template-columns: 1fr 430px;
+        gap: 44px;
+        align-items: center;
+      }
+
+      .about-main h3 { margin-bottom: 18px; font-size: 34px; line-height: 1.35; }
+      .about-main h3 span { color: var(--brand-primary); }
+      .about-main p { margin: 0; font-size: 19px; line-height: 2; }
+
+      .about-illo {
+        border-radius: 24px;
+        background: var(--gray);
+        padding: 26px;
+      }
+
+      .about-illo svg { width: 100%; }
+
+      .reasons-heading {
+        margin: 0 auto 28px;
+        text-align: center;
+        font-size: 34px;
+      }
+
+      .reasons-heading span { color: var(--brand-primary); }
+
+      .reason-grid {
+        max-width: 1160px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .reason-grid article {
+        position: relative;
+        min-height: 276px;
+        padding: 34px 24px 25px;
+        border-radius: 15px;
+        background: var(--gray);
+        text-align: center;
+      }
+
+      .reason-grid b {
+        position: absolute;
+        top: -13px;
+        left: -10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: var(--ink);
+        color: var(--white);
+        font-size: 20px;
+      }
+
+      .reason-grid svg { width: 88px; height: 88px; margin: 0 auto 12px; }
+      .reason-grid h4 { margin: 0 0 12px; font-size: 22px; line-height: 1.45; }
+      .reason-grid p { margin: 0; font-size: 15px; line-height: 1.75; font-weight: 600; }
+
+      .price { padding: 76px 20px 88px; }
+
+      .price-highlight {
+        max-width: 720px;
+        margin: 0 auto 36px;
+        padding: 18px 28px;
+        border-radius: 16px;
+        background: var(--accent-yellow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .price-highlight span { font-size: 18px; }
+      .price-highlight strong { font-size: 34px; }
+
+      .compare-grid {
+        max-width: 1160px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .compare-grid article {
+        padding: 30px 26px;
+        border-radius: 18px;
+        background: var(--white);
+        border: 4px solid transparent;
+        box-shadow: var(--shadow);
+      }
+
+      .compare-grid .featured { border-color: var(--brand-primary); }
+
+      .compare-grid h3 { margin: 0 0 15px; text-align: center; font-size: 22px; }
+
+      .big-cost {
+        margin: 0 0 10px;
+        text-align: center;
+        color: var(--brand-primary);
+        font-size: 34px;
+        line-height: 1.3;
+      }
+
+      .price-detail {
+        margin: -2px 0 12px;
+        text-align: center;
+        color: var(--ink-soft);
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: 700;
+      }
+
+      .compare-grid svg { width: 100px; height: 100px; margin: 0 auto 18px; }
+      .compare-grid ul { margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.9; font-weight: 600; }
+
+      .offer {
+        padding: 64px 20px 72px;
+        background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-strong) 100%);
+        color: var(--white);
+      }
+
+      .offer-inner {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 36px 32px 38px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, .08);
+        border: 2px solid rgba(255, 255, 255, .35);
+        text-align: center;
+        backdrop-filter: blur(4px);
+      }
+
+      .offer-badge {
+        display: inline-block;
+        padding: 6px 18px;
+        margin-bottom: 16px;
+        border-radius: 999px;
+        background: var(--accent-yellow);
+        color: var(--ink-strong);
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+      }
+
+      .offer-title {
+        margin: 0 0 14px;
+        font-size: 30px;
+        line-height: 1.4;
+        color: var(--white);
+      }
+
+      .offer-title small { font-size: 0.6em; opacity: .85; }
+
+      .offer-detail {
+        max-width: 480px;
+        margin: 0 auto 8px;
+        font-size: 15px;
+        line-height: 1.8;
+        font-weight: 600;
+      }
+
+      .offer-deadline {
+        margin: 0 0 24px;
+        font-size: 13px;
+        opacity: .8;
+      }
+
+      .offer-cta {
+        min-width: 260px;
+        padding: 14px 36px;
+        background: var(--accent-yellow);
+        color: var(--ink-strong);
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .offer-cta:hover {
+        background: var(--accent-yellow);
+        transform: translateY(-2px);
+      }
+
+      .flow-grid {
+        max-width: 1160px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .flow-grid article {
+        position: relative;
+        min-height: 275px;
+        padding: 28px 18px;
+        border-radius: 15px;
+        background: var(--gray);
+        text-align: center;
+      }
+
+      .flow-grid article::after {
+        content: "";
+        position: absolute;
+        right: -16px;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-top: 18px solid transparent;
+        border-bottom: 18px solid transparent;
+        border-left: 20px solid var(--brand-primary);
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+
+      .flow-grid article:last-child::after { display: none; }
+
+      .flow-grid span {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 5px 16px;
+        border-radius: 999px;
+        background: var(--brand-primary);
+        color: var(--white);
+        font-size: 14px;
+      }
+
+      .flow-grid h3 { min-height: 54px; margin: 0; font-size: 19px; line-height: 1.45; }
+      .flow-grid svg { width: 88px; height: 88px; margin: 16px auto 12px; }
+      .flow-grid p { margin: 0; font-size: 14px; line-height: 1.7; font-weight: 600; }
+
+      .team { padding: 74px 20px; }
+
+      .team-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1.05fr;
+        gap: 44px;
+        align-items: center;
+      }
+
+      .team h2 { margin-bottom: 14px; font-size: 36px; }
+      .team p { margin: 0; font-size: 19px; line-height: 1.9; }
+
+      .team-map {
+        position: relative;
+        min-height: 280px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .team-map li {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        width: 132px;
+        height: 132px;
+        border-radius: 50%;
+        background: var(--white);
+        border: 4px solid var(--blue-ink);
+        color: var(--blue-ink);
+        text-align: center;
+        font-size: 16px;
+        box-shadow: var(--shadow);
+      }
+
+      .team-map li:nth-child(1) {
+        left: 190px;
+        top: 72px;
+        width: 150px;
+        height: 150px;
+        background: var(--brand-primary);
+        color: var(--white);
+        border-color: var(--brand-primary);
+      }
+
+      .team-map li:nth-child(2) { left: 20px; top: 18px; }
+      .team-map li:nth-child(3) { right: 20px; top: 18px; }
+      .team-map li:nth-child(4) { left: 60px; bottom: 0; }
+      .team-map li:nth-child(5) { right: 65px; bottom: 0; }
+
+      .faq-list { max-width: 900px; margin: 0 auto; }
+
+      .faq-q {
+        width: 100%;
+        min-height: 70px;
+        margin-top: 18px;
+        padding: 18px 28px;
+        border: 0;
+        border-radius: 0;
+        background: var(--brand-primary);
+        color: var(--white);
+        text-align: left;
+        font: inherit;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: background var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .faq-q:hover { background: var(--brand-primary-strong); }
+
+      .faq-q span,
+      .faq-a span {
+        display: inline-grid;
+        place-items: center;
+        flex: 0 0 34px;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--white);
+        color: var(--brand-primary);
+      }
+
+      .faq-a {
+        display: none;
+        grid-template-columns: auto 1fr;
+        align-items: start;
+        gap: 12px;
+        padding: 22px 28px 24px;
+        border: 4px solid var(--gray);
+        border-top: 0;
+      }
+
+      .faq-a.open { display: grid; }
+      .faq-a[hidden] { display: none; }
+
+      .faq-a p { margin: 3px 0 0; font-size: 16px; line-height: 1.85; font-weight: 600; }
+
+      .seminar, .document, .contact-section { padding: 76px 20px 86px; }
+
+      .seminar-grid {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .seminar-grid article {
+        padding: 28px 24px 30px;
+        border-radius: 15px;
+        background: var(--white);
+        border-top: 10px solid var(--brand-primary);
+        box-shadow: var(--shadow);
+      }
+
+      .seminar-grid time {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: var(--ink);
+        color: var(--white);
+        font-size: 13px;
+      }
+
+      .seminar-grid h3 { margin: 0 0 13px; font-size: 21px; line-height: 1.45; }
+      .seminar-grid p { min-height: 84px; margin: 0 0 18px; font-size: 15px; line-height: 1.75; font-weight: 600; }
+
+      .seminar-grid a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 7px 20px;
+        border-radius: 999px;
+        background: var(--brand-primary);
+        color: var(--white);
+        font-size: 15px;
+        transition: background var(--dur-fast) var(--ease-out-quint), transform var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .seminar-grid a:hover {
+        background: var(--brand-primary-strong);
+        transform: translateY(-2px);
+      }
+
+      .article-grid {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .article-grid article {
+        overflow: hidden;
+        border-radius: 14px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .doc-thumb { height: 150px; position: relative; }
+
+      .doc-red { background: #e8f0ff; }
+      .doc-yellow { background: #fff2c7; }
+      .doc-blue { background: #e3f4f6; }
+
+      .doc-thumb::before {
+        content: "";
+        position: absolute;
+        width: 160px;
+        height: 95px;
+        left: 50%;
+        top: 50%;
+        border-radius: 12px;
+        background: var(--white);
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 0 5px var(--blue-ink);
+      }
+
+      .doc-thumb::after {
+        content: "";
+        position: absolute;
+        width: 88px;
+        height: 14px;
+        left: 50%;
+        top: 62px;
+        border-radius: 999px;
+        background: var(--brand-primary);
+        transform: translateX(-50%);
+        box-shadow: 0 26px 0 var(--mint);
+      }
+
+      .article-grid p { min-height: 84px; margin: 18px 18px 8px; font-size: 16px; line-height: 1.6; }
+      .article-grid span { display: block; margin: 0 18px 22px; color: var(--ink-mute); font-size: 13px; }
+
+      .contact-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: .9fr 1.1fr;
+        gap: 36px;
+        align-items: start;
+      }
+
+      .contact-lead {
+        padding: 34px 32px;
+        border-radius: 18px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .contact-lead h3 { margin: 0 0 18px; font-size: 30px; line-height: 1.45; }
+      .contact-lead p { margin: 0 0 24px; font-size: 16px; line-height: 1.9; font-weight: 600; }
+
+      .contact-phone {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 250px;
+        min-height: 68px;
+        padding: 10px 22px;
+        border-radius: 999px;
+        background: var(--ink);
+        color: var(--white);
+        font-size: 25px;
+        line-height: 1.2;
+      }
+
+      .contact-phone span { font-size: 12px; }
+
+      .contact-form {
+        padding: 30px;
+        border-radius: 18px;
+        background: var(--white);
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 17px;
+      }
+
+      .contact-form label { display: grid; gap: 7px; }
+      .contact-form label span { font-size: 14px; }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        border: 2px solid #d8d8d8;
+        border-radius: 8px;
+        padding: 12px 14px;
+        background: #fff;
+        color: var(--ink);
+        font: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        transition: border-color var(--dur-fast) var(--ease-out-quint), box-shadow var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: var(--brand-primary);
+        box-shadow: 0 0 0 4px rgba(35, 104, 255, .15);
+        outline: none;
+      }
+
+      .contact-form textarea { resize: vertical; }
+
+      .contact-form button {
+        min-height: 58px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--brand-primary);
+        color: var(--white);
+        font: inherit;
+        font-size: 19px;
+        cursor: pointer;
+        transition: background var(--dur-fast) var(--ease-out-quint), transform var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .contact-form button:hover {
+        background: var(--brand-primary-strong);
+        transform: translateY(-2px);
+      }
+
+      .form-status {
+        min-height: 24px;
+        margin: 0;
+        color: var(--brand-primary);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .news-list {
+        max-width: 820px;
+        margin: 0 auto;
+        display: grid;
+        gap: 14px;
+      }
+
+      .news-list p {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 18px;
+        margin: 0;
+        padding: 18px 0;
+        border-bottom: 2px solid var(--line);
+        font-size: 16px;
+      }
+
+      .news-list time { color: var(--brand-primary); }
+
+      .floating-chat {
+        position: fixed;
+        right: 22px;
+        bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+        z-index: var(--z-floating);
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: var(--chat-green);
+        color: var(--white);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.3;
+        text-align: center;
+        box-shadow: 8px 8px 0 rgba(0, 0, 0, .14);
+        transition: transform var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .site-footer {
+        padding: 42px 20px 28px;
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .footer-inner {
+        max-width: 1080px;
+        margin: 0 auto 26px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+      }
+
+      .footer-brand .brand-ja,
+      .footer-brand .brand-en { color: var(--white); }
+
+      .footer-inner nav {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+        font-size: 14px;
+      }
+
+      .site-footer p {
+        margin: 0;
+        text-align: center;
+        color: rgba(255, 255, 255, .75);
+        font-size: 12px;
+      }
+
+      .footer-demo {
+        max-width: 720px;
+        margin: 12px auto 0;
+        text-align: center;
+        color: rgba(255, 255, 255, .55);
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      /* Responsive */
+      @media (max-width: 1120px) {
+        .site-header { gap: 18px; padding-inline: 18px; }
+        .global-nav { gap: 24px; }
+        .hero-inner { padding: 42px 40px; grid-template-columns: 1fr 1.05fr; }
+        .hero-logo { font-size: 78px; }
+        .hero-logo-en { padding-left: 70px; }
+        .service-grid, .speech-row { max-width: 860px; }
+      }
+
+      @media (max-width: 920px) {
+        :root { --header-h: 74px; }
+
+        .site-header {
+          display: grid;
+          width: 100vw;
+          max-width: 100vw;
+          grid-template-columns: 110px 1fr auto;
+          min-height: var(--header-h);
+          gap: 10px;
+          padding: 10px 10px;
+        }
+
+        .brand { width: 110px; flex: 0 0 110px; }
+        .brand-ja { font-size: 29px; transform: scaleX(1); }
+        .brand-en { font-size: 10px; }
+        .global-nav { display: none; }
+
+        .header-actions {
+          display: grid;
+          grid-template-columns: 140px 76px;
+          justify-content: end;
+          justify-self: end;
+          width: 223px;
+          min-width: 0;
+          margin-left: 0;
+          gap: 7px;
+        }
+
+        .hamburger { display: block; }
+
+        .tel-pill { width: 140px; min-width: 0; min-height: 45px; padding: 6px 12px; }
+        .tel-pill strong { font-size: 15px; }
+        .tel-pill span { font-size: 10px; }
+        .tel-pill .demo-tag { display: none; }
+
+        .red-pill { width: 76px; min-width: 0; padding: 6px 12px; font-size: 13px; }
+
+        .hero { padding: 28px 12px 50px; }
+        .hero-inner {
+          min-height: 0;
+          grid-template-columns: 1fr;
+          padding: 34px 22px 22px;
+          border-radius: 26px;
+        }
+        .hero-copy { text-align: center; }
+        .hero-kicker { font-size: 18px; }
+
+        .hero-ctas { align-items: center; }
+        .hero-cta { width: 100%; max-width: 320px; min-width: 0; padding: 14px 24px; font-size: 18px; }
+        .hero-logo { font-size: 56px; transform-origin: center; }
+        .hero-logo-en { padding-left: 0; font-size: 25px; }
+        .hero-lead { font-size: 22px; }
+        .hero-note { max-width: none; font-size: 14px; }
+        .hero-art { margin-top: 22px; }
+        .hero-art svg { max-width: 560px; margin: 0 auto; }
+        .vertical-comment { right: -4px; top: 75px; font-size: 16px; }
+
+        .cta-pair { max-width: 620px; grid-template-columns: 1fr; gap: 28px; }
+        .cta-phone { grid-template-columns: 1fr; min-height: 76px; gap: 0; }
+        .cta-phone strong { font-size: 22px; }
+        .cta-red { min-height: 88px; font-size: 28px; }
+
+        .speech-row { max-width: 620px; grid-template-columns: 1fr; }
+        .speech-text, .small-person { display: none; }
+
+        .service-grid {
+          max-width: 620px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .mini-card { min-height: 156px; }
+
+        .title-lines { grid-template-columns: 1fr; gap: 8px; }
+        .title-lines::before, .title-lines::after { display: none; }
+        .title-lines h2 { grid-column: auto; }
+
+        .section-title span { font-size: 38px; }
+
+        .voice-list, .market-row, .reason-grid, .compare-grid,
+        .seminar-grid, .article-grid, .contact-inner {
+          grid-template-columns: 1fr;
+          max-width: 620px;
+        }
+
+        .problem-stage {
+          grid-template-columns: 1fr;
+          min-height: 0;
+          max-width: 620px;
+        }
+
+        .center-worker {
+          order: -1;
+          width: 320px;
+          max-width: 100%;
+          margin: 0 auto;
+        }
+
+        .about-main, .team-inner {
+          grid-template-columns: 1fr;
+          max-width: 620px;
+        }
+
+        .flow-grid { grid-template-columns: 1fr; max-width: 620px; }
+
+        .flow-grid article::after {
+          right: 50%;
+          top: auto;
+          bottom: -23px;
+          border-left: 18px solid transparent;
+          border-right: 18px solid transparent;
+          border-top: 20px solid var(--brand-primary);
+          border-bottom: 0;
+          transform: translateX(50%);
+        }
+
+        .team-map { min-height: 410px; }
+        .team-map li:nth-child(1) {
+          left: 50%;
+          top: 125px;
+          transform: translateX(-50%);
+        }
+        .team-map li:nth-child(2) { left: 4%; top: 0; }
+        .team-map li:nth-child(3) { right: 4%; top: 0; }
+        .team-map li:nth-child(4) { left: 10%; bottom: 0; }
+        .team-map li:nth-child(5) { right: 10%; bottom: 0; }
+
+        .floating-chat {
+          position: static;
+          width: min(420px, calc(100% - 48px));
+          height: 58px;
+          margin: 28px auto 0;
+          border-radius: 999px;
+          font-size: 14px;
+          box-shadow: 8px 8px 0 rgba(0, 0, 0, .12);
+        }
+        .floating-chat br { display: none; }
+      }
+
+      @media (max-width: 520px) {
+        :root { --header-h: 64px; }
+
+        body { line-height: 1.65; }
+
+        .site-header {
+          display: grid;
+          width: 100vw;
+          max-width: 100vw;
+          align-items: center;
+          justify-content: flex-start;
+          grid-template-columns: 96px 1fr auto;
+          gap: 4px;
+          padding: 8px 8px;
+          min-height: var(--header-h);
+        }
+
+        .brand { flex: 0 0 96px; width: 96px; }
+        .brand-ja { font-size: 25px; transform: scaleX(1); }
+        .brand-en { font-size: 9px; }
+
+        .header-actions {
+          display: grid;
+          grid-template-columns: minmax(104px, 1fr) 58px;
+          justify-content: end;
+          min-width: 0;
+          width: 100%;
+          gap: 5px;
+          margin-left: 0;
+          justify-self: end;
+        }
+
+        .tel-pill { flex: 1 1 auto; width: auto; min-width: 0; padding: 6px 6px; }
+        .tel-pill strong { font-size: 12px; }
+        .tel-pill span { font-size: 8px; }
+
+        .red-pill { flex: 0 0 58px; width: 58px; min-width: 0; min-height: 44px; padding: 6px 4px; font-size: 11px; }
+
+        .hero-inner {
+          width: calc(100vw - 24px);
+          max-width: calc(100vw - 24px);
+          padding: 32px 16px 20px;
+        }
+        .hero-logo { font-size: 45px; }
+        .hero-logo-en { font-size: 21px; }
+        .hero-lead { font-size: 19px; }
+        .hero-note { font-size: 12px; }
+        .vertical-comment { display: none; }
+
+        .cta-band { padding: 50px 24px 42px; }
+        .cta-pair, .cta-phone, .cta-red { width: 100%; }
+        .cta-pair, .service-grid, .speech-row { max-width: calc(100vw - 48px); }
+        .cta-phone { padding: 13px 12px; }
+        .cta-phone strong { font-size: 20px; }
+        .cta-red { min-height: 86px; font-size: 25px; }
+
+        .service-grid-section, .voice, .about, .flow, .faq, .news,
+        .seminar, .document, .contact-section, .price, .our-service, .offer {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+
+        .agitation-strip { padding: 22px 18px 18px; margin-bottom: 36px; }
+        .agitation-lead { font-size: 18px; }
+        .agitation-list li { font-size: 15px; padding: 10px 14px; }
+
+        .offer-inner { padding: 28px 20px 30px; }
+        .offer-title { font-size: 24px; }
+        .offer-cta { width: 100%; min-width: 0; padding: 14px 24px; font-size: 18px; }
+
+        .speech-bubble { font-size: 20px; }
+        .service-grid { gap: 14px; }
+        .mini-card { min-height: 148px; border-radius: 24px; }
+        .mini-card h3 { font-size: 15px; }
+
+        .section-title span { font-size: 32px; }
+        .section-title h2 { font-size: 17px; }
+
+        .problem-list li { grid-template-columns: 62px 1fr; }
+        .problem-list svg { width: 58px; height: 58px; }
+        .problem-list span, .center-copy, .about-main p, .team p { font-size: 16px; }
+
+        .about-main h3, .reasons-heading, .team h2 { font-size: 28px; }
+
+        .price-highlight { display: block; }
+        .price-highlight strong { display: block; font-size: 28px; }
+
+        .team-map li { width: 112px; height: 112px; font-size: 14px; }
+        .team-map li:nth-child(1) { width: 128px; height: 128px; }
+
+        .faq-q { padding: 16px; font-size: 15px; }
+        .faq-a { padding: 18px 16px; }
+
+        .news-list p { grid-template-columns: 1fr; gap: 3px; }
+
+        .contact-lead, .contact-form { padding: 24px 20px; }
+        .contact-lead h3 { font-size: 24px; }
+
+        .contact-phone { width: 100%; min-width: 0; }
+
+        .footer-inner { display: grid; justify-items: center; }
+        .footer-inner nav { justify-content: center; }
+      }
+
+      @media (max-width: 360px) {
+        .brand { width: 86px; flex-basis: 86px; }
+        .brand-ja { font-size: 22px; }
+        .site-header { grid-template-columns: 86px 1fr auto; }
+        .header-actions { grid-template-columns: minmax(96px, 1fr) 54px; }
+        .tel-pill strong { font-size: 11px; }
+        .red-pill { width: 54px; min-height: 44px; font-size: 10px; }
+        .hero-lead { font-size: 17px; }
+      }
+
+      /* Reduced motion (a11y baseline) */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        html { scroll-behavior: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#top">本文へスキップ</a>
+
+    <p class="demo-notice" role="note">
+      <strong>PORTFOLIO DEMO</strong>
+      ／ これは飛燕（ka-sol）のポートフォリオデモです。
+      ブランド名・電話番号・会社名はすべて架空のものです。
+    </p>
+
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="icon-browser" viewBox="0 0 96 96">
+        <rect x="13" y="18" width="70" height="54" rx="8" fill="#f0f6f8" stroke="#133246" stroke-width="5"/>
+        <rect x="13" y="18" width="70" height="15" rx="8" fill="#133246"/>
+        <circle cx="25" cy="26" r="3" fill="#2368ff"/>
+        <circle cx="36" cy="26" r="3" fill="#ffcc58"/>
+        <path d="M28 57h17l7-15 8 27 7-18h8" fill="none" stroke="#2368ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-flyer" viewBox="0 0 96 96">
+        <rect x="26" y="15" width="44" height="66" rx="7" fill="#f6fbfb" stroke="#123044" stroke-width="5"/>
+        <rect x="34" y="26" width="28" height="8" rx="2" fill="#2368ff"/>
+        <rect x="34" y="43" width="28" height="6" rx="2" fill="#bddedc"/>
+        <rect x="34" y="55" width="22" height="6" rx="2" fill="#bddedc"/>
+        <path d="M21 31l-9 10 13 8" fill="none" stroke="#ffcc58" stroke-width="6" stroke-linecap="round"/>
+        <path d="M75 60l10 7-12 10" fill="none" stroke="#2368ff" stroke-width="6" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="icon-ads" viewBox="0 0 96 96">
+        <circle cx="48" cy="48" r="30" fill="#f6fbfb" stroke="#123044" stroke-width="5"/>
+        <path d="M60 28L39 49l12 4 16-16z" fill="#2368ff"/>
+        <path d="M34 58c8 8 20 8 28 0" fill="none" stroke="#ffcc58" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="31" cy="31" r="7" fill="#bddedc"/>
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 96 96">
+        <rect x="17" y="17" width="62" height="62" rx="12" fill="#f6fbfb" stroke="#123044" stroke-width="5"/>
+        <path d="M28 63l13-16 11 8 16-24" fill="none" stroke="#2368ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M67 31v17H50" fill="none" stroke="#2368ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-video" viewBox="0 0 96 96">
+        <rect x="18" y="24" width="60" height="48" rx="9" fill="#133246"/>
+        <rect x="25" y="31" width="46" height="34" rx="5" fill="#f6fbfb"/>
+        <path d="M44 40l16 9-16 9z" fill="#2368ff"/>
+        <rect x="25" y="68" width="46" height="5" rx="2" fill="#ffcc58"/>
+      </symbol>
+      <symbol id="icon-social" viewBox="0 0 96 96">
+        <rect x="18" y="18" width="60" height="60" rx="18" fill="#f6fbfb" stroke="#123044" stroke-width="5"/>
+        <circle cx="48" cy="48" r="17" fill="none" stroke="#2368ff" stroke-width="7"/>
+        <circle cx="66" cy="31" r="5" fill="#ffcc58"/>
+        <path d="M31 72l34-48" stroke="#bddedc" stroke-width="6" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="icon-map" viewBox="0 0 96 96">
+        <path d="M20 24l18-8 20 8 18-8v56l-18 8-20-8-18 8z" fill="#f6fbfb" stroke="#123044" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M38 16v56M58 24v56" stroke="#bddedc" stroke-width="5"/>
+        <path d="M48 34c8 0 14 6 14 14 0 10-14 24-14 24S34 58 34 48c0-8 6-14 14-14z" fill="#2368ff"/>
+        <circle cx="48" cy="48" r="5" fill="#fff"/>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 96 96">
+        <rect x="15" y="28" width="66" height="46" rx="8" fill="#f6fbfb" stroke="#123044" stroke-width="5"/>
+        <path d="M19 34l29 23 29-23" fill="none" stroke="#2368ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 73l15-16M68 73L53 57" stroke="#bddedc" stroke-width="5" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="icon-cart" viewBox="0 0 96 96">
+        <path d="M22 24h10l7 36h32l8-25H37" fill="none" stroke="#123044" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="43" cy="73" r="6" fill="#2368ff"/>
+        <circle cx="68" cy="73" r="6" fill="#2368ff"/>
+        <path d="M48 44h20" stroke="#ffcc58" stroke-width="6" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="icon-people" viewBox="0 0 96 96">
+        <circle cx="34" cy="32" r="12" fill="#ffcc58"/>
+        <circle cx="62" cy="30" r="12" fill="#ef9aa6"/>
+        <path d="M16 77c3-19 14-29 29-29 13 0 24 10 28 29z" fill="#133246"/>
+        <path d="M47 77c2-17 12-27 26-27 10 0 17 8 21 27z" fill="#bddedc"/>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 96 96">
+        <circle cx="48" cy="48" r="35" fill="#f6fbfb" stroke="#123044" stroke-width="5"/>
+        <path d="M30 50l12 13 25-31" fill="none" stroke="#2368ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="ミライロウェブ トップへ">
+        <span class="brand-ja">ミライロ</span>
+        <span class="brand-en">web</span>
+      </a>
+      <nav class="global-nav" aria-label="グローバルナビゲーション">
+        <a href="#voice">導入事例</a>
+        <a href="#seminar">セミナー</a>
+        <a href="#document">お役立ち資料</a>
+        <a href="#news">コラム</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="tel-pill" href="tel:03-4520-1185">
+          <strong>03-4520-1185</strong>
+          <span>受付時間 9:00〜17:30</span>
+          <small class="demo-tag">※ ポートフォリオ用デモ番号</small>
+        </a>
+        <a class="red-pill" href="#contact">無料相談</a>
+      </div>
+      <button class="hamburger" type="button" aria-label="メニューを開く" aria-controls="mobile-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-label="モバイルメニュー">
+      <div class="mobile-nav-backdrop" data-mobile-nav-close></div>
+      <div class="mobile-nav-panel">
+        <button class="mobile-nav-close" type="button" aria-label="メニューを閉じる" data-mobile-nav-close></button>
+        <a href="#voice" data-mobile-nav-link>導入事例</a>
+        <a href="#seminar" data-mobile-nav-link>セミナー</a>
+        <a href="#document" data-mobile-nav-link>お役立ち資料</a>
+        <a href="#news" data-mobile-nav-link>コラム</a>
+        <a href="#contact" data-mobile-nav-link>お問い合わせ</a>
+      </div>
+    </div>
+
+    <main id="top">
+      <section class="hero" aria-label="メインビジュアル">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="hero-kicker">あなたをサポートする<br>頼れるWEBパートナー</p>
+            <h1>
+              <span class="hero-logo" aria-hidden="true">ミライロ</span>
+              <span class="hero-logo-en" aria-hidden="true">mirairo web</span>
+              <span class="visually-hidden">ミライロウェブ — 社員1人分の人件費で、デザイナーとWebマーケターが伴走する中小企業向けWebマーケティング支援サービス</span>
+            </h1>
+            <p class="hero-lead">社員1人分の人件費で、<br>デザイナーとWebマーケターが<br>あなたを全力サポート！</p>
+            <p class="hero-note">自社で内製化するよりも圧倒的に安く、貴社の事業をWebのあらゆる角度から支えるWebマーケティングサービスです</p>
+            <div class="hero-ctas">
+              <a class="cta-red hero-cta" href="#contact">30秒で無料診断する</a>
+              <small class="hero-cta-note">入力1分・営業電話なし・無料診断レポート進呈</small>
+            </div>
+          </div>
+          <div class="hero-art">
+            <svg viewBox="0 0 640 470" role="img" aria-labelledby="hero-art-title">
+              <title id="hero-art-title">Webマーケティングを支援するチームのイラスト</title>
+              <path d="M156 92c89-74 263-75 350 2 82 73 70 225-26 291-97 68-286 55-377-24-87-76-39-190 53-269z" fill="#e9f1ef"/>
+              <path d="M384 58c68 19 119 67 136 132 19 71-10 142-71 179-61 37-153 37-233 6-81-30-151-92-156-163-6-71 54-151 131-162 77-11 126-12 193 8z" fill="#f7dce4" opacity=".65"/>
+              <rect x="187" y="138" width="266" height="179" rx="12" fill="#fff" stroke="#133246" stroke-width="7"/>
+              <rect x="187" y="138" width="266" height="31" rx="12" fill="#133246"/>
+              <circle cx="205" cy="153" r="5" fill="#2368ff"/>
+              <circle cx="224" cy="153" r="5" fill="#ffcc58"/>
+              <rect x="217" y="193" width="82" height="57" rx="8" fill="#bddedc"/>
+              <rect x="320" y="193" width="94" height="57" rx="8" fill="#e5f4f2"/>
+              <rect x="230" y="271" width="74" height="30" rx="7" fill="#f7dce4"/>
+              <rect x="326" y="271" width="77" height="30" rx="7" fill="#f6e6b7"/>
+              <path d="M356 208l28 15-28 16z" fill="#fff"/>
+              <circle cx="261" cy="222" r="18" fill="#fff"/>
+              <circle cx="262" cy="218" r="8" fill="#8dc8c3"/>
+              <path d="M246 241c6-13 27-13 33 0" fill="#8dc8c3"/>
+              <path d="M456 112l61-19-6 62-19-20-29 37-22-16 29-38z" fill="#2368ff"/>
+              <path d="M491 96l20-7-2 22z" fill="#fff"/>
+              <path d="M92 344l45-69 52 19-42 88z" fill="#0b6174"/>
+              <circle cx="181" cy="260" r="19" fill="#ffcc58"/>
+              <path d="M127 281c24-31 48-37 78-19" fill="none" stroke="#0b6174" stroke-width="25" stroke-linecap="round"/>
+              <path d="M141 361l-29 59M183 359l16 55" stroke="#0b6174" stroke-width="16" stroke-linecap="round"/>
+              <path d="M203 274l71 32" stroke="#0b6174" stroke-width="15" stroke-linecap="round"/>
+              <circle cx="306" cy="309" r="45" fill="none" stroke="#ef9aa6" stroke-width="11"/>
+              <path d="M331 335l39 33" stroke="#ef9aa6" stroke-width="13" stroke-linecap="round"/>
+              <path d="M332 68c-25-31-75-11-80 21 25-8 48-4 70 14z" fill="#0b6174"/>
+              <circle cx="347" cy="117" r="18" fill="#ffb291"/>
+              <path d="M289 124c-38 29-58 49-91 45" fill="none" stroke="#ffcc58" stroke-width="18" stroke-linecap="round"/>
+              <path d="M363 132c34 16 64 6 94-20" fill="none" stroke="#ffcc58" stroke-width="18" stroke-linecap="round"/>
+              <path d="M319 129c-4 37-26 63-78 78" fill="none" stroke="#ffcc58" stroke-width="24" stroke-linecap="round"/>
+              <path d="M311 171c-24 28-44 45-82 53" stroke="#0b6174" stroke-width="18" stroke-linecap="round"/>
+              <path d="M365 171c-5 40-17 69-42 99" stroke="#0b6174" stroke-width="18" stroke-linecap="round"/>
+              <path d="M288 107c28 9 58 7 86 32-18 14-46 20-78 12z" fill="#ffcc58"/>
+              <path d="M507 271c26-14 52-9 71 15 18 23 16 61-5 82-21 20-55 25-84 8-28-18-45-49-35-73 8-18 26-17 53-32z" fill="#ef9aa6"/>
+              <circle cx="495" cy="247" r="19" fill="#ffb291"/>
+              <path d="M475 245c11-37 47-31 64-3 16 27 44 44 68 34-25 34-72 26-95-10-9 3-23 2-37-21z" fill="#0b6174"/>
+              <path d="M485 298l-46-35" stroke="#ef9aa6" stroke-width="16" stroke-linecap="round"/>
+              <path d="M526 376l32 53M556 362l55 41" stroke="#0b6174" stroke-width="15" stroke-linecap="round"/>
+              <circle cx="105" cy="246" r="14" fill="#f7dce4"/>
+              <path d="M101 244c-11-9-26 9-1 25 27-16 10-34 1-25z" fill="#ef9aa6"/>
+              <rect x="426" y="252" width="57" height="42" rx="9" fill="#fff" stroke="#8dc8c3" stroke-width="5"/>
+              <path d="M438 263h33M438 276h24" stroke="#8dc8c3" stroke-width="6" stroke-linecap="round"/>
+              <path d="M515 174c15 5 24 16 27 31M548 161c22 8 36 25 40 49" fill="none" stroke="#8dc8c3" stroke-width="7" stroke-linecap="round" opacity=".75"/>
+              <path d="M514 221h37M533 203v37" stroke="#8dc8c3" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+            <p class="vertical-comment">もっと早く<br>頼めば良かった！</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band gray" aria-label="お問い合わせ・資料請求">
+        <div class="cta-pair">
+          <a class="cta-phone" href="tel:03-4520-1185">
+            <span>ご不明な点はお気軽に<br>お問い合わせください。</span>
+            <strong>03-4520-1185</strong>
+            <small>受付時間 9:00〜17:30</small>
+          </a>
+          <a class="cta-red" href="#document">サービス資料を見る</a>
+        </div>
+      </section>
+
+      <section class="service-grid-section gray" aria-label="対応サービス一覧">
+        <div class="section-narrow speech-row">
+          <p class="speech-bubble">成果の出るWebマーケティング<br>お手伝いいたします！</p>
+          <p class="speech-text">Webのどのような施策でも対応できます！</p>
+          <div class="small-person" aria-hidden="true">
+            <span></span>
+          </div>
+        </div>
+        <div class="service-grid">
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-browser"/></svg><h3>HP・LP制作<br>ECサイト</h3></article>
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-flyer"/></svg><h3>チラシ<br>広告バナー</h3></article>
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-ads"/></svg><h3>Google広告<br>Yahoo!広告</h3></article>
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-search"/></svg><h3>SEO<br>改善提案</h3></article>
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-video"/></svg><h3>YouTube<br>運用代行・広告</h3></article>
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-social"/></svg><h3>TikTok<br>運用代行・広告</h3></article>
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-social"/></svg><h3>Instagram<br>運用代行・広告</h3></article>
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-map"/></svg><h3>MEO<br>店舗集客</h3></article>
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-cart"/></svg><h3>アフィリエイト<br>導線設計</h3></article>
+          <article class="mini-card"><svg aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg><h3>メルマガ<br>CRM施策</h3></article>
+        </div>
+      </section>
+
+      <section class="voice" id="voice">
+        <div class="section-title title-lines">
+          <span>USER'S VOICE</span>
+          <h2>お客さまの声</h2>
+        </div>
+        <p class="center-copy"><strong>ミライロウェブ</strong>は、たくさんの企業にご好評いただいています！</p>
+        <div class="voice-list">
+          <article class="voice-card">
+            <div class="mock-thumb thumb-a" aria-hidden="true"></div>
+            <h3>株式会社ソラノート様</h3>
+            <p class="voice-result">問い合わせ単価 38% 改善</p>
+            <p>広告運用とLP改善で、問い合わせ単価を見える化できました。</p>
+          </article>
+          <article class="voice-card">
+            <div class="mock-thumb thumb-b" aria-hidden="true"></div>
+            <h3>合同会社Palette様</h3>
+            <p class="voice-result">月間更新本数 4.2倍</p>
+            <p>社内に制作担当がいなくても、毎月の改善が止まらなくなりました。</p>
+          </article>
+          <article class="voice-card">
+            <div class="mock-thumb thumb-c" aria-hidden="true"></div>
+            <h3>ツクル食品株式会社様</h3>
+            <p class="voice-result">EC経由売上 126% 達成</p>
+            <p>SNSとECの導線が整理され、キャンペーンが回しやすくなりました。</p>
+          </article>
+          <article class="voice-card">
+            <div class="mock-thumb thumb-d" aria-hidden="true"></div>
+            <h3>株式会社Leadform様</h3>
+            <p class="voice-result">資料DL数 2.7倍</p>
+            <p>営業資料やバナーまでまとめて頼めるので、着手が早いです。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-band gray" aria-label="お問い合わせ・無料相談">
+        <div class="cta-pair">
+          <a class="cta-phone" href="tel:03-4520-1185">
+            <span>ご不明な点はお気軽に<br>お問い合わせください。</span>
+            <strong>03-4520-1185</strong>
+            <small>受付時間 9:00〜17:30</small>
+          </a>
+          <a class="cta-red" href="#document">無料で相談する</a>
+        </div>
+      </section>
+
+      <section class="our-service gray" id="service">
+        <div class="section-title">
+          <span>OUR SERVICE</span>
+          <h2>これからのWebマーケティングのカタチ</h2>
+        </div>
+        <div class="agitation-strip">
+          <p class="agitation-lead">Web施策を後回しにすると…</p>
+          <ul class="agitation-list">
+            <li><strong>問い合わせの 6〜8 割</strong>が競合に流れ続ける<small>※検索/SNS経由のリードを取り逃がす業界標準帯</small></li>
+            <li><strong>採用1人で年 600 万円〜</strong>の固定費<small>※デザイナー＋マーケター人件費の概算</small></li>
+            <li><strong>「相談できる相手がいない」</strong>状態が 3年続く<small>※社内Web担当不在企業の典型</small></li>
+          </ul>
+        </div>
+
+        <div class="problem-stage">
+          <ul class="problem-list left">
+            <li><svg aria-hidden="true" focusable="false"><use href="#icon-people"/></svg><span>社内にデザインできる人材がいない</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#icon-flyer"/></svg><span>かっこいい資料やバナーが作れない</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#icon-browser"/></svg><span>HPやLPの外注費が高い</span></li>
+          </ul>
+          <div class="center-worker" aria-hidden="true">
+            <div class="worker-head"></div>
+            <div class="worker-body"></div>
+            <div class="worker-screen"></div>
+          </div>
+          <ul class="problem-list right">
+            <li><svg aria-hidden="true" focusable="false"><use href="#icon-search"/></svg><span>何から始めれば良いか分からない</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#icon-social"/></svg><span>自社に合うSNSが判断できない</span></li>
+            <li><svg aria-hidden="true" focusable="false"><use href="#icon-ads"/></svg><span>Webマーケは高くて手が出しにくい</span></li>
+          </ul>
+        </div>
+        <div class="market-row">
+          <article>
+            <strong>年々、ニーズが高まる成長市場</strong>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-search"/></svg>
+            <p>SNSや検索から購買・相談へ進む人は増加傾向。中小企業にもWeb接点の整備が必要です。</p>
+          </article>
+          <article>
+            <strong>すぐに成果が見えるから改善が早い</strong>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-check"/></svg>
+            <p>広告・LP・SNSの数値を見ながら、短いサイクルで施策を調整できます。</p>
+          </article>
+          <article>
+            <strong>どんな業界にも合わせる制作力</strong>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-people"/></svg>
+            <p>業種ごとの商談データをもとに、伝わるクリエイティブを設計します。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="section-title">
+          <span>ABOUT US</span>
+          <h2>ミライロウェブについて</h2>
+        </div>
+        <div class="about-main">
+          <div>
+            <h3><span>ミライロウェブ</span>とは？</h3>
+            <p>HP制作から広告配信、SNS運用、改善レポートまで、Webまわりをワンストップで行う月額制マーケティング支援サービスです。</p>
+          </div>
+          <div class="about-illo" aria-hidden="true">
+            <svg viewBox="0 0 420 260">
+              <rect x="55" y="43" width="250" height="160" rx="14" fill="#f6fbfb" stroke="#133246" stroke-width="7"/>
+              <rect x="84" y="74" width="92" height="20" rx="5" fill="#2368ff"/>
+              <rect x="84" y="112" width="174" height="14" rx="5" fill="#bddedc"/>
+              <rect x="84" y="142" width="126" height="14" rx="5" fill="#bddedc"/>
+              <circle cx="309" cy="80" r="29" fill="#ffcc58"/>
+              <path d="M285 112c17-18 48-17 65 0 15 16 18 46 7 67H278c-9-24-7-49 7-67z" fill="#ef9aa6"/>
+              <circle cx="99" cy="208" r="23" fill="#ffb291"/>
+              <path d="M67 257c6-31 23-49 52-49s46 18 52 49z" fill="#0b6174"/>
+              <path d="M275 191l76 47M351 238l35-72" stroke="#2368ff" stroke-width="10" stroke-linecap="round"/>
+              <circle cx="388" cy="160" r="19" fill="#bddedc"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="reasons-heading"><span>選ぶべき</span> 6 つの理由</h3>
+        <div class="reason-grid">
+          <article><b>1</b><svg aria-hidden="true" focusable="false"><use href="#icon-browser"/></svg><h4>Webまわりを<br>まるごと相談</h4><p>LP制作、広告、SNS、SEOまで必要な施策をまとめて支援します。</p></article>
+          <article><b>2</b><svg aria-hidden="true" focusable="false"><use href="#icon-search"/></svg><h4>最適な戦略が<br>見つかる</h4><p>マーケターが商材と顧客導線を整理し、優先順位を提案します。</p></article>
+          <article><b>3</b><svg aria-hidden="true" focusable="false"><use href="#icon-people"/></svg><h4>面倒な進行も<br>お任せ</h4><p>目的と素材を共有いただくだけで、制作進行まで伴走します。</p></article>
+          <article><b>4</b><svg aria-hidden="true" focusable="false"><use href="#icon-flyer"/></svg><h4>制作物は<br>いつでも高品質</h4><p>ディレクターがチェックし、媒体に合った表現に整えます。</p></article>
+          <article><b>5</b><svg aria-hidden="true" focusable="false"><use href="#icon-ads"/></svg><h4>施策ごとの<br>数字を可視化</h4><p>配信結果と改善点を月次で共有し、次の一手につなげます。</p></article>
+          <article><b>6</b><svg aria-hidden="true" focusable="false"><use href="#icon-check"/></svg><h4>社員採用より<br>始めやすい</h4><p>必要な時に必要な分だけ、制作と運用のチームを活用できます。</p></article>
+        </div>
+      </section>
+
+      <section class="price gray" id="price">
+        <div class="section-title">
+          <span>PRICE</span>
+          <h2>ミライロウェブの利用料金</h2>
+        </div>
+        <p class="center-copy">ご予算に合わせたプランで、デザイナー・マーケターを新規雇用するよりも始めやすい料金設定です。</p>
+        <div class="price-highlight">
+          <span>圧倒的な</span>
+          <strong>コストパフォーマンス</strong>
+        </div>
+        <div class="compare-grid">
+          <article>
+            <h3>自社で採用した場合</h3>
+            <p class="big-cost">月 150 万円</p>
+            <p class="price-detail">採用費・教育費を除いた概算</p>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-people"/></svg>
+            <ul>
+              <li>採用・育成に時間がかかる</li>
+              <li>継続雇用が必要</li>
+              <li>得意領域が人に依存</li>
+            </ul>
+          </article>
+          <article>
+            <h3>都度外注した場合</h3>
+            <p class="big-cost">月 90 万円〜</p>
+            <p class="price-detail">制作・広告・SNSを別々に依頼</p>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-flyer"/></svg>
+            <ul>
+              <li>施策ごとに会社選定が必要</li>
+              <li>改善までの速度が落ちやすい</li>
+              <li>担当変更が難しい</li>
+            </ul>
+          </article>
+          <article class="featured">
+            <h3>ミライロウェブ</h3>
+            <p class="big-cost">月 30 万円〜</p>
+            <p class="price-detail">月20時間から伴走支援</p>
+            <svg aria-hidden="true" focusable="false"><use href="#icon-check"/></svg>
+            <ul>
+              <li>得意領域に合わせて担当を編成</li>
+              <li>スポット制作も相談可能</li>
+              <li>改善運用までまとめて対応</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="offer" aria-label="期間限定オファー">
+        <div class="offer-inner">
+          <span class="offer-badge">先着 3 社限定</span>
+          <h2 class="offer-title">無料診断レポート<br><small>（30,000 円相当）</small>進呈中</h2>
+          <p class="offer-detail">現状サイト・SNS・広告を診断し、改善ポイント 3 点をレポート化してお渡しします。</p>
+          <p class="offer-deadline">2026 年 6 月末まで／本ページ経由のお申込みのみ</p>
+          <a class="cta-red offer-cta" href="#contact">無料診断を申し込む</a>
+        </div>
+      </section>
+
+      <section class="flow" id="flow">
+        <div class="section-title">
+          <span>FLOW</span>
+          <h2>申込からサービスのご利用まで 4 STEP！</h2>
+        </div>
+        <div class="flow-grid">
+          <article><span>STEP1</span><h3>WEB申込・電話申込</h3><svg aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg><p>PC/スマホから簡単に相談予約できます。</p></article>
+          <article><span>STEP2</span><h3>ヒアリング</h3><svg aria-hidden="true" focusable="false"><use href="#icon-people"/></svg><p>商材・顧客・目標を詳しく確認します。</p></article>
+          <article><span>STEP3</span><h3>施策立案</h3><svg aria-hidden="true" focusable="false"><use href="#icon-search"/></svg><p>優先すべき制作物と運用施策を設計します。</p></article>
+          <article><span>STEP4</span><h3>施策実行</h3><svg aria-hidden="true" focusable="false"><use href="#icon-ads"/></svg><p>制作・配信・改善をチームで進めます。</p></article>
+        </div>
+      </section>
+
+      <section class="team gray" aria-label="チーム体制">
+        <div class="team-inner">
+          <div>
+            <h2>チーム体制で対応</h2>
+            <p>アシスタント個人のスキルセットに依存せず、マーケターが最適な担当者をアサインします。</p>
+          </div>
+          <ul class="team-map" aria-label="チーム構成メンバー">
+            <li>マーケター</li>
+            <li>デザイナー</li>
+            <li>ライター</li>
+            <li>広告運用者</li>
+            <li>ディレクター</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="faq" id="faq">
+        <div class="section-title title-lines">
+          <span>FAQ</span>
+          <h2>よくある質問</h2>
+        </div>
+        <div class="faq-list">
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a1" id="faq-q1">
+            <span aria-hidden="true">Q</span> 1ヶ月の利用時間を消化できなかった場合はどうなりますか？
+          </button>
+          <div class="faq-a open" id="faq-a1" role="region" aria-labelledby="faq-q1">
+            <span aria-hidden="true">A</span>
+            <p>当月で消化できなかった時間は、翌月まで繰り越し可能です。優先順位を相談しながら無駄なく活用できます。</p>
+          </div>
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+            <span aria-hidden="true">Q</span> いつ解約できますか？
+          </button>
+          <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
+            <span aria-hidden="true">A</span>
+            <p>更新日の1ヶ月前までにご連絡いただくことで解約できます。単発制作のご相談も可能です。</p>
+          </div>
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+            <span aria-hidden="true">Q</span> デザインの品質が不安です。
+          </button>
+          <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
+            <span aria-hidden="true">A</span>
+            <p>クリエイティブディレクターが全案件の品質を確認し、媒体ごとの目的に合わせて調整します。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="seminar gray" id="seminar">
+        <div class="section-title">
+          <span>SEMINAR</span>
+          <h2>無料セミナー</h2>
+        </div>
+        <div class="seminar-grid">
+          <article>
+            <time datetime="2026-06-12">2026.06.12</time>
+            <h3>初めてのWeb広告<br>予算設計セミナー</h3>
+            <p>月10万円から始める広告運用の考え方を、架空事例を使って解説します。</p>
+            <a href="#contact">参加相談</a>
+          </article>
+          <article>
+            <time datetime="2026-06-19">2026.06.19</time>
+            <h3>問い合わせを増やす<br>LP改善チェック会</h3>
+            <p>ファーストビュー、CTA、フォームの見直しポイントを実務目線で整理します。</p>
+            <a href="#contact">参加相談</a>
+          </article>
+          <article>
+            <time datetime="2026-06-26">2026.06.26</time>
+            <h3>SNS運用を止めない<br>投稿設計ワークショップ</h3>
+            <p>少人数チームでも継続できるテーマ設計とクリエイティブの型を紹介します。</p>
+            <a href="#contact">参加相談</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="document gray" id="document">
+        <div class="section-title">
+          <span>DOCUMENT</span>
+          <h2>お役立ち資料</h2>
+        </div>
+        <div class="article-grid">
+          <article>
+            <div class="doc-thumb doc-red" aria-hidden="true"></div>
+            <p>〖無料配布中〗Instagram集客スタートブック</p>
+            <span>マーケティング 2026.05.26</span>
+          </article>
+          <article>
+            <div class="doc-thumb doc-yellow" aria-hidden="true"></div>
+            <p>Web広告で失敗しない予算設計チェックリスト</p>
+            <span>広告運用 2026.04.18</span>
+          </article>
+          <article>
+            <div class="doc-thumb doc-blue" aria-hidden="true"></div>
+            <p>中小企業のLP改善で見るべき10の数字</p>
+            <span>改善運用 2026.03.10</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="news" id="news">
+        <div class="section-title title-lines">
+          <span>NEWS</span>
+          <h2>お知らせ</h2>
+        </div>
+        <div class="news-list">
+          <p><time datetime="2026-05-26">2026.05.26</time> Web集客診断キャンペーンを開始しました</p>
+          <p><time datetime="2026-05-12">2026.05.12</time> SNSショート動画支援プランを公開しました</p>
+          <p><time datetime="2026-04-24">2026.04.24</time> ゴールデンウィーク期間中の受付について</p>
+        </div>
+      </section>
+
+      <section class="contact-section gray" id="contact">
+        <div class="section-title">
+          <span>CONTACT</span>
+          <h2>無料相談・資料請求</h2>
+        </div>
+        <div class="contact-inner">
+          <div class="contact-lead">
+            <h3>Webまわりのお悩みを<br>まずは30分で整理します。</h3>
+            <p>具体的な施策が決まっていなくても大丈夫です。現状の課題、予算感、優先順位をヒアリングし、最初に取り組むべき一手をご提案します。</p>
+            <a class="contact-phone" href="tel:03-4520-1185">03-4520-1185<br><span>受付時間 9:00〜17:30</span></a>
+          </div>
+          <form class="contact-form" action="#contact" method="post" novalidate>
+            <label for="company">
+              <span>会社名</span>
+              <input id="company" type="text" name="company" autocomplete="organization" required>
+            </label>
+            <label for="name">
+              <span>お名前</span>
+              <input id="name" type="text" name="name" autocomplete="name" required>
+            </label>
+            <label for="email">
+              <span>メールアドレス</span>
+              <input id="email" type="email" name="email" autocomplete="email" required>
+            </label>
+            <label for="message">
+              <span>相談したい内容</span>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </label>
+            <button type="submit">相談内容を送信する</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <a class="floating-chat" href="#contact" aria-label="CHATで相談する">CHATで<br>相談する</a>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <a class="footer-brand" href="#top">
+          <span class="brand-ja">ミライロ</span>
+          <span class="brand-en">web</span>
+        </a>
+        <nav aria-label="フッターナビゲーション">
+          <a href="#about">会社概要</a>
+          <a href="#voice">導入事例</a>
+          <a href="#document">お役立ち資料</a>
+          <a href="#contact">お問い合わせ</a>
+        </nav>
+      </div>
+      <p>© Mirairo Web Co., Ltd.（架空ブランド）</p>
+      <p class="footer-demo">
+        このページは飛燕（ka-sol）が制作スキル提示のために構築したポートフォリオデモです。
+        ブランド、電話番号、会社名、お客さまの声、料金、セミナー日程はすべて架空の参考例です。
+      </p>
+    </footer>
+
+    <script>
+      (function () {
+        // FAQ accordion
+        const faqButtons = document.querySelectorAll(".faq-q");
+        faqButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            const answer = document.getElementById(button.getAttribute("aria-controls"));
+            if (!answer) return;
+            const isOpen = answer.classList.contains("open");
+
+            faqButtons.forEach(function (item) {
+              item.setAttribute("aria-expanded", "false");
+            });
+            document.querySelectorAll(".faq-a").forEach(function (item) {
+              item.classList.remove("open");
+              item.hidden = true;
+            });
+
+            if (!isOpen) {
+              button.setAttribute("aria-expanded", "true");
+              answer.classList.add("open");
+              answer.hidden = false;
+            }
+          });
+        });
+
+        // Contact form DEMO submit handler
+        const contactForm = document.querySelector(".contact-form");
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            const status = contactForm.querySelector(".form-status");
+            if (status) {
+              status.textContent =
+                "送信デモです。実案件ではここからCRMまたはメール通知に接続します。";
+            }
+          });
+        }
+
+        // Mobile nav (hamburger) — a11y: role=dialog, focus management, inert outside, Esc to close
+        const hamburger = document.querySelector(".hamburger");
+        const mobileNav = document.getElementById("mobile-nav");
+        if (!hamburger || !mobileNav) return;
+
+        const panel = mobileNav.querySelector(".mobile-nav-panel");
+        const closeTriggers = mobileNav.querySelectorAll("[data-mobile-nav-close]");
+        const navLinks = mobileNav.querySelectorAll("[data-mobile-nav-link]");
+
+        const inertCandidates = Array.from(document.body.children).filter(function (el) {
+          return el !== mobileNav && el.tagName !== "SCRIPT";
+        });
+
+        function openNav() {
+          mobileNav.dataset.open = "true";
+          // role=dialog / aria-modal をJS動的付与（閉時にdialogが画面外に存在しないため）
+          mobileNav.setAttribute("role", "dialog");
+          mobileNav.setAttribute("aria-modal", "true");
+          hamburger.setAttribute("aria-expanded", "true");
+          hamburger.setAttribute("aria-label", "メニューを閉じる");
+          inertCandidates.forEach(function (el) {
+            el.setAttribute("inert", "");
+            el.setAttribute("aria-hidden", "true");
+          });
+          document.documentElement.style.overflow = "hidden";
+          requestAnimationFrame(function () {
+            const firstLink = panel ? panel.querySelector("a, button") : null;
+            if (firstLink) firstLink.focus();
+          });
+        }
+
+        function closeNav() {
+          mobileNav.dataset.open = "false";
+          mobileNav.removeAttribute("role");
+          mobileNav.removeAttribute("aria-modal");
+          hamburger.setAttribute("aria-expanded", "false");
+          hamburger.setAttribute("aria-label", "メニューを開く");
+          inertCandidates.forEach(function (el) {
+            el.removeAttribute("inert");
+            el.removeAttribute("aria-hidden");
+          });
+          document.documentElement.style.overflow = "";
+          hamburger.focus();
+        }
+
+        hamburger.addEventListener("click", function () {
+          if (mobileNav.dataset.open === "true") {
+            closeNav();
+          } else {
+            openNav();
+          }
+        });
+
+        closeTriggers.forEach(function (el) {
+          el.addEventListener("click", function () { closeNav(); });
+        });
+
+        navLinks.forEach(function (link) {
+          link.addEventListener("click", function () { closeNav(); });
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && mobileNav.dataset.open === "true") {
+            closeNav();
+          }
+        });
+
+        // Focus trap: Tab/Shift+Tab を mobile-nav-panel 内に閉じ込める
+        mobileNav.addEventListener("keydown", function (event) {
+          if (event.key !== "Tab" || mobileNav.dataset.open !== "true" || !panel) return;
+          const focusables = panel.querySelectorAll("a[href], button:not([disabled])");
+          if (focusables.length === 0) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        });
+
+        // リサイズで desktop (>= 921px) に拡大した時、ナビが開きっぱなしなら自動 close
+        // → inert / overflow:hidden の固着を防止
+        if (typeof window.matchMedia === "function") {
+          const desktopQuery = window.matchMedia("(min-width: 921px)");
+          const onChange = function (e) {
+            if (e.matches && mobileNav.dataset.open === "true") {
+              closeNav();
+            }
+          };
+          if (typeof desktopQuery.addEventListener === "function") {
+            desktopQuery.addEventListener("change", onChange);
+          } else if (typeof desktopQuery.addListener === "function") {
+            // Legacy Safari
+            desktopQuery.addListener(onChange);
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5f5f5"/>
+  <rect x="56" y="56" width="1088" height="518" rx="32" fill="#fff" stroke="#2368ff" stroke-width="12"/>
+  <text x="126" y="185" fill="#333" font-family="Yu Gothic, Meiryo, sans-serif" font-size="44" font-weight="700">中小企業のWeb集客伴走サービス</text>
+  <text x="126" y="310" fill="#2368ff" font-family="Yu Gothic, Meiryo, sans-serif" font-size="116" font-weight="900">ミライロ</text>
+  <text x="134" y="382" fill="#2368ff" font-family="Arial, sans-serif" font-size="54" font-weight="800">mirairo web</text>
+  <text x="126" y="480" fill="#333" font-family="Yu Gothic, Meiryo, sans-serif" font-size="38" font-weight="700">制作・広告・SNS・改善運用までまとめて支援</text>
+  <ellipse cx="890" cy="320" rx="190" ry="150" fill="#e9f1ef"/>
+  <ellipse cx="850" cy="280" rx="180" ry="130" fill="#f7dce4" opacity=".75"/>
+  <rect x="760" y="230" width="230" height="150" rx="16" fill="#fff" stroke="#123044" stroke-width="10"/>
+  <rect x="760" y="230" width="230" height="34" rx="16" fill="#123044"/>
+  <circle cx="787" cy="247" r="7" fill="#2368ff"/>
+  <circle cx="812" cy="247" r="7" fill="#ffdc7c"/>
+  <path d="M810 340h70l25-55 22 100 30-72h48" fill="none" stroke="#2368ff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="715" cy="394" r="46" fill="#0b6174"/>
+  <path d="M695 438l-45 60M736 438l33 66" stroke="#0b6174" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="1024" cy="392" r="58" fill="#ef9aa6"/>
+  <path d="M1000 448l-25 62M1046 446l63 48" stroke="#0b6174" stroke-width="24" stroke-linecap="round"/>
+</svg>

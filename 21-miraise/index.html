@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MIRAISE - 1人で組織の成長を見守る人材育成DX</title>
+    <meta name="description" content="MIRAISEは、育成担当者の負荷を抑えながら、社員の振り返り、フォロー、ナレッジ共有を継続できる教育DXサービスです。" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'" />
+    <link rel="canonical" href="https://example.com/portfolio/21-miraise/" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230795d8'/%3E%3Ctext x='32' y='42' font-size='28' font-weight='900' fill='white' text-anchor='middle' font-family='sans-serif'%3EM%3C/text%3E%3C/svg%3E" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MIRAISE - 1人で組織の成長を見守る人材育成DX" />
+    <meta property="og:description" content="MIRAISEは、育成担当者の負荷を抑えながら、社員の振り返り、フォロー、ナレッジ共有を継続できる教育DXサービスです。" />
+    <meta property="og:url" content="https://example.com/portfolio/21-miraise/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="./assets/hero-miraise-v2.png" fetchpriority="high" />
+    <!--
+      Production deployment notes:
+      [a] PNG images (~24MB total). 本番デプロイ前に WebP 変換を必須実施:
+          - 推奨ツール: Squoosh.app (Web) / cwebp (CLI) / sharp (Node.js)
+          - 品質 75-85% / 期待サイズ削減: ~85% (24MB → 3-4MB 目安)
+          - 変換後は <img> の src を .webp に置換 or <picture>+<source type="image/webp"> に変更
+      [b] Google Fonts: 本番ではセルフホスティング (woff2 + @font-face) で CLS / privacy 改善推奨
+      [c] サーバヘッダ追加推奨: X-Frame-Options DENY / X-Content-Type-Options nosniff /
+          Referrer-Policy strict-origin-when-cross-origin / Permissions-Policy /
+          Strict-Transport-Security max-age=31536000 /
+          Content-Security-Policy (本ファイルでは <meta> で暫定対応、本番は HTTP ヘッダで配信し
+          frame-ancestors / report-to などフルディレクティブを追加推奨)
+      [d] CSP <meta>: 本番ではサーバヘッダ配信が原則。<meta>は静的ホスティング時の暫定保険。
+    -->
+    <style>
+      /*
+        AI-slop banlist:
+        - Inter / Roboto / Arial (sub font 含めて不使用)
+        - teal-only color schemes (neon-cyber 系)
+        - glassmorphism overuse
+        - generic ease / linear easing
+        - 過度な gradient + neon
+      */
+
+      :root {
+        /* brand palette */
+        --blue: #0795d8;
+        --blue-deep: #1e63bf;
+        --blue-dark: #075f9a;
+        --cyan: #4ec5f9;
+        --pale: #eaf8ff;
+        --pale-strong: #c8edff;
+        --ink: #101923;
+        --muted: #5b7484;
+        --line: rgba(6, 142, 214, 0.18);
+        --shadow: 0 24px 60px rgba(0, 117, 188, 0.16);
+        --shadow-soft: 0 12px 30px rgba(0, 117, 188, 0.1);
+        --backdrop: rgba(11, 30, 50, .55);
+        --radius: 8px;
+        --radius-lg: 30px;
+        --content: 1120px;
+
+        /* timing / easing (industry baseline v1.1) */
+        --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+        --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+        --dur-fast: 180ms;
+        --dur-base: 320ms;
+        --dur-slow: 720ms;
+
+        /* layout / z */
+        --header-h: 92px;
+        --z-header: 20;
+        --z-dialog: 80;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--header-h);
+        font-feature-settings: "palt" 1;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: #fff;
+        font-family: "Noto Sans JP", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+        font-weight: 700;
+        line-height: 1.8;
+      }
+
+      body.nav-open {
+        overflow: hidden;
+      }
+
+      h1, h2, h3, h4 {
+        text-wrap: balance;
+      }
+
+      p {
+        text-wrap: pretty;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      section[id] {
+        scroll-margin-top: var(--header-h);
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Skip link (a11y) */
+      .skip-link {
+        position: absolute;
+        top: -100px;
+        left: 12px;
+        z-index: calc(var(--z-dialog) + 1);
+        padding: 10px 18px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 14px;
+        transition: top var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .skip-link:focus-visible {
+        top: 12px;
+      }
+
+      /* Portfolio demo notice */
+      .demo-notice {
+        position: relative;
+        z-index: 30;
+        margin: 0;
+        padding: 8px 16px;
+        background: var(--ink);
+        color: #fff;
+        text-align: center;
+        font-size: 12px;
+        line-height: 1.5;
+        font-weight: 600;
+      }
+
+      .demo-notice strong {
+        color: var(--cyan);
+      }
+
+      .section {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .section-inner {
+        width: min(var(--content), calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: fixed;
+        z-index: var(--z-header);
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: var(--header-h);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 24px 32px 14px 36px;
+        pointer-events: none;
+      }
+
+      .brand {
+        color: var(--blue);
+        font-size: clamp(28px, 3.6vw, 42px);
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 1;
+        text-shadow: 0 10px 30px rgba(0, 147, 216, 0.16);
+        pointer-events: auto;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-height: 56px;
+        padding: 0 8px 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 10px 28px rgba(18, 121, 190, 0.08);
+        backdrop-filter: blur(14px);
+        pointer-events: auto;
+      }
+
+      .site-nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 44px;
+        color: #111923;
+        font-size: 14px;
+        white-space: nowrap;
+        transition: color var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .site-nav a:hover {
+        color: var(--blue-dark);
+      }
+
+      .site-nav a:not(:first-child)::before,
+      .footer-links a::before,
+      .section-label::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 2px;
+        background: var(--blue);
+        box-shadow: 0 0 0 7px rgba(7, 149, 216, 0.08);
+      }
+
+      .site-nav .nav-contact,
+      .site-nav .nav-download {
+        justify-content: center;
+        min-width: 136px;
+        padding: 0 18px;
+        border-radius: 8px;
+      }
+
+      .site-nav .nav-contact {
+        color: var(--blue-dark);
+        background: #fff;
+        box-shadow: 0 12px 30px rgba(4, 115, 185, 0.08);
+      }
+
+      .site-nav .nav-download {
+        color: #fff;
+        background: linear-gradient(110deg, var(--blue-deep), var(--cyan));
+        box-shadow: 0 10px 22px rgba(30, 112, 206, 0.24);
+      }
+
+      .site-nav .nav-download::after,
+      .site-nav .nav-contact::after,
+      .button span {
+        content: "";
+        width: 10px;
+        height: 10px;
+        margin-left: auto;
+        border-radius: 3px;
+        background: currentColor;
+        box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.66);
+      }
+
+      .menu-button {
+        display: none;
+        width: 46px;
+        height: 46px;
+        border: 0;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: var(--shadow);
+        pointer-events: auto;
+        cursor: pointer;
+      }
+
+      .menu-button span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        margin: 5px auto;
+        border-radius: 99px;
+        background: var(--blue-dark);
+      }
+
+      .hero {
+        display: grid;
+        align-items: center;
+        min-height: clamp(560px, 78svh, 680px);
+        padding: 84px 0 20px;
+        background:
+          radial-gradient(circle at 84% 15%, rgba(78, 197, 249, 0.25), transparent 26%),
+          linear-gradient(90deg, #fff 0%, #fff 38%, rgba(255, 255, 255, 0.72) 51%, rgba(231, 248, 255, 0.88) 100%);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: -8vw;
+        bottom: -32px;
+        width: min(620px, 50vw);
+        aspect-ratio: 1.35;
+        border-radius: 64px 8px 0 64px;
+        background: linear-gradient(120deg, rgba(34, 104, 204, 0.14), rgba(88, 212, 255, 0.38));
+        filter: blur(0.2px);
+      }
+
+      .hero-visual {
+        position: absolute;
+        z-index: 0;
+        right: -96px;
+        top: 16px;
+        width: min(980px, 66vw);
+        height: calc(100% - 16px);
+        object-fit: cover;
+        object-position: 64% center;
+        opacity: 0.98;
+        mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.55) 16%, #000 42%);
+        aspect-ratio: 1672 / 941;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        width: min(var(--content), calc(100% - 48px));
+        margin: 0 auto;
+        padding-left: 34px;
+      }
+
+      .hero h1 {
+        max-width: 630px;
+        margin: 0 0 32px;
+        font-size: clamp(38px, 4.6vw, 64px);
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .hero h1 span,
+      .hero h1 strong {
+        display: block;
+      }
+
+      .hero h1 span {
+        color: var(--blue);
+      }
+
+      .hero h1 strong {
+        color: var(--ink);
+        font-weight: 900;
+        font-size: clamp(50px, 6.5vw, 92px);
+        line-height: 1.14;
+        margin-top: 6px;
+      }
+
+      .hero p {
+        max-width: 580px;
+        margin: 0;
+        font-size: clamp(15px, 1.45vw, 18px);
+        line-height: 2;
+      }
+
+      .hero-actions {
+        display: grid;
+        gap: 10px;
+        width: min(360px, 100%);
+        margin-top: 42px;
+        padding: 18px;
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.58);
+        box-shadow: 0 22px 50px rgba(47, 157, 220, 0.16);
+        backdrop-filter: blur(12px);
+      }
+
+      .hero-trust {
+        display: block;
+        margin-top: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--blue-dark);
+      }
+
+      .hero-trust::before {
+        content: "✓ ";
+        color: var(--blue);
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        min-height: 56px;
+        padding: 0 28px;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: transform var(--dur-fast) var(--ease-out-quint), box-shadow var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 24px 50px rgba(31, 110, 201, 0.28);
+      }
+
+      .button:focus-visible,
+      .site-nav a:focus-visible,
+      .menu-button:focus-visible,
+      .mobile-nav-close:focus-visible {
+        outline: 3px solid rgba(7, 149, 216, 0.55);
+        outline-offset: 3px;
+      }
+
+      .button.primary {
+        color: #fff;
+        background: linear-gradient(105deg, var(--blue-deep), var(--cyan));
+        box-shadow: 0 18px 38px rgba(31, 110, 201, 0.24);
+      }
+
+      .button.secondary {
+        color: var(--blue-dark);
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(2, 142, 208, 0.48);
+      }
+
+      .logo-strip {
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        padding: 28px 0 58px;
+        background: #fff;
+      }
+
+      .logo-strip p {
+        width: min(var(--content), calc(100% - 48px));
+        margin: 0 auto 22px;
+        color: var(--blue-dark);
+        font-size: 14px;
+      }
+
+      .logo-marquee {
+        display: flex;
+        gap: clamp(32px, 6vw, 84px);
+        width: max-content;
+        min-width: 100%;
+        animation: marquee 28s linear infinite;
+      }
+
+      .logo-marquee span {
+        color: #1a617c;
+        font-size: clamp(20px, 2.5vw, 32px);
+        font-weight: 900;
+        opacity: 0.82;
+        white-space: nowrap;
+      }
+
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-35%); }
+      }
+
+      .panel-section {
+        overflow: hidden;
+        padding: 78px 0 86px;
+        background: linear-gradient(180deg, #eaf8ff, #e2f5ff);
+      }
+
+      .panel-section::before,
+      .blue-section::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 56vw;
+        height: 210px;
+        border-radius: 0 0 80px 0;
+        background: rgba(255, 255, 255, 0.5);
+        pointer-events: none;
+      }
+
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        color: var(--blue-dark);
+        font-size: clamp(16px, 1.65vw, 22px);
+      }
+
+      .case-track {
+        display: grid;
+        grid-template-columns: 0.85fr 1.5fr 0.95fr;
+        gap: 34px;
+        align-items: stretch;
+        margin: 52px -84px 46px;
+      }
+
+      .case-card {
+        overflow: hidden;
+        min-height: 378px;
+        padding: 0 0 28px;
+        border: 8px solid #fff;
+        border-radius: 28px 8px 28px 8px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: var(--shadow);
+        transition: transform var(--dur-base) var(--ease-out-quint);
+      }
+
+      .case-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .case-card.featured {
+        transform: translateY(-14px);
+      }
+
+      .case-card.featured:hover {
+        transform: translateY(-18px);
+      }
+
+      .case-photo {
+        height: 170px;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .photo-one { background-image: url("./assets/case-care.png"); }
+      .photo-two { background-image: url("./assets/case-food.png"); }
+      .photo-three { background-image: url("./assets/case-retail.png"); }
+
+      .case-card h3 {
+        min-height: 96px;
+        margin: 28px 28px 16px;
+        font-size: clamp(19px, 2vw, 28px);
+        line-height: 1.5;
+      }
+
+      .case-card p {
+        margin: 0 28px 10px;
+        color: var(--blue-dark);
+        font-size: 17px;
+      }
+
+      .case-card dl {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 16px;
+        margin: 0 28px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .case-card dt::after {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        margin: 0 2px 3px 12px;
+        border-radius: 50%;
+        background: var(--line);
+      }
+
+      .case-card dd {
+        margin: 0;
+      }
+
+      .case-kpi {
+        display: inline-block;
+        margin: 14px 28px 4px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: linear-gradient(110deg, var(--blue-deep), var(--cyan));
+        color: #fff !important;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+      }
+
+      .case-kpi strong {
+        font-size: 15px;
+        margin-right: 2px;
+      }
+
+      /* KPI band — 社会的証明強化（QUEST Stimulate） */
+      .kpi-band {
+        padding: 56px 0 64px;
+        background: linear-gradient(180deg, #fff 0%, #eaf8ff 100%);
+      }
+
+      .kpi-band-inner {
+        width: min(var(--content), calc(100% - 48px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .kpi-card {
+        padding: 28px 18px 24px;
+        border-radius: 8px 24px 8px 24px;
+        background: #fff;
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow-soft);
+        text-align: center;
+        transition: transform var(--dur-base) var(--ease-out-quint);
+      }
+
+      .kpi-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .kpi-num {
+        display: block;
+        margin: 0 0 6px;
+        color: var(--blue);
+        font-size: clamp(32px, 3.4vw, 44px);
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .kpi-num small {
+        font-size: 0.55em;
+        margin-left: 2px;
+        opacity: 0.85;
+      }
+
+      .kpi-label {
+        display: block;
+        margin: 0;
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      .kpi-note {
+        margin: 14px auto 0;
+        width: min(var(--content), calc(100% - 48px));
+        text-align: center;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .section-button {
+        width: min(300px, 100%);
+        margin-left: auto;
+      }
+
+      .worries {
+        padding: 118px 0 110px;
+        background:
+          radial-gradient(circle at 88% 15%, rgba(78, 197, 249, 0.13), transparent 26%),
+          #fff;
+      }
+
+      .worries h2,
+      .benefits h2,
+      .usage h2,
+      .download h2 {
+        max-width: 760px;
+        margin: 26px 0 62px;
+        font-size: clamp(31px, 4vw, 52px);
+        line-height: 1.42;
+        letter-spacing: 0;
+      }
+
+      .worry-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+      }
+
+      .worry-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 520px;
+        padding: 46px;
+        border: 1px solid var(--line);
+        border-radius: 8px 30px 8px 30px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 253, 255, 0.92));
+        box-shadow: 0 18px 50px rgba(0, 126, 198, 0.1);
+      }
+
+      .worry-card h3 {
+        margin: 44px 0 14px;
+        font-size: clamp(24px, 2.5vw, 34px);
+      }
+
+      .worry-card p {
+        margin: 0;
+        color: #324755;
+        font-size: 17px;
+      }
+
+      .illustration {
+        position: relative;
+        height: 260px;
+        border-radius: 8px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .illustration-one { background-image: url("./assets/worry-manneri.png"); }
+      .illustration-two { background-image: url("./assets/worry-yarippanashi.png"); }
+
+      .blue-section {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(180deg, #eaf8ff, #bdeaff);
+      }
+
+      .about {
+        padding: 116px 0 0;
+      }
+
+      .about::after {
+        content: "MIRAISE";
+        position: absolute;
+        left: -52px;
+        top: 18px;
+        color: rgba(255, 255, 255, 0.54);
+        font-size: clamp(112px, 19vw, 260px);
+        font-weight: 900;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .about-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 390px;
+        gap: 54px;
+        align-items: center;
+      }
+
+      .about-copy h2,
+      .issue-copy h2,
+      .message-card h2 {
+        margin: 26px 0 24px;
+        font-size: clamp(34px, 4.3vw, 58px);
+        line-height: 1.42;
+        letter-spacing: 0;
+      }
+
+      .about-copy p,
+      .issue-copy p,
+      .usage p,
+      .download p {
+        margin: 0;
+        color: #223946;
+        font-size: 17px;
+        line-height: 2.1;
+      }
+
+      .about-card {
+        display: flex;
+        align-items: center;
+        min-height: 460px;
+      }
+
+      .about-image {
+        width: 100%;
+        min-height: 430px;
+        object-fit: cover;
+        object-position: center;
+        border: 10px solid rgba(255, 255, 255, 0.62);
+        border-radius: 8px 42px 8px 42px;
+        box-shadow: 30px 34px 0 rgba(255, 255, 255, 0.48), var(--shadow);
+        aspect-ratio: 1672 / 941;
+      }
+
+      .recommend {
+        position: relative;
+        z-index: 1;
+        margin-top: 60px;
+        padding: 108px max(24px, calc((100vw - var(--content)) / 2)) 122px;
+        color: #fff;
+        background: linear-gradient(180deg, rgba(25, 159, 226, 0.18), #149de5 26%, #1f63bb);
+      }
+
+      .recommend h3 {
+        margin: 0 0 48px;
+        text-align: center;
+        font-size: clamp(24px, 3vw, 38px);
+      }
+
+      .recommend-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 36px;
+      }
+
+      .recommend-grid article {
+        min-height: 250px;
+        padding: 44px 24px;
+        text-align: center;
+        border: 2px solid rgba(255, 255, 255, 0.72);
+        border-radius: 8px 34px 8px 34px;
+        background: rgba(232, 249, 255, 0.72);
+      }
+
+      .recommend-grid p {
+        margin: 22px 0 0;
+        color: #093b5f;
+        font-size: 19px;
+      }
+
+      .mini-icon {
+        position: relative;
+        width: 98px;
+        height: 98px;
+        margin: 0 auto;
+        border-radius: 24px;
+        background: linear-gradient(135deg, #fff, #51caff);
+        box-shadow: inset 0 -12px 0 rgba(34, 96, 188, 0.12);
+      }
+
+      .mini-icon::before,
+      .mini-icon::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        background: var(--blue-deep);
+      }
+
+      .people::before { width: 24px; height: 24px; left: 36px; top: 24px; }
+      .people::after { width: 56px; height: 28px; left: 21px; bottom: 22px; }
+      .question::before { width: 16px; height: 16px; left: 41px; bottom: 22px; }
+      .question::after {
+        content: "?";
+        inset: 2px 0 auto 0;
+        color: var(--blue-deep);
+        background: none;
+        font-size: 62px;
+        line-height: 1;
+      }
+      .recommend-grid .document::before { width: 48px; height: 64px; left: 26px; top: 18px; border-radius: 8px; background: #fff; }
+      .recommend-grid .document::after { width: 28px; height: 8px; left: 36px; top: 44px; background: var(--blue-deep); box-shadow: 0 16px 0 var(--cyan); content: ""; color: initial; font-size: 0; line-height: 0; inset: auto; }
+
+      .issues {
+        padding: 112px 0 60px;
+      }
+
+      .issue-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 64px;
+        align-items: center;
+        min-height: 620px;
+      }
+
+      .issue-row + .issue-row {
+        margin-top: 70px;
+      }
+
+      .issue-number,
+      .usage-pill,
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        margin: 0;
+        padding: 8px 22px;
+        color: var(--blue-dark);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .issue-number strong,
+      .usage-pill strong,
+      .step-number strong {
+        font-size: 28px;
+      }
+
+      .issue-copy a {
+        display: inline-flex;
+        margin-top: 28px;
+        color: var(--blue-dark);
+        border-bottom: 2px solid currentColor;
+        transition: color var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .issue-copy a:hover {
+        color: var(--blue);
+      }
+
+      .issue-visual {
+        overflow: hidden;
+        min-height: 420px;
+        border-radius: 8px 42px 8px 42px;
+        background: rgba(255, 255, 255, 0.38);
+        box-shadow: var(--shadow);
+      }
+
+      .feature-image {
+        width: 100%;
+        height: 100%;
+        min-height: 420px;
+        object-fit: cover;
+        object-position: center;
+        aspect-ratio: 1672 / 941;
+      }
+
+      .steps {
+        padding: 104px 0 120px;
+      }
+
+      .step-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 30px;
+        margin-top: 34px;
+      }
+
+      .step-card {
+        overflow: hidden;
+        min-height: 420px;
+        padding: 8px 8px 32px;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 18px 44px rgba(0, 115, 190, 0.13);
+        transition: transform var(--dur-base) var(--ease-out-quint);
+      }
+
+      .step-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .step-visual {
+        height: 160px;
+        border-radius: 8px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .step-visual.one { background-image: url("./assets/step-1.png"); }
+      .step-visual.two { background-image: url("./assets/step-2.png"); }
+      .step-visual.three { background-image: url("./assets/step-3.png"); }
+      .step-visual.four { background-image: url("./assets/step-4.png"); }
+      .step-visual.five { background-image: url("./assets/step-5.png"); }
+      .step-visual.six { background-image: url("./assets/step-6.png"); }
+
+      .step-number {
+        margin: 26px 24px 16px;
+        padding: 4px 16px;
+        font-size: 13px;
+      }
+
+      .step-number strong { font-size: 22px; }
+
+      .step-card h3 {
+        margin: 0 24px 12px;
+        font-size: 21px;
+        line-height: 1.5;
+      }
+
+      .step-card p:last-child {
+        margin: 0 24px;
+        color: #334b5a;
+        font-size: 15px;
+        line-height: 1.85;
+      }
+
+      .benefits {
+        padding: 118px 0 96px;
+      }
+
+      .benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px 30px 8px 30px;
+        background: rgba(255, 255, 255, 0.26);
+        box-shadow: inset 0 0 70px rgba(255, 255, 255, 0.3);
+      }
+
+      .benefit-grid span {
+        display: grid;
+        place-items: center;
+        min-height: 96px;
+        padding: 16px;
+        text-align: center;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 12px 30px rgba(19, 125, 194, 0.12);
+      }
+
+      .down-arrow {
+        width: 0;
+        height: 0;
+        margin: 34px auto 0;
+        border-left: 28px solid transparent;
+        border-right: 28px solid transparent;
+        border-top: 42px solid #45c6f6;
+        filter: drop-shadow(0 14px 16px rgba(16, 116, 188, 0.18));
+      }
+
+      .usage {
+        padding: 122px 0 132px;
+        background: #fff;
+      }
+
+      .usage-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(380px, 0.7fr);
+        gap: 70px;
+        align-items: center;
+      }
+
+      .usage-pill { margin: 28px 0 26px; }
+      .usage h2 { margin-bottom: 24px; }
+
+      .role-panel {
+        display: grid;
+        gap: 14px;
+        padding: 56px 62px 46px;
+        color: #fff;
+        border-radius: 8px 40px 8px 40px;
+        background: linear-gradient(135deg, #1d63bd, #4fcafb);
+        box-shadow: var(--shadow);
+      }
+
+      .role-panel strong {
+        margin-bottom: 18px;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      .role-panel span {
+        padding: 12px 18px;
+        color: #245063;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      .role-panel span::before {
+        content: "✓";
+        margin-right: 10px;
+        color: var(--blue);
+      }
+
+      .price {
+        padding: 104px 0 112px;
+      }
+
+      .price h2,
+      .faq h2 {
+        max-width: 760px;
+        margin: 24px 0 42px;
+        font-size: clamp(31px, 4vw, 52px);
+        line-height: 1.42;
+      }
+
+      .price-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .price-grid article {
+        min-height: 300px;
+        padding: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.64);
+        border-radius: 8px 30px 8px 30px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 18px 46px rgba(0, 115, 190, 0.12);
+      }
+
+      .price-grid article.active {
+        color: #fff;
+        background: linear-gradient(135deg, var(--blue-deep), var(--cyan));
+        transform: translateY(-12px);
+      }
+
+      .price-grid p {
+        margin: 0 0 22px;
+        color: var(--blue-dark);
+        font-size: 14px;
+      }
+
+      .price-grid .active p,
+      .price-grid .active span {
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .price-grid h3 {
+        min-height: 72px;
+        margin: 0 0 24px;
+        font-size: 22px;
+        line-height: 1.55;
+      }
+
+      .price-grid strong {
+        display: block;
+        margin-bottom: 16px;
+        font-size: 27px;
+        line-height: 1.3;
+      }
+
+      .price-grid span { color: var(--muted); }
+
+      .message {
+        padding: 96px 0;
+        background: #fff;
+      }
+
+      .message-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 360px minmax(0, 1fr);
+        gap: 54px;
+        align-items: center;
+        width: min(1216px, calc(100% - 48px));
+        min-height: 370px;
+        margin: 0 auto;
+        padding: 36px 72px;
+        overflow: hidden;
+        color: #fff;
+        border-radius: 8px 40px 8px 40px;
+        background: linear-gradient(110deg, #1e64bd, #4fcafb);
+      }
+
+      .message-visual {
+        position: relative;
+        height: 260px;
+        border-radius: 36px;
+        transform: rotate(-16deg);
+        background: url("./assets/message-reflection.png") center / cover no-repeat;
+        box-shadow: 0 26px 52px rgba(4, 83, 170, 0.28);
+      }
+
+      .message-card .section-label { color: #fff; }
+      .message-card .section-label::before {
+        background: rgba(255, 255, 255, 0.84);
+        box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.14);
+      }
+
+      .message-card h2 {
+        margin-bottom: 0;
+        font-size: clamp(31px, 3.3vw, 46px);
+      }
+
+      .message-card h2 span {
+        display: inline-block;
+        margin: 0 8px;
+        padding: 0 20px 4px;
+        border-radius: 8px;
+        background: rgba(11, 73, 159, 0.56);
+      }
+
+      .faq {
+        padding: 10px 0 88px;
+        background: #fff;
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .faq details {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: linear-gradient(180deg, #fff, #f4fbff);
+        box-shadow: 0 12px 32px rgba(0, 115, 190, 0.08);
+        transition: box-shadow var(--dur-base) var(--ease-out-quint);
+      }
+
+      .faq details[open] {
+        box-shadow: 0 18px 38px rgba(0, 115, 190, 0.14);
+      }
+
+      .faq summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 74px;
+        padding: 0 28px;
+        cursor: pointer;
+        color: var(--ink);
+        list-style: none;
+      }
+
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq summary::after {
+        content: "+";
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        flex: 0 0 auto;
+        color: #fff;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--blue-deep), var(--cyan));
+        transition: transform var(--dur-base) var(--ease-out-quint);
+      }
+
+      .faq details[open] summary::after {
+        content: "−";
+      }
+
+      .faq details p {
+        margin: 0;
+        padding: 0 28px 28px;
+        color: #334b5a;
+        font-size: 15px;
+        line-height: 1.9;
+      }
+
+      /* Offer band — Stimulate/Transition 強化 */
+      .offer-band {
+        padding: 64px 0 72px;
+        background: linear-gradient(135deg, var(--blue-deep) 0%, var(--cyan) 100%);
+        color: #fff;
+      }
+
+      .offer-band-inner {
+        width: min(720px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 36px 32px 38px;
+        border-radius: 8px 30px 8px 30px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        text-align: center;
+        backdrop-filter: blur(4px);
+      }
+
+      .offer-badge {
+        display: inline-block;
+        margin-bottom: 16px;
+        padding: 6px 18px;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--blue-deep);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+      }
+
+      .offer-title {
+        margin: 0 0 12px;
+        font-size: clamp(24px, 3vw, 32px);
+        line-height: 1.4;
+        color: #fff;
+      }
+
+      .offer-title small { font-size: 0.6em; opacity: .9; }
+
+      .offer-detail {
+        max-width: 480px;
+        margin: 0 auto 8px;
+        font-size: 15px;
+        line-height: 1.8;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .offer-deadline {
+        margin: 0 0 24px;
+        font-size: 13px;
+        opacity: 0.85;
+      }
+
+      .offer-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 240px;
+        min-height: 56px;
+        padding: 0 32px;
+        border-radius: 8px;
+        background: #fff;
+        color: var(--blue-deep);
+        font-size: 17px;
+        font-weight: 900;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.16);
+        transition: transform var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .offer-cta:hover { transform: translateY(-2px); }
+
+      .download {
+        padding: 54px 0 112px;
+        background:
+          radial-gradient(circle at 80% 0, rgba(83, 205, 250, 0.16), transparent 28%),
+          #fff;
+      }
+
+      .download-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: 42px;
+        align-items: center;
+      }
+
+      .download h2 { margin-bottom: 18px; }
+
+      .download-checklist {
+        margin: 0 0 24px;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .download-checklist li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .download-checklist li::before {
+        content: "✓";
+        display: grid;
+        place-items: center;
+        flex: 0 0 24px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--blue-deep), var(--cyan));
+        color: #fff;
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .footer {
+        display: grid;
+        grid-template-columns: 1fr 1.25fr;
+        gap: 42px 80px;
+        padding: 88px max(24px, calc((100vw - var(--content)) / 2)) 34px;
+        color: #fff;
+        background: linear-gradient(115deg, #50c8f7, #1459b5);
+      }
+
+      .footer .brand {
+        color: #fff;
+        font-size: clamp(44px, 6vw, 82px);
+        text-shadow: none;
+      }
+
+      .footer-brand p {
+        max-width: 310px;
+        margin: 24px 0 0;
+        font-size: 18px;
+      }
+
+      .footer-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 46px;
+        align-self: center;
+      }
+
+      .footer-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        transition: opacity var(--dur-fast) var(--ease-out-quint);
+      }
+
+      .footer-links a:hover { opacity: 0.85; }
+
+      .footer-links a::before {
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.12);
+      }
+
+      .footer-actions {
+        grid-column: 2;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .copyright {
+        grid-column: 1 / -1;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 14px;
+        text-align: right;
+      }
+
+      .footer-demo {
+        grid-column: 1 / -1;
+        max-width: 720px;
+        margin: 12px auto 0;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      /* Mobile nav dialog enhancement (Phase 1 a11y強化版 — site-nav 既存スタイル + dialog ロール) */
+      /* display 制御はメディアクエリ内の .is-open / [data-mobile-open] で一本化（重複 !important 削除）*/
+
+      .mobile-nav-close {
+        display: none;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 44px;
+        height: 44px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        font-size: 0;
+      }
+
+      .mobile-nav-close::before,
+      .mobile-nav-close::after {
+        content: "";
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        top: 50%;
+        height: 3px;
+        background: var(--blue-dark);
+        border-radius: 2px;
+      }
+
+      .mobile-nav-close::before { transform: rotate(45deg); }
+      .mobile-nav-close::after { transform: rotate(-45deg); }
+
+      /* Body backdrop when mobile nav open */
+      body.nav-open::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 19;
+        background: var(--backdrop);
+      }
+
+      @media (max-width: 1080px) {
+        :root { --header-h: 80px; }
+
+        .site-header {
+          padding: 18px 22px 12px;
+        }
+
+        .menu-button {
+          display: block;
+        }
+
+        .site-nav {
+          position: fixed;
+          inset: 74px 18px auto;
+          display: none;
+          grid-template-columns: 1fr;
+          gap: 8px;
+          padding: 18px;
+          background: rgba(255, 255, 255, 0.96);
+          box-shadow: 0 18px 46px rgba(7, 93, 160, 0.18);
+        }
+
+        .site-nav.is-open,
+        .site-nav[data-mobile-open="true"] {
+          display: grid;
+        }
+
+        .site-nav a {
+          min-height: 48px;
+        }
+
+        .site-nav .nav-contact,
+        .site-nav .nav-download {
+          min-width: 0;
+        }
+
+        .site-nav .mobile-nav-close {
+          display: block;
+        }
+
+        .hero-visual {
+          right: -220px;
+          width: min(940px, 86vw);
+          opacity: 0.68;
+        }
+
+        .case-track {
+          grid-template-columns: repeat(3, 340px);
+          overflow-x: auto;
+          margin-right: -24px;
+          margin-left: -24px;
+          padding: 0 24px 16px;
+        }
+
+        .worry-grid,
+        .about-grid,
+        .issue-row,
+        .usage-grid,
+        .message-card,
+        .download-grid,
+        .footer {
+          grid-template-columns: 1fr;
+        }
+
+        .issue-row.reverse .issue-copy {
+          order: 2;
+        }
+
+        .footer-actions,
+        .copyright {
+          grid-column: auto;
+        }
+
+        .footer-demo {
+          grid-column: 1 / -1;
+        }
+
+        .benefit-grid,
+        .step-grid,
+        .price-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .kpi-band-inner {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        :root { --header-h: 70px; }
+
+        .section-inner,
+        .hero-copy,
+        .message-card {
+          width: min(100% - 28px, var(--content));
+        }
+
+        .brand {
+          font-size: 28px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 88px 0 24px;
+        }
+
+        .hero-visual {
+          position: relative;
+          right: auto;
+          top: auto;
+          order: -1;
+          width: 100%;
+          max-height: 178px;
+          height: auto;
+          margin: -22px 0 0 auto;
+          object-fit: cover;
+          object-position: 68% center;
+          opacity: 0.95;
+          mask-image: none;
+        }
+
+        .hero-copy {
+          padding-left: 0;
+        }
+
+        .hero h1 {
+          margin-bottom: 18px;
+          font-size: clamp(34px, 10vw, 42px);
+          line-height: 1.18;
+        }
+
+        .hero p {
+          font-size: 14px;
+          line-height: 1.85;
+        }
+
+        .hero-actions {
+          width: 100%;
+          padding: 12px;
+          margin-top: 24px;
+        }
+
+        .button {
+          min-height: 48px;
+          padding: 0 24px;
+        }
+
+        .logo-strip {
+          padding-bottom: 40px;
+        }
+
+        .panel-section,
+        .worries,
+        .about,
+        .issues,
+        .steps,
+        .benefits,
+        .usage {
+          padding-top: 78px;
+          padding-bottom: 78px;
+        }
+
+        .worries h2,
+        .benefits h2,
+        .usage h2,
+        .download h2,
+        .about-copy h2,
+        .issue-copy h2,
+        .message-card h2 {
+          font-size: clamp(30px, 9vw, 42px);
+        }
+
+        .worry-grid,
+        .recommend-grid,
+        .benefit-grid,
+        .step-grid,
+        .price-grid,
+        .footer-links,
+        .footer-actions {
+          grid-template-columns: 1fr;
+        }
+
+        .kpi-band { padding: 44px 0 52px; }
+        .kpi-band-inner { grid-template-columns: 1fr; gap: 12px; }
+        .kpi-card { padding: 20px 18px; }
+        .kpi-num { font-size: 32px; }
+
+        .offer-band { padding: 44px 0 52px; }
+        .offer-band-inner { padding: 28px 22px 32px; }
+        .offer-title { font-size: 22px; }
+        .offer-cta { width: 100%; min-width: 0; padding: 0 18px; font-size: 16px; }
+
+        .download h2 { margin-bottom: 14px; }
+        .download-checklist li { font-size: 14px; }
+
+        .price-grid article.active {
+          transform: none;
+        }
+
+        .worry-card {
+          min-height: 0;
+          padding: 18px 18px 30px;
+        }
+
+        .illustration {
+          height: 210px;
+        }
+
+        .about::after {
+          top: 44px;
+          font-size: 82px;
+        }
+
+        .about-grid,
+        .issue-row,
+        .usage-grid,
+        .message-card {
+          gap: 32px;
+        }
+
+        .about-card,
+        .issue-visual {
+          min-height: 340px;
+        }
+
+        .recommend {
+          margin-top: 42px;
+          padding-top: 76px;
+          padding-bottom: 76px;
+        }
+
+        .role-panel {
+          padding: 34px 22px;
+        }
+
+        .message-card {
+          padding: 34px 24px;
+        }
+
+        .message-visual {
+          height: 190px;
+        }
+
+        .footer {
+          gap: 34px;
+          padding-top: 64px;
+        }
+
+        .copyright {
+          text-align: left;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+        html { scroll-behavior: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#top">本文へスキップ</a>
+
+    <p class="demo-notice" role="note">
+      <strong>PORTFOLIO DEMO</strong>
+      ／ これは飛燕（ka-sol）のポートフォリオデモです。
+      ブランド名・会社名・お客様の声・料金はすべて架空のものです。
+    </p>
+
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="#top" aria-label="MIRAISE ホーム">MIRAISE</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="グローバルナビゲーション">
+        <button class="mobile-nav-close" type="button" aria-label="メニューを閉じる" data-mobile-nav-close></button>
+        <a href="#feature">特長</a>
+        <a href="#function">機能</a>
+        <a href="#method">活用方法</a>
+        <a href="#price">料金</a>
+        <a href="#case">事例</a>
+        <a href="#faq">Q&amp;A</a>
+        <a class="nav-contact" href="#contact">お問い合わせ</a>
+        <a class="nav-download" href="#download">資料ダウンロード</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section" aria-label="メインビジュアル">
+        <img class="hero-visual" src="./assets/hero-miraise-v2.png" alt="" width="1672" height="941" fetchpriority="high" decoding="async" />
+        <div class="hero-copy">
+          <h1>
+            <span>定着支援と</span><span>人材育成を</span>
+            <strong>同時に前へ進める</strong>
+          </h1>
+          <p>
+            MIRAISEは、忙しい育成担当者の負荷を抑えながら、
+            1人でも多くの社員に継続的なフォローを届けるための
+            教育DXサービスです。
+          </p>
+          <div class="hero-actions" aria-label="主要アクション">
+            <a class="button primary" href="#download">資料ダウンロード<span></span></a>
+            <a class="button secondary" href="#contact">お問い合わせ<span></span></a>
+            <small class="hero-trust">入力1分・営業電話なし・無料診断レポート進呈</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="kpi-band" aria-label="導入実績（架空）">
+        <div class="kpi-band-inner">
+          <div class="kpi-card">
+            <span class="kpi-num">120<small>社</small></span>
+            <span class="kpi-label">導入企業数<br>（架空・実績例）</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-num">94<small>%</small></span>
+            <span class="kpi-label">平均継続率<br>（12ヶ月時点）</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-num">-28<small>%</small></span>
+            <span class="kpi-label">育成担当工数<br>削減実績</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-num">+11<small>pt</small></span>
+            <span class="kpi-label">定着率<br>改善実績</span>
+          </div>
+        </div>
+        <p class="kpi-note">※ 数値はポートフォリオデモ用の参考例です（架空）</p>
+      </section>
+
+      <section class="logo-strip" aria-label="導入企業ロゴ（架空）">
+        <p>導入企業</p>
+        <div class="logo-marquee">
+          <span>AOBA CARE</span>
+          <span>BLUE FARM</span>
+          <span>TERASU FOODS</span>
+          <span>NOVA PARTNER</span>
+          <span>HINATA STORE</span>
+          <span>MIZUHO WORKS</span>
+          <span>LIGHT SEED</span>
+          <span>SAKURA LAB</span>
+        </div>
+      </section>
+
+      <section class="cases panel-section" id="case">
+        <div class="section-inner">
+          <div class="section-label">MIRAISEの導入事例</div>
+          <div class="case-track">
+            <article class="case-card">
+              <div class="case-photo photo-one" aria-hidden="true"></div>
+              <h3>小さなチームでも、育成の流れを途切れさせない環境へ</h3>
+              <p>株式会社 アオバケア</p>
+              <p class="case-kpi"><strong>定着率 +12pt</strong></p>
+              <dl>
+                <dt>業種</dt>
+                <dd>医療・福祉</dd>
+                <dt>従業員</dt>
+                <dd>48名</dd>
+              </dl>
+            </article>
+            <article class="case-card featured">
+              <div class="case-photo photo-two" aria-hidden="true"></div>
+              <h3>研修後の振り返りを日常化し、現場の育成温度を可視化</h3>
+              <p>株式会社 テラスフーズ</p>
+              <p class="case-kpi"><strong>研修工数 -34h/月</strong></p>
+              <dl>
+                <dt>業種</dt>
+                <dd>食品</dd>
+                <dt>従業員</dt>
+                <dd>620名</dd>
+              </dl>
+            </article>
+            <article class="case-card">
+              <div class="case-photo photo-three" aria-hidden="true"></div>
+              <h3>新人の状況をチームで把握し、フォローの抜け漏れを削減</h3>
+              <p>合同会社 ライトシード</p>
+              <p class="case-kpi"><strong>新人立ち上げ -2週間</strong></p>
+              <dl>
+                <dt>業種</dt>
+                <dd>小売</dd>
+                <dt>従業員</dt>
+                <dd>180名</dd>
+              </dl>
+            </article>
+          </div>
+          <a class="button primary section-button" href="#case">導入事例一覧<span></span></a>
+        </div>
+      </section>
+
+      <section class="worries section" id="worries">
+        <div class="section-inner">
+          <div class="section-label">こんな悩みはありませんか</div>
+          <h2>忙しい育成担当者が直面する、これまでの教育とフォローの課題</h2>
+          <div class="worry-grid">
+            <article class="worry-card">
+              <div class="illustration illustration-one" aria-hidden="true"></div>
+              <h3>施策がマンネリ化する</h3>
+              <p>研修、面談、日報などを続けていても、次の打ち手が見つかりにくい。</p>
+            </article>
+            <article class="worry-card">
+              <div class="illustration illustration-two" aria-hidden="true"></div>
+              <h3>やりっぱなしで終わる</h3>
+              <p>振り返りやフィードバックを継続したくても、日々の業務に埋もれてしまう。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about blue-section" id="feature">
+        <div class="section-inner about-grid">
+          <div class="about-copy">
+            <div class="section-label">MIRAISEとは</div>
+            <h2>1人で多くの社員を手厚く見守れる教育DX</h2>
+            <p>
+              MIRAISEは、振り返り、フィードバック、ナレッジ共有をひとつの流れにまとめ、
+              育成担当者の負荷を抑えながら、社員の成長を継続的に支える仕組みをつくります。
+            </p>
+          </div>
+          <div class="about-card">
+            <img class="about-image" src="./assets/about-platform.png" alt="" width="1672" height="941" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div class="recommend">
+          <h3>MIRAISEはこんな育成担当者におすすめです</h3>
+          <div class="recommend-grid">
+            <article>
+              <div class="mini-icon people" aria-hidden="true"></div>
+              <p>社員の定着率を改善したい</p>
+            </article>
+            <article>
+              <div class="mini-icon question" aria-hidden="true"></div>
+              <p>フォローの質にばらつきがある</p>
+            </article>
+            <article>
+              <div class="mini-icon document" aria-hidden="true"></div>
+              <p>研修後の学びを残したい</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="issues blue-section">
+        <div class="section-inner">
+          <div class="section-label">MIRAISEが解決する2つの課題</div>
+          <article class="issue-row">
+            <div class="issue-visual slide-visual">
+              <img class="feature-image" src="./assets/issue-materials.png" alt="" width="1672" height="941" loading="lazy" decoding="async" />
+            </div>
+            <div class="issue-copy">
+              <p class="issue-number">課題 <strong>1</strong></p>
+              <h2>マンネリ化を解決する</h2>
+              <p>
+                汎用性の高い育成テーマを整理し、研修やワークにすぐ使える形で共有。
+                教育内容を一から作る負担を減らします。
+              </p>
+              <a href="#method">活用方法を見る</a>
+            </div>
+          </article>
+          <article class="issue-row reverse">
+            <div class="issue-copy">
+              <p class="issue-number">課題 <strong>2</strong></p>
+              <h2>やりっぱなしを解決する</h2>
+              <p>
+                振り返りを中心に、コメント、承認、共有まで自然につながる流れを設計。
+                継続的なフォローをチームで行いやすくします。
+              </p>
+              <a href="#function">機能を見る</a>
+            </div>
+            <div class="issue-visual cycle-visual">
+              <img class="feature-image" src="./assets/issue-cycle.png" alt="" width="1672" height="941" loading="lazy" decoding="async" />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="steps blue-section" id="steps">
+        <div class="section-inner">
+          <div class="section-label">MIRAISEの基本的な使い方</div>
+          <div class="step-grid">
+            <article class="step-card">
+              <div class="step-visual one" aria-hidden="true"></div>
+              <p class="step-number">STEP <strong>1</strong></p>
+              <h3>教育内容を共有する</h3>
+              <p>スキルマップや資料をまとめ、チーム全体で同じ内容を参照できます。</p>
+            </article>
+            <article class="step-card">
+              <div class="step-visual two" aria-hidden="true"></div>
+              <p class="step-number">STEP <strong>2</strong></p>
+              <h3>日々の場面で振り返る</h3>
+              <p>研修後、面談後、業務後など、学びを短く残す習慣をつくります。</p>
+            </article>
+            <article class="step-card">
+              <div class="step-visual three" aria-hidden="true"></div>
+              <p class="step-number">STEP <strong>3</strong></p>
+              <h3>一覧からフィードバック</h3>
+              <p>上がってきた振り返りに対して、コメントやリアクションで手軽に返せます。</p>
+            </article>
+            <article class="step-card">
+              <div class="step-visual four" aria-hidden="true"></div>
+              <p class="step-number">STEP <strong>4</strong></p>
+              <h3>ナレッジとして共有</h3>
+              <p>よい気づきをチームへ広げ、個人の学びを組織の学びへ変えます。</p>
+            </article>
+            <article class="step-card">
+              <div class="step-visual five" aria-hidden="true"></div>
+              <p class="step-number">STEP <strong>5</strong></p>
+              <h3>状態を把握する</h3>
+              <p>メンバーの変化や支援の抜け漏れをダッシュボードで確認できます。</p>
+            </article>
+            <article class="step-card">
+              <div class="step-visual six" aria-hidden="true"></div>
+              <p class="step-number">STEP <strong>6</strong></p>
+              <h3>次の育成へつなげる</h3>
+              <p>蓄積されたログから、次回面談や研修のテーマを決めやすくします。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits blue-section" id="function">
+        <div class="section-inner">
+          <div class="section-label">MIRAISEのメリット</div>
+          <h2>育成担当者の負担を大幅に減らす</h2>
+          <div class="benefit-grid">
+            <span>Excelの日報管理が煩雑</span>
+            <span>面談の記録が散らばる</span>
+            <span>質問が集約されない</span>
+            <span>スキルマップが共有しづらい</span>
+            <span>個人と全員へ柔軟に連絡できない</span>
+            <span>研修資料が属人化する</span>
+            <span>コメント対応の負担が重い</span>
+            <span>現場の温度感が見えにくい</span>
+          </div>
+          <div class="down-arrow" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="usage section" id="method">
+        <div class="section-inner usage-grid">
+          <div>
+            <div class="section-label">MIRAISEの活用方法</div>
+            <p class="usage-pill">活用法 <strong>1</strong></p>
+            <h2>すべての階層でご利用いただけます</h2>
+            <p>
+              内定者、新入社員、中堅社員、管理職まで、階層が変わっても
+              育成情報を引き継ぎながら継続して活用できます。
+            </p>
+          </div>
+          <div class="role-panel">
+            <strong>教育 &amp; フォローアップ</strong>
+            <span>内定者</span>
+            <span>新入社員</span>
+            <span>2年目・3年目社員</span>
+            <span>中堅社員</span>
+            <span>管理職</span>
+            <span>役員</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="price blue-section" id="price">
+        <div class="section-inner">
+          <div class="section-label">料金（架空）</div>
+          <h2>利用規模に合わせて選べるシンプルなプラン</h2>
+          <div class="price-grid">
+            <article>
+              <p>STARTER</p>
+              <h3>小規模チーム向け</h3>
+              <strong>月額 48,000円〜</strong>
+              <span>50名まで</span>
+            </article>
+            <article class="active">
+              <p>STANDARD</p>
+              <h3>育成体制を整えたい組織向け</h3>
+              <strong>月額 98,000円〜</strong>
+              <span>200名まで</span>
+            </article>
+            <article>
+              <p>ENTERPRISE</p>
+              <h3>複数拠点・大規模運用向け</h3>
+              <strong>個別見積もり</strong>
+              <span>制限なし</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="message section">
+        <div class="message-card">
+          <div class="message-visual" aria-hidden="true"></div>
+          <div>
+            <div class="section-label">MIRAISEに込めた思い</div>
+            <h2>
+              人材育成の中心である
+              <span>振り返り</span>
+              を組織全体で徹底できるようにしました
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq section" id="faq">
+        <div class="section-inner">
+          <div class="section-label">Q&amp;A</div>
+          <h2>よくあるご質問</h2>
+          <div class="faq-list">
+            <details open>
+              <summary>既存の研修資料は使えますか</summary>
+              <p>PDFやスライドの内容を整理し、振り返りやスキルマップと組み合わせて利用できます。</p>
+            </details>
+            <details>
+              <summary>少人数の組織でも導入できますか</summary>
+              <p>はい。内定者や新入社員など、まずは一部の階層から小さく始めることができます。</p>
+            </details>
+            <details>
+              <summary>導入時のサポートはありますか</summary>
+              <p>初期設計、運用ルール、定着までの流れを担当者が伴走する想定の架空サービスです。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="offer-band" aria-label="期間限定オファー">
+        <div class="offer-band-inner">
+          <span class="offer-badge">先着 10 社限定</span>
+          <h2 class="offer-title">無料診断レポート<br><small>（30,000円相当）</small>進呈中</h2>
+          <p class="offer-detail">現状の育成体制・継続率・課題ポイントを30分でヒアリングし、改善ロードマップをレポート化してお渡しします。</p>
+          <p class="offer-deadline">2026年6月末まで／本ページ経由のお申込みのみ</p>
+          <a class="offer-cta" href="#download">無料診断を申し込む</a>
+        </div>
+      </section>
+
+      <section class="download section" id="download">
+        <div class="section-inner download-grid">
+          <div>
+            <div class="section-label">資料ダウンロード</div>
+            <h2>MIRAISEの機能と導入イメージをまとめた資料をご用意しています</h2>
+            <ul class="download-checklist" role="list">
+              <li>サービス機能一覧（全32機能）</li>
+              <li>料金プラン詳細（STARTER/STANDARD/ENTERPRISE）</li>
+              <li>導入事例3社の詳細（医療・食品・小売）</li>
+              <li>ROI試算サンプル（育成工数削減 / 定着率改善）</li>
+            </ul>
+          </div>
+          <a class="button primary" href="#contact">資料を受け取る<span></span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="footer-brand">
+        <a class="brand" href="#top">MIRAISE</a>
+        <p>1人で組織の成長を見守る教育DX</p>
+      </div>
+      <nav class="footer-links" aria-label="フッターナビゲーション">
+        <a href="#feature">MIRAISEの特長</a>
+        <a href="#function">MIRAISEの機能</a>
+        <a href="#method">活用方法</a>
+        <a href="#case">導入事例</a>
+        <a href="#faq">よくあるご質問</a>
+        <a href="#contact">サポート</a>
+      </nav>
+      <div class="footer-actions">
+        <a class="button secondary" href="mailto:contact@example.com">お問い合わせ<span></span></a>
+        <a class="button primary" href="#download">資料ダウンロード<span></span></a>
+      </div>
+      <p class="copyright">© MIRAISE Works, Inc.（架空ブランド）</p>
+      <p class="footer-demo">
+        このページは飛燕（ka-sol）が制作スキル提示のために構築したポートフォリオデモです。
+        ブランド、企業名、お客様の声、料金、メールアドレスはすべて架空の参考例です。
+      </p>
+    </footer>
+
+    <script>
+      (function () {
+        const menuButton = document.querySelector(".menu-button");
+        const siteNav = document.querySelector(".site-nav");
+        if (!menuButton || !siteNav) return;
+
+        const navLinks = siteNav.querySelectorAll("a");
+        const closeBtn = siteNav.querySelector("[data-mobile-nav-close]");
+
+        // inert 対象構築:
+        // - body 直下の子要素から SCRIPT と <header>（= siteNav 親）を除外して inertTargets に
+        // - <header> 内の siteNav 以外の子要素（.brand, .menu-button）を headerOtherEls に個別保持
+        // ＝ siteNav 以外の全 focusable を漏れなく inert にしつつ siteNav 自身は dialog として残す
+        const headerEl = siteNav.parentElement;
+        const inertTargets = Array.from(document.body.children).filter(function (el) {
+          return el.tagName !== "SCRIPT" && el !== headerEl;
+        });
+        const headerOtherEls = headerEl
+          ? Array.from(headerEl.children).filter(function (el) { return el !== siteNav; })
+          : [];
+
+        function isMobile() {
+          return window.matchMedia("(max-width: 1080px)").matches;
+        }
+
+        function openNav() {
+          if (!isMobile()) return;
+          siteNav.classList.add("is-open");
+          siteNav.dataset.mobileOpen = "true";
+          // role=dialog をJS動的付与（閉時にdialog発見させない）
+          siteNav.setAttribute("role", "dialog");
+          siteNav.setAttribute("aria-modal", "true");
+          document.body.classList.add("nav-open");
+          menuButton.setAttribute("aria-expanded", "true");
+          menuButton.setAttribute("aria-label", "メニューを閉じる");
+          // outside-of-dialog elements inert（header以外 + header内の siteNav 以外）
+          inertTargets.forEach(function (el) {
+            el.setAttribute("inert", "");
+          });
+          headerOtherEls.forEach(function (el) {
+            el.setAttribute("inert", "");
+          });
+          requestAnimationFrame(function () {
+            const first = siteNav.querySelector("a, button");
+            if (first) first.focus();
+          });
+        }
+
+        function closeNav() {
+          // inert 解除を focus 移動より先に実施（focus先 menuButton が inert解除後でないと無効化される）
+          inertTargets.forEach(function (el) {
+            el.removeAttribute("inert");
+          });
+          headerOtherEls.forEach(function (el) {
+            el.removeAttribute("inert");
+          });
+          siteNav.classList.remove("is-open");
+          siteNav.dataset.mobileOpen = "false";
+          siteNav.removeAttribute("role");
+          siteNav.removeAttribute("aria-modal");
+          document.body.classList.remove("nav-open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "メニューを開く");
+          menuButton.focus();
+        }
+
+        menuButton.addEventListener("click", function () {
+          if (siteNav.dataset.mobileOpen === "true") {
+            closeNav();
+          } else {
+            openNav();
+          }
+        });
+
+        if (closeBtn) {
+          closeBtn.addEventListener("click", closeNav);
+        }
+
+        navLinks.forEach(function (link) {
+          if (link.tagName !== "A") return;
+          link.addEventListener("click", function () {
+            if (isMobile() && siteNav.dataset.mobileOpen === "true") {
+              closeNav();
+            }
+          });
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && siteNav.dataset.mobileOpen === "true") {
+            closeNav();
+          }
+        });
+
+        // Focus trap: Tab/Shift+Tab を mobile-open nav 内に閉じ込める
+        siteNav.addEventListener("keydown", function (event) {
+          if (event.key !== "Tab" || siteNav.dataset.mobileOpen !== "true") return;
+          const focusables = siteNav.querySelectorAll("a[href], button:not([disabled])");
+          if (focusables.length === 0) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        });
+
+        // desktop に拡大した時、開きっぱなしを自動 close（inert/overflow固着防止）
+        if (typeof window.matchMedia === "function") {
+          const desktopQuery = window.matchMedia("(min-width: 1081px)");
+          const onChange = function (e) {
+            if (e.matches && siteNav.dataset.mobileOpen === "true") {
+              closeNav();
+            }
+          };
+          if (typeof desktopQuery.addEventListener === "function") {
+            desktopQuery.addEventListener("change", onChange);
+          } else if (typeof desktopQuery.addListener === "function") {
+            desktopQuery.addListener(onChange);
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
