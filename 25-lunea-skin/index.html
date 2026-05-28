@@ -486,7 +486,7 @@
       font-size: clamp(32px, 5vw, 58px);
       font-weight: 900;
       line-height: 1.2;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
     }
 
     .headline strong,
@@ -495,6 +495,10 @@
       font-weight: 900;
       font-style: normal;
     }
+
+    /* 後段 CSS で .headline { font-weight: 500 } に上書きされないようにここで再宣言 */
+    body .headline { font-weight: 900; }
+    body .hero h1 { font-weight: 900; letter-spacing: -0.02em; }
 
     .copy {
       margin: 22px auto 0;
@@ -652,9 +656,6 @@
       letter-spacing: -0.01em;
     }
 
-    .feature-item p {
-      margin-top: 10px;
-    }
 
     .feature-item p {
       margin: 8px 0 0;
@@ -1381,21 +1382,15 @@
       box-shadow: none;
     }
 
-    /* H1/headline は initial の var(--ff-jp-display) を維持。letter-spacing は palt + tracking */
-    .hero h1,
-    .headline {
-      font-family: var(--ff-jp-display);
-      letter-spacing: 0.02em;
-    }
-
+    /* H1/headline は base 定義（L97, L482）を維持。ここでは色だけ調整 */
     .hero h1 {
-      color: var(--navy);
-      line-height: 1.32;
+      color: var(--ink);
+      line-height: 1.12;
     }
 
     .hero h1 span {
       color: var(--rose-deep);
-      font-weight: 700;
+      font-weight: 900;
     }
 
     .hero-lead {
@@ -1444,15 +1439,15 @@
       letter-spacing: 0.36em;
     }
 
+    /* .headline 色だけ ink に上書き。font-weight は base の 900 を保持 */
     .headline {
-      color: var(--navy);
-      font-weight: 500;
+      color: var(--ink);
     }
 
     .headline strong,
     .headline em {
       color: var(--rose-deep);
-      font-weight: 700;
+      font-weight: 900;
       font-style: normal;
     }
 
@@ -1476,46 +1471,40 @@
                   0 16px 32px rgba(39, 48, 51, 0.06);
     }
 
-    .worry::after {
-      content: "";
-      position: absolute;
-      right: -30px;
-      top: -30px;
-      width: 94px;
-      height: 94px;
-      border-radius: 50%;
-      background: rgba(255, 120, 167, 0.15);
-    }
+    /* AI 装飾排除（card-back-revival 撤去） */
+    .worry::after { display: none; }
 
     .worry-mark {
-      background: var(--rose-deep);
-      color: #fff;
-      box-shadow: 0 4px 12px rgba(185, 117, 112, 0.22);
+      background: transparent;
+      color: var(--rose-deep);
+      box-shadow: none;
       font-family: var(--ff-en-display);
-      font-weight: 600;
+      font-weight: 400;
+      font-size: 42px;
+      letter-spacing: 0.02em;
+      padding: 0;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      display: block;
+      line-height: 1;
     }
 
     .image-band {
       min-height: 820px;
-      background:
-        linear-gradient(rgba(255,255,255,0.42) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.42) 1px, transparent 1px),
-        #ffeaf2;
-      background-size: 64px 64px;
-      border-top: 18px solid #fff;
-      border-bottom: 18px solid #fff;
+      background: var(--ink);
+      border-top: 0;
+      border-bottom: 0;
     }
 
     .image-band img {
       height: 820px;
-      filter: saturate(1.04) brightness(1.02);
+      filter: none;
     }
 
     .image-band::after {
       background:
-        linear-gradient(90deg, rgba(255, 247, 250, 0.94) 0%, rgba(255, 247, 250, 0.72) 42%, rgba(255, 247, 250, 0.12) 76%),
-        radial-gradient(circle at 16% 16%, rgba(255,255,255,0.85) 0 110px, transparent 112px),
-        radial-gradient(circle at 82% 86%, rgba(192,239,242,0.4) 0 130px, transparent 132px);
+        linear-gradient(90deg, rgba(26, 31, 34, 0.78) 0%, rgba(26, 31, 34, 0.42) 50%, rgba(26, 31, 34, 0.08) 100%);
     }
 
     .band-copy {
@@ -1553,18 +1542,19 @@
 
     .feature-photo {
       border: 0;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
-                  0 24px 56px rgba(39, 48, 51, 0.10);
+      border-radius: 0;
+      box-shadow: none;
     }
 
+    /* feature-item は罫線型キープ — Premium refresh での card 化を完全撤去 */
     .feature-item {
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.92);
-      padding-left: 22px;
-      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
-                  0 14px 32px rgba(39, 48, 51, 0.06);
+      position: relative;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+      padding: 28px 0 28px 64px;
+      box-shadow: none;
     }
 
     .before-after {
@@ -1609,15 +1599,26 @@
 
     .step {
       overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #fff;
-      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
-                  0 16px 36px rgba(39, 48, 51, 0.06);
+      border: 0;
+      border-top: 3px solid var(--ink);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      padding: 30px 24px 0;
     }
 
     .step-num {
-      background: var(--navy);
+      background: transparent;
+      color: var(--rose-deep);
+      font-family: var(--ff-en-display);
+      font-size: 32px;
+      font-weight: 400;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      display: block;
+      line-height: 1;
+      letter-spacing: 0.02em;
     }
 
     .voices {
@@ -1630,12 +1631,13 @@
       box-shadow: none;
     }
 
+    /* voice-card だけは「引用」感を残す。border 1px と左ラインで温度差を出す */
     .voice-card {
       border: 1px solid var(--line);
-      border-radius: 6px;
+      border-radius: 0;
       background: #fff;
-      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
-                  0 18px 40px rgba(39, 48, 51, 0.08);
+      padding: 32px 28px;
+      box-shadow: none;
     }
 
     .plans {
@@ -1676,13 +1678,17 @@
     }
 
     .faq-item {
-      margin-top: 14px;
-      padding: 24px 26px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #fff;
-      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
-                  0 14px 32px rgba(39, 48, 51, 0.06);
+      margin-top: 0;
+      padding: 28px 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--line);
     }
 
     .reserve {
@@ -1955,6 +1961,79 @@
       }
     }
     /* ============================================================
+       Proof Bar — 数字3点の太線帯（実LP直線文法）
+       ============================================================ */
+    .proof-bar {
+      padding: 56px clamp(22px, 5vw, 64px);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .proof-grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.18);
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .proof-grid li {
+      background: var(--ink);
+      padding: 32px 22px;
+      text-align: center;
+    }
+
+    .proof-grid strong {
+      display: block;
+      font-family: var(--ff-en-display);
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0;
+      color: #fff;
+    }
+
+    .proof-grid strong small {
+      font-family: var(--ff-body);
+      font-size: 0.42em;
+      font-weight: 800;
+      margin-left: 4px;
+    }
+
+    .proof-grid span {
+      display: block;
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .proof-note {
+      max-width: 1000px;
+      margin: 18px auto 0;
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+      .proof-grid li {
+        padding: 26px 20px;
+      }
+    }
+
+    /* ============================================================
        Plan Table — 罫線フォーマットの料金表（カード並列は撤去）
        ============================================================ */
     .plan-table {
@@ -2042,7 +2121,7 @@
 
     .plan-tr-recommend .plan-td-tag {
       color: #fff;
-      background: var(--rose-deep);
+      background: var(--rose-darkest);  /* WCAG AA 6.70:1 確保 */
       font-weight: 800;
     }
 
@@ -2074,14 +2153,19 @@
       }
       .plan-td-price {
         text-align: left;
-        margin-top: 10px;
+        margin-top: 14px;
+        display: flex;
+        flex-direction: column-reverse;  /* 取消線 ↑ → 現価格 ↓ で価格落差を強調 */
+        align-items: flex-start;
+        gap: 6px;
       }
       .plan-td-price strong {
-        display: inline-block;
-        margin-right: 12px;
+        display: block;
+        margin: 0;
+        font-size: 38px;  /* PC32 → SP38 で「衝撃」を強化 */
       }
       .plan-td-price span {
-        display: inline-block;
+        display: block;
         margin: 0;
       }
     }
@@ -2122,26 +2206,29 @@
       margin: 0 4px;
     }
 
+    /* scarcity-bar は黒背景。WCAG AA を確保するため白系で統一 */
     .scarcity-bar strong {
-      color: var(--rose-deep);
+      color: #fff;
       font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-weight: 800;
+      letter-spacing: 0.02em;
     }
 
     .scarcity-bar .remain {
-      color: var(--soft-ink);
+      color: rgba(255, 255, 255, 0.82);
       font-size: 13px;
       font-weight: 600;
     }
 
     .scarcity-bar .remain em {
-      color: #c2336a;
+      color: #fff;
+      background: var(--rose-deep);
+      padding: 2px 10px;
       font-family: var(--ff-en-display);
       font-size: 22px;
-      font-weight: 600;
+      font-weight: 400;
       font-style: normal;
-      margin: 0 3px;
+      margin: 0 4px;
     }
 
     @media (max-width: 640px) {
@@ -2412,6 +2499,29 @@
           </div>
         </div>
         <p class="note">※掲載のお客様の声は、サンプルLPのため架空の事例です。実運用時はご本人の許諾を得た実顧客の感想に差し替えてください。</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Proof Bar — 決断直前の数字3点（plans の前に置いて Action 直前の信頼を最大化）
+         ============================================================ -->
+    <section class="proof-bar" aria-label="数字で見るサロン実績">
+      <div class="container">
+        <ul class="proof-grid">
+          <li>
+            <strong>★ 4.8</strong>
+            <span>Google 口コミ 87件</span>
+          </li>
+          <li>
+            <strong>1,200<small>名</small></strong>
+            <span>累計来店数</span>
+          </li>
+          <li>
+            <strong>92<small>%</small></strong>
+            <span>2回目以降の予約率</span>
+          </li>
+        </ul>
+        <p class="proof-note">※数値はサンプルLP用の架空データです。実運用時は実績に置き換えてください。</p>
       </div>
     </section>
 
