@@ -538,7 +538,7 @@
 
     .hero {
       position: relative;
-      min-height: 1140px;
+      min-height: 1200px;
       background:
         repeating-linear-gradient(90deg, rgba(143, 209, 25, 0.16) 0 70px, rgba(143, 209, 25, 0.08) 70px 140px),
         #f7ffd9;
@@ -550,7 +550,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      height: 560px;
+      height: 500px;
       overflow: hidden;
       z-index: 0;
       pointer-events: none;
@@ -559,7 +559,7 @@
     .hero-img img {
       height: 100%;
       object-fit: cover;
-      object-position: 50% 58%;
+      object-position: 50% 70%;
     }
 
     /* 上端を強くフェードして hero-copy/lead の可読性を確保 */
@@ -619,58 +619,58 @@
         0 0 8px rgba(255, 255, 255, 0.6);
     }
 
-    .bubble {
+    /* ============================================================
+       Hero callout bubbles — hero-copy の下に横3並び、写真と完全分離
+       ============================================================ */
+    .bubble-row {
       position: absolute;
       z-index: 3;
+      left: 50%;
+      top: 540px;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 730px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding: 0 18px;
+      pointer-events: none;
+    }
+
+    .bubble {
       display: grid;
       place-items: center;
-      width: 190px;
       min-height: 132px;
-      padding: 18px;
+      padding: 18px 12px;
       background: #fff;
       border: 4px dashed var(--green);
-      border-radius: 34px;
+      border-radius: 30px;
       color: var(--ink);
       text-align: center;
       font-weight: 900;
       box-shadow:
-        0 0 0 6px #fff,
-        0 16px 32px rgba(50, 70, 20, 0.24);
-      transform: rotate(-4deg);
+        0 0 0 5px #fff,
+        0 16px 32px rgba(50, 70, 20, 0.22);
     }
 
     .bubble strong {
       display: block;
       color: var(--orange-deep);
-      font-size: 34px;
+      font-size: 32px;
       line-height: 1;
     }
 
     .bubble span {
       display: block;
       margin-top: 9px;
-      font-size: 20px;
-      line-height: 1.25;
+      font-size: 17px;
+      line-height: 1.3;
     }
 
-    .bubble.one {
-      left: 34px;
-      top: 460px;
-    }
-
-    .bubble.two {
-      right: 34px;
-      top: 390px;
-      transform: rotate(5deg);
-    }
-
-    .bubble.three {
-      right: 52px;
-      top: 612px;
-      width: 178px;
-      min-height: 120px;
-      transform: rotate(-2deg);
-    }
+    /* 軽い手書き感のローテーション（横並び崩れを避けるため transform-origin 中央）*/
+    .bubble.one { transform: rotate(-3deg); }
+    .bubble.two { transform: rotate(2deg); }
+    .bubble.three { transform: rotate(-1.5deg); }
 
     .reason {
       position: relative;
@@ -1346,40 +1346,31 @@
         height: 360px;
       }
 
+      .bubble-row {
+        top: auto;
+        bottom: 400px;
+        padding: 0 8px;
+        gap: 8px;
+      }
+
       .bubble {
-        width: 118px;
-        min-height: 92px;
-        padding: 12px 10px;
+        min-height: 96px;
+        padding: 12px 6px;
         border-width: 3px;
-        border-radius: 24px;
+        border-radius: 22px;
+        box-shadow:
+          0 0 0 4px #fff,
+          0 12px 22px rgba(50, 70, 20, 0.22);
       }
 
       .bubble strong {
-        font-size: 22px;
+        font-size: 21px;
       }
 
       .bubble span {
         margin-top: 6px;
-        font-size: 14px;
-      }
-
-      .bubble.one {
-        left: 10px;
-        top: 335px;
-      }
-
-      .bubble.two {
-        right: 10px;
-        top: 335px;
-      }
-
-      .bubble.three {
-        left: 50%;
-        right: auto;
-        top: 445px;
-        width: 118px;
-        min-height: 92px;
-        transform: translateX(-50%) rotate(-2deg);
+        font-size: 12px;
+        line-height: 1.3;
       }
 
       .reason-label {
@@ -1637,17 +1628,23 @@
         font-size: 16px;
       }
 
+      .bubble-row {
+        bottom: 380px;
+        padding: 0 6px;
+        gap: 6px;
+      }
+
       .bubble {
-        width: 106px;
+        min-height: 88px;
+        padding: 10px 4px;
       }
 
-      .bubble.one,
-      .bubble.two {
-        top: 330px;
+      .bubble strong {
+        font-size: 18px;
       }
 
-      .bubble.three {
-        top: 432px;
+      .bubble span {
+        font-size: 11px;
       }
 
       .service-card svg {
@@ -1715,19 +1712,26 @@
         font-size: 15px;
       }
 
+      .bubble-row {
+        bottom: 360px;
+        padding: 0 4px;
+        gap: 4px;
+      }
+
       .bubble {
-        width: 98px;
         min-height: 80px;
-        padding: 10px 8px;
+        padding: 8px 2px;
         border-width: 3px;
+        border-radius: 18px;
       }
 
       .bubble strong {
-        font-size: 19px;
+        font-size: 16px;
       }
 
       .bubble span {
-        font-size: 12px;
+        font-size: 10px;
+        margin-top: 4px;
       }
 
       .section {
@@ -1802,9 +1806,11 @@
         <h1>もしも明日、<br><b>50人</b>必要でも<br>あきらめない。</h1>
         <p class="hero-lead">倉庫・軽作業の短期人材を、専任チームがスピード手配します。</p>
       </div>
-      <div class="bubble one"><div><strong>最短翌日</strong><span>スピード<br>ご提案</span></div></div>
-      <div class="bubble two"><div><strong>8万人</strong><span>登録スタッフ<br>ネットワーク</span></div></div>
-      <div class="bubble three"><div><strong>365日</strong><span>繁忙期も<br>相談OK</span></div></div>
+      <div class="bubble-row">
+        <div class="bubble one"><div><strong>最短翌日</strong><span>スピード<br>ご提案</span></div></div>
+        <div class="bubble two"><div><strong>8万人</strong><span>登録スタッフ<br>ネットワーク</span></div></div>
+        <div class="bubble three"><div><strong>365日</strong><span>繁忙期も<br>相談OK</span></div></div>
+      </div>
       <div class="hero-img">
         <img src="assets/linkcrew-hero.png" alt="LINK CREWのスタッフチーム" width="1254" height="1254" fetchpriority="high" decoding="async">
       </div>
