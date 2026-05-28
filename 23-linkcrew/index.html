@@ -2,8 +2,27 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LINK CREW 物流人材サービスLP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="noindex,nofollow">
+  <title>LINK CREW | 物流・倉庫専門 人材派遣サービス（サンプルLP）</title>
+  <meta name="description" content="LINK CREW は、EC倉庫・3PL・物流センター向けに短期人材を最短翌日から手配する、物流・倉庫専門の人材派遣サービス（サンプルLP）。">
+  <meta name="theme-color" content="#5fa800">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LINK CREW | 物流・倉庫専門 人材派遣サービス">
+  <meta property="og:description" content="EC倉庫・3PL・物流センター向け短期人材手配。最短翌日・8万人ネットワーク・365日対応のサンプルLP。">
+  <meta property="og:image" content="assets/linkcrew-hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://hien-lp.github.io/portfolio/23-linkcrew/">
+  <!--
+    Production deployment headers (server-side):
+    - Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; form-action 'self'; frame-ancestors 'none'; base-uri 'self'
+    - X-Frame-Options: DENY
+    - X-Content-Type-Options: nosniff
+    - Referrer-Policy: strict-origin-when-cross-origin
+    - Permissions-Policy: geolocation=(), camera=(), microphone=()
+    - Strict-Transport-Security: max-age=31536000; includeSubDomains
+  -->
   <link rel="preload" as="image" href="assets/linkcrew-hero.png" fetchpriority="high">
   <style>
     /*
@@ -97,6 +116,14 @@
       position: sticky;
       top: 0;
       z-index: 60;
+      transition: box-shadow var(--dur-base) var(--ease-out-quint),
+                  background var(--dur-base) var(--ease-out-quint);
+    }
+
+    .topbar.is-scrolled {
+      box-shadow: 0 6px 20px rgba(20, 30, 10, 0.14);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: saturate(180%) blur(8px);
     }
 
     .logo {
@@ -156,8 +183,17 @@
       text-decoration: none;
       font-family: inherit;
       cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
       transition: background var(--dur-fast) var(--ease-out-quint),
                   transform var(--dur-fast) var(--ease-out-quint);
+    }
+
+    /* SVG が click イベントを吸わないようにする（button にイベントを bubble） */
+    .nav-btn svg,
+    .drawer-close svg,
+    .drawer-tel svg {
+      pointer-events: none;
     }
 
     .nav-btn:hover {
@@ -280,6 +316,8 @@
       border-radius: 50%;
       color: var(--green-deep);
       cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
       transition: transform var(--dur-fast) var(--ease-out-quint),
                   background var(--dur-fast) var(--ease-out-quint);
     }
@@ -323,6 +361,8 @@
       display: flex;
       align-items: center;
       border-bottom: 1px solid var(--line);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
       transition: background var(--dur-fast) var(--ease-out-quint),
                   color var(--dur-fast) var(--ease-out-quint),
                   padding-left var(--dur-fast) var(--ease-out-quint);
@@ -399,6 +439,8 @@
       border-radius: 12px;
       color: var(--ink);
       text-decoration: none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
       transition: background var(--dur-fast) var(--ease-out-quint),
                   transform var(--dur-fast) var(--ease-out-quint);
     }
@@ -1122,7 +1164,46 @@
       text-align: center;
       font-size: 23px;
       font-weight: 900;
+      text-decoration: none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
       box-shadow: 0 14px 28px rgba(255, 148, 22, 0.28);
+      transition: background var(--dur-fast) var(--ease-out-quint),
+                  transform var(--dur-fast) var(--ease-out-quint),
+                  box-shadow var(--dur-fast) var(--ease-out-quint);
+    }
+
+    .cta-button:hover {
+      background: var(--orange-deep);
+      box-shadow: 0 20px 36px rgba(229, 110, 0, 0.36);
+    }
+
+    .cta-button:active {
+      transform: translateY(2px);
+      box-shadow: 0 8px 18px rgba(229, 110, 0, 0.28);
+    }
+
+    .cta-button:focus-visible {
+      outline: 3px solid var(--green-deep);
+      outline-offset: 4px;
+    }
+
+    .cta-button::before {
+      content: "";
+      width: 22px;
+      height: 22px;
+      margin-right: 12px;
+      display: inline-block;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><path d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2Z'/></svg>");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      vertical-align: middle;
+    }
+
+    .cta-button {
+      grid-auto-flow: column;
+      gap: 0;
     }
 
     .note {
@@ -1698,37 +1779,6 @@
       </button>
     </header>
 
-    <!-- ドロワーメニュー -->
-    <div class="drawer-overlay" id="drawerOverlay" hidden></div>
-    <aside class="drawer" id="drawer" hidden tabindex="-1" aria-labelledby="drawerTitle">
-      <div class="drawer-head">
-        <h2 class="drawer-title" id="drawerTitle">メニュー</h2>
-        <button type="button" class="drawer-close" id="drawerClose" aria-label="メニューを閉じる">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6 18 18M18 6 6 18"/></svg>
-        </button>
-      </div>
-      <nav class="drawer-nav" aria-label="サイト内ナビゲーション">
-        <a href="#reason" class="drawer-link" data-nav>LINK CREW の強み</a>
-        <a href="#problem" class="drawer-link" data-nav>こんな課題ありませんか</a>
-        <a href="#service" class="drawer-link" data-nav>対応できる業務</a>
-        <a href="#feature" class="drawer-link" data-nav>専任チーム</a>
-        <a href="#price" class="drawer-link" data-nav>料金イメージ</a>
-        <a href="#flow" class="drawer-link" data-nav>導入の流れ</a>
-        <a href="#faq" class="drawer-link" data-nav>よくある質問</a>
-        <a href="#contact" class="drawer-link drawer-link--cta" data-nav>お問い合わせ</a>
-      </nav>
-      <div class="drawer-foot">
-        <a href="tel:0120-000-000" class="drawer-tel" aria-label="お電話でのお問い合わせ 0120-000-000">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2Z"/></svg>
-          <div>
-            <strong>0120-000-000</strong>
-            <span>受付 平日 9:00-18:00</span>
-          </div>
-        </a>
-        <p class="drawer-note">※サンプルLPのため架空の電話番号です。</p>
-      </div>
-    </aside>
-
     <section class="hero" id="top" aria-label="ヒーロー">
       <div class="hero-copy">
         <span class="kicker">物流現場の人手不足に即対応</span>
@@ -1959,11 +2009,42 @@
           <strong>まずは無料相談</strong>
           <span>人数・日程・作業内容が未確定でも、お気軽にご相談ください。</span>
         </div>
-        <div class="cta-button">問い合わせる</div>
+        <a class="cta-button" href="tel:0120-000-000" aria-label="お電話で問い合わせる 0120-000-000"><span>電話で問い合わせる</span></a>
       </div>
       <div class="note">※数値・サービス内容は架空企業LPの制作サンプルです。実運用時は実績・許認可・対応地域に合わせて差し替えてください。</div>
     </section>
   </main>
+
+  <!-- ドロワーメニュー（main の外側に配置することで mainEl.inert の影響を受けない） -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <aside class="drawer" id="drawer" hidden tabindex="-1" aria-labelledby="drawerTitle">
+    <div class="drawer-head">
+      <h2 class="drawer-title" id="drawerTitle">メニュー</h2>
+      <button type="button" class="drawer-close" id="drawerClose" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6 18 18M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <nav class="drawer-nav" aria-label="サイト内ナビゲーション">
+      <a href="#reason" class="drawer-link" data-nav>LINK CREW の強み</a>
+      <a href="#problem" class="drawer-link" data-nav>こんな課題ありませんか</a>
+      <a href="#service" class="drawer-link" data-nav>対応できる業務</a>
+      <a href="#feature" class="drawer-link" data-nav>専任チーム</a>
+      <a href="#price" class="drawer-link" data-nav>料金イメージ</a>
+      <a href="#flow" class="drawer-link" data-nav>導入の流れ</a>
+      <a href="#faq" class="drawer-link" data-nav>よくある質問</a>
+      <a href="#contact" class="drawer-link drawer-link--cta" data-nav>お問い合わせ</a>
+    </nav>
+    <div class="drawer-foot">
+      <a href="tel:0120-000-000" class="drawer-tel" aria-label="お電話でのお問い合わせ 0120-000-000">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2Z"/></svg>
+        <div>
+          <strong>0120-000-000</strong>
+          <span>受付 平日 9:00-18:00</span>
+        </div>
+      </a>
+      <p class="drawer-note">※サンプルLPのため架空の電話番号です。</p>
+    </div>
+  </aside>
 
   <script>
     (function () {
@@ -1974,9 +2055,30 @@
       var overlay = document.getElementById('drawerOverlay');
       var closeBtn = document.getElementById('drawerClose');
       var mainEl = document.getElementById('lp');
+      var topbar = document.querySelector('.topbar');
       var navLinks = drawer ? drawer.querySelectorAll('[data-nav]') : [];
 
       if (!hamburger || !drawer || !overlay || !closeBtn) return;
+
+      // ============================================================
+      // スティッキートップバーの scroll shadow
+      // ============================================================
+      if (topbar) {
+        var SCROLL_THRESHOLD = 30;
+        var ticking = false;
+        function updateScroll() {
+          var scrolled = window.scrollY > SCROLL_THRESHOLD;
+          topbar.classList.toggle('is-scrolled', scrolled);
+          ticking = false;
+        }
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(updateScroll);
+            ticking = true;
+          }
+        }, { passive: true });
+        updateScroll();
+      }
 
       var lastFocused = null;
       var isOpen = false;
