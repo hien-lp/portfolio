@@ -94,6 +94,9 @@
       min-height: 96px;
       background: #fff;
       border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 60;
     }
 
     .logo {
@@ -103,6 +106,15 @@
       padding-left: 34px;
       color: var(--ink);
       font-weight: 900;
+      text-decoration: none;
+      min-height: 96px;
+      transition: opacity var(--dur-fast) var(--ease-out-quint);
+    }
+
+    .logo:hover { opacity: 0.78; }
+    .logo:focus-visible {
+      outline: 3px solid var(--green-deep);
+      outline-offset: -3px;
     }
 
     .mark {
@@ -132,24 +144,313 @@
     }
 
     .nav-btn {
+      position: relative;
       height: 96px;
+      min-width: 44px;
       display: grid;
       place-items: center;
       background: var(--orange);
       color: #fff;
+      border: 0;
       border-left: 1px solid rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out-quint),
+                  transform var(--dur-fast) var(--ease-out-quint);
+    }
+
+    .nav-btn:hover {
+      background: var(--orange-deep);
+    }
+
+    .nav-btn:active {
+      transform: scale(0.96);
+    }
+
+    .nav-btn:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: -6px;
     }
 
     .nav-btn.green {
       background: var(--green-deep);
     }
 
+    .nav-btn.green:hover {
+      background: #4d8c00;
+    }
+
     .nav-btn svg {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       stroke: currentColor;
       stroke-width: 2.6;
       fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .nav-btn-label {
+      display: block;
+      margin-top: 2px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+
+    /* hamburger icon swap */
+    .hamburger .ico-close { display: none; }
+    .hamburger[aria-expanded="true"] .ico-open { display: none; }
+    .hamburger[aria-expanded="true"] .ico-close { display: block; }
+    .hamburger[aria-expanded="true"] {
+      background: #4d8c00;
+    }
+
+    /* ============================================================
+       Drawer Menu
+       ============================================================ */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 30, 10, 0.55);
+      backdrop-filter: blur(2px);
+      opacity: 0;
+      transition: opacity var(--dur-base) var(--ease-out-quint);
+      z-index: 80;
+    }
+
+    .drawer-overlay[hidden] {
+      display: none;
+    }
+
+    .drawer-overlay.is-open {
+      opacity: 1;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(86vw, 360px);
+      background: #fff;
+      box-shadow: -20px 0 50px rgba(20, 30, 10, 0.22);
+      transform: translateX(100%);
+      transition: transform var(--dur-base) var(--ease-out-quint);
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .drawer[hidden] {
+      display: none;
+    }
+
+    .drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 22px;
+      border-bottom: 1px solid var(--line);
+      background: var(--lime-soft);
+    }
+
+    .drawer-title {
+      margin: 0;
+      color: var(--green-deep);
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .drawer-close {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      border: 2px solid var(--green-deep);
+      border-radius: 50%;
+      color: var(--green-deep);
+      cursor: pointer;
+      transition: transform var(--dur-fast) var(--ease-out-quint),
+                  background var(--dur-fast) var(--ease-out-quint);
+    }
+
+    .drawer-close:hover {
+      background: var(--green-deep);
+      color: #fff;
+    }
+
+    .drawer-close:active { transform: scale(0.92); }
+
+    .drawer-close:focus-visible {
+      outline: 3px solid var(--green-deep);
+      outline-offset: 2px;
+    }
+
+    .drawer-close svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      fill: none;
+    }
+
+    .drawer-nav {
+      flex: 1;
+      padding: 16px 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer-link {
+      position: relative;
+      min-height: 56px;
+      padding: 16px 26px 16px 26px;
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      transition: background var(--dur-fast) var(--ease-out-quint),
+                  color var(--dur-fast) var(--ease-out-quint),
+                  padding-left var(--dur-fast) var(--ease-out-quint);
+    }
+
+    .drawer-link::after {
+      content: "";
+      position: absolute;
+      right: 26px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid var(--muted);
+      border-top: 2px solid var(--muted);
+      transform: translateY(-50%) rotate(45deg);
+      transition: border-color var(--dur-fast) var(--ease-out-quint);
+    }
+
+    .drawer-link:hover,
+    .drawer-link:focus-visible {
+      background: var(--lime-soft);
+      color: var(--green-deep);
+      padding-left: 32px;
+      outline: none;
+    }
+
+    .drawer-link:focus-visible {
+      box-shadow: inset 4px 0 0 var(--green-deep);
+    }
+
+    .drawer-link:hover::after,
+    .drawer-link:focus-visible::after {
+      border-color: var(--green-deep);
+    }
+
+    .drawer-link--cta {
+      margin-top: auto;
+      background: var(--orange);
+      color: #fff;
+      font-weight: 900;
+      min-height: 64px;
+      border-bottom: 0;
+    }
+
+    .drawer-link--cta:hover,
+    .drawer-link--cta:focus-visible {
+      background: var(--orange-deep);
+      color: #fff;
+      padding-left: 32px;
+    }
+
+    .drawer-link--cta::after {
+      border-color: #fff;
+    }
+
+    .drawer-link--cta:hover::after,
+    .drawer-link--cta:focus-visible::after {
+      border-color: #fff;
+    }
+
+    .drawer-foot {
+      padding: 18px 22px 26px;
+      background: #fafaf6;
+      border-top: 1px solid var(--line);
+    }
+
+    .drawer-tel {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      background: #fff;
+      border: 2px solid var(--green-deep);
+      border-radius: 12px;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background var(--dur-fast) var(--ease-out-quint),
+                  transform var(--dur-fast) var(--ease-out-quint);
+    }
+
+    .drawer-tel:hover {
+      background: var(--lime-soft);
+    }
+
+    .drawer-tel:active { transform: scale(0.98); }
+
+    .drawer-tel:focus-visible {
+      outline: 3px solid var(--green-deep);
+      outline-offset: 2px;
+    }
+
+    .drawer-tel svg {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      stroke: var(--green-deep);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .drawer-tel strong {
+      display: block;
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .drawer-tel span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .drawer-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    /* lock body scroll when drawer open */
+    body.drawer-open {
+      overflow: hidden;
     }
 
     .section {
@@ -872,13 +1173,19 @@
       }
 
       .nav-btn {
-        flex: 0 0 56px;
+        flex: 0 0 64px;
         height: 72px;
+        min-width: 44px;
       }
 
       .nav-btn svg {
-        width: 30px;
-        height: 30px;
+        width: 26px;
+        height: 26px;
+      }
+
+      .nav-btn-label {
+        font-size: 9px;
+        margin-top: 1px;
       }
 
       .section {
@@ -1188,17 +1495,23 @@
       }
 
       .nav-btn {
-        flex-basis: 48px;
+        flex-basis: 56px;
         height: 66px;
+        min-width: 44px;
       }
 
       .nav-btn svg {
-        width: 26px;
-        height: 26px;
+        width: 22px;
+        height: 22px;
+      }
+
+      .nav-btn-label {
+        font-size: 9px;
       }
 
       .logo {
         padding-left: 12px;
+        min-height: 66px;
       }
 
       .mark {
@@ -1243,28 +1556,180 @@
         width: 38px;
         height: 38px;
       }
+
+      .drawer {
+        width: 100vw;
+      }
+
+      .drawer-head {
+        padding: 18px 18px;
+      }
+
+      .drawer-link {
+        padding: 14px 22px;
+        font-size: 16px;
+      }
+    }
+
+    /* ============================================================
+       320px - iPhone SE / Galaxy A 系 最小幅対応
+       ============================================================ */
+    @media (max-width: 359px) {
+      .topbar {
+        min-height: 60px;
+      }
+
+      .nav-btn {
+        flex-basis: 50px;
+        height: 60px;
+      }
+
+      .nav-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .nav-btn-label {
+        display: none;
+      }
+
+      .logo {
+        gap: 8px;
+        padding-left: 10px;
+        min-height: 60px;
+      }
+
+      .mark {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+      }
+
+      .logo strong {
+        font-size: 16px;
+      }
+
+      .hero h1 {
+        font-size: clamp(30px, 10vw, 38px);
+      }
+
+      .hero-lead {
+        font-size: 15px;
+      }
+
+      .bubble {
+        width: 98px;
+        min-height: 80px;
+        padding: 10px 8px;
+        border-width: 3px;
+      }
+
+      .bubble strong {
+        font-size: 19px;
+      }
+
+      .bubble span {
+        font-size: 12px;
+      }
+
+      .section {
+        padding: 44px 16px;
+      }
+
+      .headline {
+        font-size: clamp(26px, 8vw, 34px);
+      }
+
+      .stat {
+        padding: 62px 14px 16px;
+      }
+
+      .stat strong b {
+        font-size: 30px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================================
+       Desktop ≥ 1024px - 中央 LP の左右に背景装飾
+       ============================================================ */
+    @media (min-width: 1024px) {
+      body {
+        background:
+          repeating-linear-gradient(45deg,
+            rgba(143, 209, 25, 0.05) 0,
+            rgba(143, 209, 25, 0.05) 2px,
+            transparent 2px,
+            transparent 22px),
+          #dfe6d8;
+      }
+
+      .lp {
+        box-shadow: 0 0 80px rgba(25, 44, 10, 0.20);
+      }
+
+      .topbar {
+        box-shadow: 0 2px 12px rgba(20, 30, 10, 0.08);
+      }
     }
   </style>
 </head>
 <body>
   <main class="lp" id="lp">
     <header class="topbar">
-      <div class="logo">
-        <div class="mark">L</div>
+      <a class="logo" href="#top" aria-label="LINK CREW トップへ">
+        <div class="mark" aria-hidden="true">L</div>
         <div>
           <span>物流・倉庫専門 人材サービス</span>
           <strong>LINK CREW</strong>
         </div>
-      </div>
-      <div class="nav-btn" aria-label="電話">
-        <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2Z"/></svg>
-      </div>
-      <div class="nav-btn green" aria-label="メニュー">
-        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </div>
+      </a>
+      <a class="nav-btn tel-btn" href="tel:0120-000-000" aria-label="お電話でのお問い合わせ 0120-000-000">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2Z"/></svg>
+        <span class="nav-btn-label">電話</span>
+      </a>
+      <button type="button" class="nav-btn green hamburger" id="hamburger" aria-label="メニューを開く" aria-controls="drawer" aria-expanded="false">
+        <svg class="ico-open" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="ico-close" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6 18 18M18 6 6 18"/></svg>
+        <span class="nav-btn-label">メニュー</span>
+      </button>
     </header>
 
-    <section class="hero">
+    <!-- ドロワーメニュー -->
+    <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+    <aside class="drawer" id="drawer" hidden tabindex="-1" aria-labelledby="drawerTitle">
+      <div class="drawer-head">
+        <h2 class="drawer-title" id="drawerTitle">メニュー</h2>
+        <button type="button" class="drawer-close" id="drawerClose" aria-label="メニューを閉じる">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6 18 18M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <nav class="drawer-nav" aria-label="サイト内ナビゲーション">
+        <a href="#reason" class="drawer-link" data-nav>LINK CREW の強み</a>
+        <a href="#problem" class="drawer-link" data-nav>こんな課題ありませんか</a>
+        <a href="#service" class="drawer-link" data-nav>対応できる業務</a>
+        <a href="#feature" class="drawer-link" data-nav>専任チーム</a>
+        <a href="#price" class="drawer-link" data-nav>料金イメージ</a>
+        <a href="#flow" class="drawer-link" data-nav>導入の流れ</a>
+        <a href="#faq" class="drawer-link" data-nav>よくある質問</a>
+        <a href="#contact" class="drawer-link drawer-link--cta" data-nav>お問い合わせ</a>
+      </nav>
+      <div class="drawer-foot">
+        <a href="tel:0120-000-000" class="drawer-tel" aria-label="お電話でのお問い合わせ 0120-000-000">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.5a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6.5 6.5l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.6.5 2.5.6a2 2 0 0 1 1.7 2Z"/></svg>
+          <div>
+            <strong>0120-000-000</strong>
+            <span>受付 平日 9:00-18:00</span>
+          </div>
+        </a>
+        <p class="drawer-note">※サンプルLPのため架空の電話番号です。</p>
+      </div>
+    </aside>
+
+    <section class="hero" id="top" aria-label="ヒーロー">
       <div class="hero-copy">
         <span class="kicker">物流現場の人手不足に即対応</span>
         <h1>もしも明日、<br><b>50人</b>必要でも<br>あきらめない。</h1>
@@ -1278,7 +1743,7 @@
       </div>
     </section>
 
-    <section class="reason">
+    <section class="reason" id="reason" aria-label="LINK CREW の強み">
       <div class="reason-label">
         <div><b>Because...</b><span>なぜなら?</span></div>
       </div>
@@ -1306,7 +1771,7 @@
       </div>
     </section>
 
-    <section class="section problem">
+    <section class="section problem" id="problem" aria-label="人材課題">
       <p class="eyebrow">こんな人材課題、ありませんか?</p>
       <h2 class="headline">現場を止めないために、<br>今すぐ人がほしい。</h2>
       <div class="worries">
@@ -1336,7 +1801,7 @@
       </div>
     </section>
 
-    <section class="section service">
+    <section class="section service" id="service" aria-label="対応業務">
       <p class="eyebrow">対応できる業務</p>
       <h2 class="headline">物流・倉庫の<br>現場業務をまるごと支援。</h2>
       <div class="service-grid">
@@ -1373,7 +1838,7 @@
       </div>
     </section>
 
-    <section class="section feature">
+    <section class="section feature" id="feature" aria-label="専任チームの伴走">
       <div class="feature-layout">
         <div class="feature-photo">
           <img src="assets/linkcrew-office.png" alt="人材手配を進めるコーディネーター" width="1254" height="1254" loading="lazy" decoding="async">
@@ -1419,7 +1884,7 @@
       </div>
     </section>
 
-    <section class="section price">
+    <section class="section price" id="price" aria-label="料金イメージ">
       <p class="eyebrow">料金イメージ</p>
       <h2 class="headline">ムダな固定費を抑えて、<br>必要な分だけ。</h2>
       <p class="subcopy">案件内容、地域、期間、時間帯、必要スキルによりお見積りします。</p>
@@ -1431,7 +1896,7 @@
       </table>
     </section>
 
-    <section class="section flow">
+    <section class="section flow" id="flow" aria-label="導入までの流れ">
       <p class="eyebrow">導入までの流れ</p>
       <h2 class="headline">相談から稼働まで、<br>最短ルートで。</h2>
       <div class="steps">
@@ -1466,7 +1931,7 @@
       </div>
     </section>
 
-    <section class="section faq">
+    <section class="section faq" id="faq" aria-label="よくある質問">
       <p class="eyebrow">よくある質問</p>
       <h2 class="headline">導入前の不安も<br>ここで解消。</h2>
       <div class="qa">
@@ -1485,7 +1950,7 @@
       </div>
     </section>
 
-    <section class="closing">
+    <section class="closing" id="contact" aria-label="お問い合わせ">
       <span class="kicker">LINK CREW</span>
       <h2>明日の人手不足を、<br>今日のうちに相談。</h2>
       <p>物流・倉庫現場の急な人材ニーズに、スピードと現場理解で応えます。</p>
@@ -1499,5 +1964,179 @@
       <div class="note">※数値・サービス内容は架空企業LPの制作サンプルです。実運用時は実績・許認可・対応地域に合わせて差し替えてください。</div>
     </section>
   </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var hamburger = document.getElementById('hamburger');
+      var drawer = document.getElementById('drawer');
+      var overlay = document.getElementById('drawerOverlay');
+      var closeBtn = document.getElementById('drawerClose');
+      var mainEl = document.getElementById('lp');
+      var navLinks = drawer ? drawer.querySelectorAll('[data-nav]') : [];
+
+      if (!hamburger || !drawer || !overlay || !closeBtn) return;
+
+      var lastFocused = null;
+      var isOpen = false;
+
+      function getFocusable(scope) {
+        return scope.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+      }
+
+      function openDrawer() {
+        if (isOpen) return;
+        isOpen = true;
+        lastFocused = document.activeElement;
+
+        drawer.hidden = false;
+        overlay.hidden = false;
+        // 動的 a11y 属性付与
+        drawer.setAttribute('role', 'dialog');
+        drawer.setAttribute('aria-modal', 'true');
+
+        // 二重 rAF でスタイル反映を確実にする
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            drawer.classList.add('is-open');
+            overlay.classList.add('is-open');
+          });
+        });
+
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'メニューを閉じる');
+        document.body.classList.add('drawer-open');
+
+        // ドロワー外部のフォーカス・操作を inert で遮断
+        if (mainEl) mainEl.inert = true;
+        var header = document.querySelector('.topbar');
+        if (header) {
+          // ハンバーガー以外は inert（ハンバーガーは閉じる動作のため）
+          var headerChildren = header.children;
+          for (var i = 0; i < headerChildren.length; i++) {
+            if (headerChildren[i] !== hamburger) {
+              headerChildren[i].inert = true;
+            }
+          }
+        }
+
+        // 最初の閉じるボタンへフォーカス移動
+        setTimeout(function () { closeBtn.focus(); }, 80);
+      }
+
+      function closeDrawer() {
+        if (!isOpen) return;
+        isOpen = false;
+
+        drawer.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'メニューを開く');
+        document.body.classList.remove('drawer-open');
+
+        // inert 解除
+        if (mainEl) mainEl.inert = false;
+        var header = document.querySelector('.topbar');
+        if (header) {
+          var headerChildren = header.children;
+          for (var i = 0; i < headerChildren.length; i++) {
+            headerChildren[i].inert = false;
+          }
+        }
+
+        // transition 終了後に hidden + focus 戻す
+        var done = false;
+        function onEnd(e) {
+          if (e && e.propertyName && e.propertyName !== 'transform') return;
+          if (done) return;
+          done = true;
+          drawer.removeEventListener('transitionend', onEnd);
+          drawer.hidden = true;
+          overlay.hidden = true;
+          drawer.removeAttribute('role');
+          drawer.removeAttribute('aria-modal');
+          if (lastFocused && typeof lastFocused.focus === 'function') {
+            lastFocused.focus();
+          } else {
+            hamburger.focus();
+          }
+        }
+        drawer.addEventListener('transitionend', onEnd);
+        // 保険タイマー（transitionend 未発火対策）
+        setTimeout(onEnd, 500);
+      }
+
+      function toggleDrawer() {
+        if (isOpen) closeDrawer();
+        else openDrawer();
+      }
+
+      // ハンバーガー click
+      hamburger.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleDrawer();
+      });
+
+      // 閉じるボタン
+      closeBtn.addEventListener('click', closeDrawer);
+
+      // overlay クリックで閉じる
+      overlay.addEventListener('click', closeDrawer);
+
+      // Esc キーで閉じる
+      document.addEventListener('keydown', function (e) {
+        if (!isOpen) return;
+        if (e.key === 'Escape' || e.key === 'Esc') {
+          e.preventDefault();
+          closeDrawer();
+        }
+
+        // フォーカストラップ（Tab 循環）
+        if (e.key === 'Tab') {
+          var focusables = getFocusable(drawer);
+          if (focusables.length === 0) return;
+          var first = focusables[0];
+          var last = focusables[focusables.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      // ナビリンク click → スムーススクロール + drawer close
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var href = link.getAttribute('href');
+          if (!href || href.charAt(0) !== '#') return;
+          var target = document.querySelector(href);
+          if (!target) return;
+
+          e.preventDefault();
+          closeDrawer();
+
+          // drawer のトランジション終了後にスクロール
+          setTimeout(function () {
+            var headerOffset = document.querySelector('.topbar');
+            var offset = headerOffset ? headerOffset.offsetHeight : 0;
+            var top = target.getBoundingClientRect().top + window.pageYOffset - offset - 8;
+            window.scrollTo({
+              top: top,
+              behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+            });
+            // フォーカスを移動先のセクションに
+            target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
+          }, 360);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
