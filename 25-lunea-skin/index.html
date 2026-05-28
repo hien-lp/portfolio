@@ -448,39 +448,37 @@
       font-weight: 900;
     }
 
-    .hero-badges {
+    /* 罫線区切りのシンプルなチェックリスト（実LP流） */
+    .hero-checks {
+      list-style: none;
+      margin: 30px 0 0;
+      padding: 22px 0 0;
+      border-top: 1px solid var(--line);
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
-      max-width: 570px;
-      margin-top: 34px;
+      max-width: 560px;
     }
 
-    .badge {
-      min-height: 92px;
-      padding: 18px 12px;
-      border: 1px solid rgba(200, 164, 107, 0.35);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.78);
-      text-align: center;
-      box-shadow: 0 16px 36px rgba(39, 48, 51, 0.08);
+    .hero-checks li {
+      position: relative;
+      padding: 0 0 0 28px;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0;
     }
 
-    .badge strong {
-      display: block;
-      color: var(--rose-deep);
-      font-size: 23px;
-      line-height: 1.05;
-      font-weight: 900;
-    }
-
-    .badge span {
-      display: block;
-      margin-top: 9px;
-      color: var(--soft-ink);
-      font-size: 12px;
-      font-weight: 900;
-      line-height: 1.35;
+    .hero-checks li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 18px;
+      height: 12px;
+      border-left: 3px solid var(--rose-deep);
+      border-bottom: 3px solid var(--rose-deep);
+      transform: rotate(-45deg);
     }
 
     .section {
@@ -499,23 +497,23 @@
     }
 
     .eyebrow {
-      margin: 0 0 18px;
-      color: var(--rose-deep);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      margin: 0 0 20px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
       display: inline-flex;
-      align-items: center;
-      gap: 10px;
+      align-items: baseline;
+      gap: 14px;
     }
 
-    .eyebrow::before {
-      content: "";
-      display: inline-block;
-      width: 28px;
-      height: 2px;
-      background: var(--rose-deep);
+    .eyebrow .num {
+      font-family: var(--ff-en-display);
+      color: var(--rose-deep);
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0;
     }
 
     .headline {
@@ -555,33 +553,37 @@
     }
 
     .worry {
-      min-height: 210px;
-      padding: 28px 22px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: linear-gradient(180deg, #fff 0%, #fbf5f2 100%);
-      box-shadow: 0 18px 42px rgba(39, 48, 51, 0.06);
+      min-height: auto;
+      padding: 32px 26px 30px;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .worry-mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--mist);
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      display: block;
+      background: transparent;
       color: var(--rose-deep);
-      font-size: 26px;
-      font-weight: 900;
+      font-family: var(--ff-en-display);
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.04em;
     }
 
     .worry strong {
       display: block;
-      margin-top: 20px;
-      color: var(--navy);
-      font-size: 21px;
+      margin-top: 14px;
+      color: var(--ink);
+      font-size: 22px;
       font-weight: 900;
-      line-height: 1.35;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
     }
 
     .worry p {
@@ -635,34 +637,52 @@
 
     .feature-photo {
       overflow: hidden;
-      border-radius: 28px;
-      box-shadow: 0 26px 60px rgba(39, 48, 51, 0.13);
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .feature-photo img {
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
     }
 
     .feature-list {
       display: grid;
-      gap: 16px;
+      gap: 0;
       margin-top: 32px;
+      border-top: 1px solid var(--line);
     }
 
     .feature-item {
-      padding: 20px 22px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.74);
-      box-shadow: 0 16px 36px rgba(39, 48, 51, 0.06);
+      padding: 24px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 18px;
+      align-items: start;
     }
+
+    .feature-item::before {
+      counter-increment: feat;
+      content: "0" counter(feat);
+      font-family: var(--ff-en-display);
+      font-size: 24px;
+      color: var(--rose-deep);
+      line-height: 1.1;
+    }
+
+    .feature-list { counter-reset: feat; }
 
     .feature-item strong {
       display: block;
-      color: var(--navy);
-      font-size: 20px;
+      color: var(--ink);
+      font-size: 19px;
       font-weight: 900;
+      letter-spacing: -0.01em;
     }
 
     .feature-item p {
@@ -679,7 +699,7 @@
 
     .ba-card {
       overflow: hidden;
-      border-radius: 30px;
+      border-radius: 8px;
       background: #fff;
       box-shadow: 0 26px 66px rgba(39, 48, 51, 0.12);
     }
@@ -763,32 +783,36 @@
 
     .step {
       position: relative;
-      min-height: 240px;
-      padding: 28px 22px;
-      border-radius: 24px;
-      background: #fff;
-      box-shadow: 0 18px 42px rgba(39, 48, 51, 0.07);
+      min-height: auto;
+      padding: 30px 24px;
+      border-radius: 0;
+      background: transparent;
+      border-top: 3px solid var(--ink);
+      box-shadow: none;
     }
 
     .step-num {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--navy);
-      color: #fff;
-      font-size: 18px;
-      font-weight: 900;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      display: block;
+      background: transparent;
+      color: var(--rose-deep);
+      font-family: var(--ff-en-display);
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.02em;
     }
 
     .step strong {
       display: block;
-      margin-top: 22px;
-      color: var(--navy);
-      font-size: 21px;
+      margin-top: 16px;
+      color: var(--ink);
+      font-size: 19px;
       font-weight: 900;
-      line-height: 1.35;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
     }
 
     .step p {
@@ -806,7 +830,7 @@
     .voice-visual {
       position: relative;
       overflow: hidden;
-      border-radius: 30px;
+      border-radius: 8px;
       box-shadow: 0 26px 66px rgba(39, 48, 51, 0.12);
     }
 
@@ -826,20 +850,23 @@
     }
 
     .voice-card {
-      min-height: 210px;
-      padding: 26px 22px;
+      min-height: auto;
+      padding: 32px 28px;
       border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 18px 44px rgba(39, 48, 51, 0.1);
+      border-radius: 0;
+      background: #fff;
+      box-shadow: none;
     }
 
     .voice-card strong {
       display: block;
-      color: var(--navy);
-      font-size: 20px;
+      color: var(--ink);
+      font-size: 18px;
       font-weight: 900;
-      line-height: 1.45;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
+      border-left: 3px solid var(--rose-deep);
+      padding-left: 14px;
     }
 
     .voice-card p {
@@ -872,7 +899,7 @@
       position: relative;
       min-height: 390px;
       padding: 34px 26px 28px;
-      border-radius: 28px;
+      border-radius: 8px;
       background: #fff;
       border: 1px solid var(--line);
       box-shadow: 0 20px 48px rgba(39, 48, 51, 0.08);
@@ -963,11 +990,13 @@
 
     .faq-item strong {
       display: block;
-      color: var(--navy);
-      font-size: 21px;
+      color: var(--ink);
+      font-size: 19px;
       font-weight: 900;
-      line-height: 1.45;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
     }
+
 
     .faq-item p {
       margin: 12px 0 0;
@@ -1173,12 +1202,12 @@
       }
 
       .feature-photo {
-        border-radius: 22px;
+        border-radius: 6px;
       }
 
       .ba-card,
       .voice-visual {
-        border-radius: 22px;
+        border-radius: 6px;
       }
 
       .ba-image img {
@@ -1228,7 +1257,7 @@
         gap: 10px;
         padding: 10px;
         border: 1px solid rgba(255, 255, 255, 0.62);
-        border-radius: 22px;
+        border-radius: 6px;
         background: rgba(255, 253, 251, 0.92);
         backdrop-filter: blur(16px);
         box-shadow: 0 4px 12px rgba(39, 48, 51, 0.08),
@@ -1302,7 +1331,7 @@
     .hero {
       min-height: 880px;
       isolation: isolate;
-      background: linear-gradient(180deg, #fbf5f2 0%, #f6ece7 100%);
+      background: var(--mist);
     }
 
     .hero::before {
@@ -1332,7 +1361,7 @@
       width: min(52vw, 660px);
       height: auto;
       overflow: hidden;
-      border-radius: 28px;
+      border-radius: 8px;
       box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
                   0 32px 64px rgba(39, 48, 51, 0.12);
     }
@@ -1417,7 +1446,7 @@
       position: relative;
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: 6px;
       background: #fff;
       box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
                   0 12px 28px rgba(39, 48, 51, 0.06);
@@ -1457,7 +1486,7 @@
     }
 
     .problem {
-      background: linear-gradient(180deg, var(--pearl) 0%, #faf3ef 100%);
+      background: var(--pearl);
     }
 
     /* POP系の ♡ 装飾は撤去（Premium Minimal 路線では NG）*/
@@ -1470,7 +1499,7 @@
       position: relative;
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: 6px;
       background: #fff;
       box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
                   0 16px 32px rgba(39, 48, 51, 0.06);
@@ -1522,7 +1551,7 @@
       bottom: 82px;
       padding: 34px;
       border: 1px solid rgba(255, 255, 255, 0.78);
-      border-radius: 24px;
+      border-radius: 8px;
       background: rgba(255, 255, 255, 0.86);
       box-shadow: 0 1px 2px rgba(60, 42, 52, 0.04),
                   0 18px 42px rgba(60, 42, 52, 0.10);
@@ -1530,19 +1559,19 @@
     }
 
     .features {
-      background: linear-gradient(180deg, var(--pearl) 0%, #f4ebe7 100%);
+      background: var(--mist);
     }
 
     .feature-photo {
       border: 0;
-      border-radius: 28px;
+      border-radius: 8px;
       box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
                   0 24px 56px rgba(39, 48, 51, 0.10);
     }
 
     .feature-item {
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: 6px;
       background: rgba(255, 255, 255, 0.92);
       padding-left: 22px;
       box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
@@ -1550,12 +1579,12 @@
     }
 
     .before-after {
-      background: linear-gradient(180deg, var(--pearl) 0%, #faf3ef 100%);
+      background: var(--pearl);
     }
 
     .ba-card {
       border: 0;
-      border-radius: 28px;
+      border-radius: 8px;
       background: #fff;
       box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
                   0 28px 64px rgba(39, 48, 51, 0.10);
@@ -1583,13 +1612,13 @@
     }
 
     .flow {
-      background: linear-gradient(180deg, #f4ebe7 0%, var(--pearl) 100%);
+      background: var(--mist);
     }
 
     .step {
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: 6px;
       background: #fff;
       box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
                   0 16px 36px rgba(39, 48, 51, 0.06);
@@ -1605,26 +1634,26 @@
 
     .voice-visual {
       border: 0;
-      border-radius: 28px;
+      border-radius: 8px;
       box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
                   0 28px 64px rgba(39, 48, 51, 0.10);
     }
 
     .voice-card {
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: 6px;
       background: #fff;
       box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
                   0 18px 40px rgba(39, 48, 51, 0.08);
     }
 
     .plans {
-      background: linear-gradient(180deg, #faf3ef 0%, var(--pearl) 100%);
+      background: var(--pearl);
     }
 
     .plan {
       border: 1px solid var(--line);
-      border-radius: 24px;
+      border-radius: 8px;
       background: #fff;
       box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
                   0 22px 50px rgba(39, 48, 51, 0.10);
@@ -1659,7 +1688,7 @@
       margin-top: 14px;
       padding: 24px 26px;
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: 6px;
       background: #fff;
       box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
                   0 14px 32px rgba(39, 48, 51, 0.06);
@@ -1715,7 +1744,7 @@
         height: 430px;
         margin: 18px auto 0;
         border-width: 0;
-        border-radius: 24px;
+        border-radius: 8px;
       }
 
       .hero-inner {
@@ -1758,17 +1787,17 @@
 
       .band-copy {
         padding: 24px 20px;
-        border-radius: 28px;
+        border-radius: 8px;
       }
 
       .feature-item {
-        border-radius: 24px;
+        border-radius: 8px;
       }
 
       .ba-card,
       .voice-visual {
         border-width: 7px;
-        border-radius: 30px;
+        border-radius: 8px;
         transform: none;
       }
 
@@ -1937,6 +1966,138 @@
       }
     }
     /* ============================================================
+       Plan Table — 罫線フォーマットの料金表（カード並列は撤去）
+       ============================================================ */
+    .plan-table {
+      width: 100%;
+      max-width: 1000px;
+      margin: 36px auto 0;
+      border-collapse: collapse;
+      font-family: var(--ff-body);
+      border-top: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .plan-table thead th {
+      padding: 18px 14px;
+      text-align: left;
+      background: var(--ink);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .plan-table tbody td {
+      padding: 22px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+      color: var(--ink);
+    }
+
+    .plan-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .plan-td-tag {
+      width: 110px;
+      color: var(--rose-deep);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .plan-td-name {
+      width: 28%;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+
+    .plan-td-detail {
+      color: var(--soft-ink);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    .plan-td-price {
+      width: 160px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .plan-td-price strong {
+      display: block;
+      color: var(--rose-darkest);
+      font-family: var(--ff-en-display);
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .plan-td-price span {
+      display: block;
+      margin-top: 6px;
+      color: var(--soft-ink);
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: line-through;
+    }
+
+    .plan-tr-recommend {
+      background: linear-gradient(180deg, #fff 0%, #faf3ef 100%);
+    }
+
+    .plan-tr-recommend .plan-td-tag {
+      color: #fff;
+      background: var(--rose-deep);
+      font-weight: 800;
+    }
+
+    @media (max-width: 800px) {
+      .plan-table thead {
+        display: none;
+      }
+      .plan-table tbody td {
+        display: block;
+        width: auto;
+        padding: 6px 0;
+        border-bottom: 0;
+      }
+      .plan-table tbody tr {
+        display: block;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .plan-table tbody tr:last-child {
+        border-bottom: 0;
+      }
+      .plan-td-tag {
+        display: inline-block;
+        padding: 4px 10px;
+        background: var(--mist);
+      }
+      .plan-tr-recommend .plan-td-tag {
+        background: var(--rose-deep);
+      }
+      .plan-td-price {
+        text-align: left;
+        margin-top: 10px;
+      }
+      .plan-td-price strong {
+        display: inline-block;
+        margin-right: 12px;
+      }
+      .plan-td-price span {
+        display: inline-block;
+        margin: 0;
+      }
+    }
+
+    /* ============================================================
        Scarcity bar — 限定性訴求の具体化（先着・期限・残枠）
        ============================================================ */
     .scarcity-bar {
@@ -1949,7 +2110,7 @@
       margin: 0 auto 36px;
       padding: 16px 26px;
       border: 1px solid var(--rose-deep);
-      border-radius: 14px;
+      border-radius: 4px;
       background: linear-gradient(180deg, #fff 0%, #faf3ef 100%);
       box-shadow: 0 1px 2px rgba(185, 117, 112, 0.08),
                   0 14px 32px rgba(185, 117, 112, 0.10);
@@ -2060,20 +2221,12 @@
             <span>表情まで変わる</span>。
           </h1>
           <p class="hero-lead">毛穴・むくみ感・乾燥くすみを、肌診断から整える完全個室の小顔フェイシャル。<br><strong>初回 60分 ¥4,980</strong>（通常 ¥12,000）。Instagram経由のLINE予約限定です。</p>
-          <div class="hero-badges">
-            <div class="badge">
-              <strong>完全個室</strong>
-              <span>他のお客様と<br>顔合わせなし</span>
-            </div>
-            <div class="badge">
-              <strong>営業電話<br>ゼロ</strong>
-              <span>勧誘なしを<br>明文化</span>
-            </div>
-            <div class="badge">
-              <strong>キャンセル<br>無料</strong>
-              <span>予定変更も<br>気軽に</span>
-            </div>
-          </div>
+          <ul class="hero-checks" aria-label="サロンの安心ポイント">
+            <li>完全個室・他のお客様と顔合わせなし</li>
+            <li>営業電話・しつこい勧誘は一切なし</li>
+            <li>予定変更・キャンセル無料</li>
+            <li>女性スタッフのみ・男性スタッフ常駐なし</li>
+          </ul>
           <div class="hero-actions">
             <a class="btn primary" href="#reserve" aria-label="LINEで30秒予約する（初回60分4,980円）">
               <span>LINE で 30秒予約する</span>
@@ -2090,7 +2243,7 @@
     <section class="section problem" id="problem" aria-label="肌悩み">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">SKIN WORRIES</p>
+          <p class="eyebrow"><span class="num">01</span>お悩み</p>
           <h2 class="headline">写真に写る自分に、<br><strong>少し自信が持てない日</strong>へ。</h2>
           <p class="copy">肌悩みはひとつではありません。LUNEAは肌状態と生活リズムに合わせて、清潔感のある素肌印象へ導きます。</p>
         </div>
@@ -2135,7 +2288,7 @@
             <img src="assets/facial-interior.png" alt="清潔感のある高級フェイシャルサロン内観" width="1254" height="1254" loading="lazy" decoding="async">
           </div>
           <div class="reveal reveal-delay-1">
-            <p class="eyebrow">SALON FEATURES</p>
+            <p class="eyebrow"><span class="num">02</span>サロンの特徴</p>
             <h2 class="headline">他店と違う、<br><strong>肌から整える小顔フェイシャル</strong>。</h2>
             <p class="copy">肌表面だけでなく、表情ぐせ・むくみ感・毛穴汚れまで見て、あなたに合わせたケアを組み立てます。</p>
             <div class="feature-list">
@@ -2160,7 +2313,7 @@
     <section class="section before-after" id="before-after" aria-label="ビフォーアフター">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">BEFORE / AFTER</p>
+          <p class="eyebrow"><span class="num">03</span>印象の変化</p>
           <h2 class="headline">うるおいと清潔感で、<br><strong>印象は変わる</strong>。</h2>
           <p class="copy">Instagram広告で伝わりやすい、視覚的な変化訴求。肌のつや、明るさ、フェイスライン印象をわかりやすく見せます。</p>
         </div>
@@ -2190,7 +2343,7 @@
     <section class="section flow" id="flow" aria-label="ご利用の流れ">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">FIRST VISIT FLOW</p>
+          <p class="eyebrow"><span class="num">04</span>ご利用の流れ</p>
           <h2 class="headline">はじめてでも安心。<br><strong>予約から施術まで。</strong></h2>
         </div>
         <div class="flow-grid">
@@ -2230,7 +2383,7 @@
     <section class="section voices" id="voices" aria-label="お客様の声">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">CUSTOMER VOICE</p>
+          <p class="eyebrow"><span class="num">05</span>お客様の声</p>
           <h2 class="headline">自分の肌に、<br><strong>少し前向きになれた</strong>。</h2>
         </div>
         <div class="voice-visual reveal reveal-delay-1">
@@ -2260,7 +2413,7 @@
     <section class="section plans" id="plans" aria-label="初回体験プラン">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">PRICE PLAN</p>
+          <p class="eyebrow"><span class="num">06</span>料金</p>
           <h2 class="headline">Instagram限定の<br><strong>初回体験プラン。</strong></h2>
           <p class="copy">通常価格から最大60%OFFの特別価格で、フェイシャルケアをお試しいただけます。</p>
         </div>
@@ -2268,41 +2421,36 @@
           <strong>2026年6月末まで / Instagram経由のご予約 先着30名様</strong>
           <span class="remain">残り <em>8</em> 枠（最終更新 5/29）</span>
         </div>
-        <div class="plan-grid">
-          <div class="plan">
-            <span class="plan-tag">毛穴ケア</span>
-            <h3>クリアスキン<br>フェイシャル</h3>
-            <div class="price">4,980<small>円</small></div>
-            <p>毛穴のざらつきや皮脂汚れが気になる方へ。</p>
-            <ul>
-              <li>肌診断</li>
-              <li>毛穴クレンジング</li>
-              <li>保湿パック</li>
-            </ul>
-          </div>
-          <div class="plan recommend">
-            <span class="plan-tag">人気No.1</span>
-            <h3>小顔見え<br>グロウフェイシャル</h3>
-            <div class="price">6,980<small>円</small></div>
-            <p>肌のつやとフェイスライン印象を同時に整えたい方へ。</p>
-            <ul>
-              <li>肌診断</li>
-              <li>毛穴洗浄</li>
-              <li>小顔見えトリートメント</li>
-            </ul>
-          </div>
-          <div class="plan">
-            <span class="plan-tag">集中ケア</span>
-            <h3>透明感ブースト<br>スペシャル</h3>
-            <div class="price">9,800<small>円</small></div>
-            <p>乾燥くすみやメイクのりをしっかり整えたい方へ。</p>
-            <ul>
-              <li>肌診断</li>
-              <li>毛穴洗浄</li>
-              <li>高保湿パック</li>
-            </ul>
-          </div>
-        </div>
+        <table class="plan-table" aria-label="料金プラン一覧">
+          <thead>
+            <tr>
+              <th class="plan-th-tag">タイプ</th>
+              <th class="plan-th-name">メニュー</th>
+              <th class="plan-th-detail">内容</th>
+              <th class="plan-th-price">初回価格</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="plan-td-tag">毛穴ケア</td>
+              <td class="plan-td-name">クリアスキン フェイシャル</td>
+              <td class="plan-td-detail">肌診断・毛穴クレンジング・保湿パック</td>
+              <td class="plan-td-price"><strong>¥4,980</strong><span>通常 ¥12,000</span></td>
+            </tr>
+            <tr class="plan-tr-recommend">
+              <td class="plan-td-tag">人気 No.1</td>
+              <td class="plan-td-name">小顔見え グロウフェイシャル</td>
+              <td class="plan-td-detail">肌診断・毛穴洗浄・小顔見えトリートメント</td>
+              <td class="plan-td-price"><strong>¥6,980</strong><span>通常 ¥16,000</span></td>
+            </tr>
+            <tr>
+              <td class="plan-td-tag">集中ケア</td>
+              <td class="plan-td-name">透明感ブースト スペシャル</td>
+              <td class="plan-td-detail">肌診断・毛穴洗浄・高保湿パック</td>
+              <td class="plan-td-price"><strong>¥9,800</strong><span>通常 ¥22,000</span></td>
+            </tr>
+          </tbody>
+        </table>
         <p class="note">※価格は架空サロンLPの制作サンプルです。実運用時は提供内容・税込表記・キャンセル規定に合わせて調整してください。</p>
       </div>
     </section>
@@ -2310,7 +2458,7 @@
     <section class="section faq" id="faq" aria-label="よくある質問">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">FAQ</p>
+          <p class="eyebrow"><span class="num">07</span>よくある質問</p>
           <h2 class="headline">よくある質問</h2>
         </div>
         <div class="faq-list">
@@ -2337,7 +2485,7 @@
     <section class="section reserve" id="reserve" aria-label="予約">
       <div class="container">
         <div class="section-head reveal">
-          <p class="eyebrow">RESERVATION</p>
+          <p class="eyebrow"><span class="num">08</span>ご予約</p>
           <h2 class="headline">綺麗になれそう、を<br><strong>今日の予約に。</strong></h2>
           <p class="copy">LINEから空き枠・メニュー・肌悩みを気軽に相談できます。Instagram限定初回体験も受付中です。</p>
           <div class="reserve-actions">
