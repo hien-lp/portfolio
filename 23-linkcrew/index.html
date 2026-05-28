@@ -4,7 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LINK CREW 物流人材サービスLP</title>
+  <link rel="preload" as="image" href="assets/linkcrew-hero.png" fetchpriority="high">
   <style>
+    /*
+      AI-slop banlist:
+      - Inter / Roboto / Arial / Meiryo  ← 禁止フォント（palt 未対応）
+      - teal-only / cyan / aqua           ← 禁止カラー（B2B 物流LPで埋没）
+      - glassmorphism overuse             ← 禁止演出
+      - generic ease / linear easing      ← 禁止 timing
+      - 過度な gradient + neon            ← 禁止表現
+    */
+
     :root {
       --green: #8fd119;
       --green-deep: #5fa800;
@@ -16,6 +26,32 @@
       --paper: #ffffff;
       --cream: #fffaf0;
       --line: rgba(47, 51, 51, 0.14);
+
+      /* timing / easing — industry baseline v1.1 */
+      --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --dur-fast: 200ms;
+      --dur-base: 320ms;
+      --dur-slow: 720ms;
+    }
+
+    /* industry baseline v1.1 — text wrapping */
+    h1, h2, h3, .headline {
+      text-wrap: balance;
+    }
+    p, .subcopy, .hero-lead, .power-intro {
+      text-wrap: pretty;
+    }
+
+    /* accessibility — reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     * {
@@ -1238,7 +1274,7 @@
       <div class="bubble two"><div><strong>8万人</strong><span>登録スタッフ<br>ネットワーク</span></div></div>
       <div class="bubble three"><div><strong>365日</strong><span>繁忙期も<br>相談OK</span></div></div>
       <div class="hero-img">
-        <img src="assets/linkcrew-hero.png" alt="LINK CREWのスタッフチーム">
+        <img src="assets/linkcrew-hero.png" alt="LINK CREWのスタッフチーム" width="1254" height="1254" fetchpriority="high" decoding="async">
       </div>
     </section>
 
@@ -1291,7 +1327,7 @@
 
     <section class="photo-section">
       <div class="photo-frame">
-        <img src="assets/linkcrew-warehouse.png" alt="物流倉庫で働くスタッフ">
+        <img src="assets/linkcrew-warehouse.png" alt="物流倉庫で働くスタッフ" width="1254" height="1254" loading="lazy" decoding="async">
         <div class="photo-copy">
           <span class="kicker">WAREHOUSE STAFFING</span>
           <h2>必要な時に、<br>必要な人数を。</h2>
@@ -1340,7 +1376,7 @@
     <section class="section feature">
       <div class="feature-layout">
         <div class="feature-photo">
-          <img src="assets/linkcrew-office.png" alt="人材手配を進めるコーディネーター">
+          <img src="assets/linkcrew-office.png" alt="人材手配を進めるコーディネーター" width="1254" height="1254" loading="lazy" decoding="async">
         </div>
         <div>
           <p class="eyebrow">専任チームが伴走</p>
@@ -1374,7 +1410,7 @@
 
     <section class="photo-section">
       <div class="photo-frame">
-        <img src="assets/linkcrew-meeting.png" alt="物流企業との商談風景">
+        <img src="assets/linkcrew-meeting.png" alt="物流企業との商談風景" width="1254" height="1254" loading="lazy" decoding="async">
         <div class="photo-copy">
           <span class="kicker">CLIENT SUPPORT</span>
           <h2>人材会社ではなく、<br>現場のパートナーへ。</h2>
