@@ -1,0 +1,2030 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="noindex,nofollow">
+  <title>あおばスマイル歯科｜家族で通えるやさしい歯科医院（サンプルLP）</title>
+  <meta name="description" content="あおばスマイル歯科は、予防・小児・審美・急な痛みに対応する架空の地域密着型歯科医院サンプルLPです。土曜診療・キッズスペース・半個室診療室。">
+  <meta name="theme-color" content="#073a65">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="あおばスマイル歯科｜家族で通えるやさしい歯科医院">
+  <meta property="og:description" content="土曜診療・キッズスペース・半個室診療室。痛みへの配慮とわかりやすい説明で、家族の口元を長く見守るサンプル歯科LP。">
+  <meta property="og:image" content="assets/dental-hero-staff.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://hien-lp.github.io/portfolio/26-aoba-dental/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/dental-hero-staff.png" fetchpriority="high">
+  <style>
+    /*
+      AI-slop banlist:
+      - Inter / Roboto / Arial / Meiryo                            ← 禁止フォント
+      - 医療広告ガイドライン NG「治る/必ず/100%/絶対/日本一/No.1根拠なし」
+      - 過度な glassmorphism / 派手な gradient + neon
+      - hard shadow (0 5px 0 ...) 連発
+      - 丸ステッカーバッジ・装飾円
+    */
+
+    :root {
+      --navy: #073a65;
+      --blue: #0f6fae;
+      --deep-blue: #064574;
+      --aqua: #e7f7fb;
+      --mint: #36bd9a;
+      --green: #39bd72;
+      --yellow: #f5cf65;
+      --coral: #f08b73;
+      --ink: #1e3544;
+      --soft-ink: #58707d;
+      --line: #d8edf3;
+      --bg: #f8fcfd;
+      --white: #fff;
+      --shadow: 0 20px 50px rgba(11, 71, 107, 0.12);
+
+      /* typography tokens */
+      --ff-jp-display: "Noto Sans JP", "Yu Gothic", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", sans-serif;
+      --ff-jp-mincho: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif;
+      --ff-body: "Noto Sans JP", "Yu Gothic", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", sans-serif;
+
+      /* timing / easing — industry baseline v1.1 */
+      --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+      --dur-fast: 200ms;
+      --dur-base: 320ms;
+      --dur-slow: 720ms;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      font-family: var(--ff-body);
+      font-feature-settings: "palt" 1;
+      font-weight: 500;
+      letter-spacing: 0;
+      background: var(--bg);
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, .headline {
+      text-wrap: balance;
+    }
+
+    p, .section-lead {
+      text-wrap: pretty;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      min-width: 320px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 10px 24px rgba(8, 51, 80, 0.08);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-top {
+      width: min(1180px, calc(100% - 42px));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f3fbff, #dff7f4);
+      box-shadow: inset 0 0 0 1px rgba(13, 111, 174, 0.12);
+    }
+
+    .brand-mark svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .brand-name {
+      line-height: 1.25;
+      min-width: 0;
+    }
+
+    .brand-name strong {
+      display: block;
+      color: var(--navy);
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .brand-name span {
+      display: block;
+      margin-top: 3px;
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+
+    .tel {
+      color: var(--navy);
+      text-align: right;
+      line-height: 1.1;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .tel strong {
+      display: block;
+      font-size: 30px;
+      letter-spacing: 0.01em;
+    }
+
+    .tel span {
+      display: block;
+      margin-top: 6px;
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .header-cta,
+    .btn {
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-weight: 900;
+      box-shadow: 0 14px 28px rgba(57, 189, 114, 0.24);
+    }
+
+    .header-cta,
+    .btn.primary {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .btn.secondary {
+      color: var(--navy);
+      background: #fff;
+      border: 1px solid rgba(7, 58, 101, 0.16);
+      box-shadow: 0 12px 24px rgba(8, 51, 80, 0.08);
+    }
+
+    .header-nav {
+      border-top: 1px solid var(--line);
+    }
+
+    .header-nav-inner {
+      width: min(1180px, calc(100% - 42px));
+      min-height: 48px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      align-items: center;
+    }
+
+    .header-nav a {
+      display: grid;
+      place-items: center;
+      min-height: 48px;
+      border-left: 1px solid var(--line);
+      color: #355a6d;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .header-nav a:last-child {
+      border-right: 1px solid var(--line);
+    }
+
+    .urgent-bar {
+      position: relative;
+      z-index: 2;
+      background: var(--navy);
+      color: #fff;
+      box-shadow: none;
+    }
+
+    .urgent-bar p {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 56px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: clamp(15px, 2vw, 20px);
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 690px;
+      overflow: hidden;
+      background: #d8eaf3;
+    }
+
+    .hero-collage {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 1.1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+    }
+
+    .hero-photo {
+      position: relative;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-photo.staff {
+      grid-row: span 2;
+    }
+
+    .hero-photo.interior {
+      grid-column: 2;
+    }
+
+    .hero-photo.child {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .hero-photo.consult {
+      grid-row: span 2;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(5, 50, 88, 0.76) 0%, rgba(5, 50, 88, 0.58) 44%, rgba(5, 50, 88, 0.18) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.22) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 42px));
+      min-height: 690px;
+      margin: 0 auto;
+      display: grid;
+      align-items: center;
+      padding: 52px 0 38px;
+    }
+
+    .hero-copy {
+      max-width: 790px;
+      color: #fff;
+      text-shadow: 0 3px 14px rgba(2, 33, 60, 0.28);
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 18px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--deep-blue);
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 900;
+      text-shadow: none;
+    }
+
+    .hero h1 {
+      margin: 24px 0 0;
+      color: #fff;
+      font-family: var(--ff-jp-display);
+      font-size: clamp(48px, 6.4vw, 84px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+    }
+
+    .hero h1 strong {
+      color: var(--yellow);
+      font-size: 1em;
+      font-weight: 900;
+    }
+
+    .hero-sub {
+      margin: 22px 0 0;
+      color: #fff;
+      font-size: clamp(18px, 2.3vw, 28px);
+      font-weight: 900;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+      text-shadow: none;
+    }
+
+    /* .hero-badges / .trust-badge は HTML 未使用のためデッドコード削除（丸ステッカー撤去） */
+
+    .container {
+      width: min(1120px, calc(100% - 42px));
+      margin: 0 auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 82px 0;
+    }
+
+    .section.white {
+      background: #fff;
+    }
+
+    .section.blue {
+      background: linear-gradient(180deg, #eff9fc, #fff);
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--deep-blue);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 28px;
+      height: 2px;
+      background: var(--deep-blue);
+    }
+
+    .headline {
+      margin: 14px 0 0;
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.35;
+      font-weight: 900;
+    }
+
+    .section-lead {
+      max-width: 760px;
+      margin: 18px auto 0;
+      color: var(--soft-ink);
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 2;
+    }
+
+    .intro-card {
+      display: grid;
+      grid-template-columns: 0.96fr 1.04fr;
+      gap: 0;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-media {
+      min-height: 390px;
+    }
+
+    .intro-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .intro-copy {
+      padding: clamp(34px, 5vw, 58px);
+      display: grid;
+      align-content: center;
+      background:
+        radial-gradient(circle at 88% 16%, rgba(54, 189, 154, 0.12) 0 92px, transparent 94px),
+        #fff;
+    }
+
+    .intro-copy h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height: 1.35;
+    }
+
+    .intro-copy p {
+      margin: 22px 0 0;
+      color: var(--soft-ink);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 2;
+    }
+
+    .feature-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .strip-item {
+      min-height: 110px;
+      display: grid;
+      place-items: center;
+      padding: 18px 12px;
+      border-radius: 18px;
+      background: #f2fbfd;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .strip-item strong {
+      color: var(--blue);
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .strip-item span {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    .worry-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .worry-card,
+    .reason-card,
+    .menu-card,
+    .voice-card,
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 34px rgba(8, 51, 80, 0.08);
+    }
+
+    .worry-card {
+      min-height: 166px;
+      padding: 26px 20px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .worry-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #e7f7fb, #fff6dd);
+      color: var(--blue);
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .worry-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .worry-card p {
+      margin: 12px 0 0;
+      color: var(--soft-ink);
+      font-size: 14px;
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .reason-card {
+      overflow: hidden;
+      border-radius: 26px;
+    }
+
+    .reason-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .reason-body {
+      position: relative;
+      padding: 28px 24px 30px;
+    }
+
+    .reason-no {
+      position: absolute;
+      top: -34px;
+      left: 24px;
+      width: 68px;
+      height: 68px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      border: 5px solid #fff;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .reason-card h3 {
+      margin: 12px 0 0;
+      color: var(--navy);
+      font-size: 21px;
+      line-height: 1.45;
+    }
+
+    .reason-card p {
+      margin: 14px 0 0;
+      color: var(--soft-ink);
+      font-size: 15px;
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .menu-card {
+      min-height: 190px;
+      padding: 28px 24px;
+      border-radius: 22px;
+      border-top: 6px solid var(--blue);
+    }
+
+    .menu-card:nth-child(2n) {
+      border-top-color: var(--mint);
+    }
+
+    .menu-card:nth-child(3n) {
+      border-top-color: var(--coral);
+    }
+
+    .menu-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 21px;
+    }
+
+    .menu-card p {
+      margin: 14px 0 0;
+      color: var(--soft-ink);
+      font-size: 15px;
+      line-height: 1.85;
+      font-weight: 700;
+    }
+
+    .doctor {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .doctor-photo {
+      overflow: hidden;
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .doctor-photo img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: 50% 36%;
+    }
+
+    .doctor-copy {
+      padding: 8px 0;
+    }
+
+    .doctor-copy h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.38;
+    }
+
+    .doctor-copy p {
+      margin: 22px 0 0;
+      color: var(--soft-ink);
+      font-size: 16px;
+      line-height: 2.05;
+      font-weight: 700;
+    }
+
+    .doctor-sign {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .facility-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .facility-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      background: var(--navy);
+    }
+
+    .facility-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+      opacity: 0.88;
+    }
+
+    .facility-caption {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      padding: 22px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 16px 32px rgba(8, 51, 80, 0.12);
+    }
+
+    .facility-caption h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 22px;
+    }
+
+    .facility-caption p {
+      margin: 10px 0 0;
+      color: var(--soft-ink);
+      line-height: 1.75;
+      font-weight: 700;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 210px;
+      padding: 30px 22px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 34px rgba(8, 51, 80, 0.08);
+    }
+
+    .flow-step strong {
+      display: inline-grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .flow-step h3 {
+      margin: 18px 0 0;
+      color: var(--navy);
+      font-size: 19px;
+    }
+
+    .flow-step p {
+      margin: 12px 0 0;
+      color: var(--soft-ink);
+      line-height: 1.8;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .voices {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .voice-card {
+      padding: 26px 24px;
+      border-radius: 22px;
+    }
+
+    .voice-card h3 {
+      margin: 0;
+      color: var(--blue);
+      font-size: 17px;
+    }
+
+    .voice-card p {
+      margin: 14px 0 0;
+      color: var(--soft-ink);
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-radius: 18px;
+      padding: 22px 24px;
+    }
+
+    .faq-item h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .faq-item h3::before {
+      content: "Q";
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .faq-item p {
+      margin: 14px 0 0 40px;
+      color: var(--soft-ink);
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    .access-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .access-info,
+    .map-card {
+      border-radius: 28px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .access-info {
+      padding: 34px;
+    }
+
+    .access-info h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 30px;
+    }
+
+    .access-info dl {
+      display: grid;
+      gap: 14px;
+      margin: 24px 0 0;
+    }
+
+    .access-info div {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .access-info dt {
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .access-info dd {
+      margin: 0;
+      color: var(--soft-ink);
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .map-card {
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(90deg, rgba(15, 111, 174, 0.12) 1px, transparent 1px),
+        linear-gradient(rgba(15, 111, 174, 0.12) 1px, transparent 1px),
+        #eef9fc;
+      background-size: 44px 44px;
+      color: var(--navy);
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .map-pin {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 50% 50% 50% 12px;
+      background: var(--green);
+      color: #fff;
+      transform: rotate(-45deg);
+      box-shadow: 0 18px 34px rgba(57, 189, 114, 0.22);
+    }
+
+    .map-pin span {
+      transform: rotate(45deg);
+      font-size: 30px;
+    }
+
+    .final-cta {
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(6, 69, 116, 0.94), rgba(6, 69, 116, 0.70)),
+        url("assets/dental-interior.png") center / cover;
+    }
+
+    .final-cta .container {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .final-cta h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(30px, 4.4vw, 48px);
+      line-height: 1.35;
+    }
+
+    .final-cta p {
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 800;
+      line-height: 1.8;
+    }
+
+    .cta-actions {
+      display: grid;
+      gap: 12px;
+      min-width: 280px;
+    }
+
+    .sticky-cta {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .tel,
+      .header-nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 760px;
+      }
+
+      .hero-collage {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+      }
+
+      .hero-photo.staff {
+        grid-row: span 1;
+      }
+
+      .hero-photo.consult {
+        grid-row: span 1;
+      }
+
+      .hero-photo.interior,
+      .hero-photo.child {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .hero-inner {
+        min-height: 760px;
+        align-items: end;
+      }
+
+      .hero-badges {
+        gap: 10px;
+      }
+
+      .trust-badge {
+        width: 120px;
+        height: 120px;
+      }
+
+      .intro-card,
+      .doctor,
+      .access-box,
+      .final-cta .container {
+        grid-template-columns: 1fr;
+      }
+
+      .reason-grid,
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .worry-grid,
+      .flow,
+      .voices {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding-bottom: 74px;
+      }
+
+      .header-top {
+        width: calc(100% - 28px);
+        min-height: 68px;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+      }
+
+      .brand-name strong {
+        font-size: 18px;
+      }
+
+      .brand-name span {
+        font-size: 10px;
+      }
+
+      .header-cta {
+        min-height: 40px;
+        padding: 0 14px;
+        font-size: 12px;
+      }
+
+      .urgent-bar p {
+        min-height: 44px;
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .hero {
+        min-height: 760px;
+      }
+
+      .hero-collage {
+        height: 520px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        bottom: auto;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(5, 50, 88, 0.18) 0%, rgba(5, 50, 88, 0.42) 38%, rgba(5, 50, 88, 0.92) 82%, rgba(5, 50, 88, 0.96) 100%);
+      }
+
+      .hero-inner {
+        width: calc(100% - 28px);
+        min-height: 760px;
+        padding: 34px 0 28px;
+        align-items: end;
+      }
+
+      .hero-kicker {
+        min-height: 32px;
+        padding: 0 13px;
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        margin-top: 18px;
+        font-size: 38px;
+      }
+
+      .hero-sub {
+        font-size: 16px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-badges {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .trust-badge {
+        width: 100%;
+        height: auto;
+        min-height: 92px;
+        border-radius: 18px;
+      }
+
+      .trust-badge::before {
+        border-radius: 14px;
+      }
+
+      .trust-badge strong {
+        font-size: 23px;
+      }
+
+      .container {
+        width: calc(100% - 30px);
+      }
+
+      .section {
+        padding: 58px 0;
+      }
+
+      .section-head {
+        margin-bottom: 30px;
+      }
+
+      .section-lead {
+        font-size: 15px;
+      }
+
+      .intro-media {
+        min-height: 250px;
+      }
+
+      .feature-strip,
+      .reason-grid,
+      .menu-grid,
+      .worry-grid,
+      .flow,
+      .voices,
+      .facility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .strip-item {
+        min-height: 88px;
+      }
+
+      .reason-card img,
+      .doctor-photo img {
+        height: 270px;
+      }
+
+      .facility-card,
+      .facility-card img,
+      .map-card {
+        min-height: 300px;
+      }
+
+      .facility-caption {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 18px;
+      }
+
+      .access-info {
+        padding: 26px 20px;
+      }
+
+      .access-info div {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .final-cta {
+        padding-bottom: 86px;
+      }
+
+      .cta-actions {
+        min-width: 0;
+      }
+
+      .sticky-cta {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(255, 255, 255, 0.94);
+        box-shadow: 0 -10px 28px rgba(8, 51, 80, 0.12);
+        backdrop-filter: blur(12px);
+      }
+
+      .sticky-cta a {
+        min-height: 48px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .sticky-cta a:first-child {
+        background: var(--navy);
+      }
+
+      .sticky-cta a:last-child {
+        background: var(--green);
+      }
+    }
+
+    /* Real-clinic LP refinement: less decoration, stronger hierarchy */
+    .site-header {
+      box-shadow: 0 8px 22px rgba(7, 58, 101, 0.06);
+    }
+
+    .header-nav a {
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .urgent-bar {
+      box-shadow: none;
+    }
+
+    .urgent-bar p {
+      justify-content: center;
+      border-left: 0;
+      border-right: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .hero {
+      min-height: 660px;
+      background: #d7e8f1;
+    }
+
+    .hero-collage {
+      grid-template-columns: 0.9fr 1.05fr 1.15fr;
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      background:
+        linear-gradient(90deg, rgba(3, 47, 83, 0.84) 0%, rgba(3, 47, 83, 0.68) 42%, rgba(3, 47, 83, 0.25) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.16) 100%);
+    }
+
+    .hero-inner {
+      min-height: 660px;
+      padding-top: 42px;
+      padding-bottom: 34px;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+    }
+
+    .hero-kicker {
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.94);
+      color: #064574;
+      box-shadow: 0 8px 20px rgba(0, 28, 50, 0.12);
+    }
+
+    .hero h1 {
+      margin-top: 22px;
+      font-size: clamp(46px, 6vw, 78px);
+      line-height: 1.1;
+    }
+
+    .hero h1 strong {
+      color: #f0c55b;
+      text-shadow: 0 2px 0 rgba(6, 47, 78, 0.18);
+    }
+
+    .hero-sub {
+      max-width: 720px;
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 1.85;
+    }
+
+    .hero-actions .btn,
+    .header-cta,
+    .btn {
+      border-radius: 8px;
+      box-shadow: none;
+    }
+
+    .hero-proof-board {
+      width: min(850px, 100%);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.52);
+      background: rgba(5, 59, 102, 0.78);
+      box-shadow: 0 20px 42px rgba(0, 27, 48, 0.24);
+      text-shadow: none;
+    }
+
+    .proof-item {
+      position: relative;
+      min-height: 118px;
+      padding: 18px 17px 16px;
+      color: #fff;
+      border-right: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .proof-item:last-child {
+      border-right: 0;
+    }
+
+    .proof-item::before {
+      content: "";
+      position: absolute;
+      left: 17px;
+      top: 0;
+      width: 42px;
+      height: 4px;
+      background: #f0c55b;
+    }
+
+    .proof-item span,
+    .proof-item strong,
+    .proof-item small {
+      display: block;
+    }
+
+    .proof-item span {
+      color: #bfe8f4;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    .proof-item strong {
+      margin-top: 10px;
+      color: #fff;
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .proof-item small {
+      margin-top: 9px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 12px;
+      line-height: 1.55;
+      font-weight: 800;
+    }
+
+    .section {
+      padding: 78px 0;
+    }
+
+    .section.blue {
+      background: #eef8fb;
+    }
+
+    .section-head {
+      margin-bottom: 38px;
+    }
+
+    .eyebrow {
+      color: #0a6ea9;
+      letter-spacing: 0.16em;
+    }
+
+    .headline {
+      letter-spacing: 0.02em;
+    }
+
+    .intro-card,
+    .reason-card,
+    .menu-card,
+    .voice-card,
+    .faq-item,
+    .access-info,
+    .map-card {
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(8, 51, 80, 0.06);
+    }
+
+    .intro-card {
+      border: 1px solid var(--line);
+    }
+
+    .intro-copy {
+      background: #fff;
+      border-left: 8px solid #dff3f8;
+    }
+
+    .feature-strip {
+      gap: 0;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .strip-item {
+      border: 0;
+      border-right: 1px solid var(--line);
+      border-radius: 0;
+      background: #fff;
+    }
+
+    .strip-item:last-child {
+      border-right: 0;
+    }
+
+    .worry-card,
+    .reason-card,
+    .menu-card,
+    .voice-card,
+    .faq-item {
+      border-color: #d7e8ef;
+    }
+
+    .worry-card {
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .worry-icon {
+      width: auto;
+      height: auto;
+      margin: 0 0 16px;
+      display: inline-flex;
+      padding: 5px 12px;
+      border-radius: 4px;
+      background: #0f6fae;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+
+    .reason-card {
+      border-radius: 8px;
+    }
+
+    .reason-body {
+      padding-top: 26px;
+    }
+
+    .reason-no {
+      top: -20px;
+      left: 22px;
+      width: 62px;
+      height: 40px;
+      border-radius: 4px;
+      border: 0;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+    }
+
+    .menu-card {
+      border-radius: 8px;
+      border-top-width: 4px;
+      box-shadow: none;
+    }
+
+    .doctor-photo,
+    .facility-card {
+      border-radius: 8px;
+    }
+
+    .facility-caption {
+      border-radius: 6px;
+    }
+
+    .flow-step {
+      border-radius: 8px;
+      box-shadow: none;
+      border-top: 4px solid #0f6fae;
+    }
+
+    .flow-step strong {
+      width: auto;
+      height: auto;
+      display: inline-block;
+      border-radius: 0;
+      background: transparent;
+      color: #0f6fae;
+      font-size: 14px;
+      letter-spacing: 0.14em;
+    }
+
+    .voice-card {
+      box-shadow: none;
+    }
+
+    .faq-item h3::before {
+      border-radius: 4px;
+    }
+
+    .final-cta {
+      background:
+        linear-gradient(90deg, rgba(4, 61, 101, 0.96), rgba(4, 61, 101, 0.74)),
+        url("assets/dental-interior.png") center / cover;
+    }
+
+    @media (max-width: 980px) {
+      .hero-proof-board {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .proof-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .proof-item:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: 790px;
+      }
+
+      .hero-collage {
+        height: 500px;
+      }
+
+      .hero-inner {
+        min-height: 790px;
+        width: calc(100% - 24px);
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero-sub {
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      .hero-proof-board {
+        margin-top: 20px;
+      }
+
+      .proof-item {
+        min-height: 92px;
+        padding: 15px 12px 13px;
+      }
+
+      .proof-item::before {
+        left: 12px;
+        width: 34px;
+      }
+
+      .proof-item span {
+        font-size: 10px;
+      }
+
+      .proof-item strong {
+        font-size: 18px;
+      }
+
+      .proof-item small {
+        font-size: 11px;
+      }
+
+      .hero-actions .btn,
+      .sticky-cta a {
+        border-radius: 8px;
+      }
+
+      .intro-copy {
+        border-left: 0;
+        border-top: 6px solid #dff3f8;
+      }
+
+      .feature-strip {
+        border-bottom: 0;
+      }
+
+      .strip-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-top">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="img">
+            <path d="M19.8 7.8c-6.3 0-10.5 5.1-10.5 12.1 0 5.5 2.2 10 4.4 14.7 1.5 3.3 2.1 7.2 2.8 11 .9 5.3 2 10.8 6.1 10.8 3.4 0 4.2-4.8 5.1-9.3.7-3.7 1.6-7.4 4.3-7.4s3.6 3.7 4.3 7.4c.9 4.5 1.7 9.3 5.1 9.3 4.1 0 5.2-5.5 6.1-10.8.7-3.8 1.3-7.7 2.8-11 2.2-4.7 4.4-9.2 4.4-14.7 0-7-4.2-12.1-10.5-12.1-4.3 0-7.1 2.2-10 3.4-1.2.5-3.2.5-4.4 0-2.9-1.2-5.7-3.4-10-3.4Z" fill="#fff" stroke="#0f6fae" stroke-width="4" stroke-linejoin="round"/>
+            <path d="M24 25c2.6 2.8 6.4 4.3 10.2 3.6 2.5-.5 4.6-1.8 5.8-3.6" fill="none" stroke="#39bd72" stroke-width="3.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">
+          <strong>あおばスマイル歯科</strong>
+          <span>AOBA SMILE DENTAL CLINIC</span>
+        </span>
+      </a>
+      <div class="header-contact">
+        <a class="tel" href="tel:03-0000-1182">
+          <strong>03-0000-1182</strong>
+          <span>平日 9:30-18:30 / 土曜 17:00まで</span>
+        </a>
+        <a class="header-cta" href="#reserve">WEB予約</a>
+      </div>
+    </div>
+    <nav class="header-nav" aria-label="主要メニュー">
+      <div class="header-nav-inner">
+        <a href="#concept">当院について</a>
+        <a href="#worries">お悩み</a>
+        <a href="#reason">選ばれる理由</a>
+        <a href="#menu">診療内容</a>
+        <a href="#doctor">院長紹介</a>
+        <a href="#access">アクセス</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="urgent-bar">
+      <p>急な歯の痛み・詰め物のトラブルも、まずはお電話でご相談ください</p>
+    </div>
+
+    <section class="hero">
+      <div class="hero-collage" aria-hidden="true">
+        <div class="hero-photo staff"><img src="assets/dental-hero-staff.png" alt=""></div>
+        <div class="hero-photo interior"><img src="assets/dental-interior.png" alt=""></div>
+        <div class="hero-photo child"><img src="assets/dental-child-treatment.png" alt=""></div>
+        <div class="hero-photo consult"><img src="assets/dental-consultation.png" alt=""></div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="hero-kicker">土曜診療・キッズスペース・半個室診療室</span>
+          <h1>家族で通える<br><strong>やさしい</strong>歯科医院</h1>
+          <p class="hero-sub">痛みへの配慮とわかりやすい説明で、はじめての方も安心して相談できる地域の歯医者さん。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#reserve">WEBで初診予約</a>
+            <a class="btn secondary" href="#menu">診療内容を見る</a>
+          </div>
+          <div class="hero-proof-board" aria-label="医院の特徴">
+            <div class="proof-item">
+              <span>急患相談</span>
+              <strong>当日枠あり</strong>
+              <small>痛み・詰め物のトラブル</small>
+            </div>
+            <div class="proof-item">
+              <span>予防管理</span>
+              <strong>担当制ケア</strong>
+              <small>むし歯を繰り返さない通院</small>
+            </div>
+            <div class="proof-item">
+              <span>通いやすさ</span>
+              <strong>土曜診療</strong>
+              <small>平日が忙しいご家庭へ</small>
+            </div>
+            <div class="proof-item">
+              <span>家族診療</span>
+              <strong>親子予約</strong>
+              <small>小児から大人まで相談可</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="concept">
+      <div class="container">
+        <div class="intro-card">
+          <div class="intro-media">
+            <img src="assets/dental-interior.png" alt="明るく清潔な受付と待合スペース">
+          </div>
+          <div class="intro-copy">
+            <h2>通うたび、少し安心できる。<br>そんな歯科医院を目指して。</h2>
+            <p>あおばスマイル歯科は、治療前の説明・痛みへの配慮・清潔な院内環境を大切にする架空の歯科医院です。小さなお子さまから大人のメンテナンスまで、家族の口元を長く見守るための通いやすさを整えました。</p>
+            <div class="feature-strip">
+              <div class="strip-item"><div><strong>9:30</strong><span>平日診療開始</span></div></div>
+              <div class="strip-item"><div><strong>17:00</strong><span>土曜も診療</span></div></div>
+              <div class="strip-item"><div><strong>3分</strong><span>駅から徒歩</span></div></div>
+              <div class="strip-item"><div><strong>個別</strong><span>予防プラン</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue" id="worries">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">お悩み</span>
+          <h2 class="headline">こんなお悩みはありませんか？</h2>
+          <p class="section-lead">痛いところだけを急いで治すのではなく、原因や今後の予防まで一緒に考えます。</p>
+        </div>
+        <div class="worry-grid">
+          <article class="worry-card">
+            <div class="worry-icon">痛</div>
+            <h3>歯が痛い・しみる</h3>
+            <p>急な痛みや違和感は、当日相談枠で状況を確認します。</p>
+          </article>
+          <article class="worry-card">
+            <div class="worry-icon">子</div>
+            <h3>子どもが歯医者を怖がる</h3>
+            <p>声かけと段階的な診療で、無理なく慣れることを大切にします。</p>
+          </article>
+          <article class="worry-card">
+            <div class="worry-icon">予</div>
+            <h3>むし歯を繰り返す</h3>
+            <p>生活習慣や磨き残しまで見て、予防プランを提案します。</p>
+          </article>
+          <article class="worry-card">
+            <div class="worry-icon">美</div>
+            <h3>口元を自然に整えたい</h3>
+            <p>見た目と噛み合わせの両方を考えた選択肢をご案内します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="reason">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">選ばれる理由</span>
+          <h2 class="headline">あおばスマイル歯科が選ばれる理由</h2>
+        </div>
+        <div class="reason-grid">
+          <article class="reason-card">
+            <img src="assets/dental-consultation.png" alt="治療計画を丁寧に説明する歯科医師">
+            <div class="reason-body">
+              <span class="reason-no">01</span>
+              <h3>治療前に、見える説明</h3>
+              <p>口腔内写真やレントゲンを使い、今の状態・治療の選択肢・費用感をわかりやすく共有します。</p>
+            </div>
+          </article>
+          <article class="reason-card">
+            <img src="assets/dental-child-treatment.png" alt="小児歯科でやさしく診療する様子">
+            <div class="reason-body">
+              <span class="reason-no">02</span>
+              <h3>親子で通いやすい環境</h3>
+              <p>小児診療、予防ケア、家族同時予約の相談まで、忙しいご家庭でも続けやすい体制です。</p>
+            </div>
+          </article>
+          <article class="reason-card">
+            <img src="assets/dental-treatment-room.png" alt="清潔な半個室診療室">
+            <div class="reason-body">
+              <span class="reason-no">03</span>
+              <h3>清潔で落ち着く診療室</h3>
+              <p>器具の滅菌管理、半個室の診療空間、明るい院内で、安心して治療を受けられる環境を整えています。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue" id="menu">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">診療内容</span>
+          <h2 class="headline">診療内容</h2>
+          <p class="section-lead">保険診療を中心に、予防・小児・審美・ホワイトニングまで幅広く対応します。</p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <h3>一般歯科</h3>
+            <p>むし歯・歯周病・詰め物のトラブルなど、痛みや違和感の原因を確認して治療します。</p>
+          </article>
+          <article class="menu-card">
+            <h3>予防歯科</h3>
+            <p>クリーニング、ブラッシング指導、定期検診で、治療を繰り返さない口腔環境を目指します。</p>
+          </article>
+          <article class="menu-card">
+            <h3>小児歯科</h3>
+            <p>お子さまのペースに合わせた診療と、仕上げ磨き・フッ素塗布の相談に対応します。</p>
+          </article>
+          <article class="menu-card">
+            <h3>審美治療</h3>
+            <p>銀歯を白くしたい、前歯の見た目を整えたいなど、自然な口元づくりをサポートします。</p>
+          </article>
+          <article class="menu-card">
+            <h3>ホワイトニング</h3>
+            <p>ライフスタイルに合わせて、院内・自宅ケアの選択肢をご案内します。</p>
+          </article>
+          <article class="menu-card">
+            <h3>マウスピース相談</h3>
+            <p>歯ぎしり・食いしばり・スポーツ用など、目的に応じたマウスピースを提案します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="doctor">
+      <div class="container">
+        <div class="doctor">
+          <div class="doctor-photo">
+            <img src="assets/dental-hero-staff.png" alt="あおばスマイル歯科のスタッフ">
+          </div>
+          <div class="doctor-copy">
+            <span class="eyebrow">院長メッセージ</span>
+            <h2>説明を聞いてから選べる。<br>納得感のある歯科診療へ。</h2>
+            <p>歯科治療は「何をされるかわからない」と不安になりやすいものです。だからこそ当院では、治療前の説明と相談しやすい雰囲気を大切にしています。急な痛みの対応から、将来のための予防まで、地域の皆さまの毎日に寄り添える医院でありたいと考えています。</p>
+            <p class="doctor-sign">院長　青葉 真由子</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">院内環境</span>
+          <h2 class="headline">清潔で過ごしやすい院内環境</h2>
+        </div>
+        <div class="facility-grid">
+          <article class="facility-card">
+            <img src="assets/dental-interior.png" alt="明るい受付と待合スペース">
+            <div class="facility-caption">
+              <h3>明るい受付・待合</h3>
+              <p>白とアクアを基調に、はじめての方も落ち着いて過ごせる空間にしています。</p>
+            </div>
+          </article>
+          <article class="facility-card">
+            <img src="assets/dental-treatment-room.png" alt="清潔な診療室">
+            <div class="facility-caption">
+              <h3>半個室の診療室</h3>
+              <p>周囲を気にせず相談しやすい診療空間。衛生管理にも配慮しています。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">初診の流れ</span>
+          <h2 class="headline">初診の流れ</h2>
+        </div>
+        <div class="flow">
+          <article class="flow-step">
+            <strong>01</strong>
+            <h3>予約・受付</h3>
+            <p>WEBまたはお電話でご予約ください。急な痛みもまずはご相談ください。</p>
+          </article>
+          <article class="flow-step">
+            <strong>02</strong>
+            <h3>問診・検査</h3>
+            <p>症状や不安を伺い、必要に応じてレントゲンや口腔内写真を撮影します。</p>
+          </article>
+          <article class="flow-step">
+            <strong>03</strong>
+            <h3>説明・治療</h3>
+            <p>状態と治療方針を説明し、同意いただいてから処置に進みます。</p>
+          </article>
+          <article class="flow-step">
+            <strong>04</strong>
+            <h3>予防プラン</h3>
+            <p>治療後も良い状態を保つため、定期検診やセルフケアを提案します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">患者さまの声</span>
+          <h2 class="headline">患者さまの声</h2>
+        </div>
+        <div class="voices">
+          <article class="voice-card">
+            <h3>30代女性 / 予防歯科</h3>
+            <p>写真を見ながら説明してもらえたので、どこを治すのかがわかりやすかったです。定期検診も続けられそうです。</p>
+          </article>
+          <article class="voice-card">
+            <h3>40代男性 / むし歯治療</h3>
+            <p>痛みが強くて不安でしたが、受付の対応から落ち着いていて安心しました。治療後の説明も丁寧でした。</p>
+          </article>
+          <article class="voice-card">
+            <h3>親子で通院 / 小児歯科</h3>
+            <p>子どもが怖がらないように声をかけてくれて助かりました。親の検診も同じ日に相談できるのが便利です。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="access">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">医院情報・アクセス</span>
+          <h2 class="headline">医院情報・アクセス</h2>
+        </div>
+        <div class="access-box">
+          <div class="access-info">
+            <h2>あおばスマイル歯科</h2>
+            <dl>
+              <div>
+                <dt>住所</dt>
+                <dd>東京都架空区あおば町1-2-3 Aoba Terrace 2F</dd>
+              </div>
+              <div>
+                <dt>アクセス</dt>
+                <dd>あおば駅 東口から徒歩3分 / 駐輪スペースあり</dd>
+              </div>
+              <div>
+                <dt>診療時間</dt>
+                <dd>平日 9:30-13:00 / 14:30-18:30<br>土曜 9:30-13:00 / 14:00-17:00</dd>
+              </div>
+              <div>
+                <dt>休診日</dt>
+                <dd>水曜・日曜・祝日</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="map-card" aria-label="架空のアクセスマップ">
+            <div>
+              <div class="map-pin"><span>歯</span></div>
+              <p>AOBA STATION<br>徒歩3分</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">よくある質問</span>
+          <h2 class="headline">よくある質問</h2>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>急に歯が痛くなった場合も診てもらえますか？</h3>
+            <p>予約状況により当日相談枠をご案内します。まずはお電話で症状をお聞かせください。</p>
+          </article>
+          <article class="faq-item">
+            <h3>子どもの歯科検診だけでも予約できますか？</h3>
+            <p>可能です。フッ素塗布や仕上げ磨きの相談も含めて、お子さまのペースに合わせて診療します。</p>
+          </article>
+          <article class="faq-item">
+            <h3>治療費は事前に教えてもらえますか？</h3>
+            <p>保険診療・自由診療ともに、治療前に内容と費用の目安をご説明します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta" id="reserve">
+      <div class="container">
+        <div>
+          <h2>歯の不安を、今日のうちに相談しませんか。</h2>
+          <p>WEB予約は24時間受付。急な痛みや詰め物のトラブルは、お電話で空き状況をご確認ください。</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn primary" href="#reserve" aria-label="WEBで初診予約する">WEBで予約する</a>
+          <a class="btn secondary" href="tel:03-0000-1182" aria-label="お電話で相談する 03-0000-1182">電話で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-cta" aria-label="固定予約導線">
+    <a href="tel:03-0000-1182">電話する</a>
+    <a href="#reserve">WEB予約</a>
+  </div>
+</body>
+</html>
