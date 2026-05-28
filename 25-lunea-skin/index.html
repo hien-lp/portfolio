@@ -25,7 +25,7 @@
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/facial-hero.png" fetchpriority="high">
   <style>
     /*
@@ -39,23 +39,24 @@
     */
 
     :root {
-      --ink: #273033;
-      --soft-ink: #536064;
-      --line: rgba(39, 48, 51, 0.12);
+      --ink: #1a1f22;            /* 強めの墨 — はっきり */
+      --soft-ink: #4a5358;        /* 本文用 — 視認性 UP */
+      --line: rgba(26, 31, 34, 0.12);
       --pearl: #fffdfb;
-      --mist: #eaf7f8;
+      --mist: #f4ebe7;            /* sand 系背景 */
       --aqua: #9fcfd2;
-      --rose: #e7b9b2;
-      --rose-deep: #b97570;
+      --rose: #f5d0c9;
+      --rose-deep: #d4527a;       /* もっと強いピンク — 実LPトーン */
+      --rose-darkest: #a1335a;    /* CTA / 価格用 — WCAG AA */
       --gold: #c8a46b;
       --sand: #f7efe8;
-      --navy: #223742;
+      --navy: #1d3340;            /* 黒寄りに濃く */
       --line-green: #06c755;
 
-      /* typography tokens — Premium Minimal + Editorial */
-      --ff-en-display: "Marcellus", "Cormorant Garamond", serif;
-      --ff-jp-display: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
-      --ff-body: "Zen Kaku Gothic New", "Yu Gothic", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", sans-serif;
+      /* typography tokens — Bold & Clear Beauty (実LPの「きっぱり」路線) */
+      --ff-en-display: "Marcellus", "Cormorant Garamond", serif;  /* ブランドロゴのみ使用 */
+      --ff-jp-display: "Noto Sans JP", "Yu Gothic", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", sans-serif;
+      --ff-body: "Noto Sans JP", "Yu Gothic", "Yu Gothic UI", "Hiragino Kaku Gothic ProN", sans-serif;
 
       /* timing / easing — industry baseline v1.1 */
       --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
@@ -78,7 +79,8 @@
       color: var(--ink);
       font-family: var(--ff-body);
       font-feature-settings: "palt" 1;
-      letter-spacing: 0.01em;
+      font-weight: 500;
+      letter-spacing: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -89,6 +91,21 @@
     }
     p, .copy, .hero-lead, .lead {
       text-wrap: pretty;
+    }
+
+    /* Bold & Clear — 見出しは Noto Sans JP 黒太、極端なジャンプ率 */
+    .hero h1, .headline {
+      font-family: var(--ff-jp-display);
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      line-height: 1.18;
+    }
+
+    .hero h1 strong,
+    .headline strong,
+    .headline em {
+      font-weight: 900;
+      font-style: normal;
     }
 
     /* accessibility — reduced motion */
@@ -160,17 +177,18 @@
 
     .brand strong {
       font-family: var(--ff-en-display);
-      font-size: 24px;
-      font-weight: 400;
-      letter-spacing: 0.08em;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--ink);
     }
 
     .brand span {
       margin-top: 4px;
       color: var(--rose-deep);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
     }
 
@@ -187,20 +205,20 @@
     }
 
     .mini-cta {
-      min-height: 44px;
-      padding: 0 20px;
-      border-radius: 999px;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 6px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: var(--line-green);
+      background: #007c3a;
       color: #fff;
       font-family: var(--ff-body);
       font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      box-shadow: 0 12px 28px rgba(6, 199, 85, 0.22);
+      font-weight: 800;
+      letter-spacing: 0;
+      box-shadow: 0 8px 22px rgba(0, 80, 30, 0.22);
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
       transition: transform var(--dur-fast) var(--ease-out-quint),
@@ -291,38 +309,38 @@
 
     .hero h1 {
       font-family: var(--ff-jp-display);
-      margin: 24px 0 0;
-      color: var(--navy);
-      font-size: clamp(40px, 5.6vw, 68px);
-      font-weight: 500;
-      line-height: 1.22;
-      letter-spacing: 0.02em;
+      margin: 18px 0 0;
+      color: var(--ink);
+      font-size: clamp(44px, 7vw, 84px);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
     }
 
     .hero h1 span {
       color: var(--rose-deep);
-      font-weight: 700;
+      font-weight: 900;
     }
 
     .hero h1 .en {
       display: block;
       font-family: var(--ff-en-display);
-      font-size: 0.36em;
-      font-weight: 400;
-      color: var(--gold);
-      letter-spacing: 0.32em;
+      font-size: 0.22em;
+      font-weight: 600;
+      color: var(--rose-deep);
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .hero-lead {
-      max-width: 540px;
-      margin: 26px 0 0;
-      color: var(--soft-ink);
-      font-size: 19px;
-      font-weight: 500;
-      line-height: 1.92;
-      letter-spacing: 0.02em;
+      max-width: 560px;
+      margin: 24px 0 0;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.8;
+      letter-spacing: 0;
     }
 
     .hero-actions {
@@ -334,19 +352,19 @@
 
     .btn {
       position: relative;
-      min-height: 60px;
-      padding: 0 30px;
-      border-radius: 999px;
+      min-height: 72px;
+      padding: 0 36px;
+      border-radius: 8px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       font-family: var(--ff-body);
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0;
       text-decoration: none;
-      box-shadow: 0 16px 36px rgba(34, 55, 66, 0.16);
+      box-shadow: 0 12px 32px rgba(34, 55, 66, 0.18);
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
       transition: transform var(--dur-fast) var(--ease-out-quint),
@@ -481,41 +499,49 @@
     }
 
     .eyebrow {
-      font-family: var(--ff-en-display);
-      margin: 0 0 14px;
+      margin: 0 0 18px;
       color: var(--rose-deep);
       font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.32em;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 28px;
+      height: 2px;
+      background: var(--rose-deep);
     }
 
     .headline {
       font-family: var(--ff-jp-display);
       margin: 0;
-      color: var(--navy);
-      font-size: clamp(30px, 4vw, 48px);
-      font-weight: 500;
-      line-height: 1.32;
-      letter-spacing: 0.02em;
+      color: var(--ink);
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
     .headline strong,
     .headline em {
       color: var(--rose-deep);
-      font-weight: 700;
+      font-weight: 900;
       font-style: normal;
     }
 
-    /* .eyebrow base — see original definition below; this block extends for Editorial typography */
-
     .copy {
-      margin: 20px auto 0;
+      margin: 22px auto 0;
       color: var(--soft-ink);
       font-size: 17px;
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.92;
-      letter-spacing: 0.02em;
+      letter-spacing: 0;
     }
 
     .problem {
@@ -562,7 +588,7 @@
       margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.78;
     }
 
@@ -643,7 +669,7 @@
       margin: 8px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.78;
     }
 
@@ -713,7 +739,7 @@
       margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.78;
     }
 
@@ -769,7 +795,7 @@
       margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.78;
     }
 
@@ -820,7 +846,7 @@
       margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.85;
     }
 
@@ -894,7 +920,7 @@
       margin: 18px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.85;
     }
 
@@ -947,7 +973,7 @@
       margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 15px;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.9;
     }
 
@@ -1347,11 +1373,12 @@
     }
 
     .kicker {
-      background: rgba(255, 253, 251, 0.92);
-      color: var(--rose-deep);
-      border: 1px solid rgba(185, 117, 112, 0.22);
-      box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
-                  0 12px 28px rgba(39, 48, 51, 0.06);
+      background: var(--rose-deep);
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      border: 0;
+      box-shadow: 0 8px 22px rgba(212, 82, 122, 0.24);
     }
 
     /* H1/headline は initial の var(--ff-jp-display) を維持。letter-spacing は palt + tracking */
@@ -1377,7 +1404,7 @@
       border-left: 3px solid var(--rose-deep);
       border-radius: 0 12px 12px 0;
       padding: 16px 22px;
-      font-weight: 400;
+      font-weight: 600;
       box-shadow: 0 1px 2px rgba(39, 48, 51, 0.04),
                   0 14px 32px rgba(39, 48, 51, 0.06);
     }
@@ -1413,7 +1440,7 @@
     .eyebrow {
       color: #8b3a4e;
       font-family: var(--ff-en-display);
-      font-weight: 400;
+      font-weight: 600;
       letter-spacing: 0.36em;
     }
 
@@ -1465,7 +1492,7 @@
       color: #fff;
       box-shadow: 0 4px 12px rgba(185, 117, 112, 0.22);
       font-family: var(--ff-en-display);
-      font-weight: 400;
+      font-weight: 600;
     }
 
     .image-band {
@@ -1938,14 +1965,14 @@
     .scarcity-bar .remain {
       color: var(--soft-ink);
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 600;
     }
 
     .scarcity-bar .remain em {
       color: #c2336a;
       font-family: var(--ff-en-display);
       font-size: 22px;
-      font-weight: 400;
+      font-weight: 600;
       font-style: normal;
       margin: 0 3px;
     }
