@@ -207,7 +207,7 @@
     .mini-cta {
       min-height: 48px;
       padding: 0 22px;
-      border-radius: 6px;
+      border-radius: 4px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -294,17 +294,15 @@
     }
 
     .kicker {
-      display: inline-flex;
-      align-items: center;
-      min-height: 36px;
-      padding: 0 18px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.82);
-      color: var(--rose-deep);
-      font-size: 14px;
-      font-weight: 900;
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 0;
+      background: var(--ink);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
       letter-spacing: 0.08em;
-      box-shadow: 0 14px 34px rgba(183, 117, 112, 0.12);
+      box-shadow: none;
     }
 
     .hero h1 {
@@ -323,14 +321,7 @@
     }
 
     .hero h1 .en {
-      display: block;
-      font-family: var(--ff-en-display);
-      font-size: 0.22em;
-      font-weight: 600;
-      color: var(--rose-deep);
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+      display: none;  /* serif 英字キャッチは AIテンプレ感が出るため非表示 */
     }
 
     .hero-lead {
@@ -354,7 +345,7 @@
       position: relative;
       min-height: 72px;
       padding: 0 36px;
-      border-radius: 8px;
+      border-radius: 4px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -389,30 +380,7 @@
       transform: translateY(-1px);
     }
 
-    /* シマー光沢アニメ — CTA の視線誘導 */
-    .btn.primary::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(120deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0) 40%,
-        rgba(255, 255, 255, 0.5) 50%,
-        rgba(255, 255, 255, 0) 60%,
-        transparent 100%);
-      transform: skewX(-22deg);
-      pointer-events: none;
-      animation: btnShimmer 3.6s var(--ease-out-quint) infinite;
-    }
-
-    @keyframes btnShimmer {
-      0%   { left: -75%; }
-      55%  { left: 130%; }
-      100% { left: 130%; }
-    }
+    /* シマー光沢アニメは AI 特有のキラキラ感のため撤去 */
 
     .btn.secondary {
       background: rgba(255, 255, 255, 0.84);
@@ -432,20 +400,15 @@
       outline-offset: 4px;
     }
 
-    /* CTA下のマイクロコピー */
+    /* CTA下のマイクロコピー（シンプル1行） */
     .micro-copy {
       width: 100%;
-      margin: 14px 0 0;
+      margin: 12px 0 0;
       color: var(--soft-ink);
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-weight: 600;
+      letter-spacing: 0;
       line-height: 1.6;
-    }
-    .micro-copy::before {
-      content: "✓ ";
-      color: var(--line-green);
-      font-weight: 900;
     }
 
     /* 罫線区切りのシンプルなチェックリスト（実LP流） */
@@ -639,50 +602,58 @@
       overflow: hidden;
       border-radius: 0;
       box-shadow: none;
+      border: 1px solid var(--line);
     }
 
     .feature-photo img {
       aspect-ratio: 4 / 5;
       object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
 
     .feature-list {
+      counter-reset: feat;
       display: grid;
       gap: 0;
-      margin-top: 32px;
+      margin-top: 36px;
       border-top: 1px solid var(--line);
     }
 
     .feature-item {
-      padding: 24px 0;
+      position: relative;
+      padding: 28px 0 28px 64px;
       border: 0;
       border-bottom: 1px solid var(--line);
       border-radius: 0;
       background: transparent;
       box-shadow: none;
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 18px;
-      align-items: start;
     }
 
     .feature-item::before {
       counter-increment: feat;
       content: "0" counter(feat);
+      position: absolute;
+      top: 28px;
+      left: 0;
       font-family: var(--ff-en-display);
-      font-size: 24px;
+      font-size: 28px;
       color: var(--rose-deep);
       line-height: 1.1;
+      letter-spacing: 0;
     }
-
-    .feature-list { counter-reset: feat; }
 
     .feature-item strong {
       display: block;
       color: var(--ink);
       font-size: 19px;
       font-weight: 900;
+      line-height: 1.45;
       letter-spacing: -0.01em;
+    }
+
+    .feature-item p {
+      margin-top: 10px;
     }
 
     .feature-item p {
@@ -1017,9 +988,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(90deg, rgba(34, 55, 66, 0.94) 0%, rgba(34, 55, 66, 0.78) 52%, rgba(34, 55, 66, 0.22) 100%),
-        url("assets/facial-interior.png") center / cover;
+      background: var(--ink);
       opacity: 1;
     }
 
@@ -1402,12 +1371,14 @@
     }
 
     .kicker {
-      background: var(--rose-deep);
+      background: var(--ink);
       color: #fff;
       font-weight: 800;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.08em;
       border: 0;
-      box-shadow: 0 8px 22px rgba(212, 82, 122, 0.24);
+      border-radius: 0;
+      padding: 4px 14px;
+      box-shadow: none;
     }
 
     /* H1/headline は initial の var(--ff-jp-display) を維持。letter-spacing は palt + tracking */
@@ -1548,14 +1519,32 @@
     }
 
     .band-copy {
-      bottom: 82px;
-      padding: 34px;
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 1px 2px rgba(60, 42, 52, 0.04),
-                  0 18px 42px rgba(60, 42, 52, 0.10);
-      backdrop-filter: blur(10px);
+      bottom: 60px;
+      padding: 28px 32px;
+      border: 0;
+      border-radius: 0;
+      background: var(--ink);
+      color: #fff;
+      box-shadow: none;
+      backdrop-filter: none;
+      max-width: 540px;
+    }
+
+    .band-copy .kicker {
+      background: var(--rose-deep);
+      color: #fff;
+    }
+
+    .band-copy .headline {
+      color: #fff;
+    }
+
+    .band-copy .headline strong {
+      color: #fff;
+    }
+
+    .band-copy .copy {
+      color: rgba(255, 255, 255, 0.86);
     }
 
     .features {
@@ -1583,23 +1572,26 @@
     }
 
     .ba-card {
-      border: 0;
-      border-radius: 8px;
+      border: 1px solid var(--line);
+      border-radius: 0;
       background: #fff;
-      box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
-                  0 28px 64px rgba(39, 48, 51, 0.10);
+      box-shadow: none;
     }
 
     .ba-label {
-      border: 1px solid var(--line);
-      color: var(--navy);
-      background: rgba(255, 255, 255, 0.92);
+      border: 0;
+      border-radius: 0;
+      padding: 6px 14px;
+      color: #fff;
+      background: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
     }
 
     .ba-label.after {
-      color: #1f7078;
-      border-color: rgba(159, 207, 210, 0.42);
-      background: rgba(234, 247, 248, 0.94);
+      color: #fff;
+      background: var(--rose-deep);
     }
 
     .ba-content {
@@ -1634,9 +1626,8 @@
 
     .voice-visual {
       border: 0;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(39, 48, 51, 0.06),
-                  0 28px 64px rgba(39, 48, 51, 0.10);
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .voice-card {
@@ -1699,9 +1690,7 @@
     }
 
     .reserve::before {
-      background:
-        linear-gradient(90deg, rgba(23, 68, 90, 0.96) 0%, rgba(23, 68, 90, 0.80) 48%, rgba(23, 68, 90, 0.30) 100%),
-        url("assets/facial-interior.png") center / cover;
+      background: var(--ink);
     }
 
     @media (max-width: 900px) {
@@ -2104,16 +2093,33 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 16px;
-      max-width: 760px;
-      margin: 0 auto 36px;
-      padding: 16px 26px;
-      border: 1px solid var(--rose-deep);
-      border-radius: 4px;
-      background: linear-gradient(180deg, #fff 0%, #faf3ef 100%);
-      box-shadow: 0 1px 2px rgba(185, 117, 112, 0.08),
-                  0 14px 32px rgba(185, 117, 112, 0.10);
+      max-width: 1000px;
+      margin: 0 auto 32px;
+      padding: 18px 24px;
+      border: 0;
+      border-radius: 0;
+      background: var(--ink);
+      box-shadow: none;
+    }
+
+    .scarcity-bar strong {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .scarcity-bar .remain {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .scarcity-bar .remain em {
+      color: #fff;
+      background: var(--rose-deep);
+      padding: 2px 8px;
+      margin: 0 4px;
     }
 
     .scarcity-bar strong {
@@ -2203,7 +2209,7 @@
       <a class="header-link" href="#features">特徴</a>
       <a class="header-link" href="#plans">料金</a>
       <a class="header-link" href="#faq">FAQ</a>
-      <a class="mini-cta" href="#reserve" aria-label="LINEで30秒予約">30秒で LINE 予約</a>
+      <a class="mini-cta" href="#reserve" aria-label="LINEで予約">LINEで予約</a>
     </nav>
   </header>
 
@@ -2216,7 +2222,6 @@
         <div class="hero-copy-wrap reveal">
           <span class="kicker">INSTAGRAM 限定 / 初回60分 ¥4,980</span>
           <h1>
-            <span class="en">Skin clarity, redefined.</span>
             肌が変わると、<br>
             <span>表情まで変わる</span>。
           </h1>
